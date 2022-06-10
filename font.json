@@ -1,0 +1,71 @@
+[
+  { "name": "FiraCode-Light", "url": "./fonts/Fira_Code/FiraCode-Light.ttf" },
+  {
+    "name": "FiraCode-Regular",
+    "url": "./fonts/Fira_Code/FiraCode-Regular.ttf"
+  },
+  {
+    "name": "IBMPlexMono-Light",
+    "url": "./fonts/IBM_Plex_Mono/IBMPlexMono-Light.ttf"
+  },
+  {
+    "name": "IBMPlexMono-Regular",
+    "url": "./fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf"
+  },
+  {
+    "name": "Inconsolata-Light",
+    "url": "./fonts/Inconsolata/Inconsolata-Light.ttf"
+  },
+  {
+    "name": "Inconsolata-Regular",
+    "url": "./fonts/Inconsolata/Inconsolata-Regular.ttf"
+  },
+  {
+    "name": "JetBrainsMono-Light",
+    "url": "./fonts/JetBrains_Mono/JetBrainsMono-Light.ttf"
+  },
+  {
+    "name": "JetBrainsMono-Regular",
+    "url": "./fonts/JetBrains_Mono/JetBrainsMono-Regular.ttf"
+  },
+  {
+    "name": "MonoLisa-Regular",
+    "url": "./fonts/Monolisa/MonoLisa-Regular.woff2"
+  },
+  {
+    "name": "OperatorMono-Book",
+    "url": "./fonts/Operator-Mono/OperatorMono-Book.otf"
+  },
+  {
+    "name": "OperatorMono-Light",
+    "url": "./fonts/Operator-Mono/OperatorMono-Light.otf"
+  },
+  {
+    "name": "RobotoMono-Light",
+    "url": "./fonts/Roboto_Mono/RobotoMono-Light.ttf"
+  },
+  {
+    "name": "RobotoMono-Regular",
+    "url": "./fonts/Roboto_Mono/RobotoMono-Regular.ttf"
+  },
+  {
+    "name": "SourceCodePro-Light",
+    "url": "./fonts/Source_Code_Pro/SourceCodePro-Light.ttf"
+  },
+  {
+    "name": "SourceCodePro-Regular",
+    "url": "./fonts/Source_Code_Pro/SourceCodePro-Regular.ttf"
+  },
+  {
+    "name": "UbuntuMono-Regular",
+    "url": "./fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf"
+  },
+  {
+    "name": "VictorMono-Light",
+    "url": "./fonts/VictorMonoAll/VictorMono-Light.ttf"
+  },
+  {
+    "name": "VictorMono-Regular",
+    "url": "./fonts/VictorMonoAll/VictorMono-Regular.ttf"
+  }
+]

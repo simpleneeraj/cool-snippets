@@ -1,0 +1,99 @@
+import delay from "lib/delay";
+import React from "react";
+
+interface LoadableTypes {
+  // /**
+  //  * Module You Want to import
+  //  */
+  // module: any;
+  /**
+   * Timeout if component not resolve this can be retry after `retryTimeout` millesecond
+   */
+  retryTimeout?: number;
+  /**
+   * Load your component with some delay `default is 100`
+   */
+  loadingDelay?: number;
+  /**
+   * Fallback component showing when component not resolve
+   */
+  fallback?: React.ReactNode;
+}
+
+interface __esModuleType {
+  __esModule: any;
+  default: any;
+}
+
+const Uninitialized = -1;
+const Pending = 0;
+const Resolved = 1;
+const Rejected = 2;
+
+function moduleLoader(module: () => any) {
+  let _module = module();
+  let state = {
+    loading: true,
+    loaded: null,
+    error: null,
+    module: _module,
+  };
+
+  _module
+    .then((loaded: null) => {
+      state.loading = false;
+      state.loaded = resolve(loaded);
+      return loaded;
+    })
+    .catch((err: null) => {
+      state.loading = false;
+      state.error = err;
+      throw err;
+    });
+
+  return state;
+}
+
+/**************************
+Resolve
+***************************/
+function resolve(obj: any) {
+  return obj && obj.__esModule ? obj.default : obj;
+}
+
+interface Thenable<T> {
+  then<result>(value?: any): PromiseLike<result>;
+}
+
+function laz<T>(
+  module: () => Thenable<{ default: T }>,
+  options: LoadableTypes
+) {
+  const { fallback, loadingDelay = 100, retryTimeout } = options;
+
+  const payload = {
+    _status: null,
+    _result: null,
+  };
+
+  const loadModule = async () => {
+    try {
+      let value = (await module().then()) as any;
+      await delay(loadingDelay);
+      // console.warn(`Resolve module in ${loadingDelay / 1000}s`);
+      // console.log(value);
+      payload._result = value;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  loadModule();
+  return payload;
+}
+
+export default laz;
+// const payload = {
+//   // We use these fields to store the result.
+//   _status: Uninitialized,
+//   _result: module,
+// };

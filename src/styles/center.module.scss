@@ -1,0 +1,57 @@
+// $image: "https://images.unsplash.com/photo-1507290439931-a861b5a38200?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80";
+
+$image: "../assets/images/windows-10.webp";
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smooth {
+  // flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.frame {
+  background: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  background: url($image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 64px;
+  width: auto;
+  height: auto;
+  min-width: 520px;
+  min-height: 154px;
+  max-width: 920px;
+  position: relative;
+  display: grid;
+}
+.editor {
+  display: grid;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.shadow {
+  // background: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url($image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+}

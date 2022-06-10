@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 0;
+    width: 0;
+  }
+}
+
+@mixin button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  backdrop-filter: blur(10px);
+  height: 40px;
+  min-width: 40px;
+  background: #00000075;
+  border-radius: 10px;
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+  }
+}
+.local {
+  @include button();
+  left: 0;
+}
+
+.picture {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40px;
+  min-width: 40px;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.absolute {
+  @include button();
+  right: 0;
+}

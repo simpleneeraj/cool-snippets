@@ -1,0 +1,22 @@
+:root {
+  --ui-color: #ffffff;
+  --ui-border-color: #ffffff2e;
+  --ui-outline-color: #ffffff5c;
+  --ui-outline: 1.5px solid #ffffff5c;
+  --ui-border: 1px solid #ffffff2e;
+  --ui-transparent-alpha: rgba(84, 84, 84, 0.251);
+  --ui-transparent-beta: rgba(84, 84, 84, 0.351);
+  --ui-transparent-gamma: rgba(84, 84, 84, 0.451);
+
+  --ui-alpha: rgba(0, 0, 0, 0.4);
+  // FOR DOCK
+  --dock-blur: blur(13px);
+  --dock-color: #ffffff;
+  --dock-background: rgba(84, 84, 84, 0.251);
+  --dock-border-color: #ffffff2e;
+  --dock-border: 1px solid #ffffff2e;
+
+  //
+  --face: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+}

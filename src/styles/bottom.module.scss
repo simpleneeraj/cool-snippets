@@ -1,0 +1,80 @@
+.layer {
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  margin-bottom: 3rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main {
+  height: 80px;
+  width: 500px;
+  border-radius: 15px;
+  max-width: 768px;
+  backdrop-filter: blur(10px);
+  z-index: 5;
+  display: flex;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.items {
+  flex: 1;
+  gap: 8px;
+  display: flex;
+  padding: 8px;
+  justify-content: space-evenly;
+  button {
+    width: 70px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #ffffff7d;
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+/**************************
+Bottom Flipper
+***************************/
+
+.flipper {
+  position: relative;
+  perspective: 600px;
+  transform-origin: 100% center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.front,
+.back {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease-in-out;
+  top: 0;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.front {
+  z-index: 2;
+  transform: rotateX(0deg);
+  height: 100%;
+  width: 100%;
+  background: #e91e63;
+}
+.back {
+  transform: rotateX(-180deg);
+  height: 100%;
+  width: 100%;
+  background: #3f51b5;
+}

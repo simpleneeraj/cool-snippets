@@ -1,0 +1,501 @@
+
+import { createElement, Component } from "react";
+
+interface __esModuleType {
+  __esModule: any;
+  default: any;
+}
+interface OptionsType {
+  loader: any;
+  loading: any;
+  pastDelay: number;
+  timeout?: number;
+}
+
+interface ResponseTypes {
+  promise: Promise<any>;
+  error: any;
+  loaded: any;
+  loading: any;
+}
+
+interface LoadFunctionType {
+  loader: () => ResponseTypes;
+  (arg0: null): ResponseTypes;
+}
+
+const ALL_INITIALIZERS = [];
+
+function load(loader: () => any) {
+  let promise = loader();
+
+  let state = {
+    loading: true,
+    loaded: null,
+    error: null,
+    promise: promise,
+  };
+  // state.promise = promise
+  promise
+    .then((loaded: null) => {
+      state.loading = false;
+      state.loaded = loaded;
+      return loaded;
+    })
+    .catch((err: null) => {
+      state.loading = false;
+      state.error = err;
+      throw err;
+    });
+
+  return state;
+}
+
+/**************************
+Resolve
+***************************/
+function resolve(obj: __esModuleType) {
+  return obj && obj.__esModule ? obj.default : obj;
+}
+
+/**************************
+Render
+***************************/
+function render(loaded: __esModuleType, props: any) {
+  return createElement(resolve(loaded), props);
+}
+
+/**************************
+Create Loadable
+***************************/
+function createLoadableComponent(
+  loadFn: LoadFunctionType,
+  $options: OptionsType
+) {
+  if (!$options.loading) {
+    throw new Error("react-loadable requires a `loading` component");
+  }
+  let options = Object.assign(
+    {
+      loader: null,
+      loading: null,
+      delay: 200,
+      timeout: 0,
+      render: render,
+    },
+    $options
+  );
+  let res: ResponseTypes | null = null;
+  function init() {
+    if (!res) {
+      res = loadFn(options.loader);
+    }
+    return res?.promise;
+  }
+
+  ALL_INITIALIZERS.push(init);
+
+  return class LoadableComponent extends Component {
+    _mounted: boolean = false;
+    _delay: NodeJS.Timeout | undefined;
+    _timeout: NodeJS.Timeout | undefined;
+    constructor(props: {} | Readonly<{}>) {
+      super(props);
+      init();
+      this.state = {
+        error: res?.error,
+        pastDelay: false,
+        timedOut: false,
+        loading: res?.loading,
+        loaded: res?.loaded,
+        render: render,
+      };
+    }
+    componentWillMount() {
+      this._mounted = true;
+      this._loadModule();
+    }
+
+    _loadModule() {
+      // @ts-ignore
+      if (this.context.loadable && Array.isArray(options.modules)) {
+        // @ts-ignore
+        options.modules.forEach((moduleName) => {
+          // @ts-ignore
+          this.context.loadable.report(moduleName);
+        });
+      }
+
+      if (!res?.loading) {
+        return;
+      }
+
+      if (typeof options.delay === "number") {
+        if (options.delay === 0) {
+          this.setState({ pastDelay: true });
+        } else {
+          this._delay = setTimeout(() => {
+            this.setState({ pastDelay: true });
+          }, options.delay);
+        }
+      }
+
+      if (typeof options.timeout === "number") {
+        this._timeout = setTimeout(() => {
+          this.setState({ timedOut: true });
+        }, options.timeout);
+      }
+
+      let update = () => {
+        if (!this._mounted) {
+          return;
+        }
+        this.setState({
+          error: res?.error,
+          loaded: res?.loaded,
+          loading: res?.loading,
+        });
+
+        this._clearTimeouts();
+      };
+
+      res?.promise
+        .then(() => {
+          update();
+        })
+        .catch(() => {
+          update();
+        });
+    }
+
+    componentWillUnmount() {
+      this._mounted = false;
+      this._clearTimeouts();
+    }
+
+    _clearTimeouts() {
+      clearTimeout(this._delay);
+      clearTimeout(this._timeout);
+    }
+
+    retry = () => {
+      this.setState({ error: null, loading: true, timedOut: false });
+      res = loadFn(options.loader);
+      this._loadModule();
+    };
+
+    render() {
+      // @ts-ignore
+      if (this.state.loading) {
+        console.log(this.state);
+        return createElement(options.loading);
+      }
+      // @ts-ignore
+      if (this.state.error) {
+        // @ts-ignore
+        return createElement(options.error);
+      }
+      // @ts-ignore
+      if (this.state.loaded) {
+        // @ts-ignore
+        return options.render(this.state.loaded, this.props);
+      } else {
+        return null;
+      }
+    }
+    // render() {
+    //   if (this.state.loading || this.state.error) {
+    //     return createElement(options.loading, {
+    //       isLoading: this.state.loading,
+    //       pastDelay: this.state.pastDelay,
+    //       timedOut: this.state.timedOut,
+    //       error: this.state.error,
+    //       retry: this.retry,
+    //     });
+    //   } else if (this.state.loaded) {
+    //     return options.render(this.state.loaded, this.props);
+    //   } else {
+    //     return null;
+    //   }
+    // }
+  };
+}
+
+function Loadable(opts: OptionsType) {
+  return createLoadableComponent(load as any, opts);
+}
+
+export default Loadable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+
+import delay from "lib/delay";
+import React, { useCallback } from "react";
+
+// interface __esModuleType {
+//   __esModule: boolean;
+//   default: object;
+// }
+// /**************************
+// Render
+// ***************************/
+// // function createComponent(module: __esModuleType, additionalProps?: any) {
+// //   const check = module && module.__esModule ? module.default : module;
+// //   return React.createElement(check, additionalProps);
+// // }
+
+// // const X = createComponent(() => import("app/index"), {});
+// // console.log(X);
+// /**************************
+// Delay Function
+// ***************************/
+// const delay = (ms: number | undefined) => {
+//   return new Promise((r) => setTimeout(r, ms));
+// };
+// /**************************
+// Slice For Load Component
+// ***************************/
+// interface ActionTypes {
+//   type: string;
+//   payload: any;
+// }
+
+// interface StateTypes {
+//   error: boolean;
+//   loading: boolean;
+//   retryTime: number;
+//   loadDelay: number;
+//   module: any;
+// }
+
+interface LoadableTypes {
+  /**
+   * Module You Want to import
+   */
+  module: any;
+  /**
+   * Timeout if component not resolve this can be retry after `retryTimeout` millesecond
+   */
+  retryTimeout?: number;
+  /**
+   * Load your component with some delay `default is 100`
+   */
+  loadingDelay?: number;
+  /**
+   * Fallback component showing when component not resolve
+   */
+  fallback: JSX.Element;
+}
+
+// const resolve = (obj: { __esModule: any; default: any }) => {
+//   return obj && obj.__esModule ? obj.default : obj;
+// };
+const LazyComponent = (props: LoadableTypes) => {
+  const { module, fallback, loadingDelay, retryTimeout } = props;
+
+  const [Component, setComponent] = React.useState<any>(null);
+  const [loading, setloading] = React.useState(true);
+  const asyncLoad = async () => {
+    try {
+      const m = await module;
+      await delay(loadingDelay);
+      setComponent(m.default);
+      setloading(false);
+    } catch (error) {
+      setloading(false);
+    }
+  };
+
+  React.useEffect(() => {
+    asyncLoad();
+  });
+
+  return loading ? fallback : <Component {...props} />;
+  // return props.fallback;
+};
+
+// interface StateTypes {
+//   Module: any;
+// }
+// class LazyComponent extends React.Component<LoadableTypes> {
+//   state: Readonly<StateTypes> = {
+//     Module: null,
+//   };
+//   constructor(props: LoadableTypes) {
+//     super(props);
+//     this.state = this.state;
+//   }
+//   async asyncLoad() {
+//     try {
+//       const module = await this.props.module;
+//       await delay(this.props.loadingDelay);
+//       this.setState({
+//         Module: resolve(module),
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   componentDidMount() {
+//     void this.asyncLoad();
+//   }
+//   componentDidUpdate(pre: Readonly<LoadableTypes>) {
+//     if (pre !== this.props) {
+//       void this.asyncLoad();
+//     }
+//   }
+//   render(): React.ReactNode {
+//     const { Module } = this.state;
+//     if (!Module) {
+//       return this.props.fallback;
+//     } else {
+//       return <Module {...this.props} />;
+//     }
+//   }
+// }
+export default LazyComponent;
+
+// function loadableSlice() {
+//   // InitialState
+//   const initialState: StateTypes = {
+//     error: false,
+//     loading: true,
+//     retryTime: 0, // 0ms
+//     loadDelay: 100, // 0.1ms,
+//     module: null,
+//   };
+//   // Reducer
+//   const reducer = (state: StateTypes, action: ActionTypes) => {
+//     switch (action.type) {
+//       case "LOADING":
+//         return { ...state, error: action.payload };
+//       case "ERROR":
+//         return { ...state, loading: action.payload };
+//       case "RETRY":
+//         return { ...state, retryTime: action.payload };
+//       case "DELAY":
+//         return { ...state, loadDelay: action.payload };
+//       case "MODULE":
+//         return { ...state, module: action.payload };
+//       default:
+//         throw new Error(`Unknown action ${action.payload}`);
+//     }
+//   };
+
+//   const action = {
+//     error: (payload: any) => ({ type: "ERROR", payload }),
+//     retry: (payload: any) => ({ type: "RETRY", payload }),
+//     delay: (payload: any) => ({ type: "DELAY", payload }),
+//     loading: (payload: any) => ({ type: "LOADING", payload }),
+//     module: (payload: any) => ({ type: "MODULE", payload }),
+//   };
+//   return { initialState, reducer, action };
+// }
+
+// // function lazy<T extends ComponentType<any>>(
+// //   factory: () => Promise<{ default: T }>
+// // ): LazyExoticComponent<T>;
+
+// function LoadableComponent(module: any, _options: LoadableTypes) {
+//   // const props = React.useMemo(() => _options, [_options]);
+//   // console.log(props);
+//   // Initialized Options
+//   // const { fallback, loadingDelay = 50, retryTimeout = 1000 } = props;
+//   // State
+//   // const { initialState, reducer, action } = loadableSlice();
+//   // const [state, dispatch] = React.useReducer(reducer, initialState);
+//   // const moduleLoader = async () => {
+//   //   try {
+//   //     const module_alpha = await module;
+//   //     const module_beta = await resolve(module_alpha);
+//   //     dispatch(action.loading(false)); // loading
+//   //     await delay(loadingDelay);
+//   //     dispatch(action.module(module_beta)); // module
+//   //   } catch (error) {
+//   //     dispatch(action.error(false)); // error
+//   //     dispatch(action.loading(false)); // loading
+//   //     throw error;
+//   //   }
+//   // };
+// }
+
+// export default LoadableComponent;
+
+// interface State {
+//   Main: any;
+// }
+// interface Props {
+//   ModuleComponent: any;
+// }
+// class LazyComponent extends React.Component<Props> {
+//   state: Readonly<State> = {
+//     Main: null,
+//   };
+
+//   componentDidMount() {
+//     import(this.props.module).then((module) => {
+//       this.setState({
+//         Main: module.default,
+//       });
+//     });
+//   }
+
+//   render(): React.ReactNode {
+//     const { Main } = this.state;
+//     if (!Main) {
+//       return <p>Loading...</p>;
+//     } else {
+//       return <Main />;
+//     }
+//   }
+// }
+
+// export default LazyComponent;
+
+// const reactLazy = (module: any) => {
+//   let moduleX: null = null;
+//   const Component: React.FC<Props> = (props) => {
+//     const { ModuleComponent } = props;
+//     const [moduleState, dispatch] = React.useState<any>(null);
+//     React.useEffect(() => {
+//       module.then((load: { default: any }) => {
+//         dispatch(load.default);
+//         moduleX = moduleState;
+//       });
+//     }, []);
+//     return <ModuleComponent />;
+//   };
+//   if (!moduleX) {
+//     return <p>Loading...</p>;
+//   } else {
+//     return <Component ModuleComponent={moduleX} />;
+//   }
+// };
+
+// export default reactLazy;
+
+// this.props.module
+// .then((module: { __esModule: any; default: any }) => {
+//   console.log(module);
+//   this.setState({
+//     Component: this.resolve(module),
+//   });
+// })
+// .catch((e: any) => {
+//   console.log(e);
+// });
