@@ -113,6 +113,7 @@ interface ICodeMirror {
   options?: codemirror.EditorConfiguration;
   selection?: { ranges: Array<ISetSelectionOptions>; focus?: boolean };
   scroll?: ISetScrollOptions;
+  style?: React.CSSProperties;
 }
 
 interface IControlledCodeMirror extends ICodeMirror {
@@ -732,8 +733,8 @@ class Controlled extends React.Component<IControlledCodeMirror, any> {
   public render() {
     if (SERVER_RENDERED) return null;
     let className = this.props.className
-      ? `react-codemirror ${this.props.className}`
-      : `react-codemirror`;
+      ? `react-code ${this.props.className}`
+      : `react-code`;
     // @ts-ignore
     return <div className={className} ref={(self) => (this.ref = self)} />;
   }

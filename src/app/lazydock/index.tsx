@@ -1,4 +1,5 @@
 import useDock from "store/hooks/usedock";
+import ColorsOption from "./colors";
 
 // Lazy Load
 
@@ -11,16 +12,14 @@ import TextOptions from "./text";
 const LazyDockOptions = () => {
   const { dockComponetKey } = useDock();
   switch (dockComponetKey) {
-    case "Finder":
+    case "Preference":
       return <PreferencesOptions />;
     case "Colors":
-      return <p>{dockComponetKey}</p>;
+      return <ColorsOption />;
     case "Photos":
       return <PhotosOptions />;
-    case "Podcasts":
+    case "Text":
       return <TextOptions />;
-    case "Favorite":
-      return <p>{dockComponetKey}</p>;
     case "Download":
       return <DownloadOptions />;
     case "Settings":

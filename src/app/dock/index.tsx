@@ -1,7 +1,7 @@
 import React, { useTransition } from "react";
 import css from "styles/dock.module.scss";
 import useDock from "store/hooks/usedock";
-import useOnClickOutside from "hooks/useClick";
+import CloseOutline from "lib/icons/CloseOutline";
 
 /**************************
  Lazy Loading Components
@@ -21,12 +21,8 @@ const MacOSLikeDock = () => {
   ***************************/
   const dockClose = React.useCallback(() => {
     transitionCallback(() => updateToggleDock(false));
-    // eslint-disable-next-line
-  }, [toggleDock]);
-  /**************************
-  Dock Ref
-  ***************************/
-  const dockRef = useOnClickOutside(() => dockClose());
+  }, [updateToggleDock]);
+
   /**************************
   Dock Style Condition
   ***************************/
@@ -37,7 +33,12 @@ const MacOSLikeDock = () => {
     },
   };
   return (
-    <div ref={dockRef} className={css.layer}>
+    <div className={css.layer}>
+      {toggleDock && (
+        <button onClick={dockClose} className={css.close}>
+          <CloseOutline size={16} />
+        </button>
+      )}
       <div className={css.main}>
         {/* Front */}
         <div className={css.front} style={dockStyle.frontStyle}>

@@ -6,7 +6,7 @@ import useCallMemo from 'hooks/usecallmemo';
 
 
 const useBackground = () => {
-    const { source, aspectRatio } = useAppSelector(_background)
+    const { source, aspectRatio, padding } = useAppSelector(_background)
     const dispatch = useAppDispatch()
     /**************************
     Setting Background
@@ -17,9 +17,12 @@ const useBackground = () => {
     const setRatio = useCallMemo((payload: string) => {
         dispatch(background.actions.setRatio(payload))
     }, [aspectRatio])
+    const setPadding = useCallMemo((payload: string) => {
+        dispatch(background.actions.setPadding(payload))
+    }, [padding])
 
     // Return Values
-    return { setBackground, source, aspectRatio, setRatio }
+    return { setBackground, source, aspectRatio, setRatio, setPadding, padding }
 
 }
 export default useBackground;

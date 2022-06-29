@@ -1,7 +1,7 @@
 .container {
   display: flex;
   align-items: center;
-  padding: 6px;
+  // padding: 6px;
   overflow: hidden;
 }
 
@@ -27,12 +27,12 @@
   height: 40px;
   min-width: 40px;
   background: #00000075;
-  border-radius: 10px;
+  border-radius: 8px;
   button {
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
     background: transparent;
   }
 }

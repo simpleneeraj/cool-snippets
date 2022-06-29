@@ -2,31 +2,35 @@ import React from "react";
 import Button from "element/button";
 import OptionsWraper from "../wraper";
 import Select from "element/select";
-import { useCapture } from "capture-dom";
+import { useCapture } from "lib/capture";
 import Segment from "element/segment";
 import useDownload from "store/hooks/usedownload";
+import useBackground from "store/hooks/usebackground";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 
 const DownloadOptions = () => {
   const { imageFormat, setImageFormat } = useDownload();
   const { pixelRatio, setPixelRatio } = useDownload();
 
-  const captureImage = useCapture();
+  const { captureImage, isLoading } = useCapture();
 
   const captureHandler = () => {
     captureImage({
-      imageFormat: imageFormat.toLowerCase(),
-      pixelRatio: pixelRatio,
-      isDebug: true,
+      imageFormat: imageFormat,
+      pixelRatio: Number(pixelRatio),
+      isDebug: false,
+      delay: 1000,
     });
   };
+  const { setRatio, setPadding, padding } = useBackground();
+
   return (
     <React.Fragment>
-      <OptionsWraper title="Aspect Ratio">
-        <Segment
-          defaultValue="1:1"
-          children={["1:1", "2:5", "3:5"]}
-          // onChange={(v) => fontSizeHandler(v)}
+      <OptionsWraper title="Padding">
+        <Select
+          defaultValue={padding}
+          onChange={(value) => setPadding(value)}
+          children={array.padding}
         />
       </OptionsWraper>
       <OptionsWraper title="Pixel Ratio">
@@ -36,21 +40,24 @@ const DownloadOptions = () => {
           onChange={(v) => setPixelRatio(v)}
         />
       </OptionsWraper>
+      <OptionsWraper title={"Aspect Ratio"}>
+        <Select
+          defaultValue="1:1"
+          onChange={(value) => setRatio(value)}
+          children={array.aspectRatio}
+        />
+      </OptionsWraper>
+
       <OptionsWraper title={"Image Type"}>
         <Select
           defaultValue={imageFormat}
-          children={["PNG", "JPG", "WEBP", "SVG"].map((d) => {
-            return {
-              text: d,
-              value: d,
-            };
-          })}
+          children={array.imageFormat}
           onChange={(v) => setImageFormat(v)}
         />
       </OptionsWraper>
       <OptionsWraper title={"Download"}>
         <Button
-          label={`In ${imageFormat} format`}
+          label={isLoading ? `export` : `In ${imageFormat} format`}
           onClick={captureHandler}
           icon={<ArrowDownCircleOutline size={16} />}
         />
@@ -59,3 +66,55 @@ const DownloadOptions = () => {
   );
 };
 export default DownloadOptions;
+
+const aspectRatio = [
+  {
+    name: "Instagram Landscape",
+    ratio: "1.91:1",
+  },
+  {
+    name: "Instagram Square",
+    ratio: "1:1",
+  },
+  {
+    name: "Instagram Portrait",
+    ratio: "4:5",
+  },
+  {
+    name: "Instagram Reels",
+    ratio: "9:16",
+  },
+  {
+    name: "Twitter Header",
+    ratio: "3:1",
+  },
+  {
+    name: "Landcape",
+    ratio: "16:9",
+  },
+];
+const array = {
+  aspectRatio: aspectRatio.map((str) => {
+    return {
+      text: str.ratio,
+      value: str.ratio,
+    };
+  }),
+  // @ts-expect-error
+  padding: [...Array(10).keys()].map((_, i) => {
+    return {
+      text: `${(i + 1) * 10}px`,
+      get value() {
+        return this.text;
+      },
+    };
+  }),
+  imageFormat: ["PNG", "JPG", "WEBP"].map((str) => {
+    return {
+      text: str,
+      get value() {
+        return this.text;
+      },
+    };
+  }),
+};

@@ -1,29 +1,16 @@
-@import "jetbrains";
-
-.react-codemirror {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5) !important;
-  z-index: 1;
-}
 /**************************
 Main Style
 ***************************/
 .CodeMirror {
   height: auto;
+  padding: 1rem;
   box-sizing: border-box;
-  padding: 0.4rem;
-  transition: 200ms linear;
-  font-family: JetBrains Mono, monospace;
-  letter-spacing: 0.1px;
-  font-size: 15px;
-  line-height: 22.5px;
-  font-weight: lighter;
   -webkit-font-smoothing: antialiased;
-  background: #00000000 !important;
   position: relative;
-  height: 100%;
-  width: 100%;
-  border-radius: 12px;
+  // height: 100%;
+  // width: 100%;
+  // border-radius: 12px;
+  background: transparent !important;
 }
 
 .CodeMirror-gutters {

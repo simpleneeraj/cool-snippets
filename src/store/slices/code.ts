@@ -3,14 +3,14 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 const initialState: CodeTypes = {
     codeValue: `
-    import SwiftUI
-
-    struct CircleImage: View {
-      var body: some View {
-        Image("turtlerock")
-          .clipShape(Circle())
-      }
-    }`
+import code from "./slices/code";
+import dock from "./slices/dock";
+import text from "./slices/text";
+import background from "./slices/background";
+import preference from "./slices/preference";
+import download from "./slices/download";
+export default store;
+    `
 }
 
 const code = createSlice({
@@ -25,3 +25,4 @@ const code = createSlice({
 
 
 export default code;
+

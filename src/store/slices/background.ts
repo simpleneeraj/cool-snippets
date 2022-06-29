@@ -2,10 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ActionType, BackgroundTypes } from 'typings/store';
 
 
+// const image = ` linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236))`
+import image from 'assets/images/macos-big-sur.webp';
 
 const initialState: BackgroundTypes = {
-    source: `linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236))`,
-    aspectRatio: `1:1`
+    source: image,
+    aspectRatio: `16:9`,
+    padding: '100px'
 }
 
 const background = createSlice({
@@ -17,6 +20,9 @@ const background = createSlice({
         },
         setRatio: (state: BackgroundTypes, action: ActionType) => {
             state.aspectRatio = action.payload
+        },
+        setPadding: (state: BackgroundTypes, action: ActionType) => {
+            state.padding = action.payload
         },
     }
 })

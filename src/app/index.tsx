@@ -12,6 +12,7 @@ const App = () => {
         children="Keyboard"
       />
       <Center />
+
       <MacOSLikeDock />
       <StickyButton
         direction-value="15px"

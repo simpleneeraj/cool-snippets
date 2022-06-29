@@ -1,5 +1,4 @@
 import React from "react";
-import useCallMemo from "./usecallmemo";
 
 interface PickerStateType {
     loading: boolean;
@@ -75,7 +74,6 @@ const useFilePicker = (options?: FilePickerOptions) => {
         }))
     }
 
-    console.log(state);
     // Return Values
     return [onFilePicker, state] as const
 

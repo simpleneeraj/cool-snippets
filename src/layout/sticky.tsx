@@ -18,10 +18,10 @@ interface PositionProps extends React.ComponentPropsWithRef<"div"> {
 }
 
 const StickyButton = (props: PositionProps) => {
-  const x = positionBuilder(props.direction, props["direction-value"]);
+  const style = positionBuilder(props.direction, props["direction-value"]);
 
   return (
-    <div style={x} className={css.sticky} {...props}>
+    <div style={style} className={css.sticky} {...props}>
       <button>
         <Keyboard size={16} />
         {props.children}

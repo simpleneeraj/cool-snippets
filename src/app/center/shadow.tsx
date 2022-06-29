@@ -1,7 +1,5 @@
-import css from "styles/center.module.scss";
-
-const ShadowLayer = () => {
-  return <div className={css["shadow"]}></div>;
+const BlurLayer = () => {
+  return <div className="blur"></div>;
 };
 
-export default ShadowLayer;
+export default BlurLayer;

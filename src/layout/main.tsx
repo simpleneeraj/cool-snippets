@@ -1,33 +1,12 @@
 import React from "react";
-let macosGradient = `linear-gradient(
-  23deg,
-  #574189 0%,
-  #fd0456 40%,
-  #fe2051 62%,
-  #ff354d 79%,
-  #ee567c 86%,
-  #917cac 92%,
-  #638fc4 95%
-)`;
 
 const MainLayer = (props: React.PropsWithChildren<{}>) => {
-  const mainRef = React.useRef<HTMLElement>(null);
-
-  React.useEffect(() => {
-    const main = mainRef?.current as HTMLElement;
-    // let macos = require("assets/images/macos-big-sur.webp");
-    main.style.backgroundImage = `url(${macosGradient})`;
-    // if (macos) {
-    //   main.style.backgroundImage = `url(${macos})`;
-    // } else {
-    // }
-  }, []);
-
   return (
     <React.Fragment>
       <MainStyle />
-      <main ref={mainRef} className="main">
+      <main className="main">
         <section className="content">{props.children}</section>
+        <div />
       </main>
     </React.Fragment>
   );
@@ -36,34 +15,37 @@ export default MainLayer;
 
 const MainStyle = () => {
   return (
-    <style>{`
+    // @ts-expect-error
+    <style jsx>{`
       .main {
         position: relative;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-color: #000000;
+        background-image: linear-gradient(
+          23deg,
+          #574189 0%,
+          #fd0456 40%,
+          #fe2051 62%,
+          #ff354d 79%,
+          #ee567c 86%,
+          #917cac 92%,
+          #638fc4 95%
+        );
+        background-color: #000000;
+        background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
       }
       .content {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: auto;
         position: relative;
-        min-height: calc(100vh - 3rem);
+        min-height: 100vh;
       }
     `}</style>
   );
 };
-
-// let background = `linear-gradient(
-//   23deg,
-//   #574189 0%,
-//   #fd0456 40%,
-//   #fe2051 62%,
-//   #ff354d 79%,
-//   #ee567c 86%,
-//   #917cac 92%,
-//   #638fc4 95%
-// )`;
 
 // let x = require("assets/images/macos-big-sur.webp");
 // console.log(x);

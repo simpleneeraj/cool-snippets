@@ -91,38 +91,3 @@ const Select = (props: SelectOptionProps) => {
 };
 
 export default Select;
-
-/**
- *   const clickOutSide = React.useCallback(
-    (e: any) => {
-      const wrapper = wrapperRef.current as HTMLDivElement;
-      if (!wrapper.contains(e.target)) {
-        dispatch(action.openModelhandler(false));
-      }
-    },
-    [isOpenModel]
-  );
-
-
-
-  // const closeByEscape = React.useCallback(
-  //   (e: KeyboardEvent) => {
-  //     if (e.code === "Escape") {
-  //       dispatch(action.openModelhandler(false));
-  //     }
-  //     // e.preventDefault();
-  //     // e.stopPropagation();
-  //   },
-  //   [isOpenModel]
-  // );
-
-  // console.log(indexValue);
-  React.useEffect(() => {
-    // document.addEventListener("keydown", closeByEscape, false);
-    document.addEventListener("mousedown", clickOutSide, false);
-    return () => {
-      // document.removeEventListener("keydown", closeByEscape, false);
-      document.removeEventListener("mousedown", clickOutSide, false);
-    };
-  }, []);
- */

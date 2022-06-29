@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ActionType, TextTypes } from 'typings/store';
 
 const initialState: TextTypes = {
-    fontSize: '15px',
+    fontSize: '14px',
     fontWeight: '400',
-    fontFace: 'monospace',
-    lineHeight: 'unset',
+    fontFace: 'MonoLisa',
+    lineHeight: '1.4',
     letterSpacing: 'unset'
 }
 

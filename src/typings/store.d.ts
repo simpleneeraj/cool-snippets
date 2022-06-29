@@ -15,6 +15,7 @@ State Types
 interface BackgroundTypes {
     source: string;
     aspectRatio: string;
+    padding: string;
 }
 // Code Types
 interface CodeTypes {

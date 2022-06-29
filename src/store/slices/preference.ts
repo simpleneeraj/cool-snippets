@@ -4,7 +4,7 @@ import { ActionType, PreferenceTypes } from "typings/store";
 
 const initialState: PreferenceTypes = {
     theme: "panda-syntax",
-    mode: "swift",
+    mode: "jsx",
     lineNumbers: false
 }
 

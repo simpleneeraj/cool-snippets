@@ -21,7 +21,6 @@ const PreferencesOptions = () => {
       <OptionsWraper title={"Theme"}>
         <Select
           defaultValue={theme}
-          // careticon={<i>^</i>}
           onChange={(value) => onSelectTheme(value)}
           children={themes.map((d) => {
             return {
@@ -34,7 +33,6 @@ const PreferencesOptions = () => {
       <OptionsWraper title={"Language"}>
         <Select
           defaultValue={mode}
-          // careticon={<i>^</i>}
           onChange={(value) => onSelectMode(value)}
           children={modes.map((d) => {
             return {
@@ -46,7 +44,12 @@ const PreferencesOptions = () => {
       </OptionsWraper>
 
       <OptionsWraper title={"Line Numbers"}>
-        {/* <Button label="Checkbox" /> */}
+        <Toggle
+          onChange={(v) => linenumberHandler(v)}
+          defaultValue={lineNumbers}
+        />
+      </OptionsWraper>
+      <OptionsWraper title={"Dark Mode"}>
         <Toggle
           onChange={(v) => linenumberHandler(v)}
           defaultValue={lineNumbers}
