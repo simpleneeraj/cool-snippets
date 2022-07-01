@@ -17,7 +17,7 @@ interface ListTypes {
 }
 interface SelectOptionProps {
     children: ListTypes[];
-    defaultValue: string;
+    defaultValue: string | number | any;
     onClick?: (e: React.SyntheticEvent) => void;
     onChange?: (value: string) => void;
     careticon?: JSX.Element;

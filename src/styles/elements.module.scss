@@ -16,6 +16,8 @@
 }
 
 @mixin effect {
+  display: flex;
+  align-items: center;
   border-radius: 8px;
   background: var(--ui-alpha);
   outline: 2px solid transparent;
@@ -24,14 +26,16 @@
 @mixin button {
   padding: 0.4rem;
   position: relative;
-  border-radius: 4px;
-  min-width: 120px;
   width: fit-content;
   font-size: 12px;
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  // min-width: 120px;
+  min-height: 30px;
+  min-width: 100px;
+  max-width: 150px;
   transition: all 100ms ease;
   i {
     display: grid;
@@ -50,7 +54,6 @@ Select Dropdown
 ***************************/
 
 .select {
-  // @include effect();
   border-radius: 6px;
   transition: all 100ms ease-in;
   &:hover {
@@ -61,6 +64,7 @@ Select Dropdown
   display: flex;
   user-select: none;
   position: relative;
+  min-height: 30px;
 }
 // Option List
 .option {

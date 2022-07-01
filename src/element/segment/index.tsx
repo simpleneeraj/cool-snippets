@@ -3,7 +3,7 @@ import css from "styles/segment.module.scss";
 
 interface SegmentProps {
   children: string[];
-  defaultValue: string;
+  defaultValue: string | number | any;
   onChange?: (value: string) => void;
 }
 

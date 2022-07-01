@@ -2,16 +2,20 @@ import React from "react";
 import OptionsWraper from "../wraper";
 import Select from "element/select";
 import useBackground from "store/hooks/usebackground";
+import RangeSlider from "element/range";
 
 const LayoutOptions = () => {
   const { setRatio, setPadding, padding } = useBackground();
   return (
     <React.Fragment>
-      <OptionsWraper title="Padding">
-        <Select
-          defaultValue={padding}
-          onChange={(value) => setPadding(value)}
-          children={array.padding}
+      <OptionsWraper title={`Padding ${padding}px`}>
+        <RangeSlider
+          type="range"
+          value={padding}
+          max={200}
+          min={0}
+          step={1}
+          onChange={(e) => setPadding(e.target.value)}
         />
       </OptionsWraper>
       <OptionsWraper title={"Aspect Ratio"}>

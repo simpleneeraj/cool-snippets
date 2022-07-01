@@ -6,6 +6,7 @@ import { useCapture } from "lib/capture";
 import Segment from "element/segment";
 import useDownload from "store/hooks/usedownload";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
+import CircleDotted from "lib/icons/CircleDotted";
 
 const DownloadOptions = () => {
   const { imageFormat, setImageFormat } = useDownload();
@@ -15,10 +16,10 @@ const DownloadOptions = () => {
 
   const captureHandler = () => {
     captureImage({
-      imageFormat: imageFormat,
+      imageFormat: imageFormat.toLowerCase(),
       pixelRatio: Number(pixelRatio),
       isDebug: false,
-      delay: 1000,
+      delay: 0,
     });
   };
 
@@ -41,9 +42,15 @@ const DownloadOptions = () => {
       </OptionsWraper>
       <OptionsWraper title={"Download"}>
         <Button
-          label={isLoading ? `export` : `In ${imageFormat} format`}
+          label={isLoading ? `Exporting...` : `${imageFormat} Format`}
           onClick={captureHandler}
-          icon={<ArrowDownCircleOutline size={16} />}
+          icon={
+            isLoading ? (
+              <CircleDotted size={16} />
+            ) : (
+              <ArrowDownCircleOutline size={16} />
+            )
+          }
         />
       </OptionsWraper>
     </React.Fragment>

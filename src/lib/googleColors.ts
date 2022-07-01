@@ -2,7 +2,7 @@
 
 
 // MaterialColors
-export default [
+const googleColors = [
     {
         colorName: `red`,
         colorValue: `#F44336`,
@@ -76,3 +76,6 @@ export default [
         colorValue: `#607D8B`,
     },
 ];
+
+
+export default googleColors;

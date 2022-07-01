@@ -66,7 +66,7 @@ Dock Back
   // overflow: hidden;
   max-width: inherit;
   gap: 2px;
-  padding: 2px;
+  // padding: 2px;
 }
 .main .front li {
   list-style: none;
@@ -118,8 +118,14 @@ Block
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
-  background: #00000047;
+  border-radius: 10px;
+  background: #00000060;
   left: 50%;
   transform: translate(-50%, -150%);
+  backdrop-filter: blur(20px);
+  outline: 2px solid transparent;
+  transition: all 150ms ease-in;
+  &:hover {
+    outline: 2px solid #ffffff60;
+  }
 }

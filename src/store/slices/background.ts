@@ -3,12 +3,12 @@ import { ActionType, BackgroundTypes } from 'typings/store';
 
 
 // const image = ` linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236))`
-import image from 'assets/images/macos-big-sur.webp';
+import image from 'assets/images/windows-10.webp';
 
 const initialState: BackgroundTypes = {
     source: image,
-    aspectRatio: `16:9`,
-    padding: '100px'
+    aspectRatio: `3:1`,
+    padding: 100
 }
 
 const background = createSlice({

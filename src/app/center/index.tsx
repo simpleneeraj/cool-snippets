@@ -5,10 +5,28 @@ import css from "styles/center.module.scss";
 import useBackground from "store/hooks/usebackground";
 import AR from "./ratiobuilder";
 import BlurLayer from "./shadow";
+import Skeleton from "element/skeleton";
+import delay from "lib/delay";
+import usePost from "store/hooks/usepost";
 
+const CodeLoader = () => (
+  <Skeleton
+    height="100%"
+    width="100%"
+    reactHeight="100%"
+    reactWidth="100%"
+    primaryColor="#00000020"
+    secondryColor="#00000050"
+    dur="2s"
+    style={{ zIndex: "10", borderRadius: "15px" }}
+  />
+);
 // import ShadowLayer from "./shadow";
 
-const CodeEditor = React.lazy(() => import("./editor"));
+const CodeEditor = React.lazy(async () => {
+  await delay(3000);
+  return await import("./editor");
+});
 
 const Center = () => {
   return (
@@ -18,10 +36,10 @@ const Center = () => {
         <div className={css.smooth}>
           <Capture className="center">
             <div className="layer">
-              <React.Suspense fallback={null}>
+              <React.Suspense fallback={<CodeLoader />}>
                 <CodeEditor />
-                <BlurLayer />
               </React.Suspense>
+              <BlurLayer />
             </div>
           </Capture>
         </div>
@@ -38,6 +56,7 @@ const Style = () => {
   const { padding } = useBackground();
 
   const { aspectHeight, aspectWidth } = AR(aspectRatio);
+  const { alpha, blurRadius, cornerRadius } = usePost();
 
   return (
     <style>
@@ -45,45 +64,45 @@ const Style = () => {
       .react-code {
         z-index: 11;
         position: relative;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, ${alpha});
         border-radius: inherit;
       }
         .CodeMirror {
           padding: 1rem;
-          font-size: ${fontSize};
+          font-size: ${fontSize}px;
           font-family: ${fontFace};
           line-height: ${lineHeight};
           font-weight: ${fontWeight};
-          letter-spacing: ${letterSpacing};
+          letter-spacing: ${letterSpacing}px;
         }
 
         .center {
+          flex: 1;
+          width: ${aspectWidth};
+          height: ${aspectHeight};
+          padding: 0 ${padding}px;
+          z-index: 5;
+          gap: 0.3rem;
+          max-width: 920px;
+          position: relative;
+          overflow: hidden;
+          display: grid;
+          align-items: center; 
+          transition: all 100ms ease-in 0s;
           background: ${source};
           background: url(${source});
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          padding: 0 ${padding};
-          width: ${aspectWidth};
-          height: ${aspectHeight};
-          max-width: 920px;
-          position: relative;
-          flex: 1;
-          gap: 0.3rem;
-          z-index: 5;
-          overflow: hidden;
-          display: grid;
-          align-items: center; 
-          transition: all 100ms ease-in 0s;
 
         }
         .layer {
           z-index: 0;
-          display: grid;
-          border-radius: 15px;
+          display: grid;          
           align-items: center;
           position: relative;
           overflow: hidden;
+          border-radius: ${cornerRadius}px;
         }
         .blur {
           top: 50%;
@@ -99,10 +118,7 @@ const Style = () => {
           background-size: cover;
           background-position: center center;
           background-repeat: no-repeat;
-          background-color: hotpink;
-          filter: blur(10px);
-          -webkit-filter: blur(10px);
-          opacity: 1;
+          filter: blur(${blurRadius}px);
         }
       `}
     </style>

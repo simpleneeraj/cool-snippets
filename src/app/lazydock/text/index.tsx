@@ -3,21 +3,45 @@ import OptionsWraper from "../wraper";
 import useText from "store/hooks/usetext";
 import Select from "element/select";
 import dataArray from "./dataArray";
+import RangeSlider from "element/range";
 
 const TextOptions = () => {
   const { fontSizeHandler, fontSize } = useText();
   const { fontWeightHandler, fontWeight } = useText();
   const { lineHeightHandler, lineHeight } = useText();
   const { letterSpacingHandler, letterSpacing } = useText();
-  const { fontFaceHandler, fontFace } = useText();
 
   return (
     <React.Fragment>
-      <OptionsWraper title="Font Size">
-        <Select
-          defaultValue={fontSize}
-          children={dataArray.fontSizes}
-          onChange={(v) => fontSizeHandler(v)}
+      <OptionsWraper title={`Font Size ${fontSize}px`}>
+        <RangeSlider
+          value={fontSize}
+          type="range"
+          max={24}
+          min={10}
+          step={0.5}
+          onChange={(e) => fontSizeHandler(e.target.value)}
+        />
+      </OptionsWraper>
+
+      <OptionsWraper title="Line Height">
+        <RangeSlider
+          value={lineHeight}
+          type="range"
+          max={2}
+          min={0}
+          step={0.1}
+          onChange={(e) => lineHeightHandler(e.target.value)}
+        />
+      </OptionsWraper>
+      <OptionsWraper title="Letter Spacing">
+        <RangeSlider
+          value={letterSpacing}
+          type="range"
+          max={5}
+          min={0}
+          step={0.1}
+          onChange={(e) => letterSpacingHandler(e.target.value)}
         />
       </OptionsWraper>
       <OptionsWraper title="Font Weight">
@@ -25,27 +49,6 @@ const TextOptions = () => {
           defaultValue={fontWeight}
           children={dataArray.fontWeight}
           onChange={(v) => fontWeightHandler(v)}
-        />
-      </OptionsWraper>
-      <OptionsWraper title="Line Height">
-        <Select
-          defaultValue={lineHeight}
-          children={dataArray.lineHeight}
-          onChange={(v) => lineHeightHandler(v)}
-        />
-      </OptionsWraper>
-      <OptionsWraper title="Letter Spacing">
-        <Select
-          defaultValue={letterSpacing}
-          onChange={(v) => letterSpacingHandler(v)}
-          children={dataArray.letterSpacing}
-        />
-      </OptionsWraper>
-      <OptionsWraper title="Font Faces">
-        <Select
-          children={dataArray.fontFaces}
-          defaultValue={fontFace}
-          onChange={(v) => fontFaceHandler(v)}
         />
       </OptionsWraper>
     </React.Fragment>

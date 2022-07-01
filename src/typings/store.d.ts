@@ -4,6 +4,8 @@ import store from "store";
  */
 type RootState = ReturnType<typeof store.getState>
 
+
+type both = string | number
 interface ActionType {
     type: string,
     payload: any
@@ -15,7 +17,7 @@ State Types
 interface BackgroundTypes {
     source: string;
     aspectRatio: string;
-    padding: string;
+    padding: both;
 }
 // Code Types
 interface CodeTypes {
@@ -34,14 +36,21 @@ interface PreferenceTypes {
 }
 // Text Types
 interface TextTypes {
-    fontSize: string;
+    fontSize: both;
     fontWeight: string;
     fontFace: string;
-    lineHeight: string;
-    letterSpacing: string;
+    lineHeight: both;
+    letterSpacing: both;
 }
 // DownloadImage Types
 interface DownloadImageTypes {
-    pixelRatio: string;
+    pixelRatio: both;
     imageFormat: string;
+}
+
+// Post type
+interface PostTypes {
+    cornerRadius: number;
+    blurRadius: number;
+    alpha: number;
 }

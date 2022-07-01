@@ -10,6 +10,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -27,9 +28,11 @@
   "devDependencies": {
     "@types/codemirror": "^5.60.5",
     "@types/jest": "^28.1.0",
+    "@types/loadable__component": "^5.13.4",
     "@types/node": "^17.0.38",
     "@types/prettier": "^2.6.3",
     "@types/react": "^18.0.10",
+    "@types/react-content-loader": "^4.0.0",
     "@types/react-dom": "^18.0.5",
     "typescript": "^4.7.2"
   },

@@ -1,11 +1,12 @@
 .container {
   display: flex;
   align-items: center;
-  // padding: 6px;
+  padding: 0 4px;
   overflow: hidden;
 }
 
 .content {
+  border-radius: 6px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -50,7 +51,7 @@
 .picture {
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   height: 40px;
   min-width: 40px;

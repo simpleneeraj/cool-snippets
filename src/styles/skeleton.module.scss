@@ -1,0 +1,33 @@
+.content {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 2px;
+  padding: 2px;
+}
+
+.content span {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  vertical-align: bottom;
+  transition: 0.2s;
+  transform-origin: 50% 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 200ms ease;
+  background: linear-gradient(0deg, #ffffff73, #ffffff05);
+  animation: skeleton 1.5s infinite linear;
+}
+
+// @keyframes skeleton {
+//   from {
+//     background: linear-gradient(0deg, #ffffff73, #ffffff05);
+//   }
+//   to {
+//     background: linear-gradient(0deg, #ffffff05, #ffffff73);
+//   }
+// }

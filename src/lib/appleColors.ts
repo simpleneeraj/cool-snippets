@@ -1,6 +1,6 @@
 
 //ModeIosColors
-export default [
+const appleColors = [
     {
         colorName: `BluesystemBlue`,
         colorValue: `rgb(0,122,255)`,
@@ -39,3 +39,6 @@ export default [
     },
 ];
 
+
+
+export default appleColors;

@@ -10,7 +10,7 @@ import background from "./slices/background";
 import preference from "./slices/preference";
 import download from "./slices/download";
 export default store;
-    `
+    `.trim()
 }
 
 const code = createSlice({

@@ -20,7 +20,7 @@ const imagesSlice = createSlice({
     initialState: initialState,
     reducers: {
         addImage: (state, action) => {
-            state.push(action.payload)
+            state.unshift(action.payload)
         },
         deleteImage: (state, action) => {
             return state.filter((data) => data.id !== action.payload)

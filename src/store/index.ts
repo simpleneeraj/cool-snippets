@@ -8,12 +8,14 @@ import background from "./slices/background";
 import preference from "./slices/preference";
 import download from "./slices/download";
 import imagesSlice from "./slices/images";
+import post from "./slices/post";
 
 const store = configureStore({
     reducer: {
         code: code.reducer,
         text: text.reducer,
         dock: dock.reducer,
+        post: post.reducer,
         images: imagesSlice.reducer,
         download: download.reducer,
         background: background.reducer,

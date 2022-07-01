@@ -16,7 +16,7 @@ const useDownload = () => {
     const setImageFormat = useCallMemo((payload: string) => {
         dispatch(download.actions.setImageFormat(payload))
     }, [imageFormat])
-    const setPixelRatio = useCallMemo((payload: string) => {
+    const setPixelRatio = useCallMemo((payload: number) => {
         dispatch(download.actions.setPixelRatio(payload))
     }, [pixelRatio])
 

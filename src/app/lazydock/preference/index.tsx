@@ -3,8 +3,8 @@ import modes from "lib/modes";
 import themes from "lib/themes";
 import Select from "element/select";
 import OptionsWraper from "../wraper";
-import Toggle from "element/toggle";
 import usePreference from "store/hooks/usepreference";
+import useText from "store/hooks/usetext";
 
 const PreferencesOptions = () => {
   const {
@@ -16,8 +16,26 @@ const PreferencesOptions = () => {
     linenumberHandler,
   } = usePreference();
 
+  const { fontFaceHandler, fontFace } = useText();
+
   return (
     <React.Fragment>
+      <OptionsWraper title={"Line Numbers"}>
+        {/* <Toggle
+          onChange={(v) => linenumberHandler(v)}
+          defaultValue={lineNumbers}
+        /> */}
+        <Select
+          defaultValue={`${lineNumbers}`}
+          onChange={(value) => linenumberHandler(value)}
+          children={[true, false].map((d) => {
+            return {
+              text: `${d}`,
+              value: d,
+            };
+          })}
+        />
+      </OptionsWraper>
       <OptionsWraper title={"Theme"}>
         <Select
           defaultValue={theme}
@@ -43,16 +61,11 @@ const PreferencesOptions = () => {
         />
       </OptionsWraper>
 
-      <OptionsWraper title={"Line Numbers"}>
-        <Toggle
-          onChange={(v) => linenumberHandler(v)}
-          defaultValue={lineNumbers}
-        />
-      </OptionsWraper>
-      <OptionsWraper title={"Dark Mode"}>
-        <Toggle
-          onChange={(v) => linenumberHandler(v)}
-          defaultValue={lineNumbers}
+      <OptionsWraper title="Font Faces">
+        <Select
+          children={fontFaces}
+          defaultValue={fontFace}
+          onChange={(v) => fontFaceHandler(v)}
         />
       </OptionsWraper>
     </React.Fragment>
@@ -60,3 +73,66 @@ const PreferencesOptions = () => {
 };
 
 export default PreferencesOptions;
+
+const fontFaces = [
+  {
+    text: "FiraCode",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "IBMPlexMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "Inconsolata",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "JetBrainsMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "MonoLisa",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "OperatorMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "RobotoMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "SourceCodePro",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "UbuntuMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "VictorMono",
+    get value() {
+      return this.text;
+    },
+  },
+];

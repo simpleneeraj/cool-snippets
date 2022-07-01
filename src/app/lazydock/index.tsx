@@ -1,35 +1,76 @@
+import React from "react";
+import delay from "lib/delay";
+import SkeletonLoader from "./loader";
+import css from "styles/dock.module.scss";
 import useDock from "store/hooks/usedock";
-import ColorsOption from "./colors";
+import CloseOutline from "lib/icons/CloseOutline";
 
-// Lazy Load
+/**************************
+ Lazy Loading Components
+ ***************************/
 
-import DownloadOptions from "./download";
-import LayoutOptions from "./layout";
-import PhotosOptions from "./photos";
-import PreferencesOptions from "./preference";
-import SettingsOptions from "./settings";
-import TextOptions from "./text";
+const LazyDockOptions = React.lazy(async () => {
+  await delay(2000);
+  return await import("app/lazydock/lazyoptions");
+});
 
-const LazyDockOptions = () => {
-  const { dockComponetKey } = useDock();
-  switch (dockComponetKey) {
-    case "Layout":
-      return <LayoutOptions />;
-    case "Preference":
-      return <PreferencesOptions />;
-    case "Colors":
-      return <ColorsOption />;
-    case "Photos":
-      return <PhotosOptions />;
-    case "Text":
-      return <TextOptions />;
-    case "Download":
-      return <DownloadOptions />;
-    case "Settings":
-      return <SettingsOptions />;
-    default:
-      return null;
-  }
+const LazyDockAction = React.lazy(async () => {
+  await delay(2000);
+  return await import("./dockaction");
+});
+
+/**
+ * Lazy Dock
+ *
+ */
+const LazyDock = () => {
+  const { toggleDock, updateToggleDock } = useDock();
+
+  const dockClose = React.useCallback(() => {
+    updateToggleDock(false);
+  }, [updateToggleDock]);
+
+  const { backStyle, frontStyle } = dockStyle(toggleDock);
+
+  return (
+    <div className={css.layer}>
+      {toggleDock && (
+        <button
+          title="Close Dock Bar"
+          onClick={dockClose}
+          className={css.close}
+        >
+          <CloseOutline size={20} />
+        </button>
+      )}
+      <div className={css.main}>
+        {/* Front */}
+        <div className={css.front} style={frontStyle}>
+          <div className={css.items}>
+            <React.Suspense fallback={<SkeletonLoader />}>
+              <LazyDockAction />
+            </React.Suspense>
+          </div>
+        </div>
+        {/* Back */}
+        <div className={css.back} style={backStyle}>
+          <div className={css.items}>
+            <React.Suspense fallback={<SkeletonLoader />}>
+              <LazyDockOptions />
+            </React.Suspense>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
+export default LazyDock;
 
-export default LazyDockOptions;
+const dockStyle = (v: boolean) => {
+  let frontStyle = { transform: `rotateX(${v ? "180deg" : "0deg"})` };
+  let backStyle = {
+    transform: `translateX(-50%) rotateX(${v ? "0deg" : "-180deg"})`,
+  };
+
+  return { frontStyle, backStyle };
+};
