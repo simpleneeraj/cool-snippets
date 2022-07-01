@@ -13,18 +13,18 @@ const useKey = (keyCode: unknown, callback: any) => {
 
     React.useEffect(() => {
         callbackRef.current = callback
-    }, [])
+    }, [callback])
 
-    function keyHandler(event: KeyboardEvent) {
-        if (event.key === keyCode) {
-            callbackRef.current(event)
-            // Multiple Keys
-            console.log("Return", event.ctrlKey && event.key === 'Enter');
-        }
-        // event.preventDefault()
-    }
 
     React.useEffect(() => {
+        function keyHandler(event: KeyboardEvent) {
+            if (event.key === keyCode) {
+                callbackRef.current(event)
+                // Multiple Keys
+                console.log("Return", event.ctrlKey && event.key === 'Enter');
+            }
+            // event.preventDefault()
+        }
         document.addEventListener('keydown', keyHandler)
         return () => document.removeEventListener('keydown', keyHandler)
     }, [keyCode])
