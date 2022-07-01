@@ -6,7 +6,6 @@ const MainLayer = (props: React.PropsWithChildren<{}>) => {
       <MainStyle />
       <main className="main">
         <section className="content">{props.children}</section>
-        <div />
       </main>
     </React.Fragment>
   );

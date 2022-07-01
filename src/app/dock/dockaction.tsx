@@ -1,5 +1,4 @@
 import React from "react";
-// import dockIconsList from "lib/dockicons";
 import useDock from "store/hooks/usedock";
 import Options from "lib/icons/Options";
 import PageFit from "lib/icons/PageFit";
@@ -21,11 +20,6 @@ const LazyDockAction = () => {
 
   return (
     <React.Fragment>
-      {/* {dockIconsList.map((d, i) => (
-        <li title={d.name} onClick={() => dockApps(d.name)} key={i}>
-          <img src={d.src} alt={d.name} />
-        </li>
-      ))} */}
       {dockIconsList.map(({ icon, title }, i) => {
         return (
           <li key={i} title={title} onClick={() => dockApps(title)}>
@@ -52,11 +46,11 @@ const dockIconsList = [
   },
   {
     title: "Colors",
-    icon: <ColorFillOutline size={25} />,
+    icon: <ColorFillOutline size={24} />,
   },
   {
     title: "Photos",
-    icon: <ImageOutline size={25} />,
+    icon: <ImageOutline size={24} />,
   },
 
   {
@@ -67,13 +61,13 @@ const dockIconsList = [
     title: "Text",
     icon: <TextField size={25} />,
   },
+  {
+    title: "Download",
+    icon: <ArrowDownCircleOutline size={25} />,
+  },
 
   {
     title: "Settings",
     icon: <Options size={25} />,
-  },
-  {
-    title: "Download",
-    icon: <ArrowDownCircleOutline size={25} />,
   },
 ];

@@ -34,6 +34,12 @@
     flex-direction: column;
     justify-content: center;
     background: transparent;
+    display: flex;
+    align-items: center;
+  }
+  label {
+    display: flex;
+    align-items: center;
   }
 }
 .local {
@@ -48,6 +54,7 @@
   overflow: hidden;
   height: 40px;
   min-width: 40px;
+  max-width: 40px;
   img {
     height: 100%;
     width: 100%;

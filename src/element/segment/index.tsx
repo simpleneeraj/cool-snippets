@@ -9,7 +9,6 @@ interface SegmentProps {
 
 const Segment = (props: SegmentProps) => {
   const { defaultValue } = props;
-
   const onChangeHandler = React.useCallback(
     (value: string) => {
       if (props.onChange) props.onChange(value);

@@ -118,6 +118,7 @@ Sticky
   display: flex;
   position: absolute;
   align-items: center;
+  z-index: 20;
   button {
     gap: 4px;
     padding: 0.6rem;

@@ -36,9 +36,7 @@ const useList = (props: ListViewProps) => {
   const { height = 200, offset = 1000, root = null, duration = 200 } = props;
   // * Check is server-side or not
   // const ssr = typeof window !== 'undefined';
-  let timeOut = {
-    timeout: 600,
-  };
+
   // * Some Transition when component render
   let initialStyle = {
     opacity: "0",
@@ -56,9 +54,12 @@ const useList = (props: ListViewProps) => {
 
   // * Set visibility with intersection observer
   React.useEffect(() => {
+    let timeOut = {
+      timeout: 600,
+    };
     // * Inter section Observer Callback
     const observerCallback: IntersectionObserverCallback = (entries) => {
-      let check = typeof window !== undefined && window.requestIdleCallback;
+      let check = typeof window !== "undefined" && window.requestIdleCallback;
       // * where _i is a boolen value for isIntersecting or not
       let _i = entries[0].isIntersecting;
       // * Checking requestIdleCallback
@@ -75,10 +76,11 @@ const useList = (props: ListViewProps) => {
       const observer = new IntersectionObserver(observerCallback, options);
       observer.observe(viewRef.current);
       return () =>
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         viewRef.current ? observer.unobserve(viewRef.current) : undefined;
     }
     return () => {};
-  }, [viewRef]);
+  }, [offset, root, viewRef]);
 
   // * Set true height for placeholder element after render.
   React.useEffect(() => {
@@ -98,7 +100,14 @@ const useList = (props: ListViewProps) => {
     return () => {
       isMount = false;
     };
-  }, [isObserve, viewRef]);
+  }, [
+    exitStyle.opacity,
+    exitStyle.transition,
+    initialStyle.opacity,
+    initialStyle.transition,
+    isObserve,
+    viewRef,
+  ]);
 
   // * Basic Style For non visible HTMLDivElement
   const style: React.CSSProperties = {

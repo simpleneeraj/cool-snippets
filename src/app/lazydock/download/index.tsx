@@ -5,7 +5,6 @@ import Select from "element/select";
 import { useCapture } from "lib/capture";
 import Segment from "element/segment";
 import useDownload from "store/hooks/usedownload";
-import useBackground from "store/hooks/usebackground";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 
 const DownloadOptions = () => {
@@ -22,29 +21,14 @@ const DownloadOptions = () => {
       delay: 1000,
     });
   };
-  const { setRatio, setPadding, padding } = useBackground();
 
   return (
     <React.Fragment>
-      <OptionsWraper title="Padding">
-        <Select
-          defaultValue={padding}
-          onChange={(value) => setPadding(value)}
-          children={array.padding}
-        />
-      </OptionsWraper>
       <OptionsWraper title="Pixel Ratio">
         <Segment
           defaultValue={pixelRatio}
           children={["1", "2", "3", "4"]}
           onChange={(v) => setPixelRatio(v)}
-        />
-      </OptionsWraper>
-      <OptionsWraper title={"Aspect Ratio"}>
-        <Select
-          defaultValue="1:1"
-          onChange={(value) => setRatio(value)}
-          children={array.aspectRatio}
         />
       </OptionsWraper>
 

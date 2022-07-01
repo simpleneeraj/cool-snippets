@@ -1,47 +1,71 @@
 import React from "react";
 import css from "styles/photos.module.scss";
 import PlusSquareDashed from "lib/icons/PlusSquareDashed";
-import ChevronForwardOutline from "lib/icons/ChevronForwardOutline";
-import useCallMemo from "hooks/usecallmemo";
 import useFilePicker from "hooks/useFilePicker";
-import useScroll from "hooks/useScroll";
+import useBackground from "store/hooks/usebackground";
+import useImages from "store/hooks/useImages";
+
+interface FilePickerProps {
+  inputRef: any;
+  selectID: string;
+  children: React.ReactNode | React.ReactNode[];
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+interface PictureProps {
+  source: string;
+  onClick: () => void;
+}
 
 const PhotosOptions = () => {
-  const { containerRef, onScroll } = useScroll();
-
-  // const [onFilePicker, data] = useFilePicker();
-
+  const { setBackground } = useBackground();
+  const { imagesArray, addImage } = useImages();
+  const { onFilePicker, inputRef } = useFilePicker((img) => addImage(img));
   return (
     <div className={css.container}>
-      <div ref={containerRef} className={css.content}>
+      <div className={css.content}>
         <div className={css.local}>
-          <button
-          // onClick={() => onFilePicker()}
+          <FilePicker
+            onChange={onFilePicker}
+            inputRef={inputRef}
+            selectID={"back"}
           >
             <PlusSquareDashed size={40} />
-          </button>
+          </FilePicker>
         </div>
-        {Array.from(Array(20).keys()).map((_, i) => (
-          <Picture key={i} />
+        {imagesArray.map((data, i) => (
+          <Picture
+            key={i}
+            source={data.source}
+            onClick={() => setBackground(data.source)}
+          />
         ))}
-        <div
-          onMouseMove={() => onScroll((i) => i + 1)}
-          className={css.absolute}
-        >
-          <button>
-            <ChevronForwardOutline size={16} />
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 export default PhotosOptions;
 
-const Picture = () => {
+const Picture = (props: PictureProps) => {
   return (
-    <div className={css.picture}>
-      <img src={require("assets/images/macos-big-sur.webp")} alt="images" />
+    <div onClick={props.onClick} className={css.picture}>
+      <img src={props.source} alt="images" />
     </div>
+  );
+};
+
+const FilePicker = (props: FilePickerProps) => {
+  return (
+    <button>
+      <input
+        onChange={props.onChange}
+        ref={props.inputRef}
+        id={props.selectID}
+        type="file"
+        style={{ display: "none" }}
+        multiple
+      />
+      <label htmlFor={props.selectID}>{props.children}</label>
+    </button>
   );
 };

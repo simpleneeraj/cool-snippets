@@ -17,7 +17,6 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "slices/*": ["store/slices/*"],
       "styles/*": ["styles/*"]
     }
   },

@@ -38,6 +38,7 @@ const Style = () => {
   const { padding } = useBackground();
 
   const { aspectHeight, aspectWidth } = AR(aspectRatio);
+
   return (
     <style>
       {`
@@ -72,7 +73,9 @@ const Style = () => {
           z-index: 5;
           overflow: hidden;
           display: grid;
-          align-items: center;     
+          align-items: center; 
+          transition: all 100ms ease-in 0s;
+
         }
         .layer {
           z-index: 0;
@@ -92,7 +95,7 @@ const Style = () => {
           background: url(${source});
           width: ${aspectWidth};
           height: ${aspectHeight};
-          transition: all 150ms ease-in 0s;
+          transition: all 100ms ease-in 0s;
           background-size: cover;
           background-position: center center;
           background-repeat: no-repeat;

@@ -6,19 +6,16 @@ import MacOSLikeDock from "./dock";
 const App = () => {
   return (
     <MainLayer>
-      <StickyButton
-        direction-value="15px"
-        direction="top left"
-        children="Keyboard"
-      />
+      <StickyButton top="20px" left="20px">
+        Keyboard
+      </StickyButton>
       <Center />
-
       <MacOSLikeDock />
-      <StickyButton
-        direction-value="15px"
-        direction="top right"
-        children="Github"
-      />
+      <StickyButton top="20px" right="20px">
+        Pricing
+      </StickyButton>
+
+      {/* <Segment children={["25%", "50%", "75%", "100%"]} defaultValue={""} /> */}
     </MainLayer>
   );
 };
@@ -53,3 +50,18 @@ export default App;
 // console.log(proxy.first); // hello
 // console.log(proxy.last); // world
 // console.log(proxy);
+
+/**
+ *      <StickyButton top="30%" left="20px" transform="translate(0%,-50%)">
+        25%
+      </StickyButton>
+      <StickyButton top="40%" left="20px" transform="translate(0%,-50%)">
+        50%
+      </StickyButton>
+      <StickyButton top="50%" left="20px" transform="translate(0%,-50%)">
+        75%
+      </StickyButton>
+      <StickyButton top="60%" left="20px" transform="translate(0%,-50%)">
+        100%
+      </StickyButton>
+ */
