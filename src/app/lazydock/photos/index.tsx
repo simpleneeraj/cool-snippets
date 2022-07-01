@@ -5,10 +5,10 @@ import useFilePicker from "hooks/useFilePicker";
 import useBackground from "store/hooks/usebackground";
 import useImages from "store/hooks/useImages";
 
-interface FilePickerProps {
+interface FilePickerProps extends React.ComponentPropsWithoutRef<"input"> {
   inputRef: any;
   selectID: string;
-  children: React.ReactNode | React.ReactNode[];
+  icon: React.ReactNode | React.ReactNode[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -29,9 +29,9 @@ const PhotosOptions = () => {
             onChange={onFilePicker}
             inputRef={inputRef}
             selectID={"back"}
-          >
-            <PlusSquareDashed size={40} />
-          </FilePicker>
+            accept="image/*"
+            icon={<PlusSquareDashed size={40} />}
+          />
         </div>
         {imagesArray.map((data, i) => (
           <Picture
@@ -58,14 +58,13 @@ const FilePicker = (props: FilePickerProps) => {
   return (
     <button>
       <input
-        onChange={props.onChange}
-        ref={props.inputRef}
         id={props.selectID}
         type="file"
         style={{ display: "none" }}
         multiple
+        {...props}
       />
-      <label htmlFor={props.selectID}>{props.children}</label>
+      <label htmlFor={props.selectID}>{props.icon}</label>
     </button>
   );
 };

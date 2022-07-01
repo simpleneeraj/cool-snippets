@@ -62,8 +62,8 @@ const dockIconsList = [
     title: "Download",
     icon: <ArrowDownCircleOutline size={25} />,
   },
-  {
-    title: "Settings",
-    icon: <Options size={25} />,
-  },
+  // {
+  //   title: "Settings",
+  //   icon: <Options size={25} />,
+  // },
 ];

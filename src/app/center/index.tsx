@@ -11,14 +11,18 @@ import usePost from "store/hooks/usepost";
 
 const CodeLoader = () => (
   <Skeleton
-    height="100%"
+    height={200}
     width="100%"
-    reactHeight="100%"
+    reactHeight={200}
     reactWidth="100%"
-    primaryColor="#00000020"
-    secondryColor="#00000050"
+    primaryColor="#00000070"
+    secondryColor="#00000090"
     dur="2s"
-    style={{ zIndex: "10", borderRadius: "15px" }}
+    style={{
+      borderRadius: "15px",
+      zIndex: "20",
+      position: "relative",
+    }}
   />
 );
 // import ShadowLayer from "./shadow";
@@ -38,8 +42,8 @@ const Center = () => {
             <div className="layer">
               <React.Suspense fallback={<CodeLoader />}>
                 <CodeEditor />
+                <BlurLayer />
               </React.Suspense>
-              <BlurLayer />
             </div>
           </Capture>
         </div>

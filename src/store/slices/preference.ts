@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ActionType, PreferenceTypes } from "typings/store";
 
-
+// ruby-blue
 const initialState: PreferenceTypes = {
     theme: "panda-syntax",
     mode: "jsx",

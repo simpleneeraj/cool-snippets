@@ -3,13 +3,14 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 const initialState: CodeTypes = {
     codeValue: `
-import code from "./slices/code";
-import dock from "./slices/dock";
-import text from "./slices/text";
-import background from "./slices/background";
-import preference from "./slices/preference";
-import download from "./slices/download";
-export default store;
+    const numbers = [4, 2, 5, 1, 3];
+    numbers.sort(function(a, b) {
+      return a - b;
+    });
+    console.log(numbers);
+    
+    // [1, 2, 3, 4, 5]
+    
     `.trim()
 }
 

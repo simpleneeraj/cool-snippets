@@ -7,7 +7,7 @@ import image from 'assets/images/windows-10.webp';
 
 const initialState: BackgroundTypes = {
     source: image,
-    aspectRatio: `3:1`,
+    aspectRatio: `16:9`,
     padding: 100
 }
 
