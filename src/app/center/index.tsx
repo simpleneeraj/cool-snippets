@@ -1,5 +1,5 @@
 import React from "react";
-import { Capture as Layer } from "capture-dom";
+import { Capture as Layer } from "lib/capture";
 import useText from "store/hooks/usetext";
 import css from "styles/center.module.scss";
 import useBackground from "store/hooks/usebackground";
@@ -13,7 +13,7 @@ import usePreference from "store/hooks/usepreference";
 
 const CodeLoader = () => (
   <Skeleton
-    height="209.90px"
+    height="170.77px"
     width="100%"
     reactHeight="100%"
     reactWidth="100%"
