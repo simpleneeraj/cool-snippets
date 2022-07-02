@@ -10,12 +10,12 @@ import CloseOutline from "lib/icons/CloseOutline";
  ***************************/
 
 const LazyDockOptions = React.lazy(async () => {
-  await delay(2000);
+  await delay(1500);
   return await import("app/lazydock/lazyoptions");
 });
 
 const LazyDockAction = React.lazy(async () => {
-  await delay(3000);
+  await delay(2000);
   return await import("./dockaction");
 });
 

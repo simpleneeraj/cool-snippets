@@ -2,14 +2,19 @@ import React from "react";
 
 interface NewProps extends React.SVGProps<SVGSVGElement> {
   dur?: string | number;
-  reactHeight?: string | number;
-  reactWidth?: string | number;
-  primaryColor?: string;
-  secondryColor?: string;
+  reactheight?: string | number;
+  reactwidth?: string | number;
+  primarycolor?: string;
+  secondrycolor?: string;
 }
 
 const Skeleton = (props: NewProps) => {
-  const { width, height, reactHeight, reactWidth } = props;
+  const {
+    width,
+    height,
+    reactheight: reactHeight,
+    reactwidth: reactWidth,
+  } = props;
   const reactData = {
     x: "0",
     y: "0",
@@ -36,13 +41,13 @@ const Skeleton = (props: NewProps) => {
       />
       <defs>
         <linearGradient id={$2}>
-          <stop offset="0%" stopColor={props.primaryColor}>
+          <stop offset="0%" stopColor={props.primarycolor}>
             <animate values="-2; -3; 1" {...animate} />
           </stop>
-          <stop offset="50%" stopColor={props.secondryColor}>
+          <stop offset="50%" stopColor={props.secondrycolor}>
             <animate values="-1; -1.5; 2" {...animate} />
           </stop>
-          <stop offset="100%" stopColor={props.primaryColor}>
+          <stop offset="100%" stopColor={props.primarycolor}>
             <animate values="0; 1; 3" {...animate} />
           </stop>
         </linearGradient>

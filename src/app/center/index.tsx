@@ -13,12 +13,12 @@ import usePreference from "store/hooks/usepreference";
 
 const CodeLoader = () => (
   <Skeleton
-    height="170.77px"
-    width="100%"
-    reactHeight="100%"
-    reactWidth="100%"
-    primaryColor="rgba(0,0,0,.3)"
-    secondryColor="rgba(0,0,0,.4)"
+    height={151.58}
+    width={360}
+    reactheight="100%"
+    reactwidth="100%"
+    primarycolor="rgba(0,0,0,.3)"
+    secondrycolor="rgba(0,0,0,.4)"
     dur="1s"
     style={{
       borderRadius: "15px",
@@ -29,7 +29,7 @@ const CodeLoader = () => (
 );
 
 const CodeEditor = React.lazy(async () => {
-  await delay(3000);
+  await delay(2000);
   return await import("./editor");
 });
 

@@ -5,10 +5,10 @@ const SkeletonLoader = () => {
     <Skeleton
       height={48}
       width={360}
-      reactHeight={48}
-      reactWidth="100%"
-      primaryColor="#ffffff10"
-      secondryColor="#ffffff50"
+      reactheight={48}
+      reactwidth="100%"
+      primarycolor="#ffffff10"
+      secondrycolor="#ffffff50"
       dur="2s"
     />
   );
