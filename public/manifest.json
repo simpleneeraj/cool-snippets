@@ -1,6 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Beautiful Code Snippets Generator",
+  "short_name": "Beautiful Code",
+  "description": "Turn your code into beautiful images.  With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds.",
+  "lang": "en-US",
+  "display": "standalone",
+  "theme_color": "#000",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +22,17 @@
       "sizes": "512x512"
     }
   ],
+  "screenshots": [
+    {
+      "src": "images/cover-1.png"
+    },
+    {
+      "src": "images/cover-2.png"
+    },
+    {
+      "src": "images/cover-3.png"
+    }
+  ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000"
 }
