@@ -36,9 +36,10 @@ const LazyDock = () => {
     <div className={css.layer}>
       {toggleDock && (
         <button
-          title="Close Dock Bar"
+          title="close dock bar"
           onClick={dockClose}
           className={css.close}
+          aria-label="close dock bar"
         >
           <CloseOutline size={20} />
         </button>
