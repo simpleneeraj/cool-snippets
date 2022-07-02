@@ -118,7 +118,6 @@ Block
   backdrop-filter: blur(20px);
   outline: 2px solid transparent;
   transition: all 150ms ease-in;
-  outline: 2px solid var(--button-outline-color);
   &:hover {
     outline: 2px solid var(--button-outline-color);
   }
