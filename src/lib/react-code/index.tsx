@@ -735,8 +735,14 @@ class Controlled extends React.Component<IControlledCodeMirror, any> {
     let className = this.props.className
       ? `react-code ${this.props.className}`
       : `react-code`;
-    // @ts-ignore
-    return <div className={className} ref={(self) => (this.ref = self)} />;
+    return (
+      <div
+        tabIndex={0}
+        className={className}
+        // @ts-ignore
+        ref={(self) => (this.ref = self)}
+      />
+    );
   }
 }
 

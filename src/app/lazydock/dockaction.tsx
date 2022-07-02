@@ -22,7 +22,7 @@ const LazyDockAction = () => {
             title={title}
             onClick={() => dockApps(title)}
           >
-            <i>{<SVG key={i} />}</i>
+            <i aria-label={title}>{<SVG key={i} />}</i>
           </span>
         );
       })}

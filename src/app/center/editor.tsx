@@ -37,7 +37,6 @@ const CodeEditor = (props: CodeEditorProps) => {
         spellcheck: false,
         lineWrapping: true,
         fixedGutter: false,
-        tabindex: 4,
         inputStyle: "contenteditable",
         autofocus: true,
         autocorrect: true,
