@@ -4,7 +4,8 @@ import "styles/globals.scss";
 import App from "app/index";
 import store from "store";
 import { Provider } from "react-redux";
-import * as service from "worker";
+import * as service from "./service-worker";
+
 const RootApp = () => {
   return (
     <React.StrictMode>
