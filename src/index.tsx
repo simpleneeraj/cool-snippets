@@ -4,7 +4,6 @@ import "styles/globals.scss";
 import App from "app/index";
 import store from "store";
 import { Provider } from "react-redux";
-import * as service from "./service-worker";
 
 const RootApp = () => {
   return (
@@ -21,5 +20,3 @@ const RootApp = () => {
 // App Root
 const root = document.getElementById("__app") as HTMLElement;
 ReactDOM.render(<RootApp />, root);
-// ReactDOM.createRoot(root).render(<RootApp />);
-service.register();
