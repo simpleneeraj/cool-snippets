@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "sourceMap": true,
-    "removeComments": true,
+    "removeComments": false,
     "paths": {
       "styles/*": ["styles/*"]
     }
