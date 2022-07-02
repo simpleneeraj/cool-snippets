@@ -24,7 +24,7 @@ const TextOptions = () => {
         />
       </OptionsWraper>
 
-      <OptionsWraper title="Line Height">
+      <OptionsWraper title={`Line Height ${lineHeight}`}>
         <RangeSlider
           value={lineHeight}
           type="range"
@@ -34,7 +34,7 @@ const TextOptions = () => {
           onChange={(e) => lineHeightHandler(e.target.value)}
         />
       </OptionsWraper>
-      <OptionsWraper title="Letter Spacing">
+      <OptionsWraper title={`Letter Spacing ${letterSpacing}px`}>
         <RangeSlider
           value={letterSpacing}
           type="range"
@@ -44,7 +44,7 @@ const TextOptions = () => {
           onChange={(e) => letterSpacingHandler(e.target.value)}
         />
       </OptionsWraper>
-      <OptionsWraper title="Font Weight">
+      <OptionsWraper title={`Font Weight ${fontWeight}`}>
         <Select
           defaultValue={fontWeight}
           children={dataArray.fontWeight}

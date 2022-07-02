@@ -4,6 +4,7 @@ import PlusSquareDashed from "lib/icons/PlusSquareDashed";
 import useFilePicker from "hooks/useFilePicker";
 import useBackground from "store/hooks/usebackground";
 import useImages from "store/hooks/useImages";
+import ListView from "lib/list-view";
 
 interface FilePickerProps extends React.ComponentPropsWithoutRef<"input"> {
   inputRef: any;
@@ -34,11 +35,12 @@ const PhotosOptions = () => {
           />
         </div>
         {imagesArray.map((data, i) => (
-          <Picture
-            key={i}
-            source={data.source}
-            onClick={() => setBackground(data.source)}
-          />
+          <ListView key={i} duration={200} className={css.picture}>
+            <Picture
+              source={data.source}
+              onClick={() => setBackground(data.source)}
+            />
+          </ListView>
         ))}
       </div>
     </div>

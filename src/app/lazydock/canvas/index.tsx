@@ -3,9 +3,11 @@ import OptionsWraper from "../wraper";
 import Select from "element/select";
 import useBackground from "store/hooks/usebackground";
 import RangeSlider from "element/range";
+import LogoInstagram from "lib/icons/LogoInstagram";
+import LogoTwitter from "lib/icons/LogoTwitter";
 
-const LayoutOptions = () => {
-  const { setRatio, setPadding, padding } = useBackground();
+const CanvasOptions = () => {
+  const { setRatio, setPadding, padding, aspectRatio } = useBackground();
   return (
     <React.Fragment>
       <OptionsWraper title={`Padding ${padding}px`}>
@@ -13,14 +15,14 @@ const LayoutOptions = () => {
           type="range"
           value={padding}
           max={200}
-          min={0}
+          min={10}
           step={1}
           onChange={(e) => setPadding(e.target.value)}
         />
       </OptionsWraper>
-      <OptionsWraper title={"Aspect Ratio"}>
+      <OptionsWraper title={`Aspect Ratio ${aspectRatio}`}>
         <Select
-          defaultValue="1:1"
+          defaultValue={aspectRatio}
           onChange={(value) => setRatio(value)}
           children={array.aspectRatio}
         />
@@ -28,39 +30,46 @@ const LayoutOptions = () => {
     </React.Fragment>
   );
 };
-export default LayoutOptions;
+export default CanvasOptions;
 
-const aspectRatio = [
+const aspectRatioArray = [
   {
-    name: "Instagram Landscape",
-    ratio: "1.91:1",
-  },
-  {
-    name: "Instagram Square",
+    name: "Square",
     ratio: "1:1",
+    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Instagram Portrait",
+    name: "Portrait",
     ratio: "4:5",
+    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Instagram Reels",
+    name: "Story",
     ratio: "9:16",
+    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Twitter Header",
-    ratio: "3:1",
-  },
-  {
-    name: "Landcape",
+    name: "Landscape",
     ratio: "16:9",
+    icon: <LogoInstagram size={14} />,
+  },
+  {
+    name: "Landscape",
+    ratio: "1:1.56",
+    icon: <LogoInstagram size={14} />,
+  },
+  {
+    name: "Header",
+    ratio: "3:1",
+    icon: <LogoTwitter size={14} />,
   },
 ];
 const array = {
-  aspectRatio: aspectRatio.map((str) => {
+  aspectRatio: aspectRatioArray.map((data) => {
     return {
-      text: str.ratio,
-      value: str.ratio,
+      text: `${data.name} (${data.ratio})`,
+      value: data.ratio,
+      // icon: data.icon,
     };
   }),
   // @ts-expect-error

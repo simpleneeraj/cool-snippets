@@ -3,10 +3,10 @@ import { ActionType, TextTypes } from 'typings/store';
 
 const initialState: TextTypes = {
     fontSize: 14,
-    fontWeight: '400',
-    fontFace: 'MonoLisa',
+    fontWeight: 400,
     lineHeight: 1.4,
-    letterSpacing: 0
+    letterSpacing: 0,
+    fontFace: 'MonoLisa',
 }
 
 const text = createSlice({

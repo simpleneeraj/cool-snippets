@@ -8,8 +8,7 @@ import React from "react";
  */
 const useCallMemo = (callback: Function, deps: React.DependencyList) => {
 
-    // eslint-disable-next-line
-    const _Handler = React.useCallback(callback, [deps])
+    const _Handler = React.useCallback(callback, [callback, deps])
     const Handler = React.useMemo(() => _Handler, [_Handler])
     // Return Values
     return Handler

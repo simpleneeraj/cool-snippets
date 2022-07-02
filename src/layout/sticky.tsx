@@ -1,5 +1,5 @@
 import React from "react";
-import css from "styles/elements.module.scss";
+import css from "styles/button.module.scss";
 
 interface PositionProps extends React.ComponentPropsWithRef<"div"> {
   icon?: React.ReactNode;

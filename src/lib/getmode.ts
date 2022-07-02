@@ -1,6 +1,6 @@
 import codemodes from "lib/modes";
 
-async function getMode(modeName: string) {
+async function codemirrorModes(modeName: string) {
     // const mode = CodeMirror.findModeByName(opt.mode || "");
     const findMode = codemodes.find((data) => data.mode === modeName);
     if (codemodes && codemodes && findMode?.mode) {
@@ -9,4 +9,4 @@ async function getMode(modeName: string) {
     }
 }
 
-export default getMode;
+export default codemirrorModes;

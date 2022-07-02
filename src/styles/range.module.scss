@@ -1,22 +1,22 @@
 .range {
   display: flex;
   align-items: center;
-  background: var(--ui-alpha);
+  background: var(--button-background);
   outline: 2px solid transparent;
   border-radius: 6px;
   padding: 0.4rem;
   min-height: 30px;
-  min-width: 80px;
-  max-width: 100px;
+  min-width: 120px;
+  max-width: 120px;
   span {
     min-width: 20px;
     text-align: center;
     font-size: 10px;
-    color: var(--ui-color);
+    color: var(--button-color);
   }
   input {
     padding: 0;
-    accent-color: var(--ui-color);
+    accent-color: var(--button-color);
     height: 4px;
     width: 100%;
     max-width: 100%;

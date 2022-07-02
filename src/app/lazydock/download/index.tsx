@@ -28,7 +28,7 @@ const DownloadOptions = () => {
       <OptionsWraper title="Pixel Ratio">
         <Segment
           defaultValue={pixelRatio}
-          children={["1", "2", "3", "4"]}
+          children={[1, 2, 3, 4, 5]}
           onChange={(v) => setPixelRatio(v)}
         />
       </OptionsWraper>

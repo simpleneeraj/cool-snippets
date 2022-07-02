@@ -5,9 +5,7 @@ import css from "styles/photos.module.scss";
 import useBackground from "store/hooks/usebackground";
 import CheckmarkCircleOutline from "lib/icons/CheckmarkCircleOutline";
 
-const sortedGradients = gradient.sort((a, b) =>
-  a.name.localeCompare(b.name, "en", { sensitivity: "base" })
-);
+const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
 const sortedArray = [...solidColor, ...sortedGradients];
 

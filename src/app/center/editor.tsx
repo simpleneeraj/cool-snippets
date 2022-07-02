@@ -1,22 +1,33 @@
+import React from "react";
 import "styles/codemirror.scss";
+import getTheme from "lib/gettheme";
 import CodeMirror from "lib/react-code";
-import useCode from "store/hooks/usecode";
-import getMode from "./getmode";
-import getTheme from "./gettheme";
-import usePreference from "store/hooks/usepreference";
+import codemirrorModes from "lib/getmode";
 
-const CodeEditor = () => {
-  const { codeValue, writeCode } = useCode();
-  const { lineNumbers, theme, mode } = usePreference();
-
+interface CodeEditorProps {
+  mode: string;
+  value: string;
+  theme: string;
+  lineNumbers: boolean;
+  onCodeHandler: (value: string) => void;
+}
+const CodeEditor = (props: CodeEditorProps) => {
+  const { lineNumbers, mode, onCodeHandler, theme, value } = props;
   /**************************
   Dynamic Imports
   ***************************/
   import(`lib/theme/${theme}.css`);
-  getMode(mode);
+  codemirrorModes(mode);
+
+  const onChangeCode = React.useCallback(
+    (value: string) => {
+      if (onCodeHandler) onCodeHandler(value);
+    },
+    [onCodeHandler]
+  );
   return (
     <CodeMirror
-      value={codeValue}
+      value={value}
       options={{
         mode: mode,
         theme: getTheme(theme),
@@ -28,9 +39,12 @@ const CodeEditor = () => {
         fixedGutter: false,
         tabindex: 4,
         inputStyle: "contenteditable",
+        autofocus: true,
+        autocorrect: true,
+        keyMap: "default",
       }}
       onBeforeChange={(_editor, _data, value) => {
-        writeCode(value);
+        onChangeCode(value);
       }}
     />
   );

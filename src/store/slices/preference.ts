@@ -3,8 +3,8 @@ import { ActionType, PreferenceTypes } from "typings/store";
 
 // ruby-blue
 const initialState: PreferenceTypes = {
-    theme: "panda-syntax",
-    mode: "jsx",
+    mode: "javascript",
+    theme: "rubyblue",
     lineNumbers: false
 }
 

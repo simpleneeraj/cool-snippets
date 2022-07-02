@@ -17,7 +17,7 @@ State Types
 interface BackgroundTypes {
     source: string;
     aspectRatio: string;
-    padding: both;
+    padding: number;
 }
 // Code Types
 interface CodeTypes {
@@ -36,15 +36,15 @@ interface PreferenceTypes {
 }
 // Text Types
 interface TextTypes {
-    fontSize: both;
-    fontWeight: string;
+    fontSize: number;
+    fontWeight: number;
     fontFace: string;
-    lineHeight: both;
-    letterSpacing: both;
+    lineHeight: number;
+    letterSpacing: number;
 }
 // DownloadImage Types
 interface DownloadImageTypes {
-    pixelRatio: both;
+    pixelRatio: number;
     imageFormat: string;
 }
 

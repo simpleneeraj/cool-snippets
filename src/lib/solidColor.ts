@@ -7,8 +7,9 @@ let combine = [...twitterColors, ...appleColors, ...googleColors];
 const solidColor = combine.map((color) => {
     return {
         name: color.colorName,
-        deg: Math.random(),
-        gradient: `linear-gradient(${color.colorValue},${color.colorValue})`,
+        deg: 0,
+        // gradient: color.colorValue,
+        gradient: `radial-gradient(${color.colorValue},${color.colorValue})`,
     };
 });
 

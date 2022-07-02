@@ -13,13 +13,15 @@ const useBackground = () => {
     ***************************/
     const setBackground = useCallMemo((payload: string) => {
         dispatch(background.actions.setBackground(payload))
-    }, [source])
+    }, [dispatch])
+
     const setRatio = useCallMemo((payload: string) => {
         dispatch(background.actions.setRatio(payload))
-    }, [aspectRatio])
+    }, [dispatch])
+
     const setPadding = useCallMemo((payload: string) => {
         dispatch(background.actions.setPadding(payload))
-    }, [padding])
+    }, [dispatch])
 
     // Return Values
     return { setBackground, source, aspectRatio, setRatio, setPadding, padding }

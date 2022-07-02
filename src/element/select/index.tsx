@@ -2,7 +2,7 @@ import React from "react";
 import selectSlice from "./slice";
 import useKey from "hooks/useKey";
 import Button from "element/button";
-import css from "styles/elements.module.scss";
+import css from "styles/select.module.scss";
 import useOnClickOutside from "hooks/useClick";
 import { SelectOptionProps } from "element/types";
 import ChevronUp from "lib/icons/ChevronUp";
@@ -41,6 +41,7 @@ const Select = (props: SelectOptionProps) => {
   /**************************
       On Click List
   ***************************/
+
   const onClickList = React.useCallback(
     (value: any) => {
       dispatch(action.selectedValueHandler(value));
@@ -69,20 +70,25 @@ const Select = (props: SelectOptionProps) => {
         />
         {isOpenModel ? (
           <div className={css.option}>
-            <ul>
-              {dataArray.map(({ text, value }, index) => (
-                <li
+            <div className={css.listbox}>
+              {dataArray.map(({ text, value, icon }, index) => (
+                <span
+                  title={text}
                   key={index}
-                  value={value}
+                  // value={value}
                   onClick={() => onClickList(value)}
                   style={{
-                    background: text === selectedValue ? "#673AB7" : "",
+                    background:
+                      text === selectedValue ? "var(--ui-accent-color)" : "",
                   }}
+                  className={css.list}
                 >
-                  {text}
-                </li>
+                  {icon && <i>{icon}</i>}
+                  <span>{text}</span>
+                </span>
               ))}
-            </ul>
+            </div>
+            <div></div>
           </div>
         ) : null}
       </div>

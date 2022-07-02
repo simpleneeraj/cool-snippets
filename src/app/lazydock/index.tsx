@@ -15,7 +15,7 @@ const LazyDockOptions = React.lazy(async () => {
 });
 
 const LazyDockAction = React.lazy(async () => {
-  await delay(2000);
+  await delay(3000);
   return await import("./dockaction");
 });
 
@@ -71,6 +71,5 @@ const dockStyle = (v: boolean) => {
   let backStyle = {
     transform: `translateX(-50%) rotateX(${v ? "0deg" : "-180deg"})`,
   };
-
   return { frontStyle, backStyle };
 };

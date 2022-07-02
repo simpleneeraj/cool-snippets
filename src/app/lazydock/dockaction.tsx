@@ -1,13 +1,6 @@
 import React from "react";
-import PageFit from "lib/icons/PageFit";
 import useDock from "store/hooks/usedock";
-import Options from "lib/icons/Options";
-import TextField from "lib/icons/TextField";
-import ColorBackground from "lib/icons/ColorBackground";
-import BroadActivityFeed from "lib/icons/BroadActivityFeed";
-import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
-import PaintBrush from "lib/icons/PaintBrush";
-import ImageOutline from "lib/icons/ImageOutline";
+import { arrayForAction } from "./dockArray";
 
 const LazyDockAction = () => {
   const { updateDockComponent, updateToggleDock } = useDock();
@@ -21,49 +14,14 @@ const LazyDockAction = () => {
 
   return (
     <React.Fragment>
-      {dockIconsList.map(({ icon, title }, i) => {
+      {arrayForAction.map(({ icon: SVG, title }, i) => {
         return (
-          <li key={i} title={title} onClick={() => dockApps(title)}>
-            <i>{icon}</i>
-          </li>
+          <span key={i} title={title} onClick={() => dockApps(title)}>
+            <i>{<SVG key={i} />}</i>
+          </span>
         );
       })}
     </React.Fragment>
   );
 };
 export default LazyDockAction;
-
-const dockIconsList = [
-  {
-    title: "Preference",
-    icon: <PaintBrush size={24} />,
-  },
-  {
-    title: "Layout",
-    icon: <PageFit size={25} />,
-  },
-  {
-    title: "Post",
-    icon: <BroadActivityFeed size={23} />,
-  },
-  {
-    title: "Text",
-    icon: <TextField size={25} />,
-  },
-  {
-    title: "Colors",
-    icon: <ColorBackground size={24} />,
-  },
-  {
-    title: "Photos",
-    icon: <ImageOutline size={24} />,
-  },
-  {
-    title: "Download",
-    icon: <ArrowDownCircleOutline size={25} />,
-  },
-  // {
-  //   title: "Settings",
-  //   icon: <Options size={25} />,
-  // },
-];

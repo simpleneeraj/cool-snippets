@@ -1,0 +1,71 @@
+/**************************
+Select Dropdown
+***************************/
+.select {
+  display: flex;
+  user-select: none;
+  position: relative;
+  z-index: 1000;
+}
+.dropdown {
+  min-height: 30px;
+}
+// Option List
+.option {
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 2px 0;
+  background: var(--dropdown-background);
+  .listbox {
+    gap: 4px;
+    display: flex;
+    z-index: 10;
+    overflow: auto;
+    list-style: none;
+    max-height: 400px;
+    flex-direction: column;
+    padding: 0 2px;
+    .list {
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 8px 0;
+      gap: 0.2rem;
+      font-size: 11px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background: var(--dropdown-hover);
+      }
+    }
+
+    .list i {
+      padding-left: 2px;
+    }
+    .list span {
+      padding-left: 2px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    &::-webkit-scrollbar {
+      appearance: none;
+      background: var(--dropdown-hover);
+      width: 8px;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: var(--dropdown-background);
+      border: 2px solid var(--dropdown-hover);
+    }
+  }
+}

@@ -2,15 +2,15 @@ import React from "react";
 import css from "styles/segment.module.scss";
 
 interface SegmentProps {
-  children: string[];
+  children: string[] | number[];
   defaultValue: string | number | any;
-  onChange?: (value: string) => void;
+  onChange?: (value: string | number) => void;
 }
 
 const Segment = (props: SegmentProps) => {
   const { defaultValue } = props;
   const onChangeHandler = React.useCallback(
-    (value: string) => {
+    (value: string | number) => {
       if (props.onChange) props.onChange(value);
     },
     [props]
@@ -22,9 +22,7 @@ const Segment = (props: SegmentProps) => {
         <button
           key={index}
           onClick={() => onChangeHandler(data)}
-          style={{
-            background: data === defaultValue ? "#0000005c" : "transparent",
-          }}
+          id={data === defaultValue ? css.active : ""}
         >
           {data}
         </button>

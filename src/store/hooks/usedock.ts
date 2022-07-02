@@ -14,9 +14,11 @@ const useDock = () => {
     const updateDockComponent = useCallMemo((payload: string) => {
         dispatch(dock.actions.setDockComponet(payload))
     }, [dockComponetKey])
+
+
     const updateToggleDock = useCallMemo((payload: string) => {
         dispatch(dock.actions.setToggleDock(payload))
-    }, [dockComponetKey])
+    }, [toggleDock])
     // Return Values
     return { updateDockComponent, updateToggleDock, dockComponetKey, toggleDock }
 

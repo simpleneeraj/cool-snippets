@@ -51,3 +51,8 @@ select {
 option {
   font-family: var(--face);
 }
+
+i {
+  display: grid;
+  place-content: center;
+}

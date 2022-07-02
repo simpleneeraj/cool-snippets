@@ -30,7 +30,7 @@ const MainStyle = () => {
         position: relative;
         min-height: 100vh;
         height: 100%;
-        overflow:auto:
+        overflow:auto;
       }
     `}</style>
   );

@@ -1,22 +1,43 @@
 :root {
-  --ui-color: #ffffff;
-  --ui-border-color: #ffffff2e;
-  --ui-outline-color: #ffffff5c;
-  --ui-outline: 1.5px solid #ffffff5c;
-  --ui-border: 1px solid #ffffff2e;
-  --ui-transparent-alpha: rgba(84, 84, 84, 0.251);
-  --ui-transparent-beta: rgba(84, 84, 84, 0.351);
-  --ui-transparent-gamma: rgba(84, 84, 84, 0.451);
+  --face: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+}
 
-  --ui-alpha: rgba(0, 0, 0, 0.4);
-  // FOR DOCK
-  --dock-blur: blur(13px);
-  --dock-color: #ffffff;
-  --dock-background: rgba(84, 84, 84, 0.251);
-  --dock-border-color: #ffffff2e;
-  --dock-border: 1px solid #ffffff2e;
+:root {
+  --ui-alpha-1: rgba(0, 0, 0, 0.1);
+  --ui-alpha-2: rgba(0, 0, 0, 0.2);
+  --ui-alpha-3: rgba(0, 0, 0, 0.3);
+  --ui-alpha-4: rgba(0, 0, 0, 0.4);
+  --ui-alpha-5: rgba(0, 0, 0, 0.5);
+  --ui-alpha-6: rgba(0, 0, 0, 0.6);
+  --ui-alpha-7: rgba(0, 0, 0, 0.7);
+  --ui-alpha-8: rgba(0, 0, 0, 0.8);
+  --ui-alpha-9: rgba(0, 0, 0, 0.9);
+  --ui-alpha-10: rgba(0, 0, 0, 1);
 
-  //
-  --face: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
-    Noto Sans, sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+  --ui-color: rgb(255, 255, 255);
+  --ui-border-color: rgba(255, 255, 255, 0.18);
+  --ui-outline-color: rgba(255, 255, 255, 0.36);
+  --ui-transparent-alpha: rgba(83, 83, 83, 0.251);
+  --ui-transparent-beta: rgba(83, 83, 83, 0.351);
+  --ui-transparent-gamma: rgba(83, 83, 83, 0.451);
+  --ui-outline: 2px solid var(--ui-outline-color);
+  --ui-border: 1px solid var(--ui-border-color);
+  // Varible for Dock
+  --dock-blur: blur(15px);
+  --dock-color: rgb(255, 255, 255);
+  --dock-background: rgba(83, 83, 83, 0.251);
+  --dock-border-color: rgba(255, 255, 255, 0.18);
+  --dock-border: 1px solid var(--dock-border-color);
+  // Variable from dropdown
+  --dropdown-hover: #323232;
+  --dropdown-background: #000000;
+  // For Button
+  --button-color: var(--ui-color);
+  --button-hover: var(--ui-alpha-2);
+  --button-background: var(--ui-alpha-4);
+  --button-outline-color: var(--ui-outline-color);
+
+  // Accent
+  --ui-accent-color: #3f51b5;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import css from "styles/elements.module.scss";
+import css from "styles/button.module.scss";
 
 interface Props extends React.ComponentPropsWithRef<"button"> {
   label: string;

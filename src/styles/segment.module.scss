@@ -1,20 +1,32 @@
+$gapping: 2px;
+
 .content {
+  gap: $gapping;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 4px;
   user-select: none;
+  border-radius: 6px;
+  padding: $gapping;
+  min-height: calc(30px - $gapping);
+  // max-width: calc(120px - $gapping);
+  background: var(--button-background);
   button {
     min-height: 25px;
     min-width: 25px;
     border-radius: 4px;
     font-size: 10px;
+    background: transparent;
     cursor: pointer;
     &:active {
-      transform: translateY(2px);
+      transform: translateY(1px);
     }
     &:hover {
-      box-shadow: 0px 0px 0px 1.5px #ffffff75;
+      background: var(--ui-transparent-gamma);
     }
   }
+}
+
+#active {
+  background-color: var(--ui-accent-color);
 }

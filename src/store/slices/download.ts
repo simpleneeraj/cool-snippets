@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ActionType, DownloadImageTypes } from 'typings/store';
 
 const initialState: DownloadImageTypes = {
-    pixelRatio: '1',
+    pixelRatio: 1,
     imageFormat: 'PNG'
 }
 

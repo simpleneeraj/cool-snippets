@@ -1,5 +1,7 @@
 import React from "react";
 
+
+type ReactNode = React.ReactNode | React.ReactNode[]
 /**************************
 Select State Types
 ***************************/
@@ -14,6 +16,7 @@ Select Types and Props
 interface ListTypes {
     text: any;
     value: any;
+    icon?: ReactNode;
 }
 interface SelectOptionProps {
     children: ListTypes[];
