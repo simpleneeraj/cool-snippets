@@ -16,7 +16,12 @@ const LazyDockAction = () => {
     <React.Fragment>
       {arrayForAction.map(({ icon: SVG, title }, i) => {
         return (
-          <span key={i} title={title} onClick={() => dockApps(title)}>
+          <span
+            key={i}
+            aria-label={title}
+            title={title}
+            onClick={() => dockApps(title)}
+          >
             <i>{<SVG key={i} />}</i>
           </span>
         );
