@@ -18,7 +18,7 @@ const LazyDockAction = () => {
         return (
           <span
             key={i}
-            aria-label={title}
+            aria-hidden="true"
             title={title}
             onClick={() => dockApps(title)}
           >
