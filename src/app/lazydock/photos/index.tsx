@@ -58,7 +58,7 @@ const Picture = (props: PictureProps) => {
 
 const FilePicker = (props: FilePickerProps) => {
   return (
-    <button>
+    <button aria-label="file-picker">
       <input
         id={props.selectID}
         type="file"
