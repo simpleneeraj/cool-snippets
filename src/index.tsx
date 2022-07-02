@@ -18,6 +18,6 @@ const RootApp = () => {
 };
 
 // App Root
-const root = document.getElementById("root") as HTMLElement;
+const root = document.getElementById("__app") as HTMLElement;
 ReactDOM.render(<RootApp />, root);
 // ReactDOM.createRoot(root).render(<RootApp />);
