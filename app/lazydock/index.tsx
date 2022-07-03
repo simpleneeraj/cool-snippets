@@ -4,10 +4,17 @@ import SkeletonLoader from "./loader";
 import css from "styles/dock.module.scss";
 import useDock from "store/hooks/usedock";
 import CloseOutline from "lib/icons/CloseOutline";
+import useKey from "hooks/useKey";
 
-/**************************
- Lazy Loading Components
- ***************************/
+interface DockProps {
+  style: React.CSSProperties;
+}
+interface CloseIconProps {
+  onClick: () => void;
+  visible: boolean;
+}
+
+//Lazy Loading Components
 
 const LazyDockOptions = React.lazy(async () => {
   await delay(1500);
@@ -26,51 +33,71 @@ const LazyDockAction = React.lazy(async () => {
 const LazyDock = () => {
   const { toggleDock, updateToggleDock } = useDock();
 
-  const dockClose = React.useCallback(() => {
+  const dockBarCloseHandler = React.useCallback(() => {
     updateToggleDock(false);
   }, [updateToggleDock]);
 
-  const { backStyle, frontStyle } = dockStyle(toggleDock);
-
+  useKey("Escape", () => dockBarCloseHandler());
+  const { s$b, s$f } = dockStyle(toggleDock);
   return (
-    <div className={css.layer}>
-      {toggleDock && (
-        <button
-          title="close dock bar"
-          onClick={dockClose}
-          className={css.close}
-          aria-label="close dock bar"
-        >
-          <CloseOutline size={20} />
-        </button>
-      )}
-      <div className={css.main}>
+    <div className={css.container}>
+      <CloseIcon visible={toggleDock} onClick={dockBarCloseHandler} />
+      <div className={css.inner}>
         {/* Front */}
-        <div className={css.front} style={frontStyle}>
-          <div className={css.items}>
-            <React.Suspense fallback={<SkeletonLoader />}>
-              <LazyDockAction />
-            </React.Suspense>
-          </div>
-        </div>
+        <DockFront style={s$f} />
+        <DockBack style={s$b} />
         {/* Back */}
-        <div className={css.back} style={backStyle}>
-          <div className={css.items}>
-            <React.Suspense fallback={<SkeletonLoader />}>
-              <LazyDockOptions />
-            </React.Suspense>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 export default LazyDock;
 
+const DockFront = ({ style }: DockProps) => {
+  return (
+    <div className={css.front} style={style}>
+      <div className={css.options}>
+        <React.Suspense fallback={<SkeletonLoader />}>
+          <LazyDockAction />
+          {/* <SkeletonLoader /> */}
+        </React.Suspense>
+      </div>
+    </div>
+  );
+};
+const DockBack = ({ style }: DockProps) => {
+  return (
+    <div className={css.back} style={style}>
+      <div className={css.options}>
+        <React.Suspense fallback={<SkeletonLoader />}>
+          <LazyDockOptions />
+        </React.Suspense>
+      </div>
+    </div>
+  );
+};
+
 const dockStyle = (v: boolean) => {
-  let frontStyle = { transform: `rotateX(${v ? "180deg" : "0deg"})` };
-  let backStyle = {
-    transform: `translateX(-50%) rotateX(${v ? "0deg" : "-180deg"})`,
-  };
-  return { frontStyle, backStyle };
+  const rf = `rotateX(${v ? "180deg" : "0deg"})`;
+  const rb = `rotateX(${v ? "0deg" : "-180deg"}`;
+  let s$f = { transform: rf };
+  let s$b = { transform: `translateX(-50%) ${rb})` };
+  return { s$f, s$b };
+};
+
+const CloseIcon = ({ onClick, visible }: CloseIconProps) => {
+  return (
+    <React.Fragment>
+      {visible && (
+        <button
+          title="close dock bar"
+          onClick={onClick}
+          className={css.close}
+          aria-label="close dock bar"
+        >
+          <CloseOutline size={20} />
+        </button>
+      )}
+    </React.Fragment>
+  );
 };

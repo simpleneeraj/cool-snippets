@@ -12,6 +12,7 @@ const LazyDockAction = () => {
     [updateDockComponent, updateToggleDock]
   );
 
+  // useKey("p", () => dockApps("Download"));
   return (
     <React.Fragment>
       {arrayForAction.map(({ icon: SVG, title }, i) => {

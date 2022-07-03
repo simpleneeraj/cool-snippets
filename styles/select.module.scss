@@ -10,6 +10,32 @@ Select Dropdown
 .dropdown {
   min-height: 30px;
 }
+
+.dropdown select {
+  display: flex;
+  align-items: center;
+  background: var(--button-background);
+  outline: 2px solid transparent;
+  border-radius: 6px;
+  padding: 0.4rem;
+  min-height: 30px;
+  min-width: 120px;
+  max-width: 120px;
+}
+.dropdown option {
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 8px 4px;
+  gap: 0.2rem;
+  font-size: 12px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background: var(--dropdown-hover);
+  }
+}
 // Option List
 .option {
   bottom: 0;
@@ -18,7 +44,7 @@ Select Dropdown
   flex-direction: column;
   bottom: 0;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   border-radius: 6px;
   padding: 2px 0;
   background: var(--dropdown-background);
@@ -68,4 +94,14 @@ Select Dropdown
       border: 2px solid var(--dropdown-hover);
     }
   }
+}
+
+.select:not(:-internal-list-box) {
+  overflow: visible !important;
+}
+.dropdown:not(:-internal-list-box) {
+  overflow: visible !important;
+}
+.option:not(:-internal-list-box) {
+  overflow: visible !important;
 }

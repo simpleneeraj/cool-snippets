@@ -30,7 +30,7 @@ const ReactCodeMirror = forwardRef<ReactCodeMirrorRef, ReactCodeMirrorProps>(
       editable,
       readOnly,
       root,
-      ...other
+      ...rest
     } = props;
     const editor = useRef<HTMLDivElement>(null);
     const { state, view, container, setContainer } = useCodeMirror({
@@ -74,7 +74,7 @@ const ReactCodeMirror = forwardRef<ReactCodeMirrorRef, ReactCodeMirrorProps>(
       <div
         ref={editor}
         className={`${defaultClassNames}${className ? ` ${className}` : ""}`}
-        {...other}
+        {...rest}
       ></div>
     );
   }

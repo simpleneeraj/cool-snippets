@@ -4,10 +4,9 @@ Mixin
 @mixin dock-common {
   display: flex;
   border-radius: 10px;
-  // align-items: center;
   justify-content: space-between;
   backface-visibility: hidden;
-  backdrop-filter: blur(13px);
+  backdrop-filter: blur(15px);
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
   border: var(--dock-border);
@@ -16,11 +15,11 @@ Mixin
   // Height and width
   width: auto;
   min-width: 250px;
-  min-height: 50px;
+  min-height: 60px;
   max-width: 700px;
 }
 
-.layer {
+.container {
   left: 50%;
   bottom: 30px;
   width: 100%;
@@ -33,7 +32,7 @@ Mixin
   transform: translateX(-50%);
 }
 
-.main {
+.inner {
   width: 100%;
   display: flex;
   align-items: center;
@@ -45,33 +44,35 @@ Mixin
 /**************************
 Dock Front 
 ***************************/
-.main .front {
-  @include dock-common();
+.inner .front {
   top: 0;
   left: 0;
   position: relative;
+  @include dock-common();
 }
 /**************************
 Dock Back
 ***************************/
-.main .back {
-  @include dock-common();
+.inner .back {
   top: 0;
   left: 50%;
-  position: fixed;
+  position: absolute;
+  overflow: auto;
+  @include dock-common();
 }
-.items {
+.options {
   gap: 2px;
   display: flex;
   align-items: center;
   max-width: inherit;
 }
-.main .front span {
+.inner .front span {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  min-width: 60px;
+  // width: 50px;
   height: 100%;
   vertical-align: bottom;
   transition: 0.2s;
@@ -123,12 +124,16 @@ Block
   }
 }
 
-@media screen and (max-width: 768px) {
-  .main .front {
+@media screen and (min-width: 10px) and (max-width: 480px) {
+  .inner .front,
+  .inner .back {
+    min-width: unset;
+    // min-height: 50px;
+    max-width: 960%;
+    // width: 100%;
     overflow: auto;
   }
-  // .main .back {
-  //   max-width: 100%;
-  //   overflow: auto;
-  // }
+  .inner .front span {
+    // min-width: 50px;
+  }
 }

@@ -37,11 +37,11 @@ const Center = () => {
                   // @ts-expect-error
                   extensions={[codeMirrorLanguges[mode]()]}
                   basicSetup={{
-                    lineNumbers: lineNumbers,
-                    highlightActiveLineGutter: false,
                     foldGutter: false,
-                    highlightActiveLine: false,
+                    lineNumbers: lineNumbers,
                     autocompletion: false,
+                    highlightActiveLine: false,
+                    highlightActiveLineGutter: false,
                   }}
                 />
               </React.Suspense>

@@ -21,9 +21,9 @@ const useKey = (keyCode: unknown, callback: any) => {
             if (event.key === keyCode) {
                 callbackRef.current(event)
                 // Multiple Keys
-                console.log("Return", event.ctrlKey && event.key === 'Enter');
             }
             // event.preventDefault()
+            console.log("keyCode", event.key);
         }
         document.addEventListener('keydown', keyHandler)
         return () => document.removeEventListener('keydown', keyHandler)

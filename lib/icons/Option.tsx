@@ -3,6 +3,8 @@ interface SVGTYPE extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
   color?: string;
 }
+
+// Alt Reverse
 const Option = (props: SVGTYPE) => {
   const { color = "currentColor", size = "30px" } = props;
   return (

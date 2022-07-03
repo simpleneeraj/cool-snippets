@@ -7,6 +7,7 @@ const LazyDockOptions = () => {
   const filterArray = arrayForRender.filter(
     (data) => data.title === dockComponetKey
   );
+
   return (
     <React.Fragment>
       {filterArray.map(({ Component }, index) => (

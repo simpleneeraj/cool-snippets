@@ -1,16 +1,13 @@
 import React from "react";
+import CodeApp from "app";
 import NextSeo from "layout/seo";
 import type { NextPage } from "next";
-import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
     <React.Fragment>
       <NextSeo />
-      {/* <CodeApp /> */}
-      <h1>
-        <Link href={"/app"}>Go To App</Link>
-      </h1>
+      <CodeApp />
     </React.Fragment>
   );
 };

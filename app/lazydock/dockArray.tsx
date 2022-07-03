@@ -6,6 +6,7 @@ import { SVGTYPE } from "typings/app";
 import Options from "lib/icons/Options";
 import PageFit from "lib/icons/PageFit";
 import TextField from "lib/icons/TextField";
+import AppRecent from "lib/icons/AppRecent";
 import PaintBrush from "lib/icons/PaintBrush";
 import ImageOutline from "lib/icons/ImageOutline";
 import ColorBackground from "lib/icons/ColorBackground";
@@ -51,47 +52,52 @@ const PreferencesOptions = React.lazy(async () => {
 
 const DockComponentArray = [
   {
+    title: "Templates",
+    component: () => <CanvasOptions />,
+    icon: (props: SVGTYPE) => <AppRecent size={28} {...props} />,
+  },
+  {
     title: "Canvas",
     component: () => <CanvasOptions />,
-    icon: (props: SVGTYPE) => <PageFit size={25} {...props} />,
+    icon: (props: SVGTYPE) => <PageFit size={28} {...props} />,
   },
   {
     title: "Editor",
     component: () => <EditorOptions />,
-    icon: (props: SVGTYPE) => <BroadActivityFeed size={23} {...props} />,
+    icon: (props: SVGTYPE) => <BroadActivityFeed size={28} {...props} />,
   },
   {
     title: "Text",
     component: () => <TextOptions />,
-    icon: (props: SVGTYPE) => <TextField size={25} {...props} />,
+    icon: (props: SVGTYPE) => <TextField size={28} {...props} />,
   },
 
   {
     title: "Preference",
     component: () => <PreferencesOptions />,
-    icon: (props: SVGTYPE) => <PaintBrush size={24} {...props} />,
+    icon: (props: SVGTYPE) => <PaintBrush size={28} {...props} />,
   },
 
   {
     title: "Photos",
     component: () => <PhotosOptions />,
-    icon: (props: SVGTYPE) => <ImageOutline size={24} {...props} />,
+    icon: (props: SVGTYPE) => <ImageOutline size={28} {...props} />,
   },
   {
     title: "Colors",
     component: () => <ColorsOptions />,
-    icon: (props: SVGTYPE) => <ColorBackground size={24} {...props} />,
+    icon: (props: SVGTYPE) => <ColorBackground size={28} {...props} />,
   },
   {
     title: "Download",
     component: () => <DownloadOptions />,
-    icon: (props: SVGTYPE) => <ArrowDownCircleOutline size={25} {...props} />,
+    icon: (props: SVGTYPE) => <ArrowDownCircleOutline size={28} {...props} />,
   },
-  //   {
-  //     title: "Settings",
-  //     component: () => <SettingsOptions />,
-  //     icon: (props: SVGTYPE) => <Options size={25} {...props} />,
-  //   },
+  {
+    title: "Settings",
+    component: () => <SettingsOptions />,
+    icon: (props: SVGTYPE) => <Options size={28} {...props} />,
+  },
 ];
 
 /**************************

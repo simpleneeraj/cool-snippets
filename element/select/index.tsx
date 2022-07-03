@@ -63,7 +63,30 @@ const Select = (props: SelectOptionProps) => {
   return (
     <div className={css.select}>
       <div className={css.dropdown} ref={wrapperRef}>
-        <Button
+        <select onChange={(e) => onClickList(e.target.value)}>
+          {dataArray.map(({ text, value, icon }, index) => (
+            <option
+              title={text}
+              key={index}
+              style={{
+                background: "#000",
+              }}
+              className={css.list}
+              value={value}
+            >
+              {text}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};
+
+export default Select;
+
+/**
+ *     <Button
           onClick={openModelhandler}
           label={selectedValue}
           icon={<ChevronUp size={14} />}
@@ -91,9 +114,4 @@ const Select = (props: SelectOptionProps) => {
             <div></div>
           </div>
         ) : null}
-      </div>
-    </div>
-  );
-};
-
-export default Select;
+ */

@@ -1,8 +1,6 @@
 import * as React from "react";
-interface SVGTYPE extends React.SVGProps<SVGSVGElement> {
-  size?: number | string;
-  color?: string;
-}
+import { SVGTYPE } from "typings/app";
+
 const BroadActivityFeed = (props: SVGTYPE) => {
   const { color = "currentColor", size = "30px" } = props;
   return (

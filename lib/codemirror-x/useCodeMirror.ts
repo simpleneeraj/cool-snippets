@@ -87,7 +87,6 @@ export function useCodeMirror(props: UseCodeMirror) {
       break;
     case 'dark':
       getExtensions.push(defaultLightThemeOption);
-      // getExtensions.push(oneDark);
       break;
     default:
       getExtensions.push(theme);
@@ -129,7 +128,7 @@ export function useCodeMirror(props: UseCodeMirror) {
         setView(undefined);
       }
     };
-  }, [container, getExtensions, root, selection, state, value, view]);
+  }, [container, state]);
 
   useEffect(() => setContainer(props.container!), [props.container]);
 
