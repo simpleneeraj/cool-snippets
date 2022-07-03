@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  min-height: 26.29px;
+  button {
+    background: #00000080;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    padding: 0;
+    width: 2rem;
+    min-height: 1rem;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 200ms ease-in;
+  }
+  span {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 100%;
+
+    position: absolute;
+    transition: all 200ms ease-in;
+    transform: translateX(0px);
+  }
+}

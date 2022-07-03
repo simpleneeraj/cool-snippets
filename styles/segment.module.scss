@@ -1,0 +1,32 @@
+$gapping: 2px;
+
+.content {
+  gap: $gapping;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  border-radius: 6px;
+  padding: $gapping;
+  min-height: calc(30px - $gapping);
+  // max-width: calc(120px - $gapping);
+  background: var(--button-background);
+  button {
+    min-height: 25px;
+    min-width: 25px;
+    border-radius: 4px;
+    font-size: 10px;
+    background: transparent;
+    cursor: pointer;
+    &:active {
+      transform: translateY(1px);
+    }
+    &:hover {
+      background: var(--ui-transparent-gamma);
+    }
+  }
+}
+
+#active {
+  background-color: var(--ui-accent-color);
+}
