@@ -9,7 +9,7 @@ import { ActionType, BackgroundTypes } from 'typings/store';
 const initialState: BackgroundTypes = {
     padding: 20,
     source: 'images/f0e6c3c11404fb32f192080ded740818.jpg',
-    aspectRatio: `16:9`,
+    aspectRatio: `1:1`,
 }
 
 const background = createSlice({

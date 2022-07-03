@@ -4,7 +4,7 @@ import { ActionType, PostTypes, } from 'typings/store';
 const initialState: PostTypes = {
     cornerRadius: 15,
     blurRadius: 20,
-    alpha: 0.5
+    alpha: 0.6
 }
 
 const post = createSlice({
