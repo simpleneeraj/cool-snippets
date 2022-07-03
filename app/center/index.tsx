@@ -11,7 +11,7 @@ import codeMirrorThemes from "lib/codemirror-themes";
 import usePreference from "store/hooks/usepreference";
 
 const CodeMirror = React.lazy(async () => {
-  delay(2000);
+  delay(3000);
   return await import("lib/codemirror-x");
 });
 const Center = () => {
