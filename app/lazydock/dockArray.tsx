@@ -3,92 +3,51 @@ import delay from "lib/delay";
 import { SVGTYPE } from "typings/app";
 
 // Icons
+import Options from "lib/icons/Options";
 import PageFit from "lib/icons/PageFit";
 import TextField from "lib/icons/TextField";
+import PaintBrush from "lib/icons/PaintBrush";
+import ImageOutline from "lib/icons/ImageOutline";
 import ColorBackground from "lib/icons/ColorBackground";
 import BroadActivityFeed from "lib/icons/BroadActivityFeed";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
-import PaintBrush from "lib/icons/PaintBrush";
-import ImageOutline from "lib/icons/ImageOutline";
-import Options from "lib/icons/Options";
-import dynamic from "next/dynamic";
 
 const ms = 1000;
 // Lazy Load Components
-const TextOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./text");
-  },
-  {
-    suspense: true,
-  }
-);
-const PostOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./post");
-  },
-  {
-    suspense: true,
-  }
-);
-const ColorsOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./colors");
-  },
-  {
-    suspense: true,
-  }
-);
-const CanvasOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./canvas");
-  },
-  {
-    suspense: true,
-  }
-);
+const TextOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./text");
+});
+const PostOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./post");
+});
+const ColorsOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./colors");
+});
+const CanvasOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./canvas");
+});
 
-const PhotosOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./photos");
-  },
-  {
-    suspense: true,
-  }
-);
+const PhotosOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./photos");
+});
 
-const DownloadOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./download");
-  },
-  {
-    suspense: true,
-  }
-);
-const SettingsOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./settings");
-  },
-  {
-    suspense: true,
-  }
-);
-const PreferencesOptions = dynamic(
-  async () => {
-    await delay(ms);
-    return await import("./preference");
-  },
-  {
-    suspense: true,
-  }
-);
+const DownloadOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./download");
+});
+const SettingsOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./settings");
+});
+const PreferencesOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./preference");
+});
 
 const DockComponentArray = [
   {

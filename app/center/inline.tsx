@@ -11,7 +11,7 @@ const backgroundFilter = (value: string) => {
 };
 
 const InlineStyle = () => {
-  const aspectWidth = 600;
+  const aspectWidth = 512;
   const { padding } = useBackground();
   const { letterSpacing, lineHeight } = useText();
   const { source, aspectRatio } = useBackground();
@@ -22,7 +22,7 @@ const InlineStyle = () => {
   return (
     <style>
       {`
-          .ͼ1.cm-editor {
+          .cm-editor {
             padding: 1rem;
             background: #0000 !important;
             height:auto ;
@@ -39,6 +39,18 @@ const InlineStyle = () => {
             font-weight: ${fontWeight};
             letter-spacing: ${letterSpacing}px;
             background: unset !important;
+          }
+          .ͼ1 .cm-content{
+            margin: 0;
+            flex-grow: 2;
+            min-height: 100%;
+            display: block;
+            word-wrap: normal;
+            box-sizing: border-box;
+            padding: 4px 0;
+            outline: none;
+            flex-shrink: initial;
+            white-space: initial;
           }
           .watermark {
             left: 50%;

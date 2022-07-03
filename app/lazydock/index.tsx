@@ -1,10 +1,9 @@
-import React, { Suspense } from "react";
+import React from "react";
 import delay from "lib/delay";
 import SkeletonLoader from "./loader";
 import css from "styles/dock.module.scss";
 import useDock from "store/hooks/usedock";
 import CloseOutline from "lib/icons/CloseOutline";
-import dynamic from "next/dynamic";
 
 /**************************
  Lazy Loading Components
@@ -12,7 +11,7 @@ import dynamic from "next/dynamic";
 
 const LazyDockOptions = React.lazy(async () => {
   await delay(1500);
-  return await import("app/lazydock/lazyoptions");
+  return await import("./lazyoptions");
 });
 
 const LazyDockAction = React.lazy(async () => {
@@ -49,17 +48,17 @@ const LazyDock = () => {
         {/* Front */}
         <div className={css.front} style={frontStyle}>
           <div className={css.items}>
-            <Suspense fallback={<SkeletonLoader />}>
+            <React.Suspense fallback={<SkeletonLoader />}>
               <LazyDockAction />
-            </Suspense>
+            </React.Suspense>
           </div>
         </div>
         {/* Back */}
         <div className={css.back} style={backStyle}>
           <div className={css.items}>
-            <Suspense fallback={<SkeletonLoader />}>
+            <React.Suspense fallback={<SkeletonLoader />}>
               <LazyDockOptions />
-            </Suspense>
+            </React.Suspense>
           </div>
         </div>
       </div>
