@@ -10,12 +10,12 @@ import dynamic from "next/dynamic";
  Lazy Loading Components
  ***************************/
 
-const LazyDockOptions = dynamic(async () => {
+const LazyDockOptions = React.lazy(async () => {
   await delay(1500);
   return await import("app/lazydock/lazyoptions");
 });
 
-const LazyDockAction = dynamic(async () => {
+const LazyDockAction = React.lazy(async () => {
   await delay(2000);
   return await import("./dockaction");
 });
