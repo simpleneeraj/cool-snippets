@@ -1,27 +1,34 @@
+$gapping: 4px;
+
 .container {
   display: flex;
-  align-items: center;
-  min-height: 26.29px;
+  border-radius: 6px;
+  height: 30px;
+  min-width: 70px;
+  max-width: 70px;
+  background: var(--button-background);
   button {
-    background: #00000080;
     display: flex;
     align-items: center;
-    border-radius: 15px;
-    padding: 0;
-    width: 2rem;
-    min-height: 1rem;
     user-select: none;
     cursor: pointer;
     position: relative;
+    background: transparent;
     transition: all 200ms ease-in;
+    width: 100%;
   }
   span {
-    height: 1rem;
-    width: 1rem;
-    border-radius: 100%;
-
+    left: 0;
+    width: 50%;
+    display: grid;
     position: absolute;
-    transition: all 200ms ease-in;
-    transform: translateX(0px);
+    border-radius: 6px;
+    height: 100%;
+    place-content: center;
+    transition: all 200ms ease;
+  }
+
+  i {
+    transition: all 200ms ease;
   }
 }

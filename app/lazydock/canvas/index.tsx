@@ -5,11 +5,15 @@ import useBackground from "store/hooks/usebackground";
 import RangeSlider from "element/range";
 import LogoInstagram from "lib/icons/LogoInstagram";
 import LogoTwitter from "lib/icons/LogoTwitter";
+import Toggle from "element/toggle";
 
 const CanvasOptions = () => {
   const { setRatio, setPadding, padding, aspectRatio } = useBackground();
   return (
     <React.Fragment>
+      <OptionsWraper title={`Acrlic Effect`}>
+        <Toggle onChange={(v) => v} defaultValue={false} />
+      </OptionsWraper>
       <OptionsWraper title={`Padding ${padding}px`}>
         <RangeSlider
           type="range"

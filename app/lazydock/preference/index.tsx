@@ -6,6 +6,7 @@ import useText from "store/hooks/usetext";
 import toCapitalize from "lib/toCapitalize";
 import { themesList } from "lib/codemirror-themes";
 import { languageList } from "lib/codemirror-langs";
+import Toggle from "element/toggle";
 
 const PreferencesOptions = () => {
   const {
@@ -22,11 +23,11 @@ const PreferencesOptions = () => {
   return (
     <React.Fragment>
       <OptionsWraper title={"Line Numbers"}>
-        {/* <Toggle
+        <Toggle
           onChange={(v) => linenumberHandler(v)}
           defaultValue={lineNumbers}
-        /> */}
-        <Select
+        />
+        {/* <Select
           defaultValue={`${lineNumbers}`}
           onChange={(value) => linenumberHandler(value)}
           array={[true, false].map((d) => {
@@ -35,7 +36,7 @@ const PreferencesOptions = () => {
               value: d,
             };
           })}
-        />
+        /> */}
       </OptionsWraper>
       <OptionsWraper title={"Theme"}>
         <Select

@@ -51,6 +51,7 @@ export default PhotosOptions;
 const Picture = (props: PictureProps) => {
   return (
     <div onClick={props.onClick} className={css.picture}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={props.source} alt="images" />
     </div>
   );

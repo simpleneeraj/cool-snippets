@@ -18,7 +18,7 @@ const TextOptions = React.lazy(async () => {
   await delay(ms);
   return await import("./text");
 });
-const PostOptions = React.lazy(async () => {
+const EditorOptions = React.lazy(async () => {
   await delay(ms);
   return await import("./post");
 });
@@ -56,6 +56,23 @@ const DockComponentArray = [
     icon: (props: SVGTYPE) => <PageFit size={25} {...props} />,
   },
   {
+    title: "Editor",
+    component: () => <EditorOptions />,
+    icon: (props: SVGTYPE) => <BroadActivityFeed size={23} {...props} />,
+  },
+  {
+    title: "Text",
+    component: () => <TextOptions />,
+    icon: (props: SVGTYPE) => <TextField size={25} {...props} />,
+  },
+
+  {
+    title: "Preference",
+    component: () => <PreferencesOptions />,
+    icon: (props: SVGTYPE) => <PaintBrush size={24} {...props} />,
+  },
+
+  {
     title: "Photos",
     component: () => <PhotosOptions />,
     icon: (props: SVGTYPE) => <ImageOutline size={24} {...props} />,
@@ -64,21 +81,6 @@ const DockComponentArray = [
     title: "Colors",
     component: () => <ColorsOptions />,
     icon: (props: SVGTYPE) => <ColorBackground size={24} {...props} />,
-  },
-  {
-    title: "Preference",
-    component: () => <PreferencesOptions />,
-    icon: (props: SVGTYPE) => <PaintBrush size={24} {...props} />,
-  },
-  {
-    title: "Text",
-    component: () => <TextOptions />,
-    icon: (props: SVGTYPE) => <TextField size={25} {...props} />,
-  },
-  {
-    title: "Post",
-    component: () => <PostOptions />,
-    icon: (props: SVGTYPE) => <BroadActivityFeed size={23} {...props} />,
   },
   {
     title: "Download",

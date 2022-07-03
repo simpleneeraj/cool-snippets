@@ -13,17 +13,25 @@ const Toggle = (props: ToggleProps) => {
 
   const toggleStyle = {
     span: {
-      transform: `translateX(${defaultValue ? "1rem" : "0px"})`,
-      background: defaultValue ? `rgb(0, 186, 124)` : `#ffffff`,
+      transform: `translateX(${defaultValue ? "100%" : "0%"})`,
+      background: defaultValue ? `#03A9F4` : `var(--button-color)`,
     },
-    button: {
-      // background: defaultValue ? `#ffffff` : `#00000080`,
-    },
+    i: {
+      height: "11px",
+      width: `${defaultValue ? "0px" : "11px"}`,
+      borderRadius: `${defaultValue ? "10px" : "100px"}`,
+      borderWidth: defaultValue ? `1px` : `2px`,
+      borderColor: defaultValue ? `var(--button-color)` : `#1d232a`,
+      borderStyle: "solid",
+      backgroundColor: defaultValue ? "var(--button-color)" : "transparent",
+    } as React.CSSProperties,
   };
   return (
     <div onClick={onToggle} className={css.container}>
-      <button aria-label="toggle" style={toggleStyle.button}>
-        <span style={toggleStyle.span}></span>
+      <button aria-label="toggle">
+        <span style={toggleStyle.span}>
+          <i style={toggleStyle.i}></i>
+        </span>
       </button>
     </div>
   );

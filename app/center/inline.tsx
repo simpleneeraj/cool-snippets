@@ -24,13 +24,13 @@ const InlineStyle = () => {
       {`
           .cm-editor {
             padding: 1rem;
-            background: #0000 !important;
             height:auto ;
             min-height:unset ;
             max-height:unset ;
             width: 100%;
             min-width: unset;
             max-width: 100%;
+            // background: #0000 !important;
           }
           .cm-line {
             font-size: ${fontSize}px;
