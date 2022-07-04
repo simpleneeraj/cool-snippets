@@ -6,10 +6,10 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const abcdef = createTheme({
+const abcdef = (alpha: number | string) => createTheme({
   theme: 'dark',
   settings: {
-    background: '#0f0f0f',
+    background: `rgb(15 ,15 ,15, ${alpha})`,
     foreground: '#defdef',
     caret: '#00FF00',
     selection: '#515151',
@@ -37,4 +37,8 @@ export const abcdef = createTheme({
     { tag: t.heading, color: 'aquamarine', fontWeight: 'bold' },
     { tag: t.link, color: 'blueviolet', fontWeight: 'bold' },
   ],
+
 });
+
+
+export default abcdef

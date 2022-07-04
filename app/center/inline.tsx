@@ -30,7 +30,7 @@ const InlineStyle = () => {
             width: 100%;
             min-width: unset;
             max-width: 100%;
-            background: #0000 !important;
+            // background: #0000 !important;
           }
           .cm-line {
             font-size: ${fontSize}px;

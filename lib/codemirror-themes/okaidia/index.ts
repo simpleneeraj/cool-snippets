@@ -1,10 +1,10 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const okaidia = createTheme({
+const okaidia = (alpha: string | number) => createTheme({
   theme: 'dark',
   settings: {
-    background: '#272822',
+    background: `rgba(39,40,34,${alpha})`,
     foreground: '#FFFFFF',
     caret: '#FFFFFF',
     selection: '#49483E',
@@ -48,3 +48,6 @@ export const okaidia = createTheme({
     },
   ],
 });
+
+
+export default okaidia;

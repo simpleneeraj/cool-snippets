@@ -5,7 +5,8 @@ import { ActionType, PreferenceTypes } from "typings/store";
 const initialState: PreferenceTypes = {
     mode: "javascript",
     theme: "dracula",
-    lineNumbers: false
+    lineNumbers: false,
+    autoCompletion: false
 }
 
 /**************************
@@ -23,6 +24,9 @@ const preference = createSlice({
         },
         isLinenumbers: (state: PreferenceTypes, action: ActionType) => {
             state.lineNumbers = action.payload
+        },
+        autoCompletion: (state: PreferenceTypes, action: ActionType) => {
+            state.autoCompletion = action.payload
         },
     }
 })

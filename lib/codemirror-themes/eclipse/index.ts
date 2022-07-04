@@ -1,10 +1,10 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const eclipse = createTheme({
+const eclipse = (alpha: string | number) => createTheme({
   theme: 'light',
   settings: {
-    background: '#fff',
+    background: `rgba(255,255,255,${alpha})`,
     foreground: '#000',
     caret: '#FFFFFF',
     selection: '#d7d4f0',
@@ -29,3 +29,6 @@ export const eclipse = createTheme({
     { tag: t.link, color: '#219' },
   ],
 });
+
+
+export default eclipse;

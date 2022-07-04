@@ -7,7 +7,7 @@ import _preference from 'store/selector/_preference';
 
 
 const usePreference = () => {
-    const { lineNumbers, mode, theme } = useAppSelector(_preference)
+    const { lineNumbers, mode, theme, autoCompletion } = useAppSelector(_preference)
     const dispatch = useAppDispatch()
     // Select Mode Handler
     const onSelectMode = useCallMemo((payload: string) => {
@@ -21,14 +21,21 @@ const usePreference = () => {
     const linenumberHandler = useCallMemo((payload: boolean) => {
         dispatch(preference.actions.isLinenumbers(payload))
     }, [lineNumbers])
+
+    // autocompletion
+    const autoCompletionHandler = useCallMemo((payload: boolean) => {
+        dispatch(preference.actions.autoCompletion(payload))
+    }, [lineNumbers])
     // Return Values
     return {
         mode,
         theme,
         lineNumbers,
+        autoCompletion,
         onSelectMode,
         onSelectTheme,
         linenumberHandler,
+        autoCompletionHandler
     }
 }
 export default usePreference;

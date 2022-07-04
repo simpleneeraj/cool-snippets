@@ -1,19 +1,20 @@
-import { abcdef } from "./abcdef";
-import { basicDark } from "./basic-dark";
-import { basicLight } from "./basic-light";
-import { bespin } from "./bespin";
-import { dracula } from "./dracula";
+
+import nord from "./nord";
+import abcdef from "./abcdef";
+import bespin from "./bespin";
+import dracula from "./dracula";
+import eclipse from "./eclipse";
+import sublime from "./sublime";
+import okaidia from "./okaidia";
+import oneDark from "./one-dark";
+import basicDark from "./basic-dark";
+import basicLight from "./basic-light";
+import gruvboxDark from "./gruvbox-dark";
+import gruvboxLight from "./gruvbox-light";
+import materialDark from "./material-dark";
+import solarizedDark from "./solarized-dark";
+import solarizedLight from "./solarized-light";
 import { duotoneDark, duotoneLight } from "./duotone";
-import { eclipse } from "./eclipse";
-import { gruvboxDark } from "./gruvbox-dark";
-import { gruvboxLight } from "./gruvbox-light";
-import { materialDark } from "./material-dark";
-import { nord } from "./nord";
-import { okaidia } from "./okaidia";
-import { oneDarkTheme } from "./one-dark";
-import { solarizedDark } from "./solarized-dark";
-import { solarizedLight } from "./solarized-light";
-import { sublime } from "./sublime";
 
 const codeMirrorThemes = {
     "abcdef": abcdef,
@@ -29,7 +30,7 @@ const codeMirrorThemes = {
     "material-dark": materialDark,
     "nord": nord,
     "okaidia": okaidia,
-    "one-dark": oneDarkTheme,
+    "one-dark": oneDark,
     "solarized-dark": solarizedDark,
     "solarized-light": solarizedLight,
     "sublime": sublime,

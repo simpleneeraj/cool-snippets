@@ -16,6 +16,8 @@ const PreferencesOptions = () => {
     onSelectTheme,
     onSelectMode,
     linenumberHandler,
+    autoCompletionHandler,
+    autoCompletion,
   } = usePreference();
 
   const { fontFaceHandler, fontFace } = useText();
@@ -27,16 +29,12 @@ const PreferencesOptions = () => {
           onChange={(v) => linenumberHandler(v)}
           defaultValue={lineNumbers}
         />
-        {/* <Select
-          defaultValue={`${lineNumbers}`}
-          onChange={(value) => linenumberHandler(value)}
-          array={[true, false].map((d) => {
-            return {
-              text: `${d}`,
-              value: d,
-            };
-          })}
-        /> */}
+      </OptionsWraper>
+      <OptionsWraper title={"Auto Completion"}>
+        <Toggle
+          onChange={(v) => autoCompletionHandler(v)}
+          defaultValue={autoCompletion}
+        />
       </OptionsWraper>
       <OptionsWraper title={"Theme"}>
         <Select
@@ -110,6 +108,12 @@ const fontFaces = [
   },
   {
     text: "OperatorMono",
+    get value() {
+      return this.text;
+    },
+  },
+  {
+    text: "OperatorMono Italic",
     get value() {
       return this.text;
     },

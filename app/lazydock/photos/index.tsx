@@ -7,8 +7,8 @@ import useImages from "store/hooks/useImages";
 import ListView from "lib/list-view";
 
 interface FilePickerProps extends React.ComponentPropsWithoutRef<"input"> {
-  inputRef: any;
-  selectID: string;
+  inputref: any;
+  selectid: string;
   icon: React.ReactNode | React.ReactNode[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -28,8 +28,8 @@ const PhotosOptions = () => {
         <div className={css.local}>
           <FilePicker
             onChange={onFilePicker}
-            inputRef={inputRef}
-            selectID={"back"}
+            inputref={inputRef}
+            selectid={"back"}
             accept="image/*"
             icon={<PlusSquareDashed size={40} />}
           />
@@ -61,13 +61,13 @@ const FilePicker = (props: FilePickerProps) => {
   return (
     <button aria-label="file-picker">
       <input
-        id={props.selectID}
+        id={props.selectid}
         type="file"
         style={{ display: "none" }}
         multiple
         {...props}
       />
-      <label htmlFor={props.selectID}>{props.icon}</label>
+      <label htmlFor={props.selectid}>{props.icon}</label>
     </button>
   );
 };

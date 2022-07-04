@@ -1,10 +1,10 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const sublime = createTheme({
+const sublime = (alpha: string | number) => createTheme({
   theme: 'dark',
   settings: {
-    background: '#303841',
+    background: `rgba(48,56,65,${alpha})`,
     foreground: '#FFFFFF',
     caret: '#FBAC52',
     selection: '#4C5964',
@@ -26,3 +26,6 @@ export const sublime = createTheme({
     { tag: [t.atom, t.bool, t.special(t.variableName)], color: '#E35F63' },
   ],
 });
+
+
+export default sublime;

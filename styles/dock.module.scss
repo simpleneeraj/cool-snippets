@@ -57,7 +57,6 @@ Dock Back
   top: 0;
   left: 50%;
   position: absolute;
-  overflow: auto;
   @include dock-common();
 }
 .options {
@@ -124,16 +123,16 @@ Block
   }
 }
 
-@media screen and (min-width: 10px) and (max-width: 480px) {
-  .inner .front,
-  .inner .back {
-    min-width: unset;
-    // min-height: 50px;
-    max-width: 960%;
-    // width: 100%;
-    overflow: auto;
-  }
-  .inner .front span {
-    // min-width: 50px;
-  }
-}
+// @media screen and (min-width: 10px) and (max-width: 480px) {
+//   .inner .front,
+//   .inner .back {
+//     min-width: unset;
+//     // min-height: 50px;
+//     max-width: 960%;
+//     // width: 100%;
+//     overflow: auto;
+//   }
+//   .inner .front span {
+//     // min-width: 50px;
+//   }
+// }

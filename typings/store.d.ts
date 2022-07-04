@@ -32,7 +32,8 @@ interface DockTypes {
 interface PreferenceTypes {
     theme: string;
     mode: string;
-    lineNumbers: boolean
+    lineNumbers: boolean;
+    autoCompletion: boolean;
 }
 // Text Types
 interface TextTypes {

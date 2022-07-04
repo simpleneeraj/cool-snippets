@@ -8,10 +8,12 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const bespin = createTheme({
+
+
+const bespin = (alpha: number | string) => createTheme({
   theme: 'dark',
   settings: {
-    background: '#28211c',
+    background: `rgba(40, 33, 28, ${alpha})`,
     foreground: '#9d9b97',
     caret: '#797977',
     selection: '#36312e',
@@ -32,3 +34,5 @@ export const bespin = createTheme({
     { tag: [t.propertyName, t.attributeName], color: '#54be0d' },
   ],
 });
+
+export default bespin;

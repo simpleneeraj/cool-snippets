@@ -1,7 +1,31 @@
 import Head from "next/head";
 import React from "react";
 
-const NextSeo = () => {
+interface MetaProps extends React.PropsWithChildren<{}> {
+  title: string | undefined;
+  description: string;
+  thumbnail?: string;
+  themeColor?: string;
+  canonicalUrl?: string;
+  largeThumbnail?: string;
+  homeUrl?: string;
+  keywords?: string;
+  twitterUsername?: string;
+}
+
+const NextSeo = (props: MetaProps) => {
+  const loading = "Loading...";
+  const {
+    title = loading,
+    description = loading,
+    thumbnail = "",
+    themeColor = "#000000",
+    canonicalUrl = ``,
+    homeUrl = ``,
+    largeThumbnail,
+    keywords,
+    twitterUsername,
+  } = props;
   return (
     <Head>
       <meta charSet="utf-8" />
@@ -10,7 +34,7 @@ const NextSeo = () => {
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <meta name="theme-color" content="#000000" />
+      <meta name="theme-color" content={themeColor} />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -99,68 +123,26 @@ const NextSeo = () => {
         href="icons/favicon-128.png"
         sizes="128x128"
       />
-      <meta name="msapplication-TileColor" content="#FFFFFF" />
-      <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-      <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-      <meta
-        name="msapplication-square150x150logo"
-        content="mstile-150x150.png"
-      />
-      <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-      <meta
-        name="msapplication-square310x310logo"
-        content="mstile-310x310.png"
-      />
-      <link rel="manifest" href="manifest.json" />
-      <meta name="mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="application-name" content="Beautiful Code" />
-      <meta name="apple-mobile-web-app-title" content="Beautiful Code" />
-      <meta name="theme-color" content="#000" />
-      <meta name="msapplication-navbutton-color" content="#000" />
-      <meta
-        name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent"
-      />
-      <meta name="msapplication-starturl" content="/" />
-
-      <link rel="icon" href="icons/android-chrome-192x192.png" />
       <link rel="apple-touch-icon" href="icons/android-chrome-192x192.png" />
-      {/* <!-- Primary Meta Tags --> */}
-      <title>Beautiful Code Snippets Generator | Free</title>
-      <meta name="title" content="Beautiful Code Snippets Generator | Free" />
-      <meta
-        name="description"
-        content="Turn your code into beautiful images. 
-      With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
-      />
-
-      {/* <!-- Open Graph / Facebook --> */}
+      {/* Title */}
+      <title>{title}</title>
+      <meta name="og:title" content={title} />
+      {/* Description */}
+      <meta name="description" content={description} />
+      <meta property="og:description" content={description} />
+      {/* Image */}
+      <meta name="twitter:image" content={thumbnail} />
+      <meta property="og:image" content={thumbnail} />
+      {/* URL */}
+      <meta property="og:url" content={homeUrl} />
+      <meta name="twitter:site" content={twitterUsername} />
+      <link rel="canonical" href={canonicalUrl} />
+      {/* General */}
+      <meta name="keywords" content={keywords} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://code.icanpost.app/" />
-      <meta
-        property="og:title"
-        content="Beautiful Code Snippets Generator | Free"
-      />
-      <meta
-        property="og:description"
-        content="Turn your code into beautiful images. 
-      With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
-      />
-      <meta property="og:image" content="images/cover-1.webp" />
-      {/* <!-- Twitter --> */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://code.icanpost.app/" />
-      <meta
-        property="twitter:title"
-        content="Beautiful Code Snippets Generator | Free"
-      />
-      <meta
-        property="twitter:description"
-        content="Turn your code into beautiful images. 
-      With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
-      />
-      <meta property="twitter:image" content="cover-1.webp" />
+      <meta name="twitter:card" content={largeThumbnail} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {props.children}
     </Head>
   );
 };

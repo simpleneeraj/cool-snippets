@@ -6,10 +6,13 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
-export const duotoneLight = createTheme({
+
+
+
+export const duotoneLight = (alpha: string | number) => createTheme({
   theme: 'light',
   settings: {
-    background: '#faf8f5',
+    background: `rgba(250, 248, 245,${alpha})`,
     foreground: '#b29762',
     caret: '#93abdc',
     selection: '#e3dcce',
@@ -29,10 +32,10 @@ export const duotoneLight = createTheme({
   ],
 });
 
-export const duotoneDark = createTheme({
+export const duotoneDark = (alpha: string | number) => createTheme({
   theme: 'dark',
   settings: {
-    background: '#2a2734',
+    background: `rgba(42, 39, 52,${alpha})`,
     foreground: '#6c6783',
     caret: '#ffad5c',
     selection: 'rgba(255, 255, 255, 0.1)',

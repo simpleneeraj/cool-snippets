@@ -1,6 +1,6 @@
 import gradient from "lib/gradient";
 import ListView from "lib/list-view";
-import solidColor from "lib/solidColor";
+import solidColor, { gradientFromUI } from "lib/solidColor";
 import css from "styles/photos.module.scss";
 import useBackground from "store/hooks/usebackground";
 import CheckmarkCircleOutline from "lib/icons/CheckmarkCircleOutline";
@@ -8,7 +8,7 @@ import React from "react";
 
 const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
-const sortedArray = [...solidColor, ...sortedGradients];
+const sortedArray = [...solidColor, ...sortedGradients, ...gradientFromUI];
 
 const ColorsOption = () => {
   const { setBackground, source: gradientValue } = useBackground();

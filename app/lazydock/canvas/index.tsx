@@ -1,14 +1,13 @@
 import React from "react";
 import OptionsWraper from "../wraper";
 import Select from "element/select";
+import Toggle from "element/toggle";
 import useBackground from "store/hooks/usebackground";
 import RangeSlider from "element/range";
-import LogoInstagram from "lib/icons/LogoInstagram";
-import LogoTwitter from "lib/icons/LogoTwitter";
-import Toggle from "element/toggle";
 
 const CanvasOptions = () => {
   const { setRatio, setPadding, padding, aspectRatio } = useBackground();
+
   return (
     <React.Fragment>
       <OptionsWraper title={`Acrlic Effect`}>
@@ -36,36 +35,52 @@ const CanvasOptions = () => {
 };
 export default CanvasOptions;
 
+/**
+ * Landscape: 1080 x 566 pixels
+Portrait: 1080 x 1350 pixels
+Square: 1080 x 1080 pixels
+Aspect ratio: landscape (1.91:1), square (1:1), vertical (4:5)
+Square
+Portrait
+Vertical
+Landscape
+ */
 const aspectRatioArray = [
   {
-    name: "Square",
+    name: "Instagram ",
     ratio: "1:1",
-    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Portrait",
+    name: "Instagram ",
     ratio: "4:5",
-    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Story",
+    name: "Instagram ",
     ratio: "9:16",
-    icon: <LogoInstagram size={14} />,
+  },
+  {
+    name: "Instagram ",
+    ratio: "1.91:1",
   },
   {
     name: "Landscape",
     ratio: "16:9",
-    icon: <LogoInstagram size={14} />,
   },
   {
-    name: "Landscape",
-    ratio: "1:1.56",
-    icon: <LogoInstagram size={14} />,
+    name: "Twitter",
+    ratio: "2:1",
   },
   {
-    name: "Header",
+    name: "Twitter",
     ratio: "3:1",
-    icon: <LogoTwitter size={14} />,
+  },
+  {
+    name: "Twitter",
+    ratio: "3:4",
+  },
+  {
+    name: "Twitter",
+    ratio: "16:9",
   },
 ];
 const array = {
