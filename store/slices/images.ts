@@ -1,20 +1,11 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
+import defaultImages from 'lib/images';
 
 
-const initialState = [
-    {
-        id: nanoid(4),
-        source: 'images/macos-big-sur.webp',
-    },
-    {
-        id: nanoid(4),
-        source: 'images/windows-10.webp',
-    },
-]
 
 const imagesSlice = createSlice({
     name: 'Images',
-    initialState: initialState,
+    initialState: defaultImages,
     reducers: {
         addImage: (state, action) => {
             state.unshift(action.payload)

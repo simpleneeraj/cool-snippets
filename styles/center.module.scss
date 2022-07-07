@@ -1,16 +1,13 @@
 .container {
-  margin: auto;
-  padding: 1rem;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // flex: 1;
-  // overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  overflow: auto;
 }
 
 .smooth {
-  // flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;

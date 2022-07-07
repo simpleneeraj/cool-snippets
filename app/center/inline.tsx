@@ -30,7 +30,6 @@ const InlineStyle = () => {
             width: 100%;
             min-width: unset;
             max-width: 100%;
-            // background: #0000 !important;
           }
           .cm-line {
             font-size: ${fontSize}px;
@@ -69,7 +68,7 @@ const InlineStyle = () => {
             z-index: 11;
             position: relative;
             border-radius: inherit;
-            background: rgba(0, 0, 0, ${alpha});
+            // background: rgba(0, 0, 0, ${alpha});
           }
   
           .layer {

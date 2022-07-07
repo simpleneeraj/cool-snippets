@@ -25,18 +25,18 @@ const EditorOptions = React.lazy(async () => {
 });
 const ColorsOptions = React.lazy(async () => {
   await delay(ms);
-  return await import("./colors");
-});
-const CanvasOptions = React.lazy(async () => {
-  await delay(ms);
-  return await import("./canvas");
+  return await import("./backgrounds/colors");
 });
 
 const PhotosOptions = React.lazy(async () => {
   await delay(ms);
-  return await import("./photos");
+  return await import("./backgrounds/photos");
 });
 
+const CanvasOptions = React.lazy(async () => {
+  await delay(ms);
+  return await import("./canvas");
+});
 const DownloadOptions = React.lazy(async () => {
   await delay(ms);
   return await import("./download");

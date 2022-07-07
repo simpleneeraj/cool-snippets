@@ -3,8 +3,8 @@ import ListView from "lib/list-view";
 import solidColor, { gradientFromUI } from "lib/solidColor";
 import css from "styles/photos.module.scss";
 import useBackground from "store/hooks/usebackground";
-import CheckmarkCircleOutline from "lib/icons/CheckmarkCircleOutline";
 import React from "react";
+import Item from "./item";
 
 const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -21,22 +21,19 @@ const ColorsOption = () => {
             <ListView
               key={index}
               title={data.name}
-              id={`item-${index}`}
               className={css.picture}
+              height={50}
+              offset={200}
             >
-              <span
-                onClick={() => setBackground(data.gradient)}
+              <Item
                 style={{
                   background: data.gradient,
-                  height: `100%`,
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                 }}
-              >
-                {isActive ? <CheckmarkCircleOutline /> : null}
-              </span>
+                viewtype="span"
+                source={data.gradient}
+                isactive={isActive}
+                onClick={() => setBackground(data.gradient)}
+              />
             </ListView>
           );
         })}
@@ -45,10 +42,6 @@ const ColorsOption = () => {
   );
 };
 export default ColorsOption;
-
-/**
- *
- */
 
 /**
  * const app = ["b", "c", "d", "a", "f", "w"];

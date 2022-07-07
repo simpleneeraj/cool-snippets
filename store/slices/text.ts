@@ -4,8 +4,8 @@ import { ActionType, TextTypes } from 'typings/store';
 const initialState: TextTypes = {
     fontSize: 14,
     fontWeight: 400,
-    lineHeight: 1.4,
-    letterSpacing: 0,
+    lineHeight: 1.5,
+    letterSpacing: 0.05,
     fontFace: 'MonoLisa',
 }
 

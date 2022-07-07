@@ -45,7 +45,7 @@ const Select = (props: SelectOptionProps) => {
   const onClickList = React.useCallback(
     (value: any) => {
       dispatch(action.selectedValueHandler(value));
-      dispatch(action.openModelhandler(false));
+      // dispatch(action.openModelhandler(false));
       if (props.onChange) props.onChange(value);
     },
     [action, props]

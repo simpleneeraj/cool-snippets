@@ -11,12 +11,18 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 // // expected output [1, 2, 3, 4, 5]`
 
-const str = `/* Free for everyone */
-while(coding){
-   headphones = true
-   focus = '100%'
-}
-/* Built with simpleneeraj */`
+// const str = `/* Free for everyone */
+// while(coding){
+//    headphones = true
+//    focus = '100%'
+// }
+// /* Built with simpleneeraj */`
+
+const str = `while(true){
+  // i love you
+  // {} () ===
+  // -> --> =>   
+}`
 const initialState: CodeTypes = {
     codeValue: str.trim()
 }

@@ -2,6 +2,7 @@ import React from "react";
 import NextSeo from "layout/seo";
 import type { NextPage } from "next";
 import Link from "next/link";
+import OnBording from "web/onboarding";
 
 const Home: NextPage = () => {
   return (

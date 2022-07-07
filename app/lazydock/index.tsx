@@ -5,6 +5,7 @@ import css from "styles/dock.module.scss";
 import useDock from "store/hooks/usedock";
 import CloseOutline from "lib/icons/CloseOutline";
 import useKey from "hooks/useKey";
+import dynamic from "next/dynamic";
 
 interface DockProps {
   style: React.CSSProperties;
@@ -16,15 +17,25 @@ interface CloseIconProps {
 
 //Lazy Loading Components
 
-const LazyDockOptions = React.lazy(async () => {
-  await delay(1500);
-  return await import("./lazyoptions");
-});
+const LazyDockOptions = dynamic(
+  async () => {
+    await delay(1500);
+    return await import("./lazyoptions");
+  },
+  {
+    loading: () => <SkeletonLoader />,
+  }
+);
 
-const LazyDockAction = React.lazy(async () => {
-  await delay(2000);
-  return await import("./dockaction");
-});
+const LazyDockAction = dynamic(
+  async () => {
+    await delay(2000);
+    return await import("./dockaction");
+  },
+  {
+    loading: () => <SkeletonLoader />,
+  }
+);
 
 /**
  * Lazy Dock
@@ -59,7 +70,6 @@ const DockFront = ({ style }: DockProps) => {
       <div className={css.options}>
         <React.Suspense fallback={<SkeletonLoader />}>
           <LazyDockAction />
-          {/* <SkeletonLoader /> */}
         </React.Suspense>
       </div>
     </div>
