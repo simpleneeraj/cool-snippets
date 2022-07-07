@@ -1,44 +1,44 @@
-@font-face {
-  font-family: FiraCode;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/Fira_Code/FiraCode-Regular.ttf);
-}
+// @font-face {
+//   font-family: FiraCode;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Fira_Code/FiraCode-Regular.ttf);
+// }
 
-@font-face {
-  font-family: IBMPlexMono;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf);
-}
+// @font-face {
+//   font-family: IBMPlexMono;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf);
+// }
 
-@font-face {
-  font-family: Inconsolata;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/Inconsolata/Inconsolata-Regular.ttf);
-}
+// @font-face {
+//   font-family: Inconsolata;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Inconsolata/Inconsolata-Regular.ttf);
+// }
 
-@font-face {
-  font-family: JetBrainsMono;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/JetBrains_Mono/JetBrainsMono-Regular.ttf);
-}
+// @font-face {
+//   font-family: JetBrainsMono;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/JetBrains_Mono/JetBrainsMono-Regular.ttf);
+// }
 
-@font-face {
-  font-family: MonoLisa;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/Monolisa/MonoLisa-Regular.woff2);
-}
+// @font-face {
+//   font-family: MonoLisa;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Monolisa/MonoLisa-Regular.woff2);
+// }
 
-@font-face {
-  font-family: "OperatorMono";
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/Operator-Mono/OperatorMono-Book.otf);
-}
+// @font-face {
+//   font-family: "OperatorMono";
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Operator-Mono/OperatorMono-Book.otf);
+// }
 // @font-face {
 //   font-family: "OperatorMono Italic";
 //   font-style: normal;
@@ -46,30 +46,226 @@
 //   src: url(../public/fonts/Operator-Mono/OperatorMono-BookItalic.otf);
 // }
 
-@font-face {
-  font-family: RobotoMono;
-  font-style: normal;
-  font-display: swap;
-  src: url(../public/fonts/Roboto_Mono/RobotoMono-Regular.ttf);
-}
+// @font-face {
+//   font-family: RobotoMono;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Roboto_Mono/RobotoMono-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: SourceCodePro;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: UbuntuMono;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: VictorMono;
+//   font-style: normal;
+//   font-display: swap;
+//   src: url(../public/fonts/VictorMonoAll/VictorMono-Regular.ttf);
+// }
 
 @font-face {
-  font-family: SourceCodePro;
-  font-style: normal;
+  font-family: "Almamono";
   font-display: swap;
-  src: url(../public/fonts/Source_Code_Pro/SourceCodePro-Regular.ttf);
+  src: url("/fonts/Almamono/Almamono.woff2");
 }
-
 @font-face {
-  font-family: UbuntuMono;
-  font-style: normal;
+  font-family: "Anomaly";
   font-display: swap;
-  src: url(../public/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf);
+  src: url("/fonts/Anomaly/Anomaly.otf");
 }
-
 @font-face {
-  font-family: VictorMono;
-  font-style: normal;
+  font-family: "CascadiaCode";
   font-display: swap;
-  src: url(../public/fonts/VictorMonoAll/VictorMono-Regular.ttf);
+  src: url("/fonts/CascadiaCode/Cascadia Code.woff2");
+}
+@font-face {
+  font-family: "ComicMono";
+  font-display: swap;
+  src: url("/fonts/ComicMono/Comic Mono.ttf");
+}
+// @font-face {
+//   font-family: "FantasqueSansMono";
+//   font-display: swap;
+//   src: url("/fonts/FantasqueSansMono/Fantasque Sans Mono.woff2");
+// }
+@font-face {
+  font-family: "FiraCodeRegular";
+  font-display: swap;
+  src: url("/fonts/FiraCode/FiraCode-Regular.woff2");
+}
+@font-face {
+  font-family: "IBMPlexMono";
+  font-display: swap;
+  src: url("/fonts/IBMPlexMono/IBMPlex Mono.ttf");
+}
+@font-face {
+  font-family: "Inconsolata";
+  font-display: swap;
+  src: url("/fonts/Inconsolata/Inconsolata.ttf");
+}
+@font-face {
+  font-family: "InputMono";
+  font-display: swap;
+  src: url("/fonts/InputMono/Input Mono.woff2");
+}
+@font-face {
+  font-family: "JetBrainsMono";
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono/JetBrainsMono.ttf");
+}
+@font-face {
+  font-family: "AmitLight";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/Amit Light.otf");
+}
+@font-face {
+  font-family: "Anymous";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/Anymous.ttf");
+}
+@font-face {
+  font-family: "DroidSansMono";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/DroidSansMono.ttf");
+}
+@font-face {
+  font-family: "FantasqueSansMono";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/FantasqueSansMono.ttf");
+}
+@font-face {
+  font-family: "Hack";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/Hack.ttf");
+}
+@font-face {
+  font-family: "LexMonoItalic";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/LexMono Italic.ttf");
+}
+@font-face {
+  font-family: "LexMono";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/LexMono.ttf");
+}
+@font-face {
+  font-family: "LigaSrcProRegular";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/LigaSrcPro-Regular.ttf");
+}
+@font-face {
+  font-family: "RobotoMonoX";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/RobotoMono X.ttf");
+}
+@font-face {
+  font-family: "SourceProItalic";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/SourcePro Italic.ttf");
+}
+@font-face {
+  font-family: "SpaceMonoX";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/SpaceMono X.ttf");
+}
+@font-face {
+  font-family: "UbuntuMonoX";
+  font-display: swap;
+  src: url("/fonts/Ligaturized/UbuntuMono X.ttf");
+}
+@font-face {
+  font-family: "MajorMonoDisplay";
+  font-display: swap;
+  src: url("/fonts/MajorMono/MajorMonoDisplay.ttf");
+}
+@font-face {
+  font-family: "MonoidItalic";
+  font-display: swap;
+  src: url("/fonts/Monoid/Monoid-Italic.ttf");
+}
+@font-face {
+  font-family: "MonoidRegular";
+  font-display: swap;
+  src: url("/fonts/Monoid/Monoid-Regular.ttf");
+}
+@font-face {
+  font-family: "MonoidRetina";
+  font-display: swap;
+  src: url("/fonts/Monoid/Monoid-Retina.ttf");
+}
+@font-face {
+  font-family: "MonoLisa";
+  font-display: swap;
+  src: url("/fonts/Monolisa/MonoLisa.woff2");
+}
+@font-face {
+  font-family: "OperatorMonoItalic";
+  font-display: swap;
+  src: url("/fonts/OperatorMono/OperatorMono Italic.otf");
+}
+@font-face {
+  font-family: "OperatorMono";
+  font-display: swap;
+  src: url("/fonts/OperatorMono/OperatorMono.otf");
+}
+@font-face {
+  font-family: "RobotoMono";
+  font-display: swap;
+  src: url("/fonts/RobotoMono/RobotoMono.ttf");
+}
+@font-face {
+  font-family: "SFMono";
+  font-display: swap;
+  src: url("/fonts/SFMono/SFMono.otf");
+}
+@font-face {
+  font-family: "SourceCodePro";
+  font-display: swap;
+  src: url("/fonts/SourceCodePro/SourceCodePro.ttf");
+}
+@font-face {
+  font-family: "Sweet";
+  font-display: swap;
+  src: url("/fonts/Sweet16/Sweet.ttf");
+}
+@font-face {
+  font-family: "SyneMono";
+  font-display: swap;
+  src: url("/fonts/SyneMono/SyneMono.ttf");
+}
+@font-face {
+  font-family: "UbuntuMono";
+  font-display: swap;
+  src: url("/fonts/UbuntuMono/UbuntuMono.ttf");
+}
+@font-face {
+  font-family: "VictorMonoItalic";
+  font-display: swap;
+  src: url("/fonts/VictorMonoAll/VictorMono Italic.woff2");
+}
+@font-face {
+  font-family: "VictorMonoRegular";
+  font-display: swap;
+  src: url("/fonts/VictorMonoAll/VictorMono Regular.woff2");
+}
+@font-face {
+  font-family: "XanhMonoItalic";
+  font-display: swap;
+  src: url("/fonts/XanhMono/XanhMono Italic.ttf");
+}
+@font-face {
+  font-family: "XanhMonoRegular";
+  font-display: swap;
+  src: url("/fonts/XanhMono/XanhMono Regular.ttf");
 }

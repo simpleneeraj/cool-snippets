@@ -46,11 +46,16 @@
   }
 }
 
+.local {
+  @include button();
+  position: sticky;
+}
+
 .picture {
   display: flex;
   align-items: center;
   border-radius: 8px;
-  // overflow: hidden;
+  overflow: hidden;
   height: 50px;
   min-width: 50px;
   max-width: 50px;

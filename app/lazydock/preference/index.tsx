@@ -7,6 +7,7 @@ import toCapitalize from "lib/toCapitalize";
 import { themesList } from "lib/codemirror-themes";
 import { languageList } from "lib/codemirror-langs";
 import Toggle from "element/toggle";
+import fonts from "lib/fonts";
 
 const PreferencesOptions = () => {
   const {
@@ -75,71 +76,13 @@ const PreferencesOptions = () => {
 
 export default PreferencesOptions;
 
-const fontFaces = [
-  {
-    text: "FiraCode",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "IBMPlexMono",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "Inconsolata",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "JetBrainsMono",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "MonoLisa",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "OperatorMono",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "OperatorMono Italic",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "RobotoMono",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "SourceCodePro",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "UbuntuMono",
-    get value() {
-      return this.text;
-    },
-  },
-  {
-    text: "VictorMono",
-    get value() {
-      return this.text;
-    },
-  },
-];
+const fontFaces = fonts
+  .sort((a, b) => a.name.localeCompare(b.name, "en"))
+  .map((data) => {
+    return {
+      text: data.name,
+      get value() {
+        return this.text;
+      },
+    };
+  });

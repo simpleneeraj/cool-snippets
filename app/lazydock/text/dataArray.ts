@@ -5,8 +5,8 @@ const dataArray = {
       fontSizes: number.slice(0, 5).map((_, i) => {
             return ({ text: `${i + 12}px`, get value() { return `${this.text}` }, })
       }),
-      fontWeight: number.slice(0, 5).map((_, i) => {
-            return ({ text: (i + 3) * 100, get value() { return this.text } })
+      fontWeight: number.slice(0, 9).map((_, i) => {
+            return ({ text: (i + 1) * 100, get value() { return this.text } })
       }),
       lineHeight: number.slice(0, 20).map((_, i) => {
             return ({

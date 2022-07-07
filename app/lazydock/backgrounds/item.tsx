@@ -12,7 +12,7 @@ interface PictureProps {
 
 const ItemBox = (props: PictureProps) => {
   const style = {
-    outline: `2px solid ${props.isactive ? "var(--ui-color)" : "transparent"}`,
+    border: `2px solid ${props.isactive ? "var(--ui-color)" : "transparent"}`,
     ...props.style,
   };
   return (

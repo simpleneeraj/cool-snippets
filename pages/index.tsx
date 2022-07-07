@@ -2,7 +2,6 @@ import React from "react";
 import NextSeo from "layout/seo";
 import type { NextPage } from "next";
 import Link from "next/link";
-import OnBording from "web/onboarding";
 
 const Home: NextPage = () => {
   return (
@@ -11,11 +10,9 @@ const Home: NextPage = () => {
         title="Beautiful Code Snippets Generator | Free"
         description="Turn your code into beautiful images. 
       With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
-        thumbnail="cover/cover-1.webp"
-        largeThumbnail="cover/cover-3.webp"
-      >
-        <meta name="viewport" content="width=768" />
-      </NextSeo>
+        thumbnail="https://www.icanpost.app/cover/cover-1.webp"
+        largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
+      ></NextSeo>
 
       <div
         style={{
@@ -24,7 +21,7 @@ const Home: NextPage = () => {
           placeContent: "center",
         }}
       >
-        <h1 style={{ fontSize: "3rem" }}>
+        <h1 style={{ fontSize: "4rem" }}>
           <Link href={"/app"}>Go To App</Link>
         </h1>
       </div>

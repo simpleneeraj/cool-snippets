@@ -1,7 +1,7 @@
 import React from "react";
 import delay from "lib/delay";
 import BlurLayer from "./shadow";
-// import InlineStyle from "./inline";
+import InlineStyle from "./inline";
 import cl from "lib/codemirror-langs";
 import ct from "lib/codemirror-themes";
 import CodeLoader from "./codeloader";
@@ -10,16 +10,11 @@ import useCode from "store/hooks/usecode";
 import css from "styles/center.module.scss";
 import { Capture as Layer } from "lib/capture";
 import usePreference from "store/hooks/usepreference";
-import dynamic from "next/dynamic";
 
-const CodeMirror = dynamic(
-  async () => {
-    await delay(3000);
-    return await import("lib/codemirror-x");
-  },
-  { loading: () => <CodeLoader /> }
-);
-const InlineStyle = dynamic(() => import("./inline"));
+const CodeMirror = React.lazy(async () => {
+  delay(3000);
+  return await import("lib/codemirror-x");
+});
 
 const Center = () => {
   const { alpha } = usePost();
@@ -40,21 +35,22 @@ const Center = () => {
               <p>www.icanpost.app</p>
             </div>
             <div className="layer">
-              <CodeMirror
-                value={codeValue}
-                onChange={(v) => writeCode(v)}
-                className="codemirror"
-                theme={generatedTheme}
-                extensions={generatedMode}
-                basicSetup={{
-                  foldGutter: false,
-                  lineNumbers: lineNumbers,
-                  autocompletion: autoCompletion,
-                  highlightActiveLine: false,
-                  highlightActiveLineGutter: false,
-                }}
-              />
-
+              <React.Suspense fallback={<CodeLoader />}>
+                <CodeMirror
+                  value={codeValue}
+                  onChange={(v) => writeCode(v)}
+                  className="codemirror"
+                  theme={generatedTheme}
+                  extensions={generatedMode}
+                  basicSetup={{
+                    foldGutter: false,
+                    lineNumbers: lineNumbers,
+                    autocompletion: autoCompletion,
+                    highlightActiveLine: false,
+                    highlightActiveLineGutter: false,
+                  }}
+                />
+              </React.Suspense>
               <BlurLayer />
             </div>
           </Layer>

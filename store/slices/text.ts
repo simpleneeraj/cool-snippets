@@ -5,7 +5,7 @@ const initialState: TextTypes = {
     fontSize: 14,
     fontWeight: 400,
     lineHeight: 1.5,
-    letterSpacing: 0.05,
+    letterSpacing: 0,
     fontFace: 'MonoLisa',
 }
 
