@@ -68,3 +68,32 @@ i {
 a {
   text-decoration: none;
 }
+
+.cm-gutters {
+  background: transparent !important;
+}
+
+body,
+html {
+  scrollbar-color: dark;
+  &::-webkit-scrollbar {
+    appearance: none;
+    scrollbar-width: thin;
+    width: 12px;
+    scrollbar-color: rgba(199, 204, 203, 0.25) #212525;
+  }
+  &::-webkit-scrollbar-track {
+    background: #212525;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(199, 204, 203, 0.25);
+    border-radius: 20px;
+    border: 3px solid #212525;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(199, 204, 203, 0.375);
+    border-width: 2px;
+  }
+}

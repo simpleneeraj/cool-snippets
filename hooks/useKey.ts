@@ -23,7 +23,7 @@ const useKey = (keyCode: unknown, callback: any) => {
                 // Multiple Keys
             }
             // event.preventDefault()
-            console.log("keyCode", event.key);
+            // console.log("keyCode", event.key);
         }
         document.addEventListener('keydown', keyHandler)
         return () => document.removeEventListener('keydown', keyHandler)

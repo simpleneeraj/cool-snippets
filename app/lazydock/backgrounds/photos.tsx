@@ -1,16 +1,16 @@
 import React from "react";
+import Item from "./item";
+import FilePicker from "./picker";
+import ListView from "lib/list-view";
 import css from "styles/photos.module.scss";
-import PlusSquareDashed from "lib/icons/PlusSquareDashed";
+import useImages from "store/hooks/useImages";
 import useFilePicker from "hooks/useFilePicker";
 import useBackground from "store/hooks/usebackground";
-import useImages from "store/hooks/useImages";
-import ListView from "lib/list-view";
-import FilePicker from "./picker";
-import Item from "./item";
+import PlusSquareDashed from "lib/icons/PlusSquareDashed";
 
 const PhotosOptions = () => {
-  const { setBackground, source } = useBackground();
   const { imagesArray, addImage } = useImages();
+  const { setBackground, source } = useBackground();
   const { onFilePicker, inputRef } = useFilePicker((img) => addImage(img));
   return (
     <div className={css.container}>

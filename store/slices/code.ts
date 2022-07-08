@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import samplecode from 'lib/samplecode';
 import { ActionType, CodeTypes } from 'typings/store';
 
 
@@ -20,11 +21,11 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 const str = `while(true){
   // i love you
-  // {} () ===
-  // -> --> =>   
 }`
+
+const random = Math.round(Math.random() * samplecode.length)
 const initialState: CodeTypes = {
-    codeValue: str.trim()
+    codeValue: samplecode[0]?.str?.trim()
 }
 
 const code = createSlice({

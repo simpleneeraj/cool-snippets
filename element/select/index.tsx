@@ -6,20 +6,19 @@ import css from "styles/select.module.scss";
 import useOnClickOutside from "hooks/useclick";
 import { SelectOptionProps } from "element/types";
 import ChevronUp from "lib/icons/ChevronUp";
+import combineRefs from "lib/combineRefs";
 
 /**
  * Custom Select Component
- * @param props
+ * @param _props
  * @returns
  */
-const Select = (props: SelectOptionProps) => {
+const Select = (_props: SelectOptionProps) => {
   // memo props
-  const _props = React.useMemo(
-    () => props,
-    // eslint-disable-next-line
-    [props]
-  );
-  const { defaultValue, array: dataArray } = _props;
+  const props = React.useMemo(() => _props, [_props]);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const optionsRef = React.useRef<HTMLDivElement>(null);
+  const { defaultValue, array: dataArray } = props;
   // slice
   const { action, initialState, reducer } = selectSlice;
   // useReducer hook
@@ -41,14 +40,13 @@ const Select = (props: SelectOptionProps) => {
   /**************************
       On Click List
   ***************************/
-
-  const onClickList = React.useCallback(
+  const onSelectList = React.useCallback(
     (value: any) => {
       dispatch(action.selectedValueHandler(value));
       // dispatch(action.openModelhandler(false));
-      if (props.onChange) props.onChange(value);
+      if (_props.onChange) _props.onChange(value);
     },
-    [action, props]
+    [action, _props]
   );
   /**************************
   Click Outside Close Model
@@ -56,30 +54,73 @@ const Select = (props: SelectOptionProps) => {
   const wrapperRef = useOnClickOutside(() =>
     dispatch(action.openModelhandler(false))
   );
+  const initIndex = React.useMemo(
+    () => dataArray.findIndex((data) => data.value === defaultValue),
+    [dataArray, defaultValue]
+  );
+  const [step, updateStep] = React.useState(initIndex);
+
+  const stepUp = React.useCallback(() => {
+    if (step < dataArray.length - 1) {
+      updateStep((i) => i + 1);
+    }
+  }, [dataArray, step]);
+
+  const stepDown = React.useCallback(() => {
+    if (step > 0) {
+      updateStep((i) => i - 1);
+    }
+  }, [step]);
+
+  const onKeyDown = React.useCallback(
+    (event: KeyboardEvent | React.KeyboardEvent) => {
+      // const container = containerRef.current as HTMLDivElement;
+      switch (event.key) {
+        case "ArrowRight":
+          stepUp();
+          return null;
+        case "ArrowLeft":
+          stepDown();
+          return null;
+        default:
+          return null;
+      }
+    },
+    [stepDown, stepUp]
+  );
+
+  React.useEffect(() => {
+    const value = dataArray.at(step)?.value;
+    onSelectList(value);
+  }, [dataArray, onSelectList, step]);
   /**************************
   Close Model when Escape key down
   ***************************/
   useKey("Escape", () => dispatch(action.openModelhandler(false)));
+
   return (
     <div className={css.select}>
-      <div className={css.dropdown} ref={wrapperRef}>
+      <div
+        className={css.dropdown}
+        ref={combineRefs([wrapperRef, containerRef])}
+      >
         <Button
           onClick={openModelhandler}
           label={selectedValue}
+          onKeyDown={onKeyDown}
           icon={<ChevronUp size={14} />}
         />
         {isOpenModel ? (
-          <div className={css.option}>
+          <div ref={optionsRef} className={css.option}>
             <div className={css.listbox}>
               {dataArray.map(({ text, value, icon }, index) => (
                 <span
                   title={text}
                   key={index}
-                  // value={value}
-                  onClick={() => onClickList(value)}
+                  onClick={() => onSelectList(value)}
                   style={{
                     background:
-                      text === selectedValue ? "var(--ui-accent-color)" : "",
+                      value === selectedValue ? "var(--ui-accent-color)" : "",
                   }}
                   className={css.list}
                 >
@@ -97,3 +138,13 @@ const Select = (props: SelectOptionProps) => {
 };
 
 export default Select;
+
+//   if (selected) {
+//     const rect = current.getBoundingClientRect();
+//     const selectedRect = selected.getBoundingClientRect();
+
+//     current.scrollTop =
+//         selected.offsetTop -
+//         rect.height / 2 +
+//         selectedRect.height / 2;
+// }

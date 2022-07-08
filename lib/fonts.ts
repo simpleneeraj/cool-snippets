@@ -115,7 +115,19 @@ const fonts = [
     },
     {
         "name": "XanhMonoRegular"
-    }
+    },
+    {
+        "name": "Hasklig"
+    },
+    {
+        "name": "HaskligItalic"
+    },
+    {
+        "name": "HachiMaruPop"
+    },
+    {
+        "name": "Iosevka"
+    },
 ]
 
 export default fonts;

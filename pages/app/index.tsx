@@ -4,11 +4,15 @@ import NextSeo from "layout/seo";
 import AppLayout from "./layout";
 import dynamic from "next/dynamic";
 import OnBording from "web/onboarding";
+import { useCookies } from "react-cookie";
 
 const Center = dynamic(async () => await import("app/center"));
 const LazyDock = dynamic(async () => await import("app/lazydock"));
 
 const Home: NextPage = () => {
+  // const [cookies, setCookie] = useCookies(["ONBOARDING"]);
+
+  // console.log(cookies.ONBOARDING);
   return (
     <React.Fragment>
       <OnBording />
