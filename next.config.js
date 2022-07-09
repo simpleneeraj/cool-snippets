@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: false,
+  env: {
+    unsplash: "YnAHf2SJAKJmUr3ykMdo3q08L_ksA9NA7SyMHU8gJ9Q",
+  },
 };
 
 module.exports = nextConfig;

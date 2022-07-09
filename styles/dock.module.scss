@@ -9,7 +9,6 @@ Mixin
   backdrop-filter: blur(15px);
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
-  border: var(--dock-border);
   background: var(--dock-background);
   border: 1px solid var(--dock-border-color);
   // Height and width

@@ -2,24 +2,26 @@
 import React from "react";
 import css from "styles/photos.module.scss";
 
-interface PictureProps {
+interface PictureProps extends React.ComponentPropsWithoutRef<"div"> {
   source: string;
   isactive?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   viewtype: "span" | "image";
   style?: React.CSSProperties;
 }
 
-const ItemBox = (props: PictureProps) => {
-  const style = {
-    border: `2px solid ${props.isactive ? "var(--ui-color)" : "transparent"}`,
-    ...props.style,
-  };
-  return (
-    <div style={style} onClick={props.onClick} className={css.picture}>
-      {props.viewtype === "image" && <img src={props.source} alt="images" />}
-    </div>
-  );
-};
+const ItemBox = React.forwardRef(
+  (props: PictureProps, ref: React.Ref<HTMLDivElement>) => {
+    return (
+      <div ref={ref} {...props} className={css.picture}>
+        {props.isactive ? <span /> : null}
+        {props.viewtype === "image" ? (
+          <img src={props.source} alt="images" />
+        ) : null}
+      </div>
+    );
+  }
+);
 
+ItemBox.displayName = "ItemBox";
 export default ItemBox;

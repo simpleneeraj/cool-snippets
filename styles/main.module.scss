@@ -12,18 +12,28 @@
   overflow: auto;
   position: relative;
   min-height: 100vh;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
-// background-image: linear-gradient(
-//   23deg,
-//   #574189 0%,
-//   #fd0456 40%,
-//   #fe2051 62%,
-//   #ff354d 79%,
-//   #ee567c 86%,
-//   #917cac 92%,
-//   #638fc4 95%
-// );
+// App Header
+
+.header {
+  top: 0;
+  // z-index: 20;
+  // padding: 1rem;
+  // width: 100%;
+  position: fixed;
+  // backdrop-filter: blur(10px);
+  // background: var(--dock-background);
+  // border: 1px solid var(--dock-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

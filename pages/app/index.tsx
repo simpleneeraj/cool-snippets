@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import OnBording from "web/onboarding";
 import { useCookies } from "react-cookie";
 
+const AppHeader = dynamic(async () => await import("app/header"));
 const Center = dynamic(async () => await import("app/center"));
 const LazyDock = dynamic(async () => await import("app/lazydock"));
 
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=600" />
       </NextSeo>
       <AppLayout>
+        <AppHeader />
         <Center />
         <LazyDock />
       </AppLayout>

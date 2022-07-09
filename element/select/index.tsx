@@ -92,7 +92,8 @@ const Select = (_props: SelectOptionProps) => {
   React.useEffect(() => {
     const value = dataArray.at(step)?.value;
     onSelectList(value);
-  }, [dataArray, onSelectList, step]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dataArray, step]);
   /**************************
   Close Model when Escape key down
   ***************************/
@@ -138,13 +139,3 @@ const Select = (_props: SelectOptionProps) => {
 };
 
 export default Select;
-
-//   if (selected) {
-//     const rect = current.getBoundingClientRect();
-//     const selectedRect = selected.getBoundingClientRect();
-
-//     current.scrollTop =
-//         selected.offsetTop -
-//         rect.height / 2 +
-//         selectedRect.height / 2;
-// }

@@ -23,22 +23,16 @@
 
 @mixin button {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
   backdrop-filter: blur(10px);
   height: 50px;
   min-width: 50px;
-  background: #00000075;
   border-radius: 8px;
+  background: var(--ui-alpha-5);
   button {
+    flex: 1;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     background: transparent;
-    display: flex;
-    align-items: center;
   }
   label {
     display: flex;
@@ -46,9 +40,28 @@
   }
 }
 
-.local {
+.picker {
   @include button();
   position: sticky;
+  display: grid;
+  place-content: center;
+}
+
+.content form {
+  display: flex;
+  overflow: hidden;
+  @include button();
+  button {
+    padding: 0.4rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: transparent;
+    input {
+      width: 100%;
+      background: transparent;
+    }
+  }
 }
 
 .picture {
@@ -58,11 +71,23 @@
   overflow: hidden;
   height: 50px;
   min-width: 50px;
-  max-width: 50px;
+  max-width: 150px;
   transition: all 200ms ease-in;
+  position: relative;
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    // backdrop-filter: blur(10px);
+    border: 2px solid var(--ui-color);
+    border-radius: inherit;
   }
 }

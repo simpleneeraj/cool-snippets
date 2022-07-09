@@ -4,10 +4,18 @@ import useText from "store/hooks/usetext";
 import useBackground from "store/hooks/usebackground";
 
 const backgroundFilter = (value: string) => {
-  const check = RegExp(/gradient|#|rgb|hsl/i).test(value);
+  const REGEX_URL =
+    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+  const REGEX_COLOR = /gradient|#|rgb|hsl/g;
   let background;
-  check ? (background = value) : (background = `url(${value})`);
-  return background;
+  if (RegExp(REGEX_URL).test(value)) {
+    return (background = `url(${value})`);
+  }
+  if (RegExp(REGEX_COLOR).test(value)) {
+    return (background = value);
+  } else {
+    return (background = `url(${value})`);
+  }
 };
 
 const InlineStyle = () => {
@@ -19,6 +27,7 @@ const InlineStyle = () => {
   const { alpha, blurRadius, cornerRadius } = usePost();
   const realRatio = cssRatio(aspectRatio);
   const background = backgroundFilter(source);
+
   return (
     <style>
       {`

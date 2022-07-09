@@ -1,22 +1,39 @@
-import gradient from "lib/gradient";
+import gradient from "lib/gradients";
 import ListView from "lib/list-view";
-import solidColor, { gradientFromUI } from "lib/solidColor";
+import solidColor from "lib/solidColor";
 import css from "styles/photos.module.scss";
 import useBackground from "store/hooks/usebackground";
 import React from "react";
 import Item from "./item";
+import useScrollLeft from "./usescroll";
 
 const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
-const sortedArray = [...solidColor, ...sortedGradients, ...gradientFromUI];
+const sortedArray = [...solidColor, ...sortedGradients];
+
+//   if (selected) {
+//     const rect = current.getBoundingClientRect();
+//     const selectedRect = selected.getBoundingClientRect();
+
+//     current.scrollTop =selected.offsetTop - rect.height / 2 + selectedRect.height / 2;
+// }
 
 const ColorsOption = () => {
   const { setBackground, source: gradientValue } = useBackground();
+  const [containerRef, onScrollLeft] = useScrollLeft({
+    behavior: "smooth",
+    left: 110,
+  });
+
+  const onClickItem = (value: string) => {
+    onScrollLeft();
+    setBackground(value);
+  };
   return (
     <div className={css.container}>
-      <div className={css.content}>
+      <div ref={containerRef} className={css.content}>
         {sortedArray.map((data, index) => {
-          const isActive = data.gradient === gradientValue;
+          const act = data.gradient === gradientValue;
           return (
             <ListView
               key={index}
@@ -31,8 +48,8 @@ const ColorsOption = () => {
                 }}
                 viewtype="span"
                 source={data.gradient}
-                isactive={isActive}
-                onClick={() => setBackground(data.gradient)}
+                isactive={act}
+                onClick={() => onClickItem(data.gradient)}
               />
             </ListView>
           );
