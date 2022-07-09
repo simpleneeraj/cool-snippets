@@ -11,13 +11,6 @@ const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
 const sortedArray = [...solidColor, ...sortedGradients];
 
-//   if (selected) {
-//     const rect = current.getBoundingClientRect();
-//     const selectedRect = selected.getBoundingClientRect();
-
-//     current.scrollTop =selected.offsetTop - rect.height / 2 + selectedRect.height / 2;
-// }
-
 const ColorsOption = () => {
   const { setBackground, source: gradientValue } = useBackground();
   const [containerRef, onScrollLeft] = useScrollLeft({
