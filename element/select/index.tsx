@@ -93,7 +93,7 @@ const Select = (_props: SelectOptionProps) => {
     const value = dataArray.at(step)?.value;
     onSelectList(value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dataArray, step]);
+  }, [step]);
   /**************************
   Close Model when Escape key down
   ***************************/

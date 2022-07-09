@@ -51,29 +51,6 @@
   }
 }
 
-/**************************
-Sticky
-***************************/
-.sticky {
-  display: flex;
-  position: fixed;
-  align-items: center;
-  z-index: 20;
-  button {
-    gap: 4px;
-    padding: 0.6rem;
-    min-width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-  }
-  @include hover();
-  @include effect();
-  @include active();
-  @include blur-effect();
-}
-
 .button {
   @include effect();
   border-radius: 6px;
@@ -81,4 +58,18 @@ Sticky
     @include button();
   }
   @include active();
+  @include hover();
+}
+
+.iconbutton {
+  @include effect();
+  border-radius: 6px;
+  button {
+    @include button();
+    min-height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
+  @include active();
+  @include hover();
 }

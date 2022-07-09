@@ -14,7 +14,7 @@ const useSearchImages = (dispatch: (value: string) => void) => {
 
     const searchStyle = {
         button: {
-            minWidth: focus ? "180px" : "50px",
+            minWidth: focus ? "180px" : "56px",
             transition: "all 200ms ease 0s",
         },
         input: {
