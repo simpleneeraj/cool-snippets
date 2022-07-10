@@ -16,7 +16,7 @@ interface HeaderProps {
 Header
 ***************************/
 const Header = () => {
-  const { state, dispatch } = useCTX(HeaderContext);
+  const { state, dispatch } = useCTX<boolean>(HeaderContext);
   const ref = useOnClickOutside(() => dispatch(false));
   return (
     <header ref={state ? ref : null} className={css["container"]}>
