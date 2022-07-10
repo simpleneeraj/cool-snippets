@@ -25,7 +25,7 @@ const str = `while(true){
 
 const random = Math.round(Math.random() * samplecode.length)
 const initialState: CodeTypes = {
-    codeValue: samplecode[0]?.str?.trim()
+    codeValue: samplecode[1]?.str?.trim()
 }
 
 const code = createSlice({

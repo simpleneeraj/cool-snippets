@@ -1,8 +1,15 @@
 import React from "react";
 import { ContextType } from "./types";
 
-
-const useCTX = <State>(context: React.Context<ContextType<State>>) => {
+/**
+ * 
+ * @param context 
+ * @returns 
+ * ```js
+ * return {state, dispatch};
+ * ```
+ */
+function useCTX<State>(context: any) {
     const { state, dispatch } = React.useContext<ContextType<State>>(context);
     return { state, dispatch }
 }

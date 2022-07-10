@@ -1,19 +1,14 @@
 import React from "react"
 
-type Reducer<State, Action> = (p: State, a: Action) => State
-type Dispatch<A> = (value: A) => void
-type SetStateAction<S> = S | ((prevState: S) => S)
 
-interface ActionTypes {
-    type: string,
-    payload: any,
-    [key: string]: any
-}
-interface CreateCTXProps<State, Action> {
-    type?: 'useState' | 'useReducer'
-    reducer?: Reducer<State, Action>;
-    initialState: State;
-}
+type C<T> = React.PropsWithChildren<T>;
+type R<S, A> = React.Reducer<S, A>;
+type D<A> = React.Dispatch<A>;
+
+
+type Dispatch<T> = React.Dispatch<React.SetStateAction<T>>;
+
+
 interface ContextType<State> {
     state: State;
     dispatch: any;

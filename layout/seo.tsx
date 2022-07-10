@@ -142,6 +142,7 @@ const NextSeo = (props: MetaProps) => {
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content={largeThumbnail} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="p:domain_verify" content="a7ac9def5ba15e87fb38ac54253ee6dd" />
       {props.children}
     </Head>
   );

@@ -8,6 +8,7 @@ import { themesList } from "lib/codemirror-themes";
 import { languageList } from "lib/codemirror-langs";
 import Toggle from "element/toggle";
 import fonts from "lib/fonts";
+import SelectSearch from "element/select-search";
 
 const PreferencesOptions = () => {
   const {
@@ -38,7 +39,17 @@ const PreferencesOptions = () => {
         />
       </OptionsWraper>
       <OptionsWraper title={"Theme"}>
-        <Select
+        <SelectSearch
+          options={themesList.map((name) => {
+            return {
+              name: toCapitalize(name),
+              value: name,
+            };
+          })}
+          onChange={(v) => console.log(v)}
+          // search={true}
+        />
+        {/* <Select
           defaultValue={theme}
           onChange={(value) => onSelectTheme(value)}
           array={themesList.map((name) => {
@@ -47,7 +58,7 @@ const PreferencesOptions = () => {
               value: name,
             };
           })}
-        />
+        /> */}
       </OptionsWraper>
       <OptionsWraper title={"Language"}>
         <Select

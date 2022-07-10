@@ -18,9 +18,15 @@
   --ui-color: rgb(255, 255, 255);
   --ui-border-color: rgba(255, 255, 255, 0.18);
   --ui-outline-color: rgba(255, 255, 255, 0.36);
-  --ui-transparent-alpha: rgba(83, 83, 83, 0.251);
-  --ui-transparent-beta: rgba(83, 83, 83, 0.351);
-  --ui-transparent-gamma: rgba(83, 83, 83, 0.451);
+  --ui-transparent-1: rgba(83, 83, 83, 0.251);
+  --ui-transparent-2: rgba(83, 83, 83, 0.351);
+  --ui-transparent-3: rgba(83, 83, 83, 0.451);
+  --ui-transparent-4: rgba(83, 83, 83, 0.551);
+  --ui-transparent-5: rgba(83, 83, 83, 0.651);
+  --ui-transparent-6: rgba(83, 83, 83, 0.751);
+  --ui-transparent-7: rgba(83, 83, 83, 0.851);
+  --ui-transparent-8: rgba(83, 83, 83, 0.951);
+  --ui-transparent-9: rgba(83, 83, 83, 1);
   --ui-outline: 2px solid var(--ui-outline-color);
   --ui-border: 1px solid var(--ui-border-color);
   // Varible for Dock

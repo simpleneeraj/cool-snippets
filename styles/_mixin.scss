@@ -1,0 +1,82 @@
+@mixin Scroll($Height, $Width) {
+  &::-webkit-scrollbar {
+    appearance: null;
+    height: $Height;
+    width: $Width;
+    background: inherit;
+  }
+  &::-webkit-scrollbar-thumb {
+    appearance: null;
+    background: var(--Background-4);
+    border-radius: 8px;
+    border: 1px solid var(--Background-2);
+  }
+}
+/**************************
+For Padding With safe-area
+***************************/
+@mixin Padding($value, $type: null) {
+  @if $type == null {
+    padding-left: calc(max($value, env(safe-area-inset-left)));
+    padding-right: calc(max($value, env(safe-area-inset-right)));
+    padding-top: calc(max($value, env(safe-area-inset-top)));
+    padding-bottom: calc(max($value, env(safe-area-inset-bottom)));
+  }
+  @if $type == 'top' {
+    padding-top: calc(max($value, env(safe-area-inset-top)));
+  }
+  @if $type == 'left' {
+    padding-left: calc(max($value, env(safe-area-inset-top)));
+  }
+  @if $type == 'right' {
+    padding-right: calc(max($value, env(safe-area-inset-top)));
+  }
+  @if $type == 'bottom' {
+    padding-bottom: calc(max($value, env(safe-area-inset-top)));
+  }
+}
+/**************************
+Easy Media Quries
+***************************/
+@mixin mediaQuery($min: null, $max: null, $rotate: null) {
+  /**************************
+  CHECK FOR MIN WIDTH
+  ***************************/
+  @if $min != null and $max == null and $rotate == null {
+    @media screen and (min-device-width: $min) {
+      @content;
+    }
+  }
+  /**************************
+  CHECK FOR MAX WIDTH
+  ***************************/
+  @if $max != null and $min == null and $rotate == null {
+    @media screen and (max-device-width: $max) {
+      @content;
+    }
+  }
+  /**************************
+  CHECK FOR ORIENTATION
+  ***************************/
+  @if $min != null and $max != null and $rotate == null {
+    @media screen and (min-device-width: $min) and (max-device-width: $max) {
+      @content;
+    }
+  }
+  // // Check For Orientation
+  // @if $rotate == portrait and $min != null and $max != null {
+  //   @media screen and (min-device-width: $min) and (max-device-width: $max) and (orientation: portrait) {
+  //     @content;
+  //   }
+  // } @else if $rotate == landscape and $min != null and $max != null {
+  //   @media screen and (min-device-width: $min) and (max-device-width: $max) and (orientation: landscape) {
+  //     @content;
+  //   }
+  // }
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  place-content: center;
+}

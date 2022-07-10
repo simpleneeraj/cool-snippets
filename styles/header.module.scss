@@ -1,0 +1,184 @@
+@import "styles/mixin";
+
+/***************************************
+Header Row
+****************************************/
+.container {
+  top: 1em;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  max-width: 100%;
+  position: sticky;
+  align-self: center;
+  flex-direction: column;
+  margin: 1em auto 0 auto;
+  a {
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+}
+/***************************************
+Header Backdrop
+****************************************/
+.backdrop {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  border-radius: 16px;
+  max-width: 1360px;
+  background: var(--dock-background);
+  backdrop-filter: blur(15px) saturate(150%);
+  border: 1px solid var(--dock-border-color);
+  @include Padding(10px);
+}
+/***************************************
+MenuBar
+****************************************/
+.menubar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  .menubar {
+    display: flex;
+  }
+}
+.navbutton {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  i {
+    display: none;
+  }
+}
+/***************************************
+Navigation Bar
+****************************************/
+.navigation {
+  position: relative;
+  float: right;
+  display: flex;
+  width: 100%;
+  margin-left: 24px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .navbar {
+    display: flex;
+  }
+  .links {
+    height: 40px;
+    margin-right: 6px;
+    margin-left: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    transition: all 100ms ease-in;
+    display: flex;
+    padding-right: 15px;
+    padding-left: 15px;
+    color: var(--ui-header-color);
+    &:hover {
+      background-color: var(--ui-hover-color);
+    }
+  }
+}
+
+/***************************************
+Login Bar 
+****************************************/
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  a {
+    padding: 13px 25px;
+    border-radius: 12px;
+    color: var(--ui-color);
+    background-color: var(--ui-transparent-2);
+    transition: background 500ms ease;
+    &:nth-of-type(1) {
+      color: var(--ui-header-color);
+      background-color: transparent;
+      &:hover {
+        color: var(--ui-header-link-color);
+      }
+    }
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@include mediaQuery(10px, 900px) {
+  /**************************
+  MenuBar
+  **************************/
+  .menubar {
+    width: 100%;
+    .logo {
+      width: auto;
+    }
+  }
+  /**************************
+  Navigation
+  **************************/
+  .navigation {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: flex-start;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 300ms ease-in;
+    .navbar {
+      flex-direction: column;
+      width: 100%;
+    }
+    .login {
+      flex-direction: column;
+      width: 100%;
+      align-items: initial;
+      a {
+        text-align: center;
+      }
+    }
+  }
+  /**************************
+  Navigation For Mobile and Tabs
+  **************************/
+  .mobile {
+    max-height: 500px;
+  }
+  /**************************
+  Backdrop
+  **************************/
+  .backdrop {
+    will-change: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  /**************************
+  Navigation Button
+  ***************************/
+  .navbutton {
+    display: flex;
+    align-items: center;
+    i {
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      border-radius: 50%;
+      &:hover {
+        background: var(--ui-back-3);
+      }
+    }
+  }
+}

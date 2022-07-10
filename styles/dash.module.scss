@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 768px;
+  min-width: 768px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.items {
+  display: grid;
+  place-content: center;
+  height: 180px;
+  padding: 1rem;
+  border-radius: 30px;
+  background: rgb(10, 132, 255);
+  &:active {
+    transform: translateY(-3px);
+  }
+}
+
+.time {
+  display: grid;
+  place-content: center;
+  border-radius: 30px;
+  border: 1px solid var(--dock-border-color);
+  h1 {
+    font-size: 4rem;
+    font-weight: 400;
+  }
+}

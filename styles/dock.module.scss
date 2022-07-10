@@ -6,9 +6,9 @@ Mixin
   border-radius: 10px;
   justify-content: space-between;
   backface-visibility: hidden;
-  backdrop-filter: blur(15px);
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
+  backdrop-filter: blur(15px) saturate(150%);
   background: var(--dock-background);
   border: 1px solid var(--dock-border-color);
   // Height and width

@@ -15,7 +15,7 @@ const ColorsOption = () => {
   const { setBackground, source: gradientValue } = useBackground();
   const [containerRef, onScrollLeft] = useScrollLeft({
     behavior: "smooth",
-    left: 110,
+    left: 0,
   });
 
   const onClickItem = (value: string) => {

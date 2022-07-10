@@ -51,6 +51,10 @@ const aspectRatioArray = [
     ratio: "1:1",
   },
   {
+    name: "Pinterest",
+    ratio: "2:3",
+  },
+  {
     name: "Instagram ",
     ratio: "4:5",
   },
@@ -77,10 +81,6 @@ const aspectRatioArray = [
   {
     name: "Twitter",
     ratio: "3:4",
-  },
-  {
-    name: "Twitter",
-    ratio: "16:9",
   },
 ];
 const array = {

@@ -1,18 +1,13 @@
 import React from "react";
+import { Props } from "./type";
 import css from "styles/button.module.scss";
-
-interface Props extends React.ComponentPropsWithRef<"button"> {
-  label?: string;
-  icon?: React.ReactNode;
-}
 
 const Button = (props: Props) => {
   // props.children
   return (
-    <div className={css.button}>
-      <button {...props}>
+    <div {...props} className={css.button}>
+      <button>
         {props.label ? <label>{props.label}</label> : null}
-
         {props.icon ? <i>{props.icon}</i> : null}
       </button>
     </div>

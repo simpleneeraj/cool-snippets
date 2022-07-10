@@ -1,7 +1,7 @@
 @mixin blur-effect {
   backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(13px);
-  background: var(--ui-transparent-alpha);
+  background: var(--ui-alpha-5);
 }
 @mixin hover {
   transition: all 100ms ease-in;
@@ -33,7 +33,7 @@
   background-color: transparent;
   align-items: center;
   justify-content: space-between;
-  min-height: 30px;
+  min-height: 35px;
   min-width: 120px;
   max-width: 120px;
   transition: all 100ms ease;
@@ -54,6 +54,7 @@
 .button {
   @include effect();
   border-radius: 6px;
+  // @include blur-effect();
   button {
     @include button();
   }
@@ -63,12 +64,12 @@
 
 .iconbutton {
   @include effect();
-  border-radius: 6px;
+  // @include blur-effect();
   button {
     @include button();
-    min-height: 30px;
-    min-width: 30px;
-    max-width: 30px;
+    min-height: 35px;
+    min-width: 35px;
+    max-width: 35px;
   }
   @include active();
   @include hover();

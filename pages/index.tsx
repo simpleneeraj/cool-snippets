@@ -1,9 +1,11 @@
 import React from "react";
 import NextSeo from "layout/seo";
-import type { NextPage } from "next";
 import Link from "next/link";
+import { NextPageWithLayout } from "typings/pages";
+import PerPageLayout from "layout/perpage";
+import DashBoard from "web/dashboard";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <React.Fragment>
       <NextSeo
@@ -14,7 +16,17 @@ const Home: NextPage = () => {
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo>
 
-      <div
+      <DashBoard />
+    </React.Fragment>
+  );
+};
+
+export default Home;
+
+Home.perpage = PerPageLayout;
+
+/**
+ *    <div
         style={{
           height: "100vh",
           display: "grid",
@@ -25,8 +37,4 @@ const Home: NextPage = () => {
           <Link href={"/app"}>Go To App</Link>
         </h1>
       </div>
-    </React.Fragment>
-  );
-};
-
-export default Home;
+ */
