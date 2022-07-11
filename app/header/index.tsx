@@ -17,7 +17,15 @@ const AppHeader = () => {
   };
   return (
     <div className={css.header}>
-      <div className={css.controls}></div>
+      <div className={css.controls}>
+        <Button
+          aria-label="share button"
+          title="Share Icanpost"
+          style={style}
+          icon={<Keyboard size={20} />}
+          label="Keyboard"
+        />
+      </div>
       <div className={css.controls}>
         <IconButton
           onClick={onShare}
@@ -37,13 +45,6 @@ const AppHeader = () => {
           title="Share Icanpost"
           style={style}
           icon={<LogoTwitter size={16} />}
-        />
-        <Button
-          aria-label="share button"
-          title="Share Icanpost"
-          style={style}
-          icon={<Keyboard size={20} />}
-          label="Keyboard"
         />
       </div>
     </div>

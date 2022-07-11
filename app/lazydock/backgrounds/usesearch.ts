@@ -15,10 +15,10 @@ const useSearchImages = (dispatch: (value: string) => void) => {
     const searchStyle = {
         button: {
             minWidth: focus ? "180px" : "56px",
-            transition: "all 200ms ease 0s",
+            transition: "all 200ms linear",
         },
         input: {
-            transition: "all 200ms ease 0s",
+            transition: "all 200ms linear",
             width: focus ? "100%" : "0",
             padding: focus ? ".4rem" : "0rem",
         },

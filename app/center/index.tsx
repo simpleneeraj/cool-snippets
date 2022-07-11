@@ -12,7 +12,7 @@ import { Capture as Layer } from "lib/capture";
 import usePreference from "store/hooks/usepreference";
 
 const CodeMirror = React.lazy(async () => {
-  delay(3000);
+  await delay(3000);
   return await import("lib/codemirror-x");
 });
 

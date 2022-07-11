@@ -4,9 +4,9 @@ $itemWidth: 56px;
 .container {
   display: flex;
   align-items: center;
-  // padding: 0 4px;
   overflow: hidden;
   max-width: 600px;
+  min-width: 600px;
   max-height: inherit;
 }
 
@@ -74,7 +74,7 @@ $itemWidth: 56px;
   overflow: hidden;
   height: $itemHeight;
   min-width: $itemWidth;
-  max-width: 150px;
+  // max-width: 150px;
   transition: all 200ms ease-in;
   position: relative;
   img {
@@ -88,8 +88,6 @@ $itemWidth: 56px;
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    // backdrop-filter: blur(10px);
     border: 2px solid var(--ui-color);
     border-radius: inherit;
   }

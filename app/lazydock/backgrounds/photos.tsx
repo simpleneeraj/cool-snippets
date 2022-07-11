@@ -11,8 +11,20 @@ import unsplashApi from "store/api/unsplash";
 import { UnsplashImageType } from "typings/api";
 import SearchForm from "./search";
 import useSearchImages from "./usesearch";
+import Loader from "./loader";
 import ChevronForwardOutline from "lib/icons/ChevronForwardOutline";
-import FakeBox from "./loader";
+
+const FakeBox = () => {
+  return (
+    <Loader
+      width="100%"
+      height="100%"
+      dur={1}
+      primarycolor="#ffffff10"
+      secondrycolor="#ffffff50"
+    />
+  );
+};
 
 const { unsplash: client_id } = process.env;
 
@@ -21,26 +33,18 @@ const PhotosOptions = () => {
 
   const { imagesArray, addImage } = useImages();
   const { setBackground, source } = useBackground();
-  const { onFilePicker, inputRef } = useFilePicker((img) => addImage(img));
+  const { onFilePicker, inputRef } = useFilePicker((source) =>
+    addImage(source)
+  );
   const [count, setcount] = React.useState(1);
   const { useGetUnsplashQuery } = unsplashApi;
   const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
-    client_id: client_id,
-    page: count,
-    per_page: 30,
     count: 30,
+    page: count,
+    // per_page: 30,
     query: searchQuery,
+    client_id: client_id,
   });
-
-  const buildImage = imagesArray.map((data) => {
-    return {
-      id: data.id,
-      small: data.source,
-      source: data.source,
-    };
-  });
-
-  const dataImages = [...buildImage];
 
   const { searchRef, containerRef, searchStyle, onFocus, onSubmit } =
     useSearchImages((v) => updateQuery(v));
@@ -63,16 +67,24 @@ const PhotosOptions = () => {
           onFocus={onFocus}
           inputref={searchRef}
         />
+        {/* Local Images */}
+        {imagesArray.map((d, i) => {
+          return (
+            <ListView key={i} duration={200} className={css.picture}>
+              <Item
+                viewtype="image"
+                source={d.source}
+                isactive={d.source === source}
+                onClick={() => setBackground(d.source)}
+              />
+            </ListView>
+          );
+        })}
+        {/* API Images  */}
         {isError ? null : isFetching || isLoading ? (
-          <FakeBox
-            width={400}
-            height={50}
-            reactheight={50}
-            reactwidth={50}
-            dur={2}
-            primarycolor="#ffffff10"
-            secondrycolor="#ffffff50"
-          />
+          <ListView className={css.picture}>
+            <FakeBox />
+          </ListView>
         ) : (
           data.map((d: UnsplashImageType, i: React.Key) => {
             return (

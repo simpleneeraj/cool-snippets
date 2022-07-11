@@ -4,28 +4,8 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 
 
-// const str = `/* Array sort() method in es6 */
-
-// const numbers = [4, 2, 5, 1, 3];
-// numbers.sort((a, b) => a - b);
-// console.log(numbers);
-
-// // expected output [1, 2, 3, 4, 5]`
-
-// const str = `/* Free for everyone */
-// while(coding){
-//    headphones = true
-//    focus = '100%'
-// }
-// /* Built with simpleneeraj */`
-
-const str = `while(true){
-  // i love you
-}`
-
-const random = Math.round(Math.random() * samplecode.length)
 const initialState: CodeTypes = {
-    codeValue: samplecode[1]?.str?.trim()
+    codeValue: samplecode[6].str.trim()
 }
 
 const code = createSlice({
@@ -40,9 +20,4 @@ const code = createSlice({
 
 
 export default code;
-
-
-
-
-
 // [1, 2, 3, 4, 5]

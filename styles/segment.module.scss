@@ -3,19 +3,19 @@ $gapping: 2px;
 .content {
   gap: $gapping;
   display: flex;
-  align-items: center;
+
   justify-content: space-between;
   user-select: none;
   border-radius: 6px;
   padding: $gapping;
-  min-height: calc(30px - $gapping);
+  min-height: calc(35px);
   // max-width: calc(120px - $gapping);
   background: var(--button-background);
   button {
-    min-height: 25px;
+    flex: 1;
     min-width: 25px;
     border-radius: 4px;
-    font-size: 10px;
+    font-size: 11px;
     background: transparent;
     cursor: pointer;
     &:active {

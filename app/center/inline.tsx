@@ -7,14 +7,13 @@ const backgroundFilter = (value: string) => {
   const REGEX_URL =
     /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
   const REGEX_COLOR = /gradient|#|rgb|hsl/g;
-  let background;
   if (RegExp(REGEX_URL).test(value)) {
-    return (background = `url(${value})`);
+    return `url(${value})`;
   }
   if (RegExp(REGEX_COLOR).test(value)) {
-    return (background = value);
+    return value;
   } else {
-    return (background = `url(${value})`);
+    return `url(${value})`;
   }
 };
 

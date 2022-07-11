@@ -6,7 +6,8 @@ const useScrollLeft = (options?: ScrollToOptions) => {
         const container = containerRef.current
         container?.scrollBy(options);
     }, [options]);
-    return [containerRef, onScrollLeft] as const;
+
+    return { containerRef, onScrollLeft } as const;
 };
 
 

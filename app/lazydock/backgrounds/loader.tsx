@@ -3,8 +3,6 @@ import React from "react";
 
 interface NewProps {
   dur?: string | number;
-  reactheight: number;
-  reactwidth: number;
   primarycolor?: string;
   secondrycolor?: string;
   width: number | string;
@@ -12,19 +10,12 @@ interface NewProps {
 }
 
 const FakeBox = (props: NewProps) => {
-  const {
-    width,
-    height,
-    reactheight: reactHeight,
-    reactwidth: reactWidth,
-  } = props;
+  const { width, height } = React.useMemo(() => props, [props]);
   const reactData = {
     // x: "0",
     y: "0",
     rx: "8",
     ry: "8",
-    width: reactWidth,
-    height: reactHeight,
   };
   const animate = {
     dur: props.dur || "1s",
@@ -56,10 +47,7 @@ const FakeBox = (props: NewProps) => {
           </stop>
         </linearGradient>
         <clipPath id={_id_1}>
-          {reactArray.map((_, index) => (
-            <rect key={index} x={index * 55} {...reactData} />
-          ))}
-          {/* <rect x={1 * 55} {...reactData} /> */}
+          <rect x={0} {...reactData} width="100%" height="100%" />
         </clipPath>
       </defs>
     </svg>
@@ -67,9 +55,3 @@ const FakeBox = (props: NewProps) => {
 };
 
 export default FakeBox;
-
-const reactArray = Array.from(Array(8).keys());
-// style={{
-//     borderRadius: 8,
-//     padding: 2,
-//   }}

@@ -13,7 +13,7 @@ interface PictureProps extends React.ComponentPropsWithoutRef<"div"> {
 const ItemBox = React.forwardRef(
   (props: PictureProps, ref: React.Ref<HTMLDivElement>) => {
     return (
-      <div ref={ref} {...props} className={css.picture}>
+      <div ref={ref} className={css.picture} {...props}>
         {props.isactive ? <span /> : null}
         {props.viewtype === "image" ? (
           <img src={props.source} alt="images" />
