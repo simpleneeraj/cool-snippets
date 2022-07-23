@@ -1,6 +1,6 @@
 import { createStateCTX } from "lib/mini-state";
 
-const [C, P] = createStateCTX(false)
+const [HeaderContext, HeaderProvider] = createStateCTX(false)
 
 
-export { C as HeaderContext, P as HeaderProvider }
+export { HeaderContext, HeaderProvider }

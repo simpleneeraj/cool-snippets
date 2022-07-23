@@ -17,9 +17,9 @@ Header
 ***************************/
 const Header = () => {
   const { state, dispatch } = useCTX<boolean>(HeaderContext);
-  const ref = useOnClickOutside(() => dispatch(false));
+  // const ref = useOnClickOutside(() => dispatch(false));
   return (
-    <header ref={state ? ref : null} className={css["container"]}>
+    <header className={css["container"]}>
       <section className={css["backdrop"]}>
         <div className={css["menubar"]}>
           <div className={css["navbutton"]}>
@@ -28,10 +28,10 @@ const Header = () => {
                 <CircleDotted />
               </a>
             </Link>
-            <MenuBar state={state} dispatch={dispatch} />
+            <MenuBar state={!state} />
           </div>
         </div>
-        <NavigationBar state={state} />
+        <NavigationBar state={!state} />
       </section>
     </header>
   );
@@ -63,7 +63,7 @@ const NavigationBar = ({ state }: HeaderProps) => {
 
 const MenuBar = ({ state, dispatch }: HeaderProps) => {
   return (
-    <i onClick={() => dispatch(!state)}>
+    <i onClick={dispatch}>
       <Add
         size={20}
         style={{
