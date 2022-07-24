@@ -128,6 +128,7 @@ export function useCodeMirror(props: UseCodeMirror) {
         setView(undefined);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, state]);
 
   useEffect(() => setContainer(props.container!), [props.container]);

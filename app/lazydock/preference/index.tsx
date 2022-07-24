@@ -26,15 +26,12 @@ const PreferencesOptions = () => {
   return (
     <React.Fragment>
       <OptionsWraper title={"Line Numbers"}>
-        <Toggle
-          onChange={(v) => linenumberHandler(v)}
-          defaultValue={lineNumbers}
-        />
+        <Toggle onChange={(v) => linenumberHandler(v)} checked={lineNumbers} />
       </OptionsWraper>
       <OptionsWraper title={"Auto Completion"}>
         <Toggle
           onChange={(v) => autoCompletionHandler(v)}
-          defaultValue={autoCompletion}
+          checked={autoCompletion}
         />
       </OptionsWraper>
       <OptionsWraper title={"Theme"}>

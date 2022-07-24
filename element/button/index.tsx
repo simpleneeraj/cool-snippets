@@ -13,4 +13,4 @@ const Button = (props: Props) => {
     </div>
   );
 };
-export default Button;
+export default React.memo(Button);

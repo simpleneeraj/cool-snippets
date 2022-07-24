@@ -6,7 +6,7 @@ const initialState: TextTypes = {
     fontWeight: 400,
     lineHeight: 1.5,
     letterSpacing: 0,
-    fontFace: 'MonoLisa',
+    fontFace: 'SFMono',
 }
 
 const text = createSlice({

@@ -6,13 +6,13 @@ const SettingsOptions = () => {
   return (
     <React.Fragment>
       <OptionsWraper title={"Dark Mode"}>
-        <Toggle onChange={(v) => v} defaultValue={true} />
+        <Toggle onChange={(v) => v} checked={true} />
       </OptionsWraper>
       <OptionsWraper title={"Dark Mode"}>
-        <Toggle onChange={(v) => v} defaultValue={false} />
+        <Toggle onChange={(v) => v} checked={false} />
       </OptionsWraper>
       <OptionsWraper title={"Dark Mode"}>
-        <Toggle onChange={(v) => v} defaultValue={true} />
+        <Toggle onChange={(v) => v} checked={true} />
       </OptionsWraper>
     </React.Fragment>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import delay from "lib/delay";
 import { SVGTYPE } from "typings/app";
-
 // Icons
 import Options from "lib/icons/Options";
 import PageFit from "lib/icons/PageFit";
@@ -13,16 +12,14 @@ import ColorBackground from "lib/icons/ColorBackground";
 import BroadActivityFeed from "lib/icons/BroadActivityFeed";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 
+const size = 25;
 const ms = 1000;
 // Lazy Load Components
 const TextOptions = React.lazy(async () => {
   await delay(ms);
   return await import("./text");
 });
-const EditorOptions = React.lazy(async () => {
-  await delay(ms);
-  return await import("./post");
-});
+
 const ColorsOptions = React.lazy(async () => {
   await delay(ms);
   return await import("./backgrounds/colors");
@@ -30,7 +27,7 @@ const ColorsOptions = React.lazy(async () => {
 
 const PhotosOptions = React.lazy(async () => {
   await delay(ms);
-  return await import("./backgrounds/photos");
+  return await import("./backgrounds");
 });
 
 const CanvasOptions = React.lazy(async () => {
@@ -51,53 +48,53 @@ const PreferencesOptions = React.lazy(async () => {
 });
 
 const DockComponentArray = [
-  {
-    title: "Templates",
-    component: () => <CanvasOptions />,
-    icon: (props: SVGTYPE) => <AppRecent size={28} {...props} />,
-  },
+  // {
+  //   title: "Templates",
+  //   component: () => <CanvasOptions />,
+  //   icon: (props: SVGTYPE) => <AppRecent size={size} {...props} />,
+  // },
   {
     title: "Canvas",
     component: () => <CanvasOptions />,
-    icon: (props: SVGTYPE) => <PageFit size={28} {...props} />,
+    icon: (props: SVGTYPE) => <PageFit size={size} {...props} />,
   },
-  {
-    title: "Editor",
-    component: () => <EditorOptions />,
-    icon: (props: SVGTYPE) => <BroadActivityFeed size={28} {...props} />,
-  },
+  // {
+  //   title: "Editor",
+  //   component: () => <EditorOptions />,
+  //   icon: (props: SVGTYPE) => <BroadActivityFeed size={size} {...props} />,
+  // },
   {
     title: "Text",
     component: () => <TextOptions />,
-    icon: (props: SVGTYPE) => <TextField size={28} {...props} />,
+    icon: (props: SVGTYPE) => <TextField size={size} {...props} />,
   },
 
   {
     title: "Preference",
     component: () => <PreferencesOptions />,
-    icon: (props: SVGTYPE) => <PaintBrush size={28} {...props} />,
+    icon: (props: SVGTYPE) => <PaintBrush size={size} {...props} />,
   },
 
   {
     title: "Photos",
     component: () => <PhotosOptions />,
-    icon: (props: SVGTYPE) => <ImageOutline size={28} {...props} />,
+    icon: (props: SVGTYPE) => <ImageOutline size={size} {...props} />,
   },
   {
     title: "Colors",
     component: () => <ColorsOptions />,
-    icon: (props: SVGTYPE) => <ColorBackground size={28} {...props} />,
+    icon: (props: SVGTYPE) => <ColorBackground size={size} {...props} />,
   },
   {
     title: "Download",
     component: () => <DownloadOptions />,
-    icon: (props: SVGTYPE) => <ArrowDownCircleOutline size={28} {...props} />,
+    icon: (props: SVGTYPE) => <ArrowDownCircleOutline size={size} {...props} />,
   },
-  {
-    title: "Settings",
-    component: () => <SettingsOptions />,
-    icon: (props: SVGTYPE) => <Options size={28} {...props} />,
-  },
+  // {
+  //   title: "Settings",
+  //   component: () => <SettingsOptions />,
+  //   icon: (props: SVGTYPE) => <Options size={size} {...props} />,
+  // },
 ];
 
 /**************************

@@ -33,8 +33,9 @@ const PhotosOptions = () => {
 
   const { imagesArray, addImage } = useImages();
   const { setBackground, source } = useBackground();
-  const { onFilePicker, inputRef } = useFilePicker((source) =>
-    addImage(source)
+  const { onFilePicker, inputRef } = useFilePicker(
+    (source) => addImage(source),
+    {}
   );
   const [count, setcount] = React.useState(1);
   const { useGetUnsplashQuery } = unsplashApi;

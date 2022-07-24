@@ -34,6 +34,7 @@ interface PreferenceTypes {
     mode: string;
     lineNumbers: boolean;
     autoCompletion: boolean;
+    translucent: boolean;
 }
 // Text Types
 interface TextTypes {

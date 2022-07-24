@@ -2,7 +2,10 @@ import React from "react";
 import css from "styles/segment.module.scss";
 
 interface SegmentProps {
-  array: string[] | number[];
+  array: {
+    title: string | number;
+    value: string | number;
+  }[];
   defaultValue: string | number | any;
   onChange?: (value: string | number) => void;
 }
@@ -10,8 +13,8 @@ interface SegmentProps {
 const Segment = (props: SegmentProps) => {
   const { defaultValue } = props;
   const onChangeHandler = React.useCallback(
-    (value: string | number) => {
-      if (props.onChange) props.onChange(value);
+    (data: string | number) => {
+      if (props.onChange) props.onChange(data);
     },
     [props]
   );
@@ -21,13 +24,13 @@ const Segment = (props: SegmentProps) => {
       {props.array.map((data, index) => (
         <button
           key={index}
-          onClick={() => onChangeHandler(data)}
-          id={data === defaultValue ? css.active : ""}
+          onClick={() => onChangeHandler(data.value)}
+          id={data.value === defaultValue ? css.active : ""}
         >
-          {data}
+          {data.title}
         </button>
       ))}
     </div>
   );
 };
-export default Segment;
+export default React.memo(Segment);

@@ -3,56 +3,25 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(180deg, #0d1117 7%, rgba(13, 17, 23, 0) 20%),
-    radial-gradient(
-      circle farthest-side at -25% 150%,
-      #0d1117 48%,
-      rgba(13, 17, 23, 0) 65%
-    ),
-    radial-gradient(
-      circle farthest-corner at -25% -125%,
-      rgba(13, 17, 23, 0) 50%,
-      #0d1117 70%,
-      rgba(13, 17, 23, 0) 72%
-    ),
-    radial-gradient(
-      circle farthest-corner at 0 -50%,
-      #0d1117 32%,
-      hsla(0, 0%, 100%, 0) 62%
-    ),
-    radial-gradient(
-      circle farthest-side at 0 -25%,
-      #007252 50%,
-      rgba(13, 17, 23, 0) 72%
-    ),
-    radial-gradient(
-      circle farthest-corner at 50% -100%,
-      #3f51b5 20%,
-      rgba(13, 17, 23, 0) 72%
-    );
 }
 .main {
   display: flex;
   position: relative;
-  min-height: 110vh;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
 }
 
-// App Header
+// APP HEADER
 
 .header {
   top: 0;
-  position: sticky;
   z-index: 20;
+  position: sticky;
   padding: 0.5rem;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // backdrop-filter: blur(15px) saturate(150%);
-  // background: var(--dock-background);
-  // border-bottom: 1px solid var(--dock-border-color);
 }
 
 .header .controls {
@@ -66,5 +35,39 @@
     justify-content: center;
     width: fit-content;
     gap: 5px;
+  }
+}
+
+// APP FOOTER
+
+.footer {
+  gap: 1rem;
+  display: flex;
+  // padding: 1rem;
+  align-items: flex-end;
+  user-select: none;
+  min-height: 150px;
+  padding-bottom: 2rem;
+  justify-content: center;
+  filter: hue-rotate(330deg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../public/images/background.047ae712.png");
+}
+
+.footer .text {
+  display: flex;
+  align-items: center;
+  a {
+    font-size: 11px;
+  }
+  p {
+    color: var(--ui-color);
+    font-size: 11px;
+    opacity: 0.6;
+    transition: opacity 199ms ease;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

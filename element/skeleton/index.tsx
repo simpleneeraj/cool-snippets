@@ -61,7 +61,7 @@ const Skeleton = (props: NewProps) => {
   );
 };
 
-export default Skeleton;
+export default React.memo(Skeleton);
 
 // style={{
 //     borderRadius: 8,

@@ -1,34 +1,25 @@
 $gapping: 4px;
+$size: 30px;
 
+/*
+
+
+*/
 .container {
   display: flex;
   border-radius: 6px;
-  height: 35px;
-  min-width: 70px;
-  max-width: 70px;
+  height: $size;
+  align-items: center;
+  max-width: 60px;
   background: var(--button-background);
-  button {
-    display: flex;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-    background: transparent;
-    transition: all 200ms ease-in;
-    width: 100%;
-  }
+  position: relative;
+  padding: $gapping;
   span {
-    left: 0;
-    width: 50%;
-    display: grid;
     position: absolute;
+    height: calc($size - $gapping);
+    width: calc($size - $gapping);
     border-radius: 6px;
-    height: 100%;
     place-content: center;
-    transition: all 200ms ease;
-  }
-
-  i {
     transition: all 200ms ease;
   }
 }

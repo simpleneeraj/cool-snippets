@@ -13,8 +13,10 @@ const useImages = () => {
     Dock Handler
     ***************************/
     const addImage = useCallMemo((payload: string) => {
-        const old = { id: nanoid(6), source: payload }
-        dispatch(imagesSlice.actions.addImage(old))
+        if (imagesArray.length <= 5) {
+            const old = { id: nanoid(6), source: payload }
+            dispatch(imagesSlice.actions.addImage(old))
+        }
     }, [])
     const deleteImage = useCallMemo((payload: string) => {
         dispatch(imagesSlice.actions.deleteImage(payload))

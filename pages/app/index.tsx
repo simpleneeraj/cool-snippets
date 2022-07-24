@@ -6,20 +6,16 @@ import dynamic from "next/dynamic";
 import OnBording from "web/onboarding";
 import AppHeader from "app/header";
 import LazyDock from "app/lazydock";
+import AppFooter from "app/footer";
 
-// const AppHeader = dynamic(async () => await import("app/header"));
 const Center = dynamic(async () => await import("app/center"));
-// const LazyDock = dynamic(async () => await import("app/lazydock"));
 
 const Home: NextPage = () => {
-  // const [cookies, setCookie] = useCookies(["ONBOARDING"]);
-
-  // console.log(cookies.ONBOARDING);
   return (
     <React.Fragment>
       <OnBording />
       <NextSeo
-        title="Beautiful Code Snippets Generator | Free"
+        title="Generate Beautiful Code Snippets of your code"
         description="Turn your code into beautiful images. 
         With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
         thumbnail="https://www.icanpost.app/cover/cover-1.webp"
@@ -31,6 +27,7 @@ const Home: NextPage = () => {
         <AppHeader />
         <Center />
         <LazyDock />
+        <AppFooter />
       </AppLayout>
     </React.Fragment>
   );

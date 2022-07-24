@@ -34,6 +34,8 @@ export default ListView;
 
 const useList = (props: ListViewProps) => {
   const { height = 200, offset = 1000, root = null, duration = 200 } = props;
+
+  const isMount = React.useRef<boolean>(false);
   // * Check is server-side or not
   // const ssr = typeof window !== 'undefined';
 
@@ -84,8 +86,8 @@ const useList = (props: ListViewProps) => {
 
   // * Set true height for placeholder element after render.
   React.useEffect(() => {
-    let isMount = true;
-    if (isMount) {
+    isMount.current = true;
+    if (isMount.current) {
       let style = viewRef.current.style;
       if (typeof viewRef.current !== "undefined") {
         style.opacity = initialStyle.opacity;
@@ -98,7 +100,7 @@ const useList = (props: ListViewProps) => {
       }
     }
     return () => {
-      isMount = false;
+      isMount.current = false;
     };
   }, [
     exitStyle.opacity,

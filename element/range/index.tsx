@@ -9,4 +9,4 @@ const RangeSlider = (props: React.ComponentPropsWithoutRef<"input">) => {
     </div>
   );
 };
-export default RangeSlider;
+export default React.memo(RangeSlider);

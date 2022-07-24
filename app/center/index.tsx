@@ -3,7 +3,7 @@ import delay from "lib/delay";
 import BlurLayer from "./shadow";
 import InlineStyle from "./inline";
 import cl from "lib/codemirror-langs";
-import ct from "lib/codemirror-themes";
+import codeTheme from "lib/codemirror-themes";
 import CodeLoader from "./codeloader";
 import usePost from "store/hooks/usepost";
 import useCode from "store/hooks/usecode";
@@ -21,8 +21,13 @@ const Center = () => {
   const { codeValue, writeCode } = useCode();
   const { autoCompletion } = usePreference();
   const { lineNumbers, theme, mode } = usePreference();
-  // @ts-expect-error
-  const generatedTheme = React.useMemo(() => ct[theme](alpha), [alpha, theme]);
+  const { translucent } = usePreference();
+  // CODE THEMES AND LANGUAGE
+  const generatedTheme = React.useMemo(
+    // @ts-expect-error
+    () => codeTheme[theme](translucent ? alpha : 1),
+    [alpha, theme, translucent]
+  );
   // @ts-expect-error
   const generatedMode = React.useMemo(() => cl[mode](), [mode]);
   return (

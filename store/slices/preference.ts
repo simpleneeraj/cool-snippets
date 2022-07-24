@@ -6,7 +6,8 @@ const initialState: PreferenceTypes = {
     mode: "javascript",
     theme: "dracula",
     lineNumbers: false,
-    autoCompletion: false
+    autoCompletion: false,
+    translucent: true
 }
 
 /**************************
@@ -27,6 +28,9 @@ const preference = createSlice({
         },
         autoCompletion: (state: PreferenceTypes, action: ActionType) => {
             state.autoCompletion = action.payload
+        },
+        translucent: (state: PreferenceTypes, action: ActionType) => {
+            state.translucent = action.payload
         },
     }
 })

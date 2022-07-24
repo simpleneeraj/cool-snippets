@@ -5,13 +5,14 @@ import Select from "element/select";
 import { useCapture } from "lib/capture";
 import Segment from "element/segment";
 import useDownload from "store/hooks/usedownload";
-import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 import CircleDotted from "lib/icons/CircleDotted";
+import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
+import useBackground from "store/hooks/usebackground";
 
 const DownloadOptions = () => {
   const { imageFormat, setImageFormat } = useDownload();
   const { pixelRatio, setPixelRatio } = useDownload();
-
+  const { setRatio, aspectRatio } = useBackground();
   const { captureImage, isLoading } = useCapture();
 
   const captureHandler = () => {
@@ -28,11 +29,17 @@ const DownloadOptions = () => {
       <OptionsWraper title="Pixel Ratio">
         <Segment
           defaultValue={pixelRatio}
-          array={[1, 2, 3, 4]}
+          array={array.pixelRatio}
           onChange={(v) => setPixelRatio(v)}
         />
       </OptionsWraper>
-
+      <OptionsWraper title={`Aspect Ratio ${aspectRatio}`}>
+        <Select
+          defaultValue={aspectRatio}
+          onChange={(value) => setRatio(value)}
+          array={array.aspectRatio}
+        />
+      </OptionsWraper>
       <OptionsWraper title={"Image Type"}>
         <Select
           defaultValue={imageFormat}
@@ -60,35 +67,39 @@ export default DownloadOptions;
 
 const aspectRatio = [
   {
-    name: "Instagram Landscape",
-    ratio: "1.91:1",
-  },
-  {
-    name: "Instagram Square",
+    name: "Instagram ",
     ratio: "1:1",
   },
   {
-    name: "Instagram Portrait",
+    name: "Pinterest",
+    ratio: "2:3",
+  },
+  {
+    name: "Instagram ",
     ratio: "4:5",
   },
   {
-    name: "Instagram Reels",
+    name: "Instagram ",
     ratio: "9:16",
   },
   {
-    name: "Twitter Header",
-    ratio: "3:1",
+    name: "Landscape",
+    ratio: "16:9",
   },
   {
-    name: "Landcape",
-    ratio: "16:9",
+    name: "Twitter",
+    ratio: "2:1",
+  },
+  {
+    name: "Twitter",
+    ratio: "3:4",
   },
 ];
 const array = {
-  aspectRatio: aspectRatio.map((str) => {
+  aspectRatio: aspectRatio.map((data) => {
     return {
-      text: str.ratio,
-      value: str.ratio,
+      text: `${data.name} (${data.ratio})`,
+      value: data.ratio,
     };
   }),
   // @ts-expect-error
@@ -108,4 +119,19 @@ const array = {
       },
     };
   }),
+  pixelRatio: [
+    {
+      title: "2X",
+      value: 2,
+    },
+    {
+      title: "3X",
+      value: 3,
+    },
+
+    {
+      title: "4X",
+      value: 4,
+    },
+  ],
 };

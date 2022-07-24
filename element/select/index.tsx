@@ -138,4 +138,4 @@ const Select = (_props: SelectOptionProps) => {
   );
 };
 
-export default Select;
+export default React.memo(Select);
