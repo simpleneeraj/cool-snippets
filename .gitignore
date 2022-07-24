@@ -34,5 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-
+# MY
 zebra.js
+
+.babelrc.txt
