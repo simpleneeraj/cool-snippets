@@ -12,7 +12,7 @@ import css from "styles/dash.module.scss";
 const DashBoard = () => {
   const router = useRouter();
   const momentTime = moment().format("HH:mm");
-  const momentDate = moment().format("HH:mm");
+  const momentDate = moment().format("dddd, MMMM M");
   const [time, setTime] = React.useState(momentTime);
   const [date, setDate] = React.useState(momentDate);
 
