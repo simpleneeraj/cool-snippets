@@ -15,7 +15,6 @@ const Home: NextPageWithLayout = () => {
         thumbnail="https://www.icanpost.app/cover/cover-1.webp"
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo>
-
       <DashBoard />
     </React.Fragment>
   );

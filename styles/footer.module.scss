@@ -52,7 +52,7 @@
     color: #646f7c;
     font-size: 0.875em;
     &:hover {
-      color: var(--ui-color-blue);
+      color: var(--ui-color);
     }
   }
 }
@@ -63,7 +63,6 @@ Bottom
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
-
   border-top: 1px solid var(--dock-border-color);
 }
 
@@ -85,6 +84,9 @@ Bottom
 }
 
 @include mediaQuery(20px, 425px) {
+  .container {
+    padding: 1rem;
+  }
   .bottom .wraper {
     display: flex;
     flex-wrap: wrap;

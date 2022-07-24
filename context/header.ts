@@ -1,6 +1,18 @@
-import { createStateCTX } from "lib/mini-state";
+import { createReducerCTX, createStateCTX } from "lib/mini-state";
 
-const [HeaderContext, HeaderProvider] = createStateCTX(false)
+
+
+const init = false
+
+const reducer = (state: any, action: any) => {
+    switch (action.type) {
+        case 'nav':
+            return !state
+        default:
+            return state
+    }
+}
+const [HeaderContext, HeaderProvider] = createReducerCTX(reducer, init)
 
 
 export { HeaderContext, HeaderProvider }

@@ -14,7 +14,7 @@ const Footer = () => {
           ))}
         </div>
       </section>
-      <section className={css.bottom}>
+      {/* <section className={css.bottom}>
         <div className={css.wraper}>
           <div className={css.text}>
             <p>
@@ -31,7 +31,7 @@ const Footer = () => {
             </select>
           </div>
         </div>
-      </section>
+      </section> */}
     </footer>
   );
 };

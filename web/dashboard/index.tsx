@@ -1,15 +1,27 @@
+import useInterval from "hooks/useinterval";
 import Add from "lib/icons/Add";
 import CogOutline from "lib/icons/CogOutline";
 import LogoInstagram from "lib/icons/LogoInstagram";
 import LogoTwitter from "lib/icons/LogoTwitter";
 import ShareOutline from "lib/icons/ShareOutline";
+import moment from "moment";
 import { useRouter } from "next/router";
 import React from "react";
 import css from "styles/dash.module.scss";
 
 const DashBoard = () => {
   const router = useRouter();
+  const momentTime = moment().format("HH:mm");
+  const momentDate = moment().format("HH:mm");
+  const [time, setTime] = React.useState(momentTime);
+  const [date, setDate] = React.useState(momentDate);
 
+  useInterval(() => {
+    setTime(moment().format("HH:mm"));
+    setDate(moment().format("dddd, MMMM M"));
+  }, 1000);
+
+  console.log(time);
   return (
     <div className={css.container}>
       <div className={css.grid}>
@@ -28,7 +40,10 @@ const DashBoard = () => {
           </div>
         </div>
         <div className={css.time}>
-          <h1>20:20</h1>
+          <div className={css.backdrop}>
+            <h1>{time}</h1>
+            <p>{date}</p>
+          </div>
         </div>
       </div>
     </div>

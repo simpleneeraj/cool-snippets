@@ -26,9 +26,8 @@ const FakeBox = () => {
   );
 };
 
-const { unsplash: client_id } = process.env;
-
 const PhotosOptions = () => {
+  const client_id = process.env.unsplash;
   const [searchQuery, updateQuery] = React.useState("wallpapers");
 
   const { imagesArray, addImage } = useImages();

@@ -17,9 +17,11 @@ Header
 ***************************/
 const Header = () => {
   const { state, dispatch } = useCTX<boolean>(HeaderContext);
-  // const ref = useOnClickOutside(() => dispatch(false));
+  const containerRef = useOnClickOutside(() =>
+    dispatch({ type: "nav", payload: false })
+  );
   return (
-    <header className={css["container"]}>
+    <header ref={containerRef} className={css["container"]}>
       <section className={css["backdrop"]}>
         <div className={css["menubar"]}>
           <div className={css["navbutton"]}>
@@ -28,10 +30,13 @@ const Header = () => {
                 <CircleDotted />
               </a>
             </Link>
-            <MenuBar state={!state} />
+            <MenuBar
+              dispatch={() => dispatch({ type: "nav", payload: true })}
+              state={state}
+            />
           </div>
         </div>
-        <NavigationBar state={!state} />
+        <NavigationBar state={state} />
       </section>
     </header>
   );
@@ -41,7 +46,7 @@ export default Header;
 
 const NavigationBar = ({ state }: HeaderProps) => {
   return (
-    <nav className={`${css["navigation"]} ${state ? css["mobile"] : null}`}>
+    <nav className={`${css["navigation"]} ${state ? css["mobile"] : ""}`}>
       <div className={css["navbar"]}>
         {navigationdata.map((l, i) => (
           <Link key={i} href={l.path}>
@@ -52,9 +57,6 @@ const NavigationBar = ({ state }: HeaderProps) => {
       <div className={css["login"]}>
         <Link href="/login">
           <a>Sign in</a>
-        </Link>
-        <Link href="/editor">
-          <a>Editor</a>
         </Link>
       </div>
     </nav>

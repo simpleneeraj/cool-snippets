@@ -104,12 +104,9 @@ Login Bar
     color: var(--ui-color);
     background-color: var(--ui-transparent-2);
     transition: background 500ms ease;
-    &:nth-of-type(1) {
-      color: var(--ui-header-color);
-      background-color: transparent;
-      &:hover {
-        color: var(--ui-header-link-color);
-      }
+
+    &:hover {
+      color: var(--ui-header-link-color);
     }
   }
 }
