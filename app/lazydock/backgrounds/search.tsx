@@ -15,7 +15,7 @@ const SearchForm = ({ onFocus, onSubmit, style, inputref }: FormProps) => {
     <form onSubmit={onSubmit} onFocus={onFocus} style={style.button}>
       <button aria-label="search">
         <i>
-          <SearchIcon size={24} />
+          <SearchIcon size={20} />
         </i>
         <input
           ref={inputref}

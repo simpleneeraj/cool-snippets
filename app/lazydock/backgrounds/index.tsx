@@ -13,6 +13,7 @@ import SearchForm from "./search";
 import useSearchImages from "./usesearch";
 import Loader from "./loader";
 import ChevronForwardOutline from "lib/icons/ChevronForwardOutline";
+import Add from "lib/icons/Add";
 
 const FakeBox = () => {
   return (
@@ -58,7 +59,7 @@ const PhotosOptions = () => {
             inputref={inputRef}
             selectid={"back"}
             accept="image/*"
-            icon={<AddImage size={28} />}
+            icon={<Add size={25} />}
           />
         </div>
         <SearchForm

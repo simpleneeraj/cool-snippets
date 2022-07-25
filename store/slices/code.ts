@@ -5,7 +5,7 @@ import { ActionType, CodeTypes } from 'typings/store';
 
 
 const initialState: CodeTypes = {
-    codeValue: samplecode[7].str.trim()
+    codeValue: samplecode[2].str.trim()
 }
 
 const code = createSlice({

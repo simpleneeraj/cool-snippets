@@ -48,10 +48,16 @@ $itemWidth: 54px;
   @include button();
   position: sticky;
   display: flex;
-  // align-items: center;
+  // border: 1.3px solid var(--dock-border-color);
   button {
     display: grid;
     place-content: center;
+    transition: all 100ms ease;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
   }
 }
 

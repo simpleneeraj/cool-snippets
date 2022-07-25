@@ -27,6 +27,7 @@ Header Backdrop
   align-self: center;
   border-radius: 16px;
   max-width: 1360px;
+  min-width: 90%;
   background: var(--dock-background);
   backdrop-filter: blur(15px) saturate(150%);
   border: 1px solid var(--dock-border-color);
