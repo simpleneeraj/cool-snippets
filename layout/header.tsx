@@ -26,9 +26,9 @@ const Header = () => {
         <div className={css["menubar"]}>
           <div className={css["navbutton"]}>
             <Link href="/">
-              <a className={css["logo"]}>
+              <button aria-label="go to home" className={css["logo"]}>
                 <CircleDotted />
-              </a>
+              </button>
             </Link>
             <MenuBar
               dispatch={() => dispatch({ type: "nav", payload: true })}

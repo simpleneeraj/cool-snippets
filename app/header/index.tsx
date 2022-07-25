@@ -19,7 +19,6 @@ const AppHeader = () => {
     <div className={css.header}>
       <div className={css.controls}>
         <Button
-          aria-label="share button"
           title="Share Icanpost"
           style={style}
           icon={<Keyboard size={20} />}
@@ -29,19 +28,16 @@ const AppHeader = () => {
       <div className={css.controls}>
         <IconButton
           onClick={onShare}
-          aria-label="share button"
           title="Share Icanpost"
           icon={<ShareOutline size={16} />}
           style={style}
         />
         <IconButton
-          aria-label="share button"
           title="Share Icanpost"
           style={style}
           icon={<DownloadOutline size={16} />}
         />
         <IconButton
-          aria-label="share button"
           title="Share Icanpost"
           style={style}
           icon={<LogoTwitter size={16} />}

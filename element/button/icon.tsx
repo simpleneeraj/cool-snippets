@@ -6,7 +6,9 @@ const IconButton = (props: Props) => {
   // props.children
   return (
     <div className={css.iconbutton} {...props}>
-      <button>{props.icon ? <i>{props.icon}</i> : null}</button>
+      <button aria-label={props.title}>
+        {props.icon ? <i>{props.icon}</i> : null}
+      </button>
     </div>
   );
 };

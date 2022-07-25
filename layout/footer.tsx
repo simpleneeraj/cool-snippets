@@ -48,7 +48,7 @@ interface LinkProps {
 const List = ({ title, links }: LinkProps) => {
   return (
     <div className={css.list}>
-      <h4>{title}</h4>
+      <h1 className={css.heading}>{title}</h1>
       <ul>
         {links.map(({ name, path }, i) => (
           <li key={i}>

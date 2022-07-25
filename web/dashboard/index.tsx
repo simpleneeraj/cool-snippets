@@ -21,7 +21,6 @@ const DashBoard = () => {
     setDate(moment().format("dddd, MMMM M"));
   }, 1000);
 
-  console.log(time);
   return (
     <div className={css.container}>
       <div className={css.grid}>
