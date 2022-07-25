@@ -3,6 +3,8 @@ import Header from "./header";
 import Footer from "./footer";
 import NextProgress from "./nextprogress";
 import { HeaderProvider } from "context/header";
+import Script from "next/script";
+import jsonld from "./jsonld";
 
 const Main = (props: React.ComponentPropsWithRef<"main">) => (
   <main {...props} />
@@ -17,6 +19,12 @@ const Layout = ({ children }: LayoutProps) => {
       <NextProgress />
       <Header />
       <Main>{children}</Main>
+      <Script
+        id={`icanpost-0`}
+        key={`icanpost-1`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
+      />
       <Footer />
     </HeaderProvider>
   );
