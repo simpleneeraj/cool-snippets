@@ -124,6 +124,11 @@ const NextSeo = (props: MetaProps) => {
         sizes="128x128"
       />
       <link rel="apple-touch-icon" href="icons/android-chrome-192x192.png" />
+      {/* GOOGLE ANALYTICS */}
+      <meta
+        name="google-site-verification"
+        content="UeDeQ6-z0Fq7ibMXlAp9B0pjXytH-AXVCnRkgINu1iU"
+      />
       {/* Title */}
       <title>{title}</title>
       <meta name="og:title" content={title} />
