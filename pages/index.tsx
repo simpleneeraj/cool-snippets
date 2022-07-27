@@ -4,6 +4,7 @@ import Link from "next/link";
 import { NextPageWithLayout } from "typings/pages";
 import PerPageLayout from "layout/perpage";
 import DashBoard from "web/dashboard";
+import Skeletion from "element/skeleton/byjsx";
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPageWithLayout = () => {
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo>
       <DashBoard />
+      <Skeletion />
     </React.Fragment>
   );
 };

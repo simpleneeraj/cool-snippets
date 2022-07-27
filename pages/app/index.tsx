@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import NextSeo from "layout/seo";
 import AppLayout from "./layout";
 import dynamic from "next/dynamic";
-import OnBording from "web/onboarding";
+// import OnBording from "web/onboarding";
 import AppHeader from "app/header";
 import LazyDock from "app/lazydock";
 import AppFooter from "app/footer";
@@ -13,7 +13,7 @@ const Center = dynamic(async () => await import("app/center"));
 const Home: NextPage = () => {
   return (
     <React.Fragment>
-      <OnBording />
+      {/* <OnBording /> */}
       <NextSeo
         title="Generate Beautiful Code Snippets of your code"
         description="Turn your code into beautiful images. 

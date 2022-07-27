@@ -63,7 +63,10 @@ const PhotosOptions = () => {
           />
         </div>
         <SearchForm
-          style={searchStyle}
+          style={{
+            form: searchStyle.button,
+            input: {},
+          }}
           onSubmit={onSubmit}
           onFocus={onFocus}
           inputref={searchRef}

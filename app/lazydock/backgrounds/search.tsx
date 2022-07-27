@@ -3,7 +3,7 @@ import SearchIcon from "lib/icons/SearchIcon";
 
 interface FormProps {
   style: {
-    button: React.CSSProperties;
+    form: React.CSSProperties;
     input: React.CSSProperties;
   };
   onSubmit: (e: any) => void;
@@ -11,20 +11,6 @@ interface FormProps {
   inputref: React.RefObject<HTMLInputElement>;
 }
 const SearchForm = ({ onFocus, onSubmit, style, inputref }: FormProps) => {
-  return (
-    <form onSubmit={onSubmit} onFocus={onFocus} style={style.button}>
-      <button aria-label="search">
-        <i>
-          <SearchIcon size={20} />
-        </i>
-        <input
-          ref={inputref}
-          type="search"
-          placeholder="Search Images..."
-          style={style.input}
-        />
-      </button>
-    </form>
-  );
+  return <form onSubmit={onSubmit} onFocus={onFocus} style={style.form}></form>;
 };
 export default SearchForm;

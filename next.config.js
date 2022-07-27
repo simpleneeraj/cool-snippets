@@ -5,18 +5,10 @@ const nextConfig = {
   env: {
     unsplash: "YnAHf2SJAKJmUr3ykMdo3q08L_ksA9NA7SyMHU8gJ9Q",
   },
-  productionBrowserSourceMaps: true,
-  compiler: {
-    removeConsole: true,
-  },
-  experimental: {
-    swcMinifyDebugOptions: {
-      compress: {
-        defaults: true,
-        side_effects: false,
-      },
-    },
-  },
+  // compiler: {
+  //   removeConsole: true,
+  // },
+  // productionBrowserSourceMaps: true,
 };
 
 module.exports = nextConfig;

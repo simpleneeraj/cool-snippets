@@ -13,14 +13,18 @@ const useSearchImages = (dispatch: (value: string) => void) => {
     }, []);
 
     const searchStyle = {
+        form: {
+            minWidth: focus ? "180px" : "54px",
+            transition: "all 400ms linear",
+        },
         button: {
             minWidth: focus ? "180px" : "54px",
-            transition: "all 200ms linear",
+            transition: "all 400ms linear",
         },
         input: {
-            transition: "all 200ms linear",
-            width: focus ? "100%" : "0",
-            padding: focus ? ".4rem" : "0rem",
+            transition: "all 400ms linear",
+            width: focus ? "100%" : "0%",
+            // padding: focus ? ".4rem" : "0rem",
         },
     };
 
