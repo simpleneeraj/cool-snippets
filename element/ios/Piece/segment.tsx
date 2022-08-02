@@ -1,7 +1,7 @@
 import React from "react";
 import css from "../Style/Segment.module.scss";
 
-const Segment = ({ children, ...props }) => {
+const Segment = ({ children, ...props }: any) => {
   return (
     <div className={css.Segment} {...props}>
       {children}
@@ -12,7 +12,12 @@ const Segment = ({ children, ...props }) => {
 export default Segment;
 
 // Hover Effect
-export const Button = ({ children, notallow, isActive = false, ...props }) => {
+export const Button = ({
+  children,
+  notallow,
+  isActive = false,
+  ...props
+}: any) => {
   const whenDesable = notallow ? css.notallow : css.WraperButton;
   const Calculated = isActive ? css.Active : whenDesable;
 
@@ -28,7 +33,7 @@ export const TabButton = ({
   notallow,
   isActive = false,
   ...props
-}) => {
+}: any) => {
   const whenDesable = notallow ? css.notallow : css.TabButton;
   const Calculated = isActive ? css.Active : whenDesable;
 

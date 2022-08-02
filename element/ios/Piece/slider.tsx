@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
 import css from "../Style/TapSlider.module.scss";
 
-const TapSlider = ({ defaultValue, vartical = false, ...props }) => {
+const TapSlider = ({ defaultValue, vartical = false, ...props }: any) => {
   const [filled, setfilled] = useState(defaultValue);
-  const filled_Handler = useCallback((e) => {
+  const filled_Handler = useCallback((e: any) => {
     let { value, max } = e.target;
     const calc = value / max;
     const percentage = calc * 100;
@@ -24,7 +24,7 @@ const TapSlider = ({ defaultValue, vartical = false, ...props }) => {
           {...props}
           defaultValue={defaultValue}
         />
-        <style jsx="false">
+        <style>
           {`
             .${className} {
               background: linear-gradient(

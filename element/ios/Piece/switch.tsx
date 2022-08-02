@@ -1,6 +1,6 @@
 import css from "../Style/Switch.module.scss";
 
-const Switch = ({ isActive, ...props }) => {
+const Switch = ({ isActive, ...props }: any) => {
   const ActClass = isActive ? css.SwitchActive : css.SwitchInActive;
 
   return (
