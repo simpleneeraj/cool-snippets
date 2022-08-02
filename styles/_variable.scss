@@ -47,3 +47,97 @@
   // Accent
   --ui-accent-color: #3f51b5;
 }
+
+:root {
+  --White: #ffffff;
+  --Black: #000000;
+  --Color-1: #f1f1f1;
+  --Color-2: #eeeeee;
+  --Background-1: #090909; // For Body
+  --Background-2: #1c1c1e; // For Div
+  --Background-3: #2e2e30; // For Button
+  --Background-4: #444444; // For Hover
+  --Accent-Color: #34c759;
+  --Shadow-Color: #ffffff30;
+  --Transparent-Color-1: rgba(0, 0, 0, 0.5);
+}
+
+// Dark Mode Color
+[data-theme="light"] {
+  --Color-1: ##111111;
+  --Color-2: #444444;
+  --Background-1: #efefef; // For Body
+  --Background-2: #fafafa; // For Div
+  --Background-3: #efefef; // For Button
+  --Background-4: #dddddd; // For Hover
+  --Accent-Color: #34c759;
+  --Shadow-Color: #00000030;
+  --Transparent-Color-1: rgba(255, 255, 255, 0.5);
+}
+
+// #090909 Body
+// #1c1c1e Div
+// #2e2e30
+
+[data-theme="dark"] {
+  --Color-1: #f1f1f1;
+  --Color-2: #eeeeee;
+  --Background-1: #090909; // For Body
+  --Background-2: #1c1c1e; // For Div
+  --Background-3: #2e2e30; // For Button
+  --Background-4: #444444; // For Hover
+  --Accent-Color: #34c759;
+  --Shadow-Color: #ffffff30;
+  --Transparent-Color-1: rgba(0, 0, 0, 0.7);
+}
+
+// Accent Colors from Twitter
+
+[data-color="carolina-blue"] {
+  --Accent-Color: #1d9bf0ff;
+}
+[data-color="cyber-yellow"] {
+  --Accent-Color: #ffd400ff;
+}
+[data-color="flickr-pink"] {
+  --Accent-Color: #f91880ff;
+}
+[data-color="slate-blue"] {
+  --Accent-Color: #7856ffff;
+}
+[data-color="heat-wave"] {
+  --Accent-Color: #ff7a00ff;
+}
+[data-color="sea-green"] {
+  --Accent-Color: #00ba7cff;
+}
+
+// Accent Colors from Apple
+
+[data-color="Bluesystem"] {
+  --Accent-Color: rgb(0, 122, 255);
+}
+[data-color="Greensystem"] {
+  --Accent-Color: rgb(52, 199, 89);
+}
+[data-color="Indigosystem"] {
+  --Accent-Color: rgb(88, 86, 214);
+}
+[data-color="Orangesystem"] {
+  --Accent-Color: rgb(255, 149, 0);
+}
+[data-color="Pinksystem"] {
+  --Accent-Color: rgb(255, 45, 85);
+}
+[data-color="Purplesystem"] {
+  --Accent-Color: rgb(175, 82, 222);
+}
+[data-color="Redsystem"] {
+  --Accent-Color: rgb(255, 59, 48);
+}
+[data-color="Tealsystem"] {
+  --Accent-Color: rgb(90, 200, 250);
+}
+[data-color="Yellow"] {
+  --Accent-Color: rgb(255, 204, 0);
+}

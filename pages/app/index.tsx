@@ -1,14 +1,15 @@
 import React from "react";
 import type { NextPage } from "next";
 import NextSeo from "layout/seo";
-import AppLayout from "./layout";
-import dynamic from "next/dynamic";
+import AppLayout from "app";
+// import AppLayout from "./layout";
+// import dynamic from "next/dynamic";
 // import OnBording from "web/onboarding";
-import AppHeader from "app/header";
-import LazyDock from "app/lazydock";
-import AppFooter from "app/footer";
+// import AppHeader from "app/header";
+// import LazyDock from "app/lazydock";
+// import AppFooter from "app/footer";
 
-const Center = dynamic(async () => await import("app/center"));
+// const Center = dynamic(async () => await import("app/center"));
 
 const Home: NextPage = () => {
   return (
@@ -23,12 +24,13 @@ const Home: NextPage = () => {
       >
         <meta name="viewport" content="width=600" />
       </NextSeo>
-      <AppLayout>
+      {/* <AppLayout>
         <AppHeader />
         <Center />
         <LazyDock />
         <AppFooter />
-      </AppLayout>
+      </AppLayout> */}
+      <AppLayout />
     </React.Fragment>
   );
 };

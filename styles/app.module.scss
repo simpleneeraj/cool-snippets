@@ -1,0 +1,112 @@
+$Radius: 10px;
+$Margin: 6px;
+$Padding: 4px;
+$Gap: 8px;
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  max-height: 100vh;
+  height: 100vh;
+}
+.LayoutTop {
+  display: flex;
+  align-items: center;
+}
+
+.LayoutMain {
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+  overflow: hidden;
+}
+
+.top {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  margin: $Margin;
+  padding: $Padding;
+  border-radius: $Radius;
+  justify-content: space-between;
+  background: var(--Background-2);
+  border: 1px solid var(--Background-3);
+}
+
+// Here CenterEditor
+.center {
+  flex: 1 1;
+  display: grid;
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+// Right Section of Our App
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  gap: $Gap;
+  margin: 0 $Margin $Margin 0;
+}
+
+// Left Section of Our Application
+
+.left {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: $Radius;
+  margin: 0 0 $Margin $Margin;
+  background: var(--Background-2);
+  border: 1px solid var(--Background-3);
+}
+
+.BottomCover {
+  padding: 4px;
+  display: grid;
+  justify-self: flex-end;
+  border-radius: 10px;
+  background: var(--Background-2);
+  border: 1px solid var(--Background-3);
+}
+
+// $Radius: 10px;
+// $Margin: 6px;
+// $Padding: 4px;
+// $Gap: 8px;
+
+.RightTab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  background: var(--Background-2);
+  border-radius: $Radius;
+  border: 1px solid var(--Background-3);
+}
+
+.center {
+  position: relative;
+  background-image: linear-gradient(
+      0deg,
+      var(--Background-1),
+      rgba(13, 17, 23, 0) 15%
+    ),
+    linear-gradient(180deg, var(--Background-1), rgba(13, 17, 23, 0) 15%),
+    radial-gradient(
+      circle farthest-side at 50% 0,
+      rgba(13, 17, 23, 0),
+      var(--Background-1)
+    ),
+    url("../public/texture/tile-dark.svg");
+  background-position: 0 0, 0 0, 0 0, -1px -1px;
+  background-size: auto, auto, auto, 64px;
+
+  background-color: #272e35;
+}

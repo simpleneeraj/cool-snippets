@@ -1,0 +1,33 @@
+$Size: 55px;
+$Padding: 4px;
+
+.SwitchInActive,
+.SwitchActive {
+  background: var(--Background-4);
+  height: $Size / 2;
+  width: $Size;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  place-content: center;
+  padding: $Padding;
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+  span {
+    transition: 150ms ease-in-out;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate($Padding - 1px, -50%);
+    height: $Size / 2 - $Padding;
+    width: $Size / 2 - $Padding;
+    border-radius: 100px;
+    background: var(--White);
+  }
+}
+.SwitchActive {
+  background: var(--Accent-Color);
+  span {
+    transform: translate($Size / 2 + 2px, -50%);
+  }
+}
