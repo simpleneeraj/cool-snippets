@@ -18,7 +18,7 @@ const backgroundFilter = (value: string) => {
 };
 
 const InlineStyle = () => {
-  const aspectWidth = 512;
+  const aspectWidth = 420;
   const { padding } = useBackground();
   const { letterSpacing, lineHeight } = useText();
   const { source, aspectRatio } = useBackground();

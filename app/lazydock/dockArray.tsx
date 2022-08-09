@@ -2,14 +2,11 @@ import React from "react";
 import delay from "lib/delay";
 import { SVGTYPE } from "typings/app";
 // Icons
-import Options from "lib/icons/Options";
 import PageFit from "lib/icons/PageFit";
 import TextField from "lib/icons/TextField";
-import AppRecent from "lib/icons/AppRecent";
 import PaintBrush from "lib/icons/PaintBrush";
 import ImageOutline from "lib/icons/ImageOutline";
 import ColorBackground from "lib/icons/ColorBackground";
-import BroadActivityFeed from "lib/icons/BroadActivityFeed";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 
 const size = 25;

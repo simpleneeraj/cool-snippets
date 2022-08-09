@@ -1,8 +1,10 @@
-$Radius: 10px;
-$Margin: 6px;
-$Padding: 4px;
-$Gap: 8px;
+@import "./mixin";
 
+$radius: 10px;
+$Padding: 4px;
+$gapping: 6px;
+
+// MAIN CONTAINER
 .container {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -10,75 +12,113 @@ $Gap: 8px;
   max-height: 100vh;
   height: 100vh;
 }
-.LayoutTop {
-  display: flex;
-  align-items: center;
-}
-
-.LayoutMain {
+// GRID CONTAINER
+.grid {
   display: grid;
   grid-template-columns: 20% 1fr 20%;
   overflow: hidden;
 }
-
+// APP TOP
 .top {
   flex: 1;
   display: flex;
   overflow: hidden;
   position: relative;
   align-items: center;
-  margin: $Margin;
+  margin: $gapping;
   padding: $Padding;
-  border-radius: $Radius;
+  border-radius: $radius;
   justify-content: space-between;
-  background: var(--Background-2);
-  border: 1px solid var(--Background-3);
 }
 
-// Here CenterEditor
+.title {
+  display: flex;
+  // align-items: center;
+}
+.title .button {
+  display: flex;
+  align-items: center;
+  min-width: 30px;
+}
+
+.title .text {
+  display: flex;
+  flex-direction: column;
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+}
+
+.controls {
+  gap: 6px;
+  display: flex;
+  align-items: center;
+}
+
+// CENTER CONTAINER
 .center {
   flex: 1 1;
   display: grid;
   overflow: auto;
   align-items: center;
   justify-content: center;
+  margin: 0 $gapping $gapping;
+  border-radius: $radius;
 }
 
-// Right Section of Our App
+// RIGHT CONTAINER
 .right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  gap: $Gap;
-  margin: 0 $Margin $Margin 0;
+  gap: $gapping;
+  border-radius: $radius;
+
+  margin: 0 $gapping $gapping 0;
 }
 
-// Left Section of Our Application
-
+// LEFT CONTAINER
 .left {
   overflow: auto;
   display: flex;
   flex-direction: column;
-  border-radius: $Radius;
-  margin: 0 0 $Margin $Margin;
+  border-radius: $radius;
+  margin: 0 0 $gapping $gapping;
   background: var(--Background-2);
   border: 1px solid var(--Background-3);
 }
 
-.BottomCover {
+.bottomcover {
   padding: 4px;
   display: grid;
+  min-height: 50px;
   justify-self: flex-end;
+  align-items: center;
+
   border-radius: 10px;
   background: var(--Background-2);
   border: 1px solid var(--Background-3);
+  overflow: auto;
+
+  @include scroll-bar();
 }
 
-// $Radius: 10px;
-// $Margin: 6px;
-// $Padding: 4px;
-// $Gap: 8px;
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
 .RightTab {
   flex: 1;
@@ -87,11 +127,13 @@ $Gap: 8px;
   position: relative;
   overflow: auto;
   background: var(--Background-2);
-  border-radius: $Radius;
+  border-radius: inherit;
   border: 1px solid var(--Background-3);
+  overflow: auto;
+  @include scroll-bar(4px, 4px);
 }
 
-.center {
+.container {
   position: relative;
   background-image: linear-gradient(
       0deg,
@@ -107,6 +149,14 @@ $Gap: 8px;
     url("../public/texture/tile-dark.svg");
   background-position: 0 0, 0 0, 0 0, -1px -1px;
   background-size: auto, auto, auto, 64px;
-
   background-color: #272e35;
+}
+
+.horizontal {
+  background: #3e3e3e;
+  height: 1px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  opacity: 0.4;
 }

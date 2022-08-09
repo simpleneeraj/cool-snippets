@@ -1,15 +1,14 @@
-@mixin Scroll($Height, $Width) {
+@mixin scroll-bar($height: 4px, $width: 4px, $color: #2e2e30) {
   &::-webkit-scrollbar {
-    appearance: null;
-    height: $Height;
-    width: $Width;
+    appearance: none;
+    height: $height;
+    width: $width;
     background: inherit;
   }
   &::-webkit-scrollbar-thumb {
-    appearance: null;
-    background: var(--Background-4);
+    appearance: none;
+    background: $color;
     border-radius: 8px;
-    border: 1px solid var(--Background-2);
   }
 }
 /**************************
@@ -22,16 +21,16 @@ For Padding With safe-area
     padding-top: calc(max($value, env(safe-area-inset-top)));
     padding-bottom: calc(max($value, env(safe-area-inset-bottom)));
   }
-  @if $type == 'top' {
+  @if $type == "top" {
     padding-top: calc(max($value, env(safe-area-inset-top)));
   }
-  @if $type == 'left' {
+  @if $type == "left" {
     padding-left: calc(max($value, env(safe-area-inset-top)));
   }
-  @if $type == 'right' {
+  @if $type == "right" {
     padding-right: calc(max($value, env(safe-area-inset-top)));
   }
-  @if $type == 'bottom' {
+  @if $type == "bottom" {
     padding-bottom: calc(max($value, env(safe-area-inset-top)));
   }
 }

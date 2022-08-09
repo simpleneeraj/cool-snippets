@@ -3,7 +3,7 @@ interface SVGTYPE extends React.SVGProps<SVGSVGElement> {
     size?: number | string;
     color?: string;
 }
-const ChevronForwardOutline = (props: SVGTYPE) => {
+const EllipsisVertical = (props: SVGTYPE) => {
     const {  color="currentColor",size = "30px" } = props;
     return (
       <svg
@@ -15,8 +15,8 @@ const ChevronForwardOutline = (props: SVGTYPE) => {
         xmlns="http://www.w3.org/2000/svg"
         {...props}
       >
-        <polyline xmlns="http://www.w3.org/2000/svg" points="184 112 328 256 184 400" fill="none" stroke="undefined" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48px"/>
+        <circle xmlns="http://www.w3.org/2000/svg" cx="256" cy="256" r="48"/><circle xmlns="http://www.w3.org/2000/svg" cx="256" cy="416" r="48"/><circle xmlns="http://www.w3.org/2000/svg" cx="256" cy="96" r="48"/>
       </svg>
     );
   };
-  export default ChevronForwardOutline
+  export default EllipsisVertical

@@ -1,0 +1,28 @@
+.wraper {
+  display: flex;
+  flex-direction: column;
+}
+
+.toptext {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2e2e30;
+  padding: 4px;
+  label {
+    font-size: 0.7rem;
+    &:nth-of-type(2) {
+      opacity: 0.5;
+    }
+  }
+}
+
+.list {
+  padding: 6px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    font-size: 0.8rem;
+  }
+}
