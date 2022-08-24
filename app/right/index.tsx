@@ -10,7 +10,7 @@ import Switch from "ui/switch";
 
 const AppRight = () => {
   const [isToggle, setToggle] = React.useState(false);
-
+  //
   return (
     <div className={css.right}>
       <div className={css.RightTab}>
