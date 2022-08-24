@@ -17,7 +17,7 @@ const Home: NextPageWithLayout = () => {
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo>
       <DashBoard />
-      <Skeletion />
+      {/* <Skeletion /> */}
     </React.Fragment>
   );
 };
