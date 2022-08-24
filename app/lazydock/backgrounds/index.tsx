@@ -12,7 +12,7 @@ import { UnsplashImageType } from "typings/api";
 import SearchForm from "./search";
 import useSearchImages from "./usesearch";
 import Loader from "./loader";
-import ChevronForwardOutline from "lib/icons/ChevronForwardOutline";
+// import ChevronForwardOutline from "lib/icons/ChevronForwardOutline";
 import Add from "lib/icons/Add";
 
 const FakeBox = () => {
@@ -111,7 +111,8 @@ const PhotosOptions = () => {
               onClick={() => setcount((i) => i + 1)}
             >
               <i>
-                <ChevronForwardOutline size={20} />
+                {/* <ChevronForwardOutline size={20} /> */}
+                {" > "}
               </i>
             </button>
           </div>

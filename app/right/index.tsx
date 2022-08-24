@@ -5,8 +5,12 @@ import ToolsWraper from "./wraper";
 import ToolsList from "./wraper/list";
 import css from "styles/app.module.scss";
 import StepperButton from "ui/button/stepper";
+import Toggle from "../../element/toggle";
+import Switch from "ui/switch";
 
 const AppRight = () => {
+  const [isToggle, setToggle] = React.useState(false);
+
   return (
     <div className={css.right}>
       <div className={css.RightTab}>
@@ -30,6 +34,7 @@ const AppRight = () => {
               defaultValue={0}
             />
           </ToolsList>
+          <Switch active={isToggle} onClick={() => setToggle(!isToggle)} />
         </ToolsWraper>
         {/* <ToolsWraper labelleft="BORDER" labelright="Reset">
           <ToolsList title="Width">
