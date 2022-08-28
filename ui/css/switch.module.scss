@@ -1,16 +1,19 @@
-$Size: 55px;
-$Padding: 4px;
+$size: 46px;
+$padding: 4px;
+
+$background: #2e2e30;
+$accent-color: #34c759;
 
 .active,
 .no {
-  background: var(--Background-4);
-  height: $Size / 2;
-  width: $Size;
+  background: $background;
+  height: $size / 2;
+  width: $size;
   border-radius: 30px;
   position: relative;
   display: flex;
   place-content: center;
-  padding: $Padding;
+  padding: $padding;
   transition: 150ms ease-in-out;
   cursor: pointer;
   span {
@@ -18,16 +21,16 @@ $Padding: 4px;
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translate($Padding - 1px, -50%);
-    height: $Size / 2 - $Padding;
-    width: $Size / 2 - $Padding;
+    transform: translate($padding - 1px, -50%);
+    height: $size / 2 - $padding;
+    width: $size / 2 - $padding;
     border-radius: 100px;
     background: var(--White);
   }
 }
 .active {
-  background: var(--Accent-Color);
+  background: $accent-color;
   span {
-    transform: translate($Size / 2 + 2px, -50%);
+    transform: translate($size / 2 + 2px, -50%);
   }
 }

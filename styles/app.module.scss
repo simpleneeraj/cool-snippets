@@ -15,7 +15,7 @@ $gapping: 6px;
 // GRID CONTAINER
 .grid {
   display: grid;
-  grid-template-columns: 20% 1fr 20%;
+  grid-template-columns: 18% 1fr 25%;
   overflow: hidden;
 }
 // APP TOP
@@ -82,7 +82,6 @@ $gapping: 6px;
   overflow: hidden;
   gap: $gapping;
   border-radius: $radius;
-
   margin: 0 $gapping $gapping 0;
 }
 
@@ -120,7 +119,7 @@ $gapping: 6px;
   overflow: hidden;
 }
 
-.RightTab {
+.tabContainer {
   flex: 1;
   display: flex;
   flex-direction: column;

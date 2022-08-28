@@ -12,7 +12,7 @@ interface CommonForButton {
     direction?: 'row' | 'column'
     size?: 'square' | 'reactangle' | string
     active?: 'static' | 'clicked' | 'translate' | null;
-    disabled?: 'no-action' | 'reduce-opacity'
+    disabled?: 'no-action' | 'reduce-opacity' | null
 }
 
 

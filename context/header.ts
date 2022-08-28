@@ -7,7 +7,7 @@ const init = false
 const reducer = (state: any, action: any) => {
     switch (action.type) {
         case 'nav':
-            return !state
+            return action.payload
         default:
             return state
     }

@@ -1,0 +1,26 @@
+//
+$button-background: #1c1c1e;
+$button-active: #2e2e30;
+$button-hover: #1c1c1e;
+
+.container {
+  border-radius: 8px;
+  // min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $button-background;
+  transition: all 50ms ease-in;
+  min-width: 50px;
+  // min-width: 120px;
+  max-width: 120px;
+}
+
+.container select {
+  border-radius: 6px;
+  background: #2e2e30;
+  padding: 0.3rem;
+  font-size: 12px;
+  color: var(--ui-color);
+  max-width: 100%;
+}

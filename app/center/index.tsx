@@ -10,6 +10,7 @@ import useCode from "store/hooks/usecode";
 import css from "styles/center.module.scss";
 import { Capture as Layer } from "lib/capture";
 import usePreference from "store/hooks/usepreference";
+import Draggable from "react-draggable";
 
 const CodeMirror = React.lazy(async () => {
   await delay(3000);
@@ -39,25 +40,27 @@ const Center = () => {
             <div className="watermark">
               <p>www.icanpost.app</p>
             </div>
-            <div className="layer">
-              <React.Suspense fallback={<CodeLoader />}>
-                <CodeMirror
-                  value={codeValue}
-                  onChange={(v) => writeCode(v)}
-                  className="codemirror"
-                  theme={generatedTheme}
-                  extensions={generatedMode}
-                  basicSetup={{
-                    foldGutter: false,
-                    lineNumbers: lineNumbers,
-                    autocompletion: autoCompletion,
-                    highlightActiveLine: false,
-                    highlightActiveLineGutter: false,
-                  }}
-                />
-              </React.Suspense>
-              <BlurLayer />
-            </div>
+            <Draggable grid={[25, 25]} disabled>
+              <div className="layer">
+                <React.Suspense fallback={<CodeLoader />}>
+                  <CodeMirror
+                    value={codeValue}
+                    onChange={(v) => writeCode(v)}
+                    className="codemirror"
+                    theme={generatedTheme}
+                    extensions={generatedMode}
+                    basicSetup={{
+                      foldGutter: false,
+                      lineNumbers: lineNumbers,
+                      autocompletion: autoCompletion,
+                      highlightActiveLine: false,
+                      highlightActiveLineGutter: false,
+                    }}
+                  />
+                </React.Suspense>
+                <BlurLayer />
+              </div>
+            </Draggable>
           </Layer>
         </div>
       </div>

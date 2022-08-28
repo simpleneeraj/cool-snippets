@@ -11,6 +11,8 @@ import download from "./slices/download";
 import imagesSlice from "./slices/images";
 import post from "./slices/post";
 import unsplashApi from "./api/unsplash";
+import tabSlice from "./slices/bottom/tab";
+import undoable from "./undo";
 
 const store = configureStore({
     reducer: {
@@ -22,9 +24,13 @@ const store = configureStore({
         download: download.reducer,
         background: background.reducer,
         preference: preference.reducer,
+        // RIGHT SLICES
+        bottomTab: tabSlice.reducer,
         // API
-        [unsplashApi.reducerPath]: unsplashApi.reducer
+        [unsplashApi.reducerPath]: unsplashApi.reducer,
+
     },
+
     devTools: isDev,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(unsplashApi.middleware)
 
@@ -33,3 +39,4 @@ const store = configureStore({
 
 setupListeners(store.dispatch)
 export default store;
+

@@ -30,6 +30,7 @@ const FakeBox = () => {
 const PhotosOptions = () => {
   const client_id = process.env.unsplash;
   const [searchQuery, updateQuery] = React.useState("wallpapers");
+  const [count, setcount] = React.useState(1);
 
   const { imagesArray, addImage } = useImages();
   const { setBackground, source } = useBackground();
@@ -37,7 +38,6 @@ const PhotosOptions = () => {
     (source) => addImage(source),
     {}
   );
-  const [count, setcount] = React.useState(1);
   const { useGetUnsplashQuery } = unsplashApi;
   const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
     count: 30,

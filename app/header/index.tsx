@@ -7,6 +7,7 @@ import ShareOutline from "lib/icons/ShareOutline";
 import Keyboard from "lib/icons/Keyboard";
 import DownloadOutline from "lib/icons/DownloadOutline";
 import LogoTwitter from "lib/icons/LogoTwitter";
+import { useStore } from "react-redux";
 
 const AppHeader = () => {
   const onShare = useShare();
@@ -15,6 +16,7 @@ const AppHeader = () => {
     background: "var(--ui-transparent-2)",
     backdropFilter: "blur(15px)",
   };
+
   return (
     <div className={css.header}>
       <div className={css.controls}>

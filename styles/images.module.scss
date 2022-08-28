@@ -1,0 +1,36 @@
+//
+
+.container {
+  // overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.imageContainer {
+  display: flex;
+}
+
+.imageBox {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.image {
+  display: flex;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.picture {
+  display: flex;
+  img {
+    max-width: 100%;
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    // min-height: 200px;
+  }
+}
+
+.showmore {
+  display: flex;
+}
