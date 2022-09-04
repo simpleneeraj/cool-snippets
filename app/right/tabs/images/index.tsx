@@ -7,6 +7,8 @@ import useImages from "store/hooks/useImages";
 import useBackground from "store/hooks/usebackground";
 import { UnsplashImageType } from "typings/api";
 import IconButton from "ui/button/icon";
+import SearchBar from "ui/search";
+import useSearchImages from "./usesearch";
 
 interface PictureProps extends React.ComponentPropsWithoutRef<"div"> {
   source: string;
@@ -33,9 +35,16 @@ const ImagesComponent = () => {
     client_id: client_id,
   });
 
+  const { onSubmit, searchRef } = useSearchImages((value) =>
+    updateQuery(value)
+  );
   return (
     <div className={css.container}>
-      <div>Search</div>
+      <SearchBar
+        ref={searchRef}
+        onSubmit={onSubmit}
+        placeholder="Search images..."
+      />
       <div className={css.imageContainer}>
         <div className={css.imageBox}>
           {imagesArray.map((d, i) => {
@@ -72,7 +81,9 @@ const ImagesComponent = () => {
         </div>
       </div>
       <div className={css.showmore}>
-        <IconButton>Hello</IconButton>
+        <IconButton onClick={() => setcount((i) => i + 1)}>
+          Show More
+        </IconButton>
       </div>
     </div>
   );

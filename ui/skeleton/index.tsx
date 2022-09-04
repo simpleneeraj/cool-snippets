@@ -1,11 +1,11 @@
 import React from "react";
-import css from "styles/skeleton.module.scss";
+import css from "../css/skeleton.module.scss";
 
-const Skeletion = () => {
+const Skeleton = () => {
   return (
     <div>
       <span className={css.skeleton} style={{ width: `100%` }}></span>
     </div>
   );
 };
-export default Skeletion;
+export default Skeleton;

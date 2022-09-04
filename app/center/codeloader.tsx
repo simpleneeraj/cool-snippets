@@ -1,4 +1,4 @@
-import Skeleton from "element/skeleton";
+import Skeleton from "ui/skeleton/svg";
 
 const CodeLoader = () => (
   <Skeleton

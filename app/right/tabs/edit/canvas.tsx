@@ -51,18 +51,6 @@ const CanvasOptions = () => {
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
-
-      <ToolsList title="Blur Radius">
-        <Slider
-          min={0}
-          max={30}
-          step={1}
-          defaultValue={blurRadius}
-          onChange={(e) => blurRadiusHandler(e.target.value)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-
       <ToolsList title="Corner Radius">
         <Slider
           min={0}
@@ -72,6 +60,19 @@ const CanvasOptions = () => {
           onChange={(e) => cornerRadiusHandler(e.target.value)}
         />
       </ToolsList>
+      <HRLine className={css.horizontal} />
+
+      <ToolsList title="Blur Radius">
+        <Slider
+          min={0}
+          max={30}
+          step={1}
+          defaultValue={blurRadius}
+          onChange={(e) => blurRadiusHandler(e.target.value)}
+          disabled={!translucent}
+        />
+      </ToolsList>
+
       <HRLine className={css.horizontal} />
       <ToolsList title="Translucent">
         <Switch

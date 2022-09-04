@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  background: #1c1c1e;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--Background-3);
+
+  i {
+    padding: 0 4px;
+  }
+  input {
+    flex: 1;
+    font-size: 0.8rem;
+    background-color: transparent;
+  }
+}

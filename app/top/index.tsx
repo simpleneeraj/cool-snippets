@@ -48,7 +48,7 @@ const AppTop = () => {
             <p>
               Last Edited &middot; June 2022
               <i>
-                <CheckmarkICloud size={16} />
+                <CheckmarkICloud size={16} color="lime" />
               </i>
             </p>
           </div>
