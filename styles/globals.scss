@@ -44,6 +44,11 @@ body {
   box-sizing: border-box;
 }
 
+::selection {
+  color: #0d1117;
+  background: #9e9e9e;
+}
+
 button,
 input,
 select {
@@ -64,6 +69,7 @@ i {
 
 a {
   text-decoration: none;
+  color: initial;
 }
 
 .cm-gutters {

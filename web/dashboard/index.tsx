@@ -3,8 +3,8 @@ import Add from "lib/icons/Add";
 import CogOutline from "lib/icons/CogOutline";
 import LogoInstagram from "lib/icons/LogoInstagram";
 import LogoTwitter from "lib/icons/LogoTwitter";
-import ShareOutline from "lib/icons/ShareOutline";
 import moment from "moment";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import css from "styles/dash.module.scss";
@@ -25,18 +25,26 @@ const DashBoard = () => {
     <div className={css.container}>
       <div className={css.grid}>
         <div className={css.content}>
-          <div onClick={() => router.push("/app")} className={css.items}>
-            <Add size={70} />
-          </div>
-          <div className={css.items}>
-            <CogOutline size={70} />
-          </div>
-          <div className={css.items}>
-            <LogoInstagram size={70} />
-          </div>
-          <div className={css.items}>
-            <LogoTwitter size={70} />
-          </div>
+          <Link href={"/app"}>
+            <a className={css.items}>
+              <Add size={70} />
+            </a>
+          </Link>
+          <Link href={""}>
+            <a className={css.items}>
+              <CogOutline size={70} />
+            </a>
+          </Link>
+          <Link href={""}>
+            <a className={css.items}>
+              <LogoInstagram size={70} />
+            </a>
+          </Link>
+          <Link href={""}>
+            <a className={css.items}>
+              <LogoTwitter size={70} />
+            </a>
+          </Link>
         </div>
         <div className={css.time}>
           <div className={css.backdrop}>
