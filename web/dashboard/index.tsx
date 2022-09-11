@@ -35,16 +35,23 @@ const DashBoard = () => {
               <CogOutline size={70} />
             </a>
           </Link>
-          <Link href={""}>
-            <a className={css.items}>
-              <LogoInstagram size={70} />
-            </a>
-          </Link>
-          <Link href={""}>
-            <a className={css.items}>
-              <LogoTwitter size={70} />
-            </a>
-          </Link>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className={css.items}
+            href={"https://www.instagram.com/simpleneeraj"}
+          >
+            <LogoInstagram size={70} />
+          </a>
+
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className={css.items}
+            href={"https://www.twitter.com/simplneeraj"}
+          >
+            <LogoTwitter size={70} />
+          </a>
         </div>
         <div className={css.time}>
           <div className={css.backdrop}>

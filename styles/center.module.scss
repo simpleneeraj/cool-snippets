@@ -38,3 +38,19 @@
     border-radius: 100%;
   }
 }
+
+// DRAG HANDLE
+
+.handleBar {
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #0000007a;
+  span {
+    display: flex;
+    align-items: center;
+    cursor: move;
+  }
+}

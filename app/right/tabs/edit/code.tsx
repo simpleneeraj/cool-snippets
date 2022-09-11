@@ -20,6 +20,9 @@ const CodeOptions = () => {
     onSelectTheme,
     onSelectMode,
     autoCompletion,
+    draggable,
+    translucent,
+    draggableHandler,
     linenumberHandler,
     autoCompletionHandler,
   } = usePreference();
@@ -42,8 +45,8 @@ const CodeOptions = () => {
 
       <ToolsList title="Draggable">
         <Switch
-          active={autoCompletion}
-          onClick={() => autoCompletionHandler(!autoCompletion)}
+          active={draggable}
+          onClick={() => draggableHandler(!draggable)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />

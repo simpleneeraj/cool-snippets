@@ -55,6 +55,7 @@ const NavigationBar = ({ state }: HeaderProps) => {
         ))}
       </div>
       <div className={css["login"]}>
+        <p>Hii, Simple</p>
         <Link href="/login">
           <a>Sign in</a>
         </Link>

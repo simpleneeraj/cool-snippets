@@ -1,4 +1,5 @@
 import React from "react";
+import View from "ui/view";
 import AppTop from "./top";
 import AppLeft from "./left";
 import AppRight from "./right";
@@ -7,16 +8,16 @@ import css from "styles/app.module.scss";
 
 const AppLayout = () => {
   return (
-    <div className={css.container}>
+    <View className={css.container}>
       <AppTop />
-      <div className={css.grid}>
+      <View className={css.grid}>
         <AppLeft />
-        <div className={css.center}>
+        <View className={css.center}>
           <Center />
-        </div>
+        </View>
         <AppRight />
-      </div>
-    </div>
+      </View>
+    </View>
   );
 };
 export default AppLayout;

@@ -10,7 +10,12 @@ import useCode from "store/hooks/usecode";
 import css from "styles/center.module.scss";
 import { Capture as Layer } from "lib/capture";
 import usePreference from "store/hooks/usepreference";
-import Draggable from "react-draggable";
+import DragHandleIcon from "lib/icons/DragHandle";
+import dynamic from "next/dynamic";
+import View from "ui/view";
+
+const Draggable = dynamic(() => import("react-draggable"), { ssr: false });
+const draggableClassName = "simple-drag";
 
 const CodeMirror = React.lazy(async () => {
   await delay(3000);
@@ -22,6 +27,7 @@ const Center = () => {
   const { codeValue, writeCode } = useCode();
   const { autoCompletion } = usePreference();
   const { lineNumbers, theme, mode } = usePreference();
+  const { draggable } = usePreference();
   const { translucent } = usePreference();
   // CODE THEMES AND LANGUAGE
   const generatedTheme = React.useMemo(
@@ -31,19 +37,29 @@ const Center = () => {
   );
   // @ts-expect-error
   const generatedMode = React.useMemo(() => cl[mode](), [mode]);
+
   return (
     <React.Fragment>
       <InlineStyle />
-      <div className={css.container}>
-        <div className={css.smooth}>
+      <View className={css.container}>
+        <View className={css.smooth}>
           <Layer className="center">
-            <div className="watermark">
+            <View className="watermark">
               <p>www.icanpost.app</p>
-            </div>
-            <Draggable grid={[25, 25]} disabled>
-              <div className="layer">
+            </View>
+            <Draggable
+              axis="y"
+              grid={[25, 25]}
+              handle={`.${draggableClassName}`}
+              disabled={!draggable}
+            >
+              <View className="layer">
+                {draggable && <DraggableContainer />}
                 <React.Suspense fallback={<CodeLoader />}>
                   <CodeMirror
+                    readOnly
+                    //  editable={false}
+
                     value={codeValue}
                     onChange={(v) => writeCode(v)}
                     className="codemirror"
@@ -59,12 +75,22 @@ const Center = () => {
                   />
                 </React.Suspense>
                 <BlurLayer />
-              </div>
+              </View>
             </Draggable>
           </Layer>
-        </div>
-      </div>
+        </View>
+      </View>
     </React.Fragment>
   );
 };
 export default Center;
+
+const DraggableContainer = (props: React.ComponentPropsWithoutRef<"div">) => {
+  return (
+    <View className={css.handleBar} {...props}>
+      <span className={draggableClassName}>
+        <DragHandleIcon color="#ffffff" />
+      </span>
+    </View>
+  );
+};

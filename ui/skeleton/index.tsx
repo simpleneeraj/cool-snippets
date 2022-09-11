@@ -1,10 +1,11 @@
 import React from "react";
 import css from "../css/skeleton.module.scss";
 
-const Skeleton = () => {
+interface Skeleton {}
+const Skeleton = (props: React.ComponentPropsWithoutRef<"div">) => {
   return (
-    <div>
-      <span className={css.skeleton} style={{ width: `100%` }}></span>
+    <div className={css.container}>
+      <span className={css.skeleton} {...props}></span>
     </div>
   );
 };

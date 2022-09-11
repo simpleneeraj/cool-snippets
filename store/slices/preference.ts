@@ -7,7 +7,8 @@ const initialState: PreferenceTypes = {
     theme: "dracula",
     lineNumbers: false,
     autoCompletion: false,
-    translucent: true
+    translucent: true,
+    draggable: false,
 }
 
 /**************************
@@ -31,6 +32,9 @@ const preference = createSlice({
         },
         translucent: (state: PreferenceTypes, action: ActionType) => {
             state.translucent = action.payload
+        },
+        draggable: (state: PreferenceTypes, action: ActionType) => {
+            state.draggable = action.payload
         },
     }
 })

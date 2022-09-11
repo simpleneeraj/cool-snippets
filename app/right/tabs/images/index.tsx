@@ -1,106 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
-import ListView from "lib/list-view";
 import React from "react";
-import css from "styles/images.module.scss";
-import unsplashApi from "store/api/unsplash";
-import useImages from "store/hooks/useImages";
-import useBackground from "store/hooks/usebackground";
-import { UnsplashImageType } from "typings/api";
-import IconButton from "ui/button/icon";
-import SearchBar from "ui/search";
-import useSearchImages from "./usesearch";
-
-interface PictureProps extends React.ComponentPropsWithoutRef<"div"> {
-  source: string;
-  isactive?: boolean;
-  onClick?: () => void;
-  viewtype: "span" | "image";
-  style?: React.CSSProperties;
-}
+import Segment from "ui/segment";
+import RenderTabs from "./rendertabs";
+import SegmentButton from "ui/segment/button";
+import { GRADIENT, LOCAL, UNSPLASH } from "./action";
 
 const ImagesComponent = () => {
-  const client_id = process.env.unsplash;
+  const [selectedTab, setSelectedTab] = React.useState(LOCAL);
 
-  const [count, setcount] = React.useState(1);
-  const [searchQuery, updateQuery] = React.useState("wallpapers");
-  const { setBackground, source } = useBackground();
-
-  const { imagesArray, addImage } = useImages();
-  const { useGetUnsplashQuery } = unsplashApi;
-  const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
-    count: 30,
-    page: count,
-    // per_page: 30,
-    query: searchQuery,
-    client_id: client_id,
-  });
-
-  const { onSubmit, searchRef } = useSearchImages((value) =>
-    updateQuery(value)
-  );
   return (
-    <div className={css.container}>
-      <SearchBar
-        ref={searchRef}
-        onSubmit={onSubmit}
-        placeholder="Search images..."
-      />
-      <div className={css.imageContainer}>
-        <div className={css.imageBox}>
-          {imagesArray.map((d, i) => {
-            return (
-              <ListView key={i} duration={200} className={css.image}>
-                <ImageBox
-                  viewtype="image"
-                  source={d.source}
-                  isactive={d.source === source}
-                  onClick={() => setBackground(d.source)}
-                />
-              </ListView>
-            );
-          })}
-          {/* API Images  */}
-          {isError ? null : isFetching || isLoading ? (
-            <ListView className={css.picture}>
-              <p>Loading...</p>
-            </ListView>
-          ) : (
-            data.map((d: UnsplashImageType, i: React.Key) => {
-              return (
-                <ListView key={i} duration={200} className={css.image}>
-                  <ImageBox
-                    viewtype="image"
-                    source={d?.urls?.small}
-                    isactive={d?.urls?.regular === source}
-                    onClick={() => setBackground(d?.urls?.regular)}
-                  />
-                </ListView>
-              );
-            })
-          )}
-        </div>
-      </div>
-      <div className={css.showmore}>
-        <IconButton onClick={() => setcount((i) => i + 1)}>
-          Show More
-        </IconButton>
-      </div>
-    </div>
+    <React.Fragment>
+      <Segment style={stickyStyle}>
+        {segmentArray.map((data, index) => (
+          <SegmentButton
+            key={index}
+            active={data.value === selectedTab}
+            onClick={() => setSelectedTab(data.value)}
+            {...data}
+          />
+        ))}
+      </Segment>
+      <RenderTabs tabName={selectedTab} />
+    </React.Fragment>
   );
 };
 export default ImagesComponent;
 
-const ImageBox = React.forwardRef(
-  (props: PictureProps, ref: React.Ref<HTMLDivElement>) => {
-    return (
-      <div ref={ref} className={css.picture} {...props}>
-        {props.isactive ? <span /> : null}
-        {props.viewtype === "image" ? (
-          <img src={props.source} alt="images" />
-        ) : null}
-      </div>
-    );
-  }
-);
+const stickyStyle = {
+  position: "sticky",
+  top: "0",
+  zIndex: "50",
+} as React.CSSProperties;
 
-ImageBox.displayName = "ItemBox";
+const segmentArray = [
+  {
+    text: "DEFAULT",
+    value: LOCAL,
+  },
+  {
+    text: "UNSPLASH",
+    value: UNSPLASH,
+  },
+  {
+    text: "GRADIENT",
+    value: GRADIENT,
+  },
+];

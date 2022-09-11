@@ -4,16 +4,16 @@ import { SearchBarProps } from "ui/types/search";
 import css from "../css/search.module.scss";
 
 const SearchBar = React.forwardRef(
-  (props: SearchBarProps, ref: React.Ref<HTMLFormElement>) => {
-    const { ...rest } = props;
+  (props: SearchBarProps, ref: React.Ref<HTMLInputElement>) => {
+    const { placeholder, ...rest } = props;
 
     return (
       <div className={css.container}>
-        <form className={css.search} ref={ref} {...rest}>
+        <form className={css.search} {...rest}>
           <i>
             <SearchIcon size={15} />
           </i>
-          <input type="search" />
+          <input ref={ref} type="search" placeholder={placeholder} />
         </form>
       </div>
     );

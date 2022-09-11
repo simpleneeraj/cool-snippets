@@ -35,6 +35,8 @@ interface PreferenceTypes {
     lineNumbers: boolean;
     autoCompletion: boolean;
     translucent: boolean;
+    draggable: boolean;
+
 }
 // Text Types
 interface TextTypes {

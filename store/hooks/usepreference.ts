@@ -7,7 +7,7 @@ import _preference from 'store/selector/_preference';
 
 
 const usePreference = () => {
-    const { lineNumbers, mode, theme, autoCompletion, translucent } = useAppSelector(_preference)
+    const { lineNumbers, mode, theme, autoCompletion, translucent, draggable } = useAppSelector(_preference)
     const dispatch = useAppDispatch()
     // Select Mode Handler
     const onSelectMode = useCallMemo((payload: string) => {
@@ -30,18 +30,24 @@ const usePreference = () => {
     const translucentHandler = useCallMemo((payload: boolean) => {
         dispatch(preference.actions.translucent(payload))
     }, [translucent])
+    // draggable
+    const draggableHandler = useCallMemo((payload: boolean) => {
+        dispatch(preference.actions.draggable(payload))
+    }, [draggable])
     // Return Values
     return {
         mode,
         theme,
         lineNumbers,
         translucent,
+        draggable,
         autoCompletion,
         onSelectMode,
         onSelectTheme,
         linenumberHandler,
         autoCompletionHandler,
-        translucentHandler
+        translucentHandler,
+        draggableHandler
     }
 }
 export default usePreference;

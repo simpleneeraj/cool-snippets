@@ -1,0 +1,13 @@
+// INSERT SOMETHING
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.item {
+  height: 100px;
+  background: #303030;
+  border-radius: 10px;
+}

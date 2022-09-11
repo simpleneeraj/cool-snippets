@@ -22,7 +22,7 @@ const ArrowDownCircleOutline = (props: SVGTYPE) => {
         stroke="undefined"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="32px"
+        strokeWidth="28px"
       />
       <line
         xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const ArrowDownCircleOutline = (props: SVGTYPE) => {
         stroke="undefined"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="32px"
+        strokeWidth="28px"
       />
       <path
         xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const ArrowDownCircleOutline = (props: SVGTYPE) => {
         fill="none"
         stroke="undefined"
         strokeMiterlimit="10"
-        strokeWidth="32px"
+        strokeWidth="28px"
       />
     </svg>
   );
