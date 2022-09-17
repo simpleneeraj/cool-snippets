@@ -1,0 +1,10 @@
+.templates {
+  display: grid;
+  gap: 4px;
+  padding: 0.4rem;
+  div {
+    border-radius: 8px;
+    height: 150px;
+    background: #292929;
+  }
+}
