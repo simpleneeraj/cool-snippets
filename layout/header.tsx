@@ -4,8 +4,7 @@ import css from "styles/header.module.scss";
 import useOnClickOutside from "hooks/useclick";
 import CircleDotted from "lib/icons/CircleDotted";
 import Add from "lib/icons/Add";
-import { useCTX } from "lib/mini-state";
-import { HeaderContext } from "context/header";
+import { HeaderContext, headerActions } from "store/context/header";
 
 interface HeaderProps {
   state: boolean;
@@ -16,9 +15,10 @@ interface HeaderProps {
 Header
 ***************************/
 const Header = () => {
-  const { state, dispatch } = useCTX<boolean>(HeaderContext);
+  const { state, dispatch } = React.useContext(HeaderContext);
+
   const containerRef = useOnClickOutside(() =>
-    dispatch({ type: "nav", payload: false })
+    dispatch(headerActions.toggle(false))
   );
   return (
     <header ref={containerRef} className={css["container"]}>
@@ -31,12 +31,12 @@ const Header = () => {
               </button>
             </Link>
             <MenuBar
-              dispatch={() => dispatch({ type: "nav", payload: true })}
-              state={state}
+              dispatch={() => dispatch(headerActions.toggle(!state.isNav))}
+              state={state.isNav}
             />
           </div>
         </div>
-        <NavigationBar state={state} />
+        <NavigationBar state={state.isNav} />
       </section>
     </header>
   );

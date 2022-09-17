@@ -1,8 +1,10 @@
 import React from "react";
 import View from "ui/view";
 import BottomTabs from "./tabs";
-import RenderComponents from "./render";
 import css from "styles/app.module.scss";
+import dynamic from "next/dynamic";
+
+const RenderComponents = dynamic(() => import("./render"));
 
 const AppRight = () => {
   return (

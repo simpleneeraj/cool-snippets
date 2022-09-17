@@ -1,10 +1,12 @@
 import React from "react";
 import View from "ui/view";
-import AppTop from "./top";
-import AppLeft from "./left";
-import AppRight from "./right";
-import Center from "./center";
 import css from "styles/app.module.scss";
+import dynamic from "next/dynamic";
+
+const AppTop = dynamic(() => import("./top"));
+const AppLeft = dynamic(() => import("./left"));
+const AppRight = dynamic(() => import("./right"));
+const Center = dynamic(() => import("./center"));
 
 const AppLayout = () => {
   return (

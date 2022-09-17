@@ -17,7 +17,7 @@ import View from "ui/view";
 const Draggable = dynamic(() => import("react-draggable"), { ssr: false });
 const draggableClassName = "simple-drag";
 
-const CodeMirror = React.lazy(async () => {
+const CodeMirror = dynamic(async () => {
   await delay(3000);
   return await import("lib/codemirror-x");
 });
@@ -44,9 +44,11 @@ const Center = () => {
       <View className={css.container}>
         <View className={css.smooth}>
           <Layer className="center">
-            <View className="watermark">
-              <p>www.icanpost.app</p>
-            </View>
+            {false ? (
+              <View className="watermark">
+                <p>www.icanpost.app</p>
+              </View>
+            ) : null}
             <Draggable
               axis="y"
               grid={[25, 25]}

@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import NextProgress from "./nextprogress";
-import { HeaderProvider } from "context/header";
+import { HeaderProvider } from "store/context/header";
 import Script from "next/script";
 import jsonld from "./jsonld";
 

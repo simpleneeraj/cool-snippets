@@ -14,3 +14,22 @@ interface ContextType<State> {
     dispatch: any;
 }
 
+
+
+interface ActionType {
+    type: string;
+    payload?: any;
+    [K: string]: any
+}
+
+interface ReducerMap<S> {
+    [K: string]: (state: S, action: ActionType) => S
+}
+interface ActionCretor<Action> {
+    [K: string]: (payload: Action) => void
+}
+interface CreateSliceTypes<S> {
+    name: string;
+    initialState: S;
+    reducer: ReducerMap<S>;
+}
