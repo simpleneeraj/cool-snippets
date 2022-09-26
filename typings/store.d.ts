@@ -36,6 +36,7 @@ interface PreferenceTypes {
     autoCompletion: boolean;
     translucent: boolean;
     draggable: boolean;
+    editable: boolean;
 
 }
 // Text Types

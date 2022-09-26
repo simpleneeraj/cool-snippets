@@ -2,20 +2,7 @@ import cssRatio from "lib/ratio";
 import usePost from "store/hooks/usepost";
 import useText from "store/hooks/usetext";
 import useBackground from "store/hooks/usebackground";
-
-const backgroundFilter = (value: string) => {
-  const REGEX_URL =
-    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
-  const REGEX_COLOR = /gradient|#|rgb|hsl/g;
-  if (RegExp(REGEX_URL).test(value)) {
-    return `url(${value})`;
-  }
-  if (RegExp(REGEX_COLOR).test(value)) {
-    return value;
-  } else {
-    return `url(${value})`;
-  }
-};
+import backgroundFilter from "utils/background-filter";
 
 const InlineStyle = () => {
   const aspectWidth = 420;
@@ -38,6 +25,7 @@ const InlineStyle = () => {
             width: 100%;
             min-width: unset;
             max-width: 100%;
+            padding-top:0px;
           }
           .cm-line {
             font-size: ${fontSize}px;

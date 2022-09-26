@@ -9,6 +9,7 @@ const initialState: PreferenceTypes = {
     autoCompletion: false,
     translucent: true,
     draggable: false,
+    editable: true,
 }
 
 /**************************
@@ -35,6 +36,9 @@ const preference = createSlice({
         },
         draggable: (state: PreferenceTypes, action: ActionType) => {
             state.draggable = action.payload
+        },
+        editable: (state: PreferenceTypes, action: ActionType) => {
+            state.editable = action.payload
         },
     }
 })

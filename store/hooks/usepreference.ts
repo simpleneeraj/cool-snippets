@@ -7,7 +7,7 @@ import _preference from 'store/selector/_preference';
 
 
 const usePreference = () => {
-    const { lineNumbers, mode, theme, autoCompletion, translucent, draggable } = useAppSelector(_preference)
+    const { lineNumbers, mode, theme, autoCompletion, translucent, draggable, editable } = useAppSelector(_preference)
     const dispatch = useAppDispatch()
     // Select Mode Handler
     const onSelectMode = useCallMemo((payload: string) => {
@@ -34,6 +34,10 @@ const usePreference = () => {
     const draggableHandler = useCallMemo((payload: boolean) => {
         dispatch(preference.actions.draggable(payload))
     }, [draggable])
+    // editable
+    const editableHandler = useCallMemo((payload: boolean) => {
+        dispatch(preference.actions.editable(payload))
+    }, [draggable])
     // Return Values
     return {
         mode,
@@ -47,7 +51,9 @@ const usePreference = () => {
         linenumberHandler,
         autoCompletionHandler,
         translucentHandler,
-        draggableHandler
+        draggableHandler,
+        editable,
+        editableHandler
     }
 }
 export default usePreference;

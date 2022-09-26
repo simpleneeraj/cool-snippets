@@ -5,7 +5,7 @@ import Templates from "./templates";
 const AppLeft = () => {
   return (
     <div className={css.left}>
-      <h1>Templates</h1>
+      <h3>Templates</h3>
       <Templates />
     </div>
   );

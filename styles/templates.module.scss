@@ -1,10 +1,98 @@
 .templates {
+  gap: 8px;
   display: grid;
+  padding: 0.4rem;
+}
+
+.templates .background {
+  padding: 1rem;
+  border-radius: 8px;
+}
+.temp-box,
+.custom-box {
+  height: 90px;
+  min-width: 130px;
+  border-radius: 10px;
+  background: #0000007a;
+  backdrop-filter: blur(20px);
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+// FOR CUSTOM BOX
+.custom-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.custom-text {
+  font-size: 11px;
+  text-align: center;
+  color: var(--Color-1);
+}
+
+.content {
+  flex: 0.75;
+  display: flex;
+  flex-direction: column;
   gap: 4px;
   padding: 0.4rem;
-  div {
-    border-radius: 8px;
-    height: 150px;
-    background: #292929;
+  span {
+    height: 2pt;
+    border-radius: 10px;
+    background-color: #50fa7b;
+
+    &:nth-of-type(1) {
+      width: 70%;
+      background-color: #50fa7b;
+    }
+    &:nth-of-type(2) {
+      width: 40%;
+      background-color: #ff79c6;
+    }
+    &:nth-of-type(3) {
+      width: 60%;
+      background-color: #fda331;
+    }
+    &:nth-of-type(4) {
+      width: 65%;
+      background-color: #8abeb7;
+    }
+    &:nth-of-type(5) {
+      width: 54%;
+      background-color: #ff79c6;
+    }
+    &:nth-of-type(6) {
+      width: 90%;
+      background-color: #b8bb26;
+    }
+    &:nth-of-type(7) {
+      width: 40%;
+      background-color: #a2a9b5;
+    }
+    &:nth-of-type(8) {
+      width: 90%;
+      background-color: #ff79c6;
+    }
+  }
+}
+
+// CODE HEADER MOCKUPS
+.head {
+  background: rgba(0, 0, 0, 0.5);
+  flex: 0.25;
+  display: flex;
+  align-items: center;
+  padding: 0 0.4rem;
+  gap: 4px;
+  span {
+    height: 8px;
+    width: 8px;
+    // background: #b8bb26;
+    // border: 1pt solid #50fa7b;
+    border-radius: 20px;
   }
 }

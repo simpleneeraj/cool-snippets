@@ -73,7 +73,7 @@ const ReactCodeMirror = forwardRef<ReactCodeMirrorRef, ReactCodeMirrorProps>(
     return (
       <div
         ref={editor}
-        className={`${defaultClassNames}${className ? ` ${className}` : ""}`}
+        className={`${defaultClassNames} ${className ? ` ${className}` : ""}`}
         {...rest}
       ></div>
     );

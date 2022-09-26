@@ -3,7 +3,7 @@ import isDev from "utils/isdev";
 import { setupListeners } from '@reduxjs/toolkit/query'
 // Slices
 import code from "./slices/code";
-import dock from "./slices/dock";
+// import dock from "./slices/dock";
 import text from "./slices/text";
 import background from "./slices/background";
 import preference from "./slices/preference";
@@ -12,13 +12,14 @@ import imagesSlice from "./slices/images";
 import post from "./slices/post";
 import unsplashApi from "./api/unsplash";
 import tabSlice from "./slices/bottom/tab";
-import undoable from "./undo";
+import headSlice from "./slices/code/head";
 
 const store = configureStore({
     reducer: {
         code: code.reducer,
+        codeHead: headSlice.reducer,
         text: text.reducer,
-        dock: dock.reducer,
+        // dock: dock.reducer,
         post: post.reducer,
         images: imagesSlice.reducer,
         download: download.reducer,
