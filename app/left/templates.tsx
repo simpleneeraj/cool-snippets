@@ -102,18 +102,8 @@ const templates = [
     codeHeader: <TrafficLightsBorder />,
   },
   {
-    name: "ios Traffic Light with Border",
-    value: "LIGHTS/BORDER",
-    codeHeader: <TrafficLightsBorder />,
-  },
-  {
-    name: "ios Traffic Light with Border",
-    value: "LIGHTS/BORDER",
-    codeHeader: <TrafficLightsBorder />,
-  },
-  {
-    name: "ios Traffic Light with Border",
-    value: "LIGHTS/BORDER",
+    name: "Windows Terminal Border",
+    value: "WINDOWS/BORDER",
     codeHeader: <TrafficLightsBorder />,
   },
 ];
