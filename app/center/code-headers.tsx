@@ -1,8 +1,7 @@
 import React from "react";
-import View from "ui/view";
-import css from "styles/code-headers.module.scss";
-import Span from "ui/span";
 import useCodeHead from "store/hooks/use-code-head";
+import WindowsTen from "components/templates-headers/windows-ten";
+import TrafficLights from "components/templates-headers/ios-traffic-lights";
 
 /**
  * Code Headers
@@ -19,33 +18,47 @@ const CodeHeaders = ({
   switch (headerType) {
     case "DEFAULT":
       return (
-        <View className={`${className} ${css.container}`} {...rest}>
-          <View className={css.lights}>
-            <Span className={css["traffic-background"]}></Span>
-            <Span className={css["traffic-background"]}></Span>
-            <Span className={css["traffic-background"]}></Span>
-          </View>
-        </View>
+        <TrafficLights
+          circleType="filled"
+          lightsStyle={{
+            size: 14,
+            iconGap: "8px",
+            padding: `0.8rem 0 0.8rem 0.8rem`,
+          }}
+        />
       );
     case "LIGHTS/BACKGROUND":
       return (
-        <View className={`${className} ${css.container}`} {...rest}>
-          <View className={css.lights}>
-            <Span className={css["traffic-background"]}></Span>
-            <Span className={css["traffic-background"]}></Span>
-            <Span className={css["traffic-background"]}></Span>
-          </View>
-        </View>
+        <TrafficLights
+          circleType="filled"
+          lightsStyle={{
+            size: 14,
+            iconGap: "8px",
+            padding: `0.8rem 0 0.8rem 0.8rem`,
+          }}
+          editable
+        />
       );
     case "LIGHTS/BORDER":
       return (
-        <View className={`${className} ${css.container}`} {...rest}>
-          <View className={css.lights}>
-            <Span className={css["traffic-border"]}></Span>
-            <Span className={css["traffic-border"]}></Span>
-            <Span className={css["traffic-border"]}></Span>
-          </View>
-        </View>
+        <TrafficLights
+          circleType="outline"
+          lightsStyle={{
+            size: 14,
+            iconGap: "8px",
+            borderWidth: "2px",
+            padding: `0.8rem 0 0.8rem 0.8rem`,
+          }}
+        />
+      );
+    case "WINDOWS/BORDER":
+      return (
+        <WindowsTen
+          size={14}
+          editable={"with-icon"}
+          padding={`0.8rem`}
+          iconGap=".8rem"
+        />
       );
     default:
       return null;

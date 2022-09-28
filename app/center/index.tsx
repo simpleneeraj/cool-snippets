@@ -13,10 +13,14 @@ import usePreference from "store/hooks/usepreference";
 import DragHandleIcon from "lib/icons/DragHandle";
 import dynamic from "next/dynamic";
 import View from "ui/view";
-import CodeHeaders from "./code-headers";
 
 const Draggable = dynamic(() => import("react-draggable"));
 const draggableClassName = "simple-drag";
+
+const CodeHeaders = dynamic(async () => {
+  // await delay(3000);
+  return await import("./code-headers");
+});
 
 const CodeMirror = dynamic(async () => {
   // await delay(3000);
@@ -59,9 +63,9 @@ const Center = () => {
               disabled={!draggable}
             >
               <View className="layer">
-                {draggable && <DraggableHandler />}
-                <CodeHeaders className={generatedTheme[0][0].value} />
                 <React.Suspense fallback={<CodeLoader />}>
+                  {draggable && <DraggableHandler />}
+                  <CodeHeaders className={generatedTheme[0][0].value} />
                   <CodeMirror
                     value={codeValue}
                     readOnly={!editable}

@@ -1,0 +1,29 @@
+import iosTrafficColors from "./color";
+import css from "styles/templates.module.scss";
+
+const TrafficLightsOutline = () => {
+  return (
+    <div className={css["lights-outline"]}>
+      <span
+        style={{
+          border: `1pt solid`,
+          borderColor: iosTrafficColors.RED,
+        }}
+      ></span>
+      <span
+        style={{
+          border: `1pt solid`,
+          borderColor: iosTrafficColors.GREEN,
+        }}
+      ></span>
+      <span
+        style={{
+          border: `1pt solid`,
+          borderColor: iosTrafficColors.YELLOW,
+        }}
+      ></span>
+    </div>
+  );
+};
+
+export default TrafficLightsOutline;
