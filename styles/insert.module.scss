@@ -1,18 +1,23 @@
 // INSERT SOMETHING
 
 .container {
-  padding: 0.4rem;
+  padding: 4px;
+  display: grid;
+  gap: 4px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 4px;
 }
 .item {
   height: 100px;
-  background: #303030;
+  background: #2e2e30;
   border-radius: 10px;
   display: grid;
   place-content: center;
+}
+
+.upload {
 }

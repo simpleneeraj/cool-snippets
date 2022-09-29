@@ -1,16 +1,30 @@
-import ChevronUp from "lib/icons/ChevronUp";
-import GitNetworkOutline from "lib/icons/GitNetworkOutline";
-import Option from "lib/icons/Option";
-import Options from "lib/icons/Options";
-import PageFit from "lib/icons/PageFit";
-import PaintBrush from "lib/icons/PaintBrush";
 import React from "react";
-import css from "styles/insert.module.scss";
+import Emoji from "./emoji";
+import Element from "./element";
+import Upload from "./upload";
 import Segment from "ui/segment";
+import css from "styles/insert.module.scss";
 import SegmentButton from "ui/segment/button";
 
+/**
+ * Insert Component
+ * @returns
+ */
 const InsertComponent = () => {
-  const [act, setact] = React.useState("Lap");
+  const [act, setact] = React.useState("upload");
+
+  const tabs = React.useMemo(() => {
+    switch (act) {
+      case "upload":
+        return <Upload />;
+      case "element":
+        return <Element />;
+      case "emoji":
+        return <Emoji />;
+      default:
+        break;
+    }
+  }, [act]);
   return (
     <div className={css.container}>
       <Segment>
@@ -23,27 +37,7 @@ const InsertComponent = () => {
           />
         ))}
       </Segment>
-      <br />
-      <div className={css.grid}>
-        <div className={css.item}>
-          <PageFit fill="#eee" />
-        </div>
-        <div className={css.item}>
-          <Option fill="#eee" />
-        </div>
-        <div className={css.item}>
-          <Options fill="#eee" />
-        </div>
-        <div className={css.item}>
-          <PaintBrush fill="#eee" />
-        </div>
-        <div className={css.item}>
-          <GitNetworkOutline />
-        </div>
-        <div className={css.item}>
-          <ChevronUp />
-        </div>
-      </div>
+      {tabs}
     </div>
   );
 };
@@ -51,15 +45,21 @@ export default InsertComponent;
 
 const segmentArray = [
   {
-    text: "Lap",
-    value: "Lap",
+    text: "Upload",
+    get value() {
+      return this.text.toLocaleLowerCase();
+    },
   },
   {
-    text: "Top",
-    value: "Top",
+    text: "Element",
+    get value() {
+      return this.text.toLocaleLowerCase();
+    },
   },
   {
-    text: "Hp",
-    value: "Hp",
+    text: "Emoji",
+    get value() {
+      return this.text.toLocaleLowerCase();
+    },
   },
 ];

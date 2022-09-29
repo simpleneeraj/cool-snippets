@@ -2,7 +2,6 @@
 import React from "react";
 import ImageBox from "./item";
 import SearchBar from "ui/search";
-import ListView from "lib/list-view";
 import IconButton from "ui/button/icon";
 import useSearchImages from "./usesearch";
 import css from "styles/images.module.scss";
@@ -10,7 +9,6 @@ import unsplashApi from "store/api/unsplash";
 import { UnsplashImageType } from "typings/api";
 import useBackground from "store/hooks/usebackground";
 import Skeleton from "ui/skeleton";
-import BroadActivityFeed from "lib/icons/BroadActivityFeed";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 
 const UnsplashImages = () => {
@@ -51,7 +49,7 @@ const UnsplashImages = () => {
                   <div key={i} className={css.image}>
                     <ImageBox
                       viewtype="image"
-                      source={d?.urls?.small}
+                      source={d?.urls?.regular}
                       isactive={d?.urls?.regular === source}
                       onClick={() => setBackground(d?.urls?.regular)}
                     />

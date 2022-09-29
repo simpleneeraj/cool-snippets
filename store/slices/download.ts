@@ -5,7 +5,7 @@ import { ActionType, DownloadImageTypes } from 'typings/store';
 
 const initialState: DownloadImageTypes = {
     pixelRatio: 2,
-    imageFormat: 'PNG'
+    imageFormat: 'png'
 }
 
 const download = createSlice({

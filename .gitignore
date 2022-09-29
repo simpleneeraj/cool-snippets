@@ -35,6 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # MY
-zebra.js
-
-.babelrc.txt
+/no-use

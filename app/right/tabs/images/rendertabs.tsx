@@ -11,10 +11,10 @@ interface RenderTabsProps {
 
 const RenderTabs = ({ tabName }: RenderTabsProps) => {
   switch (tabName) {
-    case UNSPLASH:
-      return <UnsplashImages />;
     case LOCAL:
       return null;
+    case UNSPLASH:
+      return <UnsplashImages />;
     case GRADIENT:
       return <GradientComponent />;
     default:

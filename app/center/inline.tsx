@@ -5,7 +5,7 @@ import useBackground from "store/hooks/usebackground";
 import backgroundFilter from "utils/background-filter";
 
 const InlineStyle = () => {
-  const aspectWidth = 420;
+  const aspectWidth = 450;
   const { padding } = useBackground();
   const { letterSpacing, lineHeight } = useText();
   const { source, aspectRatio } = useBackground();

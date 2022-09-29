@@ -3,9 +3,9 @@
   align-items: center;
   position: sticky;
   top: 0;
-  padding: 5px;
+  padding: 2px;
   background: #1c1c1e;
-  z-index: 100;
+  z-index: 50;
 }
 
 .search {
@@ -20,6 +20,8 @@
     padding: 0 4px;
   }
   input {
+    max-width: 100%;
+    width: 100%;
     flex: 1;
     font-size: 0.8rem;
     background-color: transparent;

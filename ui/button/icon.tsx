@@ -13,7 +13,7 @@ const IconButton = React.forwardRef(
       label,
       direction,
       size,
-
+      className: cl,
       ...rest
     } = props;
 
@@ -41,7 +41,7 @@ const IconButton = React.forwardRef(
       }
     };
 
-    const className = `${css.container} 
+    const className = `${cl} ${css.container} 
     ${disabled === "reduce-opacity" ? css.disable : empty}
     ${activate()}
     ${buttonType()}
@@ -54,6 +54,7 @@ const IconButton = React.forwardRef(
           disabled={disabled === "no-action"}
           style={{ flexDirection: direction }}
           ref={ref}
+          className={cl}
           {...rest}
         >
           {children}

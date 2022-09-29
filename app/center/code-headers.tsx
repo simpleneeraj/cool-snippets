@@ -13,8 +13,6 @@ const CodeHeaders = ({
   ...rest
 }: React.ComponentPropsWithoutRef<"div">) => {
   const { headerType } = useCodeHead();
-  // let name = "LIGHTS/BORDER";
-
   switch (headerType) {
     case "DEFAULT":
       return (

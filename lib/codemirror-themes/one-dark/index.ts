@@ -6,7 +6,6 @@ import { tags as t } from "@lezer/highlight"
 // Using https://github.com/one-dark/vscode-one-dark-theme/ as reference for the colors
 const oneDark = (alpha: string | number) => {
 
-
   const chalky = "#e5c07b",
     coral = "#e06c75",
     cyan = "#56b6c2",
@@ -19,7 +18,7 @@ const oneDark = (alpha: string | number) => {
     violet = "#c678dd",
     darkBackground = "#21252b",
     highlightBackground = "#2c313a",
-    background = "#282c34",
+    background = `rgb(40 44 52/${alpha})`,
     tooltipBackground = "#353a42",
     selection = "#3E4451",
     cursor = "#528bff"
