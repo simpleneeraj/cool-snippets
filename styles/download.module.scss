@@ -3,18 +3,54 @@
   display: flex;
   gap: 4px;
   flex-direction: column;
-  background: #000;
-  padding: 4px;
   border-radius: 6px;
   width: 200px;
-  label {
-    font-size: 12px;
-  }
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  padding: 0.4rem;
+  top: 55px;
+  right: 1px;
+  width: 300px;
+  justify-content: space-between;
+  background: var(--secondry-background);
+  border: 2px solid var(--tertiary-background);
+  height: calc(100vh - 100px);
 }
 
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .link {
+    color: var(--ui-color-cyber-yellow);
+    font-size: 10px;
+    cursor: pointer;
+  }
+}
 .head {
   display: flex;
   align-items: center;
+}
+
+.content {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.fields {
+  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 0.5rem;
+  border-top: 1px solid var(--dock-background);
 }
 
 .indigo {

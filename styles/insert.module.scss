@@ -20,4 +20,23 @@
 }
 
 .upload {
+  display: flex;
+  align-items: center;
+}
+
+.picker {
+  border: 1px solid var(--button-outline-color);
+  padding: 0.5rem;
+  height: 150px;
+  width: 50%;
+  display: grid;
+  place-content: center;
+  label {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    p {
+      font-size: 14px;
+    }
+  }
 }

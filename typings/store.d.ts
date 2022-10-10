@@ -51,6 +51,7 @@ interface TextTypes {
 interface DownloadImageTypes {
     pixelRatio: number;
     imageFormat: string;
+    fileName: string;
 }
 
 // Post type

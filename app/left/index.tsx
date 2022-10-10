@@ -1,11 +1,12 @@
 import React from "react";
-import css from "styles/app.module.scss";
+import Controls from "./controls";
 import Templates from "./templates";
+import css from "styles/app.module.scss";
 
 const AppLeft = () => {
   return (
     <div className={css.left}>
-      <h3>Templates</h3>
+      <Controls />
       <Templates />
     </div>
   );

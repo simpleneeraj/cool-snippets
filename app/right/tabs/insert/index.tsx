@@ -34,6 +34,9 @@ const InsertComponent = () => {
             active={data.value === act}
             key={index}
             {...data}
+            style={{
+              padding: "6px",
+            }}
           />
         ))}
       </Segment>

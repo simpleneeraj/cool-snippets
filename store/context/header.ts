@@ -1,4 +1,4 @@
-import { createReducerCTX, slicer } from "lib/mini-state";
+import { createReducerCTX, slicer } from "plugins/mini-state";
 
 type StateType = {
     isNav: boolean;

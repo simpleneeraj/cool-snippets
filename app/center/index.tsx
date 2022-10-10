@@ -1,5 +1,4 @@
 import React from "react";
-import delay from "lib/delay";
 import BlurLayer from "./shadow";
 import InlineStyle from "./inline";
 import cl from "lib/codemirror-langs";
@@ -8,7 +7,7 @@ import CodeLoader from "./codeloader";
 import usePost from "store/hooks/usepost";
 import useCode from "store/hooks/usecode";
 import css from "styles/center.module.scss";
-import { Capture as Layer } from "lib/capture";
+import { Capture as Layer } from "plugins/capture";
 import usePreference from "store/hooks/usepreference";
 import DragHandleIcon from "lib/icons/DragHandle";
 import dynamic from "next/dynamic";
@@ -24,7 +23,7 @@ const CodeHeaders = dynamic(async () => {
 
 const CodeMirror = dynamic(async () => {
   // await delay(3000);
-  return await import("lib/codemirror-x");
+  return await import("plugins/codemirror-x");
 });
 
 const Center = () => {
@@ -44,7 +43,6 @@ const Center = () => {
   // @ts-expect-error
   const generatedMode = React.useMemo(() => cl[mode](), [mode]);
 
-  console.log(generatedTheme[0][0].value);
   return (
     <React.Fragment>
       <InlineStyle />

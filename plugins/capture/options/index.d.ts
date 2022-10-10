@@ -88,6 +88,10 @@ export interface CaptureOptions {
    * Delay in exporting Images
    */
   delay?: number;
+  /**
+   * Generated File Name
+   */
+  fileName?: string
 }
 
 // process.env.NODE_ENV==='development'

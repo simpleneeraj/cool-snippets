@@ -1,6 +1,7 @@
 import React from "react";
-import css from "styles/app.module.scss";
 import HRLine from "ui/line";
+import router from "next/router";
+import css from "styles/app.module.scss";
 import IconButton from "ui/button/icon";
 import GroupButton from "ui/button/group";
 import ChevronBack from "lib/icons/ChevronBack";
@@ -8,20 +9,21 @@ import ArrowForward from "lib/icons/ArrowForward";
 import ArrowBackward from "lib/icons/ArrowBackward";
 import CheckmarkICloud from "lib/icons/CheckmarkICloud";
 import EllipsisHorizontal from "lib/icons/EllipsisHorizontal";
-import router from "next/router";
-import ModelWraper from "ui/model";
 import DownloadModel from "app/element/download";
 import HappyOutline from "lib/icons/HappyOutline";
+import useOnClickOutside from "hooks/useclick";
+import DownloadOutline from "lib/icons/DownloadOutline";
 
 const AppTop = () => {
   const [isModel, setModel] = React.useState(false);
 
+  const ref = useOnClickOutside(() => setModel(false));
   return (
     <React.Fragment>
-      <ModelWraper model={isModel} onClose={() => setModel(false)}>
-        <DownloadModel />
-      </ModelWraper>
-      <div className={css.top}>
+      {/* <ModelWraper model={isModel} onClose={() => setModel(false)}> */}
+      {/* </ModelWraper> */}
+      <div ref={ref} className={css.top}>
+        {isModel && <DownloadModel />}
         <div className={css.title}>
           <div
             className={css.button}
@@ -53,10 +55,17 @@ const AppTop = () => {
           <IconButton>
             <HappyOutline size={20} />
           </IconButton>
+          <IconButton
+            title="Download"
+            onClick={() => setModel(!isModel)}
+            active="translate"
+          >
+            <DownloadOutline size={20} />
+          </IconButton>
           <IconButton title="Sync">
             <CheckmarkICloud size={24} />
           </IconButton>
-          <IconButton onClick={() => setModel(!isModel)} active="translate">
+          <IconButton active="translate">
             <EllipsisHorizontal size={20} />
           </IconButton>
         </div>

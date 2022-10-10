@@ -1,5 +1,5 @@
 import React from "react";
-import { SegmentButtonProps, SegmentProps } from "ui/types/segement";
+import { SegmentButtonProps } from "ui/types/segement";
 import css from "../css/segment.module.scss";
 
 const SegmentButton = React.forwardRef(

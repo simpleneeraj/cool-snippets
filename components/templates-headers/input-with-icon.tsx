@@ -20,7 +20,12 @@ const InputWithIcon = ({ editable, source }: InputWithIconProps) => {
           ) : (
             <div></div>
           )}
-          <input type="text" maxLength={20} placeholder="index.tsx" />
+          <input
+            onChange={({ target }) => console.log(target.value.split(/[.]/g))}
+            type="text"
+            maxLength={20}
+            placeholder="index.tsx"
+          />
         </div>
       ) : (
         <div />

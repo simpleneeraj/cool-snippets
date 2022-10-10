@@ -8,16 +8,18 @@ const DeviceTemplates = ({
   ...rest
 }: DeviceTemplateProps) => {
   return (
-    <div
-      className={`template-background ${css["background"]}`}
-      style={{
-        border: `2px solid ${active ? "var(--White)" : "transparent"}`,
-      }}
-      {...rest}
-    >
-      <div className={css["temp-box"]}>
-        {CodeHeader}
-        <FakeCoding />
+    <div className={css["template-card"]}>
+      <div
+        className={`template-background ${css["background"]}`}
+        style={{
+          border: `2px solid ${active ? "var(--ui-color)" : "transparent"}`,
+        }}
+        {...rest}
+      >
+        <div className={css["temp-box"]}>
+          {CodeHeader}
+          <FakeCoding />
+        </div>
       </div>
     </div>
   );

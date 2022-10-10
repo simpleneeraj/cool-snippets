@@ -1,7 +1,14 @@
+@import "./mixin";
+
 .templates {
   gap: 8px;
   display: grid;
   padding: 0.4rem;
+  @include scroll-bar();
+}
+
+.template-card {
+  // border: 2px solid red;
 }
 
 .templates .background {
@@ -32,7 +39,7 @@
 .custom-text {
   font-size: 11px;
   text-align: center;
-  color: var(--Color-1);
+  color: var(--ui-primary-color);
 }
 
 // STYLE FOR FAKE CODE COLORS

@@ -1,5 +1,5 @@
 import React from "react";
-import iProgress from "lib/iprogress";
+import iProgress from "plugins/iprogress";
 import { useRouter } from "next/router";
 
 /**************************

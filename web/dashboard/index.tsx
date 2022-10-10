@@ -1,12 +1,13 @@
+import React from "react";
+import moment from "moment";
+import Link from "next/link";
+import { randomBytes } from "crypto";
+import { useRouter } from "next/router";
 import useInterval from "hooks/useinterval";
 import Add from "lib/icons/Add";
 import CogOutline from "lib/icons/CogOutline";
 import LogoInstagram from "lib/icons/LogoInstagram";
 import LogoTwitter from "lib/icons/LogoTwitter";
-import moment from "moment";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
 import css from "styles/dash.module.scss";
 
 const DashBoard = () => {
@@ -21,11 +22,12 @@ const DashBoard = () => {
     setDate(moment().format("dddd, MMMM M"));
   }, 1000);
 
+  const ID = randomBytes(10).toString("hex");
   return (
     <div className={css.container}>
       <div className={css.grid}>
         <div className={css.content}>
-          <Link href={"/app"}>
+          <Link href={`/simpleneeraj?view=${ID}&premium=true`}>
             <a className={css.items}>
               <Add size={70} />
             </a>

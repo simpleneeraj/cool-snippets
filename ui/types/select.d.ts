@@ -10,3 +10,6 @@ interface SelectProps extends React.ComponentPropsWithRef<'select'> {
     // defaultOptions: string | number | undefined;
     onSelect?: (value: string) => void;
 }
+interface InputProps extends React.ComponentPropsWithRef<'input'> {
+
+}

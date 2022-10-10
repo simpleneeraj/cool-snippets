@@ -8,7 +8,7 @@ import useCallMemo from 'hooks/usecallmemo';
 
 
 const useDownload = () => {
-    const { imageFormat, pixelRatio } = useAppSelector(_download)
+    const { imageFormat, pixelRatio, fileName } = useAppSelector(_download)
     const dispatch = useAppDispatch()
     /**************************
     Setting Background
@@ -19,13 +19,18 @@ const useDownload = () => {
     const setPixelRatio = useCallMemo((payload: number) => {
         dispatch(download.actions.setPixelRatio(payload))
     }, [pixelRatio])
+    const setFileName = useCallMemo((payload: number) => {
+        dispatch(download.actions.setFileName(payload))
+    }, [fileName])
 
     // Return Values
     return {
+        setFileName,
         setImageFormat,
         setPixelRatio,
         imageFormat,
-        pixelRatio
+        pixelRatio,
+        fileName
 
     }
 

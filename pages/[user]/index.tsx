@@ -1,9 +1,14 @@
 import React from "react";
-import type { NextPage } from "next";
 import NextSeo from "layout/seo";
 import AppLayout from "app";
+import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 
-const AppPage: NextPage = () => {
+interface EditorInstancePage {
+  instanceData: string;
+}
+
+const EditorInstancePage = ({ instanceData }: EditorInstancePage) => {
+  console.log(instanceData);
   return (
     <React.Fragment>
       <NextSeo
@@ -13,11 +18,22 @@ const AppPage: NextPage = () => {
         thumbnail="https://www.icanpost.app/cover/cover-1.webp"
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       >
-        <meta name="viewport" content="width=1024" />
+        {/* <meta name="viewport" content="width=1024" /> */}
       </NextSeo>
       <AppLayout />
     </React.Fragment>
   );
 };
 
-export default AppPage;
+export default EditorInstancePage;
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
+  const { query } = context;
+  return {
+    props: {
+      instanceData: query,
+    },
+  };
+};

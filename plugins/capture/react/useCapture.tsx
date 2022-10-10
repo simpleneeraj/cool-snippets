@@ -18,13 +18,13 @@ const useScreenshot = () => {
       const element = document.querySelector(
         `[data-capture=${attID}]`
       ) as HTMLElement;
-      const { imageFormat, delay: exportDelay = 0 } = options;
+      const { imageFormat, delay: exportDelay = 0, fileName } = options;
       setLoading(true);
       try {
         await delay(exportDelay);
         const canvas = await createCanvas(element, options);
         canvas.toBlob(async (blob: Blob) => {
-          download(blob, randomName(imageFormat));
+          download(blob, fileName || randomName(imageFormat));
         }, `image/${imageFormat}`);
         setLoading(false);
       } catch (error) {
