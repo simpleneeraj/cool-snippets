@@ -1,6 +1,5 @@
 import React from "react";
 import ImageBox from "./item";
-import ListView from "lib/list-view";
 import solidColor from "lib/solidColor";
 import gradient from "lib/nouse/gradient";
 import css from "styles/images.module.scss";
