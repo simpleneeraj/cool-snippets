@@ -12,6 +12,7 @@ import usePreference from "store/hooks/usepreference";
 import Slider from "ui/range";
 import usePost from "store/hooks/usepost";
 import useBackground from "store/hooks/usebackground";
+import ColorPicker from "ui/picker";
 
 const CodeOptions = () => {
   // FOR CODE
@@ -143,6 +144,10 @@ const CodeOptions = () => {
             };
           })}
         />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+      <ToolsList title="Background">
+        <ColorPicker />
       </ToolsList>
     </ToolsWraper>
   );

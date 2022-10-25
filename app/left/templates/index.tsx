@@ -8,43 +8,25 @@ import DeviceTemplates from "./device-templates";
 // HEADS
 import WindowsTen from "components/templates-headers/windows-ten";
 import TrafficLights from "components/templates-headers/ios-traffic-lights";
-import { prominent } from "plugins/color";
+import useBottomTab from "store/hooks/usebottom";
 
 const Templates = () => {
   const { source } = useBackground();
   const background = backgroundFilter(source);
 
-  const [colors, setColors] = React.useState([]);
   const { setHeaderType, headerType } = useCodeHead();
 
-  React.useEffect(() => {
-    prominent(source, { amount: 10, format: "hex", sample: 4 }).then(
-      (colors: any) => {
-        console.log(colors);
-        setColors(colors);
-      }
-    );
-  }, [source, background]);
-
   // console.log(colors);
+  const { tabName, updateTab } = useBottomTab();
+
   return (
     <React.Fragment>
-      {/* <div style={{ display: "grid" }}>
-        {colors.map((hex) => (
-          <span
-            key={hex}
-            style={{
-              background: hex,
-            }}
-          >
-            {hex}
-          </span>
-        ))}
-      </div> */}
       <div className={css.templates}>
         {templates.map(({ value, codeHeader }, i) => (
           <DeviceTemplates
             key={i}
+            editHiglight={tabName === "TEMPLATE::EDITING"}
+            onEdit={() => updateTab("TEMPLATE::EDITING")}
             active={headerType === value}
             onClick={() => setHeaderType(value)}
             CodeHeader={codeHeader}

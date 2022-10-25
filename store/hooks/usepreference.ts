@@ -2,7 +2,7 @@ import useCallMemo from 'hooks/usecallmemo';
 import useAppDispatch from 'hooks/usedispatch';
 import useAppSelector from 'hooks/useselector';
 
-import preference from 'store/slices/preference';
+import preference from 'store/slices/code/preference';
 import _preference from 'store/selector/_preference';
 
 

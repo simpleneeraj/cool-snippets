@@ -18,14 +18,14 @@ const BottomTabs = () => {
   return (
     <div className={css.bottomcover}>
       <div className={css.tabs}>
-        {bottomTabArray.map(({ Icon, text }, index) => {
+        {bottomTabArray.map(({ Icon, text, value }, index) => {
           return (
             <IconButton
               key={index}
               size="40px"
               direction="column"
-              onClick={() => updateTab(text)}
-              disabled={text === tabName ? null : "reduce-opacity"}
+              onClick={() => updateTab(value)}
+              disabled={value === tabName ? null : "reduce-opacity"}
             >
               <Icon size={16} />
               <Span>{text}</Span>
@@ -44,18 +44,30 @@ export default BottomTabs;
 const bottomTabArray = [
   {
     text: `Edit`,
+    get value() {
+      return `CODE::${this.text.toUpperCase()}`;
+    },
     Icon: (props: SVGPROPS) => <EllipsisHorizontalCircle {...props} />,
   },
   {
     text: `Insert`,
+    get value() {
+      return `CODE::${this.text.toUpperCase()}`;
+    },
     Icon: (props: SVGPROPS) => <AddCircleOutline {...props} />,
   },
   {
     text: `Filter`,
+    get value() {
+      return `CODE::${this.text.toUpperCase()}`;
+    },
     Icon: (props: SVGPROPS) => <ColorFilterOutline {...props} />,
   },
   {
     text: `Images`,
+    get value() {
+      return `CODE::${this.text.toUpperCase()}`;
+    },
     Icon: (props: SVGPROPS) => <ImageOutline {...props} />,
   },
 ];

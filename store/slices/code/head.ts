@@ -19,7 +19,16 @@ const headSlice = createSlice({
     reducers: {
         setHeaderType: (state, action) => {
             state.type = action.payload
-        }
+        },
+        setInput: (state, action) => {
+            state.input = action.payload
+        },
+        setColors: (state, action) => {
+            state.colors = action.payload
+        },
+        setBackground: (state, action) => {
+            state.background = action.payload
+        },
     },
 
 })

@@ -12,11 +12,14 @@ const CodeHeaders = ({
   className,
   ...rest
 }: React.ComponentPropsWithoutRef<"div">) => {
+  const { headerBackground } = useCodeHead();
+
   const { headerType } = useCodeHead();
   switch (headerType) {
     case "DEFAULT":
       return (
         <TrafficLights
+          background={headerBackground}
           circleType="filled"
           lightsStyle={{
             size: 14,

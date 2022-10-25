@@ -1,10 +1,11 @@
 import delay from "lib/delay";
 import dynamic from "next/dynamic";
 import React from "react";
-import useBottomTab from "store/hooks/usebottom";
 import UIIndicatorView from "ui/spinner";
 
-const time = 2000;
+import useBottomTab from "store/hooks/usebottom";
+
+const time = 1000;
 const LoadingSpinner = () => {
   return (
     <div
@@ -57,18 +58,29 @@ const InsertComponent = dynamic(
     loading: LoadingSpinner,
   }
 );
+const TemplateEditing = dynamic(
+  async () => {
+    await delay(time);
+    return await import("./tabs/templates");
+  },
+  {
+    loading: LoadingSpinner,
+  }
+);
 
 const RenderComponents = () => {
   const { tabName } = useBottomTab();
   switch (tabName) {
-    case "Edit":
+    case "CODE::EDIT":
       return <EditComponent />;
-    case "Insert":
+    case "CODE::INSERT":
       return <InsertComponent />;
-    case "Filter":
+    case "CODE::FILTER":
       return <FilterComponent />;
-    case "Images":
+    case "CODE::IMAGES":
       return <ImagesComponent />;
+    case "TEMPLATE::EDITING":
+      return <TemplateEditing />;
     default:
       return <LoadingSpinner />;
   }

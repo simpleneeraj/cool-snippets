@@ -1,4 +1,4 @@
-import post from 'store/slices/post';
+import post from 'store/slices/code/post';
 import _post from 'store/selector/_post';
 import useAppDispatch from 'hooks/usedispatch';
 import useAppSelector from 'hooks/useselector';

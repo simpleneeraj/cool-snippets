@@ -5,6 +5,7 @@ import HRLine from "ui/line";
 import css from "styles/app.module.scss";
 import useBackground from "store/hooks/usebackground";
 import Select from "ui/select";
+import Switch from "ui/switch";
 
 {
   /* CANVAS */
@@ -14,7 +15,6 @@ const CanvasOptions = () => {
   const { setRatio, aspectRatio } = useBackground();
   return (
     <ToolsWraper labelleft="CANVAS" labelright="Reset">
-      <HRLine className={css.horizontal} />
       <ToolsList title="Aspect Ratio">
         <Select
           options={array.aspectRatio}
@@ -22,6 +22,14 @@ const CanvasOptions = () => {
           onChange={(e) => setRatio(e.target.value)}
         />
       </ToolsList>
+      <HRLine className={css.horizontal} />
+      <ToolsList title="Watermark">
+        <Switch
+          active={true}
+          // onClick={() => linenumberHandler(!lineNumbers)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
     </ToolsWraper>
   );
 };

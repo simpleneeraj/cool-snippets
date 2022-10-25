@@ -78,6 +78,11 @@ $gapping: 6px;
   justify-content: center;
   margin: 0 $gapping $gapping;
   border-radius: $radius;
+  padding: 1rem;
+  @include scroll-bar(5px, 5px);
+}
+.editor {
+  // display: grid;
 }
 
 // RIGHT CONTAINER

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    tabName: 'Edit'
+    tabName: 'CODE::EDIT'
 }
 
 const tabSlice = createSlice({

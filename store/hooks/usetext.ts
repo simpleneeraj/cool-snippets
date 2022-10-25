@@ -2,7 +2,7 @@
 import useCallMemo from 'hooks/usecallmemo';
 import useAppDispatch from 'hooks/usedispatch';
 import useAppSelector from 'hooks/useselector';
-import text from 'store/slices/text';
+import text from 'store/slices/code/text';
 import _text from 'store/selector/_text';
 
 

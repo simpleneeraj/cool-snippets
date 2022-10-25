@@ -14,6 +14,7 @@ interface TrafficLightsProps {
   circleType: "filled" | "outline";
   lightsStyle: LightsStyleTypes;
   editable?: boolean;
+  background?: string;
 }
 
 type CSS = React.CSSProperties;
@@ -21,6 +22,7 @@ const TrafficLights = ({
   lightsStyle,
   circleType,
   editable,
+  background,
 }: TrafficLightsProps) => {
   const {
     size = 8,
@@ -38,7 +40,7 @@ const TrafficLights = ({
 
   const isOutline = circleType === "outline";
   return (
-    <div className={css["ios-lights"]}>
+    <div style={{ background }} className={css["ios-lights"]}>
       <div className={css["box"]} style={{ padding: padding, gap: iconGap }}>
         <span
           style={{

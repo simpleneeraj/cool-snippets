@@ -16,7 +16,9 @@ const AppLayout = () => {
         <View className={css["grid"]}>
           <AppLeft />
           <View className={css["center"]}>
-            <Center />
+            <View className={css["editor"]}>
+              <Center />
+            </View>
           </View>
           <AppRight />
         </View>

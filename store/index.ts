@@ -4,12 +4,12 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 // Slices
 import code from "./slices/code";
 // import dock from "./slices/dock";
-import text from "./slices/text";
+import text from "./slices/code/text";
 import background from "./slices/background";
-import preference from "./slices/preference";
+import preference from "./slices/code/preference";
 import download from "./slices/download";
-import imagesSlice from "./slices/images";
-import post from "./slices/post";
+import imagesSlice from "./slices/background/images";
+import post from "./slices/code/post";
 import unsplashApi from "./api/unsplash";
 import tabSlice from "./slices/bottom/tab";
 import headSlice from "./slices/code/head";
