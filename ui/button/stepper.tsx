@@ -1,7 +1,7 @@
 import React from "react";
+import HRLine from "ui/line";
 import Add from "lib/icons/Add";
 import RemoveOutline from "lib/icons/Remove";
-import HRLine from "ui/line";
 import css from "../css/stepper.module.scss";
 import { StepperButtonProps } from "../types/button";
 
@@ -57,11 +57,11 @@ const StepperButton = React.forwardRef(
 
     return (
       <div ref={ref} className={css.stepper}>
-        <button onClick={onStepDown}>
+        <button onClick={onStepDown} aria-label="decrease">
           <RemoveOutline size={16} />
         </button>
         <HRLine className={css.hr} />
-        <button onClick={onStepUp}>
+        <button onClick={onStepUp} aria-label="increase">
           <Add size={16} />
         </button>
       </div>
