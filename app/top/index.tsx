@@ -44,28 +44,29 @@ const AppTop = () => {
         </div>
         <div className={css.controls}>
           <GroupButton>
-            <IconButton title="Undo" disabled="no-action">
+            <IconButton title="Undo" disabled="no-action" aria-label="Undo">
               <ArrowBackward size={24} />
             </IconButton>
             <HRLine />
-            <IconButton title="Redo">
+            <IconButton title="Redo" aria-label="redo">
               <ArrowForward size={24} />
             </IconButton>
           </GroupButton>
-          <IconButton>
+          <IconButton aria-label="emoji">
             <HappyOutline size={20} />
           </IconButton>
           <IconButton
             title="Download"
             onClick={() => setModel(!isModel)}
             active="translate"
+            aria-label="download"
           >
             <DownloadOutline size={20} />
           </IconButton>
-          <IconButton title="Sync">
+          <IconButton title="Sync" aria-label="sync">
             <CheckmarkICloud size={24} />
           </IconButton>
-          <IconButton active="translate">
+          <IconButton active="translate" aria-label="More">
             <EllipsisHorizontal size={20} />
           </IconButton>
         </div>

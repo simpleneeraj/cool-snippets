@@ -13,6 +13,7 @@ const IconButton = React.forwardRef(
       label,
       direction,
       size,
+      title,
       className: cl,
       ...rest
     } = props;
@@ -55,6 +56,7 @@ const IconButton = React.forwardRef(
           style={{ flexDirection: direction }}
           ref={ref}
           className={cl}
+          aria-label={title}
           {...rest}
         >
           {children}
