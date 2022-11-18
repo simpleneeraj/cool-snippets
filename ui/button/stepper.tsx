@@ -57,11 +57,11 @@ const StepperButton = React.forwardRef(
 
     return (
       <div ref={ref} className={css.stepper}>
-        <button onClick={onStepDown} aria-label="decrease">
+        <button onClick={onStepDown} aria-labelledby="decrease">
           <RemoveOutline size={16} />
         </button>
         <HRLine className={css.hr} />
-        <button onClick={onStepUp} aria-label="increase">
+        <button onClick={onStepUp} aria-labelledby="increase">
           <Add size={16} />
         </button>
       </div>
