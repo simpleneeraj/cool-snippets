@@ -70,4 +70,4 @@ const StepperButton = React.forwardRef(
 );
 
 StepperButton.displayName = "StepperButton";
-export default StepperButton;
+export default React.memo(StepperButton);

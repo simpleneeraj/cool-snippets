@@ -5,6 +5,9 @@ const nextConfig = {
   env: {
     unsplash: "YnAHf2SJAKJmUr3ykMdo3q08L_ksA9NA7SyMHU8gJ9Q",
   },
+  experimental: {
+    appDir: true,
+  },
 };
 
 module.exports = nextConfig;

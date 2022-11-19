@@ -1,3 +1,5 @@
+
+
 import { RefObject, useEffect, useRef } from 'react'
 // See: https://usehooks-ts.com/react-hook/use-isomorphic-layout-effect
 import useIsoEffect from './useIsoEffect'
@@ -9,22 +11,22 @@ function useEventListener<K extends keyof WindowEventMap>(
 function useEventListener<
   K extends keyof HTMLElementEventMap,
   T extends HTMLElement = HTMLDivElement,
-  >(
-    eventName: K,
-    handler: (event: HTMLElementEventMap[K]) => void,
-    element: RefObject<T>,
+>(
+  eventName: K,
+  handler: (event: HTMLElementEventMap[K]) => void,
+  element: RefObject<T>,
 ): void
 
 function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,
   T extends HTMLElement | void = void,
-  >(
-    eventName: KW | KH,
-    handler: (
-      event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event,
-    ) => void,
-    element?: RefObject<T>,
+>(
+  eventName: KW | KH,
+  handler: (
+    event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event,
+  ) => void,
+  element?: RefObject<T>,
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef(handler)

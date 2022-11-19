@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import css from "styles/header.module.scss";
@@ -49,16 +51,14 @@ const NavigationBar = ({ state }: HeaderProps) => {
     <nav className={`${css["navigation"]} ${state ? css["mobile"] : ""}`}>
       <div className={css["navbar"]}>
         {navigationdata.map((l, i) => (
-          <Link key={i} href={l.path}>
-            <a className={css["links"]}>{l.title}</a>
+          <Link key={i} href={l.path} className={css["links"]}>
+            {l.title}
           </Link>
         ))}
       </div>
       <div className={css["login"]}>
         {/* <p>Hii, Simple</p> */}
-        <Link href="/login">
-          <a>Sign in</a>
-        </Link>
+        <Link href="/login">Sign in</Link>
       </div>
     </nav>
   );

@@ -1,8 +1,9 @@
+"use client";
+
 import React from "react";
 import moment from "moment";
 import Link from "next/link";
 import { randomBytes } from "crypto";
-import { useRouter } from "next/router";
 import useInterval from "hooks/useinterval";
 import Add from "lib/icons/Add";
 import CogOutline from "lib/icons/CogOutline";
@@ -11,7 +12,6 @@ import LogoTwitter from "lib/icons/LogoTwitter";
 import css from "styles/dash.module.scss";
 
 const DashBoard = () => {
-  const router = useRouter();
   const momentTime = moment().format("HH:mm");
   const momentDate = moment().format("dddd, MMMM M");
   const [time, setTime] = React.useState(momentTime);
@@ -27,15 +27,14 @@ const DashBoard = () => {
     <div className={css.container}>
       <div className={css.grid}>
         <div className={css.content}>
-          <Link href={`/simpleneeraj?view=${ID}&premium=true`}>
-            <a className={css.items}>
-              <Add size={70} />
-            </a>
+          <Link
+            href={`/simpleneeraj?view=${ID}&premium=true`}
+            className={css.items}
+          >
+            <Add size={70} />
           </Link>
-          <Link href={""}>
-            <a className={css.items}>
-              <CogOutline size={70} />
-            </a>
+          <Link href={""} className={css.items}>
+            <CogOutline size={70} />
           </Link>
           <a
             target="_blank"

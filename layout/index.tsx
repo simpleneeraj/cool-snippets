@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import Header from "./header";
 import Footer from "./footer";
-import NextProgress from "./nextprogress";
+// import NextProgress from "./nextprogress";
 import { HeaderProvider } from "store/context/header";
 import Script from "next/script";
-import jsonld from "./jsonld";
+import content from "./jsonld";
 
 const Main = (props: React.ComponentPropsWithRef<"main">) => (
   <main {...props} />
@@ -16,17 +18,30 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <HeaderProvider>
-      <NextProgress />
+      {/* <NextProgress /> */}
       <Header />
       <Main>{children}</Main>
       <Script
-        id={`icanpost-0`}
-        key={`icanpost-1`}
+        id="icanpost-app"
+        key="icanpost-app"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(content, null, "\t"),
+        }}
       />
+
       <Footer />
     </HeaderProvider>
   );
 };
 export default Layout;
+
+{
+  /* <Script
+        id="app-ld-json"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(content, null, "\t"),
+        }}
+      /> */
+}

@@ -1,5 +1,3 @@
-
-
 const iosTrafficColors = {
     RED: "#fd4539",
     YELLOW: "#ffd213",
