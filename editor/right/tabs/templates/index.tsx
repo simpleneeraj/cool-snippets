@@ -1,5 +1,5 @@
-import ToolsWraper from "code-app/right/wraper";
-import ToolsList from "code-app/right/wraper/list";
+import ToolsWraper from "editor/right/wraper";
+import ToolsList from "editor/right/wraper/list";
 import React from "react";
 import HRLine from "ui/line";
 import css from "styles/app.module.scss";

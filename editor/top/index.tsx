@@ -9,7 +9,7 @@ import RedoIcon from "lib/icons/RedoIcon";
 import UndoIcon from "lib/icons/UndoIcon";
 import CheckmarkICloud from "lib/icons/CheckmarkICloud";
 import EllipsisHorizontal from "lib/icons/EllipsisHorizontal";
-import DownloadModel from "code-app/element/download";
+import DownloadModel from "editor/element/download";
 import HappyOutline from "lib/icons/HappyOutline";
 import useOnClickOutside from "hooks/useclick";
 import DownloadOutline from "lib/icons/DownloadOutline";

@@ -15,8 +15,8 @@
   width: 300px;
   min-height: 400px;
   justify-content: space-between;
-  background: var(--secondry-background);
-  border: 2px solid var(--tertiary-background);
+  background: var(--ui-secondry-background);
+  border: 2px solid var(--ui-tertiary-background);
   // height: calc(100vh - 100px);
   overflow: auto;
   @include scroll-bar();

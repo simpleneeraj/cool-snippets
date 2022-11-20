@@ -1,5 +1,5 @@
 import React from "react";
-import CodeAppMain from "code-app";
+import CodeAppMain from "editor";
 
 interface EditorInstancePage {
   instanceData: string;

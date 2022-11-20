@@ -1,5 +1,5 @@
 @import "./variable";
-// @import "./inter";
+@import "./inter";
 @import "./fonts";
 @import "./color";
 
@@ -30,7 +30,7 @@ body {
   line-height: 1.4;
   font-weight: 400;
   background-color: #0d1117;
-  background: var(--primary-background);
+  background: var(--ui-primary-background);
 }
 
 html,

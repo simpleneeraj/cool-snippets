@@ -4,10 +4,10 @@ import React from "react";
 import View from "ui/view";
 import css from "styles/app.module.scss";
 
-const AppTop = React.lazy(() => import("code-app/top"));
-const AppLeft = React.lazy(() => import("code-app/left"));
-const Center = React.lazy(() => import("code-app/center"));
-const AppRight = React.lazy(() => import("code-app/right"));
+const AppTop = React.lazy(() => import("editortop"));
+const AppLeft = React.lazy(() => import("editorleft"));
+const Center = React.lazy(() => import("editorcenter"));
+const AppRight = React.lazy(() => import("editorright"));
 
 const AppLayout = () => {
   return (

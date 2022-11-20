@@ -1,5 +1,5 @@
-import ToolsWraper from "code-app/right/wraper";
-import ToolsList from "code-app/right/wraper/list";
+import ToolsWraper from "editor/right/wraper";
+import ToolsList from "editor/right/wraper/list";
 import React from "react";
 import useText from "store/hooks/usetext";
 import StepperButton from "ui/button/stepper";

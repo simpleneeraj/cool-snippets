@@ -50,7 +50,7 @@
     opacity: 1;
     -webkit-transition: opacity 250ms, color 250ms;
     transition: opacity 250ms, color 250ms;
-    color: #acacac;
+    color: var(--ui-color-septenary);
     font-size: 0.875em;
     &:hover {
       color: var(--ui-color-primary);

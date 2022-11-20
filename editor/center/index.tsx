@@ -17,7 +17,7 @@ import View from "ui/view";
 const draggableClassName = "simple-drag";
 const Draggable = React.lazy(() => import("react-draggable"));
 const CodeHeaders = React.lazy(() => import("./code-headers"));
-const CodeMirror = React.lazy(() => import("plugins/codemirror-x"));
+const CodeMirror = React.lazy(() => import("plugins/codemirror"));
 
 const Center = () => {
   const { alpha } = usePost();
@@ -36,6 +36,7 @@ const Center = () => {
   // @ts-expect-error
   const generatedMode = React.useMemo(() => cl[mode](), [mode]);
 
+  // const x=React.useCallback
   return (
     <React.Fragment>
       <InlineStyle />

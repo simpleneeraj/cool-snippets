@@ -5,6 +5,7 @@ import css from "styles/web/landing.module.scss";
 import GlowShadow from "components/glow-shadow";
 import Link from "next/link";
 import ArrowRight from "lib/icons/ArrowRight";
+import HoverEffectButton from "ui/button/effect";
 
 const LandingPage = () => {
   return (
@@ -21,17 +22,21 @@ const LandingPage = () => {
             phasellus mollis sit aliquam sit nullam neque ultrices.
           </p>
           <div className={css["controls"]}>
-            <Link href="/pricing">
-              Get started for free
-              <span>
-                <ArrowRight size={18} />
-              </span>
+            <Link href="/simpleneeraj?view=D23BHYU7}&premium=true">
+              <HoverEffectButton>
+                Get started for free
+                <span>
+                  <ArrowRight size={18} />
+                </span>
+              </HoverEffectButton>
             </Link>
             <Link href="/contact">
-              <div className="link-text">Book a demo</div>
-              <span>
-                <ArrowRight size={18} />
-              </span>
+              <button>
+                <div className="link-text">Book a demo</div>
+                <span>
+                  <ArrowRight size={18} />
+                </span>
+              </button>
             </Link>
           </div>
         </div>

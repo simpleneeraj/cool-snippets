@@ -1,7 +1,9 @@
+import Heading from "components/heading";
 import Layout from "layout";
 import React from "react";
 import { NextPageWithLayout } from "typings/pages";
 import LandingPage from "web/landingpage";
+import OfferGrid from "web/landingpage/offer-grid";
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -14,6 +16,15 @@ const Home: NextPageWithLayout = () => {
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo> */}
       <LandingPage />
+      <Heading
+        title="We Offer"
+        paragraph="Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt."
+      />
+      <OfferGrid />
+      <Heading
+        title="We Offer"
+        paragraph="Risus commodo id odio turpis pharetra elementum. Pulvinar porta porta feugiat scelerisque in elit. Morbi rhoncus, tellus, eros consequat magna semper orci a tincidunt."
+      />
     </Layout>
   );
 };

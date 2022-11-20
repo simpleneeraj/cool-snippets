@@ -4,22 +4,23 @@ $radius: 10px;
 $Padding: 4px;
 $gapping: 6px;
 
-$primary-background: var(--primary-background);
-$primary-background-aplha: #0d111700;
-$secondry-background: var(--secondry-background);
-$tertiary-background: var(--tertiary-background);
+$primary-background: var(--ui-app-primary-background);
+$secondry-background: var(--ui-app-secondry-background);
+$tertiary-background: var(--ui-app-tertiary-background);
+$tetra-background: var(--ui-app-tetra-background);
 
+$primary-background-aplha: #0d111700;
 $grid-line-color: #272e35;
 $horizontal-line-color: #3e3e3e;
+
 // CONTAINER FOR LARGE SCREENS
 .app-box {
   display: grid;
   height: 100vh;
-  // place-content: center;
 }
+
 // MAIN CONTAINER
 .container {
-  // height: 100vh;
   display: grid;
   overflow: hidden;
   max-height: 100vh;
@@ -192,6 +193,6 @@ $horizontal-line-color: #3e3e3e;
     max-height: 800px;
     min-width: 1280px;
     border-radius: 10px;
-    border: 2px solid var(--tertiary-background);
+    border: 2px solid var(--ui-tertiary-background);
   }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { useCodeMirror } from "./useCodeMirror";
 import { ReactCodeMirrorProps, ReactCodeMirrorRef } from "./types";
