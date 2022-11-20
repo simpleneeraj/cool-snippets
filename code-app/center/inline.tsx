@@ -58,7 +58,7 @@ const InlineStyle = () => {
           font-size: 0.9rem;
           font-weight: 400;
           font-family: ${fontFace};
-          text-shadow: 0px 0px 30px var(--ui-color);
+          text-shadow: 0px 0px 30px var(--ui-color-primary);
         }
         .codemirror {
           z-index: 11;

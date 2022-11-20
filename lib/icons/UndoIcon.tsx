@@ -3,7 +3,7 @@ interface SVGTYPE extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
   color?: string;
 }
-const ArrowBackward = (props: SVGTYPE) => {
+const UndoIcon = (props: SVGTYPE) => {
   const { color = "currentColor", size = "30px" } = props;
   return (
     <svg
@@ -22,4 +22,4 @@ const ArrowBackward = (props: SVGTYPE) => {
     </svg>
   );
 };
-export default ArrowBackward;
+export default UndoIcon;

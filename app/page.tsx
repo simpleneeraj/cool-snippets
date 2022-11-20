@@ -1,7 +1,7 @@
 import Layout from "layout";
 import React from "react";
 import { NextPageWithLayout } from "typings/pages";
-import DashBoard from "web/dashboard";
+import LandingPage from "web/landingpage";
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -13,7 +13,7 @@ const Home: NextPageWithLayout = () => {
         thumbnail="https://www.icanpost.app/cover/cover-1.webp"
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       ></NextSeo> */}
-      <DashBoard />
+      <LandingPage />
     </Layout>
   );
 };

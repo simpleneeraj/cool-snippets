@@ -4,6 +4,13 @@ $radius: 10px;
 $Padding: 4px;
 $gapping: 6px;
 
+$primary-background: var(--primary-background);
+$primary-background-aplha: #0d111700;
+$secondry-background: var(--secondry-background);
+$tertiary-background: var(--tertiary-background);
+
+$grid-line-color: #272e35;
+$horizontal-line-color: #3e3e3e;
 // CONTAINER FOR LARGE SCREENS
 .app-box {
   display: grid;
@@ -104,8 +111,8 @@ $gapping: 6px;
   overflow: hidden;
   border-radius: $radius;
   margin: 0 0 $gapping $gapping;
-  background: var(--secondry-background);
-  border: 1px solid var(--tertiary-background);
+  background: $secondry-background;
+  border: 1px solid $tertiary-background;
   @include scroll-bar();
 }
 
@@ -117,8 +124,8 @@ $gapping: 6px;
   align-items: center;
 
   border-radius: 10px;
-  background: var(--secondry-background);
-  border: 1px solid var(--tertiary-background);
+  background: $secondry-background;
+  border: 1px solid $tertiary-background;
   overflow: auto;
 
   @include scroll-bar();
@@ -138,9 +145,9 @@ $gapping: 6px;
   flex-direction: column;
   position: relative;
   overflow: auto;
-  background: var(--secondry-background);
+  background: $secondry-background;
   border-radius: inherit;
-  border: 1px solid var(--tertiary-background);
+  border: 1px solid $tertiary-background;
   overflow: auto;
   @include scroll-bar(4px, 4px);
 }
@@ -149,28 +156,28 @@ $gapping: 6px;
   position: relative;
   background-image: linear-gradient(
       0deg,
-      var(--primary-background),
-      rgba(13, 17, 23, 0) 15%
+      $primary-background,
+      $primary-background-aplha 15%
     ),
-    linear-gradient(180deg, var(--primary-background), rgba(13, 17, 23, 0) 15%),
+    linear-gradient(180deg, $primary-background, $primary-background-aplha 15%),
     radial-gradient(
       circle farthest-side at 50% 0,
-      rgba(13, 17, 23, 0),
-      var(--primary-background)
+      $primary-background-aplha,
+      $primary-background
     ),
-    url("../public/texture/tile-dark.svg");
+    url("/texture/tile-dark.svg");
   background-position: 0 0, 0 0, 0 0, -1px -1px;
   background-size: auto, auto, auto, 64px;
-  background-color: #272e35;
+  background-color: $grid-line-color;
 }
 
 .horizontal {
-  background: #3e3e3e;
   height: 1px;
   width: 100%;
   border: none;
-  border-radius: 10px;
   opacity: 0.4;
+  border-radius: 10px;
+  background: $horizontal-line-color;
 }
 
 // FOR LARGER SCREENS ONLY

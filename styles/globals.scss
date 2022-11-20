@@ -1,5 +1,5 @@
 @import "./variable";
-@import "./inter";
+// @import "./inter";
 @import "./fonts";
 @import "./color";
 
@@ -13,6 +13,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

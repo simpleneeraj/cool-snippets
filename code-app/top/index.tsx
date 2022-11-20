@@ -5,8 +5,8 @@ import css from "styles/app.module.scss";
 import IconButton from "ui/button/icon";
 import GroupButton from "ui/button/group";
 import ChevronBack from "lib/icons/ChevronBack";
-import ArrowForward from "lib/icons/ArrowForward";
-import ArrowBackward from "lib/icons/ArrowBackward";
+import RedoIcon from "lib/icons/RedoIcon";
+import UndoIcon from "lib/icons/UndoIcon";
 import CheckmarkICloud from "lib/icons/CheckmarkICloud";
 import EllipsisHorizontal from "lib/icons/EllipsisHorizontal";
 import DownloadModel from "code-app/element/download";
@@ -47,11 +47,11 @@ const AppTop = () => {
         <div className={css.controls}>
           <GroupButton>
             <IconButton title="Undo" disabled="no-action" aria-label="Undo">
-              <ArrowBackward size={24} />
+              <UndoIcon size={24} />
             </IconButton>
             <HRLine />
             <IconButton title="Redo" aria-label="redo">
-              <ArrowForward size={24} />
+              <RedoIcon size={24} />
             </IconButton>
           </GroupButton>
           <IconButton aria-label="emoji">

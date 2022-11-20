@@ -3,8 +3,6 @@
 import React from "react";
 import Header from "./header";
 import Footer from "./footer";
-// import NextProgress from "./nextprogress";
-import { HeaderProvider } from "store/context/header";
 import Script from "next/script";
 import content from "./jsonld";
 
@@ -17,8 +15,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <HeaderProvider>
-      {/* <NextProgress /> */}
+    <React.Fragment>
       <Header />
       <Main>{children}</Main>
       <Script
@@ -29,9 +26,8 @@ const Layout = ({ children }: LayoutProps) => {
           __html: JSON.stringify(content, null, "\t"),
         }}
       />
-
       <Footer />
-    </HeaderProvider>
+    </React.Fragment>
   );
 };
 export default Layout;

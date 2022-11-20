@@ -3,7 +3,7 @@ interface SVGTYPE extends React.SVGProps<SVGSVGElement> {
   size?: number | string;
   color?: string;
 }
-const ArrowForward = (props: SVGTYPE) => {
+const RedoIcon = (props: SVGTYPE) => {
   const { color = "currentColor", size = "30px" } = props;
   return (
     <svg
@@ -22,4 +22,4 @@ const ArrowForward = (props: SVGTYPE) => {
     </svg>
   );
 };
-export default ArrowForward;
+export default RedoIcon;

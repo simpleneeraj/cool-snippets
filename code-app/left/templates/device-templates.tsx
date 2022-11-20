@@ -11,10 +11,12 @@ const DeviceTemplates = ({
   ...rest
 }: DeviceTemplateProps) => {
   const st = {
-    border: `2px solid ${active ? "var(--ui-color)" : "transparent"}`,
+    border: `2px solid ${active ? "var(--ui-color-primary)" : "transparent"}`,
   };
   const editBorder = {
-    border: `1pt solid ${editHiglight ? "var(--ui-color)" : "transparent"}`,
+    border: `1pt solid ${
+      editHiglight ? "var(--ui-color-primary)" : "transparent"
+    }`,
   };
   return (
     <div className={css["template-card"]}>

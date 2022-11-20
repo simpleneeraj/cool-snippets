@@ -1,74 +1,110 @@
-:root {
-  --face: "Inter Regular", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-    sans-serif, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
-}
+/*  
+
+1 →  color-alpha
+2 →  color-beta
+3 →  color-gamma
+4 →  color-psi
+5 →  color-omega
+
+1  → ui-primary 
+2  → ui-secondary 
+3  → ui-tertiary 
+4  → ui-quaternary 
+5  → ui-quinary 
+6  → ui-senary 
+7  → ui-septenary 
+8  → ui-octonary 
+9  → ui-nonary
+10 → ui-denary
+
+THIS NAMING CONVECTION COMES FROM CHEMISTRY 😎
+
+#	PREFIX
+1  → ui-meth  
+2  → ui-eth 
+3  → ui-prop 
+4  → ui-but 
+5  → ui-penta 
+6  → ui-hexa 
+7  → ui-hept 
+8  → ui-oct 
+9  → ui-non 
+10 → ui-deca 
+*/
 
 :root {
-  --ui-alpha-1: rgba(0, 0, 0, 0.1);
-  --ui-alpha-2: rgba(0, 0, 0, 0.2);
-  --ui-alpha-3: rgba(0, 0, 0, 0.3);
-  --ui-alpha-4: rgba(0, 0, 0, 0.4);
-  --ui-alpha-5: rgba(0, 0, 0, 0.5);
-  --ui-alpha-6: rgba(0, 0, 0, 0.6);
-  --ui-alpha-7: rgba(0, 0, 0, 0.7);
-  --ui-alpha-8: rgba(0, 0, 0, 0.8);
-  --ui-alpha-9: rgba(0, 0, 0, 0.9);
-  --ui-alpha-10: rgba(0, 0, 0, 1);
+  --ui-black-alpha-1: rgba(0, 0, 0, 0.1);
+  --ui-black-alpha-2: rgba(0, 0, 0, 0.2);
+  --ui-black-alpha-3: rgba(0, 0, 0, 0.3);
+  --ui-black-alpha-4: rgba(0, 0, 0, 0.4);
+  --ui-black-alpha-5: rgba(0, 0, 0, 0.5);
+  --ui-black-alpha-6: rgba(0, 0, 0, 0.6);
+  --ui-black-alpha-7: rgba(0, 0, 0, 0.7);
+  --ui-black-alpha-8: rgba(0, 0, 0, 0.8);
+  --ui-black-alpha-9: rgba(0, 0, 0, 0.9);
+  --ui-black-alpha-10: rgba(0, 0, 0, 1);
 
-  --ui-color: rgb(255, 255, 255);
-  --ui-border-color: rgba(255, 255, 255, 0.18);
-  --ui-outline-color: rgba(255, 255, 255, 0.36);
-  --ui-transparent-1: rgba(83, 83, 83, 0.251);
-  --ui-transparent-2: rgba(83, 83, 83, 0.351);
-  --ui-transparent-3: rgba(83, 83, 83, 0.451);
-  --ui-transparent-4: rgba(83, 83, 83, 0.551);
-  --ui-transparent-5: rgba(83, 83, 83, 0.651);
-  --ui-transparent-6: rgba(83, 83, 83, 0.751);
-  --ui-transparent-7: rgba(83, 83, 83, 0.851);
-  --ui-transparent-8: rgba(83, 83, 83, 0.951);
-  --ui-transparent-9: rgba(83, 83, 83, 1);
-  --ui-outline: 2px solid var(--ui-outline-color);
-  --ui-border: 1px solid var(--ui-border-color);
-  // Varible for Dock
-  --dock-blur: blur(15px);
-  --dock-color: rgb(255, 255, 255);
   --dock-background: rgba(83, 83, 83, 0.251);
   --dock-border-color: rgba(255, 255, 255, 0.18);
   --dock-border: 1px solid var(--dock-border-color);
-  // Variable from dropdown
-  --dropdown-hover: #323232;
-  --dropdown-background: #000000;
-  // For Button
-  --button-color: var(--ui-color);
-  --button-hover: var(--ui-alpha-2);
-  --button-background: var(--ui-alpha-4);
+
+  --button-color: var(--ui-color-primary);
+
+  --button-background: var(--ui-black-alpha-4);
   --button-outline-color: var(--ui-outline-color);
   // Accent
   --ui-accent-color: #3f51b5;
 }
 
 :root {
-  --ui-color: #ffffff;
-  --ui-color-black: #000000;
-  --ui-primary-color: #f1f1f1;
-  --ui-secondry-color: #eeeeee;
-  --primary-background: #090909; // For Body
-  --secondry-background: #1c1c1e; // For Div
-  --tertiary-background: #2e2e30; // For Button
-  --tetra-background: #444444; // For Hover
-  --ui-accent-color: #34c759;
+  /* TRANSPARENT BACKGROUNDS */
+  --ui-transparent-alpha: rgba(83, 83, 83, 0.251);
+  --ui-transparent-beta: rgba(83, 83, 83, 0.351);
+  /* COLORS */
+  --ui-color-primary: rgb(255, 255, 255);
+  --ui-color-secondry: rgb(255, 255, 255);
+  --ui-color-tertiary: rgb(255, 255, 255);
+  --ui-color-tetra: rgb(255, 255, 255);
+  --ui-color-quinary: rgb(255, 255, 255);
+  --ui-color-senary: rgb(255, 255, 255);
+  --ui-color-septenary: rgb(255, 255, 255);
+  --ui-color-octonary: rgb(255, 255, 255);
+
+  --ui-color-primary-black: rgb(0, 0, 0);
+  --ui-primary-color: rgb(241, 241, 241);
+  --ui-secondry-color: rgb(238, 238, 238);
+  /* BACKGROUNDS */
+  /* FOR BODY */
+  --primary-background: rgb(9, 9, 9);
+  /* FOR DIV */
+  --secondry-background: rgb(28, 28, 31);
+  /* FOR BUTTON */
+  --tertiary-background: rgb(46, 46, 48);
+  /* FOR HOVER */
+  --tetra-background: rgb(69, 69, 69);
+  /* FOR ACCENT */
+  --ui-accent-color: rgb(52, 199, 89);
+  /* FOR FOOTER */
+  --ui-footer-border-color: var(--dock-border-color);
+  --ui-footer-primary-background: var(--secondry-background);
+  /* FOR APP */
+  --ui-app-primary-background: rgb(9, 9, 9);
+  --ui-app-secondry-background: rgb(28, 28, 31);
+  --ui-app-tertiary-background: rgb(46, 46, 48);
+  --ui-app-tetra-background: rgb(69, 69, 69);
+  --ui-app-accent-color: rgb(52, 199, 89);
 }
 
 // Dark Mode Color
-[data-theme="light"] {
-  --ui-primary-color: ##111111;
-  --ui-secondry-color: #444444;
-  --primary-background: #efefef; // For Body
-  --secondry-background: #fafafa; // For Div
-  --tertiary-background: #efefef; // For Button
-  --tetra-background: #dddddd; // For Hover
-  --ui-accent-color: #34c759;
-}
+// [data-theme="light"] {
+//   --ui-primary-color: ##111111;
+//   --ui-secondry-color: #444444;
+//   --primary-background: #efefef; // For Body
+//   --secondry-background: #fafafa; // For Div
+//   --tertiary-background: #efefef; // For Button
+//   --tetra-background: #dddddd; // For Hover
+//   --ui-accent-color: #34c759;
+// }
 
 // #090909 Body
 // #1c1c1e Div
@@ -76,51 +112,73 @@
 
 // // Accent Colors from Twitter
 
-[data-color="carolina-blue"] {
-  --ui-accent-color: #1d9bf0ff;
-}
-[data-color="cyber-yellow"] {
-  --ui-accent-color: #ffd400ff;
-}
-[data-color="flickr-pink"] {
-  --ui-accent-color: #f91880ff;
-}
-[data-color="slate-blue"] {
-  --ui-accent-color: #7856ffff;
-}
-[data-color="heat-wave"] {
-  --ui-accent-color: #ff7a00ff;
-}
-[data-color="sea-green"] {
-  --ui-accent-color: #00ba7cff;
-}
+// [data-color="carolina-blue"] {
+//   --ui-accent-color: #1d9bf0ff;
+// }
+// [data-color="cyber-yellow"] {
+//   --ui-accent-color: #ffd400ff;
+// }
+// [data-color="flickr-pink"] {
+//   --ui-accent-color: #f91880ff;
+// }
+// [data-color="slate-blue"] {
+//   --ui-accent-color: #7856ffff;
+// }
+// [data-color="heat-wave"] {
+//   --ui-accent-color: #ff7a00ff;
+// }
+// [data-color="sea-green"] {
+//   --ui-accent-color: #00ba7cff;
+// }
 
 // Accent Colors from Apple
 
-[data-color="Bluesystem"] {
-  --ui-accent-color: rgb(0, 122, 255);
-}
-[data-color="Greensystem"] {
-  --ui-accent-color: rgb(52, 199, 89);
-}
-[data-color="Indigosystem"] {
-  --ui-accent-color: rgb(88, 86, 214);
-}
-[data-color="Orangesystem"] {
-  --ui-accent-color: rgb(255, 149, 0);
-}
-[data-color="Pinksystem"] {
-  --ui-accent-color: rgb(255, 45, 85);
-}
-[data-color="Purplesystem"] {
-  --ui-accent-color: rgb(175, 82, 222);
-}
-[data-color="Redsystem"] {
-  --ui-accent-color: rgb(255, 59, 48);
-}
-[data-color="Tealsystem"] {
-  --ui-accent-color: rgb(90, 200, 250);
-}
-[data-color="Yellow"] {
-  --ui-accent-color: rgb(255, 204, 0);
-}
+// [data-color="Bluesystem"] {
+//   --ui-accent-color: rgb(0, 122, 255);
+// }
+// [data-color="Greensystem"] {
+//   --ui-accent-color: rgb(52, 199, 89);
+// }
+// [data-color="Indigosystem"] {
+//   --ui-accent-color: rgb(88, 86, 214);
+// }
+// [data-color="Orangesystem"] {
+//   --ui-accent-color: rgb(255, 149, 0);
+// }
+// [data-color="Pinksystem"] {
+//   --ui-accent-color: rgb(255, 45, 85);
+// }
+// [data-color="Purplesystem"] {
+//   --ui-accent-color: rgb(175, 82, 222);
+// }
+// [data-color="Redsystem"] {
+//   --ui-accent-color: rgb(255, 59, 48);
+// }
+// [data-color="Tealsystem"] {
+//   --ui-accent-color: rgb(90, 200, 250);
+// }
+// [data-color="Yellow"] {
+//   --ui-accent-color: rgb(255, 204, 0);
+// }
+
+// --ui-border-color: rgba(255, 255, 255, 0.18);
+// --ui-outline-color: rgba(255, 255, 255, 0.36);
+// --ui-transparent-3: rgba(83, 83, 83, 0.451);
+// --ui-transparent-4: rgba(83, 83, 83, 0.551);
+// --ui-transparent-5: rgba(83, 83, 83, 0.651);
+// --ui-transparent-6: rgba(83, 83, 83, 0.751);
+// --ui-transparent-7: rgba(83, 83, 83, 0.851);
+// --ui-transparent-8: rgba(83, 83, 83, 0.951);
+// --ui-transparent-9: rgba(83, 83, 83, 1);
+// --ui-outline: 2px solid var(--ui-outline-color);
+// --ui-border: 1px solid var(--ui-border-color);
+
+// --ui-primary-background:rgba(83, 83, 83, 0.251);
+// Varible for Dock
+// --dock-blur: blur(15px);
+// --dock-color: rgb(255, 255, 255);
+// Variable from dropdown
+// --dropdown-hover: #323232;
+// --dropdown-background: #000000;
+// For Button
+// --button-hover: var(--ui-black-alpha-2);

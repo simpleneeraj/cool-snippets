@@ -5,7 +5,7 @@
   flex-direction: column;
   padding-top: 2rem;
   margin-top: 1rem;
-  background: var(--dock-background);
+  background: var(--ui-footer-primary-background);
 }
 
 .content {
@@ -53,7 +53,7 @@
     color: #acacac;
     font-size: 0.875em;
     &:hover {
-      color: var(--ui-color);
+      color: var(--ui-color-primary);
     }
   }
 }
@@ -68,8 +68,8 @@ Bottom
 }
 
 .bottom .wraper {
-  display: flex;
   gap: 1rem;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -91,7 +91,7 @@ Bottom
   .bottom .wraper {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column-reverse;
     align-items: center;
+    flex-direction: column-reverse;
   }
 }
