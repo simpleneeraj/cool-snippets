@@ -1,6 +1,6 @@
-import Heading from "components/heading";
-import Layout from "layout";
 import React from "react";
+import Layout from "layout";
+import Heading from "components/heading";
 import { NextPageWithLayout } from "typings/pages";
 import LandingPage from "web/landingpage";
 import OfferGrid from "web/landingpage/offer-grid";
@@ -8,13 +8,6 @@ import OfferGrid from "web/landingpage/offer-grid";
 const Home: NextPageWithLayout = () => {
   return (
     <Layout>
-      {/* <NextSeo
-        title="Beautiful Code Snippets Generator | Free"
-        description="Turn your code into beautiful images. 
-      With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
-        thumbnail="https://www.icanpost.app/cover/cover-1.webp"
-        largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
-      ></NextSeo> */}
       <LandingPage />
       <Heading
         title="We Offer"
@@ -44,3 +37,13 @@ export default Home;
         </h1>
       </div>
  */
+
+{
+  /* <NextSeo
+        title="Beautiful Code Snippets Generator | Free"
+        description="Turn your code into beautiful images. 
+      With the help of acrylic blur layer. Generate in multple formats with social media aspect ratio. Wide range of backgrounds."
+        thumbnail="https://www.icanpost.app/cover/cover-1.webp"
+        largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
+      ></NextSeo> */
+}

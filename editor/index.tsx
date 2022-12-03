@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import View from "ui/view";
 import css from "styles/app.module.scss";

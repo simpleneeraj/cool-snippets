@@ -24,10 +24,11 @@ const Center = () => {
   } = useCode();
 
   const generatedTheme = React.useMemo(
+    // @ts-ignore
     () => codeTheme[code.theme](code.translucent ? code.alpha : 1),
     [code.alpha, code.theme, code.translucent]
   );
-
+  // @ts-ignore
   const generatedMode = React.useMemo(() => cl[code.mode](), [code.mode]);
 
   // const x=React.useCallback

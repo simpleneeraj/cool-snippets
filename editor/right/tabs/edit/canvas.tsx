@@ -15,18 +15,18 @@ const CanvasOptions = () => {
 
   return (
     <ToolsWraper labelleft="CANVAS" labelright="Reset">
+      <ToolsList title="Watermark">
+        <Switch
+          active={canvas.watermark}
+          onClick={() => updateCanvas("watermark", !canvas.watermark)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
       <ToolsList title="Aspect Ratio">
         <Select
           options={array.aspectRatio}
           defaultValue={canvas["aspect-ratio"]}
           onChange={(e) => updateCanvas("aspect-ratio", e.target.value)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-      <ToolsList title="Watermark">
-        <Switch
-          active={canvas.watermark}
-          onClick={() => updateCanvas("watermark", !canvas.watermark)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />

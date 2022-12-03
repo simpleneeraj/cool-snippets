@@ -1,57 +1,54 @@
-import useAppDispatch from "hooks/usedispatch"
-import useAppSelector from "hooks/useselector"
 import React from "react"
 import _code from "store/selector/_code"
 import codeSlice from "store/slices/code"
+import useAppDispatch from "hooks/usedispatch"
+import useAppSelector from "hooks/useselector"
 
-const { actions } = codeSlice
 
 type S = string
 type N = string | number | boolean
 
+const { actions: a } = codeSlice
 
 const useCode = () => {
-    const dispatch = useAppDispatch()
+    const d = useAppDispatch()
     const codeState = useAppSelector(_code)
     /**
      * Update Canvas 
      * `key` `value`
      */
     const updateCanvas = React.useCallback((key: S, value: N) => {
-        dispatch(actions.updateCanvas({ key, value }))
-    }, [dispatch])
+        d(a.updateCanvas({ key, value }))
+    }, [d])
     /**
      * Update Code 
      * `key` `value`
      */
     const updateCode = React.useCallback((key: S, value: N) => {
-        dispatch(actions.updateCode({ key, value }))
-    }, [dispatch])
+        d(a.updateCode({ key, value }))
+    }, [d])
     /**
     * Update CodeHead 
     * `key` `value`
     */
     const updateCodeHead = React.useCallback((key: S, value: N) => {
-        dispatch(actions.updateCodeHead({ key, value }))
-    }, [dispatch])
+        d(a.updateCodeHead({ key, value }))
+    }, [d])
     /**
      * Update Text 
      * `key` `value`
      */
     const updateText = React.useCallback((key: S, value: N) => {
-        dispatch(actions.updateText({ key, value }))
-    }, [dispatch])
-
+        d(a.updateText({ key, value }))
+    }, [d])
     return {
-        codeState: React.useMemo(() => codeState, [codeState]),
+        state: React.useMemo(() => codeState, [codeState]),
+        codeState: React.useMemo(() => codeState.present, [codeState.present]),
         updateCanvas: React.useMemo(() => updateCanvas, [updateCanvas]),
         updateCode: React.useMemo(() => updateCode, [updateCode]),
         updateCodeHead: React.useMemo(() => updateCodeHead, [updateCodeHead]),
         updateText: React.useMemo(() => updateText, [updateText]),
-
     }
-
-
 }
 
 export default useCode

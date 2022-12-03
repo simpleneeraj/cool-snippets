@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import UIIndicatorView from "ui/spinner";
 
-import useBottomTab from "store/hooks/usebottom";
+import useTab from "store/hooks/use-tab";
 
 const time = 1000;
 const LoadingSpinner = () => {
@@ -69,8 +69,8 @@ const TemplateEditing = dynamic(
 );
 
 const RenderComponents = () => {
-  const { tabName } = useBottomTab();
-  switch (tabName) {
+  const { tabState } = useTab();
+  switch (tabState.bottom.name) {
     case "CODE::EDIT":
       return <EditComponent />;
     case "CODE::INSERT":

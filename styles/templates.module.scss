@@ -81,7 +81,6 @@
   z-index: 10;
   display: flex;
   align-items: center;
-  // padding: 0 0.4rem;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -152,4 +151,16 @@
 
 .windows-ten .input-field {
   @include input-fields();
+}
+
+// Unix-Neon
+
+.unix-neon {
+  @include common-head();
+  padding-left: 1rem;
+  justify-content: space-between;
+  .controls {
+    display: flex;
+    align-items: center;
+  }
 }

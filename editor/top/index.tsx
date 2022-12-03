@@ -13,17 +13,38 @@ import DownloadModel from "editor/element/download";
 import HappyOutline from "lib/icons/HappyOutline";
 import useOnClickOutside from "hooks/useclick";
 import DownloadOutline from "lib/icons/DownloadOutline";
+import useDoable from "store/hooks/use-undo-redo";
+import { UndoxTypes } from "plugins/undo-redo/undox.action";
+import { createSelectors } from "plugins/undo-redo/undox.reducer";
+import codeSlice from "store/slices/code";
+import useKeyPress from "hooks/useKeyPress";
+import useCode from "store/hooks/use-code";
 
 const AppTop = () => {
   const router = useRouter();
-
   const [isModel, setModel] = React.useState(false);
-
   const ref = useOnClickOutside(() => setModel(false));
+
+  // For undo redo
+  const doable = useDoable();
+  const { state } = useCode();
+  const selectors = createSelectors(codeSlice.reducer);
+  const actions = {
+    canUndo: selectors.getPastActions(state).length > 0,
+    canRedo: selectors.getFutureActions(state).length > 0,
+  };
+  const Undo = () => {
+    doable(UndoxTypes.UNDO);
+  };
+  const Redo = () => {
+    doable(UndoxTypes.REDO);
+  };
+  // UNDO
+  useKeyPress(["ctrl", "z"], Undo);
+  // REDO
+  useKeyPress(["ctrl", "y"], Redo);
   return (
     <React.Fragment>
-      {/* <ModelWraper model={isModel} onClose={() => setModel(false)}> */}
-      {/* </ModelWraper> */}
       <div ref={ref} className={css.top}>
         {isModel && <DownloadModel />}
         <div className={css.title}>
@@ -46,11 +67,21 @@ const AppTop = () => {
         </div>
         <div className={css.controls}>
           <GroupButton>
-            <IconButton title="Undo" disabled="no-action" aria-label="Undo">
+            <IconButton
+              onClick={() => doable(UndoxTypes.UNDO)}
+              title="Undo"
+              disabled={actions.canUndo ? "" : "no-action"}
+              aria-label="Undo"
+            >
               <UndoIcon size={24} />
             </IconButton>
             <HRLine />
-            <IconButton title="Redo" aria-label="redo">
+            <IconButton
+              onClick={() => doable(UndoxTypes.REDO)}
+              title="Redo"
+              disabled={actions.canRedo ? "" : "no-action"}
+              aria-label="redo"
+            >
               <RedoIcon size={24} />
             </IconButton>
           </GroupButton>

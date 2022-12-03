@@ -5,25 +5,24 @@ import { DeviceTemplateProps } from "typings/templates";
 
 const DeviceTemplates = ({
   active,
-  CodeHeader,
   onEdit,
+  CodeHeader,
   editHiglight,
   ...rest
 }: DeviceTemplateProps) => {
-  const st = {
-    border: `2px solid ${active ? "var(--ui-color-primary)" : "transparent"}`,
+  const activeBorder = {
+    b1: `2px solid ${active ? "var(--ui-color-primary)" : "transparent"}`,
+    b2: `1pt solid ${editHiglight ? "var(--ui-color-primary)" : "transparent"}`,
   };
-  const editBorder = {
-    border: `1pt solid ${
-      editHiglight ? "var(--ui-color-primary)" : "transparent"
-    }`,
-  };
+
   return (
     <div className={css["template-card"]}>
       {active && (
         <span
           title="Edit"
-          style={editBorder}
+          style={{
+            border: activeBorder.b2,
+          }}
           onClick={onEdit}
           className={css["edit-icon"]}
         >
@@ -31,8 +30,10 @@ const DeviceTemplates = ({
         </span>
       )}
       <div
+        style={{
+          border: activeBorder.b1,
+        }}
         className={`template-background ${css["background"]}`}
-        style={st}
         {...rest}
       >
         <div className={css["temp-box"]}>

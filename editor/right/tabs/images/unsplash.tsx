@@ -13,7 +13,6 @@ import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 import useCode from "store/hooks/use-code";
 
 const UnsplashImages = () => {
-  const client_id = process.env.unsplash;
   const [count, setcount] = React.useState(1);
   const [searchQuery, updateQuery] = React.useState("wallpapers");
   const {
@@ -26,7 +25,6 @@ const UnsplashImages = () => {
     page: count,
     // per_page: 30,
     query: searchQuery,
-    client_id: client_id,
   });
 
   const { onSubmit, searchRef } = useSearchImages((value) =>

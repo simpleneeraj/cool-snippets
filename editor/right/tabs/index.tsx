@@ -4,7 +4,7 @@ import css from "styles/app.module.scss";
 import IconButton from "ui/button/icon";
 import { SVGPROPS } from "typings/svg";
 // HOOKS
-import useBottomTab from "store/hooks/usebottom";
+import useTab from "store/hooks/use-tab";
 // ICONS
 import ImageOutline from "lib/icons/ImageOutline";
 import AddCircleOutline from "lib/icons/AddCircleOutline";
@@ -13,7 +13,10 @@ import ColorFilterOutline from "lib/icons/ColorFilterOutline";
 import EllipsisHorizontalCircle from "lib/icons/EllipsisHorizontalCircle";
 
 const BottomTabs = () => {
-  const { tabName, updateTab } = useBottomTab();
+  const {
+    tabState: { bottom },
+    updateBottomTab,
+  } = useTab();
 
   return (
     <div className={css.bottomcover}>
@@ -24,8 +27,8 @@ const BottomTabs = () => {
               key={index}
               size="40px"
               direction="column"
-              onClick={() => updateTab(value)}
-              disabled={value === tabName ? null : "reduce-opacity"}
+              onClick={() => updateBottomTab("name", value)}
+              disabled={value === bottom.name ? null : "reduce-opacity"}
             >
               <Icon size={16} />
               <Span>{text}</Span>

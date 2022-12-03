@@ -1,7 +1,7 @@
-import useOnClickOutside from "hooks/useclick";
-import { HexAlphaColorPicker } from "plugins/color-picker";
 import React from "react";
 import css from "../css/picker.module.scss";
+import useOnClickOutside from "hooks/useclick";
+import { HexAlphaColorPicker } from "plugins/color-picker";
 
 interface ColorPickerProps {
   color?: string;
@@ -16,10 +16,16 @@ const ColorPicker = React.forwardRef((props: ColorPickerProps, ref) => {
   }, [pickerModel]);
 
   const boxRef = useOnClickOutside(() => setPickerModel(false));
+
   return (
     <div ref={boxRef} className={css.container}>
-      {/* <p>#eee</p> */}
-      <span className={css.badge} onClick={openModel}></span>
+      <span
+        className={css.badge}
+        onClick={openModel}
+        style={{
+          background: props.color,
+        }}
+      ></span>
       {pickerModel ? (
         <div className={css.model}>
           <HexAlphaColorPicker {...props} />

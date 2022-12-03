@@ -8,7 +8,7 @@ const Slider = React.forwardRef(
   ) => {
     return (
       <div className={css.range}>
-        {props.value ? <span>{props.value}</span> : null}
+        {/* {props.value ? <span>{props.value}</span> : null} */}
         <input ref={ref} type="range" {...props} />
       </div>
     );

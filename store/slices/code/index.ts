@@ -1,13 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit"
 import samplecode from "lib/samplecode"
 import { ActionKeys } from "typings/store"
+import { createSlice } from "@reduxjs/toolkit"
+import iosTrafficColors from "lib/ios-traffic-colors"
 
 
-const initialState = {
+export type CodeStateType = typeof initialState
+
+export const initialState = {
     canvas: {
+        'watermark': true,
         'aspect-ratio': `1:1`,
         'source': '/images/glow-wallpaper.jpg',
-        'watermark': true,
     },
     code: {
         'padding': 20,
@@ -18,32 +21,18 @@ const initialState = {
         'auto-completion': false,
         'theme': "dracula",
         'mode': "javascript",
-        'value': samplecode[2].str.trim(),
-        'corner-radius': 15,
+        'alpha': 0.7,
         'blur-radius': 20,
-        'alpha': 0.7
+        'corner-radius': 15,
+        'value': samplecode[2].str.trim(),
     },
     codeHead: {
         'type': 'DEFAULT',
-        'input': "", // with icons || without icon
-        'colors': [
-            {
-                name: '',
-                hex: '',
-                rgb: [0, 0, 0],
-            },
-            {
-                name: '',
-                hex: '',
-                rgb: [0, 0, 0],
-            },
-            {
-                name: '',
-                hex: '',
-                rgb: [0, 0, 0],
-            },
-        ], // default 3 colors
-        'background': '' // solid color
+        'icon': false,
+        'input': false,
+        'colors': iosTrafficColors,
+        'background': '',
+        'shodow': 0
     },
     text: {
         'font-size': 14,
@@ -80,3 +69,5 @@ const codeSlice = createSlice({
 
 
 export default codeSlice
+
+

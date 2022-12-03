@@ -1,9 +1,10 @@
 import React from "react";
-import WindowsTen from "components/templates-headers/windows-ten";
+import WindowsTen from "components/templates/windows-ten";
 import useCode from "store/hooks/use-code";
+import UnixNeon from "components/templates/unix-neon";
 
 const TrafficLights = React.lazy(
-  () => import("components/templates-headers/ios-traffic-lights")
+  () => import("components/templates/ios-traffic-lights")
 );
 
 /**
@@ -22,14 +23,20 @@ const CodeHeaders = ({
   switch (codeHead.type) {
     case "DEFAULT":
       return (
-        <TrafficLights
-          background={codeHead.background}
-          circleType="filled"
-          lightsStyle={{
-            size: 14,
-            iconGap: "8px",
-            padding: `0.8rem 0 0.8rem 0.8rem`,
-          }}
+        // <TrafficLights
+        //   background={codeHead.background}
+        //   circleType="filled"
+        //   lightsStyle={{
+        //     size: 14,
+        //     iconGap: "8px",
+        //     padding: `0.8rem 0 0.8rem 0.8rem`,
+        //   }}
+        // />
+        <UnixNeon
+          size={14}
+          editable={"with-icon"}
+          padding={`0.8rem`}
+          iconGap=".8rem"
         />
       );
     case "LIGHTS/BACKGROUND":
@@ -51,7 +58,7 @@ const CodeHeaders = ({
           lightsStyle={{
             size: 14,
             iconGap: "8px",
-            borderWidth: "2px",
+            circleWidth: "2px",
             padding: `0.8rem 0 0.8rem 0.8rem`,
           }}
         />

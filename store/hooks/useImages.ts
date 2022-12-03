@@ -2,7 +2,7 @@ import useAppDispatch from 'hooks/usedispatch';
 import useAppSelector from 'hooks/useselector';
 import useCallMemo from 'hooks/usecallmemo';
 import _images from 'store/selector/_images';
-import imagesSlice from '../slices/background/images';
+import imagesSlice from '../slices/background';
 import { nanoid } from '@reduxjs/toolkit';
 
 

@@ -4,9 +4,9 @@ import backgroundFilter from "utils/background-filter";
 import CustomTemplateCard from "./custom-template";
 import DeviceTemplates from "./device-templates";
 // HEADS
-import WindowsTen from "components/templates-headers/windows-ten";
-import TrafficLights from "components/templates-headers/ios-traffic-lights";
-import useBottomTab from "store/hooks/usebottom";
+import WindowsTen from "components/templates/windows-ten";
+import TrafficLights from "components/templates/ios-traffic-lights";
+import useTab from "store/hooks/use-tab";
 import useCode from "store/hooks/use-code";
 
 const Templates = () => {
@@ -17,7 +17,10 @@ const Templates = () => {
   const background = backgroundFilter(canvas.source);
 
   // console.log(colors);
-  const { tabName, updateTab } = useBottomTab();
+  const {
+    tabState: { bottom },
+    updateBottomTab,
+  } = useTab();
 
   return (
     <React.Fragment>
@@ -25,8 +28,8 @@ const Templates = () => {
         {templates.map(({ value, codeHeader }, i) => (
           <DeviceTemplates
             key={i}
-            editHiglight={tabName === "TEMPLATE::EDITING"}
-            onEdit={() => updateTab("TEMPLATE::EDITING")}
+            editHiglight={bottom.name === "TEMPLATE::EDITING"}
+            onEdit={() => updateBottomTab("name", "TEMPLATE::EDITING")}
             active={codeHead.type === value}
             onClick={() => updateCodeHead("type", value)}
             CodeHeader={codeHeader}

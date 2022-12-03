@@ -1,14 +1,11 @@
 import "styles/globals.scss";
 import Providers from "./providers";
-import Template from "./template";
 
 function CodeAppRoot({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <Providers>
-          <Template key={"/"}>{children}</Template>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
