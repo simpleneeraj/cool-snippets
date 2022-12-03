@@ -3,14 +3,17 @@ import ImageBox from "./item";
 import solidColor from "lib/solidColor";
 import gradient from "lib/nouse/gradient";
 import css from "styles/images.module.scss";
-import useBackground from "store/hooks/usebackground";
+import useCode from "store/hooks/use-code";
 
 const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
 const sortedArray = [...solidColor, ...sortedGradients];
 
 const GradientComponent = () => {
-  const { setBackground, source } = useBackground();
+  const {
+    updateCanvas,
+    codeState: { canvas },
+  } = useCode();
   return (
     <div className={css.container}>
       <div className={css.imageContainer}>
@@ -21,8 +24,8 @@ const GradientComponent = () => {
                 <ImageBox
                   viewtype="span"
                   source={gradient}
-                  isactive={gradient === source}
-                  onClick={() => setBackground(gradient)}
+                  isactive={gradient === canvas.source}
+                  onClick={() => updateCanvas("source", gradient)}
                 />
               </div>
             );

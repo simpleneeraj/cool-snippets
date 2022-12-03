@@ -1,32 +1,32 @@
 import React from "react";
-import ToolsWraper from "editor/right/wraper";
-import ToolsList from "editor/right/wraper/list";
 import HRLine from "ui/line";
-import css from "styles/app.module.scss";
-import useBackground from "store/hooks/usebackground";
 import Select from "ui/select";
 import Switch from "ui/switch";
+import css from "styles/app.module.scss";
+import useCode from "store/hooks/use-code";
+import ToolsWraper from "editor/right/wraper";
+import ToolsList from "editor/right/wraper/list";
 
-{
-  /* CANVAS */
-}
 const CanvasOptions = () => {
-  // FOR CANVAS
-  const { setRatio, aspectRatio } = useBackground();
+  const {
+    updateCanvas,
+    codeState: { canvas },
+  } = useCode();
+
   return (
     <ToolsWraper labelleft="CANVAS" labelright="Reset">
       <ToolsList title="Aspect Ratio">
         <Select
           options={array.aspectRatio}
-          defaultValue={aspectRatio}
-          onChange={(e) => setRatio(e.target.value)}
+          defaultValue={canvas["aspect-ratio"]}
+          onChange={(e) => updateCanvas("aspect-ratio", e.target.value)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
       <ToolsList title="Watermark">
         <Switch
-          active={true}
-          // onClick={() => linenumberHandler(!lineNumbers)}
+          active={canvas.watermark}
+          onClick={() => updateCanvas("watermark", !canvas.watermark)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />

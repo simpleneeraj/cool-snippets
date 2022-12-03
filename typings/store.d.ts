@@ -10,6 +10,14 @@ interface ActionType {
     type: string,
     payload: any
 }
+
+
+interface ActionKeys extends ActionType {
+    payload: {
+        key: any;
+        value: any;
+    }
+}
 /**************************
 State Types
 ***************************/

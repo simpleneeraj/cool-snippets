@@ -1,36 +1,33 @@
-import ToolsWraper from "editor/right/wraper";
-import ToolsList from "editor/right/wraper/list";
 import React from "react";
-import useText from "store/hooks/usetext";
-import StepperButton from "ui/button/stepper";
 import HRLine from "ui/line";
+import fonts from "lib/fonts";
 import Select from "ui/select";
 import css from "styles/app.module.scss";
-import fonts from "lib/fonts";
+import useCode from "store/hooks/use-code";
+import ToolsWraper from "editor/right/wraper";
+import StepperButton from "ui/button/stepper";
+import ToolsList from "editor/right/wraper/list";
 
 const TextOptions = () => {
-  // FOR TEXT
-  const { fontSizeHandler, fontSize } = useText();
-  const { fontWeightHandler, fontWeight } = useText();
-  const { lineHeightHandler, lineHeight } = useText();
-  const { letterSpacingHandler, letterSpacing } = useText();
-  const { fontFaceHandler, fontFace } = useText();
-
+  const {
+    updateText,
+    codeState: { text },
+  } = useCode();
   return (
     <ToolsWraper labelleft="TEXT" labelright="Reset">
       <ToolsList title="Font Size">
         <Select
           options={fontSizes}
-          defaultValue={fontSize}
-          onSelect={(v) => fontSizeHandler(v)}
+          defaultValue={text["font-size"]}
+          onSelect={(v) => updateText("font-size", v)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
       <ToolsList title="Font Weight">
         <Select
           options={fontWeights}
-          defaultValue={fontWeight}
-          onSelect={(v) => fontWeightHandler(v)}
+          defaultValue={text["font-weight"]}
+          onSelect={(v) => updateText("font-weight", v)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
@@ -39,8 +36,8 @@ const TextOptions = () => {
           min={0}
           max={2}
           step={0.1}
-          onStepper={(value) => lineHeightHandler(value)}
-          defaultValue={lineHeight}
+          defaultValue={text["line-height"]}
+          onStepper={(value) => updateText("line-height", value)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
@@ -49,16 +46,16 @@ const TextOptions = () => {
           min={0}
           max={5}
           step={0.1}
-          onStepper={(value) => letterSpacingHandler(value)}
-          defaultValue={letterSpacing}
+          defaultValue={text["letter-spacing"]}
+          onStepper={(value) => updateText("letter-spacing", value)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
       <ToolsList title="Typeface">
         <Select
           options={fontFaces}
-          defaultValue={fontFace}
-          onSelect={(v) => fontFaceHandler(v)}
+          defaultValue={text["font-face"]}
+          onSelect={(v) => updateText("font-face", v)}
         />
       </ToolsList>
     </ToolsWraper>

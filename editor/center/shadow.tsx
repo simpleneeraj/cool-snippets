@@ -1,5 +1,3 @@
-const BlurLayer = () => {
+export default function BlurLayer() {
   return <div className="blur"></div>;
-};
-
-export default BlurLayer;
+}

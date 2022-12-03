@@ -1,6 +1,4 @@
 import React from "react";
-import useCodeHead from "store/hooks/use-code-head";
-import useBackground from "store/hooks/usebackground";
 import css from "styles/templates.module.scss";
 import backgroundFilter from "utils/background-filter";
 import CustomTemplateCard from "./custom-template";
@@ -9,12 +7,14 @@ import DeviceTemplates from "./device-templates";
 import WindowsTen from "components/templates-headers/windows-ten";
 import TrafficLights from "components/templates-headers/ios-traffic-lights";
 import useBottomTab from "store/hooks/usebottom";
+import useCode from "store/hooks/use-code";
 
 const Templates = () => {
-  const { source } = useBackground();
-  const background = backgroundFilter(source);
-
-  const { setHeaderType, headerType } = useCodeHead();
+  const {
+    updateCodeHead,
+    codeState: { canvas, codeHead },
+  } = useCode();
+  const background = backgroundFilter(canvas.source);
 
   // console.log(colors);
   const { tabName, updateTab } = useBottomTab();
@@ -27,8 +27,8 @@ const Templates = () => {
             key={i}
             editHiglight={tabName === "TEMPLATE::EDITING"}
             onEdit={() => updateTab("TEMPLATE::EDITING")}
-            active={headerType === value}
-            onClick={() => setHeaderType(value)}
+            active={codeHead.type === value}
+            onClick={() => updateCodeHead("type", value)}
             CodeHeader={codeHeader}
           />
         ))}

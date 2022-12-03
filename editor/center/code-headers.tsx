@@ -1,6 +1,6 @@
 import React from "react";
-import useCodeHead from "store/hooks/use-code-head";
 import WindowsTen from "components/templates-headers/windows-ten";
+import useCode from "store/hooks/use-code";
 
 const TrafficLights = React.lazy(
   () => import("components/templates-headers/ios-traffic-lights")
@@ -15,14 +15,15 @@ const CodeHeaders = ({
   className,
   ...rest
 }: React.ComponentPropsWithoutRef<"div">) => {
-  const { headerBackground } = useCodeHead();
+  const {
+    codeState: { codeHead },
+  } = useCode();
 
-  const { headerType } = useCodeHead();
-  switch (headerType) {
+  switch (codeHead.type) {
     case "DEFAULT":
       return (
         <TrafficLights
-          background={headerBackground}
+          background={codeHead.background}
           circleType="filled"
           lightsStyle={{
             size: 14,

@@ -1,19 +1,14 @@
 import cssRatio from "lib/ratio";
-import usePost from "store/hooks/usepost";
-import useText from "store/hooks/usetext";
-import useBackground from "store/hooks/usebackground";
+import useCode from "store/hooks/use-code";
 import backgroundFilter from "utils/background-filter";
 
 const InlineStyle = () => {
   const aspectWidth = 450;
-  const { padding } = useBackground();
-  const { letterSpacing, lineHeight } = useText();
-  const { source, aspectRatio } = useBackground();
-  const { fontFace, fontWeight, fontSize } = useText();
-  const { alpha, blurRadius, cornerRadius } = usePost();
-  const realRatio = cssRatio(aspectRatio);
-  const background = backgroundFilter(source);
-
+  const {
+    codeState: { canvas, code, text },
+  } = useCode();
+  const realRatio = cssRatio(canvas["aspect-ratio"]);
+  const background = backgroundFilter(canvas.source);
   return (
     <style>
       {`
@@ -28,11 +23,11 @@ const InlineStyle = () => {
           padding-top: 0px;
         }
         .cm-line {
-          font-size: ${fontSize}px;
-          font-family: ${fontFace};
-          line-height: ${lineHeight};
-          font-weight: ${fontWeight};
-          letter-spacing: ${letterSpacing}px;
+          font-size: ${text["font-size"]}px;
+          font-family: ${text["font-face"]};
+          line-height: ${text["line-height"]};
+          font-weight: ${text["font-weight"]};
+          letter-spacing: ${text["letter-spacing"]}px;
           background: unset !important;
         }
         .ͼ1 .cm-content {
@@ -57,14 +52,14 @@ const InlineStyle = () => {
         .watermark p {
           font-size: 0.9rem;
           font-weight: 400;
-          font-family: ${fontFace};
+          font-family: ${text["font-face"]};
           text-shadow: 0px 0px 30px var(--ui-color-primary);
         }
         .codemirror {
           z-index: 11;
           position: relative;
           border-radius: inherit;
-          // background: rgba(0, 0, 0, ${alpha});
+          // background: rgba(0, 0, 0, ${code.alpha});
         }
 
         .layer {
@@ -73,7 +68,7 @@ const InlineStyle = () => {
           align-items: center;
           position: relative;
           overflow: hidden;
-          border-radius: ${cornerRadius}px;
+          border-radius: ${code["corner-radius"]}px;
         }
         .blur,
         .center {
@@ -94,14 +89,14 @@ const InlineStyle = () => {
           max-width: 1024px;
           position: relative;
           align-items: center;
-          padding: 0 ${padding}px;
+          padding: 0 ${code.padding}px;
         }
         .blur {
           top: 50%;
           left: 50%;
           z-index: 6;
           position: absolute;
-          filter: blur(${blurRadius}px);
+          filter: blur(${code["blur-radius"]}px);
           transform: translate(-50%, -50%);
         }
       `}

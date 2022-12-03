@@ -1,15 +1,22 @@
 import useFilePicker from "hooks/use-file-picker";
 import Add from "lib/icons/Add";
 import React from "react";
-import useBackground from "store/hooks/usebackground";
+import useCode from "store/hooks/use-code";
+
 import css from "styles/insert.module.scss";
 
 const Upload = () => {
-  const { setBackground, source } = useBackground();
+  const {
+    codeState: { canvas },
+    updateCanvas,
+  } = useCode();
 
-  const { inputRef, onFilePicker } = useFilePicker((v) => setBackground(v), {
-    maxImages: 1,
-  });
+  const { inputRef, onFilePicker } = useFilePicker(
+    (v) => updateCanvas("canvas", v),
+    {
+      maxImages: 1,
+    }
+  );
 
   return (
     <div className={css.upload}>

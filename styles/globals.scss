@@ -2,7 +2,7 @@
 @import "./inter";
 @import "./fonts";
 @import "./color";
-
+@import "./editor-global.scss";
 html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -71,10 +71,6 @@ i {
 a {
   text-decoration: none;
   color: initial;
-}
-
-.cm-gutters {
-  background: transparent !important;
 }
 
 body,

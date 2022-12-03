@@ -7,15 +7,19 @@ import useSearchImages from "./usesearch";
 import css from "styles/images.module.scss";
 import unsplashApi from "store/api/unsplash";
 import { UnsplashImageType } from "typings/api";
-import useBackground from "store/hooks/usebackground";
+// import useBackground from "store/hooks/usebackground";
 import Skeleton from "ui/skeleton";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
+import useCode from "store/hooks/use-code";
 
 const UnsplashImages = () => {
   const client_id = process.env.unsplash;
   const [count, setcount] = React.useState(1);
   const [searchQuery, updateQuery] = React.useState("wallpapers");
-  const { setBackground, source } = useBackground();
+  const {
+    codeState: { canvas },
+    updateCanvas,
+  } = useCode();
   const { useGetUnsplashQuery } = unsplashApi;
   const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
     count: 30,
@@ -50,8 +54,8 @@ const UnsplashImages = () => {
                     <ImageBox
                       viewtype="image"
                       source={d?.urls?.regular}
-                      isactive={d?.urls?.regular === source}
-                      onClick={() => setBackground(d?.urls?.regular)}
+                      isactive={d?.urls?.regular === canvas.source}
+                      onClick={() => updateCanvas("source", d?.urls?.regular)}
                     />
                   </div>
                 );

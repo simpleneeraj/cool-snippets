@@ -4,13 +4,16 @@ import React from "react";
 import HRLine from "ui/line";
 import css from "styles/app.module.scss";
 import Switch from "ui/switch";
-import useCodeHead from "store/hooks/use-code-head";
+import useCode from "store/hooks/use-code";
 import ColorPicker from "ui/picker";
 
 const TemplateEditing = () => {
   // FOR TEXT
 
-  const { headerBackground, setBackground } = useCodeHead();
+  const {
+    codeState: { codeHead },
+    updateCodeHead,
+  } = useCode();
   // const [colors, setColors] = React.useState([]);
   // React.useEffect(() => {
   //   prominent("http://localhost:3000/images/glow-wallpaper.jpg", {
@@ -30,8 +33,8 @@ const TemplateEditing = () => {
       </ToolsList>
       <ToolsList title="Input Field">
         <ColorPicker
-          color={headerBackground}
-          onChange={(v) => setBackground(v)}
+          color={codeHead.background}
+          onChange={(v) => updateCodeHead("background", v)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
