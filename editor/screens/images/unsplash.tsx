@@ -5,26 +5,27 @@ import SearchBar from "ui/search";
 import IconButton from "ui/button/icon";
 import useSearchImages from "./usesearch";
 import css from "styles/images.module.scss";
-import unsplashApi from "store/api/unsplash";
+// import unsplashApi from "store/api/unsplash";
 import { UnsplashImageType } from "typings/api";
 // import useBackground from "store/hooks/usebackground";
 import Skeleton from "ui/skeleton";
 import ArrowDownCircleOutline from "lib/icons/ArrowDownCircleOutline";
 import useCode from "store/hooks/use-code";
+import useSWR from "swr";
+import useUnsplash from "./use-unsplash";
 
 const UnsplashImages = () => {
   const [count, setcount] = React.useState(1);
-  const [searchQuery, updateQuery] = React.useState("wallpapers");
+  const [query, updateQuery] = React.useState("wallpapers");
   const {
     codeState: { canvas },
     updateCanvas,
   } = useCode();
-  const { useGetUnsplashQuery } = unsplashApi;
-  const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
+
+  const { data, isError, isLoading } = useUnsplash({
     count: 30,
-    page: count,
-    // per_page: 30,
-    query: searchQuery,
+    perpage: 1,
+    query,
   });
 
   const { onSubmit, searchRef } = useSearchImages((value) =>
@@ -43,7 +44,7 @@ const UnsplashImages = () => {
             {/* API Images  */}
             {isError ? (
               <Loader />
-            ) : isFetching || isLoading ? (
+            ) : isLoading ? (
               <Loader />
             ) : (
               data.map((d: UnsplashImageType, i: React.Key) => {
@@ -51,7 +52,7 @@ const UnsplashImages = () => {
                   <div key={i} className={css.image}>
                     <ImageBox
                       viewtype="image"
-                      source={d?.urls?.regular}
+                      source={d?.urls?.small_s3}
                       isactive={d?.urls?.regular === canvas.source}
                       onClick={() => updateCanvas("source", d?.urls?.regular)}
                     />
@@ -91,3 +92,13 @@ const Loader = () => {
     </React.Fragment>
   );
 };
+
+// const baseUrl = `https://api.unsplash.com/`
+
+// const { useGetUnsplashQuery } = unsplashApi;
+// const { data, isLoading, isFetching, isError } = useGetUnsplashQuery({
+//   count: 30,
+//   page: count,
+//   // per_page: 30,
+//   query: searchQuery,
+// });

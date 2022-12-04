@@ -5,7 +5,7 @@ import IconButton from "ui/button/icon";
 import { useCapture } from "plugins/capture";
 import SegmentButton from "ui/segment/button";
 import css from "styles/download.module.scss";
-import useDownload from "store/hooks/usedownload";
+import useDownload from "store/hooks/use-download";
 import UIIndicatorView from "ui/spinner";
 
 const DownloadModel = () => {
@@ -13,16 +13,6 @@ const DownloadModel = () => {
   const { pixelRatio, setPixelRatio } = useDownload();
 
   const { captureImage, isLoading } = useCapture();
-
-  const captureHandler = () => {
-    captureImage({
-      imageFormat: imageFormat,
-      pixelRatio: Number(pixelRatio),
-      isDebug: true,
-      delay: 100,
-      fileName: fileName,
-    });
-  };
 
   const onRandomName = React.useCallback(() => {
     const UUID = `IMG-${Date.now()}`;
@@ -91,7 +81,16 @@ const DownloadModel = () => {
         </div>
       </div>
       <div className={css.button}>
-        <IconButton className={css.indigo} onClick={captureHandler}>
+        <IconButton
+          className={css.indigo}
+          onClick={() =>
+            captureImage({
+              fileName: fileName,
+              imageFormat: imageFormat,
+              pixelRatio: Number(pixelRatio),
+            })
+          }
+        >
           {isLoading ? (
             <p>
               <UIIndicatorView size={16} />
@@ -126,12 +125,12 @@ const formatArray = [
       return this.text.toLowerCase();
     },
   },
-  // {
-  //   text: "SVG",
-  //   get value() {
-  //     return this.text.toLowerCase();
-  //   },
-  // },
+  {
+    text: "SVG",
+    get value() {
+      return this.text.toLowerCase();
+    },
+  },
 ];
 
 {

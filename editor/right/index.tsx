@@ -1,10 +1,8 @@
-"use client";
-
 import React from "react";
 import View from "ui/view";
-import BottomTabs from "./tabs";
-import css from "styles/app.module.scss";
+import BottomTabs from "./bottom";
 import dynamic from "next/dynamic";
+import css from "styles/app.module.scss";
 
 const RenderComponents = dynamic(() => import("./render"));
 

@@ -10,7 +10,7 @@ const DeviceTemplates = ({
   editHiglight,
   ...rest
 }: DeviceTemplateProps) => {
-  const activeBorder = {
+  const ab = {
     b1: `2px solid ${active ? "var(--ui-color-primary)" : "transparent"}`,
     b2: `1pt solid ${editHiglight ? "var(--ui-color-primary)" : "transparent"}`,
   };
@@ -20,9 +20,7 @@ const DeviceTemplates = ({
       {active && (
         <span
           title="Edit"
-          style={{
-            border: activeBorder.b2,
-          }}
+          style={{ border: ab.b2 }}
           onClick={onEdit}
           className={css["edit-icon"]}
         >
@@ -30,9 +28,7 @@ const DeviceTemplates = ({
         </span>
       )}
       <div
-        style={{
-          border: activeBorder.b1,
-        }}
+        style={{ border: ab.b1 }}
         className={`template-background ${css["background"]}`}
         {...rest}
       >

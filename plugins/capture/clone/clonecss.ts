@@ -1,11 +1,9 @@
 import toArray from '../utils/toarray';
 
-interface CustomStyle extends CSSStyleDeclaration {
-  backdropFilter?: string;
-}
+
 function cloneCSSStyle<T extends HTMLElement>(nativeNode: T, clonedNode: T) {
-  const source: CustomStyle = window.getComputedStyle(nativeNode);
-  const target: CustomStyle = clonedNode.style;
+  const source = window.getComputedStyle(nativeNode);
+  const target = clonedNode.style;
   if (!target) {
     return;
   }

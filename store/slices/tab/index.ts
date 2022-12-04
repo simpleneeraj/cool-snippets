@@ -6,7 +6,7 @@ import { ActionKeys } from "typings/store";
 const initialState = {
     bottom: {
         name: 'CODE::EDIT'
-    }
+    },
 }
 
 const tabSlice = createSlice({

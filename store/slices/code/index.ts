@@ -4,13 +4,13 @@ import { createSlice } from "@reduxjs/toolkit"
 import iosTrafficColors from "lib/ios-traffic-colors"
 
 
-export type CodeStateType = typeof initialState
-
-export const initialState = {
+const initialState = {
     canvas: {
+        'width': 400,
+        'height': 400,
         'watermark': true,
         'aspect-ratio': `1:1`,
-        'source': '/images/glow-wallpaper.jpg',
+        'source': '/images/cool_code_wallpaper.webp',
     },
     code: {
         'padding': 20,
@@ -25,14 +25,17 @@ export const initialState = {
         'blur-radius': 20,
         'corner-radius': 15,
         'value': samplecode[2].str.trim(),
+        'background': 'rgba(0, 0, 0, 0.5)',
     },
     codeHead: {
-        'type': 'DEFAULT',
-        'icon': false,
-        'input': false,
+        'shodow': 0,
+        'type': 'nothing',
+        'input': 'nothing',
+        'position': 'nothing',
         'colors': iosTrafficColors,
-        'background': '',
-        'shodow': 0
+        'background': 'rgba(0, 0, 0, 0.5)',
+        'circle-type': 'filled',
+        'icon': 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
     },
     text: {
         'font-size': 14,
@@ -71,3 +74,6 @@ const codeSlice = createSlice({
 export default codeSlice
 
 
+
+
+// 'source': '/images/glow-wallpaper.jpg',

@@ -1,13 +1,14 @@
 import React from "react";
-import css from "styles/templates.module.scss";
-import backgroundFilter from "utils/background-filter";
-import CustomTemplateCard from "./custom-template";
-import DeviceTemplates from "./device-templates";
-// HEADS
-import WindowsTen from "components/templates/windows-ten";
-import TrafficLights from "components/templates/ios-traffic-lights";
 import useTab from "store/hooks/use-tab";
 import useCode from "store/hooks/use-code";
+import css from "styles/templates.module.scss";
+import DeviceTemplates from "./device-templates";
+import CustomTemplateCard from "./custom-template";
+import backgroundFilter from "utils/b-filter";
+import WindowsTen from "components/templates/windows-terminal";
+import IOSTermainal from "components/templates/ios-terminal";
+import templatesData from "constants/data-templates";
+import UnixNeon from "components/templates/unix-neon";
 
 const Templates = () => {
   const {
@@ -28,11 +29,11 @@ const Templates = () => {
         {templates.map(({ value, codeHeader }, i) => (
           <DeviceTemplates
             key={i}
-            editHiglight={bottom.name === "TEMPLATE::EDITING"}
-            onEdit={() => updateBottomTab("name", "TEMPLATE::EDITING")}
-            active={codeHead.type === value}
-            onClick={() => updateCodeHead("type", value)}
             CodeHeader={codeHeader}
+            active={codeHead.type.includes(value)}
+            onClick={() => updateCodeHead("type", value)}
+            editHiglight={bottom.name.includes("TEMPLATE::EDITING")}
+            onEdit={() => updateBottomTab("name", "TEMPLATE::EDITING")}
           />
         ))}
         <CustomTemplateCard onClick={() => alert("Ruko Jara")} />
@@ -57,10 +58,15 @@ export default React.memo(Templates);
 
 const templates = [
   {
+    name: "Nothing",
+    value: "nothing",
+    codeHeader: null,
+  },
+  {
     name: "ios Traffic Light",
-    value: "DEFAULT",
+    value: templatesData.ios,
     codeHeader: (
-      <TrafficLights
+      <IOSTermainal
         circleType="filled"
         lightsStyle={{
           size: 8,
@@ -70,31 +76,38 @@ const templates = [
   },
   {
     name: "ios Traffic Light",
-    value: "LIGHTS/BACKGROUND",
-    codeHeader: (
-      <TrafficLights
-        circleType="filled"
-        lightsStyle={{
-          size: 8,
-        }}
-      />
-    ),
+    value: templatesData.unix,
+    codeHeader: <UnixNeon size={7} icon={""} />,
   },
-  {
-    name: "ios Traffic Light with Border",
-    value: "LIGHTS/BORDER",
-    codeHeader: (
-      <TrafficLights
-        circleType="outline"
-        lightsStyle={{
-          size: 8,
-        }}
-      />
-    ),
-  },
+
   {
     name: "Windows Terminal Border",
-    value: "WINDOWS/BORDER",
-    codeHeader: <WindowsTen />,
+    value: templatesData.windows,
+    codeHeader: <WindowsTen icon={""} />,
   },
 ];
+
+// {
+//   name: "ios Traffic Light",
+//   value: "LIGHTS/BACKGROUND",
+//   codeHeader: (
+//     <IOSTermainal
+//       circleType="filled"
+//       lightsStyle={{
+//         size: 8,
+//       }}
+//     />
+//   ),
+// },
+// {
+//   name: "ios Traffic Light with Border",
+//   value: "LIGHTS/BORDER",
+//   codeHeader: (
+//     <IOSTermainal
+//       circleType="outline"
+//       lightsStyle={{
+//         size: 8,
+//       }}
+//     />
+//   ),
+// },

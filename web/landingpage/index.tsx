@@ -22,7 +22,7 @@ const LandingPage = () => {
             phasellus mollis sit aliquam sit nullam neque ultrices.
           </p>
           <div className={css["controls"]}>
-            <Link href="/simpleneeraj?view=D23BHYU7}&premium=true">
+            <Link href="/simpleneeraj?view=D23BHYU7&premium=true">
               <HoverEffectButton>
                 Get started for free
                 <span>

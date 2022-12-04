@@ -82,7 +82,9 @@ const codeMirrorLanguges = {
     julia: () => StreamLanguage.define(julia),
     dockerfile: () => StreamLanguage.define(dockerFile),
     r: () => StreamLanguage.define(r),
-    clike: () => StreamLanguage.define(clike({})),
+    clike: () => StreamLanguage.define(clike({
+        name: ''
+    })),
     // clike: () => clike({}),
 };
 

@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
+import useIsoEffect from './useIsoEffect';
 
 const useKeyPress = <T extends HTMLElement | HTMLDivElement>(keys: string[], callback: (event: any) => void, node?: T) => {
     // implement the callback ref pattern
     const callbackRef = useRef(callback);
-    useLayoutEffect(() => {
+    useIsoEffect(() => {
         callbackRef.current = callback;
     });
-
     // handle what happens on key press
     const handleKeyPress = useCallback(
         (event: any) => {

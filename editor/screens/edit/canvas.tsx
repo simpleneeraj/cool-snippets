@@ -2,10 +2,11 @@ import React from "react";
 import HRLine from "ui/line";
 import Select from "ui/select";
 import Switch from "ui/switch";
+import ToolsWraper from "editor/wraper";
 import css from "styles/app.module.scss";
+import InputNumber from "ui/input/number";
 import useCode from "store/hooks/use-code";
-import ToolsWraper from "editor/right/wraper";
-import ToolsList from "editor/right/wraper/list";
+import ToolsList from "editor/wraper/list";
 
 const CanvasOptions = () => {
   const {
@@ -13,15 +14,52 @@ const CanvasOptions = () => {
     codeState: { canvas },
   } = useCode();
 
+  const heightHandler = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      if (Number(value) <= 1024) {
+        updateCanvas("height", e.target.value);
+      }
+    },
+    [updateCanvas]
+  );
+  const widthHandler = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      if (Number(value) <= 800) {
+        updateCanvas("width", e.target.value);
+      }
+    },
+    [updateCanvas]
+  );
+
   return (
     <ToolsWraper labelleft="CANVAS" labelright="Reset">
-      <ToolsList title="Watermark">
+      <ToolsList title="Watermark" locked>
         <Switch
           active={canvas.watermark}
           onClick={() => updateCanvas("watermark", !canvas.watermark)}
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
+      <ToolsList title="Height (px)">
+        <InputNumber
+          // label={"PX"}
+          value={canvas["height"]}
+          onChange={heightHandler}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+
+      <ToolsList title="Width (px)">
+        <InputNumber
+          // label={"PX"}
+          value={canvas["width"]}
+          onChange={widthHandler}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+
       <ToolsList title="Aspect Ratio">
         <Select
           options={array.aspectRatio}
@@ -29,7 +67,6 @@ const CanvasOptions = () => {
           onChange={(e) => updateCanvas("aspect-ratio", e.target.value)}
         />
       </ToolsList>
-      <HRLine className={css.horizontal} />
     </ToolsWraper>
   );
 };

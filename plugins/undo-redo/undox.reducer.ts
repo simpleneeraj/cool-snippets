@@ -156,9 +156,9 @@ const delegate: Delegate = (state, action, reducer, comparator, limit) => {
 
 const undox = <S, A extends Action>(
   reducer: Reducer<S, A>,
+  limit?: Limit,
   initAction = { type: 'undox/INIT' } as any,
   comparator: Comparator<S> = (s1, s2) => s1 === s2,
-  limit?: Limit
 ) => {
 
   const noLimit = { past: Infinity, future: Infinity }

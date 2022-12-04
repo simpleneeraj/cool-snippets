@@ -23,6 +23,9 @@
   align-items: center;
   justify-content: space-between;
   label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-size: 0.8rem;
     color: var(--ui-secondry-color);
   }

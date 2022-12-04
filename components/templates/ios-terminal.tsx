@@ -2,38 +2,21 @@
 import React from "react";
 import css from "styles/templates.module.scss";
 import iosTrafficColors from "lib/ios-traffic-colors";
-
-interface LightsStyleTypes {
-  padding?: string;
-  iconGap?: string;
-  colors?: {
-    name: string;
-    hex: string;
-  }[];
-  size?: string | number | undefined;
-  circleWidth?: string | number | undefined;
-  borderRadius?: string | number | undefined;
-}
-interface TrafficLightsProps {
-  editable?: boolean;
-  background?: string;
-  lightsStyle: LightsStyleTypes;
-  circleType: "filled" | "outline";
-}
+import { IOSTermainalProps } from "typings/templates";
 
 type CSS = React.CSSProperties;
 
-const TrafficLights = ({
+const IOSTermainal = ({
   lightsStyle,
   circleType,
   editable,
   background,
-}: TrafficLightsProps) => {
+}: IOSTermainalProps) => {
   const {
     size = 8,
     iconGap = "4px",
-    padding = `.4rem`,
-    circleWidth = "1pt",
+    padding = `0.4rem`,
+    circleWidth = "2px",
     borderRadius = "20px",
     colors = iosTrafficColors,
   } = React.useMemo(() => lightsStyle, [lightsStyle]);
@@ -44,7 +27,6 @@ const TrafficLights = ({
     borderRadius: borderRadius,
   } as CSS;
 
-  const isOutline = circleType === "outline";
   return (
     <div style={{ background }} className={css["ios-lights"]}>
       <div className={css["box"]} style={{ padding: padding, gap: iconGap }}>
@@ -53,8 +35,12 @@ const TrafficLights = ({
             key={index}
             style={{
               ...common,
-              border: isOutline ? `${circleWidth} solid` : `none`,
-              [isOutline ? "borderColor" : "backgroundColor"]: data.hex,
+              border: circleType.includes("outline")
+                ? `${circleWidth} solid`
+                : `none`,
+              [circleType.includes("outline")
+                ? "borderColor"
+                : "backgroundColor"]: data.hex,
             }}
           ></span>
         ))}
@@ -68,13 +54,4 @@ const TrafficLights = ({
   );
 };
 
-export default TrafficLights;
-
-{
-  /* <span className={css["file-icon"]}>
-            <img
-              src="https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/svg.svg"
-              alt="file-icon"
-            />
-          </span> */
-}
+export default IOSTermainal;

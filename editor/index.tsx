@@ -1,11 +1,12 @@
 import React from "react";
 import View from "ui/view";
+import dynamic from "next/dynamic";
 import css from "styles/app.module.scss";
 
-const AppTop = React.lazy(() => import("./top"));
-const AppLeft = React.lazy(() => import("./left"));
-const Center = React.lazy(() => import("./center"));
-const AppRight = React.lazy(() => import("./right"));
+const AppTop = dynamic(() => import("./top"));
+const AppLeft = dynamic(() => import("./left"));
+const Center = dynamic(() => import("./center"));
+const AppRight = dynamic(() => import("./right"));
 
 const CodeAppMain = () => {
   return (

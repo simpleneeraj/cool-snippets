@@ -1,4 +1,7 @@
 //
+
+@import "./mixin";
+
 .container {
   flex: 1;
   display: flex;
@@ -9,5 +12,34 @@
     padding: 0.5rem;
     border-radius: 8px;
     background: var(--ui-tertiary-background);
+    @include focus;
+  }
+}
+
+.number {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+  max-width: 80px;
+  gap: 4px;
+
+  input[type="number"] {
+    flex: 1;
+    padding: 0.5rem;
+    padding: 0.3rem;
+    font-size: 12px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 6px;
+    color: var(--ui-color-primary);
+    background: var(--ui-tetra-background);
+    @include focus;
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
   }
 }

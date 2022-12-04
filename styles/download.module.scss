@@ -53,6 +53,7 @@
 }
 
 .button {
+  padding: 0.5rem 0 0;
   border-top: 1px solid var(--dock-background);
   p {
     display: flex;
@@ -62,5 +63,5 @@
 }
 
 .indigo {
-  background: var(--ui-color-primary-indigo);
+  background: var(--ui-color-primary-dark-indigo);
 }

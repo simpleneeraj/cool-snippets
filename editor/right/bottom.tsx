@@ -1,9 +1,8 @@
 import React from "react";
 import Span from "ui/span";
-import css from "styles/app.module.scss";
-import IconButton from "ui/button/icon";
 import { SVGPROPS } from "typings/svg";
-// HOOKS
+import IconButton from "ui/button/icon";
+import css from "styles/app.module.scss";
 import useTab from "store/hooks/use-tab";
 // ICONS
 import ImageOutline from "lib/icons/ImageOutline";
@@ -28,7 +27,7 @@ const BottomTabs = () => {
               size="40px"
               direction="column"
               onClick={() => updateBottomTab("name", value)}
-              disabled={value === bottom.name ? null : "reduce-opacity"}
+              disabled={bottom.name.includes(value) ? null : "reduce-opacity"}
             >
               <Icon size={16} />
               <Span>{text}</Span>

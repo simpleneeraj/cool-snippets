@@ -1,18 +1,17 @@
-//
+@import "./mixin";
+
 $button-background: #1c1c1e;
 $button-active: #2e2e30;
 $button-hover: #1c1c1e;
 
 .container {
   border-radius: 8px;
-  // min-height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: $button-background;
   transition: all 50ms ease-in;
   min-width: 50px;
-  // min-width: 120px;
   max-width: 120px;
 }
 
@@ -23,4 +22,5 @@ $button-hover: #1c1c1e;
   font-size: 12px;
   color: var(--ui-color-primary);
   max-width: 100%;
+  @include focus;
 }

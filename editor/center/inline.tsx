@@ -1,6 +1,6 @@
 import cssRatio from "lib/ratio";
 import useCode from "store/hooks/use-code";
-import backgroundFilter from "utils/background-filter";
+import backgroundFilter from "utils/b-filter";
 
 const InlineStyle = () => {
   const aspectWidth = 450;
@@ -13,72 +13,72 @@ const InlineStyle = () => {
     <style>
       {`
         .cm-editor {
-          padding: 1rem;
+          width: 100%;
           height: auto;
+          max-width: 100%;
+          min-width: unset;
           min-height: unset;
           max-height: unset;
-          width: 100%;
-          min-width: unset;
-          max-width: 100%;
-          padding-top: 0px;
+          padding:  .5rem 1rem;
+         
         }
         .cm-line {
+          background: unset !important;
           font-size: ${text["font-size"]}px;
           font-family: ${text["font-face"]};
           line-height: ${text["line-height"]};
           font-weight: ${text["font-weight"]};
           letter-spacing: ${text["letter-spacing"]}px;
-          background: unset !important;
         }
         .ͼ1 .cm-content {
           margin: 0;
           flex-grow: 2;
-          min-height: 100%;
-          display: block;
-          word-wrap: normal;
-          box-sizing: border-box;
-          padding: 4px 0;
           outline: none;
+          display: block;
+          padding: 4px 0;
+          word-wrap: normal;
+          min-height: 100%;
           flex-shrink: initial;
           white-space: initial;
+          box-sizing: border-box;
         }
         .watermark {
           left: 50%;
-          bottom: 15px;
           z-index: 30;
+          bottom: 15px;
           position: absolute;
           transform: translate(-50%, 0);
         }
         .watermark p {
-          font-size: 0.9rem;
           font-weight: 400;
+          font-size: 0.9rem;
           font-family: ${text["font-face"]};
           text-shadow: 0px 0px 30px var(--ui-color-primary);
         }
         .codemirror {
           z-index: 11;
           position: relative;
-          border-radius: inherit;
-          // background: rgba(0, 0, 0, ${code.alpha});
+          // border-radius: inherit;
+          background: ${code.alpha > 0 ? "unset" : code.background};
         }
 
         .layer {
           z-index: 0;
           display: grid;
+          overflow: hidden;
           align-items: center;
           position: relative;
-          overflow: hidden;
           border-radius: ${code["corner-radius"]}px;
         }
         .blur,
         .center {
           background: ${background};
-          width: ${aspectWidth}px;
           background-size: cover;
-          aspect-ratio: ${realRatio};
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
+          width: ${aspectWidth}px;
+          aspect-ratio: ${realRatio};
         }
         .center {
           flex: 1;
@@ -98,6 +98,10 @@ const InlineStyle = () => {
           position: absolute;
           filter: blur(${code["blur-radius"]}px);
           transform: translate(-50%, -50%);
+        }
+        .file-name-input{
+          font-family: ${text["font-face"]};
+
         }
       `}
     </style>

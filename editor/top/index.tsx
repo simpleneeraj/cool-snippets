@@ -9,8 +9,7 @@ import RedoIcon from "lib/icons/RedoIcon";
 import UndoIcon from "lib/icons/UndoIcon";
 import CheckmarkICloud from "lib/icons/CheckmarkICloud";
 import EllipsisHorizontal from "lib/icons/EllipsisHorizontal";
-import DownloadModel from "editor/element/download";
-import HappyOutline from "lib/icons/HappyOutline";
+import DownloadModel from "editor/model/download";
 import useOnClickOutside from "hooks/useclick";
 import DownloadOutline from "lib/icons/DownloadOutline";
 import useDoable from "store/hooks/use-undo-redo";
@@ -19,6 +18,7 @@ import { createSelectors } from "plugins/undo-redo/undox.reducer";
 import codeSlice from "store/slices/code";
 import useKeyPress from "hooks/useKeyPress";
 import useCode from "store/hooks/use-code";
+import Keyboard from "lib/icons/Keyboard";
 
 const AppTop = () => {
   const router = useRouter();
@@ -85,9 +85,7 @@ const AppTop = () => {
               <RedoIcon size={24} />
             </IconButton>
           </GroupButton>
-          <IconButton aria-label="emoji">
-            <HappyOutline size={20} />
-          </IconButton>
+
           <IconButton
             title="Download"
             onClick={() => setModel(!isModel)}
@@ -96,9 +94,12 @@ const AppTop = () => {
           >
             <DownloadOutline size={20} />
           </IconButton>
-          <IconButton title="Sync" aria-label="sync">
-            <CheckmarkICloud size={24} />
+          <IconButton aria-label="emoji">
+            <Keyboard size={20} />
           </IconButton>
+          {/* <IconButton title="Sync" aria-label="sync">
+            <CheckmarkICloud size={24} />
+          </IconButton> */}
           <IconButton active="translate" aria-label="More">
             <EllipsisHorizontal size={20} />
           </IconButton>

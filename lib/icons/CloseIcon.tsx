@@ -16,7 +16,7 @@ const CloseIcon = (props: SVGPROPS) => {
         stroke={color}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="120px"
+        strokeWidth="110px"
         d="M368 368L144 144M368 144L144 368"
       />
     </svg>

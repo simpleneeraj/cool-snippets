@@ -1,0 +1,7 @@
+@mixin focus {
+  transition: all 200ms ease-in;
+  outline: 1pt solid transparent;
+  &:focus {
+    outline: 1pt solid var(--ui-color-primary-slate-blue);
+  }
+}

@@ -11,5 +11,5 @@ interface SelectProps extends React.ComponentPropsWithRef<'select'> {
     onSelect?: (value: string) => void;
 }
 interface InputProps extends React.ComponentPropsWithRef<'input'> {
-
+    label?: string | number | undefined
 }

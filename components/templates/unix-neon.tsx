@@ -4,12 +4,8 @@ import CloseIcon from "lib/icons/CloseIcon";
 import TriangleIcon from "lib/icons/TriangleIcon";
 import EllipseIcon from "lib/icons/EllipseIcon";
 import { SVGPROPS } from "typings/svg";
-
-// #79e6f3
-// #5adecd
-// #f37f97
-// #556fff
-// #c574dd
+import InputWithIcon from "./input";
+import { UnixProps } from "typings/templates";
 
 const colors = [
   {
@@ -25,20 +21,18 @@ const colors = [
     icon: (props: SVGPROPS) => <CloseIcon {...props} />,
   },
 ];
-interface WindowsTenProps {
-  padding?: string;
-  iconGap?: string;
-  size?: string | number | undefined;
-  editable?: boolean | "with-icon";
-}
+
 const UnixNeon = ({
-  size = 15,
+  icon,
+  size = 14,
+  background,
   padding = `.4rem`,
   iconGap = "4px",
-}: WindowsTenProps) => {
+  inputStyle: editable,
+}: UnixProps) => {
   return (
-    <div className={css["unix-neon"]}>
-      <div></div>
+    <div style={{ background }} className={css["unix-neon"]}>
+      <InputWithIcon icon={icon} inputStyle={editable} />
       <div
         className={css["controls"]}
         style={{
@@ -49,7 +43,13 @@ const UnixNeon = ({
         {colors.map((data, index) => (
           <span key={index}>
             <i>
-              <data.icon color={data.hex} size={size} />
+              <data.icon
+                color={data.hex}
+                size={size}
+                style={{
+                  transform: `scale(1.4)`,
+                }}
+              />
             </i>
           </span>
         ))}
@@ -59,3 +59,9 @@ const UnixNeon = ({
 };
 
 export default UnixNeon;
+
+// #79e6f3
+// #5adecd
+// #f37f97
+// #556fff
+// #c574dd

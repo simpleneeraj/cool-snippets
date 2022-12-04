@@ -4,9 +4,9 @@ import fonts from "lib/fonts";
 import Select from "ui/select";
 import css from "styles/app.module.scss";
 import useCode from "store/hooks/use-code";
-import ToolsWraper from "editor/right/wraper";
+import ToolsWraper from "editor/wraper";
 import StepperButton from "ui/button/stepper";
-import ToolsList from "editor/right/wraper/list";
+import ToolsList from "editor/wraper/list";
 
 const TextOptions = () => {
   const {
@@ -15,14 +15,6 @@ const TextOptions = () => {
   } = useCode();
   return (
     <ToolsWraper labelleft="TEXT" labelright="Reset">
-      <ToolsList title="Font Size">
-        <Select
-          options={fontSizes}
-          defaultValue={text["font-size"]}
-          onSelect={(v) => updateText("font-size", v)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
       <ToolsList title="Font Weight">
         <Select
           options={fontWeights}
@@ -31,6 +23,15 @@ const TextOptions = () => {
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
+      <ToolsList title="Font Size">
+        <Select
+          options={fontSizes}
+          defaultValue={text["font-size"]}
+          onSelect={(v) => updateText("font-size", v)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+
       <ToolsList title="Line Height">
         <StepperButton
           min={0}

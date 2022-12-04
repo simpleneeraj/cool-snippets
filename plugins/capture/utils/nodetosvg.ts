@@ -1,3 +1,4 @@
+import React from "react";
 import setAttributes from "./set-attributes";
 
 async function nodeToSVG(
@@ -13,8 +14,16 @@ async function nodeToSVG(
   const foreignObject = document.createElementNS(xmlns, 'foreignObject');
   const body = document.createElement('body')
 
+  setAttributes(firstElement!, {
+    xmlns: xhtml,
+  })
   setAttributes(body, {
     xmlns: xhtml,
+    style: styleToString({
+      margin: 0,
+      padding: 0,
+      boxSizing: 'border-box'
+    })
   })
   setAttributes(svg, {
     xmlns: xmlns,
@@ -30,10 +39,7 @@ async function nodeToSVG(
     height: `100%`,
     externalResourcesRequired: `true`,
   })
-  svg.appendChild(foreignObject);
-  // console.log(foreignObject);
-  // For Buidling Powerful SVG
-  firstElement!.setAttribute('xmlns', xhtml);
+  svg.append(foreignObject);
   body.append(node)
   foreignObject.append(body);
   return svg;
@@ -42,6 +48,12 @@ async function nodeToSVG(
 export default nodeToSVG;
 
 
+const styleToString = (style: React.CSSProperties) => {
+  return Object.keys(style).reduce((acc, key) => (
+    // @ts-ignore
+    acc + key.split(/(?=[A-Z])/).join('-').toLowerCase() + ':' + style[key] + ';'
+  ), '');
+};
 
   // svg  Attribute Setting
   // svg.setAttribute('xmlns', xmlns);

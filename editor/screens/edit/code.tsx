@@ -7,8 +7,8 @@ import ColorPicker from "ui/picker";
 import css from "styles/app.module.scss";
 import useCode from "store/hooks/use-code";
 import toCapitalize from "lib/toCapitalize";
-import ToolsWraper from "editor/right/wraper";
-import ToolsList from "editor/right/wraper/list";
+import ToolsWraper from "editor/wraper";
+import ToolsList from "editor/wraper/list";
 import { themesList } from "lib/codemirror-themes";
 import { languageList } from "lib/codemirror-langs";
 
@@ -20,6 +20,13 @@ const CodeOptions = () => {
 
   return (
     <ToolsWraper labelleft="CODE" labelright="Reset">
+      <ToolsList title="Background">
+        <ColorPicker
+          color={code["background"]}
+          onChange={(color) => updateCode("background", color)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
       <ToolsList title="Line Numbers">
         <Switch
           active={code["line-numbers"]}
@@ -55,49 +62,7 @@ const CodeOptions = () => {
           active={code.translucent}
           onClick={() => updateCode("translucent", !code.translucent)}
         />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-      <ToolsList title="Padding">
-        <Slider
-          min={10}
-          max={80}
-          step={1}
-          defaultValue={code.padding}
-          onChange={(e) => updateCode("padding", e.target.value)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-      <ToolsList title="Corner Radius">
-        <Slider
-          min={0}
-          max={30}
-          step={1}
-          defaultValue={code["corner-radius"]}
-          onChange={(e) => updateCode("corner-radius", e.target.value)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-      <ToolsList title="Alpha">
-        <Slider
-          min={0}
-          max={1}
-          step={0.1}
-          defaultValue={code.alpha}
-          disabled={!code.translucent}
-          onChange={(e) => updateCode("alpha", e.target.value)}
-        />
-      </ToolsList>
-      <HRLine className={css.horizontal} />
-      <ToolsList title="Blur Radius">
-        <Slider
-          min={0}
-          max={30}
-          step={1}
-          defaultValue={code["blur-radius"]}
-          onChange={(e) => updateCode("blur-radius", e.target.value)}
-          disabled={!code.translucent}
-        />
-      </ToolsList>
+      </ToolsList>{" "}
       <HRLine className={css.horizontal} />
       <ToolsList title="Language">
         <Select
@@ -127,8 +92,46 @@ const CodeOptions = () => {
         />
       </ToolsList>
       <HRLine className={css.horizontal} />
-      <ToolsList title="Background">
-        <ColorPicker />
+      <ToolsList title="Padding">
+        <Slider
+          min={2}
+          max={80}
+          step={1}
+          defaultValue={code.padding}
+          onChange={(e) => updateCode("padding", e.target.value)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+      <ToolsList title="Rounded">
+        <Slider
+          min={0}
+          max={30}
+          step={1}
+          defaultValue={code["corner-radius"]}
+          onChange={(e) => updateCode("corner-radius", e.target.value)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+      <ToolsList title="Alpha">
+        <Slider
+          min={0}
+          max={1}
+          step={0.1}
+          defaultValue={code.alpha}
+          disabled={!code.translucent}
+          onChange={(e) => updateCode("alpha", e.target.value)}
+        />
+      </ToolsList>
+      <HRLine className={css.horizontal} />
+      <ToolsList title="Glass Blur ">
+        <Slider
+          min={0}
+          max={30}
+          step={1}
+          defaultValue={code["blur-radius"]}
+          onChange={(e) => updateCode("blur-radius", e.target.value)}
+          disabled={!code.translucent}
+        />
       </ToolsList>
     </ToolsWraper>
   );

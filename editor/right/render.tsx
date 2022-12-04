@@ -1,19 +1,19 @@
+import React from "react";
 import delay from "lib/delay";
 import dynamic from "next/dynamic";
-import React from "react";
 import UIIndicatorView from "ui/spinner";
-
 import useTab from "store/hooks/use-tab";
 
 const time = 1000;
+
 const LoadingSpinner = () => {
   return (
     <div
       style={{
         flex: "1",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <UIIndicatorView loadingText="Loading..." />
@@ -25,7 +25,7 @@ const LoadingSpinner = () => {
 const EditComponent = dynamic(
   async () => {
     await delay(time);
-    return await import("./tabs/edit");
+    return await import("../screens/edit");
   },
   {
     loading: LoadingSpinner,
@@ -34,7 +34,7 @@ const EditComponent = dynamic(
 const FilterComponent = dynamic(
   async () => {
     await delay(time);
-    return await import("./tabs/filter");
+    return await import("../screens/filter");
   },
   {
     loading: LoadingSpinner,
@@ -43,7 +43,7 @@ const FilterComponent = dynamic(
 const ImagesComponent = dynamic(
   async () => {
     await delay(time);
-    return await import("./tabs/images");
+    return await import("../screens/images");
   },
   {
     loading: LoadingSpinner,
@@ -52,7 +52,7 @@ const ImagesComponent = dynamic(
 const InsertComponent = dynamic(
   async () => {
     await delay(time);
-    return await import("./tabs/insert");
+    return await import("../screens/insert");
   },
   {
     loading: LoadingSpinner,
@@ -61,7 +61,7 @@ const InsertComponent = dynamic(
 const TemplateEditing = dynamic(
   async () => {
     await delay(time);
-    return await import("./tabs/templates");
+    return await import("../screens/templates");
   },
   {
     loading: LoadingSpinner,
