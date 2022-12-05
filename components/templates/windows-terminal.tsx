@@ -3,9 +3,9 @@ import InputWithIcon from "./input";
 import { UnixProps } from "typings/templates";
 import css from "styles/templates.module.scss";
 /* ICONS */
-import Dismiss from "lib/icons/Dismiss";
-import RemoveOutline from "lib/icons/RemoveOutline";
-import SquareMultiple from "lib/icons/SquareMultiple";
+import Dismiss from "./icons/Dismiss";
+import RemoveOutline from "./icons/Remove";
+import SquareMultiple from "./icons/SquareMultiple";
 
 const WindowsTen = ({
   icon,

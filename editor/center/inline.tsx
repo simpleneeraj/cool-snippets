@@ -3,12 +3,13 @@ import useCode from "store/hooks/use-code";
 import backgroundFilter from "utils/b-filter";
 
 const InlineStyle = () => {
-  const aspectWidth = 450;
   const {
     codeState: { canvas, code, text },
   } = useCode();
   const realRatio = cssRatio(canvas["aspect-ratio"]);
   const background = backgroundFilter(canvas.source);
+
+  const fontFace = `${text["font-face"]}, "Lucida Console", "Courier New", monospace, Monaco`;
   return (
     <style>
       {`
@@ -25,7 +26,7 @@ const InlineStyle = () => {
         .cm-line {
           background: unset !important;
           font-size: ${text["font-size"]}px;
-          font-family: ${text["font-face"]};
+          font-family: ${fontFace};
           line-height: ${text["line-height"]};
           font-weight: ${text["font-weight"]};
           letter-spacing: ${text["letter-spacing"]}px;
@@ -52,7 +53,7 @@ const InlineStyle = () => {
         .watermark p {
           font-weight: 400;
           font-size: 0.9rem;
-          font-family: ${text["font-face"]};
+          font-family: ${fontFace};
           text-shadow: 0px 0px 30px var(--ui-color-primary);
         }
         .codemirror {
@@ -77,8 +78,9 @@ const InlineStyle = () => {
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          width: ${aspectWidth}px;
-          aspect-ratio: ${realRatio};
+          width: ${canvas.width}px;
+          height: ${!canvas["aspect-ratio"] ? `${canvas.height}px` : "unset"};
+          aspect-ratio: ${canvas["aspect-ratio"] ? realRatio : "unset"};
         }
         .center {
           flex: 1;
@@ -100,8 +102,7 @@ const InlineStyle = () => {
           transform: translate(-50%, -50%);
         }
         .file-name-input{
-          font-family: ${text["font-face"]};
-
+          font-family: ${fontFace};
         }
       `}
     </style>

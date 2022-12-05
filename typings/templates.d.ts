@@ -24,6 +24,8 @@ interface InputProps {
 }
 interface UnixProps extends InputProps, Common {
     // size?: string | number | undefined;
+    theme: ("filled" | "outline") | string;
+
 }
 
 interface LightColors {
@@ -39,6 +41,6 @@ interface LightsStyleTypes extends InputProps, Common {
 interface IOSTermainalProps {
     editable?: boolean;
     lightsStyle: LightsStyleTypes;
-    circleType: ("filled" | "outline") | string;
+    theme: ("filled" | "outline") | string;
     background?: Common['background']
 }

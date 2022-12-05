@@ -6,8 +6,8 @@ import iosTrafficColors from "lib/ios-traffic-colors"
 
 const initialState = {
     canvas: {
-        'width': 400,
-        'height': 400,
+        'width': 450,
+        'height': 450,
         'watermark': true,
         'aspect-ratio': `1:1`,
         'source': '/images/cool_code_wallpaper.webp',
@@ -21,7 +21,7 @@ const initialState = {
         'auto-completion': false,
         'theme': "dracula",
         'mode': "javascript",
-        'alpha': 0.7,
+        'alpha': 0,
         'blur-radius': 20,
         'corner-radius': 15,
         'value': samplecode[2].str.trim(),
@@ -29,18 +29,18 @@ const initialState = {
     },
     codeHead: {
         'shodow': 0,
-        'type': 'nothing',
+        'type': 'icon',
         'input': 'nothing',
         'position': 'nothing',
         'colors': iosTrafficColors,
-        'background': 'rgba(0, 0, 0, 0.5)',
-        'circle-type': 'filled',
+        'background': 'rgba(0, 0, 0, 0.7)',
+        'theme': 'filled',
         'icon': 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
     },
     text: {
-        'font-size': 14,
+        'font-size': 16,
         'font-weight': 400,
-        'line-height': 1.5,
+        'line-height': 1.8,
         'letter-spacing': 0,
         'font-face': 'SFMono',
     },

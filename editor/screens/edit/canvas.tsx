@@ -74,6 +74,10 @@ export default CanvasOptions;
 
 const aspectRatio = [
   {
+    name: "Nothing",
+    ratio: "",
+  },
+  {
     name: "Instagram ",
     ratio: "1:1",
   },
@@ -105,7 +109,7 @@ const aspectRatio = [
 const array = {
   aspectRatio: aspectRatio.map((data) => {
     return {
-      text: `${data.name} (${data.ratio})`,
+      text: `${data.name} ${data.ratio && `→ ${data.ratio}`}`,
       value: data.ratio,
     };
   }),

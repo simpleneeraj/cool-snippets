@@ -7,18 +7,14 @@ import css from "styles/app.module.scss";
 import useCode from "store/hooks/use-code";
 import ToolsWraper from "editor/wraper";
 import ToolsList from "editor/wraper/list";
-import templatesData from "constants/data-templates";
 
 const TemplateEditing = () => {
-  // FOR TEXT
-
   const {
     codeState: { codeHead },
     updateCodeHead,
   } = useCode();
 
-  const ios = codeHead.type.includes(templatesData.ios);
-  console.log({ ios });
+  // const windows = codeHead.type.includes(templatesData.windows);
   return (
     <React.Fragment>
       <ToolsWraper labelleft="BASIC" labelright="Reset">
@@ -38,18 +34,18 @@ const TemplateEditing = () => {
           />
         </ToolsList>
         <HRLine className={css.horizontal} />
-        {ios && (
-          <React.Fragment>
-            <ToolsList title="Circle Type">
-              <Select
-                options={arrays["circle-type"]}
-                defaultValue={codeHead["circle-type"]}
-                onChange={(e) => updateCodeHead("circle-type", e.target.value)}
-              />
-            </ToolsList>
-            <HRLine className={css.horizontal} />
-          </React.Fragment>
-        )}
+
+        <React.Fragment>
+          <ToolsList title="Base Theme">
+            <Select
+              options={arrays["icon-theme"]}
+              defaultValue={codeHead["theme"]}
+              onChange={(e) => updateCodeHead("theme", e.target.value)}
+            />
+          </ToolsList>
+          <HRLine className={css.horizontal} />
+        </React.Fragment>
+
         <ToolsWraper labelleft="COLORS" labelright="Reset">
           {codeHead.colors.map((data, index) => (
             <React.Fragment key={index}>
@@ -125,7 +121,7 @@ const arrays = {
       value: "right",
     },
   ],
-  "circle-type": [
+  "icon-theme": [
     {
       text: "Filled",
       value: "filled",

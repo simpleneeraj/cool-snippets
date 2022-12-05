@@ -67,7 +67,7 @@ const templates = [
     value: templatesData.ios,
     codeHeader: (
       <IOSTermainal
-        circleType="filled"
+        icon-theme="filled"
         lightsStyle={{
           size: 8,
         }}

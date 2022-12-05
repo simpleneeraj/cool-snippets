@@ -6,11 +6,13 @@ UIIndicator Props
 interface UIIndicatorProps {
   size?: string | number;
   color?: string | undefined;
-  loadingText?: string;
 }
 
-const UIIndicatorView: React.FC<UIIndicatorProps> = (props) => {
-  const { color = "#e5e5ea", size = "20", loadingText } = props;
+const UIIndicatorView = ({
+  children,
+  ...props
+}: React.PropsWithChildren<UIIndicatorProps>) => {
+  const { color = "#e5e5ea", size = "20" } = props;
 
   const style = {
     div: {
@@ -37,7 +39,6 @@ const UIIndicatorView: React.FC<UIIndicatorProps> = (props) => {
         xmlSpace="preserve"
         viewBox="0 0 2400 2400"
         xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
         {...props}
       >
         <g
@@ -72,7 +73,7 @@ const UIIndicatorView: React.FC<UIIndicatorProps> = (props) => {
           />
         </g>
       </svg>
-      {loadingText ? <p style={style.p}>{loadingText}</p> : null}
+      {children ? <p style={style.p}>{children}</p> : null}
     </div>
   );
 };

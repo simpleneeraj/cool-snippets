@@ -1,13 +1,14 @@
 .container {
   display: flex;
+  height: 100%;
 }
 
 .skeleton {
   display: inline-block;
-  height: 2em;
+  min-height: 2em;
   position: relative;
   overflow: hidden;
-  background: var(--dock-background);
+  background: var(--ui-app-secondry-background);
   width: 100%;
   &::after {
     position: absolute;
@@ -19,10 +20,12 @@
     background-image: linear-gradient(
       90deg,
       rgba(#fff, 0),
-      rgba(#fff, 0.2) 40%,
+      rgba(#fff, 0.06),
+      rgba(#fff, 0.08),
+      rgba(#fff, 0.06),
       rgba(#fff, 0)
     );
-    animation: shimmer 1.1s infinite;
+    animation: shimmer 1.2s infinite;
     content: "";
   }
   @keyframes shimmer {

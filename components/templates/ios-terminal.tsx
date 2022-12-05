@@ -8,7 +8,7 @@ type CSS = React.CSSProperties;
 
 const IOSTermainal = ({
   lightsStyle,
-  circleType,
+  theme = "filled",
   editable,
   background,
 }: IOSTermainalProps) => {
@@ -35,12 +35,11 @@ const IOSTermainal = ({
             key={index}
             style={{
               ...common,
-              border: circleType.includes("outline")
+              border: theme.includes("outline")
                 ? `${circleWidth} solid`
                 : `none`,
-              [circleType.includes("outline")
-                ? "borderColor"
-                : "backgroundColor"]: data.hex,
+              [theme.includes("outline") ? "borderColor" : "backgroundColor"]:
+                data.hex,
             }}
           ></span>
         ))}

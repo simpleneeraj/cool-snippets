@@ -26,7 +26,7 @@ const CodeHeaders = ({
       return (
         <TrafficLights
           background={codeHead.background}
-          circleType={codeHead["circle-type"]}
+          theme={codeHead["theme"]}
           lightsStyle={{
             size: 14,
             iconGap: "8px",
@@ -44,17 +44,19 @@ const CodeHeaders = ({
           icon={codeHead.icon}
           inputStyle={codeHead.input}
           background={codeHead.background}
+          theme={codeHead.theme}
         />
       );
     case templatesData.unix:
       return (
         <UnixNeon
-          size={14}
-          iconGap=".8rem"
+          size={16}
+          iconGap="0.7rem"
           padding={`0.8rem`}
           icon={codeHead.icon}
           inputStyle={codeHead.input}
           background={codeHead.background}
+          theme={codeHead.theme}
         />
       );
     default:

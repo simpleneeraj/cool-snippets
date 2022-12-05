@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import UIIndicatorView from "ui/spinner";
 import useTab from "store/hooks/use-tab";
 
-const time = 1000;
+const time = 200;
 
 const LoadingSpinner = () => {
   return (
@@ -16,7 +16,7 @@ const LoadingSpinner = () => {
         justifyContent: "center",
       }}
     >
-      <UIIndicatorView loadingText="Loading..." />
+      <UIIndicatorView>Loading...</UIIndicatorView>
     </div>
   );
 };

@@ -1,20 +1,24 @@
 import React from "react";
 import View from "ui/view";
 import BlurLayer from "./shadow";
-import InlineStyle from "./inline";
 import cl from "lib/codemirror-langs";
-import CodeLoader from "./codeloader";
 import useCode from "store/hooks/use-code";
 import css from "styles/center.module.scss";
 import codeTheme from "lib/codemirror-themes";
 import DragHandleIcon from "lib/icons/DragHandle";
 import { Capture as Layer } from "plugins/capture";
+import CodeLoader from "components/skeleton/codeloader";
+// import Draggable from "react-draggable";
+// import CodeHeaders from "./headers";
+import dynamic from "next/dynamic";
 
 const draggableClassName = "simple-drag";
 
-const CodeHeaders = React.lazy(() => import("./headers"));
-const Draggable = React.lazy(() => import("react-draggable"));
-const CodeMirror = React.lazy(() => import("plugins/codemirror"));
+const CodeHeaders = dynamic(() => import("./headers"));
+const Draggable = dynamic(() => import("react-draggable"), {
+  ssr: false,
+});
+const CodeMirror = dynamic(() => import("plugins/codemirror"));
 
 const Center = () => {
   const {
@@ -29,11 +33,8 @@ const Center = () => {
   );
   // @ts-ignore
   const generatedMode = React.useMemo(() => cl[code.mode](), [code.mode]);
-
-  // const x=React.useCallback
   return (
     <React.Fragment>
-      <InlineStyle />
       <View className={css.container}>
         <View className={css.smooth}>
           <Layer className="center">
@@ -49,8 +50,8 @@ const Center = () => {
               disabled={!code.draggable}
             >
               <View className="layer">
+                {code.draggable ? <DraggableHandler /> : null}
                 <React.Suspense fallback={<CodeLoader />}>
-                  {code.draggable && <DraggableHandler />}
                   <CodeHeaders className={generatedTheme[0][0].value} />
                   <CodeMirror
                     value={code["value"]}
