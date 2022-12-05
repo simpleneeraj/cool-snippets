@@ -1,8 +1,9 @@
 @import "./variable";
+@import "./color";
 @import "./inter";
 @import "./fonts";
-@import "./color";
-@import "./editor-global.scss";
+@import "./editor";
+
 html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -20,7 +21,6 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-family: var(--face);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -30,12 +30,13 @@ body {
   line-height: 1.4;
   font-weight: 400;
   background-color: #0d1117;
-  background: var(--ui-primary-background);
 }
 
 html,
 body {
   height: fit-content;
+  font-family: var(--face);
+  background: var(--ui-primary-background);
 }
 *,
 *::before,
