@@ -67,7 +67,7 @@ const templates = [
     value: templatesData.ios,
     codeHeader: (
       <IOSTermainal
-        icon-theme="filled"
+        theme="filled"
         lightsStyle={{
           size: 8,
         }}
@@ -77,13 +77,13 @@ const templates = [
   {
     name: "ios Traffic Light",
     value: templatesData.unix,
-    codeHeader: <UnixNeon size={7} icon={""} />,
+    codeHeader: <UnixNeon theme="filled" size={7} icon={""} />,
   },
 
   {
     name: "Windows Terminal Border",
     value: templatesData.windows,
-    codeHeader: <WindowsTen icon={""} />,
+    codeHeader: <WindowsTen theme="filled" icon={""} />,
   },
 ];
 
