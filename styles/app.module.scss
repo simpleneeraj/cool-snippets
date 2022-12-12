@@ -196,3 +196,35 @@ $horizontal-line-color: #3e3e3e;
     border: 2px solid var(--ui-tertiary-background);
   }
 }
+
+// FOR MOBILE
+@media screen and (max-width: 425px) {
+  .top {
+    // margin: 0;
+    // align-items: center;
+    justify-content: center;
+    .title {
+      display: none;
+    }
+    .controls {
+    }
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .center {
+    order: 1;
+    margin: 0;
+    padding: 0;
+  }
+  .left {
+    order: 2;
+    margin: 0;
+    border-radius: 0px;
+  }
+  .right {
+    order: 3;
+    margin: 0;
+    border-radius: 0px;
+  }
+}

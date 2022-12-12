@@ -74,6 +74,22 @@
     // background-color: #50fa7b;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .templates {
+    display: flex;
+    // overflow-x: scroll;
+    flex-direction: row;
+    scroll-snap-type: x mandatory;
+  }
+  .template-card {
+    scroll-snap-align: center;
+  }
+  .templates .background {
+    min-height: 100px;
+    padding: 0.5rem;
+  }
+}
 // CODE HEADER MOCKUPS
 
 @mixin common-head {

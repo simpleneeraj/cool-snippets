@@ -8,8 +8,8 @@ const InlineStyle = () => {
   } = useCode();
   const realRatio = cssRatio(canvas["aspect-ratio"]);
   const background = backgroundFilter(canvas.source);
-
-  const fontFace = `${text["font-face"]}, "Lucida Console", "Courier New", monospace, Monaco`;
+  // "Lucida Console", "Courier New", monospace, Monaco
+  const fontFace = `${text["font-face"]}`;
   return (
     <style>
       {`

@@ -8,7 +8,7 @@ import imagesSlice from "./slices/background";
 import undox from "plugins/undo-redo/undox.reducer";
 
 
-const codeReducer = undox(code.reducer, { future: 50, past: 50 })
+const codeReducer = undox(code.reducer, { future: 5, past: 5 })
 
 const store = configureStore({
     reducer: {

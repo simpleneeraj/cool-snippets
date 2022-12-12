@@ -1,38 +1,24 @@
-/*  
-
-1 →  color-alpha
-2 →  color-beta
-3 →  color-gamma
-4 →  color-psi
-5 →  color-omega
-
-1  → ui-primary 
-2  → ui-secondary 
-3  → ui-tertiary 
-4  → ui-quaternary 
-5  → ui-quinary 
-6  → ui-senary 
-7  → ui-septenary 
-8  → ui-octonary 
-9  → ui-nonary
-10 → ui-denary
-
-THIS NAMING CONVECTION COMES FROM CHEMISTRY 😎
-
-#	PREFIX
-1  → ui-meth  
-2  → ui-eth 
-3  → ui-prop 
-4  → ui-but 
-5  → ui-penta 
-6  → ui-hexa 
-7  → ui-hept 
-8  → ui-oct 
-9  → ui-non 
-10 → ui-deca 
-*/
-
 :root {
+  --ui-color-primary-dark-blue: rgb(10, 132, 255);
+  --ui-color-primary-dark-brown: rgb(172, 142, 104);
+  --ui-color-primary-dark-cyan: rgb(100, 210, 255);
+  --ui-color-primary-dark-green: rgb(48, 209, 88);
+  --ui-color-primary-dark-indigo: rgb(94, 92, 230);
+  --ui-color-primary-dark-mint: rgb(102, 212, 207);
+  --ui-color-primary-dark-orange: rgb(255, 159, 10);
+  --ui-color-primary-dark-pink: rgb(255, 55, 95);
+  --ui-color-primary-dark-purple: rgb(191, 90, 242);
+  --ui-color-primary-dark-red: rgb(255, 69, 58);
+  --ui-color-primary-dark-teal: rgb(64, 200, 224);
+  --ui-color-primary-dark-yellow: rgb(255, 214, 10);
+  // #_twitter_COLOR
+  --ui-color-primary-carolina-blue: rgb(29, 155, 240);
+  --ui-color-primary-cyber-yellow: rgb(255, 212, 0);
+  --ui-color-primary-flickr-pink: rgb(249, 24, 128);
+  --ui-color-primary-slate-blue: rgb(120, 86, 255);
+  --ui-color-primary-heat-wave: rgb(255, 122, 0);
+  --ui-color-primary-sea-green: rgb(0, 186, 124);
+
   --face: "Inter Regular", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
@@ -190,3 +176,50 @@ THIS NAMING CONVECTION COMES FROM CHEMISTRY 😎
 // --dropdown-background: #000000;
 // For Button
 // --button-hover: var(--ui-black-alpha-2);
+/*  
+
+1 →  color-alpha
+2 →  color-beta
+3 →  color-gamma
+4 →  color-psi
+5 →  color-omega
+
+1  → ui-primary 
+2  → ui-secondary 
+3  → ui-tertiary 
+4  → ui-quaternary 
+5  → ui-quinary 
+6  → ui-senary 
+7  → ui-septenary 
+8  → ui-octonary 
+9  → ui-nonary
+10 → ui-denary
+
+THIS NAMING CONVECTION COMES FROM CHEMISTRY 😎
+
+#	PREFIX
+1  → ui-meth  
+2  → ui-eth 
+3  → ui-prop 
+4  → ui-but 
+5  → ui-penta 
+6  → ui-hexa 
+7  → ui-hept 
+8  → ui-oct 
+9  → ui-non 
+10 → ui-deca 
+*/
+// #_ios_Color
+// --ui-color-primary-blue: rgb(0, 122, 255);
+// --ui-color-primary-brown: rgb(162, 132, 94);
+// --ui-color-primary-cyan: rgb(50, 173, 230);
+// --ui-color-primary-green: rgb(52, 199, 89);
+// --ui-color-primary-indigo: rgb(88, 86, 214);
+// --ui-color-primary-mint: rgb(0, 199, 190);
+// --ui-color-primary-orange: rgb(255, 149, 0);
+// --ui-color-primary-pink: rgb(255, 45, 85);
+// --ui-color-primary-purple: rgb(175, 82, 222);
+// --ui-color-primary-red: rgb(255, 59, 48);
+// --ui-color-primary-teal: rgb(48, 176, 199);
+// --ui-color-primary-yellow: rgb(255, 204, 0);
+// #_ios_Dark_Color

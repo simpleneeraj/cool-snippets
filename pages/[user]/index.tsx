@@ -16,7 +16,7 @@ const EditorInstancePage = () => {
         thumbnail="https://www.icanpost.app/cover/cover-1.webp"
         largeThumbnail="https://www.icanpost.app/cover/cover-3.webp"
       >
-        <meta name="viewport" content="width=1024" />
+        {/* <meta name="viewport" content="width=1024" /> */}
       </NextSeo>
       <CodeAppMain />
     </React.Fragment>
