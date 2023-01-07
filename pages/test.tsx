@@ -26,7 +26,7 @@ const Test = () => {
   return (
     <div>
       <button onClick={GetScreenshot}>Get Screenshot</button>
-      <img src={base64} alt="screenshot" height={"100%"} width={"100%"} />
+      <img src={base64} alt="screenshot" height={"450px"} width={"450px"} />
       <a href={base64} download>
         Download This Image
       </a>
