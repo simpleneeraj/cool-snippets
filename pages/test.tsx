@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const Test = () => {
+const TestScreenshotApi = () => {
   const [base64, setbase64] = React.useState("");
 
   const GetScreenshot = async () => {
@@ -30,4 +30,4 @@ const Test = () => {
     </div>
   );
 };
-export default Test;
+export default TestScreenshotApi;
