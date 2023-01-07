@@ -19,7 +19,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
                         encoding: 'base64',
                         type: 'webp',
                         clip: {
-                            scale: 4,
+                            scale: 2,
                             x: bounding.x,
                             y: bounding.y,
                             width: bounding.width,
