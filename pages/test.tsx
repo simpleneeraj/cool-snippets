@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import download from "plugins/fileSaver";
 
 const Test = () => {
   const [base64, setbase64] = React.useState("");
@@ -15,9 +14,7 @@ const Test = () => {
           url: "http://localhost:3000/shot?watermark=simple",
         },
       });
-      // console.log(data);
       setbase64(data.base64);
-      download(data.base64, "screenshot.webp");
     } catch (error) {
       console.log(error);
     }
