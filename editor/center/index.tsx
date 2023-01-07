@@ -20,7 +20,11 @@ const Draggable = dynamic(() => import("react-draggable"), {
 });
 const CodeMirror = dynamic(() => import("plugins/codemirror"));
 
-const Center = () => {
+interface CenterProps {
+  watermark?: string;
+}
+
+const Center = ({ watermark }: CenterProps) => {
   const {
     updateCode,
     codeState: { code, canvas },
@@ -36,11 +40,11 @@ const Center = () => {
   return (
     <React.Fragment>
       <View className={css.container}>
-        <View className={css.smooth}>
+        <View className={css.smooth} id="smooth-shot">
           <Layer className="center">
             {canvas.watermark ? (
               <View className={`watermark`}>
-                <p>www.icanpost.app</p>
+                <p>{watermark || "www.icanpost.app"}</p>
               </View>
             ) : null}
             <Draggable

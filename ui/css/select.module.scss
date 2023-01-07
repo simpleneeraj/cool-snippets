@@ -22,5 +22,12 @@ $button-hover: #1c1c1e;
   font-size: 12px;
   color: var(--ui-color-primary);
   max-width: 100%;
+  appearance: none;
   @include focus;
+
+  &::after {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+  }
 }
