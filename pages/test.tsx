@@ -15,7 +15,7 @@ const Test = () => {
           url: "http://localhost:3000/shot?watermark=simple",
         },
       });
-      console.log(data);
+      // console.log(data);
       setbase64(data.base64);
       download(data.base64, "screenshot.webp");
     } catch (error) {
