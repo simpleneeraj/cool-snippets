@@ -70,6 +70,7 @@ const InlineStyle = () => {
           align-items: center;
           position: relative;
           border-radius: ${code["corner-radius"]}px;
+          backdrop-filter: blur(${code["blur-radius"]}px);
         }
         .blur,
         .center {

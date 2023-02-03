@@ -73,7 +73,7 @@ const Center = ({ watermark }: CenterProps) => {
                     }}
                   />
                 </React.Suspense>
-                <BlurLayer />
+                {/* <BlurLayer /> */}
               </View>
             </Draggable>
           </Layer>

@@ -1,6 +1,5 @@
 
 import puppeteer from 'puppeteer'
-import path from 'path'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -17,7 +16,7 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
                 if (bounding) {
                     const base64 = await element.screenshot({
                         encoding: 'base64',
-                        type: 'webp',
+                        type: 'png',
                         clip: {
                             scale: 2,
                             x: bounding.x,
@@ -25,16 +24,17 @@ const Screenshot = async (req: NextApiRequest, res: NextApiResponse) => {
                             width: bounding.width,
                             height: bounding.height,
                         }
-
                     });
                     await browser.close();
+                    const base64URI = `data:image/png;base64,${base64}`
                     // console.log(base64)
-                    res.status(200).json({ base64: `data:image/webp;base64,${base64}` })
+                    res.status(200).json({ base64: base64URI })
                 }
 
 
         } catch (error) {
             console.log(error)
+            res.status(500).json(error)
         }
     }
 }
