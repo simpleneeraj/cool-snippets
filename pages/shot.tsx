@@ -6,7 +6,6 @@ import axios from "axios";
 
 const Shot = () => {
   const router = useRouter();
-  console.log(router.query);
 
   const [base64, setbase64] = React.useState("");
 
@@ -17,7 +16,7 @@ const Shot = () => {
         url: "/api/screenshot",
         responseType: "json",
         data: {
-          url: "http://localhost:3000/shot?watermark=simple",
+          url: `${window.location.origin}/shot?watermark=simple`,
         },
       });
       setbase64(data.base64);
@@ -29,7 +28,6 @@ const Shot = () => {
     <React.Fragment>
       <Center watermark={router.query?.watermark as string} />
       <InlineStyle />
-
       <div>
         <button onClick={GetScreenshot}>Get Screenshot</button>
         <img src={base64} alt="screenshot" height={"450px"} width={"450px"} />

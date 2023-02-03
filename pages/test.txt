@@ -6,13 +6,14 @@ const TestScreenshotApi = () => {
   const [base64, setbase64] = React.useState("");
 
   const GetScreenshot = async () => {
+    console.log(window.location.origin);
     try {
       const { data } = await axios({
         method: "post",
         url: "/api/screenshot",
         responseType: "json",
         data: {
-          url: "http://localhost:3000/shot?watermark=simple",
+          url: `http://localhost:3000/shot?watermark=simple`,
         },
       });
       setbase64(data.base64);
