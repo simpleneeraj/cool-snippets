@@ -9,7 +9,7 @@ import Skeleton from "ui/skeleton";
 const AppTop = dynamic(() => import("./top"), { suspense: true });
 const AppLeft = dynamic(
   async () => {
-    await delay(2000);
+    await delay(1000);
     return await import("./left");
   },
   {
@@ -18,7 +18,7 @@ const AppLeft = dynamic(
 );
 const Center = dynamic(
   async () => {
-    await delay(3000);
+    await delay(2000);
     return await import("./center");
   },
   {
@@ -27,7 +27,7 @@ const Center = dynamic(
 );
 const AppRight = dynamic(
   async () => {
-    await delay(2000);
+    await delay(1000);
     return await import("./right");
   },
   {
@@ -39,11 +39,15 @@ const CodeAppMain = () => {
   return (
     <View className={css["app-box"]}>
       <View className={css["container"]}>
-        <React.Suspense fallback={<Skeleton className={css.top} />}>
+        <React.Suspense
+          fallback={<Skeleton animation={false} className={css.top} />}
+        >
           <AppTop />
         </React.Suspense>
         <View className={css["grid"]}>
-          <React.Suspense fallback={<Skeleton className={css.left} />}>
+          <React.Suspense
+            fallback={<Skeleton animation={false} className={css.left} />}
+          >
             <AppLeft />
           </React.Suspense>
           <View className={css["center"]}>
@@ -51,6 +55,7 @@ const CodeAppMain = () => {
               fallback={
                 <View className={css["editor"]}>
                   <Skeleton
+                    animation={false}
                     style={{
                       alignItems: "center",
                       margin: "0 6px 6px",
@@ -72,7 +77,7 @@ const CodeAppMain = () => {
           <React.Suspense
             fallback={
               <View className={css.right}>
-                <Skeleton className={css.tabContainer} />
+                <Skeleton animation={false} className={css.tabContainer} />
               </View>
             }
           >

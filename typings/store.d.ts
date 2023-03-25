@@ -2,69 +2,66 @@ import store from "store";
 /**
  * Get Root State of application
  */
-type RootState = ReturnType<typeof store.getState>
+type RootState = ReturnType<typeof store.getState>;
 
-
-type both = string | number
+type both = string | number;
 interface ActionType {
-    type: string,
-    payload: any
+  type: string;
+  payload: any;
 }
 
-
 interface ActionKeys extends ActionType {
-    payload: {
-        key: any;
-        value: any;
-    }
+  payload: {
+    key: any;
+    value: any;
+  };
 }
 /**************************
 State Types
 ***************************/
 // Background Types
 interface BackgroundTypes {
-    source: string;
-    aspectRatio: string;
-    padding: number;
+  source: string;
+  aspectRatio: string;
+  padding: number;
 }
 // Code Types
 interface CodeTypes {
-    codeValue: string;
+  codeValue: string;
 }
 // Dock Types
 interface DockTypes {
-    dockComponetKey: string;
-    toggleDock: boolean;
+  dockComponetKey: string;
+  toggleDock: boolean;
 }
-// Preference Types 
+// Preference Types
 interface PreferenceTypes {
-    theme: string;
-    mode: string;
-    lineNumbers: boolean;
-    autoCompletion: boolean;
-    translucent: boolean;
-    draggable: boolean;
-    editable: boolean;
-
+  theme: string;
+  mode: string;
+  lineNumbers: boolean;
+  autoCompletion: boolean;
+  translucent: boolean;
+  draggable: boolean;
+  editable: boolean;
 }
 // Text Types
 interface TextTypes {
-    fontSize: number;
-    fontWeight: number;
-    fontFace: string;
-    lineHeight: number;
-    letterSpacing: number;
+  fontSize: number;
+  fontWeight: number;
+  fontFace: string;
+  lineHeight: number;
+  letterSpacing: number;
 }
 // DownloadImage Types
 interface DownloadImageTypes {
-    pixelRatio: number;
-    imageFormat: string;
-    fileName: string;
+  pixelRatio: number;
+  imageFormat: string;
+  fileName: string;
 }
 
 // Post type
 interface PostTypes {
-    cornerRadius: number;
-    blurRadius: number;
-    alpha: number;
+  cornerRadius: number;
+  blurRadius: number;
+  alpha: number;
 }
