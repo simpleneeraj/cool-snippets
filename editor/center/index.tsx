@@ -1,24 +1,24 @@
-import React from "react";
-import View from "ui/view";
-import BlurLayer from "./shadow";
-import cl from "lib/codemirror-langs";
-import useCode from "store/hooks/use-code";
-import css from "styles/center.module.scss";
-import codeTheme from "lib/codemirror-themes";
-import DragHandleIcon from "lib/icons/DragHandle";
-import { Capture as Layer } from "plugins/capture";
-import CodeLoader from "components/skeleton/codeloader";
+import React from 'react';
+import View from 'ui/view';
+import BlurLayer from './shadow';
+import cl from 'lib/codemirror-langs';
+import useCode from 'store/hooks/use-code';
+import css from 'styles/center.module.scss';
+import codeTheme from 'lib/codemirror-themes';
+import DragHandleIcon from 'lib/icons/DragHandle';
+import { Capture as Layer } from 'plugins/capture';
+import CodeLoader from 'components/skeleton/codeloader';
 // import Draggable from "react-draggable";
 // import CodeHeaders from "./headers";
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
-const draggableClassName = "simple-drag";
+const draggableClassName = 'simple-drag';
 
-const CodeHeaders = dynamic(() => import("./headers"));
-const Draggable = dynamic(() => import("react-draggable"), {
+const CodeHeaders = dynamic(() => import('./headers'));
+const Draggable = dynamic(() => import('react-draggable'), {
   ssr: false,
 });
-const CodeMirror = dynamic(() => import("plugins/codemirror"));
+const CodeMirror = dynamic(() => import('plugins/codemirror'));
 
 interface CenterProps {
   watermark?: string;
@@ -42,11 +42,11 @@ const Center = ({ watermark }: CenterProps) => {
       <View className={css.container}>
         <View className={css.smooth} id="smooth-shot">
           <Layer className="center">
-            {canvas.watermark ? (
+            {/* {canvas.watermark ? (
               <View className={`watermark`}>
-                <p>{watermark || "www.icanpost.app"}</p>
+                <p>{watermark || 'www.icanpost.app'}</p>
               </View>
-            ) : null}
+            ) : null} */}
             <Draggable
               axis="y"
               grid={[25, 25]}
@@ -58,22 +58,22 @@ const Center = ({ watermark }: CenterProps) => {
                 <React.Suspense fallback={<CodeLoader />}>
                   <CodeHeaders className={generatedTheme[0][0].value} />
                   <CodeMirror
-                    value={code["value"]}
+                    value={code['value']}
                     readOnly={!code.editable}
-                    onChange={(value) => updateCode("value", value)}
+                    onChange={(value) => updateCode('value', value)}
                     className="codemirror"
                     theme={generatedTheme}
                     extensions={generatedMode}
                     basicSetup={{
                       foldGutter: false,
-                      lineNumbers: code["line-numbers"],
-                      autocompletion: code["auto-completion"],
+                      lineNumbers: code['line-numbers'],
+                      autocompletion: code['auto-completion'],
                       highlightActiveLine: false,
                       highlightActiveLineGutter: false,
                     }}
                   />
                 </React.Suspense>
-                {/* <BlurLayer /> */}
+                <BlurLayer />
               </View>
             </Draggable>
           </Layer>
@@ -84,7 +84,7 @@ const Center = ({ watermark }: CenterProps) => {
 };
 export default Center;
 
-const DraggableHandler = (props: React.ComponentPropsWithoutRef<"div">) => {
+const DraggableHandler = (props: React.ComponentPropsWithoutRef<'div'>) => {
   return (
     <View className={css.handleBar} {...props}>
       <span className={draggableClassName}>

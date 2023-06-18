@@ -3,6 +3,8 @@ import Center from "editor/center";
 import { useRouter } from "next/router";
 import InlineStyle from "editor/center/inline";
 import axios from "axios";
+import { BASE_URL } from "env-value";
+import * as Switch from "@radix-ui/react-switch";
 
 const Shot = () => {
   const router = useRouter();
@@ -13,10 +15,11 @@ const Shot = () => {
     try {
       const { data } = await axios({
         method: "post",
-        url: "/api/screenshot",
+        url: `${BASE_URL}/api/v1/screenshot`,
         responseType: "json",
         data: {
           url: `${window.location.origin}/shot?watermark=simple`,
+          selector: "#smooth-shot",
         },
       });
       setbase64(data.base64);
@@ -26,7 +29,7 @@ const Shot = () => {
   };
   return (
     <React.Fragment>
-      <Center watermark={router.query?.watermark as string} />
+      {/* <Center watermark={router.query?.watermark as string} />
       <InlineStyle />
       <div>
         <button onClick={GetScreenshot}>Get Screenshot</button>
@@ -34,7 +37,10 @@ const Shot = () => {
         <a href={base64} download>
           Download This Image
         </a>
-      </div>
+      </div> */}
+      <Switch.Root>
+        <Switch.Thumb />
+      </Switch.Root>
     </React.Fragment>
   );
 };

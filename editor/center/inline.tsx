@@ -1,15 +1,15 @@
-import cssRatio from "lib/ratio";
-import useCode from "store/hooks/use-code";
-import backgroundFilter from "utils/b-filter";
+import cssRatio from 'lib/ratio';
+import useCode from 'store/hooks/use-code';
+import backgroundFilter from 'utils/b-filter';
 
 const InlineStyle = () => {
   const {
     codeState: { canvas, code, text },
   } = useCode();
-  const realRatio = cssRatio(canvas["aspect-ratio"]);
+  const realRatio = cssRatio(canvas['aspect-ratio']);
   const background = backgroundFilter(canvas.source);
   // "Lucida Console", "Courier New", monospace, Monaco
-  const fontFace = `${text["font-face"]}`;
+  const fontFace = `${text['font-face']}`;
   return (
     <style>
       {`
@@ -25,11 +25,11 @@ const InlineStyle = () => {
         }
         .cm-line {
           background: unset !important;
-          font-size: ${text["font-size"]}px;
+          font-size: ${text['font-size']}px;
           font-family: ${fontFace};
-          line-height: ${text["line-height"]};
-          font-weight: ${text["font-weight"]};
-          letter-spacing: ${text["letter-spacing"]}px;
+          line-height: ${text['line-height']};
+          font-weight: ${text['font-weight']};
+          letter-spacing: ${text['letter-spacing']}px;
         }
         .ͼ1 .cm-content {
           margin: 0;
@@ -60,7 +60,7 @@ const InlineStyle = () => {
           z-index: 11;
           position: relative;
           // border-radius: inherit;
-          background: ${code.alpha > 0 ? "unset" : code.background};
+          background: ${code.alpha > 0 ? 'unset' : code.background};
         }
 
         .layer {
@@ -69,8 +69,8 @@ const InlineStyle = () => {
           overflow: hidden;
           align-items: center;
           position: relative;
-          border-radius: ${code["corner-radius"]}px;
-          backdrop-filter: blur(${code["blur-radius"]}px);
+          border-radius: ${code['corner-radius']}px;
+           
         }
         .blur,
         .center {
@@ -80,8 +80,8 @@ const InlineStyle = () => {
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
           width: ${canvas.width}px;
-          height: ${!canvas["aspect-ratio"] ? `${canvas.height}px` : "unset"};
-          aspect-ratio: ${canvas["aspect-ratio"] ? realRatio : "unset"};
+          height: ${!canvas['aspect-ratio'] ? `${canvas.height}px` : 'unset'};
+          aspect-ratio: ${canvas['aspect-ratio'] ? realRatio : 'unset'};
         }
         .center {
           flex: 1;
@@ -99,7 +99,7 @@ const InlineStyle = () => {
           left: 50%;
           z-index: 6;
           position: absolute;
-          filter: blur(${code["blur-radius"]}px);
+          filter: blur(${code['blur-radius']}px);
           transform: translate(-50%, -50%);
         }
         .file-name-input{
