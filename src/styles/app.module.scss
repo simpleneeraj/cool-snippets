@@ -1,0 +1,227 @@
+@import './mixin';
+
+$radius: 10px;
+$Padding: 4px;
+$gapping: 6px;
+
+$primary-background: var(--ui-app-primary-background);
+$secondry-background: var(--ui-app-secondry-background);
+$tertiary-background: var(--ui-app-tertiary-background);
+$tetra-background: var(--ui-app-tetra-background);
+
+$primary-background-aplha: #0d111700;
+$grid-line-color: #272e35;
+$horizontal-line-color: #3e3e3e;
+
+// CONTAINER FOR LARGE SCREENS
+.app-box {
+  display: grid;
+  height: 100vh;
+}
+
+// MAIN CONTAINER
+.container {
+  display: grid;
+  overflow: hidden;
+  max-height: 100vh;
+  grid-template-rows: auto 1fr;
+}
+// GRID CONTAINER
+.grid {
+  display: grid;
+  // grid-template-columns: 22% 1fr 22%;
+  overflow: hidden;
+}
+// APP TOP
+.top {
+  flex: 1;
+  display: flex;
+  // overflow: hidden;
+  position: relative;
+  align-items: center;
+  margin: $gapping;
+  padding: $Padding;
+  border-radius: $radius;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  // align-items: center;
+}
+.title .button {
+  display: flex;
+  align-items: center;
+  min-width: 30px;
+}
+
+.title .text {
+  display: flex;
+  flex-direction: column;
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  p {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+}
+
+.controls {
+  gap: 6px;
+  display: flex;
+  align-items: center;
+}
+
+// CENTER CONTAINER
+.center {
+  // flex: 1 1;
+  // display: grid;
+  // overflow: auto;
+  // align-items: center;
+  // justify-content: center;
+  // margin: 0 $gapping $gapping;
+  // border-radius: $radius;
+  // padding: 1rem;
+  // @include scroll-bar(5px, 5px);
+}
+
+// RIGHT CONTAINER
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  gap: $gapping;
+  border-radius: $radius;
+  margin: 0 $gapping $gapping 0;
+}
+
+// LEFT CONTAINER
+.left {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: $radius;
+  margin: 0 0 $gapping $gapping;
+  background: $secondry-background;
+  border: 1px solid $tertiary-background;
+  @include scroll-bar();
+}
+
+.bottomcover {
+  padding: 4px;
+  display: grid;
+  min-height: 50px;
+  justify-self: flex-end;
+  align-items: center;
+
+  border-radius: 10px;
+  background: $secondry-background;
+  border: 1px solid $tertiary-background;
+  overflow: auto;
+
+  @include scroll-bar();
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.tabContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  background: $secondry-background;
+  border-radius: inherit;
+  border: 1px solid $tertiary-background;
+  overflow: auto;
+  @include scroll-bar(4px, 4px);
+}
+
+.container {
+  position: relative;
+  background-image: linear-gradient(
+      0deg,
+      $primary-background,
+      $primary-background-aplha 15%
+    ),
+    linear-gradient(180deg, $primary-background, $primary-background-aplha 15%),
+    radial-gradient(
+      circle farthest-side at 50% 0,
+      $primary-background-aplha,
+      $primary-background
+    ),
+    url('/texture/tile-dark.svg');
+  background-position: 0 0, 0 0, 0 0, -1px -1px;
+  background-size: auto, auto, auto, 64px;
+  background-color: $grid-line-color;
+}
+
+.horizontal {
+  height: 1px;
+  width: 100%;
+  border: none;
+  opacity: 0.4;
+  border-radius: 10px;
+  background: $horizontal-line-color;
+}
+
+// FOR LARGER SCREENS ONLY
+@media screen and (min-width: 1366px) {
+  .app-box {
+    display: grid;
+    height: 100vh;
+    place-content: center;
+  }
+  .container {
+    max-width: 1280px;
+    max-height: 800px;
+    min-width: 1280px;
+    border-radius: 10px;
+    border: 2px solid var(--ui-tertiary-background);
+  }
+}
+
+// FOR MOBILE
+@media screen and (max-width: 425px) {
+  .top {
+    // margin: 0;
+    // align-items: center;
+    justify-content: center;
+    .title {
+      display: none;
+    }
+    .controls {
+    }
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .center {
+    order: 1;
+    margin: 0;
+    padding: 0;
+  }
+  .left {
+    order: 2;
+    margin: 0;
+    border-radius: 0px;
+  }
+  .right {
+    order: 3;
+    margin: 0;
+    border-radius: 0px;
+  }
+}

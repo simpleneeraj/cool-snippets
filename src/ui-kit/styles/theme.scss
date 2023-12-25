@@ -1,0 +1,161 @@
+:root {
+  --ui-kit-color-dark-blue: rgba(10, 132, 255, 1);
+  --ui-kit-color-dark-brown: rgba(172, 142, 104, 1);
+  --ui-kit-color-dark-cyan: rgba(100, 210, 255, 1);
+  --ui-kit-color-dark-green: rgba(48, 209, 88, 1);
+  --ui-kit-color-dark-indigo: rgba(94, 92, 230, 1);
+  --ui-kit-color-dark-mint: rgba(102, 212, 207, 1);
+  --ui-kit-color-dark-orange: rgba(255, 159, 10, 1);
+  --ui-kit-color-dark-pink: rgba(255, 55, 95, 1);
+  --ui-kit-color-dark-purple: rgba(191, 90, 242, 1);
+  --ui-kit-color-dark-red: rgba(255, 69, 58, 1);
+  --ui-kit-color-dark-teal: rgba(64, 200, 224, 1);
+  --ui-kit-color-dark-yellow: rgba(255, 214, 10, 1);
+
+  --ui-kit-black-alpha-1: rgba(0, 0, 0, 0.1);
+  --ui-kit-black-alpha-2: rgba(0, 0, 0, 0.2);
+  --ui-kit-black-alpha-3: rgba(0, 0, 0, 0.3);
+  --ui-kit-black-alpha-4: rgba(0, 0, 0, 0.4);
+  --ui-kit-black-alpha-5: rgba(0, 0, 0, 0.5);
+  --ui-kit-black-alpha-6: rgba(0, 0, 0, 0.6);
+  --ui-kit-black-alpha-7: rgba(0, 0, 0, 0.7);
+  --ui-kit-black-alpha-8: rgba(0, 0, 0, 0.8);
+  --ui-kit-black-alpha-9: rgba(0, 0, 0, 0.9);
+  --ui-kit-black-alpha-10: rgba(0, 0, 0, 1);
+
+  --ui-kit-white-alpha-1: rgba(255, 255, 255, 0.1);
+  --ui-kit-white-alpha-2: rgba(255, 255, 255, 0.2);
+  --ui-kit-white-alpha-3: rgba(255, 255, 255, 0.3);
+  --ui-kit-white-alpha-4: rgba(255, 255, 255, 0.4);
+  --ui-kit-white-alpha-5: rgba(255, 255, 255, 0.5);
+  --ui-kit-white-alpha-6: rgba(255, 255, 255, 0.6);
+  --ui-kit-white-alpha-7: rgba(255, 255, 255, 0.7);
+  --ui-kit-white-alpha-8: rgba(255, 255, 255, 0.8);
+  --ui-kit-white-alpha-9: rgba(255, 255, 255, 0.9);
+  --ui-kit-white-alpha-10: rgba(255, 255, 255, 1);
+
+  --ui-kit-accent-color: rgba(52, 199, 89, 1);
+
+  --ui-kit-transparent-alpha: rgba(83, 83, 83, 0.251);
+  --ui-kit-transparent-beta: rgba(83, 83, 83, 0.351);
+
+  --ui-kit-color-primary: rgba(255, 255, 255, 1);
+  --ui-kit-color-secondry: rgba(245, 245, 245, 1);
+  --ui-kit-color-tertiary: rgba(232, 232, 232, 1);
+  --ui-kit-color-tetra: rgba(220, 220, 220, 1);
+  --ui-kit-color-quinary: rgba(200, 200, 200, 1);
+  --ui-kit-color-senary: rgba(184, 184, 184, 1);
+  --ui-kit-color-septenary: rgba(169, 169, 169, 1);
+  --ui-kit-color-octonary: rgba(160, 160, 160, 1);
+
+  --ui-kit-color-primary-black: rgba(0, 0, 0, 1);
+  --ui-kit-primary-color: rgba(241, 241, 241, 1);
+  --ui-kit-secondry-color: rgba(238, 238, 238, 1);
+
+  --ui-kit-primary-background: rgba(9, 9, 9, 1);
+  --ui-kit-secondry-background: rgba(20, 20, 20, 1);
+  --ui-kit-tertiary-background: rgba(32, 32, 32, 1);
+  --ui-kit-tetra-background: rgba(48, 48, 48, 1);
+  --ui-kit-quinary-background: rgba(56, 56, 56, 1);
+  --ui-kit-senary-background: rgba(64, 64, 64, 1);
+  --ui-kit-septenary-background: rgba(72, 72, 72, 1);
+  --ui-kit-octonary-background: rgba(72, 72, 72, 1);
+
+  --ui-kit-accent-color: rgba(52, 199, 89, 1);
+
+  --ui-kit-app-primary-background: #090909;
+  --ui-kit-app-secondry-background: #131315;
+  --ui-kit-app-tertiary-background: rgba(46, 46, 48, 1);
+  --ui-kit-app-tetra-background: rgba(69, 69, 69, 1);
+  --ui-kit-app-accent-color: var(--ui-kit-accent-color);
+  --ui-kit-footer-border-color: var(--dock-border-color);
+  --ui-kit-footer-primary-background: var(--ui-kit-secondry-background);
+}
+
+:root {
+  --ui-kit-background-primary: 38 38 43;
+  --ui-kit-background-secondry: 62 62 67;
+  --ui-kit-background-hover: 44 44 49;
+  --ui-kit-background-active: 50 50 55;
+  --ui-kit-background-disabled: 30 30 35;
+  --ui-kit-background-border: 40 40 45;
+
+  --ui-kit-color-main: 255 255 255;
+  --ui-kit-color-hover: 240 240 240;
+  --ui-kit-color-active: 225 225 225;
+  --ui-kit-color-disabled: 210 210 210;
+  /*
+  * Button Variables
+  */
+  --ui-kit-button-background: rgba(var(--ui-kit-background-primary));
+  --ui-kit-button-color: rgba(var(--ui-kit-color-main));
+
+  --ui-kit-button-hover-background: rgba(var(--ui-kit-background-hover));
+  --ui-kit-button-hover-color: rgba(var(--ui-kit-color-hover));
+
+  --ui-kit-button-active-background: rgba(var(--ui-kit-background-active));
+  --ui-kit-button-active-color: rgba(var(--ui-kit-color-active));
+
+  --ui-kit-button-disabled-background: rgba(var(--ui-kit-background-disabled));
+  --ui-kit-button-disabled-color: rgba(var(--ui-kit-color-disabled));
+
+  --ui-kit-button-border-color: rgba(var(--ui-kit-background-border));
+
+  /*
+  * Link Variables
+  */
+  --ui-kit-link-color: var(--ui-kit-color-dark-blue);
+  --ui-kit-link-hover-color: rgba(10, 132, 255, 0.8);
+  /*
+  * Line Variables
+  */
+  --ui-kit-line-border-color: var(--ui-kit-button-border-color);
+  /*
+  * UI Switch
+  */
+  --ui-kit-switch-thumb-color: var(--ui-kit-button-border-color);
+  --ui-kit-switch-background-color: var(--ui-kit-color-dark-green);
+  --ui-kit-switch-foreground-color: var(--ui-kit-button-border-color);
+  /*
+  * UI Search Bar
+  */
+  --ui-kit-search-color: var(--ui-kit-button-border-color);
+  --ui-kit-search-background: rgba(var(--ui-kit-background-primary));
+  /*
+  * UI Segment
+  */
+  --ui-kit-segment-color: rgba(var(--ui-kit-color-main));
+  --ui-kit-segment-background: rgba(var(--ui-kit-background-primary));
+  --ui-kit-segment-button-background: rgba(var(--ui-kit-background-secondry));
+}
+
+.ui-kit-search-bar {
+  border: 1.5px solid transparent;
+  outline: 1.5px solid transparent;
+  background-color: var(--ui-kit-search-background);
+  &:focus {
+    border-color: var(--ui-kit-white-alpha-1);
+    box-shadow: 0px 0px 1px 3px var(--ui-kit-white-alpha-1);
+  }
+}
+
+//
+.scroll {
+  --color-progress: #21b3ff;
+  --color-progressDark: #5021ff;
+  background: linear-gradient(
+    to left,
+    var(--color-progress),
+    var(--color-progressDark)
+  );
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  position: fixed;
+  transform: scaleX(var(--scroll));
+  transform-origin: left;
+  transition: transform 0.1s ease-in-out;
+  width: 100%;
+  z-index: 1;
+}
+//
