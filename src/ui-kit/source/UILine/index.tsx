@@ -10,18 +10,20 @@ const UILine = React.forwardRef(
     const { direction = 'horizontal' } = props;
 
     return (
-      <hr
-        ref={ref}
-        className={clsx(
-          'transition-all',
-          'border-solid',
-          'border-[var(--ui-kit-button-border-color)]',
-          direction === 'vertical' && 'border-l',
-          direction === 'horizontal' && 'border-t',
-          props.className
-        )}
-        {...props}
-      />
+      <div className="flex items-center flex-1">
+        <hr
+          ref={ref}
+          {...props}
+          className={clsx(
+            'transition-all h-3/4',
+            'border-solid',
+            'border-gray-600',
+            direction === 'vertical' && 'border-l',
+            direction === 'horizontal' && 'border-t',
+            props.className
+          )}
+        />
+      </div>
     );
   }
 );

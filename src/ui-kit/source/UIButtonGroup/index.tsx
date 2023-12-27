@@ -13,13 +13,13 @@ const UIButtonGroup = React.forwardRef(
         ref={ref}
         {...rest}
         className={clsx(
-          `flex gap-1 transition-all`,
+          `flex transition-all`,
           `rounded-lg`,
           `max-w-fit`,
           `text-[var(--ui-kit-button-color)]`,
           transparent
-            ? 'bg-transparent py-1'
-            : 'bg-[var(--ui-kit-button-background)] p-1',
+            ? 'bg-transparent'
+            : 'bg-[var(--ui-kit-button-background)]',
           props.className
         )}
       >

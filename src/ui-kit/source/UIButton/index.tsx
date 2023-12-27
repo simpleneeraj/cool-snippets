@@ -2,12 +2,13 @@ import clsx from 'clsx';
 import React from 'react';
 
 type Props = {
+  theme?: 'primary' | 'secondry';
   variant?: 'icon' | 'outline' | 'clear' | 'fit' | 'button';
 } & React.ComponentPropsWithRef<'button'>;
 
 const UIButton = React.forwardRef(
   (props: Props, ref: React.Ref<HTMLButtonElement>) => {
-    const { children, variant = 'button', ...rest } = props;
+    const { children, theme = 'secondry', variant = 'button', ...rest } = props;
 
     const states = {
       hover: `hover:bg-[var(--ui-kit-button-hover-background)] hover:text-[var(--ui-kit-button-hover-color)]`,

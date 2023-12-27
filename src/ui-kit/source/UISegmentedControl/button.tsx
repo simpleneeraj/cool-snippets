@@ -23,14 +23,12 @@ const UISegmentButton = ({ active, children, className, ...rest }: Props) => {
       {active && (
         <motion.span
           layoutId="bubble"
-          className="absolute inset-0 z-10 bg-[var(--ui-kit-segment-button-background)] flex items-center justify-center"
+          className="absolute inset-0 z-1 bg-[var(--ui-kit-segment-button-background)] flex items-center justify-center"
           style={{ borderRadius: 6 }}
-          transition={{ type: 'spring', duration: 0.2 }}
-        >
-          {children}
-        </motion.span>
+          transition={{ type: 'linear', duration: 0.2 }}
+        />
       )}
-      {children}
+      <span className="relative">{children}</span>
     </button>
   );
 };
