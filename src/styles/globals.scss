@@ -1,0 +1,33 @@
+.app-container {
+  --ui-primary-background: rgb(9, 9, 9);
+  --ui-secondry-background: rgb(20, 20, 20);
+  --ui-tertiary-background: rgb(32, 32, 32);
+  --ui-tetra-background: rgb(48, 48, 48);
+  $radius: 10px;
+  $Padding: 4px;
+  $gapping: 6px;
+
+  $primary-background: var(--ui-app-primary-background);
+  $secondry-background: var(--ui-app-secondry-background);
+  $tertiary-background: var(--ui-app-tertiary-background);
+  $tetra-background: var(--ui-app-tetra-background);
+
+  $primary-background-aplha: #0d111700;
+  $grid-line-color: #272e35;
+  $horizontal-line-color: #3e3e3e;
+
+  position: relative;
+  background-image: url('/texture/tile-dark.svg');
+  background-position: 0 0, 0 0, 0 0, -1px -1px;
+  background-size: auto, auto, auto, 64px;
+  // background-color: $grid-line-color;
+}
+
+.scroll-content {
+  &::-webkit-scrollbar {
+    @apply h-1 w-1 bg-inherit appearance-none;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply appearance-none rounded-lg bg-default-200;
+  }
+}
