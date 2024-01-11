@@ -43,19 +43,6 @@ const InlineStyle = () => {
           white-space: initial;
           box-sizing: border-box;
         }
-        .watermark {
-          left: 50%;
-          z-index: 30;
-          bottom: 15px;
-          position: absolute;
-          transform: translate(-50%, 0);
-        }
-        .watermark p {
-          font-weight: 400;
-          font-size: 0.9rem;
-          font-family: ${fontFace};
-          text-shadow: 0px 0px 30px var(--ui-color-primary);
-        }
         .codemirror {
           z-index: 11;
           position: relative;
@@ -69,18 +56,18 @@ const InlineStyle = () => {
           align-items: center;
           position: relative;
           border-radius: ${code['corner-radius']}px;
-           
+          backdrop-filter: blur(16px);
         }
-        .blur,
         .center {
-          padding:10px;
           background: ${background};
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          min-width: 800px;
-          min-height: 500px;
+          position: relative;
+          min-width: 520px;
+          max-width: 920px;
+          padding:64px;
           // aspect-ratio: ${canvas['aspect-ratio'] ? realRatio : 'unset'};
         }
         .center {
@@ -92,15 +79,7 @@ const InlineStyle = () => {
           max-width: 1024px;
           position: relative;
           align-items: center;
-          padding: 0 ${code.padding}px;
-        }
-        .blur {
-          top: 50%;
-          left: 50%;
-          z-index: 6;
-          position: absolute;
-          filter: blur(${code['blur-radius']}px);
-          transform: translate(-50%, -50%);
+          
         }
         .file-name-input{
           font-family: ${fontFace};

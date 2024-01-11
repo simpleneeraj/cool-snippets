@@ -19,10 +19,10 @@
 
 :root {
   /* Primary - Background color for the root */
-  --root-ui-kit-primary-background-color: 10 10 10;
+  --ui-kit-primary-background-color: 10 10 10;
 
   /* Secondary - Background color for cards */
-  --root-ui-kit-secondary-background-color: 28 28 30;
+  --ui-kit-secondary-background-color: 28 28 30;
 
   /* Tertiary - Color for buttons and other elements */
   --ui-kit-tertiary-background-color: 46 46 48;
@@ -37,13 +37,14 @@
   --ui-kit-opacity-08: 0.8;
   --ui-kit-opacity-09: 0.9;
   --ui-kit-opacity: 1;
+  // Background States
   --ui-kit-background-primary: 28 28 30;
   --ui-kit-background-secondry: 46 46 48;
   --ui-kit-background-hover: 44 44 49;
   --ui-kit-background-active: 50 50 55;
   --ui-kit-background-disabled: 30 30 35;
   --ui-kit-background-border: 40 40 45;
-
+  // Color States
   --ui-kit-color-main: 255 255 255;
   --ui-kit-color-hover: 240 240 240;
   --ui-kit-color-active: 225 225 225;
@@ -59,16 +60,22 @@
   /*
   * Button Variables
   */
+  --ui-kit-button-primary-background: rgba(
+    var(--ui-kit-primary-background-color)
+  );
+  --ui-kit-button-secondry-background: rgba(
+    var(--ui-kit-secondary-background-color)
+  );
   --ui-kit-button-background: rgba(var(--ui-kit-tertiary-background-color));
   --ui-kit-button-color: rgba(var(--ui-kit-color-main));
 
-  --ui-kit-button-hover-background: rgba(var(--ui-kit-background-hover));
+  --ui-kit-button-hover-background: #343436;
   --ui-kit-button-hover-color: rgba(var(--ui-kit-color-hover));
 
-  --ui-kit-button-active-background: rgba(var(--ui-kit-background-active));
+  --ui-kit-button-active-background: #3a3a3c;
   --ui-kit-button-active-color: rgba(var(--ui-kit-color-active));
 
-  --ui-kit-button-disabled-background: rgba(var(--ui-kit-background-disabled));
+  --ui-kit-button-disabled-background: #272729;
   --ui-kit-button-disabled-color: rgba(var(--ui-kit-color-disabled));
 
   --ui-kit-button-border-color: rgba(var(--ui-kit-tertiary-background-color));
@@ -81,7 +88,10 @@
   /*
   * Line Variables
   */
-  --ui-kit-line-border-color: var(--ui-kit-button-border-color);
+  --ui-kit-line-border-primary-color: #606061;
+  --ui-kit-line-border-secondry-color: rgba(
+    var(--ui-kit-secondary-background-color)
+  );
   /*
   * UI Switch
   */
@@ -98,8 +108,12 @@
   /*
   * UI Segment
   */
-  --ui-kit-segment-primary-background: rgba(var(--ui-kit-color-main));
-  --ui-kit-segment-secondry-background: rgba(var(--ui-kit-color-main));
+  --ui-kit-segment-primary-background: rgba(
+    var(--ui-kit-primary-background-color)
+  );
+  --ui-kit-segment-secondry-background: rgba(
+    var(--ui-kit-tertiary-background-color)
+  );
   --ui-kit-segment-primary-color: rgba(var(--ui-kit-color-main));
 }
 
@@ -142,3 +156,13 @@
   z-index: 1;
 }
 //
+
+.app-root {
+  background-color: #ec99ff;
+  background-image: radial-gradient(
+      at 27% 63%,
+      hsla(210, 84%, 60%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 89%, hsla(282, 81%, 72%, 1) 0px, transparent 50%);
+}

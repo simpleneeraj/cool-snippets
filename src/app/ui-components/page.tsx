@@ -8,10 +8,6 @@ const App = () => {
   return (
     <div className="w-full mx-auto max-w-8xl mt-4 ">
       <div className="flex flex-col gap-2 px-4 sm:px-6 lg:px-8">
-        {/* <div className="p-2 flex items-center bg-[rgba(var(--ui-kit-background-primary))] rounded-lg">
-          <h2 className="text-white">Primary</h2>
-        </div>
-        <PrimaryPreview /> */}
         <div className="p-2 flex items-center bg-[rgba(var(--ui-kit-background-primary))] rounded-lg">
           <h2 className="text-white">Secondry</h2>
         </div>

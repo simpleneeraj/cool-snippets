@@ -1,60 +1,23 @@
 'use client';
 
 import React from 'react';
-import HRLine from '@/ui/line';
-import { useRouter } from 'next/navigation';
 import css from '@/styles/app.module.scss';
-import IconButton from '@/ui/button/icon';
-import GroupButton from '@/ui/button/group';
-import ChevronBack from '@/lib/icons/ChevronBack';
 import RedoIcon from '@/lib/icons/RedoIcon';
 import UndoIcon from '@/lib/icons/UndoIcon';
-import CheckmarkICloud from '@/lib/icons/CheckmarkICloud';
-import EllipsisHorizontal from '@/lib/icons/EllipsisHorizontal';
+import ChevronBack from '@/lib/icons/ChevronBack';
 import DownloadModel from '@/editor/model/download';
-import useOnClickOutside from '@/hooks/useclick';
-import DownloadOutline from '@/lib/icons/DownloadOutline';
-import useDoable from '@/store/hooks/use-undo-redo';
-import { UndoxTypes } from '@/plugins/undo-redo/undox.action';
-import { createSelectors } from '@/plugins/undo-redo/undox.reducer';
-import codeSlice from '@/store/slices/code';
-import useKeyPress from '@/hooks/useKeyPress';
-import useCode from '@/store/hooks/use-code';
-import Keyboard from '@/lib/icons/Keyboard';
+import { UIIconButton } from '@/ui-kit/source/UIButton';
+import CheckmarkICloud from '@/lib/icons/CheckmarkICloud';
+import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
+import UIDivider from '@/ui-kit/source/UIDivider';
 
 const AppTop = () => {
-  const router = useRouter();
-  const [isModel, setModel] = React.useState(false);
-  const ref = useOnClickOutside(() => setModel(false));
-
-  // For undo redo
-  const doable = useDoable();
-  const { state } = useCode();
-  const selectors = createSelectors(codeSlice.reducer);
-  const actions = {
-    canUndo: selectors.getPastActions(state).length > 0,
-    canRedo: selectors.getFutureActions(state).length > 0,
-  };
-  const Undo = () => {
-    doable(UndoxTypes.UNDO);
-  };
-  const Redo = () => {
-    doable(UndoxTypes.REDO);
-  };
-  // UNDO
-  useKeyPress(['ctrl', 'z'], Undo);
-  // REDO
-  useKeyPress(['ctrl', 'y'], Redo);
   return (
     <React.Fragment>
-      <div ref={ref} className={css.top}>
-        {isModel && <DownloadModel />}
+      <div className={css.top}>
+        {false && <DownloadModel />}
         <div className={css.title}>
-          <div
-            className={css.button}
-            onClick={() => router.back()}
-            title="Back"
-          >
+          <div className={css.button} title="Back">
             <ChevronBack size={20} />
           </div>
           <div className={css.text}>
@@ -68,43 +31,48 @@ const AppTop = () => {
           </div>
         </div>
         <div className={css.controls}>
-          <GroupButton>
-            <IconButton
-              onClick={() => doable(UndoxTypes.UNDO)}
-              title="Undo"
-              disabled={actions.canUndo ? '' : 'no-action'}
-              aria-label="Undo"
-            >
-              <UndoIcon size={24} />
-            </IconButton>
-            <HRLine />
-            <IconButton
-              onClick={() => doable(UndoxTypes.REDO)}
-              title="Redo"
-              disabled={actions.canRedo ? '' : 'no-action'}
-              aria-label="redo"
-            >
-              <RedoIcon size={24} />
-            </IconButton>
-          </GroupButton>
-
-          <IconButton
-            title="Download"
-            onClick={() => setModel(!isModel)}
-            active="translate"
-            aria-label="download"
-          >
-            <DownloadOutline size={20} />
-          </IconButton>
-          <IconButton aria-label="emoji">
-            <Keyboard size={20} />
-          </IconButton>
-          <IconButton title="Sync" aria-label="sync">
-            <CheckmarkICloud size={24} />
-          </IconButton>
-          <IconButton active="translate" aria-label="More">
-            <EllipsisHorizontal size={20} />
-          </IconButton>
+          <UIButtonGroup>
+            <UIIconButton title="Undo" aria-label="Undo">
+              <UndoIcon size={20} />
+            </UIIconButton>
+            <UIDivider orientation="vertical" />
+            <UIIconButton title="Redo" aria-label="redo">
+              <RedoIcon size={20} />
+            </UIIconButton>
+          </UIButtonGroup>
+          <UIIconButton title="Download" aria-label="download">
+            <i className="ki-duotone ki-emoji-happy text-inherit text-xl">
+              <span className="path1"></span>
+              <span className="path2"></span>
+              <span className="path3"></span>
+              <span className="path4"></span>
+            </i>
+          </UIIconButton>
+          <UIIconButton aria-label="emoji">
+            <i className="ki-duotone ki-notification-2 text-inherit text-xl">
+              <span className="path1"></span>
+              <span className="path2"></span>
+            </i>
+          </UIIconButton>
+          <UIIconButton title="Sync" aria-label="sync">
+            <i className="ki-duotone ki-crown text-inherit text-xl">
+              <span className="path1"></span>
+              <span className="path2"></span>
+            </i>
+          </UIIconButton>
+          <UIIconButton radius="sm" aria-label="More">
+            <i className="ki-duotone ki-burger-menu-3 text-inherit text-xl">
+              <span className="path1"></span>
+              <span className="path2"></span>
+              <span className="path3"></span>
+              <span className="path4"></span>
+              <span className="path5"></span>
+              <span className="path6"></span>
+              <span className="path7"></span>
+              <span className="path8"></span>
+              <span className="path9"></span>
+            </i>
+          </UIIconButton>
         </div>
       </div>
     </React.Fragment>

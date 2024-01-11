@@ -10,8 +10,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex ">
-        <Providers>{children}</Providers>
+      <body className={``}>
+        <Providers
+          themeProps={{
+            attribute: 'class',
+            defaultTheme: 'dark',
+          }}
+        >
+          <main className="dark text-foreground bg-background">{children}</main>
+        </Providers>
       </body>
     </html>
   );

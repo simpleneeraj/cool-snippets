@@ -1,9 +1,5 @@
+import { UIIndicatorProps } from '@/ui-kit/types';
 import React from 'react';
-
-type UIIndicatorProps = {
-  size?: string | number;
-  color?: string | undefined;
-} & React.SVGProps<SVGSVGElement>;
 
 const UIActivityIndicatorView = ({
   size = '20',

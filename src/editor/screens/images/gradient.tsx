@@ -1,13 +1,13 @@
 import React from 'react';
 import ImageBox from './item';
 import solidColor from '@/lib/solidColor';
-import gradient from '@/lib/nouse/gradient';
+// import gradient from '@/lib/nouse/gradient';
 import css from '@/styles/images.module.scss';
 import useCode from '@/store/hooks/use-code';
 
-const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
+// const sortedGradients = gradient.sort((a, b) => a.name.localeCompare(b.name));
 
-const sortedArray = [...solidColor, ...sortedGradients];
+const sortedArray = [...solidColor];
 
 const GradientComponent = () => {
   const {

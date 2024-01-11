@@ -8,5 +8,9 @@ Example 2: You're working on a collaborative project and want to share a specifi
 
 Example 3: You're writing a blog post about programming and want to include code examples for your readers. Instead of embedding the entire code blocks into your text, you can generate URLs for each snippet and reference them in your blog post. Your readers can then click on the links to view the snippets in a separate window.
 
+Example 4: You can securly protect your code by enable private view, and generate QR code for that
+
 - For Icons
   https://github.com/material-theme
+
+- Added a new feature of layers now we can work on multiple layers, we can download as a zip and share on social media as documentation

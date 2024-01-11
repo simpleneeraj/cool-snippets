@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:mobile": "npx next dev -H 192.168.156.199"
+    "dev:mobile": "npx next dev -H 192.168.120.199"
   },
   "repository": {
     "type": "private",
@@ -28,6 +28,7 @@
     "@codemirror/lang-xml": "^6.0.2",
     "@codemirror/language-data": "^6.3.1",
     "@codemirror/legacy-modes": "^6.3.3",
+    "@nextui-org/react": "^2.2.9",
     "@reduxjs/toolkit": "^1.9.7",
     "@udecode/zustood": "^2.0.0",
     "@uiw/codemirror-themes": "^4.21.20",
@@ -37,6 +38,7 @@
     "framer-motion": "^10.16.16",
     "moment": "^2.29.4",
     "next": "^14.0.3",
+    "next-themes": "^0.2.1",
     "popmotion": "^7.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

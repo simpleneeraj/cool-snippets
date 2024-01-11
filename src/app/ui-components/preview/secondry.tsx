@@ -9,7 +9,7 @@ import Keyboard from '@/lib/icons/Keyboard';
 import CheckmarkICloud from '@/lib/icons/CheckmarkICloud';
 import EllipsisHorizontal from '@/lib/icons/EllipsisHorizontal';
 import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
-import UIButton from '@/ui-kit/source/UIButton';
+import { UIButton, UIIconButton } from '@/ui-kit/source/UIButton';
 import UIView from '@/ui-kit/source/UIView';
 import UISwitch from '@/ui-kit/source/UISwitch';
 import React from 'react';
@@ -18,8 +18,18 @@ import SearchIcon from '@/lib/icons/SearchIcon';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
 import CardComponent from '../elements/card';
-import UILine from '@/ui-kit/source/UILine';
 import UIActivityIndicatorView from '@/ui-kit/source/UIActivityIndicatorView';
+import UISlider from '@/ui-kit/source/UISlider';
+import UICard from '@/ui-kit/source/UICard';
+import UICardBody from '@/ui-kit/source/UICard/body';
+import UIDivider from '@/ui-kit/source/UIDivider';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownSection,
+  DropdownTrigger,
+} from '@nextui-org/react';
 
 const SecondryPreview = () => {
   const [state, setState] = React.useState(false);
@@ -27,75 +37,63 @@ const SecondryPreview = () => {
 
   return (
     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
-      <CardComponent name="Icon Button">
+      <CardComponent name="UIButtons">
         <UIView className="flex gap-1 flex-col">
           <UIView className="flex items-center gap-1">
-            <UIButton variant="icon">
-              <DownloadOutline size={20} />
-            </UIButton>
-            <UIButton variant="icon">
-              <Keyboard size={20} />
-            </UIButton>
-            <UIButton variant="icon">
+            <UIIconButton>
+              <DownloadOutline size={24} />
+            </UIIconButton>
+
+            <UIIconButton>
               <CheckmarkICloud size={24} />
-            </UIButton>
-            <UIButton variant="icon">
+            </UIIconButton>
+            <UIIconButton>
               <EllipsisHorizontal size={20} />
-            </UIButton>
+            </UIIconButton>
             <UIButtonGroup>
-              <UIButton variant="fit">
+              <UIIconButton>
                 <UndoIcon size={24} />
-              </UIButton>
-              <UILine direction="vertical" />
-              <UIButton variant="fit" aria-label="emoji">
+              </UIIconButton>
+              <UIDivider orientation="vertical" />
+              <UIIconButton aria-label="emoji">
                 <RedoIcon size={24} />
-              </UIButton>
+              </UIIconButton>
             </UIButtonGroup>
           </UIView>
           <UIButton>Download Text</UIButton>
           <UIView className="flex gap-1 flex-col">
-            <UIButtonGroup transparent className="gap-1">
-              <UIButton variant="icon" aria-label="emoji">
-                <UndoIcon size={24} />
-              </UIButton>
-              <UIButton variant="fit" aria-label="emoji">
-                <Keyboard size={20} />
-              </UIButton>
-              <UIButton variant="outline" aria-label="emoji">
-                Rotate
-              </UIButton>
-              <UIButton variant="clear" aria-label="emoji">
-                Reset
-              </UIButton>
-              <IconButton aria-label="emoji">
-                <Keyboard size={20} />
-              </IconButton>
-            </UIButtonGroup>
+            <UIIconButton>
+              <UndoIcon size={24} />
+            </UIIconButton>
+            <UIIconButton aria-label="emoji">
+              <Keyboard size={20} />
+            </UIIconButton>
+            <UIButton variant="bordered" aria-label="emoji">
+              Rotate
+            </UIButton>
+            <UIButton variant="flat">Reset</UIButton>
           </UIView>
         </UIView>
       </CardComponent>
 
       <CardComponent name="UISegment">
         <UIView className="flex justify-center items-center flex-col gap-1 flex-1">
-          <UISegmentedControl>
-            {['Tab 1', 'Tab 2', 'Tab 3'].map((item) => {
-              return (
-                <UISegmentButton
-                  onClick={() => setSegmentState(item)}
-                  active={item === segmentState}
-                  key={item}
-                >
-                  {item}
-                </UISegmentButton>
-              );
+          <UISegmentedControl size="sm">
+            {['Colors', 'Gradients', 'Stock Images'].map((item) => {
+              return <UISegmentButton key={item} title={item} />;
+            })}
+          </UISegmentedControl>
+          <UISegmentedControl size="md">
+            {['🧡', '💛', '💚', '💙', '💜'].map((item) => {
+              return <UISegmentButton title={item} key={item} />;
             })}
           </UISegmentedControl>
         </UIView>
       </CardComponent>
       <CardComponent name="Button">
         <UIView className="flex gap-1 flex-col">
-          <UIButton variant="clear">Clear</UIButton>
-          <UIButton variant="outline">Outline</UIButton>
+          <UIButton variant="light">Clear</UIButton>
+          <UIButton variant="bordered">Outline</UIButton>
           <UIButton>Default</UIButton>
           <UIButton disabled>Disabled</UIButton>
         </UIView>
@@ -107,10 +105,7 @@ const SecondryPreview = () => {
       </CardComponent>
       <CardComponent name="UISwitch">
         <UIView className="flex justify-center items-center flex-col gap-1 flex-1">
-          <UISwitch
-            onChecked={(checked) => setState(checked)}
-            checked={state}
-          />
+          <UISwitch />
         </UIView>
       </CardComponent>
       <CardComponent name="UISwitch">
@@ -140,7 +135,66 @@ const SecondryPreview = () => {
       </CardComponent>
       <CardComponent name="UISkeleton">
         <UIView className="flex justify-center items-center flex-col gap-1 flex-1">
-          Soon
+          <UISlider
+            size="sm"
+            step={0.01}
+            maxValue={1}
+            minValue={0}
+            aria-label="Temperature"
+            defaultValue={0.2}
+            color="foreground"
+            classNames={{
+              base: 'max-w-md',
+              label: 'text-medium',
+            }}
+          />
+          <UISlider
+            size="md"
+            step={0.01}
+            maxValue={1}
+            minValue={0}
+            aria-label="Temperature"
+            defaultValue={0.4}
+            className="max-w-md"
+            radius="lg"
+          />
+          <UISlider
+            radius="md"
+            label="Exposure"
+            size="sm"
+            step={0.01}
+            maxValue={5}
+            minValue={-5}
+            fillOffset={0}
+            defaultValue={1.5}
+            className="max-w-md"
+            formatOptions={{ signDisplay: 'always' }}
+          />
+        </UIView>
+      </CardComponent>
+      <CardComponent name="UIDropdown">
+        <UIView className="flex justify-center items-center flex-col gap-1 flex-1">
+          <Dropdown>
+            <DropdownTrigger>
+              <UIButton variant="bordered" className="capitalize">
+                Hello
+              </UIButton>
+            </DropdownTrigger>
+            <DropdownMenu
+              aria-label="Single selection example"
+              variant="flat"
+              disallowEmptySelection
+              selectionMode="single"
+              // selectedKeys={selectedKeys}
+              // onSelectionChange={setSelectedKeys}
+            >
+              <DropdownItem key="text">Text</DropdownItem>
+              <DropdownItem key="number">Number</DropdownItem>
+              <DropdownItem key="date">Date</DropdownItem>
+              <DropdownItem key="single_date">Single Date</DropdownItem>
+              <DropdownItem key="iteration">Iteration</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </UIView>
       </CardComponent>
     </div>

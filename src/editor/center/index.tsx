@@ -1,36 +1,39 @@
 'use client';
 import React from 'react';
 import View from '@/ui/view';
-import BlurLayer from './shadow';
+import dynamic from 'next/dynamic';
+import InlineStyle from './inline';
 import cl from '@/lib/codemirror-langs';
-import useCode from '@/store/hooks/use-code';
 import css from '@/styles/center.module.scss';
 import codeTheme from '@/lib/codemirror-themes';
 import DragHandleIcon from '@/lib/icons/DragHandle';
 import { Capture as Layer } from '@/plugins/capture';
-import CodeLoader from '@/components/skeleton/codeloader';
-// import Draggable from "react-draggable";
-// import CodeHeaders from "./headers";
-import dynamic from 'next/dynamic';
-import InlineStyle from './inline';
+import { Skeleton } from '@nextui-org/react';
+import state from '@/constants/state.json';
 
+const Loading = () => {
+  return (
+    <Skeleton>
+      <div className="h-[200px] bg-opacity-50 backdrop-blur-lg"></div>
+    </Skeleton>
+  );
+};
 const draggableClassName = 'simple-drag';
 
-const CodeHeaders = dynamic(() => import('./headers'));
-// const Draggable = dynamic(() => import('react-draggable'), {
-//   ssr: false,
-// });
-const CodeMirror = dynamic(() => import('@/plugins/codemirror'));
+const CodeHeaders = dynamic(() => import('./headers'), {
+  ssr: false,
+});
+const CodeMirror = dynamic(() => import('@/plugins/codemirror'), {
+  ssr: false,
+  loading: Loading,
+});
 
-interface CenterProps {
-  watermark?: string;
-}
-
-const Center = ({ watermark }: CenterProps) => {
-  const {
-    updateCode,
-    codeState: { code },
-  } = useCode();
+const Center = () => {
+  const code = state.code;
+  // const {
+  //   updateCode,
+  //   codeState: { code },
+  // } = useCode();
 
   const generatedTheme = React.useMemo(
     // @ts-ignore
@@ -47,25 +50,23 @@ const Center = ({ watermark }: CenterProps) => {
           <Layer className="center">
             <View className="layer">
               {code.draggable ? <DraggableHandler /> : null}
-              <React.Suspense fallback={<CodeLoader />}>
-                <CodeHeaders className={generatedTheme[0][0].value} />
-                <CodeMirror
-                  value={code['value']}
-                  readOnly={!code.editable}
-                  onChange={(value) => updateCode('value', value)}
-                  className="codemirror"
-                  theme={generatedTheme}
-                  extensions={generatedMode}
-                  basicSetup={{
-                    foldGutter: false,
-                    lineNumbers: code['line-numbers'],
-                    autocompletion: code['auto-completion'],
-                    highlightActiveLine: false,
-                    highlightActiveLineGutter: false,
-                  }}
-                />
-              </React.Suspense>
-              <BlurLayer />
+
+              <CodeHeaders className={generatedTheme[0][0].value} />
+              <CodeMirror
+                value={code['value']}
+                readOnly={!code.editable}
+                // onChange={(value) => updateCode('value', value)}
+                className="codemirror"
+                theme={generatedTheme}
+                extensions={generatedMode}
+                basicSetup={{
+                  foldGutter: false,
+                  lineNumbers: code['line-numbers'],
+                  autocompletion: code['auto-completion'],
+                  highlightActiveLine: false,
+                  highlightActiveLineGutter: false,
+                }}
+              />
             </View>
           </Layer>
         </View>
