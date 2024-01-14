@@ -15,7 +15,7 @@ import solarizedDark from './solarized-dark';
 import solarizedLight from './solarized-light';
 import { duotoneDark, duotoneLight } from './duotone';
 
-const codeMirrorThemes = {
+const themes = {
   abcdef: abcdef,
   'basic-dark': basicDark,
   'basic-light': basicLight,
@@ -35,5 +35,5 @@ const codeMirrorThemes = {
   sublime: sublime,
 };
 
-export const themes = Object.keys(codeMirrorThemes);
+// export const themes = Object.keys(codeMirrorThemes);
 export default themes;

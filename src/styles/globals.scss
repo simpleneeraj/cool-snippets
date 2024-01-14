@@ -1,26 +1,17 @@
 .app-container {
-  --ui-primary-background: rgb(9, 9, 9);
-  --ui-secondry-background: rgb(20, 20, 20);
-  --ui-tertiary-background: rgb(32, 32, 32);
-  --ui-tetra-background: rgb(48, 48, 48);
-  $radius: 10px;
-  $Padding: 4px;
-  $gapping: 6px;
-
-  $primary-background: var(--ui-app-primary-background);
-  $secondry-background: var(--ui-app-secondry-background);
-  $tertiary-background: var(--ui-app-tertiary-background);
-  $tetra-background: var(--ui-app-tetra-background);
-
-  $primary-background-aplha: #0d111700;
-  $grid-line-color: #272e35;
-  $horizontal-line-color: #3e3e3e;
+  $primary: hsl(var(--nextui-background) / 1);
+  $primary-alpha: hsl(var(--nextui-background) / 0);
+  $line: hsl(var(--nextui-foreground-100) / 0.5);
 
   position: relative;
-  background-image: url('/texture/tile-dark.svg');
+  background-image: linear-gradient(0deg, $primary, $primary-alpha 15%),
+    linear-gradient(180deg, $primary, $primary-alpha 15%),
+    radial-gradient(circle farthest-side at 50% 0, $primary-alpha, $primary),
+    url('/texture/tile-dark.svg');
   background-position: 0 0, 0 0, 0 0, -1px -1px;
   background-size: auto, auto, auto, 64px;
   // background-color: $grid-line-color;
+  @apply bg-foreground-100;
 }
 
 .scroll-content {

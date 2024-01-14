@@ -39,7 +39,7 @@ import { dockerFile } from '@codemirror/legacy-modes/mode/dockerfile';
 import { julia } from '@codemirror/legacy-modes/mode/julia';
 import { r } from '@codemirror/legacy-modes/mode/r';
 
-const langugesObject = {
+const languages = {
   javascript,
   jsx: () => javascript({ jsx: true }),
   typescript: () => javascript({ typescript: true }),
@@ -91,7 +91,7 @@ const langugesObject = {
   // clike: () => clike({}),
 };
 
-const languages = Object.keys(langugesObject);
+// const languages = Object.keys(langugesObject);
 
 /**
  * {

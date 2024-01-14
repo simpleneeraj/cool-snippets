@@ -1,0 +1,54 @@
+{
+  "canvas": {
+    "width": 450,
+    "height": 450,
+    "watermark": true,
+    "aspect-ratio": "1:1",
+    "source": "/images/glow-wallpaper.jpg"
+  },
+  "code": {
+    "padding": 20,
+    "editable": true,
+    "draggable": false,
+    "translucent": true,
+    "line-numbers": false,
+    "auto-completion": false,
+    "theme": "dracula",
+    "mode": "javascript",
+    "alpha": 0,
+    "blur-radius": 20,
+    "corner-radius": 15,
+    "value": "if (tweeted || facebooked) {\n  gratitude += 1;\n}\nif (githubStarred) {\n  karmaBalance = true;\n} else {\n  $('we').say('ok');\n}",
+    "background": "rgba(0, 0, 0, 0.5)"
+  },
+  "codeHead": {
+    "shodow": 0,
+    "type": "windows::terminal",
+    "input": "nothing",
+    "position": "nothing",
+    "colors": [
+      {
+        "name": "Red",
+        "hex": "#fd4539"
+      },
+      {
+        "name": "Yellow",
+        "hex": "#ffd213"
+      },
+      {
+        "name": "Green",
+        "hex": "#21d854"
+      }
+    ],
+    "background": "rgba(0, 0, 0, 0.75)",
+    "theme": "outline",
+    "icon": "https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg"
+  },
+  "text": {
+    "font-size": 16,
+    "font-weight": 400,
+    "line-height": 1.6,
+    "letter-spacing": 0,
+    "font-face": "SFMono"
+  }
+}

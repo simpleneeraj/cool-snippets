@@ -1,133 +1,166 @@
 'use client';
 
 import React from 'react';
-import css from '@/styles/app.module.scss';
+import { Button, Chip, Tooltip } from '@nextui-org/react';
 import UIDivider from '@/ui-kit/source/UIDivider';
-import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
-
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownSection,
-  DropdownItem,
-} from '@nextui-org/react';
+import UIButton from '@/ui-kit/source/UIButton/button';
 import UIIconButton from '@/ui-kit/source/UIButton/icon';
+import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
+import { useCapture } from '@/plugins/capture';
+import UIView from '@/ui-kit/source/UIView';
+import UndoIcon from '@/ui-kit/icons/undo-icon';
+import RedoIcon from '@/ui-kit/icons/redo-icon';
+import ICloudCheckIcon from '@/ui-kit/icons/icloud-check-icon';
+import HighlighterIcon from '@/ui-kit/icons/highlighter-icon';
 
 const AppHeader = () => {
+  const { captureImage, isLoading } = useCapture();
+
   return (
-    <div className={`z-50 ${css.top}`}>
-      <div className={css.title}>
-        <div className={css.button} title="Back">
+    <UIView className={`flex items-center justify-between p-2 pb-0 z-50`}>
+      <UIView className={'flex items-center gap-2'}>
+        {/* Back Button */}
+        <UIIconButton size="sm" radius="sm" variant="light" title="Back">
           {'<'}
-        </div>
-        <div className={css.text}>
-          <h4>Typescript Interface Detailed Guide</h4>
-          <p>Last Edited &middot; June 2022 ↯</p>
-        </div>
-      </div>
-      <div className={css.controls}>
-        <UIButtonGroup>
+        </UIIconButton>
+        <UIView className={'flex flex-col'}>
+          <UIView className="flex gap-2 items-center">
+            <h4 className="flex items-center gap-1 text-lg text-default-900">
+              Untitle code snippet
+              {/* Edit Button to change title accordingly */}
+              <span className="flex items-center justify-center cursor-pointer select-none">
+                <HighlighterIcon className="h-4 w-4" />
+              </span>
+            </h4>
+            <UIView className="">
+              <Chip size="sm" variant="dot" color="success">
+                Introducing v1.0.0
+              </Chip>
+            </UIView>
+          </UIView>
+          {/* Realtime editing timing */}
+          <p className="flex items-center gap-1 text-xs text-default-500">
+            Last Edited &middot; June 2022{' '}
+            <span className="flex items-center  justify-center">
+              <ICloudCheckIcon className="h-4 w-4" />
+            </span>
+          </p>
+        </UIView>
+      </UIView>
+      <UIView className={'flex items-center gap-1'}>
+        <UIButtonGroup size="sm">
           <UIIconButton title="Undo" aria-label="Undo">
-            ↩
+            <UndoIcon className="h-3 w-3" />
           </UIIconButton>
           <UIDivider orientation="vertical" />
           <UIIconButton title="Redo" aria-label="redo">
-            ↪
+            <RedoIcon className="h-3 w-3" />
           </UIIconButton>
         </UIButtonGroup>
-        <UIIconButton>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
+        <UIButton size="sm" variant="flat" radius="sm">
+          Templates
+        </UIButton>
+        <UIButton size="sm" variant="flat" radius="sm">
+          1:1 Ratio
+        </UIButton>
+
+        <UIButton
+          size="sm"
+          variant="flat"
+          radius="sm"
+          disabled
+          color="secondary"
+        >
+          Save as template
+        </UIButton>
+        <Tooltip size="sm" placement="bottom" content="Notification">
+          <Button size="sm" className="min-w-unit-5" radius="sm" variant="flat">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+              />
+            </svg>
+          </Button>
+        </Tooltip>
+        {/* <Dropdown>
+          <DropdownTrigger>
+            <Button variant="flat" radius="sm" size="sm">
+              Export
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            variant="faded"
+            aria-label="Dropdown menu with description"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
-            />
-          </svg>
-        </UIIconButton>
-        <UIIconButton>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-            />
-          </svg>
-        </UIIconButton>
-        <Model />
-      </div>
-    </div>
+            <DropdownSection title="Actions" showDivider>
+              <DropdownItem
+                onPress={() =>
+                  captureImage({
+                    fileName: 'image',
+                    imageFormat: 'png',
+                    pixelRatio: 4,
+                  })
+                }
+                key="new"
+                shortcut="⌘N"
+                description="Export high quality image"
+              >
+                {isLoading ? 'Downloading...' : 'Download Image'}
+              </DropdownItem>
+              <DropdownItem
+                key="copy"
+                shortcut="⌘C"
+                description="Copy the file link"
+              >
+                Copy link
+              </DropdownItem>
+              <DropdownItem
+                key="edit"
+                shortcut="⌘⇧E"
+                description="Allows you to edit the file"
+              >
+                Edit file
+              </DropdownItem>
+            </DropdownSection>
+            <DropdownSection title="Danger zone">
+              <DropdownItem
+                key="delete"
+                className="text-danger"
+                color="danger"
+                shortcut="⌘⇧D"
+                description="Permanently delete the file"
+              >
+                Delete file
+              </DropdownItem>
+            </DropdownSection>
+          </DropdownMenu>
+        </Dropdown> */}
+        <UIButton
+          isLoading={isLoading}
+          onPress={() =>
+            captureImage({
+              fileName: 'image',
+              imageFormat: 'png',
+              pixelRatio: 4,
+            })
+          }
+          size="sm"
+          variant="flat"
+          radius="sm"
+        >
+          Export
+        </UIButton>
+      </UIView>
+    </UIView>
   );
 };
 export default AppHeader;
-
-function Model() {
-  return (
-    <Dropdown>
-      <DropdownTrigger>
-        <UIIconButton>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-            />
-          </svg>
-        </UIIconButton>
-      </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Dropdown menu with description">
-        <DropdownSection title="Actions" showDivider>
-          <DropdownItem key="new" shortcut="⌘N" description="Create a new file">
-            New file
-          </DropdownItem>
-          <DropdownItem
-            key="copy"
-            shortcut="⌘C"
-            description="Copy the file link"
-          >
-            Copy link
-          </DropdownItem>
-          <DropdownItem
-            key="edit"
-            shortcut="⌘⇧E"
-            description="Allows you to edit the file"
-          >
-            Edit file
-          </DropdownItem>
-        </DropdownSection>
-        <DropdownSection title="Danger zone">
-          <DropdownItem
-            key="delete"
-            className="text-danger"
-            color="danger"
-            shortcut="⌘⇧D"
-            description="Permanently delete the file"
-          >
-            Delete file
-          </DropdownItem>
-        </DropdownSection>
-      </DropdownMenu>
-    </Dropdown>
-  );
-}
