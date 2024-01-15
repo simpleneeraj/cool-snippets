@@ -14,7 +14,7 @@ const config: Config = {
   theme: {
     extend: {
       maxWidth: {
-        widget: '280px',
+        widget: '300px',
       },
     },
   },

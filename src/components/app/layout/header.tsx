@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button, Chip, Tooltip } from '@nextui-org/react';
+import { Chip, Tooltip } from '@nextui-org/react';
 import UIDivider from '@/ui-kit/source/UIDivider';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import UIIconButton from '@/ui-kit/source/UIButton/icon';
@@ -12,6 +12,8 @@ import UndoIcon from '@/ui-kit/icons/undo-icon';
 import RedoIcon from '@/ui-kit/icons/redo-icon';
 import ICloudCheckIcon from '@/ui-kit/icons/icloud-check-icon';
 import HighlighterIcon from '@/ui-kit/icons/highlighter-icon';
+import BookmarkIcon from '@/ui-kit/icons/bookmark-icon';
+import { headerIcon } from '@/components/style/header';
 
 const AppHeader = () => {
   const { captureImage, isLoading } = useCapture();
@@ -20,8 +22,27 @@ const AppHeader = () => {
     <UIView className={`flex items-center justify-between p-2 pb-0 z-50`}>
       <UIView className={'flex items-center gap-2'}>
         {/* Back Button */}
-        <UIIconButton size="sm" radius="sm" variant="light" title="Back">
-          {'<'}
+        <UIIconButton
+          size="sm"
+          radius="sm"
+          variant="light"
+          title="Back"
+          isIconOnly
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={headerIcon()}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5 8.25 12l7.5-7.5"
+            />
+          </svg>
         </UIIconButton>
         <UIView className={'flex flex-col'}>
           <UIView className="flex gap-2 items-center">
@@ -42,20 +63,24 @@ const AppHeader = () => {
           <p className="flex items-center gap-1 text-xs text-default-500">
             Last Edited &middot; June 2022{' '}
             <span className="flex items-center  justify-center">
-              <ICloudCheckIcon className="h-4 w-4" />
+              <ICloudCheckIcon className={headerIcon()} />
             </span>
           </p>
         </UIView>
       </UIView>
       <UIView className={'flex items-center gap-1'}>
         <UIButtonGroup size="sm">
-          <UIIconButton title="Undo" aria-label="Undo">
-            <UndoIcon className="h-3 w-3" />
-          </UIIconButton>
+          <Tooltip size="sm" placement="bottom" content="Undo (⌘⇧Z)">
+            <UIIconButton>
+              <UndoIcon className={headerIcon()} />
+            </UIIconButton>
+          </Tooltip>
           <UIDivider orientation="vertical" />
-          <UIIconButton title="Redo" aria-label="redo">
-            <RedoIcon className="h-3 w-3" />
-          </UIIconButton>
+          <Tooltip size="sm" placement="bottom" content="Redo (⌘⇧Y)">
+            <UIIconButton>
+              <RedoIcon className={headerIcon()} />
+            </UIIconButton>
+          </Tooltip>
         </UIButtonGroup>
         <UIButton size="sm" variant="flat" radius="sm">
           Templates
@@ -70,32 +95,38 @@ const AppHeader = () => {
           radius="sm"
           disabled
           color="secondary"
+          startContent={<BookmarkIcon className={headerIcon()} />}
         >
           Save as template
         </UIButton>
-        <Tooltip size="sm" placement="bottom" content="Notification">
-          <Button size="sm" className="min-w-unit-5" radius="sm" variant="flat">
+        <Tooltip size="sm" placement="bottom" content="Features">
+          <UIButton
+            size="sm"
+            className="min-w-unit-5"
+            radius="sm"
+            variant="flat"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-4 h-4"
+              className={headerIcon()}
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+                d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
               />
             </svg>
-          </Button>
+          </UIButton>
         </Tooltip>
         {/* <Dropdown>
           <DropdownTrigger>
-            <Button variant="flat" radius="sm" size="sm">
+            <UIButton variant="flat" radius="sm" size="sm">
               Export
-            </Button>
+            </UIButton>
           </DropdownTrigger>
           <DropdownMenu
             variant="faded"

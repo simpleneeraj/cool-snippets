@@ -12,13 +12,14 @@ import UIView from '@/ui-kit/source/UIView';
 function ScreenEdit() {
   return (
     <Card radius="none" className="bg-transparent shadow-none">
-      <CardHeader className="flex gap-1 py-1 px-2 bg-default-200">
+      <CardHeader className="flex gap-1 py-1 px-2 bg-default-100">
         <div className="flex-1 flex item-center justify-between">
-          <p className="text-small">CANVAS</p>
+          <p className="text-tiny">CANVAS</p>
           <UIButton
             size="sm"
             radius="none"
             variant="light"
+            disableRipple
             className="p-0 h-auto min-w-fit text-tiny text-default-600"
           >
             Reset

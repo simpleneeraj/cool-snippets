@@ -9,6 +9,10 @@ import CodingLines from './coding-lines';
 import { HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from '../../code/templates/colors';
 import { tv } from '@nextui-org/react';
+import UIView from '@/ui-kit/source/UIView';
+import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
+import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+import UIButton from '@/ui-kit/source/UIButton/button';
 
 type CardProps = {
   background?: string;
@@ -17,7 +21,7 @@ type CardProps = {
 const template = tv({
   slots: {
     base: 'flex flex-col gap-2',
-    container: 'grid min-h-44 rounded-xl p-10',
+    container: 'grid min-h-44 rounded-xl p-10 relative overflow-hidden',
     card: 'h-fit min-w-36 backdrop-blur-lg flex flex-col overflow-hidden justify-between rounded-lg bg-black bg-opacity-50',
   },
 });
@@ -29,34 +33,115 @@ const TemplatesPreview = () => {
   const background = backgroundPurify(canvas.source);
 
   return (
-    <div className={base()}>
+    <UIView className={base()}>
       {templates.map(({ codeHeader }, index) => (
         <Card background={background} key={index}>
           {codeHeader}
         </Card>
       ))}
-    </div>
+    </UIView>
   );
 };
 export default TemplatesPreview;
 
 const Card = ({ background, children }: CardProps) => {
   return (
-    <div
-      style={{
-        background,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        transition: 'all 100ms ease-in',
-      }}
-      className={container()}
-    >
-      <div className={card()}>
-        {children}
-        <CodingLines />
-      </div>
-    </div>
+    <UIView className="relative flex flex-col overflow-hidden bg-black bg-opacity-50 rounded-xl">
+      <UIView
+        style={{
+          background,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transition: 'all 100ms ease-in',
+        }}
+        className={container()}
+      >
+        <UIView className={card()}>
+          {children}
+          <CodingLines />
+        </UIView>
+      </UIView>{' '}
+      <UIView className="p-1">
+        <UIView className="flex flex-col gap-1 py-1">
+          <span className="text-[10px]">Type</span>
+          <UISegmentedControl
+            fullWidth
+            variant="light"
+            size="sm"
+            radius="sm"
+            className="text-[8px]"
+          >
+            <UISegmentButton title="Outline" />
+
+            <UISegmentButton title="Solid" />
+          </UISegmentedControl>
+        </UIView>
+        <UIView className="flex flex-col gap-1 py-1">
+          <span className="text-[10px]">Colors</span>
+          <UIView className="flex items-center gap-2 overflow-auto">
+            <UIButton
+              size="sm"
+              variant="flat"
+              radius="sm"
+              className={'text-[10px]'}
+            >
+              <span className="h-4 min-w-4 bg-red-500 rounded-[4px]"></span>
+              #000000
+            </UIButton>
+            <UIButton
+              size="sm"
+              variant="flat"
+              radius="sm"
+              className={'text-[10px]'}
+            >
+              <span className="h-4 min-w-4 bg-yellow-500 rounded-[4px]"></span>
+              #000000
+            </UIButton>
+            <UIButton
+              size="sm"
+              variant="flat"
+              radius="sm"
+              className={'text-[10px]'}
+            >
+              <span className="h-4 min-w-4 bg-green-500 rounded-[4px]"></span>
+              #000000
+            </UIButton>
+          </UIView>
+        </UIView>
+        <UIView className="flex flex-col gap-1 py-1">
+          <span className="text-[10px]">Position</span>
+          <UISegmentedControl
+            fullWidth
+            variant="bordered"
+            size="sm"
+            radius="sm"
+            className="text-[8px] p-0"
+          >
+            <UISegmentButton
+              title={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+                  />
+                </svg>
+              }
+            />
+            <UISegmentButton title="Left" />
+            <UISegmentButton title="Left" />
+          </UISegmentedControl>
+        </UIView>
+      </UIView>
+    </UIView>
   );
 };
 

@@ -3,8 +3,9 @@ import { Button } from '@nextui-org/react';
 
 type Props = {} & React.ComponentProps<typeof Button>;
 
-const UIButton = (props: Props) => {
-  return <Button {...props} />;
-};
+const UIButton = React.forwardRef((props: Props, ref: Props['ref']) => {
+  return <Button {...props} ref={ref} />;
+});
 
+UIButton.displayName = 'UIButton';
 export default UIButton;
