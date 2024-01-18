@@ -5,8 +5,8 @@ import BackgroundScreens from '../background-screens';
 function Screens() {
   return (
     <React.Fragment>
+      <EditingScreens />
       <BackgroundScreens />
-      {/* <EditingScreens /> */}
     </React.Fragment>
   );
 }

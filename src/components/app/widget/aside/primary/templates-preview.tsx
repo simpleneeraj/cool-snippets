@@ -10,18 +10,6 @@ import { HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from '../../code/templates/colors';
 import { tv } from '@nextui-org/react';
 import UIView from '@/ui-kit/source/UIView';
-<<<<<<< Updated upstream
-import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
-import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
-import UIButton from '@/ui-kit/source/UIButton/button';
-=======
-<<<<<<< HEAD
-=======
-import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
-import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
-import UIButton from '@/ui-kit/source/UIButton/button';
->>>>>>> 7e60c61bf43ded13157e2338ad06cfb3c6ade1af
->>>>>>> Stashed changes
 
 type CardProps = {
   background?: string;
@@ -71,94 +59,6 @@ const Card = ({ background, children }: CardProps) => {
           <CodingLines />
         </UIView>
       </UIView>{' '}
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-      <UIView className="p-1">
-        <UIView className="flex flex-col gap-1 py-1">
-          <span className="text-[10px]">Type</span>
-          <UISegmentedControl
-            fullWidth
-            variant="light"
-            size="sm"
-            radius="sm"
-            className="text-[8px]"
-          >
-            <UISegmentButton title="Outline" />
-
-            <UISegmentButton title="Solid" />
-          </UISegmentedControl>
-        </UIView>
-        <UIView className="flex flex-col gap-1 py-1">
-          <span className="text-[10px]">Colors</span>
-          <UIView className="flex items-center gap-2 overflow-auto">
-            <UIButton
-              size="sm"
-              variant="flat"
-              radius="sm"
-              className={'text-[10px]'}
-            >
-              <span className="h-4 min-w-4 bg-red-500 rounded-[4px]"></span>
-              #000000
-            </UIButton>
-            <UIButton
-              size="sm"
-              variant="flat"
-              radius="sm"
-              className={'text-[10px]'}
-            >
-              <span className="h-4 min-w-4 bg-yellow-500 rounded-[4px]"></span>
-              #000000
-            </UIButton>
-            <UIButton
-              size="sm"
-              variant="flat"
-              radius="sm"
-              className={'text-[10px]'}
-            >
-              <span className="h-4 min-w-4 bg-green-500 rounded-[4px]"></span>
-              #000000
-            </UIButton>
-          </UIView>
-        </UIView>
-        <UIView className="flex flex-col gap-1 py-1">
-          <span className="text-[10px]">Position</span>
-          <UISegmentedControl
-            fullWidth
-            variant="bordered"
-            size="sm"
-            radius="sm"
-            className="text-[8px] p-0"
-          >
-            <UISegmentButton
-              title={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
-                  />
-                </svg>
-              }
-            />
-            <UISegmentButton title="Left" />
-            <UISegmentButton title="Left" />
-          </UISegmentedControl>
-        </UIView>
-      </UIView>
-<<<<<<< Updated upstream
-=======
->>>>>>> 7e60c61bf43ded13157e2338ad06cfb3c6ade1af
->>>>>>> Stashed changes
     </UIView>
   );
 };
