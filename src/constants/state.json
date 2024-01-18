@@ -18,8 +18,8 @@
     "alpha": 0,
     "blur-radius": 20,
     "corner-radius": 15,
-    "value": "if (tweeted || facebooked) {\n  gratitude += 1;\n}\nif (githubStarred) {\n  karmaBalance = true;\n} else {\n  $('we').say('ok');\n}",
-    "background": "rgba(0, 0, 0, 0.5)"
+    "value": "import SwiftUI\n\nstruct CircleImage: View {\n  var body: some View {\n    Image('turtlerock')\n      .clipShape(Circle())\n  }\n}",
+    "background": "rgba(0, 0, 0, 0.65)"
   },
   "codeHead": {
     "shodow": 0,

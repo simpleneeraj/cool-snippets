@@ -1,7 +1,8 @@
 import React from 'react';
 import '@/styles/code-fonts.scss';
+import AppLayout from '@/components/app/layout';
 
 const StudioLayout = ({ children }: React.PropsWithChildren) => {
-  return children;
+  return <AppLayout>{children}</AppLayout>;
 };
 export default StudioLayout;

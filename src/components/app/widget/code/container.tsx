@@ -53,7 +53,8 @@ const ContainerWidget = () => {
           <CaptureView className="center">
             <UIView className="layer">
               {code.draggable ? <DraggableHandler /> : null}
-              <CodeHeaders className={generatedTheme[0][0].value} />
+              {/* className={generatedTheme[0][0].value} */}
+              <CodeHeaders />
               <CodeMirror
                 value={code['value']}
                 readOnly={!code.editable}

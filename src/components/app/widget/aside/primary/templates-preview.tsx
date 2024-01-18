@@ -10,9 +10,18 @@ import { HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from '../../code/templates/colors';
 import { tv } from '@nextui-org/react';
 import UIView from '@/ui-kit/source/UIView';
+<<<<<<< Updated upstream
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
 import UIButton from '@/ui-kit/source/UIButton/button';
+=======
+<<<<<<< HEAD
+=======
+import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
+import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+import UIButton from '@/ui-kit/source/UIButton/button';
+>>>>>>> 7e60c61bf43ded13157e2338ad06cfb3c6ade1af
+>>>>>>> Stashed changes
 
 type CardProps = {
   background?: string;
@@ -62,6 +71,11 @@ const Card = ({ background, children }: CardProps) => {
           <CodingLines />
         </UIView>
       </UIView>{' '}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
       <UIView className="p-1">
         <UIView className="flex flex-col gap-1 py-1">
           <span className="text-[10px]">Type</span>
@@ -141,6 +155,10 @@ const Card = ({ background, children }: CardProps) => {
           </UISegmentedControl>
         </UIView>
       </UIView>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7e60c61bf43ded13157e2338ad06cfb3c6ade1af
+>>>>>>> Stashed changes
     </UIView>
   );
 };
