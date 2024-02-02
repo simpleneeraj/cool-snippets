@@ -1,11 +1,11 @@
-import React from "react";
-import download from "../fileSaver";
-import createCanvas from "../main/createcanvas";
-import createSvg from "../main/createsvg";
-import randomName from "../main/randomname";
-import { CaptureOptions } from "../options";
-import attID from "../utils/attid";
-import delay from "../utils/delay";
+import React from 'react';
+import download from '../fileSaver';
+import createCanvas from '../main/createcanvas';
+import createSvg from '../main/createsvg';
+import randomName from '../main/randomname';
+import { CaptureOptions } from '../options';
+import attID from '../utils/attid';
+import delay from '../utils/delay';
 
 const useScreenshot = () => {
   const [isLoading, setLoading] = React.useState(false);
@@ -13,7 +13,7 @@ const useScreenshot = () => {
   const captureImage = React.useCallback(
     async (options: CaptureOptions): Promise<void> => {
       // For SSR
-      if (typeof document === "undefined") {
+      if (typeof document === 'undefined') {
         return;
       }
       const element = document.querySelector(
@@ -22,19 +22,19 @@ const useScreenshot = () => {
       const { imageFormat, delay: exportDelay = 0, fileName } = options;
       setLoading(true);
 
-      const fn = fileName
+      const name = fileName
         ? `${fileName}.${imageFormat}`
         : randomName(imageFormat);
       try {
         await delay(exportDelay);
-        if (imageFormat === "svg") {
+        if (imageFormat === 'svg') {
           const svg: SVGSVGElement = await createSvg(element, options);
-          const svgBlob = new Blob([svg.outerHTML], { type: "text/svg+xml" });
-          download(svgBlob, fn);
+          const svgBlob = new Blob([svg.outerHTML], { type: 'text/svg+xml' });
+          download(svgBlob, name);
         } else {
           const canvas = await createCanvas(element, options);
           canvas.toBlob((blob: Blob) => {
-            download(blob, fn);
+            download(blob, name);
           }, `image/${imageFormat}`);
         }
 

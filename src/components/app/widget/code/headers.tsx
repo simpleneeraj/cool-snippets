@@ -48,7 +48,7 @@ const CodeHeaderWidget = () => {
         <UnixNeon
           colors={unixColors}
           variant={HeaderVariants.OUTLINE}
-          inputType={HeaderInputType.INPUT}
+          inputType={HeaderInputType.ICON}
           iconSource="https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg"
           style={{
             gap: '8px',

@@ -8,11 +8,11 @@ import UIIconButton from '@/ui-kit/source/UIButton/icon';
 import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
 import { useCapture } from '@/plugins/capture';
 import UIView from '@/ui-kit/source/UIView';
-import UndoIcon from '@/ui-kit/icons/undo-icon';
-import RedoIcon from '@/ui-kit/icons/redo-icon';
-import ICloudCheckIcon from '@/ui-kit/icons/icloud-check-icon';
-import HighlighterIcon from '@/ui-kit/icons/highlighter-icon';
-import BookmarkIcon from '@/ui-kit/icons/bookmark-icon';
+import UndoIcon from '@/ui-kit/icons/UndoIcon';
+import RedoIcon from '@/ui-kit/icons/RedoIcon';
+import CloudCheckIcon from '@/ui-kit/icons/CloudCheckIcon';
+import HighlighterIcon from '@/ui-kit/icons/HighlighterIcon';
+import BookmarkIcon from '@/ui-kit/icons/BookmarkIcon';
 import { headerIcon } from '@/components/style/header';
 
 const AppHeader = () => {
@@ -63,7 +63,7 @@ const AppHeader = () => {
           <p className="flex items-center gap-1 text-xs text-default-500">
             Last Edited &middot; June 2022{' '}
             <span className="flex items-center  justify-center">
-              <ICloudCheckIcon className={headerIcon()} />
+              <CloudCheckIcon className={headerIcon()} />
             </span>
           </p>
         </UIView>
@@ -82,12 +82,6 @@ const AppHeader = () => {
             </UIIconButton>
           </Tooltip>
         </UIButtonGroup>
-        <UIButton size="sm" variant="flat" radius="sm">
-          Templates
-        </UIButton>
-        <UIButton size="sm" variant="flat" radius="sm">
-          1:1 Ratio
-        </UIButton>
 
         <UIButton
           size="sm"
@@ -122,59 +116,7 @@ const AppHeader = () => {
             </svg>
           </UIButton>
         </Tooltip>
-        {/* <Dropdown>
-          <DropdownTrigger>
-            <UIButton variant="flat" radius="sm" size="sm">
-              Export
-            </UIButton>
-          </DropdownTrigger>
-          <DropdownMenu
-            variant="faded"
-            aria-label="Dropdown menu with description"
-          >
-            <DropdownSection title="Actions" showDivider>
-              <DropdownItem
-                onPress={() =>
-                  captureImage({
-                    fileName: 'image',
-                    imageFormat: 'png',
-                    pixelRatio: 4,
-                  })
-                }
-                key="new"
-                shortcut="⌘N"
-                description="Export high quality image"
-              >
-                {isLoading ? 'Downloading...' : 'Download Image'}
-              </DropdownItem>
-              <DropdownItem
-                key="copy"
-                shortcut="⌘C"
-                description="Copy the file link"
-              >
-                Copy link
-              </DropdownItem>
-              <DropdownItem
-                key="edit"
-                shortcut="⌘⇧E"
-                description="Allows you to edit the file"
-              >
-                Edit file
-              </DropdownItem>
-            </DropdownSection>
-            <DropdownSection title="Danger zone">
-              <DropdownItem
-                key="delete"
-                className="text-danger"
-                color="danger"
-                shortcut="⌘⇧D"
-                description="Permanently delete the file"
-              >
-                Delete file
-              </DropdownItem>
-            </DropdownSection>
-          </DropdownMenu>
-        </Dropdown> */}
+
         <UIButton
           isLoading={isLoading}
           onPress={() =>
@@ -182,6 +124,13 @@ const AppHeader = () => {
               fileName: 'image',
               imageFormat: 'png',
               pixelRatio: 4,
+              isDebug: true,
+              fonts: [
+                {
+                  src: '/fonts/SFMono//SFMonoLigaturized.ttf',
+                  fontFamily: 'SFMono',
+                },
+              ],
             })
           }
           size="sm"

@@ -1,0 +1,13 @@
+// import unsplash from '@/server/unsplash';
+// import { NextRequest, NextResponse } from 'next/server';
+
+// export const GET = async (req: NextRequest) => {
+//   try {
+//     const response = await unsplash.search.getPhotos({
+//       query: 'Mac Wallpapers',
+//     });
+//     return NextResponse.json(response.response?.results);
+//   } catch (error) {
+//     return NextResponse.json(error);
+//   }
+// };

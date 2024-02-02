@@ -1,0 +1,61 @@
+import React from 'react';
+import { SECONDRY_ASIDE_SCREEN } from '@/typings/enums';
+import { createReducerContext, createSlice } from '@/plugins/mini-state';
+
+// Type for the state of the secondary aside screens
+type ScreenState = {
+  aspectRatioScreen: SECONDRY_ASIDE_SCREEN;
+  programmingLanguageScreen: SECONDRY_ASIDE_SCREEN;
+};
+
+// Keys for the state type
+type ScreenStateKeys = keyof ScreenState;
+
+// Payload type for actions
+type ScreenActionPayload = {
+  key: ScreenStateKeys;
+  value: any;
+};
+
+// Actions type
+type ScreenActions = {
+  changeSelectedScreen: (payload: ScreenActionPayload) => any;
+};
+
+// Initial state
+const initialState: ScreenState = {
+  aspectRatioScreen: SECONDRY_ASIDE_SCREEN.EMPTY_SCREEN,
+  programmingLanguageScreen: SECONDRY_ASIDE_SCREEN.LANGUAGES_SCREEN,
+};
+
+/**
+ * Slice Creation
+ */
+const { reducer, actions } = createSlice<ScreenState, ScreenActions>(
+  initialState,
+  {
+    // Reducer function for handling the changeSelectedScreen action
+    changeSelectedScreen: (state, action) => ({
+      ...state,
+      [action.payload.key]: action.payload.value,
+    }),
+  }
+);
+
+// Creating a context and provider for the secondary aside screens state
+const [Context, Provider] = createReducerContext(reducer, initialState);
+
+/**
+ * Custom Hook for Secondary Aside Screens
+ */
+const useAsideScreen = () => {
+  return React.useContext(Context);
+};
+
+// Exporting actions and the context provider
+const actionsWithTypeAnnotations = actions as unknown as ScreenActions;
+export {
+  useAsideScreen,
+  Provider as AsideScreenProvider,
+  actionsWithTypeAnnotations as secondaryAsideScreenActions,
+};

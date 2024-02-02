@@ -7,7 +7,7 @@ type Props = {} & React.ComponentPropsWithRef<'div'>;
 const UIView = React.forwardRef((props: Props, ref: Ref) => {
   const { children } = props;
   return (
-    <div ref={ref} {...props}>
+    <div {...props} ref={ref}>
       {children}
     </div>
   );

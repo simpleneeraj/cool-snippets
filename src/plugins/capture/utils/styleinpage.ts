@@ -12,7 +12,7 @@ import uniqArray from './uniqarray';
  */
 
 const styleInPage = (cssProperty: string | any): Promise<string[]> => {
-  const List = []
+  const List = [];
   for (const allNodes of document.querySelectorAll('*') as any) {
     for (const pseudo of ['', ':before', ':after']) {
       const getValue = getComputedStyle(allNodes, pseudo)[cssProperty];
@@ -24,12 +24,3 @@ const styleInPage = (cssProperty: string | any): Promise<string[]> => {
 };
 
 export default styleInPage;
-
-  // for (const allNodes of currentNode.querySelectorAll('*') as any) {
-  //   for (const pseudo of ['', ':before', ':after']) {
-  //     const getValue = getComputedStyle(allNodes, pseudo)[cssProperty]
-  //     List.push(getValue);
-  //   }
-  // }
-
-  // console.log("List", Array.from(new Set(List)));

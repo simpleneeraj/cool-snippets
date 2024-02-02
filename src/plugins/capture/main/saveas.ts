@@ -10,14 +10,14 @@ import attID from '../utils/attid';
  * @param nodeSelector
  * @param options
  */
-const saveAs = async (
-  options: CaptureOptions = {}
-) => {
+const saveAs = async (options: CaptureOptions) => {
   // For SSR
   if (typeof window === 'undefined') {
     return;
   }
-  const element = document.querySelector(`[data-capture=${attID}]`) as HTMLElement;
+  const element = document.querySelector(
+    `[data-capture=${attID}]`
+  ) as HTMLElement;
   const { imageFormat } = options;
   try {
     if (imageFormat === 'svg') {
@@ -36,4 +36,3 @@ const saveAs = async (
 };
 
 export default saveAs;
-

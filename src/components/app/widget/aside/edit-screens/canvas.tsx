@@ -1,22 +1,28 @@
-import { Frame, FrameItem } from '@/components/elements/frame';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import UISlider from '@/ui-kit/source/UISlider';
+import React from 'react';
 import UIView from '@/ui-kit/source/UIView';
 import { Input, Link } from '@nextui-org/react';
-import React from 'react';
+import UISlider from '@/ui-kit/source/UISlider';
+import UIButton from '@/ui-kit/source/UIButton/button';
+import { Frame, FrameItem } from '@/components/elements/frame';
+import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
 
-const CanvasScreen = () => {
+type Props = {
+  openAspectRatio: () => void;
+  openBackgrounds: () => void;
+};
+
+const CanvasScreen = ({ openAspectRatio, openBackgrounds }: Props) => {
   return (
     <Frame title="CANVAS">
       <FrameItem>
         <UIView className="flex gap-3 flex-col w-full">
           <UIButton
-            radius={'md'}
-            className={'px-2 justify-start text-left'}
             fullWidth
             size={'lg'}
+            radius={'md'}
             variant={'flat'}
-            // onPress={() => setState(true)}
+            onPress={openAspectRatio}
+            className={'px-2 justify-start text-left'}
           >
             <UIView className="w-full flex items-center justify-between">
               <UIView className="flex flex-col">
@@ -24,20 +30,7 @@ const CanvasScreen = () => {
                 <h4 className="text-small text-default-500">900 x 600</h4>
               </UIView>
               <UIView>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5 text-default-400"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                  />
-                </svg>
+                <ChevronRightIcon />
               </UIView>
             </UIView>
           </UIButton>
@@ -74,7 +67,13 @@ const CanvasScreen = () => {
         <UISlider size="sm" />
       </FrameItem>
       <FrameItem label="Backgrounds">
-        <Link size="sm">View</Link>
+        <Link
+          size="sm"
+          onPress={openBackgrounds}
+          className="cursor-pointer select-none"
+        >
+          View
+        </Link>
       </FrameItem>
     </Frame>
   );

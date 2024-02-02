@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { SVGIconProps } from '../types/icon';
 
-function BookmarkIcon(props: SVGIconProps) {
+const ChevronLeftIcon = (props: SVGIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,16 +9,15 @@ function BookmarkIcon(props: SVGIconProps) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-4 h-4 text-default-500"
       {...props}
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+        d="M15.75 19.5 8.25 12l7.5-7.5"
       />
     </svg>
   );
-}
-
-export default BookmarkIcon;
+};
+export default ChevronLeftIcon;

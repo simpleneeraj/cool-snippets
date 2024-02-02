@@ -1,7 +1,7 @@
-import Base64Reader from "../usedfont/filereader";
-import { CaptureOptions } from "../options";
-import createCanvas from "./createcanvas";
-import createSvg from "./createsvg";
+import Base64Reader from '../usedfont/filereader';
+import { CaptureOptions } from '../options';
+import createCanvas from './createcanvas';
+import createSvg from './createsvg';
 
 /**
  * Get base64 string of format you selected using `ScreenshotOptions`
@@ -15,14 +15,14 @@ import createSvg from "./createsvg";
 
 const toBase64 = async <T extends HTMLElement>(
   node: T,
-  options: CaptureOptions = {}
+  options: CaptureOptions
 ): Promise<any> => {
   const { imageFormat } = options;
   try {
     switch (imageFormat) {
-      case "svg": {
+      case 'svg': {
         const svg = await createSvg(node, options);
-        const svgBlob = new Blob([svg.outerHTML], { type: "image/svg+xml" });
+        const svgBlob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
         const base64 = await Base64Reader(svgBlob);
         return Promise.resolve(base64);
       }

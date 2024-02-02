@@ -12,7 +12,7 @@ import { PrimaryControllerWidget } from '../controller-segment';
  */
 const PrimaryAsideWidget = () => {
   return (
-    <UIView className="p-2 z-50 flex flex-col flex-1 max-w-widget">
+    <UIView className="p-2 z-50 flex flex-col flex-1 max-w-widget-sm">
       <UICard className="flex flex-col flex-1">
         <UIView className="p-1 flex">
           <PrimaryControllerWidget />

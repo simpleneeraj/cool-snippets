@@ -1,8 +1,5 @@
 import React from 'react';
-import { capitalize } from 'lodash';
 import UIView from '@/ui-kit/source/UIView';
-import UISlider from '@/ui-kit/source/UISlider';
-import themes from '@/plugins/codemirror/themes';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
@@ -13,7 +10,9 @@ import {
   SelectItem,
   Autocomplete,
   AutocompleteItem,
+  Chip,
 } from '@nextui-org/react';
+import fontsNames from '@/constants/fonts-names';
 
 const TextScreen = () => {
   return (
@@ -23,9 +22,9 @@ const TextScreen = () => {
           <Autocomplete
             labelPlacement="outside"
             size={'sm'}
-            defaultItems={Object.keys(themes).map((item, index) => {
+            defaultItems={fontsNames.map((item, index) => {
               return {
-                name: capitalize(item),
+                ...item,
                 id: index,
               };
             })}
@@ -34,7 +33,17 @@ const TextScreen = () => {
             placeholder="Choose a typeface"
           >
             {(item) => (
-              <AutocompleteItem startContent="→" key={item.id}>
+              <AutocompleteItem
+                endContent={
+                  item.new && (
+                    <Chip size="sm" variant="light" color="success">
+                      New
+                    </Chip>
+                  )
+                }
+                aria-label={item.name}
+                key={item.id}
+              >
                 {item.name}
               </AutocompleteItem>
             )}

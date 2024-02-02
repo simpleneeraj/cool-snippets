@@ -1,9 +1,9 @@
-import '@/styles/globals.scss';
 import '@/styles/next-ui.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { twMerge } from 'tailwind-merge';
 import NextAppProvider from '@/providers/next-ui';
+import { ApolloWrapper } from '@/server/graph/apollo-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,12 +27,12 @@ export default function RootLayout({
         style={inter.style}
         className={twMerge(inter.className, inter.variable)}
       >
+        {/* <ApolloWrapper> */}
         <NextAppProvider>
           <main className="dark text-foreground bg-background">{children}</main>
         </NextAppProvider>
+        {/* </ApolloWrapper> */}
       </body>
     </html>
   );
 }
-
-// This is dd

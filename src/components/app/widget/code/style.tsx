@@ -1,12 +1,14 @@
 import state from '@/constants/state.json';
 import backgroundPurify from '@/utils/background-purify';
-import cssRatioConverter from '@/utils/ratio-converter';
 
 const InlineStyle = () => {
   const { canvas, code, text } = state;
-  const realRatio = cssRatioConverter(canvas['aspect-ratio']);
   const background = backgroundPurify(canvas['source']);
   const fontFace = `${text['font-face']}`;
+  const resolution = {
+    height: 480,
+    width: 480,
+  };
   return (
     <style>
       {`
@@ -53,7 +55,7 @@ const InlineStyle = () => {
           align-items: center;
           position: relative;
           border-radius: ${code['corner-radius']}px;
-          backdrop-filter: blur(16px);
+          // backdrop-filter: blur(16px);
         }
         .center {
           background: ${background};
@@ -62,10 +64,10 @@ const InlineStyle = () => {
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
           position: relative;
-          min-width: 520px;
           max-width: 920px;
-          padding:64px;
-          // aspect-ratio: ${canvas['aspect-ratio'] ? realRatio : 'unset'};
+          padding:32px;
+          height: ${resolution.height}px;        
+          width: ${resolution.width}px;        
         }
         .center {
           flex: 1;
@@ -81,6 +83,22 @@ const InlineStyle = () => {
         .file-name-input{
           font-family: ${fontFace};
         }
+        .glass-layer{
+          background: ${background};
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: all 100ms ease-in;
+          height: ${resolution.height}px;        
+          width: ${resolution.width}px;   
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform:translate(-50%,-50%);
+          filter: blur(16px);
+          z-index: 1;
+        }
+       
       `}
     </style>
   );

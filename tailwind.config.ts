@@ -14,7 +14,9 @@ const config: Config = {
   theme: {
     extend: {
       maxWidth: {
-        widget: '300px',
+        'widget-sm': '280px',
+        'widget-md': '320px',
+        'widget-lg': '425px',
       },
     },
   },

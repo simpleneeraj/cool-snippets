@@ -1,10 +1,16 @@
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
+import { BOTTOM_SEGMENT_TABS } from '@/typings/enums';
 import UIButton from '@/ui-kit/source/UIButton/button';
-import { controllerIcon } from '@/components/style/aside';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+
+type BottomControllerWidgetTypes = {
+  value: BOTTOM_SEGMENT_TABS;
+  onSelect: (key: any, value: BOTTOM_SEGMENT_TABS) => void;
+};
 
 export const PrimaryControllerWidget = () => {
   return (
@@ -18,92 +24,208 @@ export const PrimaryControllerWidget = () => {
     </UISegmentedControl>
   );
 };
-export const BottomControllerWidget = () => {
+export const BottomControllerWidget = ({
+  value,
+  onSelect,
+}: BottomControllerWidgetTypes) => {
   return (
     <UICard className="min-h-14 p-1">
       <UIView className="flex flex-1 justify-between">
-        <UIButton
-          variant="light"
-          className="h-full flex flex-col gap-0 items-center min-w-14"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={controllerIcon()}
+        {tabs.map((tab) => (
+          <UIButton
+            disableRipple
+            key={tab.value}
+            variant="light"
+            className={twMerge(
+              'h-full flex flex-col gap-0 items-center min-w-14 max-w-10',
+              tab.value === value ? 'text-opacity-100' : 'text-opacity-50'
+            )}
+            onPress={() => onSelect('bottomTab', tab.value)}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
-            />
-          </svg>
-          <span className="text-[10px]">Edit</span>
-        </UIButton>
-        <UIButton
-          variant="light"
-          className="h-full flex flex-col gap-0 items-center min-w-14"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={controllerIcon()}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-            />
-          </svg>
-          <span className="text-[10px]">Background</span>
-        </UIButton>
-        <UIButton
-          variant="light"
-          className="h-full flex flex-col gap-0 items-center min-w-14"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={controllerIcon()}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
-            />
-          </svg>
-          <span className="text-[10px]">Icons</span>
-        </UIButton>
-        <UIButton
-          variant="light"
-          className="h-full flex flex-col gap-0 items-center min-w-14"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={controllerIcon()}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
-            />
-          </svg>
-
-          <span className="text-[10px]">Frames</span>
-        </UIButton>
+            {tab.icon}
+            <span className="text-[10px]">{tab.name}</span>
+          </UIButton>
+        ))}
       </UIView>
     </UICard>
   );
 };
+
+const EllipsisHorizontalIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-[18px] w-[18px]"
+    fill="currentColor"
+    viewBox="0 0 512 512"
+  >
+    <circle cx="256" cy="256" r="26" />
+    <circle cx="346" cy="256" r="26" />
+    <circle cx="166" cy="256" r="26" />
+    <path
+      d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z"
+      fill="none"
+      stroke="currentColor"
+      stroke-miterlimit="10"
+      stroke-width="32"
+    />
+  </svg>
+);
+
+const BackgroundIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-[18px] w-[18px]"
+    fill="currentColor"
+    viewBox="0 0 512 512"
+  >
+    <rect
+      x="48"
+      y="80"
+      width="416"
+      height="352"
+      rx="48"
+      ry="48"
+      fill="none"
+      stroke="currentColor"
+      stroke-linejoin="round"
+      stroke-width="32"
+    />
+    <circle
+      cx="336"
+      cy="176"
+      r="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-miterlimit="10"
+      stroke-width="32"
+    />
+    <path
+      d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+    />
+  </svg>
+);
+
+const ElementsIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-[18px] w-[18px]"
+    fill="currentColor"
+    viewBox="0 0 512 512"
+  >
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-linejoin="round"
+      stroke-width="32"
+      d="M336 320H32L184 48l152 272zM265.32 194.51A144 144 0 11192 320"
+    />
+  </svg>
+);
+
+const IconsIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-[18px] w-[18px]"
+    fill="currentColor"
+    viewBox="0 0 512 512"
+  >
+    <circle cx="184" cy="232" r="24" />
+    <path d="M256.05 384c-45.42 0-83.62-29.53-95.71-69.83a8 8 0 017.82-10.17h175.69a8 8 0 017.82 10.17c-11.99 40.3-50.2 69.83-95.62 69.83z" />
+    <circle cx="328" cy="232" r="24" />
+    <circle
+      cx="256"
+      cy="256"
+      r="208"
+      fill="none"
+      stroke="currentColor"
+      stroke-miterlimit="10"
+      stroke-width="32"
+    />
+  </svg>
+);
+const OptionsIcon: React.FC = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-[18px] w-[18px]"
+    fill="currentColor"
+    viewBox="0 0 512 512"
+  >
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+      d="M368 128h80M64 128h240M368 384h80M64 384h240M208 256h240M64 256h80"
+    />
+    <circle
+      cx="336"
+      cy="128"
+      r="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+    />
+    <circle
+      cx="176"
+      cy="256"
+      r="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+    />
+    <circle
+      cx="336"
+      cy="384"
+      r="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+    />
+  </svg>
+);
+
+interface Tab {
+  name: string;
+  value: BOTTOM_SEGMENT_TABS;
+  icon: React.ReactNode;
+}
+
+const tabs: Tab[] = [
+  {
+    name: 'Edit',
+    value: BOTTOM_SEGMENT_TABS.EDIT,
+    icon: <OptionsIcon />,
+  },
+  {
+    name: 'Images',
+    value: BOTTOM_SEGMENT_TABS.BACKGROUNDS,
+    icon: <BackgroundIcon />,
+  },
+  {
+    name: 'Elements',
+    value: BOTTOM_SEGMENT_TABS.ELEMENTS,
+    icon: <ElementsIcon />,
+  },
+  {
+    name: 'Icons',
+    value: BOTTOM_SEGMENT_TABS.ICONS,
+    icon: <IconsIcon />,
+  },
+  {
+    name: 'More',
+    value: BOTTOM_SEGMENT_TABS.MORE,
+    icon: <EllipsisHorizontalIcon />,
+  },
+];

@@ -19,11 +19,11 @@
     "blur-radius": 20,
     "corner-radius": 15,
     "value": "import SwiftUI\n\nstruct CircleImage: View {\n  var body: some View {\n    Image('turtlerock')\n      .clipShape(Circle())\n  }\n}",
-    "background": "rgba(0, 0, 0, 0.65)"
+    "background": "rgba(0, 0, 0, 0.5)"
   },
   "codeHead": {
     "shodow": 0,
-    "type": "windows::terminal",
+    "type": "unix::terminal",
     "input": "nothing",
     "position": "nothing",
     "colors": [

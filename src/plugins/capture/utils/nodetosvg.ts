@@ -1,5 +1,5 @@
-import React from "react";
-import setAttributes from "./set-attributes";
+import React from 'react';
+import setAttributes from './set-attributes';
 
 async function nodeToSVG(
   node: HTMLElement,
@@ -12,57 +12,53 @@ async function nodeToSVG(
   // Creating Elements
   const svg = document.createElementNS(xmlns, 'svg');
   const foreignObject = document.createElementNS(xmlns, 'foreignObject');
-  const body = document.createElement('body')
+  const body = document.createElement('body');
 
   setAttributes(firstElement!, {
     xmlns: xhtml,
-  })
+  });
   setAttributes(body, {
     xmlns: xhtml,
     style: styleToString({
       margin: 0,
       padding: 0,
-      boxSizing: 'border-box'
-    })
-  })
+      boxSizing: 'border-box',
+    }),
+  });
   setAttributes(svg, {
     xmlns: xmlns,
     width: `${width}`,
     height: `${height}`,
     viewBox: `0 0 ${width} ${height}`,
-  })
+  });
   // foreignObject Attribute Setting
   setAttributes(foreignObject, {
-    x: `0`,
-    y: `0`,
-    width: `100%`,
-    height: `100%`,
-    externalResourcesRequired: `true`,
-  })
+    x: '0',
+    y: '0',
+    width: '100%',
+    height: '100%',
+    externalResourcesRequired: 'true',
+  });
   svg.append(foreignObject);
-  body.append(node)
+  body.append(node);
   foreignObject.append(body);
   return svg;
 }
 
 export default nodeToSVG;
 
-
 const styleToString = (style: React.CSSProperties) => {
-  return Object.keys(style).reduce((acc, key) => (
-    // @ts-ignore
-    acc + key.split(/(?=[A-Z])/).join('-').toLowerCase() + ':' + style[key] + ';'
-  ), '');
+  return Object.keys(style).reduce(
+    (acc, key) =>
+      acc +
+      key
+        .split(/(?=[A-Z])/)
+        .join('-')
+        .toLowerCase() +
+      ':' +
+      // @ts-ignore
+      style[key] +
+      ';',
+    ''
+  );
 };
-
-  // svg  Attribute Setting
-  // svg.setAttribute('xmlns', xmlns);
-  // svg.setAttribute('width', `${width}`);
-  // svg.setAttribute('height', `${height}`);
-  // svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-
-  // foreignObject.setAttribute('x', '0');
-  // foreignObject.setAttribute('y', '0');
-  // foreignObject.setAttribute('width', '100%');
-  // foreignObject.setAttribute('height', '100%');
-  // foreignObject.setAttribute('externalResourcesRequired', 'true');

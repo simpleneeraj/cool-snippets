@@ -11,7 +11,7 @@ import { CaptureOptions } from '../options';
 
 async function generateDataURL<T extends HTMLElement>(
   node: T,
-  options: CaptureOptions = {}
+  options: CaptureOptions
 ): Promise<string | any> {
   try {
     const svg = await createSvg(node, options);

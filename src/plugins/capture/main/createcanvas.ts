@@ -13,7 +13,7 @@ import getPixelRatio from '../utils/getpixelratio';
 
 async function createCanvas<T extends HTMLElement>(
   node: T,
-  options: CaptureOptions = {}
+  options: CaptureOptions
 ): Promise<HTMLCanvasElement | any> {
   try {
     // creating Url

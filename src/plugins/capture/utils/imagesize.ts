@@ -17,7 +17,7 @@ function getNodeWidth(node: HTMLElement) {
   return node.clientWidth + leftBorder + rightBorder;
 }
 
-function imageSize(node: HTMLElement, options: CaptureOptions = {}) {
+function imageSize(node: HTMLElement, options: CaptureOptions) {
   const width = options.width || getNodeWidth(node);
   const height = options.height || getNodeHeight(node);
   return { width, height };

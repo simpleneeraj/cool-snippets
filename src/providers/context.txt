@@ -1,0 +1,15 @@
+'use client';
+import React from 'react';
+import { SegmentTabsProvider } from '@/store/context/tabs';
+import { AsideScreenProvider } from '@/store/context/screens';
+
+const Providers = ({ children }: React.PropsWithChildren) => {
+  return (
+    <React.Suspense>
+      <SegmentTabsProvider>
+        <AsideScreenProvider>{children}</AsideScreenProvider>
+      </SegmentTabsProvider>
+    </React.Suspense>
+  );
+};
+export default Providers;

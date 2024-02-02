@@ -5,8 +5,8 @@ import { twMerge } from 'tailwind-merge';
 
 const variants = tv({
   slots: {
-    base: 'flex items-center justify-between p-2 sticky top-0 z-50 bg-default-100 bg-opacity-50 backdrop-blur-lg backdrop-saturate-100',
-    heading: 'text-small text-default-600',
+    base: 'flex items-center justify-between p-2 py-1 sticky top-0 z-50 bg-default-100 bg-opacity-50 backdrop-blur-lg backdrop-saturate-100',
+    heading: 'text-sm text-default-600',
     description: 'text-tiny text-default-400',
   },
 });

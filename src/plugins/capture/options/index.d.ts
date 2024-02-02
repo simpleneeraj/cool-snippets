@@ -1,3 +1,7 @@
+export type FontsType = {
+  src: string;
+  fontFamily: string;
+};
 export interface CaptureOptions {
   /**
    * Width in pixels to be applied to node before rendering.
@@ -19,10 +23,7 @@ export interface CaptureOptions {
    * Height in pixels to be applied to canvas on export.
    */
   canvasHeight?: number;
-  /**
-   * An object whose properties to be copied to node's style before rendering.
-   */
-  // style?: Partial<CSSStyleDeclaration>
+
   /**
    * A function taking DOM node as argument. Should return `true` if passed
    * node should be included in the output. Excluding node means excluding
@@ -68,22 +69,21 @@ export interface CaptureOptions {
    * downloadImage(node: T,options: ScreenshotOptions ): Promise<void>
    * ```
    */
-  imageFormat?: 'png' | 'jpeg' | 'webp' | 'svg' | string;
+  imageFormat?: 'png' | 'jpeg' | 'webp' | 'svg';
   /**
-   * Debug in console to see what's happening when you click on `screenshot.js` handler
+   * Debug in console to see what's happening when you click
    */
   isDebug?: boolean;
   /**
    * The preferred font format. If specified all other font formats are ignored.
    */
   preferredFontFormat?:
-  | 'woff'
-  | 'woff2'
-  | 'truetype'
-  | 'opentype'
-  | 'embedded-opentype'
-  | 'svg'
-  | string;
+    | 'woff'
+    | 'woff2'
+    | 'truetype'
+    | 'opentype'
+    | 'embedded-opentype'
+    | 'svg';
   /**
    * Delay in exporting Images
    */
@@ -91,7 +91,9 @@ export interface CaptureOptions {
   /**
    * Generated File Name
    */
-  fileName?: string
+  fileName?: string;
+  /**
+   * Add custom fonts array with `name` and `src`
+   */
+  fonts: FontsType[];
 }
-
-// process.env.NODE_ENV==='development'

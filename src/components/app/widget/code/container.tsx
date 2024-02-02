@@ -48,28 +48,32 @@ const ContainerWidget = () => {
   return (
     <UIView className={'flex flex-col flex-1'}>
       <InlineStyle />
+
       <UIView className={css.container}>
         <UIView className={css.smooth} id="smooth-shot">
           <CaptureView className="center">
             <UIView className="layer">
-              {code.draggable ? <DraggableHandler /> : null}
-              {/* className={generatedTheme[0][0].value} */}
-              <CodeHeaders />
-              <CodeMirror
-                value={code['value']}
-                readOnly={!code.editable}
-                // onChange={(value) => updateCode('value', value)}
-                className="codemirror"
-                theme={generatedTheme}
-                extensions={generatedMode}
-                basicSetup={{
-                  foldGutter: false,
-                  lineNumbers: code['line-numbers'],
-                  autocompletion: code['auto-completion'],
-                  highlightActiveLine: false,
-                  highlightActiveLineGutter: false,
-                }}
-              />
+              <UIView className="glass-layer" />
+              <UIView className="z-10">
+                {code.draggable ? <DraggableHandler /> : null}
+                {/* className={generatedTheme[0][0].value} */}
+                <CodeHeaders />
+                <CodeMirror
+                  value={code['value']}
+                  readOnly={!code.editable}
+                  // onChange={(value) => updateCode('value', value)}
+                  className="codemirror"
+                  theme={generatedTheme}
+                  extensions={generatedMode}
+                  basicSetup={{
+                    foldGutter: false,
+                    lineNumbers: code['line-numbers'],
+                    autocompletion: code['auto-completion'],
+                    highlightActiveLine: false,
+                    highlightActiveLineGutter: false,
+                  }}
+                />
+              </UIView>
             </UIView>
           </CaptureView>
         </UIView>
