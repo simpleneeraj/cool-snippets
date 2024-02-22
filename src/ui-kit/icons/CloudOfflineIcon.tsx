@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { SVGIconProps } from '../types/icon';
 
-function CloudCheckIcon(props: SVGIconProps) {
+function CloudOfflineIcon(props: SVGIconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
       <path
-        d="M400 240c-8.89-89.54-71-144-144-144-69 0-113.44 48.2-128 96-60 6-112 43.59-112 112 0 66 54 112 120 112h260c55 0 100-27.44 100-88 0-59.82-53-85.76-96-88z"
+        d="M93.72 183.25C49.49 198.05 16 233.1 16 288c0 66 54 112 120 112h184.37M467.82 377.74C485.24 363.3 496 341.61 496 312c0-59.82-53-85.76-96-88-8.89-89.54-71-144-144-144-26.16 0-48.79 6.93-67.6 18.14"
         fill="none"
         stroke="currentColor"
+        strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="32"
       />
@@ -15,12 +16,12 @@ function CloudCheckIcon(props: SVGIconProps) {
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
-        strokeLinejoin="round"
+        strokeMiterlimit="10"
         strokeWidth="32"
-        d="M317 208L209.2 336 163 284.8"
+        d="M448 448L64 64"
       />
     </svg>
   );
 }
 
-export default CloudCheckIcon;
+export default CloudOfflineIcon;

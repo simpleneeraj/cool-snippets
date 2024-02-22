@@ -15,34 +15,30 @@ const EditingScreens = () => {
   const { aspectRatio, languages, onChangeScreen, onChangeTab } = useBoundStore(
     (state) => state
   );
-
   const onSelectSegmentTab = React.useCallback(
     (value: BOTTOM_SEGMENT_TABS) => {
       onChangeTab('bottomTab', value);
     },
     [onChangeTab]
   );
+  const openAspectRatio = React.useCallback(() => {
+    onChangeScreen('aspectRatio', SECONDRY_ASIDE_SCREEN.ASPECT_RATIO_SCREEN);
+  }, [onChangeScreen]);
+  const openBackgrounds = React.useCallback(() => {
+    onSelectSegmentTab(BOTTOM_SEGMENT_TABS.BACKGROUNDS);
+  }, [onSelectSegmentTab]);
+  const openLanguages = React.useCallback(() => {
+    onChangeScreen('languages', SECONDRY_ASIDE_SCREEN.LANGUAGES_SCREEN);
+  }, [onChangeScreen]);
 
-  console.log({ languages, aspectRatio });
   return (
     <React.Fragment>
       <UIView className="relative">
         <CanvasScreen
-          openAspectRatio={() =>
-            onChangeScreen(
-              'aspectRatio',
-              SECONDRY_ASIDE_SCREEN.ASPECT_RATIO_SCREEN
-            )
-          }
-          openBackgrounds={() =>
-            onSelectSegmentTab(BOTTOM_SEGMENT_TABS.BACKGROUNDS)
-          }
+          openAspectRatio={openAspectRatio}
+          openBackgrounds={openBackgrounds}
         />
-        <CodeScreen
-          openLanguages={() =>
-            onChangeScreen('languages', SECONDRY_ASIDE_SCREEN.LANGUAGES_SCREEN)
-          }
-        />
+        <CodeScreen openLanguages={openLanguages} />
         <TextScreen />
       </UIView>
       {/* SLIDE PAN */}

@@ -65,10 +65,6 @@ const CodeScreen = ({ openLanguages }: Props) => {
       <FrameItem label="Draggable" className="py-2">
         <UISwitch color="success" />
       </FrameItem>
-      {/* <FrameItem label="Padding">
-        <UISlider size="sm" />
-      </FrameItem> */}
-
       <FrameItem label="Radius">
         <UISlider size="sm" />
       </FrameItem>

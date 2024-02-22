@@ -19,9 +19,9 @@ const LandscapeIcon = (props: SVGIconProps) => {
         transform="rotate(-90 256 256)"
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
       />
     </svg>
   );

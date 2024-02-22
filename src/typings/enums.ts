@@ -21,3 +21,10 @@ export enum BACKGROUND_SCREEN {
   MESH = 'mesh',
   PATTERNS = 'patterns',
 }
+
+export enum TEXTALIGN {
+  'LEFT' = 'left',
+  'CENTER' = 'center',
+  'RIGHT' = 'right',
+  'JUSTIFY' = 'justify',
+}

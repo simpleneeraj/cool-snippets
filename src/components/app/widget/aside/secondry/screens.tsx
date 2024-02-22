@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import UIView from '@/ui-kit/source/UIView';
+import NotFound from './not-found';
 import { BOTTOM_SEGMENT_TABS } from '@/typings/enums';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -31,13 +31,7 @@ function Screens({ activeTab }: ScreensTypes) {
       case BOTTOM_SEGMENT_TABS.MORE:
         return <MoreFeatures />;
       default:
-        return (
-          <UIView className="h-56 flex items-center justify-center">
-            <p className="p-2 text-default-400 text-center">
-              Screen Not Found!
-            </p>
-          </UIView>
-        );
+        return <NotFound />;
     }
   }, [activeTab]);
 
