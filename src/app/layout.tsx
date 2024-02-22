@@ -3,12 +3,11 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { twMerge } from 'tailwind-merge';
 import NextAppProvider from '@/providers/next-ui';
-import { ApolloWrapper } from '@/server/graph/apollo-provider';
 
 const inter = Inter({
   subsets: ['latin'],
   weight: 'variable',
-  variable: '--inter',
+  // variable: '--inter',
 });
 
 export const metadata: Metadata = {
@@ -51,10 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        style={inter.style}
-        className={twMerge(inter.className, inter.variable)}
-      >
+      <body style={inter.style} className={twMerge(inter.className)}>
         {/* <ApolloWrapper> */}
         <NextAppProvider>
           <main className="dark text-foreground bg-background">{children}</main>
