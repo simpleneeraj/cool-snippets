@@ -28,3 +28,10 @@ export enum TEXTALIGN {
   'RIGHT' = 'right',
   'JUSTIFY' = 'justify',
 }
+
+export enum ELEMENTS {
+  CODE = 'code',
+  TEXT = 'text',
+  IMAGE = 'image',
+  ICON = 'icon',
+}

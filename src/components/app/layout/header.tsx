@@ -71,13 +71,13 @@ const AppHeader = () => {
       <UIView className={'flex items-center gap-1'}>
         <UIButtonGroup size="sm">
           <Tooltip size="sm" placement="bottom" content="Undo (⌘⇧Z)">
-            <UIIconButton>
+            <UIIconButton isIconOnly>
               <UndoIcon className={headerIcon()} />
             </UIIconButton>
           </Tooltip>
           <UIDivider orientation="vertical" />
           <Tooltip size="sm" placement="bottom" content="Redo (⌘⇧Y)">
-            <UIIconButton>
+            <UIIconButton isIconOnly>
               <RedoIcon className={headerIcon()} />
             </UIIconButton>
           </Tooltip>
@@ -99,6 +99,7 @@ const AppHeader = () => {
             className="min-w-unit-5"
             radius="sm"
             variant="flat"
+            isIconOnly
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

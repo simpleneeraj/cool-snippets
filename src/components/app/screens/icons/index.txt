@@ -1,0 +1,63 @@
+import React from 'react';
+import emojis from '@/constants/emoji.json';
+import { Frame, FrameItem } from '@/components/elements/frame';
+import UIView from '@/ui-kit/source/UIView';
+import { generateID } from '@/utils/id-generator';
+import useStore from '@/store';
+import { elementsObject } from '../elements/values';
+import dynamic from 'next/dynamic';
+import UIButton from '@/ui-kit/source/UIButton/button';
+import { Image } from '@nextui-org/react';
+import { emojiCDN } from '@/utils/emoji-cdn';
+
+const IconsScreen = () => {
+  const [availableEmojis, setAvailabeEmojis] = React.useState(emojis);
+  const { active, createSlideElement, slides } = useStore((state) => state);
+
+  const onSelectElement = React.useCallback(
+    (source: string) => {
+      const id = generateID();
+      const element = {
+        ...elementsObject['icon'],
+        id: id,
+        content: source,
+      };
+      // @ts-expect-error
+      createSlideElement(active.slide, element);
+    },
+    [active, createSlideElement]
+  );
+
+  return (
+    <Frame title="Icons">
+      <FrameItem divider={false} className="p-2">
+        <UIView className="flex-1 grid grid-cols-4 gap-1">
+          {availableEmojis.map((emoji) => {
+            const source = emojiCDN(emoji.unified.toLowerCase());
+            return (
+              <UIButton
+                key={emoji.unified}
+                size="lg"
+                isIconOnly
+                variant={'flat'}
+                className={'w-full min-w-16 min-h-16'}
+                onPress={() => onSelectElement(source)}
+              >
+                <Image
+                  width={'32'}
+                  height={'32'}
+                  radius="none"
+                  alt={emoji.name}
+                  src={source}
+                  loading="lazy"
+                  disableSkeleton
+                />
+              </UIButton>
+            );
+          })}
+        </UIView>
+      </FrameItem>
+    </Frame>
+  );
+};
+export default IconsScreen;

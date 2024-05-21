@@ -1,20 +1,13 @@
 import '@/styles/next-ui.scss';
+import { inter } from './font';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { twMerge } from 'tailwind-merge';
 import NextAppProvider from '@/providers/next-ui';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: 'variable',
-  // variable: '--inter',
-});
-
 export const metadata: Metadata = {
   title: {
-    default:
-      'CrystalCode - Your Go-To Platform for Quick and Shareable Code Snippets',
-    template: '%s',
+    template: '%s - Crystal Code',
+    default: 'Your Go-To Platform for Quick and Shareable Code Snippets',
   },
   description:
     'CrystalCode is the ultimate solution for effortlessly generating and sharing code snippets. Create, customize, and share your code snippets across various programming languages with ease. Boost your productivity and collaborate seamlessly on social media. Try CrystalCode today!',
@@ -31,7 +24,6 @@ export const metadata: Metadata = {
     'Social media code sharing',
   ],
   authors: [
-    { name: 'SimpleNeeraj' },
     { name: 'SimpleNeeraj', url: 'https://www.github.com/simpleneeraj' },
   ],
   creator: 'SimpleNeeraj',
@@ -50,12 +42,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={inter.style} className={twMerge(inter.className)}>
-        {/* <ApolloWrapper> */}
+      <body
+        style={inter.style}
+        className={twMerge(inter.className, inter.variable)}
+      >
         <NextAppProvider>
           <main className="dark text-foreground bg-background">{children}</main>
         </NextAppProvider>
-        {/* </ApolloWrapper> */}
       </body>
     </html>
   );

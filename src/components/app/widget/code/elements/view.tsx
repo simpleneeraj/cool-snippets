@@ -1,0 +1,23 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+type Props = React.ComponentProps<typeof motion.div>;
+
+const ElementView = React.forwardRef((props: Props, ref: Props['ref']) => {
+  const style = {
+    position: 'absolute',
+    top: 'initial',
+    left: 'initial',
+    bottom: 'initial',
+    right: 'initial',
+    ...props.style,
+  } as React.CSSProperties;
+  return (
+    <motion.div {...props} style={style}>
+      {props.children}
+    </motion.div>
+  );
+});
+
+ElementView.displayName = 'ElementView';
+export default ElementView;

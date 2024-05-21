@@ -1,0 +1,75 @@
+import React from 'react';
+import { ELEMENTS } from '@/typings/enums';
+import { SlideTypes } from '@/store/slices/editor';
+/**
+ * Possible Elements
+ */
+import CodeElement from './code';
+import TextElement from './text';
+import IconElement from './icon';
+import ElementView from './view';
+import { BoundingBox } from 'framer-motion';
+import useStore from '@/store';
+import UIInput from '@/ui-kit/source/UIInput';
+
+type Props = {
+  dragConstraints?:
+    | false
+    | Partial<BoundingBox>
+    | React.RefObject<Element>
+    | undefined;
+  elements?: SlideTypes['elements'];
+};
+
+const Elements: React.FC<Props> = (props) => {
+  const { active, updateSlideElement } = useStore();
+
+  return (
+    <React.Fragment>
+      {props.elements?.map((item) => (
+        <React.Fragment key={item.id}>{RenderElement(item)}</React.Fragment>
+      ))}
+    </React.Fragment>
+  );
+};
+
+export default Elements;
+
+// const TextElement: React.FC<{ item: SlideTypes['elements'][0] }> = ({
+//   item,
+// }) => {
+//   const { active, updateActiveElement } = useStore();
+//   return (
+//     <ElementView
+//       style={{
+//         width: 'fit-content',
+//         ...item.style,
+//       }}
+//       drag
+//       //   dragConstraints={ref}
+//       onClick={() => updateActiveElement(active?.slide, item?.id)}
+//     >
+//       <div className="text-lg font-bold w-fit">Hello World</div>
+//     </ElementView>
+//   );
+// };
+
+// const IconElement: React.FC<{ item: SlideTypes['elements'][0] }> = ({
+//   item,
+// }) => {
+//   const { active, updateActiveElement } = useStore();
+//   return (
+//     <motion.img
+//       width={50}
+//       height={50}
+//       src={item.content}
+//       alt={item.id + item.type}
+//       style={{
+//         ...item.style,
+//       }}
+//       drag
+//       //   dragConstraints={ref}
+//       onClick={() => updateActiveElement(active?.slide, item?.id)}
+//     />
+//   );
+// };

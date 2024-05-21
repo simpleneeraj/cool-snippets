@@ -12,6 +12,8 @@ import {
   NavbarMenuItem,
 } from '@nextui-org/react';
 import UIView from '@/ui-kit/source/UIView';
+import WebFooter from '@/layouts/web/footer';
+import NextLink from 'next/link';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -86,11 +88,10 @@ export default function App() {
           Let&apos;s make something awesome!
         </UIView>
         <UIView className="flex items-center gap-1">
-          <Link href="/studio" color={'primary'}>
-            Navigate to Studio
-          </Link>
+          <NextLink href="/studio">Navigate to Studio</NextLink>
         </UIView>
       </UIView>
+      <WebFooter />
     </UIView>
   );
 }

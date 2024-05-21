@@ -1,18 +1,19 @@
 {
   "slides": [
     {
-      "name": "",
-      "backgroudn": {},
+      "name": "Untitle Code",
+      "background": {},
       "elements": [
         {
-          "elementType": "",
+          "type": "",
           "content": "",
+          "style": {},
           "properties": {}
         },
         {
-          "elementType": "text",
+          "type": "text",
           "content": "Hello, World!",
-          "position": { "x": 50, "y": 50 },
+          "style": {},
           "properties": {
             "fontSize": "16px",
             "color": "#000000",
@@ -20,22 +21,22 @@
           }
         },
         {
-          "elementType": "code",
+          "type": "code",
           "content": "console.log(\"Hello, World!\");",
-          "position": { "x": 100, "y": 100 },
+          "style": {},
           "properties": { "language": "javascript", "theme": "light" }
         },
         {
-          "elementType": "image",
+          "type": "image",
           "source": "image.jpg",
-          "position": { "x": 200, "y": 200 },
-          "properties": { "width": 150, "height": 100 }
+          "style": { "width": 100, "height": 100 },
+          "properties": {}
         },
         {
-          "elementType": "watermark",
-          "content": "Confidential",
-          "position": { "x": 300, "y": 300 },
-          "properties": { "fontSize": "12px", "opacity": 0.5 }
+          "type": "watermark",
+          "content": "Crystal Code",
+          "style": { "fontSize": "12px", "opacity": 0.5 },
+          "properties": {}
         }
       ]
     }

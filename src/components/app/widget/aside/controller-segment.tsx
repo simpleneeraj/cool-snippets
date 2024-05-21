@@ -41,6 +41,7 @@ export const BottomControllerWidget = ({
             disableRipple
             key={tab.value}
             variant="light"
+            aria-label={tab.name}
             className={twMerge(
               'h-full flex flex-col gap-0 items-center min-w-14 max-w-10',
               tab.value === value ? 'text-opacity-100' : 'text-opacity-50'
@@ -68,24 +69,24 @@ const tabs: Tab[] = [
     value: BOTTOM_SEGMENT_TABS.EDIT,
     icon: OptionsIcon,
   },
-  {
-    name: 'Images',
-    value: BOTTOM_SEGMENT_TABS.BACKGROUNDS,
-    icon: BackgroundIcon,
-  },
+  // {
+  //   name: 'Images',
+  //   value: BOTTOM_SEGMENT_TABS.BACKGROUNDS,
+  //   icon: BackgroundIcon,
+  // },
   {
     name: 'Elements',
     value: BOTTOM_SEGMENT_TABS.ELEMENTS,
     icon: ElementsIcon,
   },
-  {
-    name: 'Icons',
-    value: BOTTOM_SEGMENT_TABS.ICONS,
-    icon: IconsIcon,
-  },
-  {
-    name: 'More',
-    value: BOTTOM_SEGMENT_TABS.MORE,
-    icon: EllipsisHorizontalIcon,
-  },
+  // {
+  //   name: 'Icons',
+  //   value: BOTTOM_SEGMENT_TABS.ICONS,
+  //   icon: IconsIcon,
+  // },
+  // {
+  //   name: 'More',
+  //   value: BOTTOM_SEGMENT_TABS.MORE,
+  //   icon: EllipsisHorizontalIcon,
+  // },
 ];

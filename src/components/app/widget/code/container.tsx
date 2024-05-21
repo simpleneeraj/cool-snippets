@@ -1,80 +1,131 @@
 'use client';
+
 import React from 'react';
-import dynamic from 'next/dynamic';
-// import InlineStyle from './inline';
-import css from '@/styles/center.module.scss';
-// import DragHandleIcon from '@/lib/icons/DragHandle';
-// import { Skeleton } from '@nextui-org/react';
-import { Capture as CaptureView } from '@/plugins/capture';
-// CODEMIRROR Things
-import themes from '@/plugins/codemirror/themes';
-import languages from '@/plugins/codemirror/languages';
-import { Skeleton } from '@nextui-org/react';
-import state from '@/constants/state.json';
-import UIView from '@/ui-kit/source/UIView';
 import InlineStyle from './style';
-
-const Loading = () => {
-  return (
-    <Skeleton>
-      <div className="h-[200px] bg-opacity-50 backdrop-blur-lg"></div>
-    </Skeleton>
-  );
-};
-const CodeMirror = dynamic(() => import('@/plugins/codemirror/editor'), {
-  ssr: false,
-  loading: Loading,
-});
-
-const draggableClassName = 'simple-drag';
-
-const CodeHeaders = dynamic(() => import('./headers'), {
-  ssr: false,
-});
+import UIView from '@/ui-kit/source/UIView';
+import css from '@/styles/center.module.scss';
+import { Capture as CaptureView } from '@/plugins/capture';
+import ElementView from './elements/view';
+import IconElement from './elements/icon';
+import TextElement from './elements/text';
+import { ELEMENTS } from '@/typings/enums';
+import { ElementType } from '@/typings/editor';
+import useSlideEditor from '@/store/hooks/use-editor';
+import CodeElement from './elements/code';
+import {
+  generatedCodeLanguage,
+  generatedCodeTheme,
+} from '@/plugins/codemirror/utils';
+import { useActiveElement } from '@/store/slides/current-element';
+import { useActiveSlide } from '@/store/slides/current-slide';
 
 const ContainerWidget = () => {
-  const code = state.code;
+  const dragConstraintsRef = React.useRef(null);
+  const { slides, updateSlideElement } = useSlideEditor();
+  const { slide } = useActiveSlide();
+  const { updateElement } = useActiveElement();
 
-  const generatedTheme = React.useMemo(
-    // @ts-expect-error
-    () => themes[code?.theme](code.translucent ? code.alpha : 1),
-    [code.alpha, code.theme, code.translucent]
+  const activeSlide = React.useMemo(() => {
+    return slides.find((item) => item.id === slide);
+  }, [slide, slides]);
+
+  const handleActiveElement = React.useCallback(
+    (elementId: string | undefined) => {
+      if (elementId) {
+        updateElement(elementId);
+      }
+    },
+    [updateElement]
   );
-  const generatedMode = React.useMemo(
-    // @ts-expect-error
-    () => languages[code?.mode](),
-    [code.mode]
+
+  const RenderElement = React.useCallback(
+    (item: ElementType) => {
+      switch (item.type) {
+        case ELEMENTS.CODE:
+          return (
+            <ElementView
+              key={item.id}
+              style={{
+                ...item.style,
+                width: '90%',
+              }}
+              className="layer"
+              drag
+              dragConstraints={dragConstraintsRef}
+              onHoverStart={() => handleActiveElement(item.id)}
+            >
+              <CodeElement
+                value={item.content}
+                onChange={(value) => {
+                  if (item.id) {
+                    updateSlideElement(slide, item.id, {
+                      content: value,
+                    });
+                  }
+                }}
+                extensions={generatedCodeLanguage(item?.properties?.language)}
+                theme={generatedCodeTheme(item?.properties?.theme, 0)}
+                basicSetup={{
+                  foldGutter: false,
+                  highlightActiveLine: false,
+                  highlightActiveLineGutter: false,
+                  lineNumbers: false,
+                  autocompletion: false,
+                }}
+              />
+            </ElementView>
+          );
+
+        case ELEMENTS.TEXT:
+          return (
+            <ElementView
+              key={item.id}
+              drag
+              dragConstraints={dragConstraintsRef}
+              onHoverStart={() => handleActiveElement(item.id)}
+              style={{
+                ...item.style,
+                width: '90%',
+              }}
+            >
+              <TextElement style={{ ...item.style, ...item.properties }}>
+                HELLO {item.content}
+              </TextElement>
+            </ElementView>
+          );
+
+        case ELEMENTS.ICON:
+          return (
+            <ElementView
+              key={item.id}
+              drag
+              dragConstraints={dragConstraintsRef}
+              onHoverStart={() => handleActiveElement(item.id)}
+            >
+              <IconElement />
+            </ElementView>
+          );
+
+        default:
+          return null;
+      }
+    },
+    [
+      slide,
+      dragConstraintsRef,
+      updateElement,
+      handleActiveElement,
+      updateSlideElement,
+    ]
   );
+
   return (
     <UIView className={'flex flex-col flex-1'}>
       <InlineStyle />
-
       <UIView className={css.container}>
-        <UIView className={css.smooth} id="smooth-shot">
-          <CaptureView className="center">
-            <UIView className="layer">
-              <UIView className="glass-layer" />
-              <UIView className="z-10">
-                {code.draggable ? <DraggableHandler /> : null}
-                {/* className={generatedTheme[0][0].value} */}
-                <CodeHeaders />
-                <CodeMirror
-                  value={code['value']}
-                  readOnly={!code.editable}
-                  // onChange={(value) => updateCode('value', value)}
-                  className="codemirror"
-                  theme={generatedTheme}
-                  extensions={generatedMode}
-                  basicSetup={{
-                    foldGutter: false,
-                    lineNumbers: code['line-numbers'],
-                    autocompletion: code['auto-completion'],
-                    highlightActiveLine: false,
-                    highlightActiveLineGutter: false,
-                  }}
-                />
-              </UIView>
-            </UIView>
+        <UIView className={css.smooth}>
+          <CaptureView className="center" ref={dragConstraintsRef}>
+            {activeSlide?.elements?.map((item) => RenderElement(item))}
           </CaptureView>
         </UIView>
       </UIView>
@@ -82,13 +133,3 @@ const ContainerWidget = () => {
   );
 };
 export default ContainerWidget;
-
-const DraggableHandler = (props: React.ComponentPropsWithoutRef<'div'>) => {
-  return (
-    <UIView className={css.handleBar} {...props}>
-      <span className={draggableClassName}>
-        {/* <DragHandleIcon color="#ffffff" /> */}
-      </span>
-    </UIView>
-  );
-};

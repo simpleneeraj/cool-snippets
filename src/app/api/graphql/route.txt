@@ -1,2 +1,0 @@
-import handler from '@/server/graph';
-export { handler as GET, handler as POST };

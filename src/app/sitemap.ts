@@ -1,11 +1,11 @@
 import { MetadataRoute } from 'next';
 
-const URL = process.env.BASE_URL;
+const URL = String(process.env.BASE_URL);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: `${URL}`,
+      url: URL,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,

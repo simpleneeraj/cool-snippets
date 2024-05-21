@@ -73,11 +73,11 @@ const InlineStyle = () => {
           flex: 1;
           z-index: 5;
           gap: 0.3rem;
-          display: grid;
+          display: flex;
           overflow: hidden;
           max-width: 1024px;
           position: relative;
-          align-items: center;
+          flex-direction: column;
           
         }
         .file-name-input{

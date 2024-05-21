@@ -78,7 +78,7 @@ export const FrameItem = ({
       >
         {label && (
           <UIView className="flex items-center justify-between">
-            <label className="text-tiny text-default-600 min-w-10">
+            <label className="font-medium text-tiny text-default-600 min-w-12">
               {label}
             </label>
             {endContent}

@@ -8,11 +8,9 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 function NextAppProvider({ children }: React.PropsWithChildren) {
   const router = useRouter();
   return (
-    <NextUIProvider navigate={router.push}>
-      <NextThemesProvider attribute="class" defaultTheme="dark">
-        {children}
-      </NextThemesProvider>
-    </NextUIProvider>
+    <NextThemesProvider attribute="class" defaultTheme="dark">
+      <NextUIProvider navigate={router.push}>{children}</NextUIProvider>
+    </NextThemesProvider>
   );
 }
 
