@@ -1,4 +1,4 @@
-import state from '@/constants/state.json';
+import state from '@/json/state.json';
 import backgroundPurify from '@/utils/background-purify';
 
 const InlineStyle = () => {

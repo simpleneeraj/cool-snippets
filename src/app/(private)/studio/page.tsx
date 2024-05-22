@@ -7,8 +7,11 @@ import SecondaryAsideWidget from '@/components/app/widget/aside/secondary';
 const EditorPage = () => {
   return (
     <UIView className={'flex flex-1'}>
+      {/* LEFT SECTION */}
       <PrimaryAsideWidget />
+      {/* CENTER SECTION */}
       <ContainerWidget />
+      {/* RIGHT SECTION */}
       <SecondaryAsideWidget />
     </UIView>
   );

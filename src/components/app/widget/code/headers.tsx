@@ -2,11 +2,11 @@ import React from 'react';
 import UnixNeon from './templates/unix-neon';
 import IOSTermainal from './templates/ios-terminal';
 import WindowsTen from './templates/windows-terminal';
-import templatesData from '@/constants/data-templates';
+import templatesData from '@/json/templates.json';
 /**
  * State Should be dynamic and comes from server
  */
-import state from '@/constants/state.json';
+import state from '@/json/state.json';
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from './templates/colors';
 

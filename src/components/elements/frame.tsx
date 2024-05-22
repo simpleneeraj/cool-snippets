@@ -46,17 +46,6 @@ export const Frame = ({ title, children, endContent }: FrameProps) => {
     </Card>
   );
 };
-{
-  /* <UIButton
-              size="sm"
-              radius="none"
-              variant="light"
-              disableRipple
-              className="p-0 h-auto min-w-fit text-tiny text-default-600"
-            >
-              Reset
-            </UIButton> */
-}
 
 export const FrameItem = ({
   label,

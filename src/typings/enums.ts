@@ -1,37 +1,39 @@
-// Enum representing bottom segment tabs
-export enum BOTTOM_SEGMENT_TABS {
-  EDIT = 'TAB::EDIT',
-  BACKGROUNDS = 'TAB::BACKGROUNDS',
-  ICONS = 'TAB::ICONS',
-  ELEMENTS = 'TAB::ELEMENTS',
-  FRAMES = 'TAB::FRAMES',
-  MORE = 'TAB::MORE',
+export enum SEGMENT_FEATURE {
+  LAYERS = 'SEGMENT::LAYERS',
+  TEMPLATES = 'SEGMENT::TEMPLATES',
+}
+export enum SEGMENT_SCREEN {
+  EDIT = 'SEGMENT::EDIT',
+  BACKGROUNDS = 'SEGMENT::BACKGROUNDS',
+  ICONS = 'SEGMENT::ICONS',
+  ELEMENTS = 'SEGMENT::ELEMENTS',
+  FRAMES = 'SEGMENT::FRAMES',
+  MORE = 'SEGMENT::MORE',
 }
 
-export enum SECONDRY_ASIDE_SCREEN {
+export enum ASIDE_SCREEN {
   EMPTY_SCREEN = '',
   ASPECT_RATIO_SCREEN = 'SCREEN::ASPECT_RATIO_SCREEN',
-  LANGUAGES_SCREEN = 'SCREEN::PROGRAMMING_LANGUAGE_SCREEN',
+  PROGRAMMING_LANGUAGE_SCREEN = 'SCREEN::PROGRAMMING_LANGUAGE_SCREEN',
 }
 
 export enum BACKGROUND_SCREEN {
-  SOLID = 'solid',
-  GRADIENTS = 'gradients',
-  IMAGES = 'images',
-  MESH = 'mesh',
-  PATTERNS = 'patterns',
+  SOLID = 'SCREEN::SOLID',
+  GRADIENTS = 'SCREEN::GRADIENTS',
+  IMAGES = 'SCREEN::IMAGES',
+  MESH = 'SCREEN::MESH',
+  PATTERNS = 'SCREEN::PATTERNS',
 }
-
-export enum TEXTALIGN {
-  'LEFT' = 'left',
-  'CENTER' = 'center',
-  'RIGHT' = 'right',
-  'JUSTIFY' = 'justify',
-}
-
 export enum ELEMENTS {
-  CODE = 'code',
-  TEXT = 'text',
-  IMAGE = 'image',
-  ICON = 'icon',
+  CODE = 'ELEMENT::CODE',
+  TEXT = 'ELEMENT::TEXT',
+  IMAGE = 'ELEMENT::IMAGE',
+  ICON = 'ELEMENT::ICON',
+}
+
+export enum TEXT_ALIGN {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
+  JUSTIFY = 'justify',
 }

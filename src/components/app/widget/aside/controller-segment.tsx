@@ -4,7 +4,7 @@ import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
 import IconsIcon from '@/ui-kit/icons/IconsIcon';
 import OptionsIcon from '@/ui-kit/icons/OptionsIcon';
-import { BOTTOM_SEGMENT_TABS } from '@/typings/enums';
+import { SEGMENT_SCREEN } from '@/typings/enums';
 import ElementsIcon from '@/ui-kit/icons/ElementsIcon';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import BackgroundIcon from '@/ui-kit/icons/BackgroundIcon';
@@ -13,8 +13,8 @@ import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
 import EllipsisHorizontalIcon from '@/ui-kit/icons/EllipsisHorizontalIcon';
 
 type BottomControllerWidgetTypes = {
-  value: BOTTOM_SEGMENT_TABS;
-  onSelect: (key: any, value: BOTTOM_SEGMENT_TABS) => void;
+  value: SEGMENT_SCREEN;
+  onSelect: (value: SEGMENT_SCREEN) => void;
 };
 
 export const PrimaryControllerWidget = () => {
@@ -46,7 +46,7 @@ export const BottomControllerWidget = ({
               'h-full flex flex-col gap-0 items-center min-w-14 max-w-10',
               tab.value === value ? 'text-opacity-100' : 'text-opacity-50'
             )}
-            onPress={() => onSelect('bottomTab', tab.value)}
+            onPress={() => onSelect(tab.value)}
           >
             {<tab.icon className="h-[18px] w-[18px]" />}
             <span className="text-[10px]">{tab.name}</span>
@@ -59,34 +59,34 @@ export const BottomControllerWidget = ({
 
 interface Tab {
   name: string;
-  value: BOTTOM_SEGMENT_TABS;
+  value: SEGMENT_SCREEN;
   icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 }
 
 const tabs: Tab[] = [
   {
     name: 'Edit',
-    value: BOTTOM_SEGMENT_TABS.EDIT,
+    value: SEGMENT_SCREEN.EDIT,
     icon: OptionsIcon,
   },
-  // {
-  //   name: 'Images',
-  //   value: BOTTOM_SEGMENT_TABS.BACKGROUNDS,
-  //   icon: BackgroundIcon,
-  // },
+  {
+    name: 'Images',
+    value: SEGMENT_SCREEN.BACKGROUNDS,
+    icon: BackgroundIcon,
+  },
   {
     name: 'Elements',
-    value: BOTTOM_SEGMENT_TABS.ELEMENTS,
+    value: SEGMENT_SCREEN.ELEMENTS,
     icon: ElementsIcon,
   },
-  // {
-  //   name: 'Icons',
-  //   value: BOTTOM_SEGMENT_TABS.ICONS,
-  //   icon: IconsIcon,
-  // },
-  // {
-  //   name: 'More',
-  //   value: BOTTOM_SEGMENT_TABS.MORE,
-  //   icon: EllipsisHorizontalIcon,
-  // },
+  {
+    name: 'Icons',
+    value: SEGMENT_SCREEN.ICONS,
+    icon: IconsIcon,
+  },
+  {
+    name: 'More',
+    value: SEGMENT_SCREEN.MORE,
+    icon: EllipsisHorizontalIcon,
+  },
 ];

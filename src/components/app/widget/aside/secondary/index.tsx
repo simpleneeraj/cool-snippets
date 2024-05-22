@@ -2,22 +2,20 @@
 
 import React from 'react';
 import Screens from './screens';
-import useStore from '@/store';
-import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
+import { useSegment } from '@/store/segment';
 import { BottomControllerWidget } from '../controller-segment';
 
 export const SecondaryAsideWidget = () => {
-  const { bottomTab, onChangeTab } = useStore((state) => state);
+  const { segment, onChangeSegment } = useSegment((state) => state);
 
   return (
     <UIView className="p-2 z-50 flex flex-col flex-1 gap-1 max-w-widget-md">
-      <UICard className="flex flex-col flex-1">
-        <UIView className="scroll-content overflow-auto">
-          <Screens activeTab={bottomTab} />
-        </UIView>
-      </UICard>
-      <BottomControllerWidget value={bottomTab} onSelect={onChangeTab} />
+      <Screens activeTab={segment.screen} />
+      <BottomControllerWidget
+        value={segment.screen}
+        onSelect={(value) => onChangeSegment('screen', value)}
+      />
     </UIView>
   );
 };
