@@ -44,7 +44,7 @@ function Screens({ activeTab }: ScreensTypes) {
 
   return (
     <UICard className="flex flex-col flex-1">
-      <UIView className="scroll-content flex-1 flex flex-col overflow-auto">
+      <UIView className="flex-1 flex flex-col overflow-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}

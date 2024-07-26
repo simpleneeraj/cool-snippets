@@ -55,7 +55,7 @@ const AppHeader = () => {
             </h4>
             <UIView className="">
               <Chip size="sm" variant="dot" color="success">
-                Introducing v1.0.0
+                Introducing v1.2.0
               </Chip>
             </UIView>
           </UIView>

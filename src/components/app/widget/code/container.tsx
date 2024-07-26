@@ -88,8 +88,11 @@ const ContainerWidget = () => {
                 width: '90%',
               }}
             >
-              <TextElement style={{ ...item.style, ...item.properties }}>
-                HELLO {item.content}
+              <TextElement
+                contentEditable
+                style={{ ...item.style, ...item.properties }}
+              >
+                {item.content}
               </TextElement>
             </ElementView>
           );
