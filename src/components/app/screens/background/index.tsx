@@ -5,6 +5,8 @@ import { BACKGROUND_SCREEN } from '@/typings/enums';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import { Chip, Select, SelectItem } from '@nextui-org/react';
 import { useScreen } from '@/store/screen';
+import useSlideEditor from '@/store/hooks/use-editor';
+import { useActiveSlide } from '@/store/slides/current-slide';
 
 const SolidBackgrounds = dynamic(() => import('./solid'));
 const GradientsBackgrounds = dynamic(() => import('./gradients'));
@@ -14,6 +16,9 @@ const PatternsBackgrounds = dynamic(() => import('./patterns'));
 
 const BackgroundScreens = () => {
   const { screen, onChangeScreen } = useScreen((state) => state);
+
+  const { updateSlideElement } = useSlideEditor();
+  const { slide: activeSlide } = useActiveSlide();
 
   const RenderScreen = React.useMemo(() => {
     switch (screen.background) {
@@ -38,7 +43,6 @@ const BackgroundScreens = () => {
         <Select
           placeholder="Images"
           className="max-w-xs"
-          label="Select backgronds"
           items={backgroundVariants}
           selectionMode="single"
           selectedKeys={new Set([screen.background])}

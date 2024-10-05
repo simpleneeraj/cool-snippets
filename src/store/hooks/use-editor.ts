@@ -11,6 +11,7 @@ const useSlideEditor = () => {
   // Retrieve slides and updateSlideElement function from the useSlide hook
   const slideState = useSlide((state) => state);
 
+  // console.log(slideState.slides);
   // Get active slide
   const activeSlide = React.useMemo(() => {
     return slideState.slides.find((item) => item.id === slide);
@@ -26,14 +27,13 @@ const useSlideEditor = () => {
     (updatedElement: ElementType) => {
       if (activeSlide?.id && activeElement?.id) {
         // Call updateSlideElement function with updated element properties
-        slideState.updateSlideElement(
-          activeSlide.id,
-          activeElement.id,
-          updatedElement
-        );
+        slideState.updateSlideElement(activeSlide.id, activeElement.id, {
+          ...activeElement.style,
+          ...updatedElement,
+        });
       }
     },
-    [activeSlide, activeElement, slideState.updateSlideElement] // Include activeSlide, activeElement, and updateSlideElement in dependencies array
+    [activeSlide, activeElement]
   );
 
   // Return active slide, active element, and update function

@@ -1,5 +1,4 @@
 import React from 'react';
-import state from '@/json/state.json';
 import backgroundPurify from '@/utils/background-purify';
 import templatesData from '@/json/templates.json';
 import IOSTermainal from '@/components/app/widget/code/templates/ios-terminal';
@@ -26,8 +25,9 @@ const template = tv({
 const { base, container, card } = template();
 
 const TemplatesPreview = () => {
-  const { canvas } = state;
-  const background = backgroundPurify(canvas.source);
+  const background = backgroundPurify(
+    'https://images.unsplash.com/photo-1725113114036-a64884d3f055?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  );
 
   return (
     <UIView className={base()}>

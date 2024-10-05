@@ -30,8 +30,6 @@ const ElementsScreen = () => {
     [activeSlide, createSlideElement]
   );
 
-  // console.log(slides);
-
   return (
     <Frame title="Elements">
       <FrameItem divider={false} className="p-2">

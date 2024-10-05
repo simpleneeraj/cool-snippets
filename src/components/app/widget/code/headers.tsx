@@ -6,13 +6,17 @@ import templatesData from '@/json/templates.json';
 /**
  * State Should be dynamic and comes from server
  */
-import state from '@/json/state.json';
+
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from './templates/colors';
+import { SlideHeaderType } from '@/typings/editor';
 
-const CodeHeaderWidget = () => {
-  const codeHead = state.codeHead;
-  switch (codeHead.type) {
+type CodeHeaderWidgetProps = {
+  header: SlideHeaderType | null;
+};
+
+const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
+  switch (header?.type) {
     case templatesData.ios:
       return (
         <IOSTermainal
@@ -24,7 +28,7 @@ const CodeHeaderWidget = () => {
             borderWidth: '2px',
             borderRadius: '20px',
             padding: '0.8rem 0 0.8rem 0.8rem',
-            background: codeHead.background,
+            background: header?.style?.background,
           }}
         />
       );
@@ -39,7 +43,7 @@ const CodeHeaderWidget = () => {
             gap: '8px',
             size: '16px',
             padding: '12px',
-            background: codeHead.background,
+            background: header?.style?.background,
           }}
         />
       );
@@ -54,7 +58,7 @@ const CodeHeaderWidget = () => {
             gap: '8px',
             size: '16px',
             padding: '12px',
-            background: codeHead.background,
+            background: header?.style?.background,
           }}
         />
       );
@@ -64,8 +68,9 @@ const CodeHeaderWidget = () => {
 };
 
 export default CodeHeaderWidget;
-// background={codeHead.background}
-// theme={codeHead['theme']}
+
+// background={header.background}
+// theme={header['theme']}
 // lightsStyle={{
 //   size: 14,
 //   iconGap: '8px',
@@ -74,13 +79,13 @@ export default CodeHeaderWidget;
 // size={16}
 // iconGap="0.7rem"
 // padding={`0.8rem`}
-// icon={codeHead.icon}
-// inputStyle={codeHead.input}
-// background={codeHead.background}
+// icon={header.icon}
+// inputStyle={header.input}
+// background={header.background}
 // theme={HeaderVariants.FILLED}
 // size={14}
 // iconGap=".8rem"
 // padding={`0.8rem`}
-// icon={codeHead.icon}
-// inputStyle={codeHead.input}
-// background={codeHead.background}
+// icon={header.icon}
+// inputStyle={header.input}
+// background={header.background}

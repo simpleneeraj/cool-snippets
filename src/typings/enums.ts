@@ -37,3 +37,11 @@ export enum TEXT_ALIGN {
   RIGHT = 'right',
   JUSTIFY = 'justify',
 }
+
+export enum BACKGROUND_TYPE {
+  COLOR = 'color',
+  GRADIENT = 'gradient',
+  IMAGE = 'image',
+  VIDEO = 'video',
+  PATTERN = 'pattern',
+}

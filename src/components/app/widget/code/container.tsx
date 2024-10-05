@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import InlineStyle from './style';
+import SlideStyle from './styles/slide';
 import UIView from '@/ui-kit/source/UIView';
 import css from '@/styles/center.module.scss';
 import { Capture as CaptureView } from '@/plugins/capture';
@@ -18,6 +18,7 @@ import {
 } from '@/plugins/codemirror/utils';
 import { useActiveElement } from '@/store/slides/current-element';
 import { useActiveSlide } from '@/store/slides/current-slide';
+import ElementStyle from './styles/element';
 
 const ContainerWidget = () => {
   const dragConstraintsRef = React.useRef(null);
@@ -35,8 +36,10 @@ const ContainerWidget = () => {
         updateElement(elementId);
       }
     },
-    [updateElement]
+    []
   );
+
+  console.log(activeSlide?.elements);
 
   const RenderElement = React.useCallback(
     (item: ElementType) => {
@@ -44,13 +47,10 @@ const ContainerWidget = () => {
         case ELEMENTS.CODE:
           return (
             <ElementView
-              key={item.id}
-              style={{
-                ...item.style,
-                width: '90%',
-              }}
-              className="layer"
               drag
+              key={item.id}
+              style={item.style}
+              className="layer"
               dragConstraints={dragConstraintsRef}
               onHoverStart={() => handleActiveElement(item.id)}
             >
@@ -72,6 +72,7 @@ const ContainerWidget = () => {
                   lineNumbers: false,
                   autocompletion: false,
                 }}
+                header={activeSlide?.header || null}
               />
             </ElementView>
           );
@@ -124,11 +125,18 @@ const ContainerWidget = () => {
 
   return (
     <UIView className={'flex flex-col flex-1'}>
-      <InlineStyle />
+      <SlideStyle style={activeSlide?.background} />
       <UIView className={css.container}>
         <UIView className={css.smooth}>
           <CaptureView className="center" ref={dragConstraintsRef}>
-            {activeSlide?.elements?.map((item) => RenderElement(item))}
+            {activeSlide?.elements?.map((item) => {
+              return (
+                <React.Fragment key={item.id}>
+                  <ElementStyle style={item} />
+                  {RenderElement(item)}
+                </React.Fragment>
+              );
+            })}
           </CaptureView>
         </UIView>
       </UIView>

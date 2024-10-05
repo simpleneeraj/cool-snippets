@@ -2,7 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import UIView from '@/ui-kit/source/UIView';
 import UIButton from '@/ui-kit/source/UIButton/button';
-import { Card, CardFooter, Chip, Image, LinkIcon } from '@nextui-org/react';
+import {
+  Card,
+  CardFooter,
+  Chip,
+  Image,
+  LinkIcon,
+  Tooltip,
+} from '@nextui-org/react';
 import { FrameItem } from '@/components/elements/frame';
 import UIInput from '@/ui-kit/source/UIInput';
 import SearchIcon from '@/ui-kit/icons/SearchIcon';
@@ -12,6 +19,8 @@ import { useImmer } from 'use-immer';
 // import { UnsplashSearchResponse } from '@/server/types/unsplash';
 import SparklesIcon from '@/ui-kit/icons/SparklesIcon';
 import Json from '@/json/images.json';
+import UnsplashIcon from '@/ui-kit/icons/logo/Unsplash';
+import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegular';
 enum ImageType {
   POPULAR = 'popular',
   UNSPLASH = 'unsplash',
@@ -128,23 +137,23 @@ const ImagesBackground = () => {
         <UIView className="flex-1 flex items-center gap-1 w-full">
           <UIInput
             size={'sm'}
-            startContent={<SearchIcon className="text-default-400 h-4 w-4" />}
             labelPlacement={'outside'}
             placeholder={'Search images...'}
             className={'bg-transparent'}
             onChange={({ target }) => setSearchQuery(target.value)}
+            startContent={<SearchIcon className="text-default-400 h-4 w-4" />}
           />
           <UIButton
-            variant={'flat'}
-            size={'sm'}
-            // isLoading={loading}
             isIconOnly
+            size={'sm'}
+            variant={'flat'}
             onPress={onSearch}
+            // isLoading={loading}
           >
             <SparklesIcon />
           </UIButton>
         </UIView>
-        <UIView className="flex flex-wrap items-center gap-1">
+        {/* <UIView className="flex flex-wrap items-center gap-1">
           <Chip
             size="sm"
             variant="flat"
@@ -177,50 +186,73 @@ const ImagesBackground = () => {
           >
             Mesh
           </Chip>
+        </UIView> */}
+      </FrameItem>
+      <FrameItem divider={false}>
+        <UIView className="flex flex-col gap-2 ">
+          {images &&
+            images?.length > 0 &&
+            images?.map((item, index) => (
+              <Card
+                key={index}
+                fullWidth
+                isFooterBlurred
+                radius="lg"
+                className="w-full group sm:cursor-pointer"
+              >
+                <Image
+                  removeWrapper
+                  alt="Woman listing to music"
+                  className="object-cover w-full h-full min-h-40 max-h-52"
+                  src={String(item?.urls?.regular)}
+                />
+                <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
+                  <UIView className="w-full flex items-center justify-between">
+                    <UIView className="flex items-center gap-2">
+                      <UIButton
+                        size="sm"
+                        variant="flat"
+                        color="default"
+                        target={'_blank'}
+                        href={item.urls.regular}
+                        className="text-tiny bg-black/40"
+                      >
+                        Use
+                      </UIButton>
+                      <Tooltip content="Magical AI" size="sm">
+                        <UIButton
+                          size="sm"
+                          variant="flat"
+                          color="default"
+                          target={'_blank'}
+                          isIconOnly
+                          href={item.urls.regular}
+                          className="text-tiny bg-black/40"
+                        >
+                          <FluentCropSparkleRegular />
+                        </UIButton>
+                      </Tooltip>
+                    </UIView>
+                    <UIView className="flex items-center gap-2">
+                      <UIButton
+                        as={Link}
+                        size="sm"
+                        isIconOnly
+                        variant="flat"
+                        color="default"
+                        target={'_blank'}
+                        href={item.urls.regular}
+                        className="text-tiny bg-black/40"
+                      >
+                        <UnsplashIcon />
+                      </UIButton>
+                    </UIView>
+                  </UIView>
+                </CardFooter>
+              </Card>
+            ))}
         </UIView>
       </FrameItem>
-
-      <React.Suspense>
-        <FrameItem divider={false}>
-          <UIView className="flex flex-col gap-2 ">
-            {images &&
-              images?.length > 0 &&
-              images?.map((item, index) => (
-                <Card
-                  key={index}
-                  fullWidth
-                  isFooterBlurred
-                  radius="lg"
-                  className="border-none w-full"
-                >
-                  <Image
-                    alt="Woman listing to music"
-                    className="object-cover w-full h-full"
-                    src={String(item?.urls?.regular)}
-                  />
-                  <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                    <UIView className="flex items-center gap-1 text-tiny text-white/80">
-                      <p>SOURCE :</p>
-                      <Link href={'/'} className="flex items-center">
-                        View
-                        <LinkIcon />
-                      </Link>
-                    </UIView>
-                    <UIButton
-                      className="text-tiny text-white bg-black/20"
-                      variant="flat"
-                      color="default"
-                      radius="lg"
-                      size="sm"
-                    >
-                      USE
-                    </UIButton>
-                  </CardFooter>
-                </Card>
-              ))}
-          </UIView>
-        </FrameItem>
-      </React.Suspense>
     </UIView>
   );
 };

@@ -14,6 +14,7 @@ import CloudCheckIcon from '@/ui-kit/icons/CloudCheckIcon';
 import HighlighterIcon from '@/ui-kit/icons/HighlighterIcon';
 import BookmarkIcon from '@/ui-kit/icons/BookmarkIcon';
 import { headerIcon } from '@/components/style/header';
+import { BitcoinIconsMagicWandFilled } from '@/ui-kit/icons/BitcoinIconsMagicWandFilled';
 
 const AppHeader = () => {
   const { captureImage, isLoading } = useCapture();
@@ -55,7 +56,7 @@ const AppHeader = () => {
             </h4>
             <UIView className="">
               <Chip size="sm" variant="dot" color="success">
-                Introducing v1.2.0
+                Introducing v1.5.0
               </Chip>
             </UIView>
           </UIView>
@@ -82,6 +83,17 @@ const AppHeader = () => {
             </UIIconButton>
           </Tooltip>
         </UIButtonGroup>
+
+        <UIButton
+          size="sm"
+          variant="flat"
+          radius="sm"
+          startContent={
+            <BitcoinIconsMagicWandFilled className={headerIcon()} />
+          }
+        >
+          Format Code
+        </UIButton>
 
         <UIButton
           size="sm"

@@ -1,11 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import NotFound from './not-found';
-import { SEGMENT_SCREEN } from '@/typings/enums';
-import { motion, AnimatePresence } from 'framer-motion';
 import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
+import { SEGMENT_SCREEN } from '@/typings/enums';
 import AIScreen from '@/components/app/screens/ai';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Import dynamic components
 const EditScreens = dynamic(() => import('@/components/app/screens/edit'));

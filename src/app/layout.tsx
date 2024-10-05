@@ -1,7 +1,5 @@
 import '@/styles/next-ui.scss';
-import { inter } from './font';
 import type { Metadata } from 'next';
-import { twMerge } from 'tailwind-merge';
 import NextAppProvider from '@/providers/next-ui';
 
 export const metadata: Metadata = {
@@ -28,11 +26,11 @@ export const metadata: Metadata = {
   ],
   creator: 'SimpleNeeraj',
   publisher: 'Simple Neeraj',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  // formatDetection: {
+  //   email: false,
+  //   address: false,
+  //   telephone: false,
+  // },
 };
 
 export default function RootLayout({
@@ -42,10 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        style={inter.style}
-        className={twMerge(inter.className, inter.variable)}
-      >
+      <body>
         <NextAppProvider>
           <main className="dark text-foreground bg-background">{children}</main>
         </NextAppProvider>

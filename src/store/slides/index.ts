@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { ELEMENTS } from '@/typings/enums';
+import { BACKGROUND_TYPE, ELEMENTS } from '@/typings/enums';
 import { generateID } from '@/utils/id-generator';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
@@ -13,16 +13,88 @@ const initialState = {
   slides: [
     {
       id: InitialValues.SLIDE_ID,
-      name: 'Untitled Slide',
+      name: 'Crystal Slide',
+      background: {
+        type: BACKGROUND_TYPE.IMAGE,
+        style: {
+          width: 450,
+          height: 450,
+          size: 'cover',
+          position: 'center',
+          repeat: 'no-repeat',
+        },
+        properties: {
+          watermark: true,
+          aspectRatio: '1:1',
+          url: '/images/glow-wallpaper.jpg',
+        },
+      },
+      header: {
+        type: 'unix::terminal',
+        theme: 'outline',
+        input: 'nothing',
+        position: 'nothing',
+        style: {
+          background: 'rgba(0, 0, 0, 0.75)',
+        },
+        properties: {
+          colors: [
+            {
+              name: 'Red',
+              hex: '#fd4539',
+            },
+            {
+              name: 'Yellow',
+              hex: '#ffd213',
+            },
+            {
+              name: 'Green',
+              hex: '#21d854',
+            },
+          ],
+          title: {
+            text: 'My Application',
+            icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
+          },
+        },
+      },
+      watermark: {
+        text: 'Your Watermark Here',
+        image: '',
+        style: {
+          opacity: 0.3,
+          fontSize: '12px',
+          color: '#ffffff',
+          // Can have custom it have custom(120px,50px) pairs
+          position: 'bottom-right',
+        },
+      },
       elements: [
         {
           id: InitialValues.ELEMENT_ID,
           type: ELEMENTS.CODE,
-          content: 'console.log("Hello, World!");',
-          style: {},
+          content: `import SwiftUI
+
+          struct CircleImage: View {
+              var body: some View {
+                  Image("turtlerock")
+                      .clipShape(Circle())
+              }
+          }
+          `,
+          style: {
+            width: '90%',
+            fontSize: 16,
+            fontWeight: 400,
+            lineHeight: 1.6,
+            letterSpacing: 0,
+            fontFamily: 'SFMono',
+            borderRadius: 15,
+            background: 'rgba(0, 0, 0, 0.5)',
+          },
           properties: {
-            language: LanguagesEnum.TYPESCRIPT,
             theme: ThemesEnum.DRACULA,
+            language: LanguagesEnum.TYPESCRIPT,
           },
         },
       ],

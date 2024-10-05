@@ -36,7 +36,7 @@ const EditingScreens = () => {
     onChangeScreen('aside', ASIDE_SCREEN.PROGRAMMING_LANGUAGE_SCREEN);
   }, [onChangeScreen]);
 
-  const { element } = useSlideEditor();
+  const { element, updateElementProperties } = useSlideEditor();
 
   const RenderComponents = React.useMemo(() => {
     switch (element?.type) {
@@ -63,6 +63,7 @@ const EditingScreens = () => {
         <CanvasScreen
           openAspectRatio={openAspectRatio}
           openBackgrounds={openBackgrounds}
+          updateElementProperties={updateElementProperties}
         />
         {RenderComponents}
       </UIView>

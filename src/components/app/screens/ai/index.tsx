@@ -11,7 +11,7 @@ const AIScreen = () => {
       <UIView
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(/unsplash.jpg)`,
+          backgroundImage: `url(/ai/unsplash.webp)`,
           filter: 'blur(15px)',
         }}
       />
