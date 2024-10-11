@@ -9,7 +9,7 @@ export const generatedCodeTheme = moize(
 );
 
 export const generatedCodeLanguage = moize(
-  (language: LanguagesEnum | undefined) =>
+  (language: LanguagesEnum) =>
     languages[
       language || LanguagesEnum.TYPESCRIPT
     ]() as unknown as ReactCodeMirrorProps['extensions']

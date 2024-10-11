@@ -1,5 +1,6 @@
+import React from 'react';
+import { BACKGROUND_TYPE } from '@/typings/enums';
 import { SlideBackgroundTypes } from '@/typings/editor';
-import backgroundPurify from '@/utils/background-purify';
 
 type Props = {
   style?: SlideBackgroundTypes;
@@ -9,11 +10,26 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
   const CSS = style?.style;
   const PROPERTIES = style?.properties;
 
-  const source = backgroundPurify(PROPERTIES?.url!);
-  const resolution = {
-    height: CSS?.height,
-    width: CSS?.width,
-  };
+  const source = React.useMemo(() => {
+    if (!style || !style.type) {
+      return '';
+    }
+    switch (style.type) {
+      case BACKGROUND_TYPE.IMAGE:
+        return `url(${PROPERTIES?.image})`;
+      case BACKGROUND_TYPE.PATTERN:
+        return `url(${PROPERTIES?.pattern})`;
+      case BACKGROUND_TYPE.VIDEO:
+        return `url(${PROPERTIES?.video})`;
+      case BACKGROUND_TYPE.COLOR:
+        return `${PROPERTIES?.color}`;
+      case BACKGROUND_TYPE.GRADIENT:
+        return `${PROPERTIES?.gradient}`;
+      default:
+        return '';
+    }
+  }, [style?.type, PROPERTIES]);
+
   return (
     <style>
       {`
@@ -26,8 +42,8 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          width: ${resolution.width}px;        
-          height: ${resolution.height}px;        
+          width: ${CSS?.width}px;        
+          min-height: ${CSS?.height}px;        
         }
      
         .glass-layer{
@@ -36,8 +52,8 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          height: ${resolution.height}px;        
-          width: ${resolution.width}px;   
+          min-height: ${CSS?.height}px;        
+          width: ${CSS?.width}px;   
           position: absolute;
           top: 50%;
           left: 50%;

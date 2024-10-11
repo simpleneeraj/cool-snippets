@@ -15,9 +15,11 @@ import HighlighterIcon from '@/ui-kit/icons/HighlighterIcon';
 import BookmarkIcon from '@/ui-kit/icons/BookmarkIcon';
 import { headerIcon } from '@/components/style/header';
 import { BitcoinIconsMagicWandFilled } from '@/ui-kit/icons/BitcoinIconsMagicWandFilled';
+import useSlideEditor from '@/store/hooks/use-editor';
 
 const AppHeader = () => {
   const { captureImage, isLoading } = useCapture();
+  const { activeElement } = useSlideEditor();
 
   return (
     <UIView className={`flex items-center justify-between p-2 pb-0 z-50`}>
@@ -88,9 +90,7 @@ const AppHeader = () => {
           size="sm"
           variant="flat"
           radius="sm"
-          startContent={
-            <BitcoinIconsMagicWandFilled className={headerIcon()} />
-          }
+          startContent={<BitcoinIconsMagicWandFilled className={'h-5 w-5'} />}
         >
           Format Code
         </UIButton>
@@ -140,8 +140,8 @@ const AppHeader = () => {
               isDebug: true,
               fonts: [
                 {
-                  src: '/fonts/SFMono//SFMonoLigaturized.ttf',
                   fontFamily: 'SFMono',
+                  src: `/fonts/SFMono/${activeElement?.style?.fontFamily}.ttf`,
                 },
               ],
             })
@@ -150,7 +150,7 @@ const AppHeader = () => {
           variant="flat"
           radius="sm"
         >
-          Export
+          Save & Export
         </UIButton>
       </UIView>
     </UIView>

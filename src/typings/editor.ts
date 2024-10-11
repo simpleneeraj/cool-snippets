@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import { BACKGROUND_TYPE, ELEMENTS } from './enums';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
@@ -11,48 +10,48 @@ export enum InitialValues {
 }
 
 export type PropertiesType = {
-  language: LanguagesEnum;
-  theme: ThemesEnum;
+  language?: LanguagesEnum;
+  theme?: ThemesEnum;
 } & Pairs;
 
 export type ElementType = {
   id?: string | undefined;
   type?: ELEMENTS;
   content?: any;
-  style?: CSSProperties;
+  style?: React.CSSProperties & Pairs;
   properties?: PropertiesType & Pairs;
 };
 
 export type SlideBackgroundTypes = {
   type: BACKGROUND_TYPE;
-  style: {
-    width: number;
-    height: number;
-    size: string;
-    position: string;
-    repeat: string;
+  style?: {
+    width?: number;
+    height?: number;
+    size?: string;
+    position?: string;
+    repeat?: string;
   } & Pairs;
-  properties: {
-    watermark: boolean;
-    aspectRatio: string;
-    url: string;
+  properties?: {
+    watermark?: boolean;
+    aspectRatio?: string;
+    source?: string;
   } & Pairs;
 };
 
 export type SlideHeaderType = {
-  type: string;
-  theme: string;
-  input: string;
-  position: string;
-  style: {
-    background: string;
+  type?: string;
+  theme?: string;
+  input?: string;
+  position?: string;
+  style?: {
+    background?: string;
   } & Pairs;
-  properties: {
-    colors: {
+  properties?: {
+    colors?: {
       name: string;
       hex: string;
     }[];
-    title: {
+    title?: {
       text: string;
       icon: string;
     };
@@ -60,13 +59,13 @@ export type SlideHeaderType = {
 };
 
 export type SlideWatermarkType = {
-  text: string;
-  image: string;
-  style: {
-    opacity: number;
-    fontSize: string;
-    color: string;
-    position: string;
+  text?: string;
+  image?: string;
+  style?: {
+    opacity?: number;
+    fontSize?: string;
+    color?: string;
+    position?: string;
   } & Pairs;
 };
 
@@ -85,7 +84,10 @@ export type SlideStateType = {
 
 export type SlideActionType = {
   createSlide: (slide: SlideTypes) => void;
-  updateSlide: (id: string, slide: SlideTypes) => void;
+  updateSlide: (
+    id: string,
+    slide: Omit<SlideTypes, 'id' | 'name' | 'elements'>
+  ) => void;
   deleteSlide: (id: string) => void;
   duplicateSlide: (id: string) => void;
   createSlideElement: (slideId: string, element: ElementType) => void;

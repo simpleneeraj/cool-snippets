@@ -1,3 +1,4 @@
+import React from 'react';
 import { ElementType } from '@/typings/editor';
 
 type Props = {
@@ -10,16 +11,6 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
   return (
     <style>
       {`
-        
-        .layer {
-          z-index: 0;
-          display: grid;
-          overflow: hidden;
-          align-items: center;
-          position: relative;
-          backdrop-filter: blur(16px);
-          border-radius: ${CSS?.borderRadius}px;
-        }
         .cm-editor {
           width: 100%;
           height: auto;
@@ -63,7 +54,7 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
   );
 };
 
-export default ElementStyle;
+export default React.memo(ElementStyle);
 
 /**
  *   .codemirror {

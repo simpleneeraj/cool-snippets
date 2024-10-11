@@ -5,6 +5,13 @@ import PrimaryAsideWidget from '@/components/app/widget/aside/primary';
 import SecondaryAsideWidget from '@/components/app/widget/aside/secondary';
 
 const EditorPage = () => {
+  /**
+   * Need to handle many things here
+   * 1. User auth management
+   * 2. Handle The Template data correctly
+   * 3. Will giving a save button to user
+   * 4.
+   */
   return (
     <UIView className={'flex flex-1'}>
       {/* LEFT SECTION */}

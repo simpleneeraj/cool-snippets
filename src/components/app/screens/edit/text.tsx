@@ -18,7 +18,7 @@ import TextStrikeThroughIcon from '@/ui-kit/icons/text/TextStrikeThroughIcon';
 import useSlideEditor from '@/store/hooks/use-editor';
 
 const TextScreen = () => {
-  const { updateElementProperties } = useSlideEditor();
+  const { onChangeSlideElement: updateElementProperties } = useSlideEditor();
 
   return (
     <Frame title="TEXT">

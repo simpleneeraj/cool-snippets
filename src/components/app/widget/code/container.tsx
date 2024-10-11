@@ -4,7 +4,6 @@ import React from 'react';
 import SlideStyle from './styles/slide';
 import UIView from '@/ui-kit/source/UIView';
 import css from '@/styles/center.module.scss';
-import { Capture as CaptureView } from '@/plugins/capture';
 import ElementView from './elements/view';
 import IconElement from './elements/icon';
 import TextElement from './elements/text';
@@ -13,33 +12,18 @@ import { ElementType } from '@/typings/editor';
 import useSlideEditor from '@/store/hooks/use-editor';
 import CodeElement from './elements/code';
 import {
-  generatedCodeLanguage,
   generatedCodeTheme,
+  generatedCodeLanguage,
 } from '@/plugins/codemirror/utils';
-import { useActiveElement } from '@/store/slides/current-element';
-import { useActiveSlide } from '@/store/slides/current-slide';
 import ElementStyle from './styles/element';
+import { Capture as CaptureView } from '@/plugins/capture';
+import { useActiveElement } from '@/store/slides/current-element';
 
 const ContainerWidget = () => {
-  const dragConstraintsRef = React.useRef(null);
-  const { slides, updateSlideElement } = useSlideEditor();
-  const { slide } = useActiveSlide();
   const { updateElement } = useActiveElement();
+  const dragConstraintsRef = React.useRef(null);
 
-  const activeSlide = React.useMemo(() => {
-    return slides.find((item) => item.id === slide);
-  }, [slide, slides]);
-
-  const handleActiveElement = React.useCallback(
-    (elementId: string | undefined) => {
-      if (elementId) {
-        updateElement(elementId);
-      }
-    },
-    []
-  );
-
-  console.log(activeSlide?.elements);
+  const { activeSlide, onChangeSlideElement } = useSlideEditor();
 
   const RenderElement = React.useCallback(
     (item: ElementType) => {
@@ -47,30 +31,23 @@ const ContainerWidget = () => {
         case ELEMENTS.CODE:
           return (
             <ElementView
-              drag
-              key={item.id}
               style={item.style}
-              className="layer"
-              dragConstraints={dragConstraintsRef}
-              onHoverStart={() => handleActiveElement(item.id)}
+              onHoverStart={() => updateElement(item.id!)}
             >
               <CodeElement
                 value={item.content}
-                onChange={(value) => {
-                  if (item.id) {
-                    updateSlideElement(slide, item.id, {
-                      content: value,
-                    });
-                  }
-                }}
-                extensions={generatedCodeLanguage(item?.properties?.language)}
-                theme={generatedCodeTheme(item?.properties?.theme, 0)}
+                onChange={(content) =>
+                  onChangeSlideElement({
+                    content,
+                  })
+                }
+                extensions={generatedCodeLanguage(item?.properties?.language!)}
+                theme={generatedCodeTheme(item?.properties?.theme, 0.5)}
                 basicSetup={{
                   foldGutter: false,
                   highlightActiveLine: false,
                   highlightActiveLineGutter: false,
                   lineNumbers: false,
-                  autocompletion: false,
                 }}
                 header={activeSlide?.header || null}
               />
@@ -80,14 +57,10 @@ const ContainerWidget = () => {
         case ELEMENTS.TEXT:
           return (
             <ElementView
-              key={item.id}
               drag
+              style={item.style}
               dragConstraints={dragConstraintsRef}
-              onHoverStart={() => handleActiveElement(item.id)}
-              style={{
-                ...item.style,
-                width: '90%',
-              }}
+              onHoverStart={() => updateElement(item.id!)}
             >
               <TextElement
                 contentEditable
@@ -101,26 +74,19 @@ const ContainerWidget = () => {
         case ELEMENTS.ICON:
           return (
             <ElementView
-              key={item.id}
               drag
+              style={item.style}
               dragConstraints={dragConstraintsRef}
-              onHoverStart={() => handleActiveElement(item.id)}
+              onHoverStart={() => updateElement(item.id!)}
             >
               <IconElement />
             </ElementView>
           );
-
         default:
           return null;
       }
     },
-    [
-      slide,
-      dragConstraintsRef,
-      updateElement,
-      handleActiveElement,
-      updateSlideElement,
-    ]
+    [updateElement, onChangeSlideElement, dragConstraintsRef]
   );
 
   return (

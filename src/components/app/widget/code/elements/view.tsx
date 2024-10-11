@@ -5,11 +5,6 @@ type Props = React.ComponentProps<typeof motion.div>;
 
 const ElementView = React.forwardRef((props: Props, ref: Props['ref']) => {
   const style = {
-    position: 'absolute',
-    top: 'initial',
-    left: 'initial',
-    bottom: 'initial',
-    right: 'initial',
     ...props.style,
   } as React.CSSProperties;
   return (

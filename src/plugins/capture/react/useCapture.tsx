@@ -9,59 +9,54 @@ import delay from '../utils/delay';
 
 const useScreenshot = () => {
   const [isLoading, setLoading] = React.useState(false);
-  // capture Handler as Simple as That
+
   const captureImage = React.useCallback(
     async (options: CaptureOptions): Promise<void> => {
-      // For SSR
       if (typeof document === 'undefined') {
         return;
       }
+
       const element = document.querySelector(
         `[data-capture=${attID}]`
       ) as HTMLElement;
       const { imageFormat, delay: exportDelay = 0, fileName } = options;
+
       setLoading(true);
 
       const name = fileName
         ? `${fileName}.${imageFormat}`
         : randomName(imageFormat);
+
       try {
         await delay(exportDelay);
+
         if (imageFormat === 'svg') {
           const svg: SVGSVGElement = await createSvg(element, options);
-          const svgBlob = new Blob([svg.outerHTML], { type: 'text/svg+xml' });
+          const svgBlob = new Blob([svg.outerHTML], { type: 'image/svg+xml' });
           download(svgBlob, name);
         } else {
           const canvas = await createCanvas(element, options);
-          canvas.toBlob((blob: Blob) => {
-            download(blob, name);
+          canvas.toBlob((blob: Blob | null) => {
+            if (blob) {
+              download(blob, name);
+            } else {
+              console.error('Failed to create blob from canvas');
+            }
           }, `image/${imageFormat}`);
         }
-
-        setLoading(false);
       } catch (error) {
+        console.error('Error capturing image:', error);
+      } finally {
         setLoading(false);
-        console.log(error);
       }
     },
     []
   );
 
-  /**
-   * A basic handler to download image it's so simple and effective
-   * @param options - ScreenshotOptions for customize your output image
-   */
-  // const captureImage = React.useMemo(() => captureImage, [captureImage]);
-
   return {
-    captureImage: React.useMemo(() => captureImage, [captureImage]),
+    captureImage,
     isLoading,
   };
 };
 
 export default useScreenshot;
-
-// const canvas = await createCanvas(element, options);
-// canvas.toBlob(async (blob: Blob) => {
-//   download(blob, fileName || randomName(imageFormat));
-// }, `image/${imageFormat}`);

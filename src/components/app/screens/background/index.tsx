@@ -1,12 +1,11 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import backgroundVariants from './variants';
-import { BACKGROUND_SCREEN } from '@/typings/enums';
-import { Frame, FrameItem } from '@/components/elements/frame';
-import { Chip, Select, SelectItem } from '@nextui-org/react';
 import { useScreen } from '@/store/screen';
+import backgroundVariants from './variants';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { useActiveSlide } from '@/store/slides/current-slide';
+import { Chip, Select, SelectItem } from '@nextui-org/react';
+import { Frame, FrameItem } from '@/components/elements/frame';
+import { BACKGROUND_SCREEN, BACKGROUND_TYPE } from '@/typings/enums';
 
 const SolidBackgrounds = dynamic(() => import('./solid'));
 const GradientsBackgrounds = dynamic(() => import('./gradients'));
@@ -15,19 +14,47 @@ const MeshBackgrounds = dynamic(() => import('./mesh'));
 const PatternsBackgrounds = dynamic(() => import('./patterns'));
 
 const BackgroundScreens = () => {
+  const { activeSlide, onChangeSlide } = useSlideEditor();
   const { screen, onChangeScreen } = useScreen((state) => state);
 
-  const { updateSlideElement } = useSlideEditor();
-  const { slide: activeSlide } = useActiveSlide();
+  const onUpdateBackground = React.useCallback(
+    (type: BACKGROUND_TYPE, value: string) => {
+      onChangeSlide({
+        background: {
+          type,
+          properties: {
+            [type]: value,
+          },
+        },
+      });
+    },
+    [activeSlide]
+  );
 
   const RenderScreen = React.useMemo(() => {
     switch (screen.background) {
       case BACKGROUND_SCREEN.SOLID:
         return <SolidBackgrounds />;
       case BACKGROUND_SCREEN.GRADIENTS:
-        return <GradientsBackgrounds />;
+        return (
+          <GradientsBackgrounds
+            value={
+              activeSlide?.background?.properties?.[BACKGROUND_TYPE.GRADIENT]
+            }
+            onChange={(gradient) =>
+              onUpdateBackground(BACKGROUND_TYPE.GRADIENT, gradient)
+            }
+          />
+        );
       case BACKGROUND_SCREEN.IMAGES:
-        return <ImagesBackgrounds />;
+        return (
+          <ImagesBackgrounds
+            value={activeSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]}
+            onChange={(gradient) =>
+              onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient)
+            }
+          />
+        );
       case BACKGROUND_SCREEN.MESH:
         return <MeshBackgrounds />;
       case BACKGROUND_SCREEN.PATTERNS:
@@ -35,7 +62,7 @@ const BackgroundScreens = () => {
       default:
         return <ImagesBackgrounds />;
     }
-  }, [screen]);
+  }, [screen, activeSlide?.background?.properties, onUpdateBackground]);
 
   return (
     <Frame title="Background">
@@ -56,8 +83,8 @@ const BackgroundScreens = () => {
               {item.label}
               {item.new && (
                 <Chip
-                  variant="faded"
                   size="sm"
+                  variant="faded"
                   color="secondary"
                   className="ml-2"
                 >

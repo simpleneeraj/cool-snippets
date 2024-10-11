@@ -9,11 +9,13 @@ import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
 import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
 import fontsNames from '@/json/fonts.json';
+import useSlideEditor from '@/store/hooks/use-editor';
 
 type Props = {
   openLanguages: () => void;
 };
 const CodeScreen = ({ openLanguages }: Props) => {
+  const { activeElement, onChangeSlideElement } = useSlideEditor();
   return (
     <Frame title="CODE">
       <FrameItem>
@@ -29,7 +31,9 @@ const CodeScreen = ({ openLanguages }: Props) => {
             <UIView className="w-full flex items-center justify-between">
               <UIView className="flex flex-col">
                 <span className="text-tiny text-default-400">Languages</span>
-                <h4 className="text-small text-default-500">Typescript</h4>
+                <h4 className="text-small text-default-500">
+                  {capitalize(activeElement?.properties?.language)}
+                </h4>
               </UIView>
               <UIView>
                 <ChevronRightIcon />
@@ -42,34 +46,47 @@ const CodeScreen = ({ openLanguages }: Props) => {
         <Autocomplete
           labelPlacement="outside"
           size={'sm'}
-          defaultItems={Object.keys(themes).map((item, index) => {
+          defaultItems={Object.keys(themes).map((item) => {
             return {
               name: capitalize(item),
-              id: index,
+              value: item,
             };
           })}
           className="max-w-xs"
           variant="flat"
           placeholder="Choose a theme"
+          value={activeElement?.properties?.theme}
+          onSelectionChange={(theme: any) =>
+            onChangeSlideElement({
+              properties: {
+                theme,
+              },
+            })
+          }
         >
           {(item) => (
-            <AutocompleteItem key={item.id}>{item.name}</AutocompleteItem>
+            <AutocompleteItem key={item.value}>{item.name}</AutocompleteItem>
           )}
         </Autocomplete>
       </FrameItem>
       <FrameItem>
         <Autocomplete
-          labelPlacement="outside"
           size={'sm'}
+          labelPlacement="outside"
           defaultItems={fontsNames.map((item, index) => {
-            return {
-              ...item,
-              id: index,
-            };
+            return item;
           })}
           className="max-w-xs"
           variant="flat"
           placeholder="Choose a typeface"
+          value={activeElement?.style?.fontFamily}
+          onSelectionChange={(fontFamily: any) =>
+            onChangeSlideElement({
+              style: {
+                fontFamily,
+              },
+            })
+          }
         >
           {(item) => (
             <AutocompleteItem
@@ -81,7 +98,7 @@ const CodeScreen = ({ openLanguages }: Props) => {
                 )
               }
               aria-label={item.name}
-              key={item.id}
+              key={item.value}
             >
               {item.name}
             </AutocompleteItem>

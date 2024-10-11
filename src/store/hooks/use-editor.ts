@@ -1,47 +1,59 @@
-import React from 'react';
 import useSlide from '../slides';
-import { ElementType } from '@/typings/editor';
+import { merge, throttle } from 'lodash';
+import { useCallback, useMemo } from 'react';
 import { useActiveSlide } from '../slides/current-slide';
+import { ElementType, SlideTypes } from '@/typings/editor';
 import { useActiveElement } from '../slides/current-element';
 
+const THROTTLE_DELAY = 1000;
+
 const useSlideEditor = () => {
-  // Retrieve active slide and active element
   const { slide } = useActiveSlide();
   const { element } = useActiveElement();
-  // Retrieve slides and updateSlideElement function from the useSlide hook
   const slideState = useSlide((state) => state);
 
-  // console.log(slideState.slides);
-  // Get active slide
-  const activeSlide = React.useMemo(() => {
-    return slideState.slides.find((item) => item.id === slide);
-  }, [slideState.slides, slide]); // Include slides and slide in dependencies array
+  const activeSlide = useMemo(() => {
+    return slideState?.slides?.find((item) => item.id === slide);
+  }, [slideState.slides, slide]);
 
-  // Get active element
-  const activeElement = React.useMemo(() => {
-    return activeSlide?.elements.find((elm) => elm.id === element);
-  }, [activeSlide, element]); // Include activeSlide and element in dependencies array
+  const activeElement = useMemo(() => {
+    return activeSlide?.elements?.find((elm) => elm.id === element);
+  }, [activeSlide, element]);
 
-  // Update Slide Elements Properties
-  const updateElementProperties = React.useCallback(
-    (updatedElement: ElementType) => {
+  const throttledUpdateSlideElement = useCallback(
+    throttle((updatedElement: ElementType) => {
       if (activeSlide?.id && activeElement?.id) {
-        // Call updateSlideElement function with updated element properties
-        slideState.updateSlideElement(activeSlide.id, activeElement.id, {
-          ...activeElement.style,
-          ...updatedElement,
-        });
+        slideState.updateSlideElement(
+          activeSlide.id,
+          activeElement.id,
+          merge({}, activeElement, updatedElement)
+        );
       }
-    },
-    [activeSlide, activeElement]
+    }, THROTTLE_DELAY),
+    [activeSlide, activeElement, slideState]
   );
 
-  // Return active slide, active element, and update function
+  const throttledUpdateSlide = useCallback(
+    throttle((updatedSlide: Omit<SlideTypes, 'id' | 'name' | 'elements'>) => {
+      console.log('HELLO');
+      if (activeSlide?.id) {
+        slideState.updateSlide(
+          activeSlide.id,
+          merge({}, activeSlide, updatedSlide)
+        );
+      }
+    }, THROTTLE_DELAY),
+    [activeSlide, slideState]
+  );
+
   return {
-    ...slideState,
-    slide: activeSlide,
-    element: activeElement,
-    updateElementProperties,
+    currentSlideId: slide,
+    currentElementId: element,
+    activeSlide,
+    activeElement,
+    onChangeSlide: throttledUpdateSlide,
+    onChangeSlideElement: throttledUpdateSlideElement,
+    slides: useMemo(() => slideState.slides, [slideState.slides]),
   };
 };
 

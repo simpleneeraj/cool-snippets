@@ -2,25 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import UIView from '@/ui-kit/source/UIView';
 import UIButton from '@/ui-kit/source/UIButton/button';
-import {
-  Card,
-  CardFooter,
-  Chip,
-  Image,
-  LinkIcon,
-  Tooltip,
-} from '@nextui-org/react';
+import { Card, CardFooter, Image, Tooltip } from '@nextui-org/react';
 import { FrameItem } from '@/components/elements/frame';
 import UIInput from '@/ui-kit/source/UIInput';
 import SearchIcon from '@/ui-kit/icons/SearchIcon';
-import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
-import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
 import { useImmer } from 'use-immer';
-// import { UnsplashSearchResponse } from '@/server/types/unsplash';
-import SparklesIcon from '@/ui-kit/icons/SparklesIcon';
 import Json from '@/json/images.json';
 import UnsplashIcon from '@/ui-kit/icons/logo/Unsplash';
 import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegular';
+import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
+import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+
 enum ImageType {
   POPULAR = 'popular',
   UNSPLASH = 'unsplash',
@@ -59,7 +51,10 @@ const imagesSegment = [
 //   }
 // `;
 
-const ImagesBackground = () => {
+const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
+  value,
+  onChange,
+}) => {
   // const { data, error, refetch, loading } = useQuery<any>(query, {
   //   variables: {
   //     query: 'Mac',
@@ -85,12 +80,9 @@ const ImagesBackground = () => {
     }
   }, [setSearchProgress]);
 
-  const onChangeImageTab = React.useCallback(
-    (value: ImageType) => {
-      setCurrentImagetab(value);
-    },
-    [setCurrentImagetab]
-  );
+  const onChangeImageTab = React.useCallback((value: ImageType) => {
+    setCurrentImagetab(value);
+  }, []);
 
   const simulateProgress = (duration: number, increment: number) => {
     let currentProgress = 0;
@@ -106,21 +98,16 @@ const ImagesBackground = () => {
     }, duration / (100 / increment));
   };
 
-  React.useEffect(() => {
-    // Simulate gradual increase before the request starts
-    simulateProgress(500, 10); // Adjust the duration and increment as needed
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <UIView className="flex flex-col">
-      {/* <FrameItem className="py-1">
+      <FrameItem className="py-1">
         <UISegmentedControl
           radius="sm"
           fullWidth
           size="sm"
           selectedKey={currentImageTab}
           onSelectionChange={(value) => onChangeImageTab(value as ImageType)}
+          className="p-0"
         >
           {imagesSegment.map((item) => {
             return (
@@ -128,11 +115,12 @@ const ImagesBackground = () => {
                 key={item.value}
                 title={item.label}
                 aria-label={item.label}
+                className="p-1 h-auto"
               />
             );
           })}
         </UISegmentedControl>
-      </FrameItem> */}
+      </FrameItem>
       <FrameItem className="flex-1 flex flex-col items-baseline sticky top-0 z-50 bg-default-50 bg-opacity-85 backdrop-blur-lg rounded-b-2xl rounded-br-2xl gap-1">
         <UIView className="flex-1 flex items-center gap-1 w-full">
           <UIInput
@@ -143,17 +131,88 @@ const ImagesBackground = () => {
             onChange={({ target }) => setSearchQuery(target.value)}
             startContent={<SearchIcon className="text-default-400 h-4 w-4" />}
           />
-          <UIButton
-            isIconOnly
-            size={'sm'}
-            variant={'flat'}
-            onPress={onSearch}
-            // isLoading={loading}
-          >
-            <SparklesIcon />
-          </UIButton>
         </UIView>
-        {/* <UIView className="flex flex-wrap items-center gap-1">
+      </FrameItem>
+      <FrameItem divider={false}>
+        <UIView className="flex flex-col gap-2 ">
+          {images &&
+            images?.length > 0 &&
+            images?.map((item, index) => (
+              <Card
+                key={index}
+                fullWidth
+                radius="lg"
+                isFooterBlurred
+                className="w-full group sm:cursor-pointer"
+              >
+                <figure>
+                  <Image
+                    removeWrapper
+                    alt="Woman listing to music"
+                    className="object-cover w-full h-full min-h-40 max-h-52"
+                    src={String(item?.urls?.regular)}
+                  />
+                </figure>
+                <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
+                  <UIView className="w-full flex items-center justify-between">
+                    <UIView className="flex items-center gap-2">
+                      <UIButton
+                        size="sm"
+                        variant="flat"
+                        color="default"
+                        target={'_blank'}
+                        href={item?.urls?.regular}
+                        className="text-tiny bg-black/40"
+                        onPress={() => onChange?.(item?.urls?.regular)}
+                      >
+                        {value !== item?.urls?.regular ? 'Use' : 'Selected'}
+                      </UIButton>
+                      <Tooltip content="Magical AI" size="sm">
+                        <UIButton
+                          size="sm"
+                          variant="flat"
+                          color="default"
+                          target={'_blank'}
+                          isIconOnly
+                          href={item?.urls?.regular}
+                          className="text-tiny bg-black/40"
+                        >
+                          <FluentCropSparkleRegular />
+                        </UIButton>
+                      </Tooltip>
+                    </UIView>
+                    <UIView className="flex items-center gap-2">
+                      <UIButton
+                        as={Link}
+                        size="sm"
+                        isIconOnly
+                        variant="flat"
+                        color="default"
+                        target={'_blank'}
+                        href={item.urls.regular}
+                        className="text-tiny bg-black/40"
+                      >
+                        <UnsplashIcon />
+                      </UIButton>
+                    </UIView>
+                  </UIView>
+                </CardFooter>
+              </Card>
+            ))}
+        </UIView>
+      </FrameItem>
+    </UIView>
+  );
+};
+export default ImagesBackground;
+
+{
+  /* <UIButton isIconOnly size={'sm'} variant={'flat'} onPress={onSearch}>
+            <SparklesIcon />
+          </UIButton> */
+}
+{
+  /* <UIView className="flex flex-wrap items-center gap-1">
           <Chip
             size="sm"
             variant="flat"
@@ -186,74 +245,5 @@ const ImagesBackground = () => {
           >
             Mesh
           </Chip>
-        </UIView> */}
-      </FrameItem>
-      <FrameItem divider={false}>
-        <UIView className="flex flex-col gap-2 ">
-          {images &&
-            images?.length > 0 &&
-            images?.map((item, index) => (
-              <Card
-                key={index}
-                fullWidth
-                isFooterBlurred
-                radius="lg"
-                className="w-full group sm:cursor-pointer"
-              >
-                <Image
-                  removeWrapper
-                  alt="Woman listing to music"
-                  className="object-cover w-full h-full min-h-40 max-h-52"
-                  src={String(item?.urls?.regular)}
-                />
-                <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
-                  <UIView className="w-full flex items-center justify-between">
-                    <UIView className="flex items-center gap-2">
-                      <UIButton
-                        size="sm"
-                        variant="flat"
-                        color="default"
-                        target={'_blank'}
-                        href={item.urls.regular}
-                        className="text-tiny bg-black/40"
-                      >
-                        Use
-                      </UIButton>
-                      <Tooltip content="Magical AI" size="sm">
-                        <UIButton
-                          size="sm"
-                          variant="flat"
-                          color="default"
-                          target={'_blank'}
-                          isIconOnly
-                          href={item.urls.regular}
-                          className="text-tiny bg-black/40"
-                        >
-                          <FluentCropSparkleRegular />
-                        </UIButton>
-                      </Tooltip>
-                    </UIView>
-                    <UIView className="flex items-center gap-2">
-                      <UIButton
-                        as={Link}
-                        size="sm"
-                        isIconOnly
-                        variant="flat"
-                        color="default"
-                        target={'_blank'}
-                        href={item.urls.regular}
-                        className="text-tiny bg-black/40"
-                      >
-                        <UnsplashIcon />
-                      </UIButton>
-                    </UIView>
-                  </UIView>
-                </CardFooter>
-              </Card>
-            ))}
-        </UIView>
-      </FrameItem>
-    </UIView>
-  );
-};
-export default ImagesBackground;
+        </UIView> */
+}

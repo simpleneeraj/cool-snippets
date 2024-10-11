@@ -14,10 +14,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { fadeIn } from '@/constants/framer-transition';
 import { useScreen } from '@/store/screen';
 import { useSegment } from '@/store/segment';
+import CodeHeaderScreen from './code-header';
 
 const EditingScreens = () => {
   const { onChangeSegment } = useSegment((state) => state);
   const { screen, onChangeScreen } = useScreen((state) => state);
+  const { activeElement, onChangeSlideElement } = useSlideEditor();
 
   const onSelectSegmentTab = React.useCallback(
     (value: SEGMENT_SCREEN) => {
@@ -36,35 +38,38 @@ const EditingScreens = () => {
     onChangeScreen('aside', ASIDE_SCREEN.PROGRAMMING_LANGUAGE_SCREEN);
   }, [onChangeScreen]);
 
-  const { element, updateElementProperties } = useSlideEditor();
-
   const RenderComponents = React.useMemo(() => {
-    switch (element?.type) {
+    switch (activeElement?.type) {
       case ELEMENTS.CODE:
         return (
-          <motion.div key={element?.type} {...fadeIn}>
+          <motion.div key={activeElement?.type} {...fadeIn}>
             <CodeScreen openLanguages={openLanguages} />
           </motion.div>
         );
       case ELEMENTS.TEXT:
         return (
-          <motion.div key={element?.type} {...fadeIn}>
+          <motion.div key={activeElement?.type} {...fadeIn}>
             <TextScreen />
           </motion.div>
         );
       default:
         return null;
     }
-  }, [element?.type]);
+  }, [activeElement?.type]);
 
   return (
     <AnimatePresence mode="sync">
       <UIView className="relative">
-        <CanvasScreen
+        {/* <CanvasScreen
           openAspectRatio={openAspectRatio}
           openBackgrounds={openBackgrounds}
           updateElementProperties={updateElementProperties}
-        />
+        /> */}
+        {/* <CodeHeaderScreen
+          openAspectRatio={openAspectRatio}
+          openBackgrounds={openBackgrounds}
+          updateElementProperties={updateElementProperties}
+        /> */}
         {RenderComponents}
       </UIView>
       {/* SLIDE PAN */}
@@ -94,7 +99,16 @@ const EditingScreens = () => {
             />
           }
         />
-        <LanguagesScreen />
+        <LanguagesScreen
+          value={activeElement?.properties?.language}
+          onSelect={(language) => {
+            onChangeSlideElement({
+              properties: {
+                language,
+              },
+            });
+          }}
+        />
       </UIPanView>
     </AnimatePresence>
   );
