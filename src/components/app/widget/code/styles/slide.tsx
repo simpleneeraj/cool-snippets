@@ -1,6 +1,7 @@
 import React from 'react';
 import { BACKGROUND_TYPE } from '@/typings/enums';
 import { SlideBackgroundTypes } from '@/typings/editor';
+import backgroundPurify from '@/utils/background-purify';
 
 type Props = {
   style?: SlideBackgroundTypes;
@@ -11,23 +12,7 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
   const PROPERTIES = style?.properties;
 
   const source = React.useMemo(() => {
-    if (!style || !style.type) {
-      return '';
-    }
-    switch (style.type) {
-      case BACKGROUND_TYPE.IMAGE:
-        return `url(${PROPERTIES?.image})`;
-      case BACKGROUND_TYPE.PATTERN:
-        return `url(${PROPERTIES?.pattern})`;
-      case BACKGROUND_TYPE.VIDEO:
-        return `url(${PROPERTIES?.video})`;
-      case BACKGROUND_TYPE.COLOR:
-        return `${PROPERTIES?.color}`;
-      case BACKGROUND_TYPE.GRADIENT:
-        return `${PROPERTIES?.gradient}`;
-      default:
-        return '';
-    }
+    return backgroundPurify(style?.type!, PROPERTIES);
   }, [style?.type, PROPERTIES]);
 
   return (
@@ -58,7 +43,6 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           top: 50%;
           left: 50%;
           transform:translate(-50%,-50%);
-          filter: blur(16px);
           z-index: 1;
         }
        

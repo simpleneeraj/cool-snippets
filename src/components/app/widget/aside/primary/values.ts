@@ -1,40 +1,55 @@
 import { ELEMENTS } from '@/typings/enums';
-import InputBoxIcon from '@/ui-kit/icons/elements/InputBoxIcon';
 import TextBoxIcon from '@/ui-kit/icons/elements/TextBoxIcon';
 import TerminalIcon from '@/ui-kit/icons/elements/TerminalIcon';
 import AddImageIcon from '@/ui-kit/icons/elements/AddImageIcon';
+import AddIcon from '@/ui-kit/icons/elements/AddIcon';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
+import UserInfo from '@/ui-kit/icons/elements/UserInfo';
+import CheckBadge from '@/ui-kit/icons/elements/CheckBadge';
 
+export const elementLabelMapper: Record<ELEMENTS, string> = {
+  [ELEMENTS.CODE]: 'Code Block',
+  [ELEMENTS.TEXT]: 'Text Box',
+  [ELEMENTS.IMAGE]: 'Image Upload',
+  [ELEMENTS.ICON]: 'Graphic Icon',
+  [ELEMENTS.USERINFO]: 'User Info',
+  [ELEMENTS.WATERMARK]: 'Watermark',
+};
 /**
  * Watermark
  * Twitter Username shape
  */
 export const elements = [
   {
-    content: 'Add Code',
+    content: 'Code Block',
     icon: TerminalIcon,
     type: ELEMENTS.CODE,
   },
   {
-    content: 'Add Text',
+    content: 'Text Box',
     icon: TextBoxIcon,
     type: ELEMENTS.TEXT,
   },
   {
-    content: 'Add Input',
-    icon: InputBoxIcon,
-    type: ELEMENTS.TEXT,
-  },
-  {
-    content: 'Add Image',
+    content: 'Image',
     icon: AddImageIcon,
     type: ELEMENTS.IMAGE,
   },
   {
-    content: 'Add Icon',
-    icon: InputBoxIcon,
+    content: 'Graphic Icon',
+    icon: AddIcon,
     type: ELEMENTS.ICON,
+  },
+  {
+    content: 'User Info',
+    icon: UserInfo,
+    type: ELEMENTS.USERINFO,
+  },
+  {
+    content: 'Watermark',
+    icon: CheckBadge,
+    type: ELEMENTS.WATERMARK,
   },
 ];
 
@@ -53,7 +68,7 @@ const baseElement = {
   },
 };
 
-export const elementsObject = {
+export const elementsObject: Record<ELEMENTS, any> = {
   [ELEMENTS.TEXT]: {
     type: ELEMENTS.TEXT,
     content: 'Hello, World!',
@@ -62,12 +77,11 @@ export const elementsObject = {
       ...baseElement.style,
       minWidth: '200px',
       minHeight: '100px',
-    },
-    properties: {
       fontSize: '16px',
       color: '#000000',
       fontFamily: 'Arial',
     },
+    properties: {},
   },
   [ELEMENTS.CODE]: {
     type: ELEMENTS.CODE,
@@ -84,4 +98,9 @@ export const elementsObject = {
     ...baseElement,
     properties: {},
   },
+  [ELEMENTS.IMAGE]: {
+    type: ELEMENTS.IMAGE,
+  },
+  [ELEMENTS.WATERMARK]: undefined,
+  [ELEMENTS.USERINFO]: undefined,
 };

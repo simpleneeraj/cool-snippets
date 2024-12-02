@@ -3,7 +3,12 @@ import dynamic from 'next/dynamic';
 import CodeHeaderWidget from '../headers';
 import UIView from '@/ui-kit/source/UIView';
 import { SlideHeaderType } from '@/typings/editor';
-import { ReactCodeMirrorProps } from '@uiw/react-codemirror';
+import {
+  EditorView,
+  Extension,
+  ReactCodeMirrorProps,
+} from '@uiw/react-codemirror';
+import { merge } from 'lodash';
 
 type Props = {
   header: SlideHeaderType | null;
@@ -11,7 +16,7 @@ type Props = {
 
 const CodeMirror = dynamic(() => import('@uiw/react-codemirror'), {
   ssr: false,
-  loading(loadingProps) {
+  loading() {
     return <UIView className="codemirror h-56"></UIView>;
   },
 });
@@ -22,7 +27,25 @@ const CodeElement: React.FC<Props> = ({ ...rest }) => {
       <UIView className="glass-layer" />
       <UIView className="z-10">
         <CodeHeaderWidget header={rest?.header} />
-        <CodeMirror className="codemirror" {...rest} />
+        <CodeMirror
+          {...rest}
+          className="codemirror"
+          basicSetup={merge(
+            {
+              foldGutter: false,
+              lineNumbers: false,
+              lintKeymap: false,
+              autocompletion: false,
+              highlightActiveLine: false,
+              highlightActiveLineGutter: false,
+            },
+            rest.basicSetup
+          )}
+          extensions={[
+            EditorView.lineWrapping,
+            ...(rest.extensions as Extension[]),
+          ]}
+        />
       </UIView>
     </>
   );

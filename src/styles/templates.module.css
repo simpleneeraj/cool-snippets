@@ -25,17 +25,19 @@
   padding: 0.8rem;
   background: rgba(0, 0, 0, 0.4);
 }
+
 .templates .background {
   padding: 1rem;
   border-radius: 8px;
   min-height: 170px;
 }
+
 .temp-box,
 .custom-box {
   min-height: 90px;
   min-width: 130px;
   border-radius: 10px;
-  background: #0000007a;
+  background: rgba(0, 0, 0, 0.48);
   backdrop-filter: blur(20px);
   display: flex;
   gap: 2px;
@@ -44,20 +46,18 @@
   justify-content: space-evenly;
 }
 
-// FOR CUSTOM BOX
 .custom-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .custom-text {
   font-size: 11px;
   text-align: center;
   color: var(--ui-primary-color);
 }
-
-// STYLE FOR FAKE CODE COLORS
 
 .fake-code {
   flex: 0.75;
@@ -65,17 +65,16 @@
   flex-direction: column;
   gap: 4px;
   padding: 0.4rem;
-  span {
-    height: 2.5pt;
-    border-radius: 10px;
-    // background-color: #50fa7b;
-  }
+}
+
+.fake-code span {
+  height: 2.5pt;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 425px) {
   .templates {
     display: flex;
-    // overflow-x: scroll;
     flex-direction: row;
     scroll-snap-type: x mandatory;
   }
@@ -87,9 +86,9 @@
     padding: 0.5rem;
   }
 }
-// CODE HEADER MOCKUPS
 
-@mixin common-head {
+/* Common styles for headers */
+.common-head {
   gap: 4px;
   flex: 0.25;
   z-index: 10;
@@ -98,88 +97,134 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-@mixin span-size {
+.common-head .box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.span-size {
   height: 8px;
   width: 8px;
   border-radius: 20px;
 }
 
-@mixin input-fields {
+.input-fields {
   display: flex;
   align-items: center;
   font-size: 14px;
-  input {
-    background: none;
-    color: #ccc;
-  }
-  .file-icon {
-    display: grid;
-    place-content: center;
-    overflow: hidden;
-    border-radius: 20px;
-    img {
-      width: 18px;
-      aspect-ratio: 1/1;
-    }
-  }
 }
 
+.input-fields input {
+  background: none;
+  color: #ccc;
+}
+
+.input-fields .file-icon {
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.input-fields .file-icon img {
+  width: 18px;
+  aspect-ratio: 1/1;
+}
+
+/* Specific styles */
 .ios-lights {
-  @include common-head();
-  .box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    // padding: 0.8rem 0 0.8rem 0.8rem;
-  }
+  gap: 4px;
+  flex: 0.25;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.ios-lights .box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .ios-lights .input-field {
-  @include input-fields();
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
-// OTHER
 .lights-filled {
-  @include common-head();
-  span {
-    @include span-size();
-  }
+  gap: 4px;
+  flex: 0.25;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
 }
+
+.lights-filled span {
+  height: 8px;
+  width: 8px;
+  border-radius: 20px;
+}
+
 .lights-outline {
-  @include common-head();
-  span {
-    @include span-size();
-  }
+  gap: 4px;
+  flex: 0.25;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.lights-outline span {
+  height: 8px;
+  width: 8px;
+  border-radius: 20px;
 }
 
 .windows-ten {
-  @include common-head();
+  gap: 4px;
+  flex: 0.25;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   padding-left: 1rem;
   justify-content: space-between;
-  .controls {
-    gap: 6px;
-    display: flex;
-    align-items: center;
-  }
+}
+
+.windows-ten .controls {
+  gap: 6px;
+  display: flex;
+  align-items: center;
 }
 
 .windows-ten .input-field {
-  @include input-fields();
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
-// Unix-Neon
-
 .unix-neon {
-  @include common-head();
-
+  gap: 4px;
+  flex: 0.25;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   padding-left: 1rem;
   justify-content: space-between;
-  .controls {
-    display: flex;
-    align-items: center;
-  }
+}
+
+.unix-neon .controls {
+  display: flex;
+  align-items: center;
 }
 
 .unix-neon .input-field {
-  @include input-fields();
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }

@@ -5,7 +5,6 @@
   align-items: center;
   flex: 1;
   overflow: auto;
-  // margin-bottom: 1rem;
 }
 
 .smooth {
@@ -30,16 +29,13 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-
-  span {
-    height: 12px;
-    width: 12px;
-    background: #ffffff5e;
-    border-radius: 100%;
-  }
 }
-
-// DRAG HANDLE
+.dots span {
+  height: 12px;
+  width: 12px;
+  background: #ffffff5e;
+  border-radius: 100%;
+}
 
 .handleBar {
   z-index: 100;
@@ -48,9 +44,9 @@
   justify-content: center;
   padding: 0.5rem;
   background: #0000007a;
-  span {
-    display: flex;
-    align-items: center;
-    cursor: move;
-  }
+}
+.handleBar span {
+  display: flex;
+  align-items: center;
+  cursor: move;
 }

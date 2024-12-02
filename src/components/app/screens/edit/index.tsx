@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { fadeIn } from '@/constants/framer-transition';
 import { useScreen } from '@/store/screen';
 import { useSegment } from '@/store/segment';
-import CodeHeaderScreen from './code-header';
+import HeaderScreen from './header';
 
 const EditingScreens = () => {
   const { onChangeSegment } = useSegment((state) => state);
@@ -65,12 +65,8 @@ const EditingScreens = () => {
           openBackgrounds={openBackgrounds}
           updateElementProperties={updateElementProperties}
         /> */}
-        {/* <CodeHeaderScreen
-          openAspectRatio={openAspectRatio}
-          openBackgrounds={openBackgrounds}
-          updateElementProperties={updateElementProperties}
-        /> */}
-        {RenderComponents}
+        <HeaderScreen />
+        {/* {RenderComponents} */}
       </UIView>
       {/* SLIDE PAN */}
       <UIPanView

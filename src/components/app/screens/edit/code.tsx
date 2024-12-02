@@ -1,21 +1,38 @@
 import React from 'react';
 import UISlider from '@/ui-kit/source/UISlider';
 import UISwitch from '@/ui-kit/source/UISwitch';
-import { Frame, FrameItem } from '@/components/elements/frame';
+import { Frame, FrameAccordion, FrameItem } from '@/components/elements/frame';
 import UIView from '@/ui-kit/source/UIView';
 import UIButton from '@/ui-kit/source/UIButton/button';
-import { Autocomplete, AutocompleteItem, Chip } from '@nextui-org/react';
+import {
+  Autocomplete,
+  AutocompleteItem,
+  Chip,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Tooltip,
+} from '@nextui-org/react';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
 import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
 import fontsNames from '@/json/fonts.json';
 import useSlideEditor from '@/store/hooks/use-editor';
+import Glassmorphism from '../elements/glassmorphism';
+import NeonText from '../elements/neon';
+import {
+  HexAlphaColorPicker,
+  HexColorInput,
+  HexColorPicker,
+} from 'react-colorful';
+import UIColorPicker from '@/ui-kit/source/UIColorPicker';
 
 type Props = {
   openLanguages: () => void;
 };
 const CodeScreen = ({ openLanguages }: Props) => {
   const { activeElement, onChangeSlideElement } = useSlideEditor();
+
   return (
     <Frame title="CODE">
       <FrameItem>
@@ -105,25 +122,41 @@ const CodeScreen = ({ openLanguages }: Props) => {
           )}
         </Autocomplete>
       </FrameItem>
-      <FrameItem label="Neon Text" className="py-2">
-        <UISwitch color="success" />
-      </FrameItem>
-      <FrameItem label="Glssmorphism" className="py-2">
-        <UISwitch color="success" />
-      </FrameItem>
+      <NeonText />
+      <Glassmorphism />
       <FrameItem label="Draggable" className="py-2">
-        <UISwitch color="success" />
-      </FrameItem>{' '}
-      <FrameItem label="Shadow">
-        <UISlider size="sm" className="sm:w-1/2" />
+        <UISwitch color="success" size={'sm'} />
       </FrameItem>
-      <FrameItem label="Radius">
-        <UISlider size="sm" className="sm:w-1/2" />
-      </FrameItem>
-      <FrameItem label="Blur">
-        <UISlider size="sm" className="sm:w-1/2" />
+      <FrameItem label="Border Radius">
+        <UISlider
+          className="sm:w-1/2"
+          minValue={0}
+          maxValue={32}
+          step={1}
+          value={Number(activeElement?.style?.borderRadius)}
+          onChange={(borderRadius) =>
+            onChangeSlideElement({
+              style: {
+                borderRadius: Number(borderRadius),
+              },
+            })
+          }
+        />
       </FrameItem>
     </Frame>
   );
 };
 export default CodeScreen;
+
+{
+  /* <UIColorPicker
+          value={activeElement?.style?.backgroundColor}
+          onSelect={(backgroundColor) =>
+            onChangeSlideElement({
+              style: {
+                backgroundColor,
+              },
+            })
+          }
+        /> */
+}

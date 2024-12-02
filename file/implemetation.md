@@ -12,3 +12,8 @@ Manage State Like Pro
 - Work on style position and events
 - Layer based state with active elemenet ID + Slide ID
 - Manage Layers CRUD for That
+
+<!-- HELLO SIMPLE -->
+
+- Code Related Features Integrate Them
+- Add More features and fixed the code editor issue

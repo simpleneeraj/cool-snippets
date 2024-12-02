@@ -2,10 +2,9 @@
 import React from 'react';
 import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
-import TemplatesPreview from './templates-preview';
 import UIIconButton from '@/ui-kit/source/UIButton/icon';
 import { PrimaryControllerWidget } from '../controller-segment';
-import LayersPreview from './layers-preview';
+import TemplatesPreview from './templates-preview';
 
 /**
  * Themes and templates
@@ -19,8 +18,8 @@ const PrimaryAsideWidget = () => {
           <PrimaryControllerWidget />
         </UIView>
         <UIView className="flex-1 p-1 scroll-content overflow-auto">
-          {/* <TemplatesPreview /> */}
-          <LayersPreview />
+          <TemplatesPreview />
+          {/* <LayersPreview /> */}
         </UIView>
         <UIView className="bg-default-100 bg-opacity-50 p-2 flex items-center gap-2 justify-center">
           <UIIconButton size="sm" isIconOnly radius={'full'}>

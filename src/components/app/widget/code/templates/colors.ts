@@ -1,7 +1,6 @@
-import CloseIcon from './icons/Close';
+import Square from './icons/Square';
 import Triangle from './icons/Triangle';
 import EllipseIcon from './icons/EllipseIcon';
-import Square from './icons/Square';
 
 export const trafficLights = [
   {

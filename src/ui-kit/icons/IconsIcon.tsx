@@ -17,8 +17,8 @@ const IconsIcon: React.FC<SVGIconProps> = (props) => (
       r="208"
       fill="none"
       stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-width="32"
+      strokeMiterlimit="10"
+      strokeWidth="32"
     />
   </svg>
 );

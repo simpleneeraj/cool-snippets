@@ -27,9 +27,9 @@ const initialState = {
       },
       header: {
         type: 'unix::terminal',
-        theme: 'outline',
-        input: 'nothing',
-        position: 'nothing',
+        variant: 'outline',
+        input: 'none',
+        position: 'left',
         style: {
           background: 'rgba(0, 0, 0, 0.75)',
         },
@@ -91,6 +91,11 @@ const initialState = {
           properties: {
             theme: ThemesEnum.DRACULA,
             language: LanguagesEnum.SWIFT,
+            glassmorphism: {
+              opacity: 0,
+              enabled: true,
+              blur: 16,
+            },
           },
         },
       ],

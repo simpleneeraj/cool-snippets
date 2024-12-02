@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { template } from './style';
-import { HeaderVariants, HeadersProps } from '@/typings/templates';
 import InputWithIcon from './input';
+import {
+  HeaderInputType,
+  HeaderVariants,
+  HeadersProps,
+} from '@/typings/templates';
 
 type CSS = React.CSSProperties;
 
@@ -25,7 +29,7 @@ const IOSTermainal = (props: HeadersProps) => {
     };
   }, [borderRadius, borderWidth, size, variant]);
 
-  const { container, base, input, inputContainer } = template();
+  const { container, base } = template();
 
   return (
     <div style={{ background }} className={base()}>
@@ -41,7 +45,8 @@ const IOSTermainal = (props: HeadersProps) => {
           ></span>
         ))}
       </div>
-      <InputWithIcon {...rest} />
+
+      {rest.inputType !== HeaderInputType.NONE && <InputWithIcon {...rest} />}
     </div>
   );
 };

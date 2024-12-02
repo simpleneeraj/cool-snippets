@@ -11,8 +11,8 @@ const ElementsIcon: React.FC<SVGIconProps> = (props) => (
     <path
       fill="none"
       stroke="currentColor"
-      stroke-linejoin="round"
-      stroke-width="32"
+      strokeLinejoin="round"
+      strokeWidth="32"
       d="M336 320H32L184 48l152 272zM265.32 194.51A144 144 0 11192 320"
     />
   </svg>

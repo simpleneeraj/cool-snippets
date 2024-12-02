@@ -1,5 +1,6 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+import { motion } from 'framer-motion';
 import UIView from '@/ui-kit/source/UIView';
 import UIDivider from '@/ui-kit/source/UIDivider';
 import { Card, CardHeader, tv } from '@nextui-org/react';
@@ -15,6 +16,7 @@ type FrameItemProps = {
   divider?: boolean;
   className?: string;
   endContent?: React.ReactNode;
+  accordion?: boolean;
 } & React.PropsWithChildren;
 
 const variants = tv({
@@ -74,6 +76,51 @@ export const FrameItem = ({
           </UIView>
         )}
         {children}
+      </UIView>
+      {divider && <UIDivider className="bg-default-100" />}
+    </React.Fragment>
+  );
+};
+
+export const FrameAccordion = ({
+  label,
+  children,
+  divider = true,
+  className,
+  labelPlacement = 'outside-left',
+  endContent,
+  accordion = false,
+}: FrameItemProps) => {
+  return (
+    <React.Fragment>
+      <UIView
+        className={twMerge(
+          variants({
+            placement: labelPlacement,
+          }),
+          className
+        )}
+      >
+        {label && (
+          <UIView className="w-full flex items-center justify-between cursor-pointer">
+            <label className="font-medium text-tiny text-default-600 min-w-12">
+              {label}
+            </label>
+            {endContent}
+          </UIView>
+        )}
+        <motion.div
+          initial={accordion ? { height: 0, opacity: 0 } : false}
+          animate={
+            accordion
+              ? { height: 'auto', opacity: 1 }
+              : { height: 0, opacity: 0 }
+          }
+          transition={{ duration: 0.5 }}
+          className="w-full overflow-hidden"
+        >
+          {children}
+        </motion.div>
       </UIView>
       {divider && <UIDivider className="bg-default-100" />}
     </React.Fragment>

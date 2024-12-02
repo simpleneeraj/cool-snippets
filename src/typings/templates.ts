@@ -11,6 +11,7 @@ export enum HeaderInputType {
   ICON = 'icon',
   INPUT = 'input',
   ICON_AND_INPUT = 'icon_input',
+  NONE = 'none',
 }
 
 export enum HeaderPositions {

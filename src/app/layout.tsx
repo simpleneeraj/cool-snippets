@@ -1,4 +1,4 @@
-import '@/styles/next-ui.scss';
+import '@/styles/next-ui.css';
 import type { Metadata } from 'next';
 import NextAppProvider from '@/providers/next-ui';
 

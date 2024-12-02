@@ -4,9 +4,9 @@ let textEncoder: TextEncoder | null = null;
 /**
  * Get an anchor element.
  *
- * @returns {HTMLElement}
+ * @returns {HTMLAnchorElement}
  */
-function getElement(): HTMLElement {
+function getElement(): HTMLAnchorElement {
   if (element === null) {
     element = document.createElement('a');
   }
@@ -29,43 +29,41 @@ function getTextEncoder(): TextEncoder {
 /**
  * Return an object URL based on the given data.
  *
- * @param {string|Blob|ArrayBuffer} data
- *
- * @returns {*}
+ * @param {BlobPart | string | ArrayBuffer | SharedArrayBuffer} data
+ * @returns {string} The object URL.
  */
-function getObjectUrl(data: BlobPart | any): any {
-  let blob;
-  if (typeof data === 'object' && data.constructor.name === 'Blob') {
+function getObjectUrl(
+  data: BlobPart | string | ArrayBuffer | SharedArrayBuffer
+): string {
+  let blob: Blob;
+
+  if (data instanceof Blob) {
     blob = data;
   } else if (typeof data === 'string') {
     blob = new Blob([getTextEncoder().encode(data).buffer], {
       type: 'application/octet-stream',
     });
-  } else if (
-    typeof data === 'object' &&
-    data.constructor &&
-    data.constructor.name === 'ArrayBuffer'
-  ) {
+  } else if (data instanceof ArrayBuffer || data instanceof SharedArrayBuffer) {
     blob = new Blob([data], {
       type: 'application/octet-stream',
     });
   } else {
     throw new Error(
-      'in-browser-download: Data must either be a Blob, a string or an ArrayBuffer',
+      'in-browser-download: Data must either be a Blob, a string, an ArrayBuffer, or a SharedArrayBuffer'
     );
   }
   return URL.createObjectURL(blob);
 }
 
 /**
- * Download a Blob, a string or an ArrayBuffer as a file in the browser
+ * Download a Blob, a string, or an ArrayBuffer as a file in the browser
  *
- * @param {string|ArrayBuffer} data The content of the file to download.
- * @param {string} [filename] The name of the file to download.
+ * @param {BlobPart | undefined} data The content of the file to download.
+ * @param {string} filename The name of the file to download.
  */
-function download(data: BlobPart | undefined, filename: string) {
+function download(data: BlobPart | undefined, filename: string): void {
   const element = getElement();
-  const url = getObjectUrl(data);
+  const url = getObjectUrl(data!);
   element.setAttribute('href', url);
   element.setAttribute('download', filename);
   document.body.appendChild(element);
@@ -91,5 +89,4 @@ download.isSupported = function (): boolean {
   );
 };
 
-
-export default download
+export default download;

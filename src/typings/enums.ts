@@ -29,6 +29,8 @@ export enum ELEMENTS {
   TEXT = 'ELEMENT::TEXT',
   IMAGE = 'ELEMENT::IMAGE',
   ICON = 'ELEMENT::ICON',
+  WATERMARK = 'ELEMENT::WATERMARK',
+  USERINFO = 'ELEMENT::USERINFO',
 }
 
 export enum TEXT_ALIGN {
@@ -44,4 +46,9 @@ export enum BACKGROUND_TYPE {
   IMAGE = 'image',
   VIDEO = 'video',
   PATTERN = 'pattern',
+}
+export enum Terminal {
+  iOS = 'ios::terminal',
+  Unix = 'unix::terminal',
+  Windows = 'windows::terminal',
 }

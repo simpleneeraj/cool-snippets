@@ -2,7 +2,7 @@
 import React from 'react';
 import { template } from './style';
 import InputWithIcon from './input';
-import { HeadersProps } from '@/typings/templates';
+import { HeaderInputType, HeadersProps } from '@/typings/templates';
 
 const UnixNeon = (props: HeadersProps) => {
   const { colors, variant = 'outline', ...rest } = props;
@@ -11,7 +11,7 @@ const UnixNeon = (props: HeadersProps) => {
   const { container, base } = template();
   return (
     <div style={{ background }} className={base()}>
-      <InputWithIcon {...rest} />
+      {rest.inputType !== HeaderInputType.NONE && <InputWithIcon {...rest} />}
       <div className={container()} style={{ padding, gap }}>
         {colors?.map((data, index) => {
           const fill = variant.includes('filled') ? data.value : 'none';

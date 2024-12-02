@@ -1,5 +1,3 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -12,7 +10,4 @@ const nextConfig = {
   },
 };
 
-module.exports =
-  process.env.NODE_ENV === 'production'
-    ? withBundleAnalyzer(nextConfig)
-    : nextConfig;
+module.exports = nextConfig;

@@ -3,12 +3,11 @@ import themes, { ThemesEnum } from './themes';
 import languages, { LanguagesEnum } from './languages';
 import { ReactCodeMirrorProps } from './editor/types';
 
-export const generatedCodeTheme = moize(
-  (theme: ThemesEnum | undefined, alpha = 1) =>
-    themes[theme || ThemesEnum.DRACULA](alpha)
+export const dynamicTheme = moize((theme: ThemesEnum | undefined, alpha = 1) =>
+  themes[theme || ThemesEnum.DRACULA](alpha)
 );
 
-export const generatedCodeLanguage = moize(
+export const dynamicLanguage = moize(
   (language: LanguagesEnum) =>
     languages[
       language || LanguagesEnum.TYPESCRIPT

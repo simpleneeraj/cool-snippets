@@ -1,5 +1,5 @@
 import React from 'react';
-import '@/styles/code-fonts.scss';
+import '@/styles/code-fonts.css';
 import AppLayout from '@/components/app/layout';
 
 const StudioLayout = ({ children }: React.PropsWithChildren) => {

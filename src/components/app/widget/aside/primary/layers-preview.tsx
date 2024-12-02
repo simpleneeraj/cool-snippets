@@ -5,20 +5,26 @@ import TrashOutline from '@/ui-kit/icons/TrashOutline';
 import EyeOutlineIcon from '@/ui-kit/icons/EyeOutline';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import DuplicateOutline from '@/ui-kit/icons/DuplicateOutline';
-import {
-  Accordion,
-  AccordionItem,
-  Card,
-  CardBody,
-  CardHeader,
-  cn,
-  tv,
-} from '@nextui-org/react';
 import LayersOutline from '@/ui-kit/icons/LayersOutline';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { useActiveSlide } from '@/store/slides/current-slide';
 import { useActiveElement } from '@/store/slides/current-element';
 import UIInput from '@/ui-kit/source/UIInput';
+import {
+  cn,
+  tv,
+  Card,
+  Button,
+  Dropdown,
+  CardBody,
+  CardHeader,
+  DropdownMenu,
+  DropdownItem,
+  DropdownTrigger,
+} from '@nextui-org/react';
+import { elementLabelMapper, elements, elementsObject } from './values';
+import { useActiveSlide } from '@/store/slides/current-slide';
+import { ELEMENTS } from '@/typings/enums';
+import { generateID } from '@/utils/id-generator';
 
 const template = tv({
   slots: {
@@ -28,18 +34,17 @@ const template = tv({
   },
 });
 
-const { base, container, card } = template();
+const { base } = template();
 
 const LayersPreview = () => {
   const { slides, deleteSlideElement, duplicateSlideElement } =
     useSlideEditor();
 
-  const { updateSlide } = useActiveSlide((state) => state);
-  const { element: elmId } = useActiveElement((state) => state);
+  const { element: elmId, updateElement } = useActiveElement((state) => state);
 
   return (
     <UIView className={base()}>
-      {slides.map((slide) => {
+      {slides?.map((slide) => {
         return (
           <Card className="p-1" shadow="lg">
             <CardBody
@@ -53,22 +58,36 @@ const LayersPreview = () => {
                   size={'sm'}
                   variant={'bordered'}
                   value={slide.name}
-                  startContent={<LayersOutline className="h-4 w-4" />}
+                  startContent={<LayersOutline className="h-5 w-5" />}
                 />
               </CardHeader>
               <ul className="flex flex-col gap-1">
                 {slide.elements.map((element) => {
                   const active = element.id === elmId;
+
+                  const style = {
+                    color: active ? 'success' : 'default',
+                    variant: active ? 'flat' : 'flat',
+                  };
                   return (
                     <li key={element.id}>
-                      <UIView
+                      <Card
+                        isPressable
+                        onPress={() => updateElement(element?.id!)}
                         className={cn(
-                          'flex items-center uppercase text-xs text-default-900 bg-default-100 justify-between rounded-lg pl-2',
-                          active && 'bg-primary'
+                          'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
+                          active && 'border border-success'
                         )}
                       >
-                        <UIView>{element.type}</UIView>
-                        <UIView>
+                        <UIView
+                          className={cn(
+                            'flex items-center',
+                            active && 'text-success'
+                          )}
+                        >
+                          {elementLabelMapper[element?.type!]}
+                        </UIView>
+                        <UIView className="flex items-center gap-1">
                           <UITooltip
                             size="sm"
                             content="Visibility"
@@ -77,12 +96,14 @@ const LayersPreview = () => {
                             <UIButton
                               size={'sm'}
                               isIconOnly
-                              variant={'light'}
+                              radius={'full'}
                               aria-label={'Visibility Slide Element'}
+                              {...style}
                             >
-                              <EyeOutlineIcon className="h-[14px] w-[14px]" />
+                              <EyeOutlineIcon className="h-3.5 w-3.5" />
                             </UIButton>
                           </UITooltip>
+
                           <UITooltip
                             size="sm"
                             content="Duplicate"
@@ -90,17 +111,19 @@ const LayersPreview = () => {
                           >
                             <UIButton
                               isIconOnly
+                              radius={'full'}
                               size={'sm'}
-                              variant={'light'}
                               aria-label={'Duplicate Slide Element'}
                               onPress={() =>
                                 element.id &&
                                 duplicateSlideElement(slide.id, element.id)
                               }
+                              {...style}
                             >
-                              <DuplicateOutline className="h-[14px] w-[14px]" />
+                              <DuplicateOutline className="h-3.5 w-3.5" />
                             </UIButton>
                           </UITooltip>
+
                           <UITooltip
                             size="sm"
                             content="Delete"
@@ -109,18 +132,19 @@ const LayersPreview = () => {
                             <UIButton
                               isIconOnly
                               size={'sm'}
-                              variant={'light'}
+                              radius={'full'}
                               aria-label={'Delete Slide Element'}
                               onPress={() =>
                                 element.id &&
                                 deleteSlideElement(slide.id, element.id)
                               }
+                              {...style}
                             >
-                              <TrashOutline className="h-[14px] w-[14px]" />
+                              <TrashOutline className="h-3.5 w-3.5" />
                             </UIButton>
                           </UITooltip>
                         </UIView>
-                      </UIView>
+                      </Card>
                     </li>
                   );
                 })}
@@ -129,7 +153,65 @@ const LayersPreview = () => {
           </Card>
         );
       })}
+      <AddLayers />
     </UIView>
   );
 };
 export default LayersPreview;
+
+function AddLayers() {
+  const iconClasses =
+    'text-xl text-default-500 pointer-events-none flex-shrink-0';
+
+  const { createSlideElement } = useSlideEditor();
+  const { slide: activeSlide } = useActiveSlide();
+  const onSelectElement = React.useCallback(
+    (type: ELEMENTS) => {
+      const selectedElement =
+        elementsObject[type as keyof typeof elementsObject];
+      if (selectedElement) {
+        const id = generateID();
+        const slide = {
+          id: id,
+          ...selectedElement,
+        };
+        createSlideElement(activeSlide, slide);
+      } else {
+        console.warn(`Element of type ${type} does not exist.`);
+      }
+    },
+    [activeSlide]
+  );
+
+  return (
+    <Dropdown
+      placement="left-start"
+      size="sm"
+      classNames={{
+        base: 'before:bg-default-200',
+        content:
+          'py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
+      }}
+    >
+      <DropdownTrigger>
+        <Button size="sm" variant="bordered">
+          Add Layer
+        </Button>
+      </DropdownTrigger>
+      <DropdownMenu
+        variant="faded"
+        onAction={(type) => onSelectElement(type as ELEMENTS)}
+        aria-label="Layers menu with icons"
+      >
+        {elements.map((item) => (
+          <DropdownItem
+            key={item.type}
+            startContent={<item.icon className={iconClasses} />}
+          >
+            {item.content}
+          </DropdownItem>
+        ))}
+      </DropdownMenu>
+    </Dropdown>
+  );
+}

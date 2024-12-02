@@ -3,18 +3,17 @@ import { ELEMENTS } from '@/typings/enums';
 import UIView from '@/ui-kit/source/UIView';
 import UITooltip from '@/ui-kit/source/UITooltip';
 import { generateID } from '@/utils/id-generator';
-import { elements, elementsObject } from './values';
+import { elements, elementsObject } from '../../widget/aside/primary/values';
 import useSlideEditor from '@/store/hooks/use-editor';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import { useActiveSlide } from '@/store/slides/current-slide';
 
 const ElementsScreen = () => {
-  const { createSlideElement } = useSlideEditor();
+  const { onChangeSlideElement } = useSlideEditor();
   const { slide: activeSlide } = useActiveSlide();
   const onSelectElement = React.useCallback(
     (type: ELEMENTS) => {
-      // @ts-expect-error Check if the element exists in elementsObject
       const selectedElement = elementsObject?.[type];
       if (selectedElement) {
         const id = generateID();
@@ -22,12 +21,12 @@ const ElementsScreen = () => {
           id: id,
           ...selectedElement,
         };
-        createSlideElement(activeSlide, slide);
+        onChangeSlideElement(slide);
       } else {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [activeSlide, createSlideElement]
+    [activeSlide]
   );
 
   return (

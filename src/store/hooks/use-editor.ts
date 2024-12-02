@@ -54,6 +54,9 @@ const useSlideEditor = () => {
     onChangeSlide: throttledUpdateSlide,
     onChangeSlideElement: throttledUpdateSlideElement,
     slides: useMemo(() => slideState.slides, [slideState.slides]),
+    createSlideElement: slideState.createSlideElement,
+    deleteSlideElement: slideState.deleteSlideElement,
+    duplicateSlideElement: slideState.duplicateSlideElement,
   };
 };
 

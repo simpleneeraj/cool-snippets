@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import InputWithIcon from './input';
-import { HeadersProps } from '@/typings/templates';
+import { HeaderInputType, HeadersProps } from '@/typings/templates';
 import { template } from './style';
 /* ICONS */
 import Dismiss from './icons/Dismiss';
@@ -15,7 +15,7 @@ const WindowsTen = (props: HeadersProps) => {
 
   return (
     <div style={{ background }} className={base()}>
-      <InputWithIcon {...rest} />
+      {rest.inputType !== HeaderInputType.NONE && <InputWithIcon {...rest} />}
       <div className={container()} style={{ padding, gap }}>
         <span className={icon()}>
           <RemoveOutline size={size} />
