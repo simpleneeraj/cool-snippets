@@ -115,7 +115,7 @@ export default function EmojiPicker() {
               <Card
                 isPressable
                 className="flex items-center justify-center border border-default-100 p-4 h-full bg-transparent"
-                title={filteredEmojis[index]?.name}
+                title={filteredEmojis[index]?.label}
               >
                 <Image
                   disableAnimation

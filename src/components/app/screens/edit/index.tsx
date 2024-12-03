@@ -60,13 +60,13 @@ const EditingScreens = () => {
   return (
     <AnimatePresence mode="sync">
       <UIView className="relative">
-        {/* <CanvasScreen
+        <HeaderScreen />
+        <CanvasScreen
           openAspectRatio={openAspectRatio}
           openBackgrounds={openBackgrounds}
-          updateElementProperties={updateElementProperties}
-        /> */}
-        <HeaderScreen />
-        {/* {RenderComponents} */}
+          updateElementProperties={() => {}}
+        />
+        {RenderComponents}
       </UIView>
       {/* SLIDE PAN */}
       <UIPanView

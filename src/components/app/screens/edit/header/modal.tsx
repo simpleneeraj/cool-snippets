@@ -89,8 +89,8 @@ export default function IconApp() {
               </Tabs>
             </UIView>
             <UIView className="flex-1">
-              <LoaderFallback />
-              {/* {renderActiveComponent} */}
+              {/* <LoaderFallback /> */}
+              {renderActiveComponent}
             </UIView>
           </ModalBody>
         </ModalContent>

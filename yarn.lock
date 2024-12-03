@@ -3763,6 +3763,11 @@ emojibase-data@^15.3.2:
   resolved "https://registry.npmjs.org/emojibase-data/-/emojibase-data-15.3.2.tgz"
   integrity sha512-TpDyTDDTdqWIJixV5sTA6OQ0P0JfIIeK2tFRR3q56G9LK65ylAZ7z3KyBXokpvTTJ+mLUXQXbLNyVkjvnTLE+A==
 
+emojibase@^15.3.1:
+  version "15.3.1"
+  resolved "https://registry.yarnpkg.com/emojibase/-/emojibase-15.3.1.tgz#7f6ff5482486f23e59a457de64e974bd35f3c9a3"
+  integrity sha512-GNsjHnG2J3Ktg684Fs/vZR/6XpOSkZPMAv85EHrr6br2RN2cJNwdS4am/3YSK3y+/gOv2kmoK3GGdahXdMxg2g==
+
 entities@^4.2.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
