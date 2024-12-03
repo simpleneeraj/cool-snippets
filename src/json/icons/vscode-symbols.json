@@ -1,0 +1,642 @@
+[
+  {
+    "name": "folder",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder.svg"
+  },
+  {
+    "name": "folder-assets",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-assets.svg"
+  },
+  {
+    "name": "folder-red",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-red.svg"
+  },
+  {
+    "name": "folder-green",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-green.svg"
+  },
+  {
+    "name": "folder-blue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-blue.svg"
+  },
+  {
+    "name": "folder-purple",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-purple.svg"
+  },
+  {
+    "name": "folder-orange",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-orange.svg"
+  },
+  {
+    "name": "folder-sky",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-sky.svg"
+  },
+  {
+    "name": "folder-gray",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-gray.svg"
+  },
+  {
+    "name": "folder-yellow",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-yellow.svg"
+  },
+  {
+    "name": "folder-red-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-red-outline.svg"
+  },
+  {
+    "name": "folder-green-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-green-outline.svg"
+  },
+  {
+    "name": "folder-blue-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-blue-outline.svg"
+  },
+  {
+    "name": "folder-purple-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-purple-outline.svg"
+  },
+  {
+    "name": "folder-orange-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-orange-outline.svg"
+  },
+  {
+    "name": "folder-sky-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-sky-outline.svg"
+  },
+  {
+    "name": "folder-gray-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-gray-outline.svg"
+  },
+  {
+    "name": "folder-yellow-outline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-yellow-outline.svg"
+  },
+  {
+    "name": "folder-green-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-green-code.svg"
+  },
+  {
+    "name": "folder-blue-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-blue-code.svg"
+  },
+  {
+    "name": "folder-purple-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-purple-code.svg"
+  },
+  {
+    "name": "folder-orange-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-orange-code.svg"
+  },
+  {
+    "name": "folder-sky-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-sky-code.svg"
+  },
+  {
+    "name": "folder-gray-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-gray-code.svg"
+  },
+  {
+    "name": "folder-yellow-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-yellow-code.svg"
+  },
+  {
+    "name": "folder-red-code",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-red-code.svg"
+  },
+  {
+    "name": "folder-config",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-config.svg"
+  },
+  {
+    "name": "folder-app",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/folders/folder-app.svg"
+  },
+  {
+    "name": "code-green",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-green.svg"
+  },
+  {
+    "name": "code-blue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-blue.svg"
+  },
+  {
+    "name": "code-purple",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-purple.svg"
+  },
+  {
+    "name": "code-orange",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-orange.svg"
+  },
+  {
+    "name": "code-sky",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-sky.svg"
+  },
+  {
+    "name": "code-gray",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-gray.svg"
+  },
+  {
+    "name": "code-yellow",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-yellow.svg"
+  },
+  {
+    "name": "code-red",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/code-red.svg"
+  },
+  {
+    "name": "brackets-green",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-green.svg"
+  },
+  {
+    "name": "brackets-blue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-blue.svg"
+  },
+  {
+    "name": "brackets-purple",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-purple.svg"
+  },
+  {
+    "name": "brackets-orange",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-orange.svg"
+  },
+  {
+    "name": "brackets-sky",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-sky.svg"
+  },
+  {
+    "name": "brackets-gray",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-gray.svg"
+  },
+  {
+    "name": "brackets-yellow",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-yellow.svg"
+  },
+  {
+    "name": "brackets-red",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/brackets-red.svg"
+  },
+  {
+    "name": "gear",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/gear.svg"
+  },
+  {
+    "name": "license",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/license.svg"
+  },
+  {
+    "name": "image",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/image.svg"
+  },
+  {
+    "name": "git",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/git.svg"
+  },
+  {
+    "name": "markdown",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/markdown.svg"
+  },
+  {
+    "name": "yarn",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/yarn.svg"
+  },
+  {
+    "name": "svg",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/svg.svg"
+  },
+  {
+    "name": "vue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/vue.svg"
+  },
+  {
+    "name": "js",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/js.svg"
+  },
+  {
+    "name": "js-test",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/js-test.svg"
+  },
+  {
+    "name": "ts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/ts.svg"
+  },
+  {
+    "name": "ts-test",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/ts-test.svg"
+  },
+  {
+    "name": "dts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/dts.svg"
+  },
+  {
+    "name": "robot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/robot.svg"
+  },
+  {
+    "name": "text",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/text.svg"
+  },
+  {
+    "name": "ignore",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/ignore.svg"
+  },
+  {
+    "name": "notebook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/notebook.svg"
+  },
+  {
+    "name": "csv",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/csv.svg"
+  },
+  {
+    "name": "document",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/document.svg"
+  },
+  {
+    "name": "xml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/xml.svg"
+  },
+  {
+    "name": "database",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/database.svg"
+  },
+  {
+    "name": "puzzle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/puzzle.svg"
+  },
+  {
+    "name": "shell",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/shell.svg"
+  },
+  {
+    "name": "elixir",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/elixir.svg"
+  },
+  {
+    "name": "font",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/font.svg"
+  },
+  {
+    "name": "eslint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/eslint.svg"
+  },
+  {
+    "name": "angular",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/angular.svg"
+  },
+  {
+    "name": "tailwind",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/tailwind.svg"
+  },
+  {
+    "name": "hugo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/hugo.svg"
+  },
+  {
+    "name": "firebase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/firebase.svg"
+  },
+  {
+    "name": "docker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/docker.svg"
+  },
+  {
+    "name": "jest",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/jest.svg"
+  },
+  {
+    "name": "sass",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/sass.svg"
+  },
+  {
+    "name": "react",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/react.svg"
+  },
+  {
+    "name": "react-ts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/react-ts.svg"
+  },
+  {
+    "name": "react-test",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/react-test.svg"
+  },
+  {
+    "name": "cplus",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/cplus.svg"
+  },
+  {
+    "name": "c",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/c.svg"
+  },
+  {
+    "name": "csharp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/csharp.svg"
+  },
+  {
+    "name": "go",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/go.svg"
+  },
+  {
+    "name": "go-mod",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/go-mod.svg"
+  },
+  {
+    "name": "python",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/python.svg"
+  },
+  {
+    "name": "julia",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/julia.svg"
+  },
+  {
+    "name": "julia-markdown",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/julia-markdown.svg"
+  },
+  {
+    "name": "github",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/github.svg"
+  },
+  {
+    "name": "fsharp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/fsharp.svg"
+  },
+  {
+    "name": "coffeescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/coffeescript.svg"
+  },
+  {
+    "name": "clojure",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/clojure.svg"
+  },
+  {
+    "name": "dart",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/dart.svg"
+  },
+  {
+    "name": "java",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/java.svg"
+  },
+  {
+    "name": "lua",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/lua.svg"
+  },
+  {
+    "name": "perl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/perl.svg"
+  },
+  {
+    "name": "pug",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/pug.svg"
+  },
+  {
+    "name": "r",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/r.svg"
+  },
+  {
+    "name": "kotlin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/kotlin.svg"
+  },
+  {
+    "name": "svelte",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/svelte.svg"
+  },
+  {
+    "name": "ruby",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/ruby.svg"
+  },
+  {
+    "name": "swift",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/swift.svg"
+  },
+  {
+    "name": "rust",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/rust.svg"
+  },
+  {
+    "name": "graphql",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/graphql.svg"
+  },
+  {
+    "name": "next",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/next.svg"
+  },
+  {
+    "name": "npm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/npm.svg"
+  },
+  {
+    "name": "pnpm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/pnpm.svg"
+  },
+  {
+    "name": "pulumi",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/pulumi.svg"
+  },
+  {
+    "name": "webpack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/webpack.svg"
+  },
+  {
+    "name": "prettier",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/prettier.svg"
+  },
+  {
+    "name": "vite",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/vite.svg"
+  },
+  {
+    "name": "astro",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/astro.svg"
+  },
+  {
+    "name": "prisma",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/prisma.svg"
+  },
+  {
+    "name": "stylus",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/stylus.svg"
+  },
+  {
+    "name": "scala",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/scala.svg"
+  },
+  {
+    "name": "sbt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/sbt.svg"
+  },
+  {
+    "name": "postcss",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/postcss.svg"
+  },
+  {
+    "name": "gradle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/gradle.svg"
+  },
+  {
+    "name": "node",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/node.svg"
+  },
+  {
+    "name": "yaml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/yaml.svg"
+  },
+  {
+    "name": "storybook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/storybook.svg"
+  },
+  {
+    "name": "terraform",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/terraform.svg"
+  },
+  {
+    "name": "tsconfig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/tsconfig.svg"
+  },
+  {
+    "name": "jenkins",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/jenkins.svg"
+  },
+  {
+    "name": "nodemon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/nodemon.svg"
+  },
+  {
+    "name": "ionic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/ionic.svg"
+  },
+  {
+    "name": "capacitor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/capacitor.svg"
+  },
+  {
+    "name": "cypress",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/cypress.svg"
+  },
+  {
+    "name": "gulp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/gulp.svg"
+  },
+  {
+    "name": "supabase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/supabase.svg"
+  },
+  {
+    "name": "v",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/v.svg"
+  },
+  {
+    "name": "babel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/babel.svg"
+  },
+  {
+    "name": "laravel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/laravel.svg"
+  },
+  {
+    "name": "proto",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/proto.svg"
+  },
+  {
+    "name": "zig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/zig.svg"
+  },
+  {
+    "name": "exe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/exe.svg"
+  },
+  {
+    "name": "php",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/php.svg"
+  },
+  {
+    "name": "http",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/http.svg"
+  },
+  {
+    "name": "audio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/audio.svg"
+  },
+  {
+    "name": "video",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/video.svg"
+  },
+  {
+    "name": "patch",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/patch.svg"
+  },
+  {
+    "name": "drawio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/drawio.svg"
+  },
+  {
+    "name": "tex",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/tex.svg"
+  },
+  {
+    "name": "editorconfig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/editorconfig.svg"
+  },
+  {
+    "name": "vercel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/vercel.svg"
+  },
+  {
+    "name": "netlify",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/netlify.svg"
+  },
+  {
+    "name": "deno",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/deno.svg"
+  },
+  {
+    "name": "haml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/haml.svg"
+  },
+  {
+    "name": "erlang",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/erlang.svg"
+  },
+  {
+    "name": "rescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/rescript.svg"
+  },
+  {
+    "name": "rescript-interface",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/rescript-interface.svg"
+  },
+  {
+    "name": "coldfusion",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/coldfusion.svg"
+  },
+  {
+    "name": "mdx",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/mdx.svg"
+  },
+  {
+    "name": "liquid",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/liquid.svg"
+  },
+  {
+    "name": "h",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/h.svg"
+  },
+  {
+    "name": "visual-studio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/visual-studio.svg"
+  },
+  {
+    "name": "nunjucks",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/nunjucks.svg"
+  },
+  {
+    "name": "nest",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/nest.svg"
+  },
+  {
+    "name": "nix",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/nix.svg"
+  },
+  {
+    "name": "vanilla-extract",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-symbols/main/src/icons/files/vanilla-extract.svg"
+  }
+]

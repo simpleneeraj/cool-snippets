@@ -3,11 +3,18 @@ import Image from 'next/image';
 import CodeHeaderDropdown from './code-header';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import { Button, Checkbox, Input, Select, SelectItem } from '@nextui-org/react';
+import {
+  Button,
+  Checkbox,
+  Input,
+  Select,
+  SelectItem,
+  useDisclosure,
+} from '@nextui-org/react';
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
-import IconApp from './modal';
+import IconPicker from './modal';
 
 type Props = {};
 
@@ -34,14 +41,21 @@ const HEADER_CONFIG = {
 
 const HeaderScreen: React.FC<Props> = () => {
   const { properties } = HEADER_CONFIG;
+  const { onOpen, onOpenChange, isOpen } = useDisclosure();
 
   return (
     <Frame title="CODE HEADER">
-      <IconApp />
+      <IconPicker isOpen={isOpen} onOpenChange={onOpenChange} />
       <FrameItem divider className="flex-1 justify-between">
         <div className="flex items-center">
           <div className="flex items-center gap-2">
-            <Button size="sm" isIconOnly variant="flat">
+            <Button
+              size="sm"
+              isIconOnly
+              variant="flat"
+              onClick={onOpen}
+              title="Change the icon"
+            >
               <Image
                 src={properties.title.icon}
                 alt="App Icon"
