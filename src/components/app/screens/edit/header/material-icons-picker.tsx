@@ -31,7 +31,7 @@ export default function MaterialIconsPicker() {
   // Combine all datasets into a unified format
   const availableIcons = React.useMemo(() => {
     const transformData = (data: Icon[], category: IconTypes) =>
-      data.map((icon) => ({ ...icon, category: icon.category.push(category) }));
+      data.map((icon) => ({ ...icon, category: [icon?.category, category] }));
 
     return [
       // ...transformData(files, IconTypes.FILE),
@@ -44,7 +44,7 @@ export default function MaterialIconsPicker() {
   const filteredIcons = React.useMemo(() => {
     return availableIcons.filter((icon) => {
       const isMatchingType =
-        !state.selectedType || icon.category === state.selectedType;
+        !state.selectedType || icon?.category?.includes(state.selectedType);
 
       const isMatchingSearch =
         !state.searchTerm ||
@@ -65,7 +65,7 @@ export default function MaterialIconsPicker() {
           variant="bordered"
           onChange={(e) =>
             updateState((draft) => {
-              draft.selectedType = e.target.value;
+              draft.selectedType = e.target.value as IconTypes;
             })
           }
         >
