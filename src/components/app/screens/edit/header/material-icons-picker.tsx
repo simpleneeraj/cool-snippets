@@ -34,8 +34,8 @@ export default function MaterialIconsPicker() {
       data.map((icon) => ({ ...icon, category: [icon?.category, category] }));
 
     return [
-      // ...transformData(files, IconTypes.FILE),
-      // ...transformData(folder, IconTypes.FOLDER),
+      ...transformData(files, IconTypes.FILE),
+      ...transformData(folder, IconTypes.FOLDER),
       ...transformData(language, IconTypes.LANGUAGE),
     ];
   }, []);
