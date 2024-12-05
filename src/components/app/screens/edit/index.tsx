@@ -19,7 +19,7 @@ import HeaderScreen from './header';
 const EditingScreens = () => {
   const { onChangeSegment } = useSegment((state) => state);
   const { screen, onChangeScreen } = useScreen((state) => state);
-  const { activeElement, onChangeSlideElement } = useSlideEditor();
+  const { currentElement, onChangeSlideElement } = useSlideEditor();
 
   const onSelectSegmentTab = React.useCallback(
     (value: SEGMENT_SCREEN) => {
@@ -39,23 +39,23 @@ const EditingScreens = () => {
   }, [onChangeScreen]);
 
   const RenderComponents = React.useMemo(() => {
-    switch (activeElement?.type) {
+    switch (currentElement?.type) {
       case ELEMENTS.CODE:
         return (
-          <motion.div key={activeElement?.type} {...fadeIn}>
+          <motion.div key={currentElement?.type} {...fadeIn}>
             <CodeScreen openLanguages={openLanguages} />
           </motion.div>
         );
       case ELEMENTS.TEXT:
         return (
-          <motion.div key={activeElement?.type} {...fadeIn}>
+          <motion.div key={currentElement?.type} {...fadeIn}>
             <TextScreen />
           </motion.div>
         );
       default:
         return null;
     }
-  }, [activeElement?.type]);
+  }, [currentElement?.type]);
 
   return (
     <AnimatePresence mode="sync">
@@ -96,7 +96,7 @@ const EditingScreens = () => {
           }
         />
         <LanguagesScreen
-          value={activeElement?.properties?.language}
+          value={currentElement?.properties?.language}
           onSelect={(language) => {
             onChangeSlideElement({
               properties: {

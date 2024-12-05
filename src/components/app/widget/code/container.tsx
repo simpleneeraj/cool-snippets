@@ -10,15 +10,15 @@ import { Capture as CaptureView } from '@/plugins/capture';
 import EditorComponents from './elements';
 
 const ContainerWidget = () => {
-  const { activeSlide } = useSlideEditor();
+  const { currentSlide } = useSlideEditor();
 
   return (
     <UIView className={'flex flex-col flex-1'}>
-      <SlideStyle style={activeSlide?.background} />
+      <SlideStyle style={currentSlide?.background} />
       <UIView className={css.container}>
         <UIView className={css.smooth}>
           <CaptureView className="center">
-            {activeSlide?.elements?.map((item) => {
+            {currentSlide?.elements?.map((item) => {
               return (
                 <React.Fragment key={item.id}>
                   <ElementStyle style={item} />

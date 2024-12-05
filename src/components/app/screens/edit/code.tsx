@@ -1,18 +1,10 @@
 import React from 'react';
 import UISlider from '@/ui-kit/source/UISlider';
 import UISwitch from '@/ui-kit/source/UISwitch';
-import { Frame, FrameAccordion, FrameItem } from '@/components/elements/frame';
+import { Frame, FrameItem } from '@/components/elements/frame';
 import UIView from '@/ui-kit/source/UIView';
 import UIButton from '@/ui-kit/source/UIButton/button';
-import {
-  Autocomplete,
-  AutocompleteItem,
-  Chip,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Tooltip,
-} from '@nextui-org/react';
+import { Autocomplete, AutocompleteItem, Chip } from '@nextui-org/react';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
 import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
@@ -20,18 +12,12 @@ import fontsNames from '@/json/fonts.json';
 import useSlideEditor from '@/store/hooks/use-editor';
 import Glassmorphism from '../elements/glassmorphism';
 import NeonText from '../elements/neon';
-import {
-  HexAlphaColorPicker,
-  HexColorInput,
-  HexColorPicker,
-} from 'react-colorful';
-import UIColorPicker from '@/ui-kit/source/UIColorPicker';
 
 type Props = {
   openLanguages: () => void;
 };
 const CodeScreen = ({ openLanguages }: Props) => {
-  const { activeElement, onChangeSlideElement } = useSlideEditor();
+  const { currentElement, onChangeSlideElement } = useSlideEditor();
 
   return (
     <Frame title="CODE">
@@ -49,7 +35,7 @@ const CodeScreen = ({ openLanguages }: Props) => {
               <UIView className="flex flex-col">
                 <span className="text-tiny text-default-400">Languages</span>
                 <h4 className="text-small text-default-500">
-                  {capitalize(activeElement?.properties?.language)}
+                  {capitalize(currentElement?.properties?.language)}
                 </h4>
               </UIView>
               <UIView>
@@ -72,7 +58,7 @@ const CodeScreen = ({ openLanguages }: Props) => {
           className="max-w-xs"
           variant="flat"
           placeholder="Choose a theme"
-          value={activeElement?.properties?.theme}
+          value={currentElement?.properties?.theme}
           onSelectionChange={(theme: any) =>
             onChangeSlideElement({
               properties: {
@@ -90,13 +76,11 @@ const CodeScreen = ({ openLanguages }: Props) => {
         <Autocomplete
           size={'sm'}
           labelPlacement="outside"
-          defaultItems={fontsNames.map((item, index) => {
-            return item;
-          })}
+          defaultItems={fontsNames}
           className="max-w-xs"
           variant="flat"
           placeholder="Choose a typeface"
-          value={activeElement?.style?.fontFamily}
+          value={currentElement?.style?.fontFamily}
           onSelectionChange={(fontFamily: any) =>
             onChangeSlideElement({
               style: {
@@ -104,15 +88,16 @@ const CodeScreen = ({ openLanguages }: Props) => {
               },
             })
           }
+          scrollShadowProps={{
+            isEnabled: false,
+          }}
         >
           {(item) => (
             <AutocompleteItem
               endContent={
-                item.new && (
-                  <Chip size="sm" variant="light" color="success">
-                    New
-                  </Chip>
-                )
+                <Chip size="sm" variant="light" color="success">
+                  New
+                </Chip>
               }
               aria-label={item.name}
               key={item.value}
@@ -129,11 +114,12 @@ const CodeScreen = ({ openLanguages }: Props) => {
       </FrameItem>
       <FrameItem label="Border Radius">
         <UISlider
+          size={'sm'}
           className="sm:w-1/2"
           minValue={0}
           maxValue={32}
           step={1}
-          value={Number(activeElement?.style?.borderRadius)}
+          value={Number(currentElement?.style?.borderRadius)}
           onChange={(borderRadius) =>
             onChangeSlideElement({
               style: {
@@ -143,14 +129,9 @@ const CodeScreen = ({ openLanguages }: Props) => {
           }
         />
       </FrameItem>
-    </Frame>
-  );
-};
-export default CodeScreen;
-
-{
-  /* <UIColorPicker
-          value={activeElement?.style?.backgroundColor}
+      {/* <FrameItem label="Color Picker">
+        <UIColorPicker
+          value={currentElement?.style?.backgroundColor}
           onSelect={(backgroundColor) =>
             onChangeSlideElement({
               style: {
@@ -158,5 +139,9 @@ export default CodeScreen;
               },
             })
           }
-        /> */
-}
+        />
+      </FrameItem> */}
+    </Frame>
+  );
+};
+export default CodeScreen;

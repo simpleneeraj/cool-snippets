@@ -1,0 +1,2487 @@
+[
+  {
+    "name": "File",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/file.svg",
+    "category": ["file"]
+  },
+  {
+    "name": "Html",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/html.svg",
+    "category": ["html"]
+  },
+  {
+    "name": "Pug",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pug.svg",
+    "category": ["pug"]
+  },
+  {
+    "name": "Markdown",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/markdown.svg",
+    "category": ["markdown"]
+  },
+  {
+    "name": "Blink",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/blink.svg",
+    "category": ["blink"]
+  },
+  {
+    "name": "Css",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/css.svg",
+    "category": ["css"]
+  },
+  {
+    "name": "Sass",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sass.svg",
+    "category": ["sass"]
+  },
+  {
+    "name": "Less",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/less.svg",
+    "category": ["less"]
+  },
+  {
+    "name": "Just",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/just.svg",
+    "category": ["just"]
+  },
+  {
+    "name": "Json",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/json.svg",
+    "category": ["json"]
+  },
+  {
+    "name": "Hjson",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hjson.svg",
+    "category": ["hjson"]
+  },
+  {
+    "name": "Jinja",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jinja.svg",
+    "category": ["jinja"]
+  },
+  {
+    "name": "Proto",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/proto.svg",
+    "category": ["proto"]
+  },
+  {
+    "name": "Playwright",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/playwright.svg",
+    "category": ["playwright"]
+  },
+  {
+    "name": "Sublime",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sublime.svg",
+    "category": ["sublime"]
+  },
+  {
+    "name": "Twine",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/twine.svg",
+    "category": ["twine"]
+  },
+  {
+    "name": "Yaml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/yaml.svg",
+    "category": ["yaml"]
+  },
+  {
+    "name": "Xml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/xml.svg",
+    "category": ["xml"]
+  },
+  {
+    "name": "Image",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/image.svg",
+    "category": ["image"]
+  },
+  {
+    "name": "Javascript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/javascript.svg",
+    "category": ["javascript"]
+  },
+  {
+    "name": "React",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/react.svg",
+    "category": ["react"]
+  },
+  {
+    "name": "React Ts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/react_ts.svg",
+    "category": ["react_ts"]
+  },
+  {
+    "name": "Rocket",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rocket.svg",
+    "category": ["rocket"]
+  },
+  {
+    "name": "Routing",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/routing.svg",
+    "category": ["routing"]
+  },
+  {
+    "name": "Redux Action",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/redux-action.svg",
+    "category": ["redux-action"]
+  },
+  {
+    "name": "Redux Reducer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/redux-reducer.svg",
+    "category": ["redux-reducer"]
+  },
+  {
+    "name": "Redux Selector",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/redux-selector.svg",
+    "category": ["redux-selector"]
+  },
+  {
+    "name": "Redux Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/redux-store.svg",
+    "category": ["redux-store"]
+  },
+  {
+    "name": "Settings",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/settings.svg",
+    "category": ["settings"]
+  },
+  {
+    "name": "Typescript Def",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/typescript-def.svg",
+    "category": ["typescript-def"]
+  },
+  {
+    "name": "Markojs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/markojs.svg",
+    "category": ["markojs"]
+  },
+  {
+    "name": "Astro",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/astro.svg",
+    "category": ["astro"]
+  },
+  {
+    "name": "Astro Config",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/astro-config.svg",
+    "category": ["astro-config"]
+  },
+  {
+    "name": "Pdf",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pdf.svg",
+    "category": ["pdf"]
+  },
+  {
+    "name": "Table",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/table.svg",
+    "category": ["table"]
+  },
+  {
+    "name": "Vscode",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vscode.svg",
+    "category": ["vscode"]
+  },
+  {
+    "name": "Visualstudio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/visualstudio.svg",
+    "category": ["visualstudio"]
+  },
+  {
+    "name": "Database",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/database.svg",
+    "category": ["database"]
+  },
+  {
+    "name": "Kusto",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kusto.svg",
+    "category": ["kusto"]
+  },
+  {
+    "name": "Csharp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/csharp.svg",
+    "category": ["csharp"]
+  },
+  {
+    "name": "Qsharp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/qsharp.svg",
+    "category": ["qsharp"]
+  },
+  {
+    "name": "Zip",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/zip.svg",
+    "category": ["zip"]
+  },
+  {
+    "name": "Vala",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vala.svg",
+    "category": ["vala"]
+  },
+  {
+    "name": "Zig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/zig.svg",
+    "category": ["zig"]
+  },
+  {
+    "name": "Exe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/exe.svg",
+    "category": ["exe"]
+  },
+  {
+    "name": "Hex",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hex.svg",
+    "category": ["hex"]
+  },
+  {
+    "name": "Java",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/java.svg",
+    "category": ["java"]
+  },
+  {
+    "name": "Jar",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jar.svg",
+    "category": ["jar"]
+  },
+  {
+    "name": "Javaclass",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/javaclass.svg",
+    "category": ["javaclass"]
+  },
+  {
+    "name": "C",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/c.svg",
+    "category": ["c"]
+  },
+  {
+    "name": "H",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/h.svg",
+    "category": ["h"]
+  },
+  {
+    "name": "Cpp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cpp.svg",
+    "category": ["cpp"]
+  },
+  {
+    "name": "Hpp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hpp.svg",
+    "category": ["hpp"]
+  },
+  {
+    "name": "Rc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rc.svg",
+    "category": ["rc"]
+  },
+  {
+    "name": "Go",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/go.svg",
+    "category": ["go"]
+  },
+  {
+    "name": "Go Mod",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/go-mod.svg",
+    "category": ["go-mod"]
+  },
+  {
+    "name": "Python",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/python.svg",
+    "category": ["python"]
+  },
+  {
+    "name": "Python Misc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/python-misc.svg",
+    "category": ["python-misc"]
+  },
+  {
+    "name": "Url",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/url.svg",
+    "category": ["url"]
+  },
+  {
+    "name": "Console",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/console.svg",
+    "category": ["console"]
+  },
+  {
+    "name": "Powershell",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/powershell.svg",
+    "category": ["powershell"]
+  },
+  {
+    "name": "Gradle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gradle.svg",
+    "category": ["gradle"]
+  },
+  {
+    "name": "Word",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/word.svg",
+    "category": ["word"]
+  },
+  {
+    "name": "Certificate",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/certificate.svg",
+    "category": ["certificate"]
+  },
+  {
+    "name": "Key",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/key.svg",
+    "category": ["key"]
+  },
+  {
+    "name": "Font",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/font.svg",
+    "category": ["font"]
+  },
+  {
+    "name": "Lib",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lib.svg",
+    "category": ["lib"]
+  },
+  {
+    "name": "Dll",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dll.svg",
+    "category": ["dll"]
+  },
+  {
+    "name": "Ruby",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ruby.svg",
+    "category": ["ruby"]
+  },
+  {
+    "name": "Gemfile",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gemfile.svg",
+    "category": ["gemfile"]
+  },
+  {
+    "name": "Rubocop",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rubocop.svg",
+    "category": ["rubocop"]
+  },
+  {
+    "name": "Rspec",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rspec.svg",
+    "category": ["rspec"]
+  },
+  {
+    "name": "Fsharp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/fsharp.svg",
+    "category": ["fsharp"]
+  },
+  {
+    "name": "Swift",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg",
+    "category": ["swift"]
+  },
+  {
+    "name": "Arduino",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/arduino.svg",
+    "category": ["arduino"]
+  },
+  {
+    "name": "Docker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/docker.svg",
+    "category": ["docker"]
+  },
+  {
+    "name": "Tex",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tex.svg",
+    "category": ["tex"]
+  },
+  {
+    "name": "Powerpoint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/powerpoint.svg",
+    "category": ["powerpoint"]
+  },
+  {
+    "name": "Video",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/video.svg",
+    "category": ["video"]
+  },
+  {
+    "name": "Virtual",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/virtual.svg",
+    "category": ["virtual"]
+  },
+  {
+    "name": "Vedic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vedic.svg",
+    "category": ["vedic"]
+  },
+  {
+    "name": "Email",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/email.svg",
+    "category": ["email"]
+  },
+  {
+    "name": "Audio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/audio.svg",
+    "category": ["audio"]
+  },
+  {
+    "name": "Coffee",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/coffee.svg",
+    "category": ["coffee"]
+  },
+  {
+    "name": "Document",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/document.svg",
+    "category": ["document"]
+  },
+  {
+    "name": "Graphql",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/graphql.svg",
+    "category": ["graphql"]
+  },
+  {
+    "name": "Rust",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rust.svg",
+    "category": ["rust"]
+  },
+  {
+    "name": "Raml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/raml.svg",
+    "category": ["raml"]
+  },
+  {
+    "name": "Xaml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/xaml.svg",
+    "category": ["xaml"]
+  },
+  {
+    "name": "Haskell",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/haskell.svg",
+    "category": ["haskell"]
+  },
+  {
+    "name": "Kotlin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kotlin.svg",
+    "category": ["kotlin"]
+  },
+  {
+    "name": "Mist",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mist.svg",
+    "category": ["mist"]
+  },
+  {
+    "name": "Otne",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/otne.svg",
+    "category": ["otne"]
+  },
+  {
+    "name": "Git",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/git.svg",
+    "category": ["git"]
+  },
+  {
+    "name": "Lua",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lua.svg",
+    "category": ["lua"]
+  },
+  {
+    "name": "Clojure",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/clojure.svg",
+    "category": ["clojure"]
+  },
+  {
+    "name": "Groovy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/groovy.svg",
+    "category": ["groovy"]
+  },
+  {
+    "name": "R",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/r.svg",
+    "category": ["r"]
+  },
+  {
+    "name": "Dart",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dart.svg",
+    "category": ["dart"]
+  },
+  {
+    "name": "Dart Generated",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dart_generated.svg",
+    "category": ["dart_generated"]
+  },
+  {
+    "name": "Actionscript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/actionscript.svg",
+    "category": ["actionscript"]
+  },
+  {
+    "name": "Mxml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mxml.svg",
+    "category": ["mxml"]
+  },
+  {
+    "name": "Autohotkey",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/autohotkey.svg",
+    "category": ["autohotkey"]
+  },
+  {
+    "name": "Flash",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/flash.svg",
+    "category": ["flash"]
+  },
+  {
+    "name": "Swc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/swc.svg",
+    "category": ["swc"]
+  },
+  {
+    "name": "Cmake",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cmake.svg",
+    "category": ["cmake"]
+  },
+  {
+    "name": "Assembly",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/assembly.svg",
+    "category": ["assembly"]
+  },
+  {
+    "name": "Vue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vue.svg",
+    "category": ["vue"]
+  },
+  {
+    "name": "Semgrep",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/semgrep.svg",
+    "category": ["semgrep"]
+  },
+  {
+    "name": "Vue Config",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vue-config.svg",
+    "category": ["vue-config"]
+  },
+  {
+    "name": "Vuex Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vuex-store.svg",
+    "category": ["vuex-store"]
+  },
+  {
+    "name": "Nuxt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nuxt.svg",
+    "category": ["nuxt"]
+  },
+  {
+    "name": "Harmonix",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/harmonix.svg",
+    "category": ["harmonix"]
+  },
+  {
+    "name": "Ocaml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ocaml.svg",
+    "category": ["ocaml"]
+  },
+  {
+    "name": "Odin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/odin.svg",
+    "category": ["odin"]
+  },
+  {
+    "name": "Javascript Map",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/javascript-map.svg",
+    "category": ["javascript-map"]
+  },
+  {
+    "name": "Css Map",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/css-map.svg",
+    "category": ["css-map"]
+  },
+  {
+    "name": "Lock",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lock.svg",
+    "category": ["lock"]
+  },
+  {
+    "name": "Handlebars",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/handlebars.svg",
+    "category": ["handlebars"]
+  },
+  {
+    "name": "Perl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/perl.svg",
+    "category": ["perl"]
+  },
+  {
+    "name": "Haxe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/haxe.svg",
+    "category": ["haxe"]
+  },
+  {
+    "name": "Test Ts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/test-ts.svg",
+    "category": ["test-ts"]
+  },
+  {
+    "name": "Test Jsx",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/test-jsx.svg",
+    "category": ["test-jsx"]
+  },
+  {
+    "name": "Test Js",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/test-js.svg",
+    "category": ["test-js"]
+  },
+  {
+    "name": "Angular",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular.svg",
+    "category": ["angular"]
+  },
+  {
+    "name": "Angular Component",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-component.svg",
+    "category": ["angular-component"]
+  },
+  {
+    "name": "Angular Guard",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-guard.svg",
+    "category": ["angular-guard"]
+  },
+  {
+    "name": "Angular Service",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-service.svg",
+    "category": ["angular-service"]
+  },
+  {
+    "name": "Angular Pipe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-pipe.svg",
+    "category": ["angular-pipe"]
+  },
+  {
+    "name": "Angular Directive",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-directive.svg",
+    "category": ["angular-directive"]
+  },
+  {
+    "name": "Angular Resolver",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-resolver.svg",
+    "category": ["angular-resolver"]
+  },
+  {
+    "name": "Angular Interceptor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/angular-interceptor.svg",
+    "category": ["angular-interceptor"]
+  },
+  {
+    "name": "Puppet",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/puppet.svg",
+    "category": ["puppet"]
+  },
+  {
+    "name": "Elixir",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/elixir.svg",
+    "category": ["elixir"]
+  },
+  {
+    "name": "Livescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/livescript.svg",
+    "category": ["livescript"]
+  },
+  {
+    "name": "Erlang",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/erlang.svg",
+    "category": ["erlang"]
+  },
+  {
+    "name": "Twig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/twig.svg",
+    "category": ["twig"]
+  },
+  {
+    "name": "Julia",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/julia.svg",
+    "category": ["julia"]
+  },
+  {
+    "name": "Elm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/elm.svg",
+    "category": ["elm"]
+  },
+  {
+    "name": "Purescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/purescript.svg",
+    "category": ["purescript"]
+  },
+  {
+    "name": "Smarty",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/smarty.svg",
+    "category": ["smarty"]
+  },
+  {
+    "name": "Stylus",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stylus.svg",
+    "category": ["stylus"]
+  },
+  {
+    "name": "Reason",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/reason.svg",
+    "category": ["reason"]
+  },
+  {
+    "name": "Bucklescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bucklescript.svg",
+    "category": ["bucklescript"]
+  },
+  {
+    "name": "Merlin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/merlin.svg",
+    "category": ["merlin"]
+  },
+  {
+    "name": "Verilog",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/verilog.svg",
+    "category": ["verilog"]
+  },
+  {
+    "name": "Mathematica",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mathematica.svg",
+    "category": ["mathematica"]
+  },
+  {
+    "name": "Wolframlanguage",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/wolframlanguage.svg",
+    "category": ["wolframlanguage"]
+  },
+  {
+    "name": "Nunjucks",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nunjucks.svg",
+    "category": ["nunjucks"]
+  },
+  {
+    "name": "Robot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/robot.svg",
+    "category": ["robot"]
+  },
+  {
+    "name": "Solidity",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/solidity.svg",
+    "category": ["solidity"]
+  },
+  {
+    "name": "Autoit",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/autoit.svg",
+    "category": ["autoit"]
+  },
+  {
+    "name": "Haml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/haml.svg",
+    "category": ["haml"]
+  },
+  {
+    "name": "Yang",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/yang.svg",
+    "category": ["yang"]
+  },
+  {
+    "name": "Mjml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mjml.svg",
+    "category": ["mjml"]
+  },
+  {
+    "name": "Vercel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vercel.svg",
+    "category": ["vercel"]
+  },
+  {
+    "name": "Liara",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/liara.svg",
+    "category": ["liara"]
+  },
+  {
+    "name": "Verdaccio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/verdaccio.svg",
+    "category": ["verdaccio"]
+  },
+  {
+    "name": "Payload",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/payload.svg",
+    "category": ["payload"]
+  },
+  {
+    "name": "Next",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/next.svg",
+    "category": ["next"]
+  },
+  {
+    "name": "Remark",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/remark.svg",
+    "category": ["remark"]
+  },
+  {
+    "name": "Remix",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/remix.svg",
+    "category": ["remix"]
+  },
+  {
+    "name": "Terraform",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/terraform.svg",
+    "category": ["terraform"]
+  },
+  {
+    "name": "Laravel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/laravel.svg",
+    "category": ["laravel"]
+  },
+  {
+    "name": "Applescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/applescript.svg",
+    "category": ["applescript"]
+  },
+  {
+    "name": "Cake",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cake.svg",
+    "category": ["cake"]
+  },
+  {
+    "name": "Cucumber",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cucumber.svg",
+    "category": ["cucumber"]
+  },
+  {
+    "name": "Nim",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nim.svg",
+    "category": ["nim"]
+  },
+  {
+    "name": "Apiblueprint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/apiblueprint.svg",
+    "category": ["apiblueprint"]
+  },
+  {
+    "name": "Riot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/riot.svg",
+    "category": ["riot"]
+  },
+  {
+    "name": "Vfl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vfl.svg",
+    "category": ["vfl"]
+  },
+  {
+    "name": "Kl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kl.svg",
+    "category": ["kl"]
+  },
+  {
+    "name": "Postcss",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/postcss.svg",
+    "category": ["postcss"]
+  },
+  {
+    "name": "Posthtml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/posthtml.svg",
+    "category": ["posthtml"]
+  },
+  {
+    "name": "Todo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/todo.svg",
+    "category": ["todo"]
+  },
+  {
+    "name": "Coldfusion",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/coldfusion.svg",
+    "category": ["coldfusion"]
+  },
+  {
+    "name": "Cabal",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cabal.svg",
+    "category": ["cabal"]
+  },
+  {
+    "name": "Nix",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nix.svg",
+    "category": ["nix"]
+  },
+  {
+    "name": "Slim",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/slim.svg",
+    "category": ["slim"]
+  },
+  {
+    "name": "Http",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/http.svg",
+    "category": ["http"]
+  },
+  {
+    "name": "Restql",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/restql.svg",
+    "category": ["restql"]
+  },
+  {
+    "name": "Kivy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kivy.svg",
+    "category": ["kivy"]
+  },
+  {
+    "name": "Graphcool",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/graphcool.svg",
+    "category": ["graphcool"]
+  },
+  {
+    "name": "Sbt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sbt.svg",
+    "category": ["sbt"]
+  },
+  {
+    "name": "Webpack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/webpack.svg",
+    "category": ["webpack"]
+  },
+  {
+    "name": "Ionic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ionic.svg",
+    "category": ["ionic"]
+  },
+  {
+    "name": "Gulp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gulp.svg",
+    "category": ["gulp"]
+  },
+  {
+    "name": "Nodejs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nodejs.svg",
+    "category": ["nodejs"]
+  },
+  {
+    "name": "Npm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/npm.svg",
+    "category": ["npm"]
+  },
+  {
+    "name": "Yarn",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/yarn.svg",
+    "category": ["yarn"]
+  },
+  {
+    "name": "Android",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/android.svg",
+    "category": ["android"]
+  },
+  {
+    "name": "Tune",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tune.svg",
+    "category": ["tune"]
+  },
+  {
+    "name": "Turborepo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/turborepo.svg",
+    "category": ["turborepo"]
+  },
+  {
+    "name": "Babel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/babel.svg",
+    "category": ["babel"]
+  },
+  {
+    "name": "Blitz",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/blitz.svg",
+    "category": ["blitz"]
+  },
+  {
+    "name": "Contributing",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/contributing.svg",
+    "category": ["contributing"]
+  },
+  {
+    "name": "Readme",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/readme.svg",
+    "category": ["readme"]
+  },
+  {
+    "name": "Changelog",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/changelog.svg",
+    "category": ["changelog"]
+  },
+  {
+    "name": "Architecture",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/architecture.svg",
+    "category": ["architecture"]
+  },
+  {
+    "name": "Credits",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/credits.svg",
+    "category": ["credits"]
+  },
+  {
+    "name": "Authors",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/authors.svg",
+    "category": ["authors"]
+  },
+  {
+    "name": "Flow",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/flow.svg",
+    "category": ["flow"]
+  },
+  {
+    "name": "Favicon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/favicon.svg",
+    "category": ["favicon"]
+  },
+  {
+    "name": "Karma",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/karma.svg",
+    "category": ["karma"]
+  },
+  {
+    "name": "Bithound",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bithound.svg",
+    "category": ["bithound"]
+  },
+  {
+    "name": "Svgo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svgo.svg",
+    "category": ["svgo"]
+  },
+  {
+    "name": "Appveyor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/appveyor.svg",
+    "category": ["appveyor"]
+  },
+  {
+    "name": "Travis",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/travis.svg",
+    "category": ["travis"]
+  },
+  {
+    "name": "Codecov",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/codecov.svg",
+    "category": ["codecov"]
+  },
+  {
+    "name": "Sonarcloud",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sonarcloud.svg",
+    "category": ["sonarcloud"]
+  },
+  {
+    "name": "Protractor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/protractor.svg",
+    "category": ["protractor"]
+  },
+  {
+    "name": "Fusebox",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/fusebox.svg",
+    "category": ["fusebox"]
+  },
+  {
+    "name": "Heroku",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/heroku.svg",
+    "category": ["heroku"]
+  },
+  {
+    "name": "Editorconfig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/editorconfig.svg",
+    "category": ["editorconfig"]
+  },
+  {
+    "name": "Gitlab",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gitlab.svg",
+    "category": ["gitlab"]
+  },
+  {
+    "name": "Bower",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bower.svg",
+    "category": ["bower"]
+  },
+  {
+    "name": "Eslint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/eslint.svg",
+    "category": ["eslint"]
+  },
+  {
+    "name": "Conduct",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/conduct.svg",
+    "category": ["conduct"]
+  },
+  {
+    "name": "Watchman",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/watchman.svg",
+    "category": ["watchman"]
+  },
+  {
+    "name": "Aurelia",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/aurelia.svg",
+    "category": ["aurelia"]
+  },
+  {
+    "name": "Auto",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/auto.svg",
+    "category": ["auto"]
+  },
+  {
+    "name": "Mocha",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mocha.svg",
+    "category": ["mocha"]
+  },
+  {
+    "name": "Jenkins",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jenkins.svg",
+    "category": ["jenkins"]
+  },
+  {
+    "name": "Firebase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/firebase.svg",
+    "category": ["firebase"]
+  },
+  {
+    "name": "Figma",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/figma.svg",
+    "category": ["figma"]
+  },
+  {
+    "name": "Rollup",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rollup.svg",
+    "category": ["rollup"]
+  },
+  {
+    "name": "Hack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hack.svg",
+    "category": ["hack"]
+  },
+  {
+    "name": "Huff",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/huff.svg",
+    "category": ["huff"]
+  },
+  {
+    "name": "Hardhat",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hardhat.svg",
+    "category": ["hardhat"]
+  },
+  {
+    "name": "Stylelint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stylelint.svg",
+    "category": ["stylelint"]
+  },
+  {
+    "name": "Code Climate",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/code-climate.svg",
+    "category": ["code-climate"]
+  },
+  {
+    "name": "Prettier",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/prettier.svg",
+    "category": ["prettier"]
+  },
+  {
+    "name": "Renovate",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/renovate.svg",
+    "category": ["renovate"]
+  },
+  {
+    "name": "Apollo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/apollo.svg",
+    "category": ["apollo"]
+  },
+  {
+    "name": "Nodemon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nodemon.svg",
+    "category": ["nodemon"]
+  },
+  {
+    "name": "Ngrx Reducer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-reducer.svg",
+    "category": ["ngrx-reducer"]
+  },
+  {
+    "name": "Ngrx State",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-state.svg",
+    "category": ["ngrx-state"]
+  },
+  {
+    "name": "Ngrx Actions",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-actions.svg",
+    "category": ["ngrx-actions"]
+  },
+  {
+    "name": "Ngrx Effects",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-effects.svg",
+    "category": ["ngrx-effects"]
+  },
+  {
+    "name": "Ngrx Entity",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-entity.svg",
+    "category": ["ngrx-entity"]
+  },
+  {
+    "name": "Ngrx Selectors",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ngrx-selectors.svg",
+    "category": ["ngrx-selectors"]
+  },
+  {
+    "name": "Webhint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/webhint.svg",
+    "category": ["webhint"]
+  },
+  {
+    "name": "Browserlist",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/browserlist.svg",
+    "category": ["browserlist"]
+  },
+  {
+    "name": "Crystal",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/crystal.svg",
+    "category": ["crystal"]
+  },
+  {
+    "name": "Snyk",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/snyk.svg",
+    "category": ["snyk"]
+  },
+  {
+    "name": "Drone",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/drone.svg",
+    "category": ["drone"]
+  },
+  {
+    "name": "Cuda",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cuda.svg",
+    "category": ["cuda"]
+  },
+  {
+    "name": "Log",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/log.svg",
+    "category": ["log"]
+  },
+  {
+    "name": "Dotjs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dotjs.svg",
+    "category": ["dotjs"]
+  },
+  {
+    "name": "Ejs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ejs.svg",
+    "category": ["ejs"]
+  },
+  {
+    "name": "Sequelize",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sequelize.svg",
+    "category": ["sequelize"]
+  },
+  {
+    "name": "Gatsby",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gatsby.svg",
+    "category": ["gatsby"]
+  },
+  {
+    "name": "Wakatime",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/wakatime.svg",
+    "category": ["wakatime"]
+  },
+  {
+    "name": "Circleci",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/circleci.svg",
+    "category": ["circleci"]
+  },
+  {
+    "name": "Cloudfoundry",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cloudfoundry.svg",
+    "category": ["cloudfoundry"]
+  },
+  {
+    "name": "Grunt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/grunt.svg",
+    "category": ["grunt"]
+  },
+  {
+    "name": "Jest",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jest.svg",
+    "category": ["jest"]
+  },
+  {
+    "name": "Processing",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/processing.svg",
+    "category": ["processing"]
+  },
+  {
+    "name": "Storybook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/storybook.svg",
+    "category": ["storybook"]
+  },
+  {
+    "name": "Wepy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/wepy.svg",
+    "category": ["wepy"]
+  },
+  {
+    "name": "Fastlane",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/fastlane.svg",
+    "category": ["fastlane"]
+  },
+  {
+    "name": "Hcl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hcl.svg",
+    "category": ["hcl"]
+  },
+  {
+    "name": "Helm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/helm.svg",
+    "category": ["helm"]
+  },
+  {
+    "name": "San",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/san.svg",
+    "category": ["san"]
+  },
+  {
+    "name": "Quokka",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/quokka.svg",
+    "category": ["quokka"]
+  },
+  {
+    "name": "Wallaby",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/wallaby.svg",
+    "category": ["wallaby"]
+  },
+  {
+    "name": "Django",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/django.svg",
+    "category": ["django"]
+  },
+  {
+    "name": "Stencil",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stencil.svg",
+    "category": ["stencil"]
+  },
+  {
+    "name": "Red",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/red.svg",
+    "category": ["red"]
+  },
+  {
+    "name": "Makefile",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/makefile.svg",
+    "category": ["makefile"]
+  },
+  {
+    "name": "Foxpro",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/foxpro.svg",
+    "category": ["foxpro"]
+  },
+  {
+    "name": "I 18 N",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/i18n.svg",
+    "category": ["i18n"]
+  },
+  {
+    "name": "Webassembly",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/webassembly.svg",
+    "category": ["webassembly"]
+  },
+  {
+    "name": "Semantic Release",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/semantic-release.svg",
+    "category": ["semantic-release"]
+  },
+  {
+    "name": "Bitbucket",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bitbucket.svg",
+    "category": ["bitbucket"]
+  },
+  {
+    "name": "Jupyter",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jupyter.svg",
+    "category": ["jupyter"]
+  },
+  {
+    "name": "D",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/d.svg",
+    "category": ["d"]
+  },
+  {
+    "name": "Mdx",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mdx.svg",
+    "category": ["mdx"]
+  },
+  {
+    "name": "Mdsvex",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mdsvex.svg",
+    "category": ["mdsvex"]
+  },
+  {
+    "name": "Ballerina",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ballerina.svg",
+    "category": ["ballerina"]
+  },
+  {
+    "name": "Racket",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/racket.svg",
+    "category": ["racket"]
+  },
+  {
+    "name": "Bazel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bazel.svg",
+    "category": ["bazel"]
+  },
+  {
+    "name": "Mint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mint.svg",
+    "category": ["mint"]
+  },
+  {
+    "name": "Velocity",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/velocity.svg",
+    "category": ["velocity"]
+  },
+  {
+    "name": "Godot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/godot.svg",
+    "category": ["godot"]
+  },
+  {
+    "name": "Godot Assets",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/godot-assets.svg",
+    "category": ["godot-assets"]
+  },
+  {
+    "name": "Azure Pipelines",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/azure-pipelines.svg",
+    "category": ["azure-pipelines"]
+  },
+  {
+    "name": "Azure",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/azure.svg",
+    "category": ["azure"]
+  },
+  {
+    "name": "Vagrant",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vagrant.svg",
+    "category": ["vagrant"]
+  },
+  {
+    "name": "Prisma",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/prisma.svg",
+    "category": ["prisma"]
+  },
+  {
+    "name": "Razor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/razor.svg",
+    "category": ["razor"]
+  },
+  {
+    "name": "Abc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/abc.svg",
+    "category": ["abc"]
+  },
+  {
+    "name": "Asciidoc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/asciidoc.svg",
+    "category": ["asciidoc"]
+  },
+  {
+    "name": "Istanbul",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/istanbul.svg",
+    "category": ["istanbul"]
+  },
+  {
+    "name": "Edge",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/edge.svg",
+    "category": ["edge"]
+  },
+  {
+    "name": "Scheme",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/scheme.svg",
+    "category": ["scheme"]
+  },
+  {
+    "name": "Lisp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lisp.svg",
+    "category": ["lisp"]
+  },
+  {
+    "name": "Tailwindcss",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tailwindcss.svg",
+    "category": ["tailwindcss"]
+  },
+  {
+    "name": "3 D",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/3d.svg",
+    "category": ["3d"]
+  },
+  {
+    "name": "Buildkite",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/buildkite.svg",
+    "category": ["buildkite"]
+  },
+  {
+    "name": "Netlify",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/netlify.svg",
+    "category": ["netlify"]
+  },
+  {
+    "name": "Svg",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svg.svg",
+    "category": ["svg"]
+  },
+  {
+    "name": "Svelte",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svelte.svg",
+    "category": ["svelte"]
+  },
+  {
+    "name": "Svelte Js",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svelte_js.svg",
+    "category": ["svelte_js"]
+  },
+  {
+    "name": "Svelte Ts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svelte_ts.svg",
+    "category": ["svelte_ts"]
+  },
+  {
+    "name": "Vim",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vim.svg",
+    "category": ["vim"]
+  },
+  {
+    "name": "Nest",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest.svg",
+    "category": ["nest"]
+  },
+  {
+    "name": "Nest Controller",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-controller.svg",
+    "category": ["nest-controller"]
+  },
+  {
+    "name": "Nest Middleware",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-middleware.svg",
+    "category": ["nest-middleware"]
+  },
+  {
+    "name": "Nest Module",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-module.svg",
+    "category": ["nest-module"]
+  },
+  {
+    "name": "Nest Service",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-service.svg",
+    "category": ["nest-service"]
+  },
+  {
+    "name": "Nest Decorator",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-decorator.svg",
+    "category": ["nest-decorator"]
+  },
+  {
+    "name": "Nest Pipe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-pipe.svg",
+    "category": ["nest-pipe"]
+  },
+  {
+    "name": "Nest Filter",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-filter.svg",
+    "category": ["nest-filter"]
+  },
+  {
+    "name": "Nest Gateway",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-gateway.svg",
+    "category": ["nest-gateway"]
+  },
+  {
+    "name": "Nest Guard",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-guard.svg",
+    "category": ["nest-guard"]
+  },
+  {
+    "name": "Nest Resolver",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-resolver.svg",
+    "category": ["nest-resolver"]
+  },
+  {
+    "name": "Nest Interceptor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nest-interceptor.svg",
+    "category": ["nest-interceptor"]
+  },
+  {
+    "name": "Moon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/moon.svg",
+    "category": ["moon"]
+  },
+  {
+    "name": "Moonscript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/moonscript.svg",
+    "category": ["moonscript"]
+  },
+  {
+    "name": "Percy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/percy.svg",
+    "category": ["percy"]
+  },
+  {
+    "name": "Gitpod",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gitpod.svg",
+    "category": ["gitpod"]
+  },
+  {
+    "name": "Stackblitz",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stackblitz.svg",
+    "category": ["stackblitz"]
+  },
+  {
+    "name": "Advpl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/advpl.svg",
+    "category": ["advpl"]
+  },
+  {
+    "name": "Advpl Ptm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/advpl-ptm.svg",
+    "category": ["advpl-ptm"]
+  },
+  {
+    "name": "Advpl Tlpp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/advpl-tlpp.svg",
+    "category": ["advpl-tlpp"]
+  },
+  {
+    "name": "Advpl Include",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/advpl-include.svg",
+    "category": ["advpl-include"]
+  },
+  {
+    "name": "Codeowners",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/codeowners.svg",
+    "category": ["codeowners"]
+  },
+  {
+    "name": "Gcp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gcp.svg",
+    "category": ["gcp"]
+  },
+  {
+    "name": "Amplify",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/amplify.svg",
+    "category": ["amplify"]
+  },
+  {
+    "name": "Disc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/disc.svg",
+    "category": ["disc"]
+  },
+  {
+    "name": "Fortran",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/fortran.svg",
+    "category": ["fortran"]
+  },
+  {
+    "name": "Tcl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tcl.svg",
+    "category": ["tcl"]
+  },
+  {
+    "name": "Liquid",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/liquid.svg",
+    "category": ["liquid"]
+  },
+  {
+    "name": "Prolog",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/prolog.svg",
+    "category": ["prolog"]
+  },
+  {
+    "name": "Husky",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/husky.svg",
+    "category": ["husky"]
+  },
+  {
+    "name": "Coconut",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/coconut.svg",
+    "category": ["coconut"]
+  },
+  {
+    "name": "Tilt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tilt.svg",
+    "category": ["tilt"]
+  },
+  {
+    "name": "Capacitor",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/capacitor.svg",
+    "category": ["capacitor"]
+  },
+  {
+    "name": "Sketch",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sketch.svg",
+    "category": ["sketch"]
+  },
+  {
+    "name": "Pawn",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pawn.svg",
+    "category": ["pawn"]
+  },
+  {
+    "name": "Adonis",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/adonis.svg",
+    "category": ["adonis"]
+  },
+  {
+    "name": "Forth",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/forth.svg",
+    "category": ["forth"]
+  },
+  {
+    "name": "Uml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/uml.svg",
+    "category": ["uml"]
+  },
+  {
+    "name": "Meson",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/meson.svg",
+    "category": ["meson"]
+  },
+  {
+    "name": "Commitlint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/commitlint.svg",
+    "category": ["commitlint"]
+  },
+  {
+    "name": "Buck",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/buck.svg",
+    "category": ["buck"]
+  },
+  {
+    "name": "Dhall",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dhall.svg",
+    "category": ["dhall"]
+  },
+  {
+    "name": "Sml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sml.svg",
+    "category": ["sml"]
+  },
+  {
+    "name": "Nx",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nx.svg",
+    "category": ["nx"]
+  },
+  {
+    "name": "Opam",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/opam.svg",
+    "category": ["opam"]
+  },
+  {
+    "name": "Dune",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dune.svg",
+    "category": ["dune"]
+  },
+  {
+    "name": "Imba",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/imba.svg",
+    "category": ["imba"]
+  },
+  {
+    "name": "Drawio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/drawio.svg",
+    "category": ["drawio"]
+  },
+  {
+    "name": "Pascal",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pascal.svg",
+    "category": ["pascal"]
+  },
+  {
+    "name": "Shaderlab",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/shaderlab.svg",
+    "category": ["shaderlab"]
+  },
+  {
+    "name": "Roadmap",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/roadmap.svg",
+    "category": ["roadmap"]
+  },
+  {
+    "name": "Sas",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sas.svg",
+    "category": ["sas"]
+  },
+  {
+    "name": "Nuget",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nuget.svg",
+    "category": ["nuget"]
+  },
+  {
+    "name": "Command",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/command.svg",
+    "category": ["command"]
+  },
+  {
+    "name": "Stryker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stryker.svg",
+    "category": ["stryker"]
+  },
+  {
+    "name": "Denizenscript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/denizenscript.svg",
+    "category": ["denizenscript"]
+  },
+  {
+    "name": "Modernizr",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/modernizr.svg",
+    "category": ["modernizr"]
+  },
+  {
+    "name": "Slug",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/slug.svg",
+    "category": ["slug"]
+  },
+  {
+    "name": "Search",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/search.svg",
+    "category": ["search"]
+  },
+  {
+    "name": "Stitches",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stitches.svg",
+    "category": ["stitches"]
+  },
+  {
+    "name": "Nginx",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nginx.svg",
+    "category": ["nginx"]
+  },
+  {
+    "name": "Minecraft",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/minecraft.svg",
+    "category": ["minecraft"]
+  },
+  {
+    "name": "Replit",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/replit.svg",
+    "category": ["replit"]
+  },
+  {
+    "name": "Rescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rescript.svg",
+    "category": ["rescript"]
+  },
+  {
+    "name": "Rescript Interface",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rescript-interface.svg",
+    "category": ["rescript-interface"]
+  },
+  {
+    "name": "Duc",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/duc.svg",
+    "category": ["duc"]
+  },
+  {
+    "name": "Snowpack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/snowpack.svg",
+    "category": ["snowpack"]
+  },
+  {
+    "name": "Brainfuck",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/brainfuck.svg",
+    "category": ["brainfuck"]
+  },
+  {
+    "name": "Bicep",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bicep.svg",
+    "category": ["bicep"]
+  },
+  {
+    "name": "Cobol",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cobol.svg",
+    "category": ["cobol"]
+  },
+  {
+    "name": "Grain",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/grain.svg",
+    "category": ["grain"]
+  },
+  {
+    "name": "Lolcode",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lolcode.svg",
+    "category": ["lolcode"]
+  },
+  {
+    "name": "Idris",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/idris.svg",
+    "category": ["idris"]
+  },
+  {
+    "name": "Quasar",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/quasar.svg",
+    "category": ["quasar"]
+  },
+  {
+    "name": "Dependabot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dependabot.svg",
+    "category": ["dependabot"]
+  },
+  {
+    "name": "Pipeline",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pipeline.svg",
+    "category": ["pipeline"]
+  },
+  {
+    "name": "Vite",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vite.svg",
+    "category": ["vite"]
+  },
+  {
+    "name": "Vitest",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vitest.svg",
+    "category": ["vitest"]
+  },
+  {
+    "name": "Velite",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/velite.svg",
+    "category": ["velite"]
+  },
+  {
+    "name": "Opa",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/opa.svg",
+    "category": ["opa"]
+  },
+  {
+    "name": "Lerna",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lerna.svg",
+    "category": ["lerna"]
+  },
+  {
+    "name": "Windicss",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/windicss.svg",
+    "category": ["windicss"]
+  },
+  {
+    "name": "Textlint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/textlint.svg",
+    "category": ["textlint"]
+  },
+  {
+    "name": "Scala",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/scala.svg",
+    "category": ["scala"]
+  },
+  {
+    "name": "Lilypond",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lilypond.svg",
+    "category": ["lilypond"]
+  },
+  {
+    "name": "Vlang",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/vlang.svg",
+    "category": ["vlang"]
+  },
+  {
+    "name": "Chess",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/chess.svg",
+    "category": ["chess"]
+  },
+  {
+    "name": "Gemini",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gemini.svg",
+    "category": ["gemini"]
+  },
+  {
+    "name": "Sentry",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sentry.svg",
+    "category": ["sentry"]
+  },
+  {
+    "name": "Phpunit",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/phpunit.svg",
+    "category": ["phpunit"]
+  },
+  {
+    "name": "Php Cs Fixer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/php-cs-fixer.svg",
+    "category": ["php-cs-fixer"]
+  },
+  {
+    "name": "Robots",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/robots.svg",
+    "category": ["robots"]
+  },
+  {
+    "name": "Tsconfig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tsconfig.svg",
+    "category": ["tsconfig"]
+  },
+  {
+    "name": "Tauri",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tauri.svg",
+    "category": ["tauri"]
+  },
+  {
+    "name": "Jsconfig",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jsconfig.svg",
+    "category": ["jsconfig"]
+  },
+  {
+    "name": "Maven",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/maven.svg",
+    "category": ["maven"]
+  },
+  {
+    "name": "Ada",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ada.svg",
+    "category": ["ada"]
+  },
+  {
+    "name": "Serverless",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/serverless.svg",
+    "category": ["serverless"]
+  },
+  {
+    "name": "Supabase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/supabase.svg",
+    "category": ["supabase"]
+  },
+  {
+    "name": "Ember",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ember.svg",
+    "category": ["ember"]
+  },
+  {
+    "name": "Horusec",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/horusec.svg",
+    "category": ["horusec"]
+  },
+  {
+    "name": "Poetry",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/poetry.svg",
+    "category": ["poetry"]
+  },
+  {
+    "name": "Pdm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pdm.svg",
+    "category": ["pdm"]
+  },
+  {
+    "name": "Coala",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/coala.svg",
+    "category": ["coala"]
+  },
+  {
+    "name": "Parcel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/parcel.svg",
+    "category": ["parcel"]
+  },
+  {
+    "name": "Dinophp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/dinophp.svg",
+    "category": ["dinophp"]
+  },
+  {
+    "name": "Teal",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/teal.svg",
+    "category": ["teal"]
+  },
+  {
+    "name": "Template",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/template.svg",
+    "category": ["template"]
+  },
+  {
+    "name": "Astyle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/astyle.svg",
+    "category": ["astyle"]
+  },
+  {
+    "name": "Shader",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/shader.svg",
+    "category": ["shader"]
+  },
+  {
+    "name": "Lighthouse",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lighthouse.svg",
+    "category": ["lighthouse"]
+  },
+  {
+    "name": "Svgr",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/svgr.svg",
+    "category": ["svgr"]
+  },
+  {
+    "name": "Rome",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/rome.svg",
+    "category": ["rome"]
+  },
+  {
+    "name": "Cypress",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cypress.svg",
+    "category": ["cypress"]
+  },
+  {
+    "name": "Siyuan",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/siyuan.svg",
+    "category": ["siyuan"]
+  },
+  {
+    "name": "Ndst",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ndst.svg",
+    "category": ["ndst"]
+  },
+  {
+    "name": "Plop",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/plop.svg",
+    "category": ["plop"]
+  },
+  {
+    "name": "Tobi",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tobi.svg",
+    "category": ["tobi"]
+  },
+  {
+    "name": "Tobimake",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tobimake.svg",
+    "category": ["tobimake"]
+  },
+  {
+    "name": "Gleam",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gleam.svg",
+    "category": ["gleam"]
+  },
+  {
+    "name": "Pnpm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pnpm.svg",
+    "category": ["pnpm"]
+  },
+  {
+    "name": "Gridsome",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gridsome.svg",
+    "category": ["gridsome"]
+  },
+  {
+    "name": "Steadybit",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/steadybit.svg",
+    "category": ["steadybit"]
+  },
+  {
+    "name": "Capnp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/capnp.svg",
+    "category": ["capnp"]
+  },
+  {
+    "name": "Tree",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tree.svg",
+    "category": ["tree"]
+  },
+  {
+    "name": "Cadence",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cadence.svg",
+    "category": ["cadence"]
+  },
+  {
+    "name": "Caddy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/caddy.svg",
+    "category": ["caddy"]
+  },
+  {
+    "name": "Openapi",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/openapi.svg",
+    "category": ["openapi"]
+  },
+  {
+    "name": "Swagger",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/swagger.svg",
+    "category": ["swagger"]
+  },
+  {
+    "name": "Bun",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bun.svg",
+    "category": ["bun"]
+  },
+  {
+    "name": "Antlr",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/antlr.svg",
+    "category": ["antlr"]
+  },
+  {
+    "name": "Stylable",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stylable.svg",
+    "category": ["stylable"]
+  },
+  {
+    "name": "Pinejs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pinejs.svg",
+    "category": ["pinejs"]
+  },
+  {
+    "name": "Nano Staged",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/nano-staged.svg",
+    "category": ["nano-staged"]
+  },
+  {
+    "name": "Knip",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/knip.svg",
+    "category": ["knip"]
+  },
+  {
+    "name": "Taskfile",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/taskfile.svg",
+    "category": ["taskfile"]
+  },
+  {
+    "name": "Craco",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/craco.svg",
+    "category": ["craco"]
+  },
+  {
+    "name": "Gamemaker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gamemaker.svg",
+    "category": ["gamemaker"]
+  },
+  {
+    "name": "Tldraw",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tldraw.svg",
+    "category": ["tldraw"]
+  },
+  {
+    "name": "Mercurial",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mercurial.svg",
+    "category": ["mercurial"]
+  },
+  {
+    "name": "Deno",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/deno.svg",
+    "category": ["deno"]
+  },
+  {
+    "name": "Plastic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/plastic.svg",
+    "category": ["plastic"]
+  },
+  {
+    "name": "Typst",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/typst.svg",
+    "category": ["typst"]
+  },
+  {
+    "name": "Unocss",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/unocss.svg",
+    "category": ["unocss"]
+  },
+  {
+    "name": "Ifanr Cloud",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/ifanr-cloud.svg",
+    "category": ["ifanr-cloud"]
+  },
+  {
+    "name": "Concourse",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/concourse.svg",
+    "category": ["concourse"]
+  },
+  {
+    "name": "Qwik",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/qwik.svg",
+    "category": ["qwik"]
+  },
+  {
+    "name": "Mermaid",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mermaid.svg",
+    "category": ["mermaid"]
+  },
+  {
+    "name": "Syncpack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/syncpack.svg",
+    "category": ["syncpack"]
+  },
+  {
+    "name": "Mojo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/mojo.svg",
+    "category": ["mojo"]
+  },
+  {
+    "name": "Werf",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/werf.svg",
+    "category": ["werf"]
+  },
+  {
+    "name": "Roblox",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/roblox.svg",
+    "category": ["roblox"]
+  },
+  {
+    "name": "Panda",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/panda.svg",
+    "category": ["panda"]
+  },
+  {
+    "name": "Biome",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/biome.svg",
+    "category": ["biome"]
+  },
+  {
+    "name": "Esbuild",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/esbuild.svg",
+    "category": ["esbuild"]
+  },
+  {
+    "name": "Spwn",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/spwn.svg",
+    "category": ["spwn"]
+  },
+  {
+    "name": "Templ",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/templ.svg",
+    "category": ["templ"]
+  },
+  {
+    "name": "Chrome",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/chrome.svg",
+    "category": ["chrome"]
+  },
+  {
+    "name": "Stan",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/stan.svg",
+    "category": ["stan"]
+  },
+  {
+    "name": "Abap",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/abap.svg",
+    "category": ["abap"]
+  },
+  {
+    "name": "Drizzle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/drizzle.svg",
+    "category": ["drizzle"]
+  },
+  {
+    "name": "Lottie",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lottie.svg",
+    "category": ["lottie"]
+  },
+  {
+    "name": "Puppeteer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/puppeteer.svg",
+    "category": ["puppeteer"]
+  },
+  {
+    "name": "Apps Script",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/apps-script.svg",
+    "category": ["apps-script"]
+  },
+  {
+    "name": "Pkl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/pkl.svg",
+    "category": ["pkl"]
+  },
+  {
+    "name": "Kubernetes",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kubernetes.svg",
+    "category": ["kubernetes"]
+  },
+  {
+    "name": "Screwdriver",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/screwdriver.svg",
+    "category": ["screwdriver"]
+  },
+  {
+    "name": "Snapcraft",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/snapcraft.svg",
+    "category": ["snapcraft"]
+  },
+  {
+    "name": "Container",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/container.svg",
+    "category": ["container"]
+  },
+  {
+    "name": "Kcl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/kcl.svg",
+    "category": ["kcl"]
+  },
+  {
+    "name": "Verified",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/verified.svg",
+    "category": ["verified"]
+  },
+  {
+    "name": "Bruno",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/bruno.svg",
+    "category": ["bruno"]
+  },
+  {
+    "name": "Cairo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cairo.svg",
+    "category": ["cairo"]
+  },
+  {
+    "name": "Grafana Alloy",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/grafana-alloy.svg",
+    "category": ["grafana-alloy"]
+  },
+  {
+    "name": "Clangd",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/clangd.svg",
+    "category": ["clangd"]
+  },
+  {
+    "name": "Freemarker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/freemarker.svg",
+    "category": ["freemarker"]
+  },
+  {
+    "name": "Markdownlint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/markdownlint.svg",
+    "category": ["markdownlint"]
+  },
+  {
+    "name": "Tsil",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tsil.svg",
+    "category": ["tsil"]
+  },
+  {
+    "name": "Deepsource",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/deepsource.svg",
+    "category": ["deepsource"]
+  },
+  {
+    "name": "Tape",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/tape.svg",
+    "category": ["tape"]
+  },
+  {
+    "name": "Hurl",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/hurl.svg",
+    "category": ["hurl"]
+  },
+  {
+    "name": "Cds",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/cds.svg",
+    "category": ["cds"]
+  },
+  {
+    "name": "Slint",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/slint.svg",
+    "category": ["slint"]
+  },
+  {
+    "name": "Jsr",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/jsr.svg",
+    "category": ["jsr"]
+  },
+  {
+    "name": "Coderabbit Ai",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/coderabbit-ai.svg",
+    "category": ["coderabbit-ai"]
+  },
+  {
+    "name": "Gemini Ai",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/gemini-ai.svg",
+    "category": ["gemini-ai"]
+  },
+  {
+    "name": "Taze",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/taze.svg",
+    "category": ["taze"]
+  },
+  {
+    "name": "Wxt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/wxt.svg",
+    "category": ["wxt"]
+  },
+  {
+    "name": "Sway",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/sway.svg",
+    "category": ["sway"]
+  },
+  {
+    "name": "Lefthook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/lefthook.svg",
+    "category": ["lefthook"]
+  },
+  {
+    "name": "Zeabur",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/zeabur.svg",
+    "category": ["zeabur"]
+  }
+]

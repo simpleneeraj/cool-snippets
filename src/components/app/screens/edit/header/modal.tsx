@@ -10,6 +10,8 @@ import {
 } from '@nextui-org/react';
 import UIView from '@/ui-kit/source/UIView';
 import SymbolsPicker from './symbols-picker';
+import { _fileIcons } from '@/plugins/material-icons';
+import MaterialIconsPicker from './material-icons-picker';
 
 enum IconCategory {
   TWITTER = 'twitter',
@@ -46,6 +48,8 @@ function IconPicker(props: Props) {
         return <EmojiPicker />;
       case IconCategory.FLUENT:
         return <FluentEmoji />;
+      case IconCategory.GOOGLE:
+        return <MaterialIconsPicker />;
       case IconCategory.ICONS:
         return <SymbolsPicker />;
       default:
@@ -56,6 +60,7 @@ function IconPicker(props: Props) {
   const items = [
     { name: 'Twitter Emoji', key: IconCategory.TWITTER },
     { name: 'Fluent Emoji', key: IconCategory.FLUENT },
+    { name: 'Material Icons', key: IconCategory.GOOGLE },
     { name: 'Icons', key: IconCategory.ICONS },
   ];
 

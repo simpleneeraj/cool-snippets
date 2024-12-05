@@ -164,7 +164,7 @@ function AddLayers() {
     'text-xl text-default-500 pointer-events-none flex-shrink-0';
 
   const { createSlideElement } = useSlideEditor();
-  const { slide: activeSlide } = useActiveSlide();
+  const { slide: currentSlide } = useActiveSlide();
   const onSelectElement = React.useCallback(
     (type: ELEMENTS) => {
       const selectedElement =
@@ -175,12 +175,12 @@ function AddLayers() {
           id: id,
           ...selectedElement,
         };
-        createSlideElement(activeSlide, slide);
+        createSlideElement(currentSlide, slide);
       } else {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [activeSlide]
+    [currentSlide]
   );
 
   return (

@@ -9,7 +9,7 @@ const initialState = {
       id: InitialValues.SLIDE_ID,
       name: 'Crystal Slide',
       background: {
-        type: BACKGROUND_TYPE.IMAGE,
+        type: BACKGROUND_TYPE.GRADIENT,
         style: {
           width: 450,
           height: 450,
@@ -77,7 +77,7 @@ const initialState = {
             fontWeight: 400,
             lineHeight: 1.6,
             letterSpacing: 0,
-            fontFamily: 'SFMono',
+            fontFamily: 'SFMonoLigaturized',
             borderRadius: 15,
             background: 'rgba(0, 0, 0, 0.5)',
             zIndex: '0',

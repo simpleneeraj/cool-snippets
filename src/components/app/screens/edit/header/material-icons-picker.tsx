@@ -3,30 +3,48 @@ import { useImmer } from 'use-immer';
 import UIView from '@/ui-kit/source/UIView';
 import { VirtuosoGrid } from 'react-virtuoso';
 import { capitalize, sortBy } from 'lodash';
-import icons from '@/json/icons/vscode-symbols.json';
 import { GridItem, GridList } from './grid-components';
 import { Card, Image, Input, Select, SelectItem } from '@nextui-org/react';
+import files from '@/plugins/material-icons/fileIcons.json';
+import folder from '@/plugins/material-icons/folderIcons.json';
+import language from '@/plugins/material-icons/languageIcons.json';
 
+type Icon = {
+  name: string;
+  source: string;
+  category: string[];
+};
 // Enum for icon types
-const IconTypes = Object.freeze({
-  FILE: 'file',
-  FOLDER: 'folder',
-});
+enum IconTypes {
+  ALL = '',
+  FILE = 'file',
+  FOLDER = 'folder',
+  LANGUAGE = 'language',
+}
 
-export default function SymbolsPicker() {
+export default function MaterialIconsPicker() {
   const [state, updateState] = useImmer({
-    selectedType: '',
+    selectedType: IconTypes.ALL,
     searchTerm: '',
   });
 
+  // Combine all datasets into a unified format
   const availableIcons = React.useMemo(() => {
-    return icons;
+    const transformData = (data: Icon[], category: IconTypes) =>
+      data.map((icon) => ({ ...icon, category: icon.category.push(category) }));
+
+    return [
+      // ...transformData(files, IconTypes.FILE),
+      // ...transformData(folder, IconTypes.FOLDER),
+      ...transformData(language, IconTypes.LANGUAGE),
+    ];
   }, []);
 
+  // Filter icons based on selected type and search term
   const filteredIcons = React.useMemo(() => {
     return availableIcons.filter((icon) => {
       const isMatchingType =
-        !state.selectedType || icon.name.includes(state.selectedType);
+        !state.selectedType || icon.category === state.selectedType;
 
       const isMatchingSearch =
         !state.searchTerm ||
@@ -53,9 +71,10 @@ export default function SymbolsPicker() {
         >
           {sortBy(
             [
-              { label: 'All', value: '' },
+              { label: 'All', value: IconTypes.ALL },
               { label: 'Files', value: IconTypes.FILE },
               { label: 'Folders', value: IconTypes.FOLDER },
+              { label: 'Languages', value: IconTypes.LANGUAGE },
             ],
             'label'
           ).map((item) => (
@@ -90,9 +109,6 @@ export default function SymbolsPicker() {
                 isPressable
                 className="flex items-center justify-center border border-default-100 p-4 h-full bg-transparent"
                 title={filteredIcons[index]?.name}
-                // onPress={() =>
-                //   console.log({ src: filteredIcons[index].source })
-                // }
               >
                 <Image
                   disableAnimation

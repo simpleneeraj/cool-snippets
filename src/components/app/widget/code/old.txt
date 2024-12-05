@@ -27,7 +27,7 @@ const ContainerWidget = () => {
   const { updateElement } = useActiveElement();
   const dragConstraintsRef = React.useRef(null);
 
-  const { activeSlide, onChangeSlideElement } = useSlideEditor();
+  const { currentSlide, onChangeSlideElement } = useSlideEditor();
 
   const RenderElement = React.useCallback(
     (item: ElementType) => {
@@ -54,7 +54,7 @@ const ContainerWidget = () => {
                   highlightActiveLineGutter: false,
                   lineNumbers: false,
                 }}
-                header={activeSlide?.header || null}
+                header={currentSlide?.header || null}
               /> */}
               <CodeMirror
                 value={item.content}
@@ -103,7 +103,7 @@ const ContainerWidget = () => {
 
   return (
     <UIView className={'flex flex-col flex-1'}>
-      {/* <SlideStyle style={activeSlide?.background} /> */}
+      {/* <SlideStyle style={currentSlide?.background} /> */}
       <UIView className={css.container}>
         <UIView className={css.smooth}>
           <CodeMirror

@@ -21,7 +21,7 @@ type Props = {
 
 const EditorComponents: React.FC<Props> = ({ item }) => {
   const { updateElement } = useActiveElement();
-  const { activeSlide, onChangeSlideElement } = useSlideEditor();
+  const { currentSlide, onChangeSlideElement } = useSlideEditor();
 
   switch (item.type) {
     case ELEMENTS.CODE:
@@ -31,7 +31,7 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
           onHoverStart={() => updateElement(item.id!)}
         >
           <CodeElement
-            header={activeSlide?.header || null}
+            header={currentSlide?.header || null}
             value={item.content}
             onChange={(content) => onChangeSlideElement({ content })}
             theme={dynamicTheme(

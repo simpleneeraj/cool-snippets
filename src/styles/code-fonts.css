@@ -161,9 +161,9 @@
   src: url('/fonts/RobotoMono/RobotoMono.ttf');
 }
 @font-face {
-  font-family: 'SFMono';
+  font-family: 'SFMonoLigaturized';
   font-display: swap;
-  src: url('/fonts/SFMono//SFMonoLigaturized.ttf');
+  src: url('/fonts/SFMono/SFMonoLigaturized.ttf');
 }
 @font-face {
   font-family: 'SourceCodePro';

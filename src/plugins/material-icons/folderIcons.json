@@ -1,0 +1,1127 @@
+[
+  {
+    "name": "None",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/none.svg",
+    "category": ["none"]
+  },
+  {
+    "name": "Classic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/classic.svg",
+    "category": ["classic"]
+  },
+  {
+    "name": "Folder",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder.svg",
+    "category": ["folder"]
+  },
+  {
+    "name": "Folder Root",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-root.svg",
+    "category": ["folder-root"]
+  },
+  {
+    "name": "Folder Robot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-robot.svg",
+    "category": ["folder-robot"]
+  },
+  {
+    "name": "Folder Src",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-src.svg",
+    "category": ["folder-src"]
+  },
+  {
+    "name": "Folder Dist",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-dist.svg",
+    "category": ["folder-dist"]
+  },
+  {
+    "name": "Folder Css",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-css.svg",
+    "category": ["folder-css"]
+  },
+  {
+    "name": "Folder Sass",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-sass.svg",
+    "category": ["folder-sass"]
+  },
+  {
+    "name": "Folder Television",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-television.svg",
+    "category": ["folder-television"]
+  },
+  {
+    "name": "Folder Desktop",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-desktop.svg",
+    "category": ["folder-desktop"]
+  },
+  {
+    "name": "Folder Console",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-console.svg",
+    "category": ["folder-console"]
+  },
+  {
+    "name": "Folder Images",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-images.svg",
+    "category": ["folder-images"]
+  },
+  {
+    "name": "Folder Scripts",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-scripts.svg",
+    "category": ["folder-scripts"]
+  },
+  {
+    "name": "Folder Node",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-node.svg",
+    "category": ["folder-node"]
+  },
+  {
+    "name": "Folder Javascript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-javascript.svg",
+    "category": ["folder-javascript"]
+  },
+  {
+    "name": "Folder Json",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-json.svg",
+    "category": ["folder-json"]
+  },
+  {
+    "name": "Folder Font",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-font.svg",
+    "category": ["folder-font"]
+  },
+  {
+    "name": "Folder Bower",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-bower.svg",
+    "category": ["folder-bower"]
+  },
+  {
+    "name": "Folder Test",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-test.svg",
+    "category": ["folder-test"]
+  },
+  {
+    "name": "Folder Jinja",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-jinja.svg",
+    "category": ["folder-jinja"]
+  },
+  {
+    "name": "Folder Markdown",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-markdown.svg",
+    "category": ["folder-markdown"]
+  },
+  {
+    "name": "Folder Pdm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-pdm.svg",
+    "category": ["folder-pdm"]
+  },
+  {
+    "name": "Folder Php",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-php.svg",
+    "category": ["folder-php"]
+  },
+  {
+    "name": "Folder Phpmailer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-phpmailer.svg",
+    "category": ["folder-phpmailer"]
+  },
+  {
+    "name": "Folder Sublime",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-sublime.svg",
+    "category": ["folder-sublime"]
+  },
+  {
+    "name": "Folder Docs",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-docs.svg",
+    "category": ["folder-docs"]
+  },
+  {
+    "name": "Folder Gh Workflows",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gh-workflows.svg",
+    "category": ["folder-gh-workflows"]
+  },
+  {
+    "name": "Folder Git",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-git.svg",
+    "category": ["folder-git"]
+  },
+  {
+    "name": "Folder Github",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-github.svg",
+    "category": ["folder-github"]
+  },
+  {
+    "name": "Folder Gitea",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gitea.svg",
+    "category": ["folder-gitea"]
+  },
+  {
+    "name": "Folder Gitlab",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gitlab.svg",
+    "category": ["folder-gitlab"]
+  },
+  {
+    "name": "Folder Vscode",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vscode.svg",
+    "category": ["folder-vscode"]
+  },
+  {
+    "name": "Folder Views",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-views.svg",
+    "category": ["folder-views"]
+  },
+  {
+    "name": "Folder Vue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vue.svg",
+    "category": ["folder-vue"]
+  },
+  {
+    "name": "Folder Vuepress",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vuepress.svg",
+    "category": ["folder-vuepress"]
+  },
+  {
+    "name": "Folder Expo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-expo.svg",
+    "category": ["folder-expo"]
+  },
+  {
+    "name": "Folder Config",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-config.svg",
+    "category": ["folder-config"]
+  },
+  {
+    "name": "Folder I 18 N",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-i18n.svg",
+    "category": ["folder-i18n"]
+  },
+  {
+    "name": "Folder Components",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-components.svg",
+    "category": ["folder-components"]
+  },
+  {
+    "name": "Folder Verdaccio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-verdaccio.svg",
+    "category": ["folder-verdaccio"]
+  },
+  {
+    "name": "Folder Aurelia",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-aurelia.svg",
+    "category": ["folder-aurelia"]
+  },
+  {
+    "name": "Folder Resource",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-resource.svg",
+    "category": ["folder-resource"]
+  },
+  {
+    "name": "Folder Lib",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-lib.svg",
+    "category": ["folder-lib"]
+  },
+  {
+    "name": "Folder Theme",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-theme.svg",
+    "category": ["folder-theme"]
+  },
+  {
+    "name": "Folder Webpack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-webpack.svg",
+    "category": ["folder-webpack"]
+  },
+  {
+    "name": "Folder Global",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-global.svg",
+    "category": ["folder-global"]
+  },
+  {
+    "name": "Folder Public",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-public.svg",
+    "category": ["folder-public"]
+  },
+  {
+    "name": "Folder Include",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-include.svg",
+    "category": ["folder-include"]
+  },
+  {
+    "name": "Folder Docker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-docker.svg",
+    "category": ["folder-docker"]
+  },
+  {
+    "name": "Folder Ngrx Effects",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-effects.svg",
+    "category": ["folder-ngrx-effects"]
+  },
+  {
+    "name": "Folder Ngrx Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-store.svg",
+    "category": ["folder-ngrx-store"]
+  },
+  {
+    "name": "Folder Ngrx State",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-state.svg",
+    "category": ["folder-ngrx-state"]
+  },
+  {
+    "name": "Folder Ngrx Reducer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-reducer.svg",
+    "category": ["folder-ngrx-reducer"]
+  },
+  {
+    "name": "Folder Ngrx Actions",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-actions.svg",
+    "category": ["folder-ngrx-actions"]
+  },
+  {
+    "name": "Folder Ngrx Entities",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-entities.svg",
+    "category": ["folder-ngrx-entities"]
+  },
+  {
+    "name": "Folder Ngrx Selectors",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ngrx-selectors.svg",
+    "category": ["folder-ngrx-selectors"]
+  },
+  {
+    "name": "Folder Redux Reducer",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-redux-reducer.svg",
+    "category": ["folder-redux-reducer"]
+  },
+  {
+    "name": "Folder Redux Actions",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-redux-actions.svg",
+    "category": ["folder-redux-actions"]
+  },
+  {
+    "name": "Folder Redux Selector",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-redux-selector.svg",
+    "category": ["folder-redux-selector"]
+  },
+  {
+    "name": "Folder Redux Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-redux-store.svg",
+    "category": ["folder-redux-store"]
+  },
+  {
+    "name": "Folder React Components",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-react-components.svg",
+    "category": ["folder-react-components"]
+  },
+  {
+    "name": "Folder Astro",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-astro.svg",
+    "category": ["folder-astro"]
+  },
+  {
+    "name": "Folder Database",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-database.svg",
+    "category": ["folder-database"]
+  },
+  {
+    "name": "Folder Log",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-log.svg",
+    "category": ["folder-log"]
+  },
+  {
+    "name": "Folder Target",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-target.svg",
+    "category": ["folder-target"]
+  },
+  {
+    "name": "Folder Temp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-temp.svg",
+    "category": ["folder-temp"]
+  },
+  {
+    "name": "Folder Aws",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-aws.svg",
+    "category": ["folder-aws"]
+  },
+  {
+    "name": "Folder Audio",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-audio.svg",
+    "category": ["folder-audio"]
+  },
+  {
+    "name": "Folder Video",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-video.svg",
+    "category": ["folder-video"]
+  },
+  {
+    "name": "Folder Kubernetes",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-kubernetes.svg",
+    "category": ["folder-kubernetes"]
+  },
+  {
+    "name": "Folder Import",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-import.svg",
+    "category": ["folder-import"]
+  },
+  {
+    "name": "Folder Export",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-export.svg",
+    "category": ["folder-export"]
+  },
+  {
+    "name": "Folder Wakatime",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-wakatime.svg",
+    "category": ["folder-wakatime"]
+  },
+  {
+    "name": "Folder Circleci",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-circleci.svg",
+    "category": ["folder-circleci"]
+  },
+  {
+    "name": "Folder Wordpress",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-wordpress.svg",
+    "category": ["folder-wordpress"]
+  },
+  {
+    "name": "Folder Gradle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gradle.svg",
+    "category": ["folder-gradle"]
+  },
+  {
+    "name": "Folder Coverage",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-coverage.svg",
+    "category": ["folder-coverage"]
+  },
+  {
+    "name": "Folder Class",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-class.svg",
+    "category": ["folder-class"]
+  },
+  {
+    "name": "Folder Other",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-other.svg",
+    "category": ["folder-other"]
+  },
+  {
+    "name": "Folder Lua",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-lua.svg",
+    "category": ["folder-lua"]
+  },
+  {
+    "name": "Folder Turborepo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-turborepo.svg",
+    "category": ["folder-turborepo"]
+  },
+  {
+    "name": "Folder Typescript",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-typescript.svg",
+    "category": ["folder-typescript"]
+  },
+  {
+    "name": "Folder Graphql",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-graphql.svg",
+    "category": ["folder-graphql"]
+  },
+  {
+    "name": "Folder Routes",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-routes.svg",
+    "category": ["folder-routes"]
+  },
+  {
+    "name": "Folder Ci",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ci.svg",
+    "category": ["folder-ci"]
+  },
+  {
+    "name": "Folder Benchmark",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-benchmark.svg",
+    "category": ["folder-benchmark"]
+  },
+  {
+    "name": "Folder Messages",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-messages.svg",
+    "category": ["folder-messages"]
+  },
+  {
+    "name": "Folder Less",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-less.svg",
+    "category": ["folder-less"]
+  },
+  {
+    "name": "Folder Gulp",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gulp.svg",
+    "category": ["folder-gulp"]
+  },
+  {
+    "name": "Folder Python",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-python.svg",
+    "category": ["folder-python"]
+  },
+  {
+    "name": "Folder Mojo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mojo.svg",
+    "category": ["folder-mojo"]
+  },
+  {
+    "name": "Folder Moon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-moon.svg",
+    "category": ["folder-moon"]
+  },
+  {
+    "name": "Folder Debug",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-debug.svg",
+    "category": ["folder-debug"]
+  },
+  {
+    "name": "Folder Fastlane",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-fastlane.svg",
+    "category": ["folder-fastlane"]
+  },
+  {
+    "name": "Folder Plugin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-plugin.svg",
+    "category": ["folder-plugin"]
+  },
+  {
+    "name": "Folder Middleware",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-middleware.svg",
+    "category": ["folder-middleware"]
+  },
+  {
+    "name": "Folder Controller",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-controller.svg",
+    "category": ["folder-controller"]
+  },
+  {
+    "name": "Folder Ansible",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ansible.svg",
+    "category": ["folder-ansible"]
+  },
+  {
+    "name": "Folder Server",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-server.svg",
+    "category": ["folder-server"]
+  },
+  {
+    "name": "Folder Client",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-client.svg",
+    "category": ["folder-client"]
+  },
+  {
+    "name": "Folder Tasks",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-tasks.svg",
+    "category": ["folder-tasks"]
+  },
+  {
+    "name": "Folder Android",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-android.svg",
+    "category": ["folder-android"]
+  },
+  {
+    "name": "Folder Ios",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ios.svg",
+    "category": ["folder-ios"]
+  },
+  {
+    "name": "Folder Ui",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-ui.svg",
+    "category": ["folder-ui"]
+  },
+  {
+    "name": "Folder Upload",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-upload.svg",
+    "category": ["folder-upload"]
+  },
+  {
+    "name": "Folder Download",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-download.svg",
+    "category": ["folder-download"]
+  },
+  {
+    "name": "Folder Tools",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-tools.svg",
+    "category": ["folder-tools"]
+  },
+  {
+    "name": "Folder Helper",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-helper.svg",
+    "category": ["folder-helper"]
+  },
+  {
+    "name": "Folder Serverless",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-serverless.svg",
+    "category": ["folder-serverless"]
+  },
+  {
+    "name": "Folder Api",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-api.svg",
+    "category": ["folder-api"]
+  },
+  {
+    "name": "Folder App",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-app.svg",
+    "category": ["folder-app"]
+  },
+  {
+    "name": "Folder Apollo",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-apollo.svg",
+    "category": ["folder-apollo"]
+  },
+  {
+    "name": "Folder Archive",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-archive.svg",
+    "category": ["folder-archive"]
+  },
+  {
+    "name": "Folder Batch",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-batch.svg",
+    "category": ["folder-batch"]
+  },
+  {
+    "name": "Folder Buildkite",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-buildkite.svg",
+    "category": ["folder-buildkite"]
+  },
+  {
+    "name": "Folder Cluster",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-cluster.svg",
+    "category": ["folder-cluster"]
+  },
+  {
+    "name": "Folder Command",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-command.svg",
+    "category": ["folder-command"]
+  },
+  {
+    "name": "Folder Constant",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-constant.svg",
+    "category": ["folder-constant"]
+  },
+  {
+    "name": "Folder Container",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-container.svg",
+    "category": ["folder-container"]
+  },
+  {
+    "name": "Folder Content",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-content.svg",
+    "category": ["folder-content"]
+  },
+  {
+    "name": "Folder Context",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-context.svg",
+    "category": ["folder-context"]
+  },
+  {
+    "name": "Folder Core",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-core.svg",
+    "category": ["folder-core"]
+  },
+  {
+    "name": "Folder Delta",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-delta.svg",
+    "category": ["folder-delta"]
+  },
+  {
+    "name": "Folder Dump",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-dump.svg",
+    "category": ["folder-dump"]
+  },
+  {
+    "name": "Folder Examples",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-examples.svg",
+    "category": ["folder-examples"]
+  },
+  {
+    "name": "Folder Environment",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-environment.svg",
+    "category": ["folder-environment"]
+  },
+  {
+    "name": "Folder Functions",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-functions.svg",
+    "category": ["folder-functions"]
+  },
+  {
+    "name": "Folder Generator",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-generator.svg",
+    "category": ["folder-generator"]
+  },
+  {
+    "name": "Folder Hook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-hook.svg",
+    "category": ["folder-hook"]
+  },
+  {
+    "name": "Folder Job",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-job.svg",
+    "category": ["folder-job"]
+  },
+  {
+    "name": "Folder Keys",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-keys.svg",
+    "category": ["folder-keys"]
+  },
+  {
+    "name": "Folder Layout",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-layout.svg",
+    "category": ["folder-layout"]
+  },
+  {
+    "name": "Folder Mail",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mail.svg",
+    "category": ["folder-mail"]
+  },
+  {
+    "name": "Folder Mappings",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mappings.svg",
+    "category": ["folder-mappings"]
+  },
+  {
+    "name": "Folder Meta",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-meta.svg",
+    "category": ["folder-meta"]
+  },
+  {
+    "name": "Folder Changesets",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-changesets.svg",
+    "category": ["folder-changesets"]
+  },
+  {
+    "name": "Folder Packages",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-packages.svg",
+    "category": ["folder-packages"]
+  },
+  {
+    "name": "Folder Shared",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-shared.svg",
+    "category": ["folder-shared"]
+  },
+  {
+    "name": "Folder Shader",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-shader.svg",
+    "category": ["folder-shader"]
+  },
+  {
+    "name": "Folder Stack",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-stack.svg",
+    "category": ["folder-stack"]
+  },
+  {
+    "name": "Folder Template",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-template.svg",
+    "category": ["folder-template"]
+  },
+  {
+    "name": "Folder Utils",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-utils.svg",
+    "category": ["folder-utils"]
+  },
+  {
+    "name": "Folder Supabase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-supabase.svg",
+    "category": ["folder-supabase"]
+  },
+  {
+    "name": "Folder Private",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-private.svg",
+    "category": ["folder-private"]
+  },
+  {
+    "name": "Folder Linux",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-linux.svg",
+    "category": ["folder-linux"]
+  },
+  {
+    "name": "Folder Windows",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-windows.svg",
+    "category": ["folder-windows"]
+  },
+  {
+    "name": "Folder Macos",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-macos.svg",
+    "category": ["folder-macos"]
+  },
+  {
+    "name": "Folder Error",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-error.svg",
+    "category": ["folder-error"]
+  },
+  {
+    "name": "Folder Event",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-event.svg",
+    "category": ["folder-event"]
+  },
+  {
+    "name": "Folder Secure",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-secure.svg",
+    "category": ["folder-secure"]
+  },
+  {
+    "name": "Folder Custom",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-custom.svg",
+    "category": ["folder-custom"]
+  },
+  {
+    "name": "Folder Mock",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mock.svg",
+    "category": ["folder-mock"]
+  },
+  {
+    "name": "Folder Syntax",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-syntax.svg",
+    "category": ["folder-syntax"]
+  },
+  {
+    "name": "Folder Vm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vm.svg",
+    "category": ["folder-vm"]
+  },
+  {
+    "name": "Folder Stylus",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-stylus.svg",
+    "category": ["folder-stylus"]
+  },
+  {
+    "name": "Folder Flow",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-flow.svg",
+    "category": ["folder-flow"]
+  },
+  {
+    "name": "Folder Rules",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-rules.svg",
+    "category": ["folder-rules"]
+  },
+  {
+    "name": "Folder Review",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-review.svg",
+    "category": ["folder-review"]
+  },
+  {
+    "name": "Folder Animation",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-animation.svg",
+    "category": ["folder-animation"]
+  },
+  {
+    "name": "Folder Guard",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-guard.svg",
+    "category": ["folder-guard"]
+  },
+  {
+    "name": "Folder Prisma",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-prisma.svg",
+    "category": ["folder-prisma"]
+  },
+  {
+    "name": "Folder Pipe",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-pipe.svg",
+    "category": ["folder-pipe"]
+  },
+  {
+    "name": "Folder Svg",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-svg.svg",
+    "category": ["folder-svg"]
+  },
+  {
+    "name": "Folder Vuex Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vuex-store.svg",
+    "category": ["folder-vuex-store"]
+  },
+  {
+    "name": "Folder Nuxt",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-nuxt.svg",
+    "category": ["folder-nuxt"]
+  },
+  {
+    "name": "Folder Vue Directives",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vue-directives.svg",
+    "category": ["folder-vue-directives"]
+  },
+  {
+    "name": "Folder Vue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vue.svg",
+    "category": ["folder-vue"]
+  },
+  {
+    "name": "Folder Terraform",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-terraform.svg",
+    "category": ["folder-terraform"]
+  },
+  {
+    "name": "Folder Mobile",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mobile.svg",
+    "category": ["folder-mobile"]
+  },
+  {
+    "name": "Folder Stencil",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-stencil.svg",
+    "category": ["folder-stencil"]
+  },
+  {
+    "name": "Folder Firebase",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-firebase.svg",
+    "category": ["folder-firebase"]
+  },
+  {
+    "name": "Folder Svelte",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-svelte.svg",
+    "category": ["folder-svelte"]
+  },
+  {
+    "name": "Folder Update",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-update.svg",
+    "category": ["folder-update"]
+  },
+  {
+    "name": "Folder Intellij",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-intellij.svg",
+    "category": ["folder-intellij"]
+  },
+  {
+    "name": "Folder Azure Pipelines",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-azure-pipelines.svg",
+    "category": ["folder-azure-pipelines"]
+  },
+  {
+    "name": "Folder Mjml",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mjml.svg",
+    "category": ["folder-mjml"]
+  },
+  {
+    "name": "Folder Admin",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-admin.svg",
+    "category": ["folder-admin"]
+  },
+  {
+    "name": "Folder Jupyter",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-jupyter.svg",
+    "category": ["folder-jupyter"]
+  },
+  {
+    "name": "Folder Scala",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-scala.svg",
+    "category": ["folder-scala"]
+  },
+  {
+    "name": "Folder Connection",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-connection.svg",
+    "category": ["folder-connection"]
+  },
+  {
+    "name": "Folder Quasar",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-quasar.svg",
+    "category": ["folder-quasar"]
+  },
+  {
+    "name": "Folder Next",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-next.svg",
+    "category": ["folder-next"]
+  },
+  {
+    "name": "Folder Cobol",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-cobol.svg",
+    "category": ["folder-cobol"]
+  },
+  {
+    "name": "Folder Yarn",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-yarn.svg",
+    "category": ["folder-yarn"]
+  },
+  {
+    "name": "Folder Husky",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-husky.svg",
+    "category": ["folder-husky"]
+  },
+  {
+    "name": "Folder Storybook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-storybook.svg",
+    "category": ["folder-storybook"]
+  },
+  {
+    "name": "Folder Base",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-base.svg",
+    "category": ["folder-base"]
+  },
+  {
+    "name": "Folder Cart",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-cart.svg",
+    "category": ["folder-cart"]
+  },
+  {
+    "name": "Folder Home",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-home.svg",
+    "category": ["folder-home"]
+  },
+  {
+    "name": "Folder Project",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-project.svg",
+    "category": ["folder-project"]
+  },
+  {
+    "name": "Folder Interface",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-interface.svg",
+    "category": ["folder-interface"]
+  },
+  {
+    "name": "Folder Netlify",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-netlify.svg",
+    "category": ["folder-netlify"]
+  },
+  {
+    "name": "Folder Enum",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-enum.svg",
+    "category": ["folder-enum"]
+  },
+  {
+    "name": "Folder Contract",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-contract.svg",
+    "category": ["folder-contract"]
+  },
+  {
+    "name": "Folder Helm",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-helm.svg",
+    "category": ["folder-helm"]
+  },
+  {
+    "name": "Folder Queue",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-queue.svg",
+    "category": ["folder-queue"]
+  },
+  {
+    "name": "Folder Vercel",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-vercel.svg",
+    "category": ["folder-vercel"]
+  },
+  {
+    "name": "Folder Cypress",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-cypress.svg",
+    "category": ["folder-cypress"]
+  },
+  {
+    "name": "Folder Decorators",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-decorators.svg",
+    "category": ["folder-decorators"]
+  },
+  {
+    "name": "Folder Java",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-java.svg",
+    "category": ["folder-java"]
+  },
+  {
+    "name": "Folder Resolver",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-resolver.svg",
+    "category": ["folder-resolver"]
+  },
+  {
+    "name": "Folder Angular",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-angular.svg",
+    "category": ["folder-angular"]
+  },
+  {
+    "name": "Folder Unity",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-unity.svg",
+    "category": ["folder-unity"]
+  },
+  {
+    "name": "Folder Pdf",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-pdf.svg",
+    "category": ["folder-pdf"]
+  },
+  {
+    "name": "Folder Proto",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-proto.svg",
+    "category": ["folder-proto"]
+  },
+  {
+    "name": "Folder Plastic",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-plastic.svg",
+    "category": ["folder-plastic"]
+  },
+  {
+    "name": "Folder Gamemaker",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-gamemaker.svg",
+    "category": ["folder-gamemaker"]
+  },
+  {
+    "name": "Folder Mercurial",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-mercurial.svg",
+    "category": ["folder-mercurial"]
+  },
+  {
+    "name": "Folder Godot",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-godot.svg",
+    "category": ["folder-godot"]
+  },
+  {
+    "name": "Folder Lottie",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-lottie.svg",
+    "category": ["folder-lottie"]
+  },
+  {
+    "name": "Folder Taskfile",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-taskfile.svg",
+    "category": ["folder-taskfile"]
+  },
+  {
+    "name": "Folder Drizzle",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-drizzle.svg",
+    "category": ["folder-drizzle"]
+  },
+  {
+    "name": "Folder Cloudflare",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-cloudflare.svg",
+    "category": ["folder-cloudflare"]
+  },
+  {
+    "name": "Folder Seeders",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-seeders.svg",
+    "category": ["folder-seeders"]
+  },
+  {
+    "name": "Folder Store",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-store.svg",
+    "category": ["folder-store"]
+  },
+  {
+    "name": "Folder Bicep",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-bicep.svg",
+    "category": ["folder-bicep"]
+  },
+  {
+    "name": "Folder Snapcraft",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-snapcraft.svg",
+    "category": ["folder-snapcraft"]
+  },
+  {
+    "name": "Folder Development",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-development.svg",
+    "category": ["folder-development"]
+  },
+  {
+    "name": "Folder Flutter",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-flutter.svg",
+    "category": ["folder-flutter"]
+  },
+  {
+    "name": "Folder Snippet",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-snippet.svg",
+    "category": ["folder-snippet"]
+  },
+  {
+    "name": "Folder Src Tauri",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-src-tauri.svg",
+    "category": ["folder-src-tauri"]
+  },
+  {
+    "name": "Folder Favicon",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-favicon.svg",
+    "category": ["folder-favicon"]
+  },
+  {
+    "name": "Folder Lefthook",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-lefthook.svg",
+    "category": ["folder-lefthook"]
+  },
+  {
+    "name": "Folder Powershell",
+    "source": "https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/folder-powershell.svg",
+    "category": ["folder-powershell"]
+  }
+]

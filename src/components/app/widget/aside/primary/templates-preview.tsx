@@ -22,14 +22,14 @@ const template = tv({
 const { base, container, card } = template();
 
 const TemplatesPreview = () => {
-  const { activeSlide } = useSlideEditor();
+  const { currentSlide } = useSlideEditor();
 
   const background = React.useMemo(() => {
     return backgroundPurify(
-      activeSlide?.background?.type!,
-      activeSlide?.background?.properties
+      currentSlide?.background?.type!,
+      currentSlide?.background?.properties
     );
-  }, [activeSlide?.background]);
+  }, [currentSlide?.background]);
 
   return (
     <UIView className={base()}>

@@ -14,7 +14,7 @@ const MeshBackgrounds = dynamic(() => import('./mesh'));
 const PatternsBackgrounds = dynamic(() => import('./patterns'));
 
 const BackgroundScreens = () => {
-  const { activeSlide, onChangeSlide } = useSlideEditor();
+  const { currentSlide, onChangeSlide } = useSlideEditor();
   const { screen, onChangeScreen } = useScreen((state) => state);
 
   const onUpdateBackground = React.useCallback(
@@ -28,7 +28,7 @@ const BackgroundScreens = () => {
         },
       });
     },
-    [activeSlide]
+    [currentSlide]
   );
 
   const RenderScreen = React.useMemo(() => {
@@ -39,7 +39,7 @@ const BackgroundScreens = () => {
         return (
           <GradientsBackgrounds
             value={
-              activeSlide?.background?.properties?.[BACKGROUND_TYPE.GRADIENT]
+              currentSlide?.background?.properties?.[BACKGROUND_TYPE.GRADIENT]
             }
             onChange={(gradient) =>
               onUpdateBackground(BACKGROUND_TYPE.GRADIENT, gradient)
@@ -49,7 +49,9 @@ const BackgroundScreens = () => {
       case BACKGROUND_SCREEN.IMAGES:
         return (
           <ImagesBackgrounds
-            value={activeSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]}
+            value={
+              currentSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]
+            }
             onChange={(gradient) =>
               onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient)
             }
@@ -62,7 +64,7 @@ const BackgroundScreens = () => {
       default:
         return <ImagesBackgrounds />;
     }
-  }, [screen, activeSlide?.background?.properties, onUpdateBackground]);
+  }, [screen, currentSlide?.background?.properties, onUpdateBackground]);
 
   return (
     <Frame title="Background">

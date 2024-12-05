@@ -11,7 +11,7 @@ import { useActiveSlide } from '@/store/slides/current-slide';
 
 const ElementsScreen = () => {
   const { onChangeSlideElement } = useSlideEditor();
-  const { slide: activeSlide } = useActiveSlide();
+  const { slide: currentSlide } = useActiveSlide();
   const onSelectElement = React.useCallback(
     (type: ELEMENTS) => {
       const selectedElement = elementsObject?.[type];
@@ -26,7 +26,7 @@ const ElementsScreen = () => {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [activeSlide]
+    [currentSlide]
   );
 
   return (

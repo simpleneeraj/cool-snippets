@@ -6,7 +6,7 @@ import useSlideEditor from '@/store/hooks/use-editor';
 import { FrameAccordion } from '@/components/elements/frame';
 
 const NeonText = () => {
-  const { activeElement, onChangeSlideElement } = useSlideEditor();
+  const { currentElement, onChangeSlideElement } = useSlideEditor();
 
   return (
     <FrameAccordion
@@ -16,7 +16,7 @@ const NeonText = () => {
         <UISwitch
           color="success"
           size={'sm'}
-          isSelected={activeElement?.properties?.neon?.enabled}
+          isSelected={currentElement?.properties?.neon?.enabled}
           onValueChange={(neon) =>
             onChangeSlideElement({
               properties: {
@@ -31,7 +31,7 @@ const NeonText = () => {
           }
         />
       }
-      accordion={activeElement?.properties?.neon?.enabled}
+      accordion={currentElement?.properties?.neon?.enabled}
     >
       <UIView className="my-2 flex-1 flex flex-col gap-4 border p-2 rounded-lg border-default-100">
         <UISlider
@@ -40,7 +40,7 @@ const NeonText = () => {
           size="sm"
           minValue={-10}
           maxValue={10}
-          value={activeElement?.properties?.neon?.offsetX}
+          value={currentElement?.properties?.neon?.offsetX}
           onChange={(value) =>
             onChangeSlideElement({
               properties: {
@@ -63,7 +63,7 @@ const NeonText = () => {
           size="sm"
           minValue={-10}
           maxValue={10}
-          value={activeElement?.properties?.neon?.offsetY}
+          value={currentElement?.properties?.neon?.offsetY}
           onChange={(value) =>
             onChangeSlideElement({
               properties: {
@@ -86,7 +86,7 @@ const NeonText = () => {
           size="sm"
           minValue={0}
           maxValue={32}
-          value={activeElement?.properties?.neon?.blurRadius}
+          value={currentElement?.properties?.neon?.blurRadius}
           onChange={(value) =>
             onChangeSlideElement({
               properties: {

@@ -1,5 +1,5 @@
+import React from 'react';
 import UIView from '../UIView';
-import React, { useState, useEffect } from 'react';
 import { HexAlphaColorPicker } from 'react-colorful';
 import { cn, Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 
@@ -28,13 +28,15 @@ type Props = {
 };
 
 const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
-  const [selectedColor, setSelectedColor] = useState(value);
+  const [selectedColor, setSelectedColor] = React.useState(value);
 
-  useEffect(() => {
-    setSelectedColor(value);
+  React.useEffect(() => {
+    if (value) {
+      setSelectedColor(value);
+    }
   }, [value]);
 
-  const handleColorSelect = (color: string) => {
+  const onColorSelect = (color: string) => {
     setSelectedColor(color);
     onSelect?.(color);
   };
@@ -43,6 +45,7 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
     <Popover>
       <PopoverTrigger>
         <button
+          aria-label="Color Picker"
           type="button"
           className="w-5 h-5 rounded-md border-default-200"
           style={{ backgroundColor: selectedColor }}
@@ -53,13 +56,13 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
           <HexAlphaColorPicker
             className="max-w-44"
             color={selectedColor}
-            onChange={(newColor) => handleColorSelect(newColor)}
+            onChange={(newColor) => onColorSelect(newColor)}
           />
           <div className="py-2">
             <div className="text-default-400 font-medium mb-2">Colors</div>
             <div className="grid grid-cols-6 gap-2">
-              {colors.map((color, index) => (
-                <div key={index} className="aspect-square">
+              {colors.map((color) => (
+                <div key={color?.background} className="aspect-square">
                   <button
                     type="button"
                     className={cn(
@@ -69,7 +72,7 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
                         : 'border border-default-100'
                     )}
                     style={{ backgroundColor: color.background }}
-                    onClick={() => handleColorSelect(color.background)}
+                    onClick={() => onColorSelect(color.background)}
                   ></button>
                 </div>
               ))}
@@ -81,4 +84,4 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
   );
 };
 
-export default UIColorPicker;
+export default React.memo(UIColorPicker);

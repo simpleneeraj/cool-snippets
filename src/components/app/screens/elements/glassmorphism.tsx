@@ -6,17 +6,17 @@ import useSlideEditor from '@/store/hooks/use-editor';
 import { FrameAccordion } from '@/components/elements/frame';
 
 const Glassmorphism = () => {
-  const { activeElement, onChangeSlideElement } = useSlideEditor();
+  const { currentElement, onChangeSlideElement } = useSlideEditor();
   return (
     <FrameAccordion
       label="Glssmorphism"
       className="flex flex-col justify-start gap-0 py-2"
-      accordion={activeElement?.properties?.glassmorphism?.enabled}
+      accordion={currentElement?.properties?.glassmorphism?.enabled}
       endContent={
         <UISwitch
           color="success"
           size={'sm'}
-          isSelected={activeElement?.properties?.glassmorphism?.enabled}
+          isSelected={currentElement?.properties?.glassmorphism?.enabled}
           onValueChange={(glassmorphism) =>
             onChangeSlideElement({
               properties: {
@@ -38,7 +38,7 @@ const Glassmorphism = () => {
           minValue={0}
           maxValue={1}
           step={0.1}
-          value={activeElement?.properties?.glassmorphism?.opacity}
+          value={currentElement?.properties?.glassmorphism?.opacity}
           onChange={(value) =>
             onChangeSlideElement({
               properties: {
@@ -60,7 +60,7 @@ const Glassmorphism = () => {
           minValue={0}
           maxValue={32}
           step={1}
-          value={activeElement?.properties?.glassmorphism?.blur}
+          value={currentElement?.properties?.glassmorphism?.blur}
           onChange={(value) =>
             onChangeSlideElement({
               properties: {
