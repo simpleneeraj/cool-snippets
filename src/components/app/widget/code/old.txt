@@ -137,3 +137,20 @@ export default ContainerWidget;
 //     });
 //   }
 // }}
+
+
+ {/* <InfiniteCanvas
+        ref={canvasRef}
+        onCanvasMount={(canvas: InfiniteCanvasHandle) => {
+          canvas.scrollNodeToCenter({
+            nodeElement: nodeRef.current!,
+          });
+        }}
+        scrollBarConfig={{
+          thickness: '4px',
+        }}
+        minZoom={0.5}
+        maxZoom={2}
+      >
+      
+      </InfiniteCanvas> */}

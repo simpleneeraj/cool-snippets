@@ -9,7 +9,7 @@ const initialState = {
       id: InitialValues.SLIDE_ID,
       name: 'Crystal Slide',
       background: {
-        type: BACKGROUND_TYPE.GRADIENT,
+        type: BACKGROUND_TYPE.IMAGE,
         style: {
           width: 450,
           height: 450,
@@ -22,36 +22,7 @@ const initialState = {
           aspectRatio: '1:1',
           image: '/images/glow-wallpaper.jpg',
           gradient:
-            'repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%));',
-        },
-      },
-      header: {
-        type: 'unix::terminal',
-        variant: 'outline',
-        input: 'none',
-        position: 'left',
-        style: {
-          background: 'rgba(0, 0, 0, 0.75)',
-        },
-        properties: {
-          colors: [
-            {
-              name: 'Red',
-              hex: '#fd4539',
-            },
-            {
-              name: 'Yellow',
-              hex: '#ffd213',
-            },
-            {
-              name: 'Green',
-              hex: '#21d854',
-            },
-          ],
-          title: {
-            text: 'My Application',
-            icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
-          },
+            'repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%))',
         },
       },
       watermark: {
@@ -95,6 +66,35 @@ const initialState = {
               opacity: 0,
               enabled: true,
               blur: 16,
+            },
+          },
+          header: {
+            type: 'unix::terminal',
+            variant: 'outline',
+            input: 'none',
+            position: 'left',
+            style: {
+              background: 'rgba(0, 0, 0, 0.75)',
+            },
+            properties: {
+              colors: [
+                {
+                  name: 'Red',
+                  hex: '#fd4539',
+                },
+                {
+                  name: 'Yellow',
+                  hex: '#ffd213',
+                },
+                {
+                  name: 'Green',
+                  hex: '#21d854',
+                },
+              ],
+              title: {
+                text: 'My Application',
+                icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
+              },
             },
           },
         },

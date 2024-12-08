@@ -30,21 +30,21 @@ const hexToHSL = (hex?: string): number | undefined => {
       })
       .join('');
   }
-  var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
+  const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
   if (!result) {
     return undefined;
   }
-  var r = parseInt(result[1], 16);
-  var g = parseInt(result[2], 16);
-  var b = parseInt(result[3], 16);
+  let r = parseInt(result[1], 16);
+  let g = parseInt(result[2], 16);
+  let b = parseInt(result[3], 16);
   (r /= 255), (g /= 255), (b /= 255);
-  var max = Math.max(r, g, b),
+  const max = Math.max(r, g, b),
     min = Math.min(r, g, b);
-  var h = (max + min) / 2;
+  let h = (max + min) / 2;
   if (max == min) {
     h = 0;
   } else {
-    var d = max - min;
+    const d = max - min;
     switch (max) {
       case r:
         h = (g - b) / d + (g < b ? 6 : 0);

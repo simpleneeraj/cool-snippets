@@ -4,7 +4,11 @@ import React from 'react';
 import { template } from './style';
 import { HeaderInputType, HeadersProps } from '@/typings/templates';
 
-const InputWithIcon = ({ inputType, iconSource }: HeadersProps) => {
+const InputWithIcon = ({
+  inputType,
+  iconSource,
+  name,
+}: HeadersProps & React.ComponentPropsWithoutRef<'input'>) => {
   const { inputContainer, input, iconBase, iconContainer, image } = template();
 
   return (
@@ -20,7 +24,8 @@ const InputWithIcon = ({ inputType, iconSource }: HeadersProps) => {
               maxLength={50}
               placeholder="index.tsx"
               className={input()}
-              onChange={({ target }) => console.log(target.value.split(/[.]/g))}
+              value={name}
+              readOnly
             />
           </React.Fragment>
         )}
@@ -35,7 +40,8 @@ const InputWithIcon = ({ inputType, iconSource }: HeadersProps) => {
             maxLength={50}
             placeholder="index.tsx"
             className={input()}
-            onChange={({ target }) => console.log(target.value.split(/[.]/g))}
+            value={name}
+            readOnly
           />
         )}
       </div>

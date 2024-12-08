@@ -1,5 +1,4 @@
 import React from 'react';
-import { BACKGROUND_TYPE } from '@/typings/enums';
 import { SlideBackgroundTypes } from '@/typings/editor';
 import backgroundPurify from '@/utils/background-purify';
 
@@ -20,14 +19,13 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
       {`
         .center {
           padding:32px;
-          max-width: 920px;
           position: relative;
           background: ${source};
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          width: ${CSS?.width}px;        
+          min-width: ${CSS?.width}px;        
           min-height: ${CSS?.height}px;        
         }
      
@@ -37,13 +35,13 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          min-height: ${CSS?.height}px;        
-          width: ${CSS?.width}px;   
           position: absolute;
           top: 50%;
           left: 50%;
-          transform:translate(-50%,-50%);
           z-index: 1;
+          transform:translate(-50%,-50%);
+          min-width: ${CSS?.width}px;        
+          min-height: ${CSS?.height}px;   
         }
        
       `}

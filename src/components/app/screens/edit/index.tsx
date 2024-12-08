@@ -10,7 +10,7 @@ import UIPanViewHeader from '@/ui-kit/source/UIPanView/header';
 import UIPanView, { PanViewPosition } from '@/ui-kit/source/UIPanView';
 import { SEGMENT_SCREEN, ELEMENTS, ASIDE_SCREEN } from '@/typings/enums';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { fadeIn } from '@/constants/framer-transition';
 import { useScreen } from '@/store/screen';
 import { useSegment } from '@/store/segment';
@@ -19,7 +19,8 @@ import HeaderScreen from './header';
 const EditingScreens = () => {
   const { onChangeSegment } = useSegment((state) => state);
   const { screen, onChangeScreen } = useScreen((state) => state);
-  const { currentElement, onChangeSlideElement } = useSlideEditor();
+  const { currentSlide, currentElement, onChangeSlideElement, onChangeSlide } =
+    useSlideEditor();
 
   const onSelectSegmentTab = React.useCallback(
     (value: SEGMENT_SCREEN) => {
@@ -64,7 +65,6 @@ const EditingScreens = () => {
         <CanvasScreen
           openAspectRatio={openAspectRatio}
           openBackgrounds={openBackgrounds}
-          updateElementProperties={() => {}}
         />
         {RenderComponents}
       </UIView>
@@ -81,7 +81,22 @@ const EditingScreens = () => {
             />
           }
         />
-        <AspectRatioScreen />
+        <AspectRatioScreen
+          value={{
+            height: currentSlide?.background?.style?.height!,
+            width: currentSlide?.background?.style?.width!,
+          }}
+          onSelect={(resolution) => {
+            onChangeSlide({
+              background: {
+                style: {
+                  height: resolution.height / 2,
+                  width: resolution.width / 2,
+                },
+              },
+            });
+          }}
+        />
       </UIPanView>
       <UIPanView
         show={screen.aside === ASIDE_SCREEN.PROGRAMMING_LANGUAGE_SCREEN}

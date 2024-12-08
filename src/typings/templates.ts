@@ -20,8 +20,8 @@ export enum HeaderPositions {
   RIGHT = 'right',
 }
 export type Colors = {
-  name: string;
-  value: string;
+  name?: string;
+  value?: string;
   icon?: any;
 };
 type Style = {
@@ -33,6 +33,7 @@ type Style = {
   borderWidth?: string;
 };
 export type HeadersProps = {
+  name?: string;
   style: Style;
   colors?: Colors[];
   iconSource?: string;

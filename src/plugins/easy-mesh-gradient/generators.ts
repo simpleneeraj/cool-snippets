@@ -19,7 +19,7 @@ function defaultPointsGenerator(options?: PointGenerationOptions) {
 
   const points: Point[] = [];
 
-  for (var i = 0; i < pointCount; ++i) {
+  for (let i = 0; i < pointCount; ++i) {
     points.push({
       x: rng(),
       y: rng(),

@@ -67,7 +67,7 @@ const inPageUsedFont = async <T extends HTMLElement>(
         // filter duplicate
         const DuplicateRemoved = new Set(filterFontsArr);
         const newArray = Array.from(DuplicateRemoved);
-        let cssText = newArray.join('\n');
+        const cssText = newArray.join('\n');
         // Adding Fonts CSS to stylesheet of node
         const styleNode = document.createElement('style');
         const textNode = document.createTextNode(cssText);

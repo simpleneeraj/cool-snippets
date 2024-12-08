@@ -7,9 +7,9 @@ import templatesData from '@/json/templates.json';
  * State Should be dynamic and comes from server
  */
 
-import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from './templates/colors';
 import { SlideHeaderType } from '@/typings/editor';
+import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 
 type CodeHeaderWidgetProps = {
   header: SlideHeaderType | null;
@@ -21,10 +21,10 @@ const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
       return (
         <IOSTermainal
           colors={trafficLights}
-          variant={HeaderVariants.FILLED}
+          variant={header?.variant as HeaderVariants}
           style={{
             gap: '8px',
-            size: '14px',
+            size: '12px',
             borderWidth: '2px',
             borderRadius: '20px',
             padding: '0.8rem 0 0.8rem 0.8rem',
@@ -36,9 +36,9 @@ const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
     case templatesData.windows:
       return (
         <WindowsTen
-          variant={HeaderVariants.OUTLINE}
-          inputType={HeaderInputType.ICON_AND_INPUT}
-          iconSource="https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg"
+          variant={header?.variant as HeaderVariants}
+          inputType={header?.input as HeaderInputType}
+          iconSource={header?.properties?.title?.icon!}
           style={{
             gap: '8px',
             size: '16px',
@@ -49,11 +49,13 @@ const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
       );
     case templatesData.unix:
       return (
+        // Can be more optimization
         <UnixNeon
+          name={header.properties?.title?.text!}
           colors={unixColors}
-          variant={HeaderVariants.OUTLINE}
-          inputType={HeaderInputType.ICON}
-          iconSource="https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg"
+          variant={header?.variant as HeaderVariants}
+          inputType={header?.input as HeaderInputType}
+          iconSource={header?.properties?.title?.icon!}
           style={{
             gap: '8px',
             size: '16px',

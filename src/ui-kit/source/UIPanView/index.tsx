@@ -1,7 +1,7 @@
 import React from 'react';
 import { tv } from '@nextui-org/react';
 import { twMerge } from 'tailwind-merge';
-import { AnimatePresence, motion, MotionProps } from 'framer-motion';
+import { AnimatePresence, motion, MotionProps } from 'motion/react';
 
 const classNames = tv({
   base: 'top-0 absolute w-full h-full bg-default-50 z-50 scroll-content overflow-auto',

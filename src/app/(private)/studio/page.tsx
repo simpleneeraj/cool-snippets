@@ -13,7 +13,7 @@ const EditorPage = () => {
    * 4.
    */
   return (
-    <UIView className={'flex flex-1'}>
+    <UIView className={'flex flex-1 relative'}>
       {/* LEFT SECTION */}
       <PrimaryAsideWidget />
       {/* CENTER SECTION */}

@@ -35,7 +35,10 @@ const FluentEmoji = dynamic(() => import('./fluentui-emoji'), {
   loading: () => <LoaderFallback />,
 });
 
-type Props = {} & Omit<ModalProps, 'children'>;
+type Props = {
+  value: { name?: string; url?: string };
+  onSelectIcon: (icon: { name?: string; url?: string }) => void;
+} & Omit<ModalProps, 'children'>;
 
 function IconPicker(props: Props) {
   const [activeCategory, setActiveCategory] = React.useState<IconCategory>(
@@ -51,11 +54,19 @@ function IconPicker(props: Props) {
       case IconCategory.GOOGLE:
         return <MaterialIconsPicker />;
       case IconCategory.ICONS:
-        return <SymbolsPicker />;
+        return (
+          <SymbolsPicker
+            {...props}
+            onSelect={(v) => {
+              props?.onSelectIcon(v);
+              props?.onClose?.();
+            }}
+          />
+        );
       default:
         return <LoaderFallback />;
     }
-  }, [activeCategory]);
+  }, [activeCategory, props?.onSelectIcon, props?.value]);
 
   const items = [
     { name: 'Twitter Emoji', key: IconCategory.TWITTER },

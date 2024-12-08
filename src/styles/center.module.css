@@ -1,14 +1,5 @@
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  overflow: auto;
-}
-
-.smooth {
-  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;

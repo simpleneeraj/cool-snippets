@@ -2,15 +2,15 @@
 
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
-import { NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { cn, NextUIProvider } from '@nextui-org/react';
 
 function NextAppProvider({ children }: React.PropsWithChildren) {
   const router = useRouter();
+
   return (
-    <NextThemesProvider attribute="class" defaultTheme="dark">
-      <NextUIProvider navigate={router.push}>{children}</NextUIProvider>
-    </NextThemesProvider>
+    <NextUIProvider navigate={router.push}>
+      <main className={cn('text-foreground bg-background')}>{children}</main>
+    </NextUIProvider>
   );
 }
 

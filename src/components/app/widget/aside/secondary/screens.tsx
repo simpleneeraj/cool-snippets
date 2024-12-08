@@ -5,7 +5,7 @@ import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
 import { SEGMENT_SCREEN } from '@/typings/enums';
 import AIScreen from '@/components/app/screens/ai';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 // Import dynamic components
 const EditScreens = dynamic(() => import('@/components/app/screens/edit'));

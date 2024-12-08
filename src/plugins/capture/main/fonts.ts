@@ -33,7 +33,7 @@ const fetchFonts = async <T extends HTMLElement>(
       `.trim();
         // push data to array
         filterFontsArr.push(rawText);
-        let cssText = filterFontsArr.join('\n');
+        const cssText = filterFontsArr.join('\n');
         // Adding Fonts CSS to stylesheet of node
         const styleNode = document.createElement('style');
         const textNode = document.createTextNode(cssText);

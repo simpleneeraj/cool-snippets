@@ -8,7 +8,7 @@ import CodeElement from './code';
 import TextElement from './text';
 import IconElement from './icon';
 import ElementView from './view';
-import { BoundingBox } from 'framer-motion';
+import { BoundingBox } from 'motion/react';
 import useStore from '@/store';
 import UIInput from '@/ui-kit/source/UIInput';
 

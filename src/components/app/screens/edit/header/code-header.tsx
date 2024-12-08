@@ -6,14 +6,17 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from '@nextui-org/react';
-import UnixNeon from '../../../widget/code/templates/unix-neon';
-import { unixColors } from '../../../widget/code/templates/colors';
-import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import templatesDraft from '../../../widget/aside/primary/templates-draft';
 
-const CodeHeaderDropdown: React.FC = () => {
+type Props = {
+  value: string;
+  onAction?: (key: React.Key) => void;
+};
+
+const CodeHeaderDropdown: React.FC<Props> = ({ value, onAction }) => {
   return (
     <Dropdown
+      title="Change the headers styles"
       classNames={{
         base: 'before:bg-default-200',
         content:
@@ -21,19 +24,18 @@ const CodeHeaderDropdown: React.FC = () => {
       }}
     >
       <DropdownTrigger>
-        <Button size="sm" variant="bordered">
-          <UnixNeon
-            colors={unixColors}
-            variant={HeaderVariants.OUTLINE}
-            inputType={HeaderInputType.NONE}
-            style={{ gap: '6px', size: '14px', padding: '0px' }}
-          />
+        <Button size="sm" variant="bordered" className="min-w-20">
+          {templatesDraft?.find((item) => item.value === value)?.codeHeader}
         </Button>
       </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Code headers styles">
+      <DropdownMenu
+        onAction={onAction}
+        variant="faded"
+        aria-label="Code headers styles"
+      >
         {templatesDraft.map((item) => (
           <DropdownItem
-            key={item.name}
+            key={item.value}
             className="max-w-widget-sm"
             endContent={item.codeHeader}
             description={item.description}

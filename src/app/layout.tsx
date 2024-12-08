@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   ],
   creator: 'SimpleNeeraj',
   publisher: 'Simple Neeraj',
-  // formatDetection: {
-  //   email: false,
-  //   address: false,
-  //   telephone: false,
-  // },
 };
 
 export default function RootLayout({
@@ -39,11 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body>
-        <NextAppProvider>
-          <main className="dark text-foreground bg-background">{children}</main>
-        </NextAppProvider>
+        <NextAppProvider>{children}</NextAppProvider>
       </body>
     </html>
   );

@@ -9,8 +9,6 @@ const useExport = () => {
 
   const currentTypeface = findFontByValue(currentElement?.style?.fontFamily!);
 
-  console.log(currentTypeface);
-
   const onExport = React.useCallback(() => {
     captureImage({
       fileName: 'image',
@@ -19,8 +17,8 @@ const useExport = () => {
       isDebug: true,
       fonts: [
         {
-          src: currentTypeface?.src!,
-          fontFamily: currentTypeface?.value!,
+          src: currentTypeface?.src as string,
+          fontFamily: currentTypeface?.value as string,
         },
       ],
     });

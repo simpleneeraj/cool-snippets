@@ -12,7 +12,7 @@ import TemplatesPreview from './templates-preview';
  */
 const PrimaryAsideWidget = () => {
   return (
-    <UIView className="p-2 z-50 flex flex-col flex-1 max-w-widget-sm">
+    <UIView className="p-2 z-50 flex flex-col flex-1 max-w-widget-md primary-aside-widget">
       <UICard className="flex flex-col flex-1">
         <UIView className="p-1 flex">
           <PrimaryControllerWidget />

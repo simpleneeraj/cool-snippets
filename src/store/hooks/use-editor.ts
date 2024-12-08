@@ -5,7 +5,7 @@ import { useActiveSlide } from '../slides/current-slide';
 import { ElementType, SlideTypes } from '@/typings/editor';
 import { useActiveElement } from '../slides/current-element';
 
-const THROTTLE_DELAY = 1000;
+const THROTTLE_DELAY = 2000;
 
 const useSlideEditor = () => {
   const { slide } = useActiveSlide();
@@ -30,12 +30,11 @@ const useSlideEditor = () => {
         );
       }
     }, THROTTLE_DELAY),
-    [currentSlide, currentElement, slideState]
+    [slideState, currentSlide, currentElement]
   );
 
   const throttledUpdateSlide = useCallback(
     throttle((updatedSlide: Omit<SlideTypes, 'id' | 'name' | 'elements'>) => {
-      console.log('HELLO');
       if (currentSlide?.id) {
         slideState.updateSlide(
           currentSlide.id,
@@ -43,7 +42,7 @@ const useSlideEditor = () => {
         );
       }
     }, THROTTLE_DELAY),
-    [currentSlide, slideState]
+    [slideState, currentSlide]
   );
 
   return {

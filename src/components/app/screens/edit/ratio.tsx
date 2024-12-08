@@ -5,42 +5,44 @@ import { Frame } from '@/components/elements/frame';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import aspectRatioArray from '@/json/aspect-ratio.json';
 
-const AspectRatioScreen = () => {
+type Resolution = {
+  height: number;
+  width: number;
+};
+
+type AspectRatioScreenProps = {
+  value?: Resolution;
+  onSelect?: (resolution: Resolution) => void;
+};
+
+const AspectRatioScreen = (props: AspectRatioScreenProps) => {
   return (
     <React.Fragment>
-      <UIDivider className="bg-default-200 bg-opacity-50" />
-      <Frame title="Instagram">
-        {aspectRatioArray.instagram.map((item, index) => (
-          <UIButton
-            key={index}
-            variant={'light'}
-            radius={'none'}
-            className={'justify-between'}
-            disableRipple
-          >
-            <UIView>{`${item.title} (${item.ratio})`}</UIView>
-            <UIView>
-              {`${item.resolution.height} x ${item.resolution.width}`}
-            </UIView>
-          </UIButton>
-        ))}
-      </Frame>
-      <Frame title="LinkedIn">
-        {aspectRatioArray.linkedIn.map((item, index) => (
-          <UIButton
-            key={index}
-            variant={'light'}
-            radius={'none'}
-            className={'justify-between'}
-          >
-            <UIView>{item.ratio}</UIView>
-            <UIView>
-              {`${item.resolution.height} x ${item.resolution.width}`}
-            </UIView>
-          </UIButton>
-        ))}
-      </Frame>
+      {Object.keys(aspectRatioArray).map((platform, platformIndex) => (
+        <Frame
+          key={platformIndex}
+          title={platform.charAt(0).toUpperCase() + platform.slice(1)}
+        >
+          {aspectRatioArray[platform as keyof typeof aspectRatioArray].map(
+            (item, index) => (
+              <UIButton
+                key={index}
+                variant="light"
+                radius="none"
+                className="justify-between"
+                onPress={() => props.onSelect?.(item.resolution)}
+              >
+                <UIView>{`${item.title} (${item.ratio})`}</UIView>
+                <UIView>
+                  {`${item.resolution.height} x ${item.resolution.width}`}
+                </UIView>
+              </UIButton>
+            )
+          )}
+        </Frame>
+      ))}
     </React.Fragment>
   );
 };
+
 export default AspectRatioScreen;

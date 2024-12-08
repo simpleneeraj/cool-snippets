@@ -1,73 +1,78 @@
 import React from 'react';
 import Image from 'next/image';
+import IconPicker from './modal';
 import CodeHeaderDropdown from './code-header';
-import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
-import { Frame, FrameItem } from '@/components/elements/frame';
 import {
   Button,
-  Checkbox,
   Input,
   Select,
   SelectItem,
   useDisclosure,
 } from '@nextui-org/react';
-import { HeaderInputType, HeaderVariants } from '@/typings/templates';
+import useSlideEditor from '@/store/hooks/use-editor';
+import { Frame, FrameItem } from '@/components/elements/frame';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
-import IconPicker from './modal';
+import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
+import { SlideHeaderType } from '@/typings/editor';
 
-type Props = {};
-
-const HEADER_CONFIG = {
-  type: 'unix::terminal',
-  variant: HeaderVariants.OUTLINE,
-  input: HeaderInputType.NONE,
-  position: 'left',
-  style: {
-    background: 'rgba(0, 0, 0, 0.75)',
-  },
-  properties: {
-    colors: [
-      { name: 'Red', hex: '#fd4539' },
-      { name: 'Yellow', hex: '#ffd213' },
-      { name: 'Green', hex: '#21d854' },
-    ],
-    title: {
-      text: 'My Application',
-      icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
-    },
-  },
-};
-
-const HeaderScreen: React.FC<Props> = () => {
-  const { properties } = HEADER_CONFIG;
+const HeaderScreen: React.FC = () => {
   const { onOpen, onOpenChange, isOpen } = useDisclosure();
+  const { currentElement, onChangeSlideElement } = useSlideEditor();
+  const { header } = currentElement || {};
+  const { type, position, input, variant, properties } = header || {};
+
+  const onChangeValues = (key: keyof SlideHeaderType, value: any) => {
+    onChangeSlideElement({
+      header: {
+        [key]: value,
+      },
+    });
+  };
+
+  const renderSelectOptions = (options: { key: string; label: string }[]) =>
+    options.map(({ key, label }) => <SelectItem key={key}>{label}</SelectItem>);
 
   return (
     <Frame title="CODE HEADER">
-      <IconPicker isOpen={isOpen} onOpenChange={onOpenChange} />
+      <IconPicker
+        value={{ url: properties?.title?.icon! }}
+        onSelectIcon={(value) =>
+          onChangeValues('properties', { title: { icon: value?.url } })
+        }
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      />
       <FrameItem divider className="flex-1 justify-between">
-        <div className="flex items-center">
-          <div className="flex items-center gap-2">
-            <Button
-              size="sm"
-              isIconOnly
-              variant="flat"
-              onClick={onOpen}
-              title="Change the icon"
-            >
-              <Image
-                src={properties.title.icon}
-                alt="App Icon"
-                width={16}
-                height={16}
-                className="h-4 w-4"
-              />
-            </Button>
-            <Input value={properties.title.text} size="sm" variant="flat" />
-          </div>
+        <div className="flex items-center gap-2">
+          <Button
+            size="sm"
+            isIconOnly
+            variant="flat"
+            onClick={onOpen}
+            title="Change the icon"
+          >
+            <Image
+              src={properties?.title?.icon || ''}
+              alt="App Icon"
+              width={16}
+              height={16}
+              className="h-4 w-4"
+            />
+          </Button>
+          <Input
+            value={properties?.title?.text || ''}
+            size="sm"
+            variant="flat"
+            onChange={(e) =>
+              onChangeValues('properties', { title: { text: e.target.value } })
+            }
+          />
         </div>
-        <CodeHeaderDropdown />
+        <CodeHeaderDropdown
+          value={type || ''}
+          onAction={(key) => onChangeValues('type', key)}
+        />
       </FrameItem>
 
       <FrameItem label="Header Style">
@@ -79,10 +84,10 @@ const HeaderScreen: React.FC<Props> = () => {
             popoverContent:
               'p-0 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
           }}
+          selectedKeys={[variant || '']}
+          onChange={(e) => onChangeValues('variant', e.target.value)}
         >
-          {HEADER_VARIANTS.map((variant) => (
-            <SelectItem key={variant.key}>{variant.label}</SelectItem>
-          ))}
+          {renderSelectOptions(HEADER_VARIANTS)}
         </Select>
       </FrameItem>
 
@@ -95,20 +100,21 @@ const HeaderScreen: React.FC<Props> = () => {
             popoverContent:
               'p-0 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
           }}
+          selectedKeys={[input || '']}
+          onChange={(e) => onChangeValues('input', e.target.value)}
         >
-          {HEADER_INPUT_TYPES.map((variant) => (
-            <SelectItem key={variant.key}>{variant.label}</SelectItem>
-          ))}
+          {renderSelectOptions(HEADER_INPUT_TYPES)}
         </Select>
       </FrameItem>
 
       <FrameItem label="Alignment">
-        <UISegmentedControl size="sm">
-          {SEGMENT_OPTIONS.map((segment) => (
-            <UISegmentButton
-              key={segment.key}
-              title={<segment.icon className="h-5 w-5" />}
-            />
+        <UISegmentedControl
+          size="sm"
+          selectedKey={position || ''}
+          onSelectionChange={(key) => onChangeValues('position', key)}
+        >
+          {SEGMENT_OPTIONS.map(({ key, icon: Icon }) => (
+            <UISegmentButton key={key} title={<Icon className="h-5 w-5" />} />
           ))}
         </UISegmentedControl>
       </FrameItem>
@@ -116,4 +122,4 @@ const HeaderScreen: React.FC<Props> = () => {
   );
 };
 
-export default HeaderScreen;
+export default React.memo(HeaderScreen);

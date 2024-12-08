@@ -1,6 +1,7 @@
 import { BACKGROUND_TYPE, ELEMENTS } from './enums';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
+import { HeaderInputType, HeaderVariants } from './templates';
 
 export type Pairs = Record<string, any>;
 
@@ -20,10 +21,11 @@ export type ElementType = {
   content?: any;
   style?: React.CSSProperties & Pairs;
   properties?: PropertiesType & Pairs;
+  header?: SlideHeaderType;
 };
 
 export type SlideBackgroundTypes = {
-  type: BACKGROUND_TYPE;
+  type?: BACKGROUND_TYPE;
   style?: {
     width?: number;
     height?: number;
@@ -39,9 +41,10 @@ export type SlideBackgroundTypes = {
 };
 
 export type SlideHeaderType = {
+  variant?: HeaderVariants | string;
   type?: string;
   theme?: string;
-  input?: string;
+  input?: HeaderInputType | string;
   position?: string;
   style?: {
     background?: string;
@@ -52,8 +55,8 @@ export type SlideHeaderType = {
       hex: string;
     }[];
     title?: {
-      text: string;
-      icon: string;
+      text?: string;
+      icon?: string;
     };
   } & Pairs;
 };
@@ -72,7 +75,6 @@ export type SlideWatermarkType = {
 export type SlideTypes = {
   id: string;
   name: string;
-  header?: SlideHeaderType;
   background?: SlideBackgroundTypes;
   watermark?: SlideWatermarkType;
   elements: ElementType[];
