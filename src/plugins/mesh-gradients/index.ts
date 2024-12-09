@@ -30,13 +30,16 @@ const hexToHSL = (hex?: string): number | undefined => {
       })
       .join('');
   }
-  const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
+  const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(
+    hex
+  );
   if (!result) {
     return undefined;
   }
   let r = parseInt(result[1], 16);
   let g = parseInt(result[2], 16);
   let b = parseInt(result[3], 16);
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   (r /= 255), (g /= 255), (b /= 255);
   const max = Math.max(r, g, b),
     min = Math.min(r, g, b);

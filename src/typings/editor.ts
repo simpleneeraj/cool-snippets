@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BACKGROUND_TYPE, ELEMENTS } from './enums';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
 import { ThemesEnum } from '@/plugins/codemirror/themes';

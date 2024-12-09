@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CaptureOptions } from '../options';
 import parseDataUrlContent from '../utils/parsedataurlcontent';
 
@@ -62,8 +63,8 @@ export function getBlobFromURL(
 
   const deferred = window
     .fetch(url)
-    .then(res =>
-      res.blob().then(blob => ({
+    .then((res) =>
+      res.blob().then((blob) => ({
         blob,
         contentType: res.headers.get('Content-Type') || '',
       }))

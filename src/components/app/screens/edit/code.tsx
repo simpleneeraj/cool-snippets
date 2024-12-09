@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import UISlider from '@/ui-kit/source/UISlider';
 import UISwitch from '@/ui-kit/source/UISwitch';

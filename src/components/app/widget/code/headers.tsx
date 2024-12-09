@@ -38,7 +38,7 @@ const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
         <WindowsTen
           variant={header?.variant as HeaderVariants}
           inputType={header?.input as HeaderInputType}
-          iconSource={header?.properties?.title?.icon!}
+          iconSource={header?.properties?.title?.icon}
           style={{
             gap: '8px',
             size: '16px',
@@ -51,11 +51,11 @@ const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
       return (
         // Can be more optimization
         <UnixNeon
-          name={header.properties?.title?.text!}
+          name={header.properties?.title?.text}
           colors={unixColors}
           variant={header?.variant as HeaderVariants}
           inputType={header?.input as HeaderInputType}
-          iconSource={header?.properties?.title?.icon!}
+          iconSource={header?.properties?.title?.icon}
           style={{
             gap: '8px',
             size: '16px',

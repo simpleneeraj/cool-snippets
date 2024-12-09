@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import toArray from '../utils/toarray';
 import fetchCSS from './fetchCSS';
 import parseCSS from './parsecss';
@@ -44,7 +45,7 @@ async function getCSSRules(
             }
           }
         );
-      } catch (e) {
+      } catch (e: unknown) {
         const inline =
           styleSheets.find((a) => a.href == null) || document.styleSheets[0];
         if (sheet.href != null) {
@@ -58,7 +59,7 @@ async function getCSSRules(
               )
               .catch((err) => {
                 console.error(
-                  'Error loading remote stylesheet',
+                  e || 'Error loading remote stylesheet',
                   err.toString()
                 );
               })
@@ -80,7 +81,9 @@ async function getCSSRules(
             }
           );
         } catch (e) {
-          console.error(`Error while reading CSS rules from ${sheet.href}`);
+          console.error(
+            e || `Error while reading CSS rules from ${sheet.href}`
+          );
         }
       }
     });

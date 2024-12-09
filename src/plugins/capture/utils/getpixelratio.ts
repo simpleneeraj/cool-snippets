@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 let FINAL_PROCESS: NodeJS.Process;
 function getPixelRatio() {
   let ratio: number | any;
@@ -5,6 +6,7 @@ function getPixelRatio() {
     FINAL_PROCESS = process;
   } catch (e) {
     // pass
+    return e;
   }
   const val =
     FINAL_PROCESS && FINAL_PROCESS.env

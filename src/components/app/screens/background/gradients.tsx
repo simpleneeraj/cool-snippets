@@ -6,6 +6,7 @@ import { FrameItem } from '@/components/elements/frame';
 import gradients from '@/json/gradients.json';
 import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegular';
 import { SolarCameraRotateBroken } from '@/ui-kit/icons/SolarCameraRotateBroken';
+import { BackgroundScreenTypes } from './types';
 
 const GradientsBackground: React.FC<BackgroundScreenTypes> = ({
   value,

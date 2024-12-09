@@ -1,4 +1,4 @@
-import { Pairs, PropertiesType } from '@/typings/editor';
+import { PropertiesType } from '@/typings/editor';
 import { BACKGROUND_TYPE } from '@/typings/enums';
 
 /**

@@ -7,11 +7,11 @@ import FluentTableCursor20Regular from '@/ui-kit/icons/center/FluentTableCursor2
 import SolarMagniferZoomOutLinear from '@/ui-kit/icons/center/SolarMagniferZoomOutLinear';
 import SolarMinimalisticMagniferZoomInLinear from '@/ui-kit/icons/center/SolarMinimalisticMagniferZoomInLinear';
 
-type ControlsProps = {};
+type ControlsProps = object;
 
 const Controls: React.FC<ControlsProps> = () => {
   const { zoom } = useViewport();
-  const { zoomIn, zoomOut, zoomTo, fitView } = useReactFlow();
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
 
   const onResetViewport = () => {
     fitView({

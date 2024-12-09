@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import getSVG from './generatedataurl';
 import { CaptureOptions } from '../options';
 import imageSize from '../utils/imagesize';

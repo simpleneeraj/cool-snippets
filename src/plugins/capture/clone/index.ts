@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CaptureOptions } from '../options';
 import cloneChildren from './clonechildren';
 import cloneCSSStyle from './clonecss';

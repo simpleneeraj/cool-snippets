@@ -7,11 +7,9 @@ import { elements, elementsObject } from '../../widget/aside/primary/values';
 import useSlideEditor from '@/store/hooks/use-editor';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import { useActiveSlide } from '@/store/slides/current-slide';
 
 const ElementsScreen = () => {
   const { onChangeSlideElement } = useSlideEditor();
-  const { slide: currentSlide } = useActiveSlide();
   const onSelectElement = React.useCallback(
     (type: ELEMENTS) => {
       const selectedElement = elementsObject?.[type];
@@ -26,7 +24,7 @@ const ElementsScreen = () => {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [currentSlide]
+    [onChangeSlideElement]
   );
 
   return (

@@ -8,7 +8,7 @@ const ElementView = React.forwardRef((props: Props, ref: Props['ref']) => {
     ...props.style,
   } as React.CSSProperties;
   return (
-    <motion.div {...props} style={style}>
+    <motion.div {...props} ref={ref} style={style}>
       {props.children}
     </motion.div>
   );

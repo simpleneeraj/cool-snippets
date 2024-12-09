@@ -1,6 +1,5 @@
 import React from 'react';
 import UIView from '@/ui-kit/source/UIView';
-import UIDivider from '@/ui-kit/source/UIDivider';
 import { Frame } from '@/components/elements/frame';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import aspectRatioArray from '@/json/aspect-ratio.json';

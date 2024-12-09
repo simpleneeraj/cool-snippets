@@ -35,7 +35,7 @@ const CodeEditor = React.forwardRef<ReactCodeMirrorRef, ReactCodeMirrorProps>(
       ...rest
     } = props;
     const editor = React.useRef<HTMLDivElement>(null);
-    const { state, view, container, setContainer } = useCodeMirror({
+    const { state, view } = useCodeMirror({
       container: editor.current,
       root,
       value,

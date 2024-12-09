@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import moize from 'moize';
 import fetchFonts from './fonts';
 import cloneNode from '../clone';

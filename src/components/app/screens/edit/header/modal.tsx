@@ -1,17 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Tabs, Tab, ModalProps } from '@nextui-org/react';
-import {
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalContent,
-  useDisclosure,
-} from '@nextui-org/react';
 import UIView from '@/ui-kit/source/UIView';
 import SymbolsPicker from './symbols-picker';
-import { _fileIcons } from '@/plugins/material-icons';
 import MaterialIconsPicker from './material-icons-picker';
+import { Tabs, Tab, ModalProps } from '@nextui-org/react';
+import { Modal, ModalBody, ModalHeader, ModalContent } from '@nextui-org/react';
 
 enum IconCategory {
   TWITTER = 'twitter',
@@ -66,7 +59,7 @@ function IconPicker(props: Props) {
       default:
         return <LoaderFallback />;
     }
-  }, [activeCategory, props?.onSelectIcon, props?.value]);
+  }, [activeCategory, props]);
 
   const items = [
     { name: 'Twitter Emoji', key: IconCategory.TWITTER },

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import useSlide from '../slides';
 import { merge, throttle } from 'lodash';
 import { useCallback, useMemo } from 'react';

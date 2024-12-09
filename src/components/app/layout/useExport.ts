@@ -7,7 +7,9 @@ const useExport = () => {
   const { captureImage, isLoading } = useCapture();
   const { currentElement } = useSlideEditor();
 
-  const currentTypeface = findFontByValue(currentElement?.style?.fontFamily!);
+  const currentTypeface = findFontByValue(
+    currentElement?.style?.fontFamily as string
+  );
 
   const onExport = React.useCallback(() => {
     captureImage({

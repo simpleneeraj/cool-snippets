@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import toArray from '../utils/toarray';
 import getCSSRules from './cssrules';
 

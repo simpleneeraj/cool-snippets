@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { useScreen } from '@/store/screen';
+import { ScreenTypes, useScreen } from '@/store/screen';
 import backgroundVariants from './variants';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { Chip, Select, SelectItem } from '@nextui-org/react';
@@ -28,6 +28,7 @@ const BackgroundScreens = () => {
         },
       });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentSlide]
   );
 
@@ -75,8 +76,8 @@ const BackgroundScreens = () => {
           items={backgroundVariants}
           selectionMode="single"
           selectedKeys={new Set([screen.background])}
-          onChange={({ target }: any) =>
-            onChangeScreen('background', target.value)
+          onChange={({ target }) =>
+            onChangeScreen('background', target?.value as ScreenTypes)
           }
           size="sm"
         >

@@ -56,7 +56,7 @@ const styleToString = (style: React.CSSProperties) => {
         .join('-')
         .toLowerCase() +
       ':' +
-      // @ts-ignore
+      // @ts-expect-error - Type Issue
       style[key] +
       ';',
     ''

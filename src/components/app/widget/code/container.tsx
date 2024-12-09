@@ -3,7 +3,6 @@
 import React, { useCallback } from 'react';
 import SlideStyle from './styles/slide';
 import UIView from '@/ui-kit/source/UIView';
-import css from '@/styles/center.module.css';
 import EditorComponents from './elements';
 import ElementStyle from './styles/element';
 import useSlideEditor from '@/store/hooks/use-editor';
@@ -44,7 +43,7 @@ const ContainerWidget = () => {
 
   const CodeEditor = useCallback(() => {
     return (
-      <UIView className={css.container}>
+      <UIView className={'container'}>
         <CaptureView className="center">
           {currentSlide?.elements?.map((item) => (
             <React.Fragment key={item.id}>
@@ -55,7 +54,7 @@ const ContainerWidget = () => {
         </CaptureView>
       </UIView>
     );
-  }, []);
+  }, [currentSlide?.elements]);
 
   const nodeTypes = {
     [ComponentTypes.CODE_EDITOR]: CodeEditor,

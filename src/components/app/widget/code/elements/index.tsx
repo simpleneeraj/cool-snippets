@@ -8,6 +8,7 @@ import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { useActiveElement } from '@/store/slides/current-element';
 import { dynamicTheme, dynamicLanguage } from '@/plugins/codemirror/utils';
+import { LanguagesEnum } from '@/plugins/codemirror/languages';
 
 // SCREENS
 const ElementView = dynamic(() => import('./view'));
@@ -41,7 +42,9 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
                 : 1
             )}
             extensions={[
-              dynamicLanguage(item?.properties?.language!) as Extension,
+              dynamicLanguage(
+                item?.properties?.language as LanguagesEnum
+              ) as Extension,
             ]}
           />
         </ElementView>

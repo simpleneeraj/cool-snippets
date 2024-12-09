@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import UIView from '@/ui-kit/source/UIView';
 import UIButton from '@/ui-kit/source/UIButton/button';

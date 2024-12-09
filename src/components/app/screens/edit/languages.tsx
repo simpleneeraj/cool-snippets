@@ -16,10 +16,7 @@ const LanguagesScreen: React.FC<LanguagesScreenProps> = ({
   value,
   onSelect,
 }) => {
-  const renderButton = (
-    lang: (typeof languagesArray)[number],
-    isPopular?: boolean
-  ) => (
+  const renderButton = (lang: (typeof languagesArray)[number]) => (
     <UIButton
       radius="none"
       key={lang.value}
@@ -49,7 +46,7 @@ const LanguagesScreen: React.FC<LanguagesScreenProps> = ({
       </Frame> */}
       <Frame title="All">
         <UIView className="flex flex-col w-full">
-          {languagesArray.map((lang) => renderButton(lang, false))}
+          {languagesArray.map((lang) => renderButton(lang))}
         </UIView>
       </Frame>
     </>

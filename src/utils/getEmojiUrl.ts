@@ -1,7 +1,6 @@
 import { Emoji } from 'emojibase';
 
 export function getEmojiUrl(emoji: Emoji, skinTone: string, format = 'svg') {
-  let url;
   let folder = 'svg';
   let hex = emoji.hexcode;
 
@@ -26,12 +25,8 @@ export function getEmojiUrl(emoji: Emoji, skinTone: string, format = 'svg') {
     const regex = /-fe0f/gi;
     code = code.replace(regex, '');
   }
-
   if (format == 'png') {
     folder = '72x72';
   }
-
-  url = `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/${folder}/${code}.${format}`;
-
-  return url;
+  return `https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/${folder}/${code}.${format}`;
 }

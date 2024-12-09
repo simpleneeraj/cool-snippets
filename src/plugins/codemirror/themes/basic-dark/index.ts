@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { EditorView } from '@codemirror/view';
 import { Extension } from '@codemirror/state';
 import { tags } from '@lezer/highlight';

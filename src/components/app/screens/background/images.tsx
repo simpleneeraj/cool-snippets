@@ -12,6 +12,7 @@ import UnsplashIcon from '@/ui-kit/icons/logo/Unsplash';
 import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegular';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+import { BackgroundScreenTypes } from './types';
 
 enum ImageType {
   POPULAR = 'popular',
@@ -55,48 +56,8 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
   value,
   onChange,
 }) => {
-  // const { data, error, refetch, loading } = useQuery<any>(query, {
-  //   variables: {
-  //     query: 'Mac',
-  //   },
-  // });
-
-  const [searchQuery, setSearchQuery] = useImmer('');
   const images = Json;
-
-  const [searchProgress, setSearchProgress] = useImmer(0);
   const [currentImageTab, setCurrentImagetab] = useImmer(ImageType.UNSPLASH);
-
-  const onSearch = React.useCallback(async () => {
-    try {
-      // await refetch({
-      //   query: searchQuery,
-      // });
-      // Search is complete, set progress to 100%
-      setSearchProgress(100);
-    } catch (error) {
-    } finally {
-      setSearchProgress(0);
-    }
-  }, [setSearchProgress]);
-
-  const onChangeImageTab = React.useCallback((value: ImageType) => {
-    setCurrentImagetab(value);
-  }, []);
-
-  const simulateProgress = (duration: number, increment: number) => {
-    let currentProgress = 0;
-    const intervalId = setInterval(() => {
-      setSearchProgress((draft) => {
-        draft = Math.min(currentProgress, 100);
-      });
-      currentProgress += increment;
-
-      if (currentProgress > 100) {
-        clearInterval(intervalId);
-      }
-    }, duration / (100 / increment));
-  };
 
   return (
     <UIView className="flex flex-col">
@@ -106,7 +67,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
           fullWidth
           size="sm"
           selectedKey={currentImageTab}
-          onSelectionChange={(value) => onChangeImageTab(value as ImageType)}
+          onSelectionChange={(value) => setCurrentImagetab(value as ImageType)}
           className="p-0"
         >
           {imagesSegment.map((item) => {
@@ -128,7 +89,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
             labelPlacement={'outside'}
             placeholder={'Search images...'}
             className={'bg-transparent'}
-            onChange={({ target }) => setSearchQuery(target.value)}
+            // onChange={({ target }) => setSearchQuery(target.value)}
             startContent={<SearchIcon className="text-default-400 h-4 w-4" />}
           />
         </UIView>

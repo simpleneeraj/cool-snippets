@@ -56,7 +56,7 @@ const EditingScreens = () => {
       default:
         return null;
     }
-  }, [currentElement?.type]);
+  }, [currentElement?.type, openLanguages]);
 
   return (
     <AnimatePresence mode="sync">
@@ -83,8 +83,8 @@ const EditingScreens = () => {
         />
         <AspectRatioScreen
           value={{
-            height: currentSlide?.background?.style?.height!,
-            width: currentSlide?.background?.style?.width!,
+            height: currentSlide?.background?.style?.height as number,
+            width: currentSlide?.background?.style?.width as number,
           }}
           onSelect={(resolution) => {
             onChangeSlide({

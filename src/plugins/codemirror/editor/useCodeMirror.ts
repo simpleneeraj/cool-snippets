@@ -44,7 +44,7 @@ export function useCodeMirror(props: UseCodeMirror) {
     },
     {
       dark: false,
-    },
+    }
   );
   const defaultThemeOption = EditorView.theme({
     '&': {
@@ -62,6 +62,7 @@ export function useCodeMirror(props: UseCodeMirror) {
       const value = doc.toString();
       onChange(value, vu);
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onStatistics && onStatistics(getStatistics(vu));
   });
 
@@ -140,7 +141,7 @@ export function useCodeMirror(props: UseCodeMirror) {
         setView(undefined);
       }
     },
-    [view],
+    [view]
   );
 
   useEffect(() => {

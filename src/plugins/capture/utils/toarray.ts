@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function toArray<T>(arrayLike: any): T[] {
   const arr: T[] = [];
   for (let i = 0, l = arrayLike.length; i < l; i += 1) {

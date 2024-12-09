@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ELEMENTS } from '@/typings/enums';
 import TextBoxIcon from '@/ui-kit/icons/elements/TextBoxIcon';
 import TerminalIcon from '@/ui-kit/icons/elements/TerminalIcon';

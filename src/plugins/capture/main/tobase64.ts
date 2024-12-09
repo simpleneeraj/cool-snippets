@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Base64Reader from '../usedfont/filereader';
 import { CaptureOptions } from '../options';
 import createCanvas from './createcanvas';

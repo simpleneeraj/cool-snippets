@@ -14,7 +14,7 @@ function formatCSSText(style: CSSStyleDeclaration) {
 
 function formatCSSProperties(style: CSSStyleDeclaration) {
   return toArray<string>(style)
-    .map(name => {
+    .map((name) => {
       const value = style.getPropertyValue(name);
       const priority = style.getPropertyPriority(name);
       return `${name}: ${value}${priority ? ' !important' : ''};`;
@@ -50,8 +50,8 @@ function clonePseudoElement<T extends HTMLElement>(
 
   try {
     clonedNode.className = `${clonedNode.className} ${className}`;
-  } catch (err) {
-    return;
+  } catch (err: unknown) {
+    return err;
   }
 
   const styleElement = document.createElement('style');

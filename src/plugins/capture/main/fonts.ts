@@ -9,7 +9,7 @@ const fetchFonts = async <T extends HTMLElement>(
 ): Promise<T> => {
   const filterFontsArr: string[] = [];
   // Map and fetch available fonts
-  const TaskFonts = fonts.map(async ({ src, fontFamily }, i) => {
+  const TaskFonts = fonts.map(async ({ src, fontFamily }) => {
     if (true) {
       // Filter Url
       let url = src.replace(regexUrl, '$1');

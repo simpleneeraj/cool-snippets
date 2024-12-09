@@ -17,9 +17,10 @@ const CanvasScreen: React.FC<Props> = ({
   openAspectRatio,
   openBackgrounds,
 }) => {
-  const { currentSlide, onChangeSlide } = useSlideEditor();
+  const { onChangeSlide } = useSlideEditor();
 
   // Handlers with debounce
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleDebouncedChange = useCallback(
     debounce((property: string, value: string | number) => {
       onChangeSlide({

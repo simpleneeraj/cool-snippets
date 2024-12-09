@@ -1,7 +1,5 @@
-//
-
-// import screenshotStore from "../Context";
-import uniqArray from './uniqarray';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { uniq } from 'lodash';
 
 /**
  * Getting All Current  style In Page
@@ -19,7 +17,7 @@ const styleInPage = (cssProperty: string | any): Promise<string[]> => {
       List.push(getValue);
     }
   }
-  const filterDuplicate: string[] = uniqArray(List);
+  const filterDuplicate: string[] = uniq(List);
   return Promise.resolve(filterDuplicate);
 };
 

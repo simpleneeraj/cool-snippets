@@ -5,6 +5,7 @@ import UIView from '@/ui-kit/source/UIView';
 import { Card, tv } from '@nextui-org/react';
 import useSlideEditor from '@/store/hooks/use-editor';
 import backgroundPurify from '@/utils/background-purify';
+import { BACKGROUND_TYPE } from '@/typings/enums';
 
 type CardProps = {
   background?: string;
@@ -26,7 +27,7 @@ const TemplatesPreview = () => {
 
   const background = React.useMemo(() => {
     return backgroundPurify(
-      currentSlide?.background?.type!,
+      currentSlide?.background?.type as BACKGROUND_TYPE,
       currentSlide?.background?.properties
     );
   }, [currentSlide?.background]);

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import svgToDataURL from './svgtodataurl';
 import createSvg from './createsvg';
 import { CaptureOptions } from '../options';

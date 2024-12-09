@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlideBackgroundTypes } from '@/typings/editor';
 import backgroundPurify from '@/utils/background-purify';
+import { BACKGROUND_TYPE } from '@/typings/enums';
 
 type Props = {
   style?: SlideBackgroundTypes;
@@ -11,7 +12,7 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
   const PROPERTIES = style?.properties;
 
   const source = React.useMemo(() => {
-    return backgroundPurify(style?.type!, PROPERTIES);
+    return backgroundPurify(style?.type as BACKGROUND_TYPE, PROPERTIES);
   }, [style?.type, PROPERTIES]);
 
   return (

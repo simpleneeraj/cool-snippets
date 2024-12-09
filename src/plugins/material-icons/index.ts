@@ -1,8 +1,6 @@
 // https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/3d.svg
 
-import { camelCase, startCase } from 'lodash';
-import { fileIcons } from './fileIcons';
-import { folderIcons } from './folderIcons';
+import { startCase } from 'lodash';
 import { languageIcons } from './languageIcons';
 
 const BASE_URL = `https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons`;

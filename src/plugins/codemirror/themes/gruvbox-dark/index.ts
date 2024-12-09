@@ -1,12 +1,10 @@
-import { EditorView } from '@codemirror/view'
-import { Extension } from '@codemirror/state'
-import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
-import { tags as t } from '@lezer/highlight'
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { EditorView } from '@codemirror/view';
+import { Extension } from '@codemirror/state';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
+import { tags as t } from '@lezer/highlight';
 
 const gruvboxDark = (alpha: string | number) => {
-
-
   const dark0 = `rgba(40,40,40,${alpha})`,
     dark1 = '#3c3836',
     dark2 = '#504945',
@@ -41,7 +39,7 @@ const gruvboxDark = (alpha: string | number) => {
     faded_blue = '#076678',
     faded_purple = '#8f3f71',
     faded_aqua = '#427b58',
-    faded_orange = '#af3a03'
+    faded_orange = '#af3a03';
 
   const bg0 = dark0,
     bg1 = dark1,
@@ -61,7 +59,7 @@ const gruvboxDark = (alpha: string | number) => {
     blue = bright_blue,
     purple = bright_purple,
     aqua = bright_aqua,
-    orange = bright_orange
+    orange = bright_orange;
 
   const invalid = red,
     darkBackground = bg1,
@@ -69,18 +67,18 @@ const gruvboxDark = (alpha: string | number) => {
     background = bg0,
     tooltipBackground = bg1,
     selection = darkBackground,
-    cursor = orange
+    cursor = orange;
 
   /// The editor theme styles for Gruvbox Dark.
   const gruvboxDarkTheme = EditorView.theme(
     {
       '&': {
         color: fg1,
-        backgroundColor: background
+        backgroundColor: background,
       },
 
       '.cm-content': {
-        caretColor: cursor
+        caretColor: cursor,
       },
 
       '.cm-cursor, .cm-dropCursor': { borderLeftColor: cursor },
@@ -94,10 +92,10 @@ const gruvboxDark = (alpha: string | number) => {
       '.cm-searchMatch': {
         backgroundColor: bg0,
         color: yellow,
-        outline: `1px solid ${bg3}`
+        outline: `1px solid ${bg3}`,
       },
       '.cm-searchMatch.cm-searchMatch-selected': {
-        backgroundColor: bg3
+        backgroundColor: bg3,
       },
 
       '.cm-activeLine': { backgroundColor: highlightBackground },
@@ -105,118 +103,118 @@ const gruvboxDark = (alpha: string | number) => {
 
       '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket': {
         outline: `1px solid ${bg3}`,
-        fontStyle: 'bold'
+        fontStyle: 'bold',
       },
 
       '&.cm-focused .cm-matchingBracket': {
-        backgroundColor: bg3
+        backgroundColor: bg3,
       },
 
       '.cm-gutters': {
         backgroundColor: bg1,
         color: fg3,
-        border: 'none'
+        border: 'none',
       },
 
       '.cm-activeLineGutter': {
-        backgroundColor: highlightBackground
+        backgroundColor: highlightBackground,
       },
 
       '.cm-foldPlaceholder': {
         backgroundColor: 'transparent',
         border: 'none',
-        color: '#ddd'
+        color: '#ddd',
       },
 
       '.cm-tooltip': {
         border: 'none',
-        backgroundColor: tooltipBackground
+        backgroundColor: tooltipBackground,
       },
       '.cm-tooltip .cm-tooltip-arrow:before': {
         borderTopColor: 'transparent',
-        borderBottomColor: 'transparent'
+        borderBottomColor: 'transparent',
       },
       '.cm-tooltip .cm-tooltip-arrow:after': {
         borderTopColor: tooltipBackground,
-        borderBottomColor: tooltipBackground
+        borderBottomColor: tooltipBackground,
       },
       '.cm-tooltip-autocomplete': {
         '& > ul > li[aria-selected]': {
           backgroundColor: highlightBackground,
-          color: fg2
-        }
-      }
+          color: fg2,
+        },
+      },
     },
     { dark: true }
-  )
+  );
 
   /// The highlighting style for code in the Gruvbox Dark theme.
   const gruvboxDarkHighlightStyle = HighlightStyle.define([
     { tag: t.keyword, color: red },
     {
       tag: [t.name, t.deleted, t.character, t.propertyName, t.macroName],
-      color: aqua
+      color: aqua,
     },
     { tag: [t.variableName], color: blue },
     { tag: [t.function(t.variableName)], color: green, fontStyle: 'bold' },
     { tag: [t.labelName], color: fg1 },
     {
       tag: [t.color, t.constant(t.name), t.standard(t.name)],
-      color: purple
+      color: purple,
     },
     { tag: [t.definition(t.name), t.separator], color: fg1 },
     { tag: [t.brace], color: fg1 },
     {
       tag: [t.annotation],
-      color: invalid
+      color: invalid,
     },
     {
       tag: [t.number, t.changed, t.annotation, t.modifier, t.self, t.namespace],
-      color: purple
+      color: purple,
     },
     {
       tag: [t.typeName, t.className],
-      color: yellow
+      color: yellow,
     },
     {
       tag: [t.operator, t.operatorKeyword],
-      color: red
+      color: red,
     },
     {
       tag: [t.tagName],
       color: aqua,
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     },
     {
       tag: [t.squareBracket],
-      color: orange
+      color: orange,
     },
     {
       tag: [t.angleBracket],
-      color: blue
+      color: blue,
     },
     {
       tag: [t.attributeName],
-      color: aqua
+      color: aqua,
     },
     {
       tag: [t.regexp],
-      color: aqua
+      color: aqua,
     },
     {
       tag: [t.quote],
-      color: gray
+      color: gray,
     },
     { tag: [t.string], color: fg1 },
     {
       tag: t.link,
       color: fg4,
       textDecoration: 'underline',
-      textUnderlinePosition: 'under'
+      textUnderlinePosition: 'under',
     },
     {
       tag: [t.url, t.escape, t.special(t.string)],
-      color: purple
+      color: purple,
     },
     { tag: [t.meta], color: yellow },
     { tag: [t.comment], color: gray, fontStyle: 'italic' },
@@ -228,31 +226,30 @@ const gruvboxDark = (alpha: string | number) => {
     {
       tag: [t.heading3, t.heading4],
       fontWeight: 'bold',
-      color: yellow
+      color: yellow,
     },
     {
       tag: [t.heading5, t.heading6],
-      color: yellow
+      color: yellow,
     },
     { tag: [t.atom, t.bool, t.special(t.variableName)], color: purple },
     {
       tag: [t.processingInstruction, t.inserted],
-      color: bright_blue
+      color: bright_blue,
     },
     {
       tag: [t.contentSeparator],
-      color: red
+      color: red,
     },
-    { tag: t.invalid, color: orange, borderBottom: `1px dotted ${invalid}` }
-  ])
+    { tag: t.invalid, color: orange, borderBottom: `1px dotted ${invalid}` },
+  ]);
   return [
     gruvboxDarkTheme,
-    syntaxHighlighting(gruvboxDarkHighlightStyle)
-  ] as Extension
-}
+    syntaxHighlighting(gruvboxDarkHighlightStyle),
+  ] as Extension;
+};
 /// Extension to enable the Gruvbox Dark theme (both the editor theme and
 /// the highlight style).
 // export const gruvboxDark: Extension =
-
 
 export default gruvboxDark;

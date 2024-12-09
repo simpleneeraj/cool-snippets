@@ -46,7 +46,7 @@ const LayersPreview = () => {
     <UIView className={base()}>
       {slides?.map((slide) => {
         return (
-          <Card className="p-1" shadow="lg">
+          <Card key={slide.id} className="p-1" shadow="lg">
             <CardBody
               key={slide.id}
               className="p-0"
@@ -73,7 +73,7 @@ const LayersPreview = () => {
                     <li key={element.id}>
                       <Card
                         isPressable
-                        onPress={() => updateElement(element?.id!)}
+                        onPress={() => updateElement(element?.id as string)}
                         className={cn(
                           'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
                           active && 'border border-success'
@@ -85,7 +85,8 @@ const LayersPreview = () => {
                             active && 'text-success'
                           )}
                         >
-                          {elementLabelMapper[element?.type!]}
+                          {/* @ts-expect-error - Solve type issue */}
+                          {elementLabelMapper[element?.type]}
                         </UIView>
                         <UIView className="flex items-center gap-1">
                           <UITooltip
@@ -180,7 +181,7 @@ function AddLayers() {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [currentSlide]
+    [createSlideElement, currentSlide]
   );
 
   return (

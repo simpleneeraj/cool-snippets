@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { BACKGROUND_SCREEN, ASIDE_SCREEN } from '@/typings/enums';
 
 // Define the type for screen state combining ASIDE_SCREEN and BACKGROUND_SCREEN
-type Screen = ASIDE_SCREEN | BACKGROUND_SCREEN;
+export type ScreenTypes = ASIDE_SCREEN | BACKGROUND_SCREEN;
 
 // Define the state structure
 type State = {
@@ -14,7 +14,7 @@ type State = {
 
 // Define the action type for changing the screen
 type Action = {
-  onChangeScreen: (key: keyof State['screen'], value: Screen) => void;
+  onChangeScreen: (key: keyof State['screen'], value: ScreenTypes) => void;
 };
 
 // Create the Zustand store

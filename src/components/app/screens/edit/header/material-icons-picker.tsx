@@ -116,6 +116,7 @@ export default function MaterialIconsPicker() {
                   removeWrapper
                   src={filteredIcons[index].source}
                   className="h-14 w-14 object-contain"
+                  alt=""
                 />
               </Card>
             )}

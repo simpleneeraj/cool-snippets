@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import Image from 'next/image';
 import IconPicker from './modal';
@@ -36,7 +37,7 @@ const HeaderScreen: React.FC = () => {
   return (
     <Frame title="CODE HEADER">
       <IconPicker
-        value={{ url: properties?.title?.icon! }}
+        value={{ url: properties?.title?.icon }}
         onSelectIcon={(value) =>
           onChangeValues('properties', { title: { icon: value?.url } })
         }

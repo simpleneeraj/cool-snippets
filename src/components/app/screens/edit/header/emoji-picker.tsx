@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { useImmer } from 'use-immer';
 import UIView from '@/ui-kit/source/UIView';
@@ -49,7 +50,8 @@ export default function EmojiPicker() {
       }
       return true;
     });
-  }, [state]);
+  }, [availableEmojis, state]);
+
   return (
     <UIView className="flex-1 flex flex-col min-h-[300px]">
       <UIView className="py-2 flex gap-2">
@@ -118,6 +120,7 @@ export default function EmojiPicker() {
                 title={filteredEmojis[index]?.label}
               >
                 <Image
+                  alt=""
                   disableAnimation
                   radius="none"
                   removeWrapper

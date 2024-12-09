@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 let element$: HTMLAnchorElement | null = null;
 
 /**

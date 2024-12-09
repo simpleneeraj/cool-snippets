@@ -52,7 +52,7 @@ const AIScreen = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <UIButton size="sm" variant="flat">
-                Let's start chatting
+                Let&apos;s start chatting
               </UIButton>
             </motion.div>
           </UIView>

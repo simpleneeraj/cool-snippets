@@ -113,6 +113,7 @@ const FluentEmoji: React.FC = () => {
                   title={filteredEmojis[index]?.name}
                 >
                   <Image
+                    alt=""
                     disableAnimation
                     radius="none"
                     removeWrapper

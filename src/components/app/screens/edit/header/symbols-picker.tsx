@@ -222,6 +222,7 @@ export default function SymbolsPicker({ value, onSelect }: SymbolsPickerProps) {
                   removeWrapper
                   src={filteredIcons[index].source}
                   className="h-14 w-14 object-contain"
+                  alt=""
                 />
               </Card>
             )}
