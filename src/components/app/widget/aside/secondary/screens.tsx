@@ -4,10 +4,8 @@ import NotFound from './not-found';
 import UICard from '@/ui-kit/source/UICard';
 import UIView from '@/ui-kit/source/UIView';
 import { SEGMENT_SCREEN } from '@/typings/enums';
-import AIScreen from '@/components/app/screens/ai';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Import dynamic components
 const EditScreens = dynamic(() => import('@/components/app/screens/edit'));
 const BackgroundScreens = dynamic(
   () => import('@/components/app/screens/background')
@@ -15,8 +13,9 @@ const BackgroundScreens = dynamic(
 const ElementsScreen = dynamic(
   () => import('@/components/app/screens/elements')
 );
-// const IconsScreen = dynamic(() => import('@/components/app/icons'));
+const IconsScreen = dynamic(() => import('@/components/app/screens/icons'));
 const MoreFeatures = dynamic(() => import('@/components/app/screens/features'));
+const AIScreen = dynamic(() => import('@/components/app/screens/ai'));
 
 type ScreensTypes = {
   activeTab: SEGMENT_SCREEN;
@@ -33,8 +32,10 @@ function Screens({ activeTab }: ScreensTypes) {
         return <BackgroundScreens />;
       case SEGMENT_SCREEN.ELEMENTS:
         return <ElementsScreen />;
-      case SEGMENT_SCREEN.ICONS:
+      case SEGMENT_SCREEN.AI:
         return <AIScreen />;
+      case SEGMENT_SCREEN.ICONS:
+        return <IconsScreen />;
       case SEGMENT_SCREEN.MORE:
         return <MoreFeatures />;
       default:
@@ -52,7 +53,7 @@ function Screens({ activeTab }: ScreensTypes) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition}
-            className="flex flex-col flex-1"
+            className="flex flex-col"
           >
             {DynamicScreen}
           </motion.div>

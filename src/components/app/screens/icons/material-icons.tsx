@@ -1,13 +1,14 @@
 import React from 'react';
 import { useImmer } from 'use-immer';
 import UIView from '@/ui-kit/source/UIView';
-import { VirtuosoGrid } from 'react-virtuoso';
-import { capitalize, sortBy } from 'lodash';
-import { GridItem, GridList } from './grid-components';
-import { Card, Image, Input, Select, SelectItem } from '@nextui-org/react';
+import { PickerProps } from '@/typings/icon-picker';
+import { capitalize, sortBy, subtract } from 'lodash';
+import { Input, Select, SelectItem } from '@nextui-org/react';
 import files from '@/plugins/material-icons/fileIcons.json';
 import folder from '@/plugins/material-icons/folderIcons.json';
 import language from '@/plugins/material-icons/languageIcons.json';
+import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
 
 type Icon = {
   name: string;
@@ -22,21 +23,26 @@ enum IconTypes {
   LANGUAGE = 'language',
 }
 
-export default function MaterialIconsPicker() {
+export default function MaterialIconsPicker(props: PickerProps) {
+  const [ref, height] = useDynamicHeight();
+  const calculatedHeight = subtract(height, 80);
   const [state, updateState] = useImmer({
-    selectedType: IconTypes.ALL,
+    selectedType: '',
     searchTerm: '',
   });
 
   // Combine all datasets into a unified format
   const availableIcons = React.useMemo(() => {
-    const transformData = (data: Icon[], category: IconTypes) =>
-      data.map((icon) => ({ ...icon, category: [icon?.category, category] }));
+    const transformData = (data: Icon[], category: string) =>
+      data.map((icon) => ({
+        ...icon,
+        category: [...icon?.category, category].filter?.(Boolean),
+      }));
 
     return [
-      ...transformData(files, IconTypes.FILE),
-      ...transformData(folder, IconTypes.FOLDER),
-      ...transformData(language, IconTypes.LANGUAGE),
+      ...transformData(files, 'file'),
+      ...transformData(folder, 'folder'),
+      ...transformData(language, 'language'),
     ];
   }, []);
 
@@ -94,36 +100,19 @@ export default function MaterialIconsPicker() {
         />
       </UIView>
 
-      {/* Icon display */}
-      <UIView className="p-1 flex flex-col w-full overflow-auto border border-default-100 rounded-lg">
-        {filteredIcons.length > 0 ? (
-          <VirtuosoGrid
-            style={{ height: 464 }}
-            totalCount={filteredIcons.length}
-            components={{
-              List: GridList,
-              Item: GridItem,
-            }}
-            itemContent={(index) => (
-              <Card
-                isPressable
-                className="flex items-center justify-center border border-default-100 p-4 h-full bg-transparent"
-                title={filteredIcons[index]?.name}
-              >
-                <Image
-                  disableAnimation
-                  radius="none"
-                  removeWrapper
-                  src={filteredIcons[index].source}
-                  className="h-14 w-14 object-contain"
-                  alt=""
-                />
-              </Card>
-            )}
-          />
-        ) : (
-          <p>Nothing found 😑</p>
-        )}
+      <UIView className="flex flex-col flex-1" ref={ref}>
+        <UIVirtualizeGrid
+          {...props}
+          items={filteredIcons}
+          height={calculatedHeight}
+          emptyContent={
+            <UIView className="flex-1 flex flex-col items-center justify-center">
+              <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                No items available
+              </span>
+            </UIView>
+          }
+        />
       </UIView>
     </UIView>
   );

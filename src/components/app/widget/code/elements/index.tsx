@@ -6,14 +6,14 @@ import { ELEMENTS } from '@/typings/enums';
 import { ElementType } from '@/typings/editor';
 import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@/store/hooks/use-editor';
+import { LanguagesEnum } from '@/plugins/codemirror/languages';
 import { useActiveElement } from '@/store/slides/current-element';
 import { dynamicTheme, dynamicLanguage } from '@/plugins/codemirror/utils';
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
 
 // SCREENS
 const ElementView = dynamic(() => import('./view'));
 const IconElement = dynamic(() => import('./icon'));
-const TextElement = dynamic(() => import('./text'));
+// const TextElement = dynamic(() => import('./text'));
 const CodeElement = dynamic(() => import('./code'));
 
 type Props = {
@@ -32,8 +32,8 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
           onHoverStart={() => updateElement(item.id!)}
         >
           <CodeElement
-            header={item?.header || null}
             value={item.content}
+            header={item?.header || null}
             onChange={(content) => onChangeSlideElement({ content })}
             theme={dynamicTheme(
               item?.properties?.theme,
@@ -49,23 +49,7 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
           />
         </ElementView>
       );
-
-    case ELEMENTS.TEXT:
-      return (
-        <ElementView
-          drag
-          style={item.style}
-          onHoverStart={() => updateElement(item.id!)}
-        >
-          <TextElement
-            contentEditable
-            style={{ ...item.style, ...item.properties }}
-          >
-            {item.content}
-          </TextElement>
-        </ElementView>
-      );
-
+    case ELEMENTS.IMAGE:
     case ELEMENTS.ICON:
       return (
         <ElementView
@@ -73,12 +57,38 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
           style={item.style}
           onHoverStart={() => updateElement(item.id!)}
         >
-          <IconElement />
+          <IconElement
+            style={item.style}
+            {...(item.properties as React.ComponentPropsWithoutRef<'img'>)}
+          />
         </ElementView>
       );
+
     default:
       return null;
   }
 };
 
 export default EditorComponents;
+
+// case ELEMENTS.TEXT:
+//   return (
+//     <ElementView
+//       drag
+//       style={item.style}
+//       onHoverStart={() => updateElement(item.id!)}
+//     >
+//       <TextElement
+//         contentEditable
+//         style={{ ...item.style, ...item.properties }}
+//       >
+//         {item.content}
+//       </TextElement>
+//     </ElementView>
+//   );
+// case ELEMENTS.ICON:
+//   return (
+//     <ElementView drag onHoverStart={() => updateElement(item.id!)}>
+//       <IconElement style={item.style} />
+//     </ElementView>
+//   );

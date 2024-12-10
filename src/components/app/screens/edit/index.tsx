@@ -62,6 +62,7 @@ const EditingScreens = () => {
     <AnimatePresence mode="sync">
       <UIView className="relative">
         <HeaderScreen />
+        {/* {currentElement?.type === ELEMENTS.CODE && <HeaderScreen />} */}
         <CanvasScreen
           openAspectRatio={openAspectRatio}
           openBackgrounds={openBackgrounds}

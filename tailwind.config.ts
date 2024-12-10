@@ -1,7 +1,11 @@
-// tailwind.config.js
-const { nextui } = require('@nextui-org/react');
-
 import type { Config } from 'tailwindcss';
+import { nextui } from '@nextui-org/react';
+
+const widgetWidth = {
+  'widget-sm': '280px',
+  'widget-md': '320px',
+  'widget-lg': '425px',
+};
 
 const config: Config = {
   content: [
@@ -13,11 +17,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      maxWidth: {
-        'widget-sm': '280px',
-        'widget-md': '320px',
-        'widget-lg': '425px',
-      },
+      width: widgetWidth,
+      maxWidth: widgetWidth,
+      minWidth: widgetWidth,
     },
   },
   darkMode: 'class',

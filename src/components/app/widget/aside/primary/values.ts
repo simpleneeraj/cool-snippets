@@ -101,6 +101,8 @@ export const elementsObject: Record<ELEMENTS, any> = {
   },
   [ELEMENTS.IMAGE]: {
     type: ELEMENTS.IMAGE,
+    ...baseElement,
+    properties: {},
   },
   [ELEMENTS.WATERMARK]: undefined,
   [ELEMENTS.USERINFO]: undefined,

@@ -53,6 +53,7 @@
     "swr": "^2.2.5",
     "tailwind-merge": "^2.5.5",
     "use-immer": "^0.10.0",
+    "zundo": "^2.3.0",
     "zustand": "^5.0.2"
   },
   "devDependencies": {

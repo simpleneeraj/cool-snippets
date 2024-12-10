@@ -1,72 +1,59 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import UIView from '@/ui-kit/source/UIView';
-import SymbolsPicker from './symbols-picker';
-import MaterialIconsPicker from './material-icons-picker';
-import { Tabs, Tab, ModalProps } from '@nextui-org/react';
+import {
+  IconCategory,
+  PickerIconType,
+  PickerProps,
+} from '@/typings/icon-picker';
+import {
+  Tabs,
+  Tab,
+  ModalProps,
+  ModalFooter,
+  Button,
+  Image,
+} from '@nextui-org/react';
 import { Modal, ModalBody, ModalHeader, ModalContent } from '@nextui-org/react';
+import { startCase } from 'lodash';
+import IconContainer from '../../icons/container';
 
-enum IconCategory {
-  TWITTER = 'twitter',
-  FLUENT = 'fluent',
-  IMAGES = 'images',
-  FILES = 'files',
-  GOOGLE = 'google',
-  APPLE = 'apple',
-  MICROSOFT = 'microsoft',
-  ICONS = 'icons',
-  DESIGN_ASSETS = 'design_assets',
-  PHOTOS = 'photos',
-  FONTS = 'fonts',
-  VECTOR_GRAPHICS = 'vector_graphics',
-}
+type Props = PickerProps & Omit<ModalProps, 'children'>;
 
-const EmojiPicker = dynamic(() => import('./emoji-picker'), {
-  loading: () => <LoaderFallback />,
-});
-const FluentEmoji = dynamic(() => import('./fluentui-emoji'), {
-  loading: () => <LoaderFallback />,
-});
+const LoaderFallback = () => (
+  <UIView className="flex-1 flex flex-col items-center justify-center min-h-96 border border-default-100 rounded-2xl">
+    <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
+      Loading...
+    </span>
+  </UIView>
+);
 
-type Props = {
-  value: { name?: string; url?: string };
-  onSelectIcon: (icon: { name?: string; url?: string }) => void;
-} & Omit<ModalProps, 'children'>;
+const items = [
+  { name: 'Twitter Emoji', key: IconCategory.TWITTER },
+  { name: 'Fluent Emoji', key: IconCategory.FLUENT },
+  { name: 'Material Icons', key: IconCategory.GOOGLE },
+  { name: 'Icons', key: IconCategory.ICONS },
+];
 
-function IconPicker(props: Props) {
+const IconPicker: React.FC<Props> = (props) => {
+  const [selectedIcon, setSelectedIcon] = React.useState<PickerIconType | null>(
+    null
+  );
   const [activeCategory, setActiveCategory] = React.useState<IconCategory>(
     IconCategory.TWITTER
   );
 
-  const renderActiveComponent = React.useMemo(() => {
-    switch (activeCategory) {
-      case IconCategory.TWITTER:
-        return <EmojiPicker />;
-      case IconCategory.FLUENT:
-        return <FluentEmoji />;
-      case IconCategory.GOOGLE:
-        return <MaterialIconsPicker />;
-      case IconCategory.ICONS:
-        return (
-          <SymbolsPicker
-            {...props}
-            onSelect={(v) => {
-              props?.onSelectIcon(v);
-              props?.onClose?.();
-            }}
-          />
-        );
-      default:
-        return <LoaderFallback />;
-    }
-  }, [activeCategory, props]);
+  const onSelectIcon = React.useCallback((icon: PickerIconType) => {
+    setSelectedIcon(icon);
+  }, []);
 
-  const items = [
-    { name: 'Twitter Emoji', key: IconCategory.TWITTER },
-    { name: 'Fluent Emoji', key: IconCategory.FLUENT },
-    { name: 'Material Icons', key: IconCategory.GOOGLE },
-    { name: 'Icons', key: IconCategory.ICONS },
-  ];
+  const onClearSelection = () => setSelectedIcon(null);
+
+  const onSelect = () => {
+    if (selectedIcon) {
+      props?.onSelectIcon?.(selectedIcon);
+      props?.onClose?.();
+    }
+  };
 
   return (
     <Modal scrollBehavior="inside" placement="top" size="3xl" {...props}>
@@ -78,7 +65,7 @@ function IconPicker(props: Props) {
           <UIView className="min-w-40">
             <Tabs
               fullWidth
-              variant="bordered"
+              variant="light"
               aria-label="Options"
               isVertical
               onSelectionChange={(key) =>
@@ -91,19 +78,53 @@ function IconPicker(props: Props) {
             </Tabs>
           </UIView>
           <UIView className="flex-1">
-            {/* <LoaderFallback /> */}
-            {renderActiveComponent}
+            <React.Suspense fallback={<LoaderFallback />}>
+              <IconContainer
+                gridCount={4}
+                type={activeCategory}
+                value={selectedIcon!}
+                onSelectIcon={onSelectIcon}
+              />
+            </React.Suspense>
           </UIView>
         </ModalBody>
+        <ModalFooter className="flex items-center gap-1 p-4 justify-between border-t border-default-100">
+          <UIView className="flex items-center gap-2">
+            {selectedIcon && (
+              <>
+                <UIView className="flex flex-col border border-default-100 rounded-xl p-1">
+                  <Image
+                    className="h-12 w-12 object-contain"
+                    src={selectedIcon?.source}
+                    alt={selectedIcon?.name}
+                  />
+                </UIView>
+                <UIView className="flex flex-col">
+                  <p>{startCase(selectedIcon?.name)}</p>
+                  <span className="text-small text-default-500">
+                    {activeCategory}
+                  </span>
+                </UIView>
+              </>
+            )}
+          </UIView>
+          <UIView className="flex items-center gap-2">
+            <Button size="sm" onClick={onClearSelection}>
+              Clear
+            </Button>
+            <Button
+              color="secondary"
+              size="sm"
+              onClick={onSelect}
+              disabled={!selectedIcon}
+            >
+              Select
+            </Button>
+          </UIView>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
-}
+};
 
 export default IconPicker;
-
-const LoaderFallback = () => (
-  <div className="flex-1 flex justify-center items-center">
-    <p>Loading...</p>
-  </div>
-);

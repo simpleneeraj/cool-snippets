@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import UIView from '@/ui-kit/source/UIView';
 import UITooltip from '@/ui-kit/source/UITooltip';
@@ -154,7 +155,7 @@ const LayersPreview = () => {
           </Card>
         );
       })}
-      <AddLayers />
+      {/* <AddLayers /> */}
     </UIView>
   );
 };

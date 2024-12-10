@@ -9,6 +9,7 @@ export enum SEGMENT_SCREEN {
   ELEMENTS = 'SEGMENT::ELEMENTS',
   FRAMES = 'SEGMENT::FRAMES',
   MORE = 'SEGMENT::MORE',
+  AI = 'SEGMENT::AI',
 }
 
 export enum ASIDE_SCREEN {

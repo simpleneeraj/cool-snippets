@@ -1,18 +1,12 @@
 import React from 'react';
 import useSWR from 'swr';
 import { useImmer } from 'use-immer';
-import { sortBy } from 'lodash';
-import {
-  Card,
-  Image,
-  Input,
-  Select,
-  Spinner,
-  SelectItem,
-} from '@nextui-org/react';
+import { sortBy, subtract } from 'lodash';
 import UIView from '@/ui-kit/source/UIView';
-import { VirtuosoGrid } from 'react-virtuoso';
-import { GridItem, GridList } from './grid-components';
+import { PickerProps } from '@/typings/icon-picker';
+import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
+import { Input, Select, SelectItem } from '@nextui-org/react';
 
 interface Emoji {
   name: string;
@@ -27,13 +21,15 @@ interface FluentEmojiState {
 const fetcher = (url: string): Promise<Emoji[]> =>
   fetch(url).then((res) => res.json());
 
-const FluentEmoji: React.FC = () => {
+const FluentEmoji: React.FC<PickerProps> = (props) => {
+  const [ref, height] = useDynamicHeight();
+  const calculatedHeight = subtract(height, 80);
   const [state, updateState] = useImmer<FluentEmojiState>({
     searchTerm: '',
     iconSet: 'modern',
   });
 
-  const { data: emojiList, isLoading } = useSWR(
+  const { data: emojiList } = useSWR(
     state.iconSet === 'flat'
       ? '/json/fluentui/flat.json'
       : '/json/fluentui/modern.json',
@@ -58,13 +54,13 @@ const FluentEmoji: React.FC = () => {
       <UIView className="py-2 flex gap-2">
         <Select
           size="sm"
+          className="max-w-40"
           placeholder="Select set"
           onChange={(e) =>
             updateState((draft) => {
               draft.iconSet = e.target.value;
             })
           }
-          className="max-w-28"
           variant="bordered"
           aria-label="Icon set selector"
         >
@@ -92,42 +88,20 @@ const FluentEmoji: React.FC = () => {
           }
         />
       </UIView>
-      {isLoading ? (
-        <UIView className="h-full p-1 flex flex-col w-full overflow-auto justify-center items-center border border-default-100 rounded-lg">
-          <Spinner />
-        </UIView>
-      ) : (
-        <UIView className="p-1 flex flex-col w-full overflow-auto border border-default-100 rounded-lg">
-          {filteredEmojis.length > 0 ? (
-            <VirtuosoGrid
-              style={{ height: 464 }}
-              totalCount={filteredEmojis.length}
-              components={{
-                List: GridList,
-                Item: GridItem,
-              }}
-              itemContent={(index) => (
-                <Card
-                  isPressable
-                  className="flex items-center justify-center border border-default-100 p-4 h-full bg-transparent"
-                  title={filteredEmojis[index]?.name}
-                >
-                  <Image
-                    alt=""
-                    disableAnimation
-                    radius="none"
-                    removeWrapper
-                    src={filteredEmojis[index]?.source}
-                    className="h-14 w-14 object-contain"
-                  />
-                </Card>
-              )}
-            />
-          ) : (
-            <p>Nothing found 😑</p>
-          )}
-        </UIView>
-      )}
+      <UIView className="flex flex-col flex-1" ref={ref}>
+        <UIVirtualizeGrid
+          {...props}
+          items={filteredEmojis}
+          height={calculatedHeight}
+          emptyContent={
+            <UIView className="flex-1 flex flex-col items-center justify-center">
+              <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                No items available
+              </span>
+            </UIView>
+          }
+        />
+      </UIView>
     </UIView>
   );
 };

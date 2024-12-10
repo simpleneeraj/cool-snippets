@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IconElement = () => {
-  return <div>IconElement</div>;
+const IconElement = (props: React.ComponentPropsWithoutRef<'img'>) => {
+  return <img {...props} />;
 };
 export default IconElement;

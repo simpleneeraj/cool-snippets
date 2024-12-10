@@ -1,95 +1,119 @@
 import { create } from 'zustand';
-import initialState from './initial-state';
-import { immer } from 'zustand/middleware/immer';
+import initialState from './state';
+import { assign, merge } from 'lodash';
+import { persist } from 'zustand/middleware';
 import { generateID } from '@/utils/id-generator';
-import { SlideActionType, SlideStateType } from '@/typings/editor';
+import { SlideActionType, SlideStateType, StorageEnum } from '@/typings/editor';
 
 const useSlide = create(
-  immer<SlideStateType & SlideActionType>((set) => ({
-    ...initialState,
-    createSlide: (slide) => {
-      set((state) => {
-        state.slides.push(slide);
-      });
-    },
+  persist<SlideStateType & SlideActionType>(
+    (set) => ({
+      ...initialState,
 
-    updateSlide: (id, updatedSlide) => {
-      set((state) => {
-        const slide = state.slides.find((slide) => slide.id === id);
-        if (slide) {
-          Object.assign(slide, updatedSlide);
-        }
-      });
-    },
+      createSlide: (slide) => {
+        set((state) => ({
+          slides: [...state.slides, slide],
+        }));
+      },
 
-    deleteSlide: (id) => {
-      set((state) => {
-        state.slides = state.slides.filter((slide) => slide.id !== id);
-      });
-    },
+      updateSlide: (id, updatedSlide) => {
+        set((state) => ({
+          slides: state.slides.map((slide) =>
+            slide.id === id ? assign({}, slide, updatedSlide) : slide
+          ),
+        }));
+      },
 
-    duplicateSlide: (id) => {
-      set((state) => {
-        const slideToDuplicate = state.slides.find((slide) => slide.id === id);
-        if (slideToDuplicate) {
-          const duplicatedSlide = {
-            ...slideToDuplicate,
-            id: generateID(),
-            name: `${slideToDuplicate.name} (Copy)`,
-          };
-          state.slides.push(duplicatedSlide);
-        }
-      });
-    },
+      deleteSlide: (id) => {
+        set((state) => ({
+          slides: state.slides.filter((slide) => slide.id !== id),
+        }));
+      },
 
-    createSlideElement: (slideId, element) => {
-      set((state) => {
-        const slide = state.slides.find((slide) => slide.id === slideId);
-        if (slide) {
-          slide.elements.push(element);
-        }
-      });
-    },
-
-    updateSlideElement: (slideId, elementId, updatedElement) => {
-      set((state) => {
-        const slide = state.slides.find((slide) => slide.id === slideId);
-        if (slide) {
-          const element = slide.elements.find((e) => e.id === elementId);
-          if (element) {
-            Object.assign(element, updatedElement);
-          }
-        }
-      });
-    },
-
-    deleteSlideElement: (slideId, elementId) => {
-      set((state) => {
-        const slide = state.slides.find((slide) => slide.id === slideId);
-        if (slide) {
-          slide.elements = slide.elements.filter((e) => e.id !== elementId);
-        }
-      });
-    },
-
-    duplicateSlideElement: (slideId, elementId) => {
-      set((state) => {
-        const slide = state.slides.find((slide) => slide.id === slideId);
-        if (slide) {
-          const elementToDuplicate = slide.elements.find(
-            (e) => e.id === elementId
+      duplicateSlide: (id) => {
+        set((state) => {
+          const slideToDuplicate = state.slides.find(
+            (slide) => slide.id === id
           );
-          if (elementToDuplicate) {
-            const duplicatedElement = {
-              ...elementToDuplicate,
+          if (slideToDuplicate) {
+            const duplicatedSlide = merge({}, slideToDuplicate, {
               id: generateID(),
+              name: `${slideToDuplicate.name} (Copy)`,
+            });
+            return {
+              slides: [...state.slides, duplicatedSlide],
             };
-            slide.elements.push(duplicatedElement);
           }
-        }
-      });
-    },
-  }))
+          return state;
+        });
+      },
+
+      createSlideElement: (slideId, element) => {
+        set((state) => ({
+          slides: state.slides.map((slide) =>
+            slide.id === slideId
+              ? { ...slide, elements: [...slide.elements, element] }
+              : slide
+          ),
+        }));
+      },
+
+      updateSlideElement: (slideId, elementId, updatedElement) => {
+        set((state) => ({
+          slides: state.slides.map((slide) =>
+            slide.id === slideId
+              ? {
+                  ...slide,
+                  elements: slide.elements.map((el) =>
+                    el.id === elementId ? assign({}, el, updatedElement) : el
+                  ),
+                }
+              : slide
+          ),
+        }));
+      },
+
+      deleteSlideElement: (slideId, elementId) => {
+        set((state) => ({
+          slides: state.slides.map((slide) =>
+            slide.id === slideId
+              ? {
+                  ...slide,
+                  elements: slide.elements.filter((e) => e.id !== elementId),
+                }
+              : slide
+          ),
+        }));
+      },
+
+      duplicateSlideElement: (slideId, elementId) => {
+        set((state) => {
+          const slide = state.slides.find((slide) => slide.id === slideId);
+          if (slide) {
+            const elementToDuplicate = slide.elements.find(
+              (e) => e.id === elementId
+            );
+            if (elementToDuplicate) {
+              const duplicatedElement = merge({}, elementToDuplicate, {
+                id: generateID(),
+              });
+              return {
+                slides: state.slides.map((s) =>
+                  s.id === slideId
+                    ? { ...s, elements: [...s.elements, duplicatedElement] }
+                    : s
+                ),
+              };
+            }
+          }
+          return state;
+        });
+      },
+    }),
+    {
+      name: StorageEnum.NAME,
+    }
+  )
 );
 
 export default useSlide;

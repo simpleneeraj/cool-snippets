@@ -18,7 +18,7 @@ import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { SlideHeaderType } from '@/typings/editor';
 
 const HeaderScreen: React.FC = () => {
-  const { onOpen, onOpenChange, isOpen } = useDisclosure();
+  const { onOpen, onClose, onOpenChange, isOpen } = useDisclosure();
   const { currentElement, onChangeSlideElement } = useSlideEditor();
   const { header } = currentElement || {};
   const { type, position, input, variant, properties } = header || {};
@@ -37,12 +37,16 @@ const HeaderScreen: React.FC = () => {
   return (
     <Frame title="CODE HEADER">
       <IconPicker
-        value={{ url: properties?.title?.icon }}
-        onSelectIcon={(value) =>
-          onChangeValues('properties', { title: { icon: value?.url } })
-        }
         isOpen={isOpen}
+        onClose={onClose}
         onOpenChange={onOpenChange}
+        value={{
+          name: '',
+          source: properties?.title?.icon as string,
+        }}
+        onSelectIcon={(value) =>
+          onChangeValues('properties', { title: { icon: value?.source } })
+        }
       />
       <FrameItem divider className="flex-1 justify-between">
         <div className="flex items-center gap-2">

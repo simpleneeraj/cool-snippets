@@ -44,7 +44,7 @@ const initialState = {
             "import SwiftUI\n\nstruct CircleImage: View {\n  var body: some View {\n    Image('turtlerock')\n      .clipShape(Circle())\n  }\n}",
           style: {
             width: '90%',
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: 400,
             lineHeight: 1.6,
             letterSpacing: 0,
@@ -71,7 +71,7 @@ const initialState = {
           header: {
             type: 'unix::terminal',
             variant: 'outline',
-            input: 'none',
+            input: 'icon',
             position: 'left',
             style: {
               background: 'rgba(0, 0, 0, 0.75)',
@@ -92,7 +92,7 @@ const initialState = {
                 },
               ],
               title: {
-                text: 'My Application',
+                text: 'app.swift',
                 icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
               },
             },

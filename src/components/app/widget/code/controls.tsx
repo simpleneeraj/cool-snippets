@@ -19,9 +19,6 @@ const Controls: React.FC<ControlsProps> = () => {
     });
   };
 
-  // useHotkeys([Key.Shift, Key.Plus].join(Key.Plus), () => zoomIn());
-  // useHotkeys([Key.Shift, Key.Zero].join(Key.Add), () => zoomTo(1));
-
   return (
     <UIView className="absolute bottom-0 left-0 z-50 w-full flex justify-between">
       <UIView className="flex items-center backdrop-blur p-2 rounded-xl overflow-hidden bg-black/40">
@@ -40,14 +37,16 @@ const Controls: React.FC<ControlsProps> = () => {
             <SolarMinimalisticMagniferZoomInLinear className="h-4 w-4" />
           </UIIconButton>
         </Tooltip>
-        <UIIconButton
-          isIconOnly
-          variant="flat"
-          size="sm"
-          onPress={onResetViewport}
-        >
-          <FluentTableCursor20Regular />
-        </UIIconButton>
+        <Tooltip placement="bottom" content="Reset Viewport (⌘⇧0)">
+          <UIIconButton
+            isIconOnly
+            variant="flat"
+            size="sm"
+            onPress={onResetViewport}
+          >
+            <FluentTableCursor20Regular />
+          </UIIconButton>
+        </Tooltip>
       </UIView>
     </UIView>
   );

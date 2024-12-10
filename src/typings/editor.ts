@@ -6,6 +6,9 @@ import { HeaderInputType, HeaderVariants } from './templates';
 
 export type Pairs = Record<string, any>;
 
+export enum StorageEnum {
+  NAME = 'CRYSTAL_STORE',
+}
 export enum InitialValues {
   SLIDE_ID = 'initial_slide_id',
   ELEMENT_ID = 'initial_element_id',

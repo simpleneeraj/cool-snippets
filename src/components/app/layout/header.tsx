@@ -21,6 +21,7 @@ import { BitcoinIconsMagicWandFilled } from '@/ui-kit/icons/BitcoinIconsMagicWan
 
 const AppHeader = () => {
   const { isLoading, onExport } = useExport();
+
   return (
     <UIView className={`flex items-center justify-between p-2 pb-0 z-50`}>
       <UIView className={'flex items-center gap-2'}>
@@ -40,9 +41,12 @@ const AppHeader = () => {
               Untitle code snippet
               <TitleChangerComponent />
             </h4>
-            <UIView className="">
+            <UIView className="flex items-center gap-2">
               <Chip size="sm" variant="dot" color="success">
                 Introducing {appConfig.version}
+              </Chip>
+              <Chip size="sm" variant="flat" color="warning">
+                {appConfig.environment}
               </Chip>
             </UIView>
           </UIView>
