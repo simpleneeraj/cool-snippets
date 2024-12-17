@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { isEqual, startCase } from 'lodash';
 import UIView from '@/ui-kit/source/UIView';
@@ -13,66 +14,75 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
   onSelectIcon,
   gridCount = 3,
   emptyContent,
+  children,
 }) => {
+  const gridComponents = React.useMemo(
+    () => ({
+      Item: (props: any) => (
+        <UIView
+          {...props}
+          className={cn(`p-1 flex flex-none items-center`, props.className)}
+          style={{
+            width: `${100 / gridCount}%`,
+          }}
+        />
+      ),
+      List: (props: any) => (
+        <UIView {...props} className={cn(`flex flex-wrap`, props.className)} />
+      ),
+    }),
+    [gridCount]
+  );
+
+  const renderItemContent = React.useCallback(
+    (index: number) => {
+      const currentItem = items?.[index];
+      const activeItem = isEqual(value, currentItem);
+
+      if (children) {
+        return children({ currentItem, activeItem });
+      }
+
+      return (
+        <Card
+          key={index}
+          isPressable
+          title={currentItem?.name}
+          className={cn(
+            'w-full flex items-center justify-center border border-default-100 p-4 h-full bg-transparent transition-all',
+            'hover:border hover:border-default-200 hover:bg-default-100',
+            activeItem && 'border border-default-200 bg-default-100'
+          )}
+          onClick={() => onSelectIcon?.(currentItem)}
+        >
+          <Image
+            disableAnimation
+            radius="none"
+            removeWrapper
+            src={currentItem?.source}
+            className={cn(
+              'object-contain',
+              showTitle ? 'h-12 w-12' : 'h-14 w-14'
+            )}
+            alt={currentItem?.name}
+          />
+          {showTitle && (
+            <p className="text-[10px] mt-1">{startCase(currentItem?.name)}</p>
+          )}
+        </Card>
+      );
+    },
+    [items, value, children, onSelectIcon, showTitle]
+  );
+
   return (
     <UIView className="p-1 flex-1 flex flex-col w-full overflow-auto border border-default-100 rounded-2xl">
-      {items && items?.length > 0 ? (
+      {items && items.length > 0 ? (
         <VirtuosoGrid
           style={{ height }}
           totalCount={items.length}
-          components={{
-            Item: (props) => (
-              <UIView
-                {...props}
-                className={cn(
-                  `p-2 flex flex-none items-center`,
-                  props.className
-                )}
-                style={{
-                  width: 100 / gridCount + '%',
-                }}
-              />
-            ),
-            List: (props) => (
-              <UIView
-                {...props}
-                className={cn(`flex flex-wrap`, props.className)}
-              />
-            ),
-          }}
-          itemContent={(index) => {
-            const currentItem = items[index];
-            const active = isEqual(value, currentItem);
-            return (
-              <Card
-                isPressable
-                title={currentItem?.name}
-                className={cn(
-                  'w-full flex items-center justify-center border border-default-100 p-4 h-full bg-transparent transition-all',
-                  'hover:border hover:border-default-200 hover:bg-default-100',
-                  active && 'border border-default-200 bg-default-100'
-                )}
-                onPress={() => onSelectIcon?.(currentItem)}
-              >
-                <Image
-                  disableAnimation
-                  radius="none"
-                  removeWrapper
-                  src={currentItem?.source}
-                  className={cn(
-                    'object-contain',
-                    showTitle ? 'h-12 w-12' : 'h-14 w-14'
-                  )}
-                  alt={currentItem?.name}
-                />
-                {showTitle && (
-                  <p className="text-[10px] mt-1">
-                    {startCase(currentItem?.name)}
-                  </p>
-                )}
-              </Card>
-            );
-          }}
+          components={gridComponents}
+          itemContent={renderItemContent}
         />
       ) : (
         <UIView
@@ -86,4 +96,4 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
   );
 };
 
-export default UIVirtualizeGrid;
+export default React.memo(UIVirtualizeGrid);

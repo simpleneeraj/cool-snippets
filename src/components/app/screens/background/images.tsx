@@ -13,6 +13,8 @@ import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegula
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
 import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
 import { BackgroundScreenTypes } from './types';
+import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
 
 enum ImageType {
   POPULAR = 'popular',
@@ -35,27 +37,12 @@ const imagesSegment = [
   },
 ];
 
-// const query = gql`
-//   query Query($query: String) {
-//     searchPhoto(query: $query) {
-//       id
-//       urls {
-//         full
-//         regular
-//         small
-//       }
-//       links {
-//         html
-//         self
-//       }
-//     }
-//   }
-// `;
-
 const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
   value,
   onChange,
 }) => {
+  const [ref, height] = useDynamicHeight();
+  const calculatedHeight = height - 90;
   const images = Json;
   const [currentImageTab, setCurrentImagetab] = useImmer(ImageType.UNSPLASH);
 
@@ -95,116 +82,92 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
         </UIView>
       </FrameItem>
       <FrameItem divider={false}>
-        <UIView className="flex flex-col gap-2 ">
-          {images &&
-            images?.length > 0 &&
-            images?.map((item, index) => (
-              <Card
-                key={index}
-                fullWidth
-                radius="lg"
-                isFooterBlurred
-                className="w-full group sm:cursor-pointer"
-              >
-                <figure>
-                  <Image
-                    removeWrapper
-                    alt="Woman listing to music"
-                    className="object-cover w-full h-full min-h-40 max-h-52"
-                    src={String(item?.urls?.regular)}
-                  />
-                </figure>
-                <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
-                  <UIView className="w-full flex items-center justify-between">
-                    <UIView className="flex items-center gap-2">
-                      <UIButton
-                        size="sm"
-                        variant="flat"
-                        color="default"
-                        target={'_blank'}
-                        href={item?.urls?.regular}
-                        className="text-tiny bg-black/40"
-                        onPress={() => onChange?.(item?.urls?.regular)}
-                      >
-                        {value !== item?.urls?.regular ? 'Use' : 'Selected'}
-                      </UIButton>
-                      <Tooltip content="Magical AI" size="sm">
+        <UIView className="flex flex-col flex-1 w-full" ref={ref}>
+          <UIVirtualizeGrid
+            value={value}
+            items={images || []}
+            height={calculatedHeight}
+            emptyContent={
+              <UIView className="flex-1 flex flex-col items-center justify-center">
+                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                  No items available
+                </span>
+              </UIView>
+            }
+            gridCount={1}
+          >
+            {({ currentItem }) => {
+              return (
+                <Card
+                  fullWidth
+                  radius="lg"
+                  isFooterBlurred
+                  key={currentItem?.id}
+                  className="w-full group sm:cursor-pointer"
+                >
+                  <figure>
+                    <Image
+                      disableAnimation
+                      disableSkeleton
+                      removeWrapper
+                      alt="Woman listing to music"
+                      className="object-cover w-full h-full min-h-40 max-h-52"
+                      src={String(currentItem?.urls?.regular)}
+                    />
+                  </figure>
+                  <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
+                    <UIView className="w-full flex items-center justify-between">
+                      <UIView className="flex items-center gap-2">
                         <UIButton
                           size="sm"
                           variant="flat"
                           color="default"
                           target={'_blank'}
+                          href={currentItem?.urls?.regular}
+                          className="text-tiny bg-black/40"
+                          onPress={() => onChange?.(currentItem?.urls?.regular)}
+                        >
+                          {value !== currentItem?.urls?.regular
+                            ? 'Use'
+                            : 'Used'}
+                        </UIButton>
+                        <Tooltip content="Magical AI" size="sm">
+                          <UIButton
+                            size="sm"
+                            variant="flat"
+                            color="default"
+                            target={'_blank'}
+                            isIconOnly
+                            href={currentItem?.urls?.regular}
+                            className="text-tiny bg-black/40"
+                          >
+                            <FluentCropSparkleRegular />
+                          </UIButton>
+                        </Tooltip>
+                      </UIView>
+                      <UIView className="flex items-center gap-2">
+                        <UIButton
+                          as={Link}
+                          size="sm"
                           isIconOnly
-                          href={item?.urls?.regular}
+                          variant="flat"
+                          color="default"
+                          target={'_blank'}
+                          href={currentItem.urls.regular}
                           className="text-tiny bg-black/40"
                         >
-                          <FluentCropSparkleRegular />
+                          <UnsplashIcon />
                         </UIButton>
-                      </Tooltip>
+                      </UIView>
                     </UIView>
-                    <UIView className="flex items-center gap-2">
-                      <UIButton
-                        as={Link}
-                        size="sm"
-                        isIconOnly
-                        variant="flat"
-                        color="default"
-                        target={'_blank'}
-                        href={item.urls.regular}
-                        className="text-tiny bg-black/40"
-                      >
-                        <UnsplashIcon />
-                      </UIButton>
-                    </UIView>
-                  </UIView>
-                </CardFooter>
-              </Card>
-            ))}
+                  </CardFooter>
+                </Card>
+              );
+            }}
+          </UIVirtualizeGrid>
         </UIView>
       </FrameItem>
     </UIView>
   );
 };
 export default ImagesBackground;
-
-{
-  /* <UIButton isIconOnly size={'sm'} variant={'flat'} onPress={onSearch}>
-            <SparklesIcon />
-          </UIButton> */
-}
-{
-  /* <UIView className="flex flex-wrap items-center gap-1">
-          <Chip
-            size="sm"
-            variant="flat"
-            color="default"
-            className="text-[10px] text-default-500 cursor-pointer select-none"
-          >
-            Wallpapers
-          </Chip>
-          <Chip
-            size="sm"
-            variant="flat"
-            color="default"
-            className="text-[10px] text-default-500 cursor-pointer select-none"
-          >
-            Gradients
-          </Chip>
-          <Chip
-            size="sm"
-            variant="flat"
-            color="default"
-            className="text-[10px] text-default-500 cursor-pointer select-none"
-          >
-            Abstract
-          </Chip>
-          <Chip
-            size="sm"
-            variant="flat"
-            color="default"
-            className="text-[10px] text-default-500 cursor-pointer select-none"
-          >
-            Mesh
-          </Chip>
-        </UIView> */
-}

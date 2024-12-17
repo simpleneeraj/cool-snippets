@@ -14,7 +14,7 @@ import materialDark from './material-dark';
 import solarizedDark from './solarized-dark';
 import solarizedLight from './solarized-light';
 import { duotoneDark, duotoneLight } from './duotone';
-
+import { xcodeDark, xcodeLight } from '@uiw/codemirror-theme-xcode';
 const themes = {
   Abcdef: abcdef,
   'Basic Dark': basicDark,
@@ -33,6 +33,8 @@ const themes = {
   'Solarized Dark': solarizedDark,
   'Solarized Light': solarizedLight,
   Sublime: sublime,
+  xcodeDark: () => xcodeDark,
+  xcodeLight: () => xcodeLight,
 };
 
 export enum ThemesEnum {
@@ -53,6 +55,8 @@ export enum ThemesEnum {
   SOLARIZED_DARK = 'Solarized Dark',
   SOLARIZED_LIGHT = 'Solarized Light',
   SUBLIME = 'Sublime',
+  xcodeDark = 'xcodeDark',
+  xcodeLight = 'xcodeLight',
 }
 
 export default themes;

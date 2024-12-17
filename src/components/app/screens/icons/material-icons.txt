@@ -1,20 +1,13 @@
 import React from 'react';
 import { useImmer } from 'use-immer';
 import UIView from '@/ui-kit/source/UIView';
-import { PickerProps } from '@/typings/icon-picker';
+import { IconProviders, PickerProps } from '@/typings/icon-picker';
 import { capitalize, sortBy, subtract } from 'lodash';
 import { Input, Select, SelectItem } from '@nextui-org/react';
-import files from '@/plugins/material-icons/fileIcons.json';
-import folder from '@/plugins/material-icons/folderIcons.json';
-import language from '@/plugins/material-icons/languageIcons.json';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
 import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useIcons from '@/server/icons/hooks/use-icons';
 
-type Icon = {
-  name: string;
-  source: string;
-  category: string[];
-};
 // Enum for icon types
 enum IconTypes {
   ALL = '',
@@ -31,34 +24,11 @@ export default function MaterialIconsPicker(props: PickerProps) {
     searchTerm: '',
   });
 
-  // Combine all datasets into a unified format
-  const availableIcons = React.useMemo(() => {
-    const transformData = (data: Icon[], category: string) =>
-      data.map((icon) => ({
-        ...icon,
-        category: [...icon?.category, category].filter?.(Boolean),
-      }));
-
-    return [
-      ...transformData(files, 'file'),
-      ...transformData(folder, 'folder'),
-      ...transformData(language, 'language'),
-    ];
-  }, []);
-
-  // Filter icons based on selected type and search term
-  const filteredIcons = React.useMemo(() => {
-    return availableIcons.filter((icon) => {
-      const isMatchingType =
-        !state.selectedType || icon?.category?.includes(state.selectedType);
-
-      const isMatchingSearch =
-        !state.searchTerm ||
-        icon.name.toLowerCase().includes(state.searchTerm.toLowerCase());
-
-      return isMatchingType && isMatchingSearch;
-    });
-  }, [state, availableIcons]);
+  const query = useIcons({
+    provider: IconProviders.MATERIAL_ICONS,
+    type: state?.selectedType,
+    query: state.searchTerm,
+  });
 
   return (
     <UIView className="flex-1 flex flex-col min-h-[300px]">
@@ -103,7 +73,7 @@ export default function MaterialIconsPicker(props: PickerProps) {
       <UIView className="flex flex-col flex-1" ref={ref}>
         <UIVirtualizeGrid
           {...props}
-          items={filteredIcons}
+          items={query.data?.icons || []}
           height={calculatedHeight}
           emptyContent={
             <UIView className="flex-1 flex flex-col items-center justify-center">

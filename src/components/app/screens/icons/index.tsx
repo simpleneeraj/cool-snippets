@@ -4,21 +4,22 @@ import IconContainer from './container';
 import UIView from '@/ui-kit/source/UIView';
 import { Tab, Tabs } from '@nextui-org/react';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { IconCategory, PickerIconType } from '@/typings/icon-picker';
+import { IconProviders, PickerIconType } from '@/typings/icon-picker';
 
 const items = [
-  { name: 'Twitter Emoji', key: IconCategory.TWITTER },
-  { name: 'Fluent Emoji', key: IconCategory.FLUENT },
-  { name: 'Material Icons', key: IconCategory.GOOGLE },
-  { name: 'Icons', key: IconCategory.ICONS },
+  { name: 'Twitter Emoji', key: IconProviders.TWITTER },
+  { name: 'Fluent Emoji', key: IconProviders.FLUENTUI },
+  { name: 'Material Icons', key: IconProviders.MATERIAL_ICONS },
+  { name: 'Neon Symbols', key: IconProviders.VSCODE_SYMBOLS },
 ];
+
 const IconsScreen = () => {
   const { createSlideElement, currentSlideId } = useSlideEditor();
   const [selectedIcon, setSelectedIcon] = React.useState<PickerIconType | null>(
     null
   );
-  const [activeCategory, setActiveCategory] = React.useState<IconCategory>(
-    IconCategory.TWITTER
+  const [activeCategory, setActiveCategory] = React.useState<IconProviders>(
+    IconProviders.TWITTER
   );
 
   const onSelectElement = React.useCallback(
@@ -47,13 +48,13 @@ const IconsScreen = () => {
         size="sm"
         variant="light"
         aria-label="Options"
-        onSelectionChange={(key) => setActiveCategory(key as IconCategory)}
+        onSelectionChange={(key) => setActiveCategory(key as IconProviders)}
       >
         {items?.map((item) => <Tab key={item.key} title={item.name}></Tab>)}
       </Tabs>
       <IconContainer
         gridCount={3}
-        type={activeCategory}
+        provider={activeCategory}
         value={selectedIcon!}
         onSelectIcon={onSelectElement}
       />

@@ -13,3 +13,31 @@
 6. Handle search functionality correctly.
 7. Proper handling of type and specification properties.
 8. Implement an improved search algorithm.
+
+Done all the changes
+
+<!-- To Do  -->
+
+Themes and Languages should be update
+
+providers - vscode-symbols | material-icons | twitter emoji | fluentui
+
+Type by providers
+
+- vscode-symbols | material-icons
+  => type - file folder language
+
+- fluentui
+  => type - flat | modern
+  groups - twitter
+
+Merge to One Only
+
+- twitter emoji
+  => type
+
+** Emoji API need to be Integrated**
+
+<!-- To Do  -->
+
+- Make a proper flow and drag and drop system

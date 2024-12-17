@@ -5,7 +5,7 @@ import UIView from '@/ui-kit/source/UIView';
 import IconsIcon from '@/ui-kit/icons/IconsIcon';
 import OptionsIcon from '@/ui-kit/icons/OptionsIcon';
 import { SEGMENT_SCREEN } from '@/typings/enums';
-import ElementsIcon from '@/ui-kit/icons/ElementsIcon';
+// import ElementsIcon from '@/ui-kit/icons/ElementsIcon';
 import UIButton from '@/ui-kit/source/UIButton/button';
 import BackgroundIcon from '@/ui-kit/icons/BackgroundIcon';
 import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
@@ -74,11 +74,11 @@ const tabs: Tab[] = [
     value: SEGMENT_SCREEN.BACKGROUNDS,
     icon: BackgroundIcon,
   },
-  {
-    name: 'Elements',
-    value: SEGMENT_SCREEN.ELEMENTS,
-    icon: ElementsIcon,
-  },
+  // {
+  //   name: 'Elements',
+  //   value: SEGMENT_SCREEN.ELEMENTS,
+  //   icon: ElementsIcon,
+  // },
   {
     name: 'Icons',
     value: SEGMENT_SCREEN.ICONS,

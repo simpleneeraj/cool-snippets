@@ -28,6 +28,7 @@ const useDynamicHeight = () => {
       window.removeEventListener('resize', calculateHeight);
     };
   }, []);
+
   return [ref, height] as const;
 };
 export default useDynamicHeight;

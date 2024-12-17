@@ -1,7 +1,7 @@
 import React from 'react';
 import UIView from '@/ui-kit/source/UIView';
 import {
-  IconCategory,
+  IconProviders,
   PickerIconType,
   PickerProps,
 } from '@/typings/icon-picker';
@@ -16,30 +16,23 @@ import {
 import { Modal, ModalBody, ModalHeader, ModalContent } from '@nextui-org/react';
 import { startCase } from 'lodash';
 import IconContainer from '../../icons/container';
+import UILoadingFallback from '@/ui-kit/components/UILoadingFallback';
 
 type Props = PickerProps & Omit<ModalProps, 'children'>;
 
-const LoaderFallback = () => (
-  <UIView className="flex-1 flex flex-col items-center justify-center min-h-96 border border-default-100 rounded-2xl">
-    <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
-      Loading...
-    </span>
-  </UIView>
-);
-
 const items = [
-  { name: 'Twitter Emoji', key: IconCategory.TWITTER },
-  { name: 'Fluent Emoji', key: IconCategory.FLUENT },
-  { name: 'Material Icons', key: IconCategory.GOOGLE },
-  { name: 'Icons', key: IconCategory.ICONS },
+  { name: 'Twitter Emoji', key: IconProviders.TWITTER },
+  { name: 'Fluent Emoji', key: IconProviders.FLUENTUI },
+  { name: 'Material Icons', key: IconProviders.MATERIAL_ICONS },
+  { name: 'Neon Symbols', key: IconProviders.VSCODE_SYMBOLS },
 ];
 
 const IconPicker: React.FC<Props> = (props) => {
   const [selectedIcon, setSelectedIcon] = React.useState<PickerIconType | null>(
     null
   );
-  const [activeCategory, setActiveCategory] = React.useState<IconCategory>(
-    IconCategory.TWITTER
+  const [activeCategory, setActiveCategory] = React.useState<IconProviders>(
+    IconProviders.TWITTER
   );
 
   const onSelectIcon = React.useCallback((icon: PickerIconType) => {
@@ -69,7 +62,7 @@ const IconPicker: React.FC<Props> = (props) => {
               aria-label="Options"
               isVertical
               onSelectionChange={(key) =>
-                setActiveCategory(key as IconCategory)
+                setActiveCategory(key as IconProviders)
               }
             >
               {items.map((item) => (
@@ -78,10 +71,10 @@ const IconPicker: React.FC<Props> = (props) => {
             </Tabs>
           </UIView>
           <UIView className="flex-1">
-            <React.Suspense fallback={<LoaderFallback />}>
+            <React.Suspense fallback={<UILoadingFallback />}>
               <IconContainer
                 gridCount={4}
-                type={activeCategory}
+                provider={activeCategory}
                 value={selectedIcon!}
                 onSelectIcon={onSelectIcon}
               />

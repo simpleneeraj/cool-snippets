@@ -35,7 +35,16 @@ const BackgroundScreens = () => {
   const RenderScreen = React.useMemo(() => {
     switch (screen.background) {
       case BACKGROUND_SCREEN.SOLID:
-        return <SolidBackgrounds />;
+        return (
+          <SolidBackgrounds
+            value={
+              currentSlide?.background?.properties?.[BACKGROUND_TYPE.COLOR]
+            }
+            onChange={(gradient) =>
+              onUpdateBackground(BACKGROUND_TYPE.COLOR, gradient)
+            }
+          />
+        );
       case BACKGROUND_SCREEN.GRADIENTS:
         return (
           <GradientsBackgrounds
@@ -61,7 +70,16 @@ const BackgroundScreens = () => {
       case BACKGROUND_SCREEN.MESH:
         return <MeshBackgrounds />;
       case BACKGROUND_SCREEN.PATTERNS:
-        return <PatternsBackgrounds />;
+        return (
+          <PatternsBackgrounds
+            value={
+              currentSlide?.background?.properties?.[BACKGROUND_TYPE.PATTERN]
+            }
+            onChange={(gradient) =>
+              onUpdateBackground(BACKGROUND_TYPE.PATTERN, gradient)
+            }
+          />
+        );
       default:
         return <ImagesBackgrounds />;
     }

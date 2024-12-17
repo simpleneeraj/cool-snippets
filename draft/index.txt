@@ -1,0 +1,12 @@
+// https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons/3d.svg
+
+import { startCase } from 'lodash';
+import { folderIcons } from './folderIcons';
+
+const BASE_URL = `https://cdn.statically.io/gh/simpleneeraj/vscode-material-icon-theme/main/icons`;
+
+export const _fileIcons = folderIcons.map((item) => ({
+  name: startCase(item?.name),
+  source: BASE_URL + '/' + item?.name + '.svg',
+  category: ['folder', ...(item.folderNames || [])].filter(Boolean),
+}));
