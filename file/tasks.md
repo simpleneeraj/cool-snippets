@@ -41,3 +41,23 @@ Merge to One Only
 <!-- To Do  -->
 
 - Make a proper flow and drag and drop system
+- API Development and authentication
+
+<!-- To Do -->
+
+- Landing Page and Related Page Should be developed
+
+  - Hero Banner
+  - Features
+  - Testimonial
+  - Pricing
+  - Faq
+
+- Pricing Page should be complete today only
+- Integrate Stripe Today only
+- Turborepo we will integrate later
+
+<!-- TO DO -->
+
+- Stripe Integration and Auth management
+- Dashboard and Higlight

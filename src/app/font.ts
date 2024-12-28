@@ -1,7 +1,15 @@
-import { Inter } from 'next/font/google';
+import { cn } from '@nextui-org/react';
+import { Kablammo, Nothing_You_Could_Do } from 'next/font/google';
 
-export const inter = Inter({
+const kablammo = Kablammo({
   subsets: ['latin'],
   weight: 'variable',
-  variable: '--inter',
+  variable: '--kablammo',
 });
+const nothingYouCouldDo = Nothing_You_Could_Do({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--nothing-you-could-do',
+});
+
+export default cn(kablammo.variable, nothingYouCouldDo.variable);
