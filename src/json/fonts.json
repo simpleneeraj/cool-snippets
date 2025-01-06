@@ -124,11 +124,7 @@
     "value": "MonoidRetina",
     "src": "/fonts/Monoid/Monoid-Retina.ttf"
   },
-  {
-    "name": "MonoLisa",
-    "value": "MonoLisa",
-    "src": "/fonts/Monolisa/MonoLisa.woff2"
-  },
+
   {
     "name": "Operator Mono",
     "value": "OperatorMono",

@@ -5,14 +5,14 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from '@nextui-org/react';
-import HighlighterIcon from '@/ui-kit/icons/HighlighterIcon';
+import { Icon } from '@iconify/react';
 
 export default function TitleChangerComponent() {
   return (
     <Popover placement="bottom-start" backdrop="opaque">
       <PopoverTrigger>
         <Button size="sm" variant="light" isIconOnly>
-          <HighlighterIcon className="h-4 w-4" />
+          <Icon icon={'solar:pen-2-line-duotone'} className={'h-5 w-5'} />
         </Button>
       </PopoverTrigger>
       <PopoverContent>

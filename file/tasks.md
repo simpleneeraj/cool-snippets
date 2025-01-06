@@ -61,3 +61,8 @@ Merge to One Only
 
 - Stripe Integration and Auth management
 - Dashboard and Higlight
+- Think And Then Do
+
+<!-- Create a Plan break that in smaller tasks -->
+
+- Pehle Plan Bana Le Londe

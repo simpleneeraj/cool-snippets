@@ -1,10 +1,14 @@
 import React from 'react';
 import WebLayout from '@/layouts/web';
+import UIFireflies from '@/ui-kit/components/UIFireflies';
 
 type WebLayoutProps = React.PropsWithChildren;
 
 const WebRootLayout: React.FC<WebLayoutProps> = ({ children }) => (
-  <WebLayout>{children}</WebLayout>
+  <WebLayout>
+    {children}
+    <UIFireflies />
+  </WebLayout>
 );
 
 export default WebRootLayout;

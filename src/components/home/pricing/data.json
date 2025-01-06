@@ -1,6 +1,10 @@
 [
   {
-    "name": "Free Limited Access",
+    "visual": {
+      "icon": "solar:code-circle-line-duotone",
+      "className": "h-7 w-7 text-default-500"
+    },
+    "name": "Free",
     "description": "Basic plan with limited access. Requires signup.",
     "price": {
       "unit": "month",
@@ -26,7 +30,11 @@
     ]
   },
   {
-    "name": "Pro Unlimited",
+    "visual": {
+      "icon": "solar:bolt-circle-line-duotone",
+      "className": "h-7 w-7 text-default-500"
+    },
+    "name": "Pro",
     "description": "Unlimited access except some features.",
     "price": {
       "unit": "month",
@@ -58,7 +66,11 @@
     ]
   },
   {
-    "name": "Premium with AI",
+    "visual": {
+      "icon": "solar:star-circle-line-duotone",
+      "className": "h-7 w-7 text-default-500"
+    },
+    "name": "Premium",
     "description": "Includes AI and all features from other plans.",
     "price": {
       "unit": "month",

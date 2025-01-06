@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import { nextui } from '@nextui-org/react';
+import typography from '@tailwindcss/typography';
 
 const widgetWidth = {
   'widget-sm': '280px',
@@ -60,6 +61,6 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [nextui(), typography()],
 };
 export default config;

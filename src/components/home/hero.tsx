@@ -6,6 +6,7 @@ import UISpotlight from '@/ui-kit/components/UISpotlight';
 import { AnimatedTooltip } from '@/ui-kit/components/UITooltip';
 import UIGridPattern from '@/ui-kit/components/UIBackgroundPattern/grid-pattern';
 import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import Link from 'next/link';
 
 type HeroSectionProps = object;
 
@@ -13,8 +14,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
   return (
     <UIView className="flex items-center justify-center w-full flex-col px-4">
       <UIView className="relative flex h-dvh w-full flex-col overflow-hidden bg-background">
-        <main className="container mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-8">
-          <section className="z-20 flex flex-col items-center justify-center gap-4 sm:gap-6">
+        <UIView className="container mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-8">
+          <UIView className="z-20 flex flex-col items-center justify-center gap-4 sm:gap-6">
             <UIGridPattern
               squares={[
                 [4, 4],
@@ -39,17 +40,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               className="-top-40 left-0 md:left-60 md:-top-20"
               fill="#9089fc"
             />
-
-            <UIAnimatedButton
-              duration={2}
-              className="flex items-center gap-2 text-sm text-default-500"
-            >
-              Make Every Post a Masterpiece with Crystal
-              <Icon
-                className="flex-none outline-none h-5 w-5"
-                icon="mynaui:chevron-right-waves"
-              />
-            </UIAnimatedButton>
+            <Link href="/studio">
+              <UIAnimatedButton
+                duration={2}
+                className="flex items-center gap-2 text-sm text-default-500"
+              >
+                Make Every Post a Masterpiece with Crystal
+                <Icon
+                  className="flex-none outline-none h-5 w-5"
+                  icon="mynaui:chevron-right-waves"
+                />
+              </UIAnimatedButton>
+            </Link>
             <UIView className="text-center py-6 md:py-10">
               <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                 Craft, Customize, <br /> and Share Code.
@@ -62,12 +64,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
             </UIView>
             <UIView className="flex flex-col items-center justify-center gap-6 sm:flex-row">
               <Button
-                className="h-10 w-[163px] bg-indigo-400 px-[16px] py-[10px] text-small font-medium leading-5 text-background"
+                as={Link}
+                href="/studio"
+                className=" w-40 bg-gradient-to-r from-lavender-frost to-periwinkle-glow px-4 py-2 text-small font-medium leading-5 text-background"
                 radius="full"
               >
-                Get Started
+                Start Creating
               </Button>
               <Button
+                as={Link}
+                href="/pricing"
                 className="h-10 w-[163px] border-1 border-default-100 px-[16px] py-[10px] text-small font-medium leading-5 backdrop-blur"
                 endContent={
                   <span className="pointer-events-none flex h-[22px] w-[22px] items-center justify-center rounded-full bg-default-100">
@@ -88,8 +94,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
             <UIView className="flex flex-row items-center justify-center mt-20 w-full">
               <AnimatedTooltip items={people} />
             </UIView>
-          </section>
-        </main>
+          </UIView>
+        </UIView>
       </UIView>
     </UIView>
   );

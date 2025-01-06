@@ -1,10 +1,10 @@
 import React from 'react';
-import WebLayout from '@/layouts/web';
+import PrivateLayout from '@/layouts/private';
 
 type WebLayoutProps = React.PropsWithChildren;
 
-const WebRootLayout: React.FC<WebLayoutProps> = ({ children }) => (
-  <WebLayout>{children}</WebLayout>
+const RootLayout: React.FC<WebLayoutProps> = ({ children }) => (
+  <PrivateLayout>{children}</PrivateLayout>
 );
 
-export default WebRootLayout;
+export default RootLayout;

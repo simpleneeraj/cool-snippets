@@ -7,21 +7,15 @@ import UIButton from '@/ui-kit/source/UIButton/button';
 import UIIconButton from '@/ui-kit/source/UIButton/icon';
 import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
 import UIView from '@/ui-kit/source/UIView';
-import UndoIcon from '@/ui-kit/icons/UndoIcon';
-import RedoIcon from '@/ui-kit/icons/RedoIcon';
-import CloudCheckIcon from '@/ui-kit/icons/CloudCheckIcon';
-import BookmarkIcon from '@/ui-kit/icons/BookmarkIcon';
 import { headerIcon } from '@/components/style/header';
-import useExport from './useExport';
 import appConfig from '@/constants/site';
 import TitleChangerComponent from './edit-title';
-import IonChevronBack from '@/ui-kit/icons/header/IonChevronBack';
-import SolarCrownBoldDuotone from '@/ui-kit/icons/header/SolarCrownBoldDuotone';
-import { BitcoinIconsMagicWandFilled } from '@/ui-kit/icons/BitcoinIconsMagicWandFilled';
+import { Icon } from '@iconify/react';
+import { useRouter } from 'next/navigation';
+import ExportDropdown from './export';
 
 const AppHeader = () => {
-  const { isLoading, onExport } = useExport();
-
+  const router = useRouter();
   return (
     <UIView className={`flex items-center justify-between p-2 pb-0 z-50`}>
       <UIView className={'flex items-center gap-2'}>
@@ -29,11 +23,15 @@ const AppHeader = () => {
         <UIIconButton
           size="sm"
           radius="sm"
-          variant="light"
+          variant="flat"
           title="Back"
           isIconOnly
+          onPress={router.back}
         >
-          <IonChevronBack className={headerIcon()} />
+          <Icon
+            icon={'solar:alt-arrow-left-line-duotone'}
+            className={headerIcon()}
+          />
         </UIIconButton>
         <UIView className={'flex flex-col'}>
           <UIView className="flex gap-2 items-center">
@@ -53,8 +51,11 @@ const AppHeader = () => {
           {/* Realtime editing timing */}
           <p className="flex items-center gap-1 text-xs text-default-500">
             Last Edited &middot; June 2022{' '}
-            <span className="flex items-center  justify-center">
-              <CloudCheckIcon className={headerIcon()} />
+            <span className="flex items-center justify-center">
+              <Icon
+                icon={'solar:cloud-check-bold-duotone'}
+                className={headerIcon()}
+              />
             </span>
           </p>
         </UIView>
@@ -63,13 +64,23 @@ const AppHeader = () => {
         <UIButtonGroup size="sm">
           <Tooltip size="sm" placement="bottom" content="Undo (⌘⇧Z)">
             <UIIconButton isIconOnly>
-              <UndoIcon className={headerIcon()} />
+              <Icon
+                icon={'solar:undo-left-round-bold-duotone'}
+                className={headerIcon({
+                  sizes: 'md',
+                })}
+              />
             </UIIconButton>
           </Tooltip>
           <UIDivider orientation="vertical" />
           <Tooltip size="sm" placement="bottom" content="Redo (⌘⇧Y)">
             <UIIconButton isIconOnly>
-              <RedoIcon className={headerIcon()} />
+              <Icon
+                icon={'solar:undo-right-round-bold-duotone'}
+                className={headerIcon({
+                  sizes: 'md',
+                })}
+              />
             </UIIconButton>
           </Tooltip>
         </UIButtonGroup>
@@ -78,7 +89,14 @@ const AppHeader = () => {
           size="sm"
           variant="flat"
           radius="sm"
-          startContent={<BitcoinIconsMagicWandFilled className={'h-5 w-5'} />}
+          startContent={
+            <Icon
+              icon={'solar:code-line-duotone'}
+              className={headerIcon({
+                sizes: 'md',
+              })}
+            />
+          }
         >
           Format Code
         </UIButton>
@@ -89,7 +107,14 @@ const AppHeader = () => {
           radius="sm"
           disabled
           color="secondary"
-          startContent={<BookmarkIcon className={headerIcon()} />}
+          startContent={
+            <Icon
+              icon={'solar:bookmark-square-minimalistic-line-duotone'}
+              className={headerIcon({
+                sizes: 'md',
+              })}
+            />
+          }
         >
           Save as template
         </UIButton>
@@ -101,19 +126,16 @@ const AppHeader = () => {
             variant="flat"
             isIconOnly
           >
-            <SolarCrownBoldDuotone />
+            <Icon
+              icon={'solar:crown-line-duotone'}
+              className={headerIcon({
+                sizes: 'md',
+              })}
+            />
           </UIButton>
         </Tooltip>
 
-        <UIButton
-          isLoading={isLoading}
-          onPress={onExport}
-          size="sm"
-          variant="flat"
-          radius="sm"
-        >
-          Save & Export
-        </UIButton>
+        <ExportDropdown />
       </UIView>
     </UIView>
   );

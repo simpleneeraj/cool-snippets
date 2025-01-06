@@ -18,20 +18,16 @@ import {
 import { cn } from '@nextui-org/react';
 import appConfig from '@/constants/site';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
+import headerData from '@/json/layout/public.json';
+import UserInfo from './user';
 
-const menuItems = [
-  'About',
-  'Blog',
-  'Customers',
-  'Pricing',
-  'Enterprise',
-  'Changelog',
-  'Documentation',
-  'Contact Us',
-];
+const menuItems = headerData.header?.links;
 
 export default function Header(props: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const pathname = usePathname();
 
   return (
     <Navbar
@@ -48,57 +44,63 @@ export default function Header(props: NavbarProps) {
       onMenuOpenChange={setIsMenuOpen}
     >
       {/* Left Content */}
-      <NavbarBrand className="gap-1 select-none">
-        <Icon className="h-4 w-4" icon={'token-branded:crystal'} />
-        <p className="font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
-          {appConfig.short_name}
-        </p>
-      </NavbarBrand>
+      <Link href={'/'} className="flex-1">
+        <NavbarBrand className="gap-1 select-none">
+          <Icon className="h-4 w-4" icon={'token-branded:crystal'} />
+          <p className="font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
+            {appConfig.short_name}
+          </p>
+        </NavbarBrand>
+      </Link>
 
       {/* Center Content */}
       <NavbarContent justify="center">
-        <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" color="foreground" href="#" size="sm">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            About Us
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link className="text-default-500" href="#" size="sm">
-            Integrations
-          </Link>
-        </NavbarItem>
+        {menuItems.map(({ label, href }) => (
+          <NavbarItem key={label} isActive={pathname === href}>
+            <Link
+              size="sm"
+              href={href}
+              aria-current={pathname === href ? 'page' : undefined}
+              className={cn(
+                pathname === href
+                  ? 'bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text'
+                  : 'text-default-500'
+              )}
+            >
+              {label}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       {/* Right Content */}
       <NavbarContent className="hidden md:flex" justify="end">
         <NavbarItem className="ml-2 !flex gap-2">
-          <Button className="text-default-500" radius="full" variant="light">
-            Login
-          </Button>
-          <Button
-            className="bg-foreground font-medium text-background"
-            color="secondary"
-            endContent={<Icon icon="solar:alt-arrow-right-linear" />}
-            radius="full"
-            variant="flat"
-          >
-            Get Started
-          </Button>
+          <SignedIn>
+            <UserInfo />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button
+                className="text-default-500"
+                radius="full"
+                variant="light"
+              >
+                Login
+              </Button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <Button
+                className="bg-gradient-to-r from-lavender-frost to-periwinkle-glow font-medium text-background"
+                color="secondary"
+                endContent={<Icon icon="solar:alt-arrow-right-linear" />}
+                radius="full"
+                variant="flat"
+              >
+                Get Started
+              </Button>
+            </SignUpButton>
+          </SignedOut>
         </NavbarItem>
       </NavbarContent>
 
@@ -106,24 +108,25 @@ export default function Header(props: NavbarProps) {
 
       <NavbarMenu className="top-[calc(var(--navbar-height)_-_1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
         <NavbarMenuItem>
-          <Button fullWidth as={Link} href="/#" variant="faded">
-            Sign In
-          </Button>
+          <SignInButton mode="modal">
+            <Button fullWidth variant="faded">
+              Sign In
+            </Button>
+          </SignInButton>
         </NavbarMenuItem>
         <NavbarMenuItem className="mb-4">
-          <Button
-            fullWidth
-            as={Link}
-            className="bg-foreground text-background"
-            href="/#"
-          >
+          <Button fullWidth className="bg-foreground text-background">
             Get Started
           </Button>
         </NavbarMenuItem>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="mb-2 w-full text-default-500" href="#" size="md">
-              {item}
+        {menuItems.map(({ label, href }, index) => (
+          <NavbarMenuItem key={`${label}-${index}`}>
+            <Link
+              className="mb-2 w-full text-default-500"
+              href={href}
+              size="md"
+            >
+              {label}
             </Link>
             {index < menuItems.length - 1 && <Divider className="opacity-50" />}
           </NavbarMenuItem>

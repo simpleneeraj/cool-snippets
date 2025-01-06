@@ -22,6 +22,10 @@ type PricingCardProps = {
     offer?: string;
   };
   features: Feature[];
+  visual: {
+    icon: string;
+    className: string;
+  };
 };
 
 const PricingCard: React.FC<PricingCardProps> = ({
@@ -30,6 +34,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   description,
   price,
   features,
+  visual,
 }) => {
   const isFilled = type === CardType.FILLED;
 
@@ -44,6 +49,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   };
   return (
     <Card
+      radius="lg"
       className={cn(
         'shadow-2xl justify-between border-none p-1',
         isFilled
@@ -70,7 +76,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
       </div>
       <div className="bg-default-50/90 rounded-2xl backdrop-blur border border-default-200">
         <div className="p-3 z-10 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large flex flex-col items-start gap-2 pb-6">
-          <h2 className="text-xl font-medium text-primary-foreground">
+          <h2 className="text-xl font-medium text-primary-foreground flex items-center gap-1">
+            <Icon {...visual} />
             {name}
           </h2>
           <p className="text-medium text-primary-foreground/70">
@@ -99,24 +106,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
             <ul className="flex flex-col gap-2">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    role="img"
-                    className="text-primary-foreground iconify iconify--ci"
-                    width={24}
-                    height={24}
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="m6 12l4.243 4.243l8.484-8.486"
-                    />
-                  </svg>
+                  <Icon
+                    className="h-4 w-4 text-default-500"
+                    icon={'solar:check-circle-line-duotone'}
+                  />
                   <p className="text-primary-foreground/70">{feature.label}</p>
                 </li>
               ))}

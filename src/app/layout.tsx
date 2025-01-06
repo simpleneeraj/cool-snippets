@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import NextAppProvider from '@/providers/next-ui';
 import { cn } from '@nextui-org/react';
 import fonts from './font';
+import AuthProvider from '@/providers/clerk';
 
 export const metadata: Metadata = {
   title: {
@@ -36,10 +37,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn('dark', fonts)}>
-      <body>
-        <NextAppProvider>{children}</NextAppProvider>
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en" className={cn('dark', fonts)}>
+        <body>
+          <NextAppProvider>{children}</NextAppProvider>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

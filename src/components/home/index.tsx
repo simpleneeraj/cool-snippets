@@ -8,7 +8,6 @@ import Section from '../section';
 import Testimonials from './testimonials';
 import FaqSection from './faq';
 import PricingSection from './pricing';
-import UIFireflies from '@/ui-kit/components/UIFireflies';
 import FeedSection from './feed';
 
 type HomePageClientProps = object;
@@ -17,7 +16,6 @@ const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
   return (
     <UIView className="flex flex-col">
       <HeroSection />
-      <UIFireflies />
       <UIView className="mx-auto w-full px-3 max-w-screen-lg">
         <Section
           title="Features"

@@ -4,9 +4,9 @@ export const headerIcon = tv({
   base: 'h-4 w-4',
   variants: {
     sizes: {
-      sm: { true: 'h-4 w-4' },
-      md: { true: 'h-6 w-6' },
-      lg: { true: 'h-8 w-8' },
+      sm: 'h-4 w-4',
+      md: 'h-5 w-5',
+      lg: 'h-8 w-8',
     },
   },
 });

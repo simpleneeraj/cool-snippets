@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import data from './data.json';
 import { Icon } from '@iconify/react';
 import appConfig from '@/constants/site';
+import footerData from '@/json/layout/public.json';
 import { Button, Chip } from '@nextui-org/react';
 import UISpotlight from '@/ui-kit/components/UISpotlight';
 
@@ -15,16 +15,23 @@ const Footer: React.FC<FooterProps> = ({}) => {
         <UISpotlight className="-top-40 left-0 md:left-60 md:-top-20" />
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="flex flex-col gap-6">
-            <div className="grow">
+            <div className="flex flex-col flex-1 gap-2">
               <div className="flex items-center gap-1">
                 <Icon className="h-5 w-5" icon="token-branded:crystal" />
                 <p className="text-lg font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
                   {appConfig.short_name}
                 </p>
               </div>
+              <p className="text-default-500 text-sm font-light leading-normal">
+                {appConfig.name} makes it super easy to create and share code
+                snippets. You can design and customize snippets in different
+                programming languages and share them effortlessly. It’s perfect
+                for improving productivity and sharing your work on social
+                media.
+              </p>
             </div>
             <div className="flex items-center gap-3">
-              {data.socialLinks.map((social, index) => (
+              {footerData.footer.socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   isIconOnly
@@ -42,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
-            {data.sections.map((section, sectionIndex) => (
+            {footerData.footer.sections.map((section, sectionIndex) => (
               <div
                 key={sectionIndex}
                 className={`${

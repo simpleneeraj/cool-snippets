@@ -1,0 +1,125 @@
+[
+  {
+    "menus": [
+      {
+        "icon": "solar:home-2-line-duotone",
+        "href": "/dashboard",
+        "name": "Dashboard",
+        "active": ["/dashboard"]
+      },
+      {
+        "icon": "solar:folder-line-duotone",
+        "name": "Snippets",
+        "active": ["/snippets"],
+        "submenus": [
+          {
+            "name": "My Snippets",
+            "href": "/snippets",
+            "active": ["/snippets"]
+          },
+          {
+            "name": "Favorites",
+            "href": "/snippets/favorites",
+            "active": ["/snippets/favorites"]
+          },
+          {
+            "name": "Saved",
+            "href": "/snippets/saved",
+            "active": ["/snippets/saved"]
+          },
+          {
+            "name": "Trash",
+            "href": "/snippets/trash",
+            "active": ["/snippets/trash"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": {
+      "name": "Activity"
+    },
+    "menus": [
+      {
+        "icon": "solar:graph-line-duotone",
+        "name": "Analytics",
+        "href": "/activity/analytics",
+        "active": ["/activity/analytics"]
+      },
+      {
+        "icon": "solar:eye-line-duotone",
+        "name": "Views",
+        "href": "/activity/views",
+        "active": ["/activity/views"]
+      },
+      {
+        "icon": "solar:share-circle-line-duotone",
+        "name": "Shares",
+        "href": "/activity/shares",
+        "active": ["/activity/shares"]
+      },
+      {
+        "icon": "solar:chat-square-like-line-duotone",
+        "name": "Likes",
+        "href": "/activity/likes",
+        "active": ["/activity/likes"]
+      },
+      {
+        "icon": "solar:chat-round-line-line-duotone",
+        "name": "Comments",
+        "href": "/activity/comments",
+        "active": ["/activity/comments"]
+      }
+    ]
+  },
+  {
+    "section": {
+      "name": "Access"
+    },
+    "menus": [
+      {
+        "icon": "solar:dollar-line-duotone",
+        "name": "Billing",
+        "href": "/settings/billing",
+        "active": ["/settings/billing"]
+      },
+      {
+        "icon": "solar:crown-line-duotone",
+        "name": "Subscriptions",
+        "href": "/settings/subscriptions",
+        "active": ["/settings/subscriptions"]
+      },
+      {
+        "icon": "solar:settings-line-duotone",
+        "name": "Settings",
+        "href": "/settings",
+        "active": ["/settings"]
+      }
+    ]
+  },
+  {
+    "section": {
+      "name": "Advanced"
+    },
+    "menus": [
+      {
+        "icon": "solar:ufo-2-line-duotone",
+        "name": "AI Tools",
+        "active": ["/advanced"],
+        "submenus": [
+          {
+            "name": "Generate Snippets",
+            "href": "/advanced/ai-tools/generate",
+            "active": ["/advanced/ai-tools/generate"]
+          },
+          {
+            "name": "Enhance Snippets",
+            "href": "/advanced/ai-tools/enhance",
+            "active": ["/advanced/ai-tools/enhance"]
+          }
+        ]
+      }
+    ]
+  }
+]

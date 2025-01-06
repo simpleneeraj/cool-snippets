@@ -25,8 +25,6 @@ const PricingSection: React.FC<PricingSectionProps> = ({}) => {
               {...item}
             />
           ))}
-
-          {/* <Link className="decoration-black decoration-dotted">Learn More</Link> */}
         </div>
       </div>
     </div>
