@@ -55,11 +55,7 @@ const TextScreen = () => {
                 placeholder="Weight"
               >
                 {weights.map((weight) => (
-                  <SelectItem
-                    aria-label={String(weight)}
-                    key={weight}
-                    value={weight}
-                  >
+                  <SelectItem aria-label={String(weight)} key={weight}>
                     {weight}
                   </SelectItem>
                 ))}
@@ -81,11 +77,10 @@ const TextScreen = () => {
               >
                 {Array.from({ length: 8 }).map((_, index) => (
                   <SelectItem
-                    key={index}
+                    key={index + 10}
                     classNames={{
                       title: 'text-tiny',
                     }}
-                    value={index + 10}
                     aria-label={`${index}`}
                   >
                     {index + 10} Px

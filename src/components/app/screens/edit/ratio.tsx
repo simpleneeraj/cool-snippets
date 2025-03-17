@@ -1,9 +1,8 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
 import { Frame } from '@/components/elements/frame';
-import UIButton from '@/app-kit/source/UIButton/button';
 import aspectRatioArray from '@/json/resize.json';
-import { Card, CardBody, Image } from '@heroui/react';
+import { Card, CardBody } from '@heroui/react';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
 type Resolution = {

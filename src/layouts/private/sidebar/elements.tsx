@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import { MenuItem } from '@/typings/layout';
 import { usePathname } from 'next/navigation';
 import { Button, cn } from '@heroui/react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 
 type Props = {
   title?: string;

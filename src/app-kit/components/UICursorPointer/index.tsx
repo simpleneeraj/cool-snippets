@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { motion, AnimatePresence, useMotionValue } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue } from 'motion/react';
 import { cn } from '@heroui/react';
 
 export const FollowerPointerCard = ({

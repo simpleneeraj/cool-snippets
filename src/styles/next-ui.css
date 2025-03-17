@@ -1,4 +1,7 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
 
 .app-container {
   --primary: hsl(var(--nextui-background) / 1);

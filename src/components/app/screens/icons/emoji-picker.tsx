@@ -79,9 +79,7 @@ export default function EmojiPicker(props: PickerProps) {
           }
         >
           {sortBy(groups, 'label').map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {capitalize(item.label)}
-            </SelectItem>
+            <SelectItem key={item.value}>{capitalize(item.label)}</SelectItem>
           ))}
         </Select>
         {/* <Select

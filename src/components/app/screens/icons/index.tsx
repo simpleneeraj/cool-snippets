@@ -22,24 +22,21 @@ const IconsScreen = () => {
     IconProviders.TWITTER
   );
 
-  const onSelectElement = React.useCallback(
-    (icon: PickerIconType) => {
-      // const selectedElement = elementsObject[ELEMENTS.IMAGE];
-      // const id = generateID();
-      // const slide = merge({}, selectedElement, {
-      //   id,
-      //   properties: {
-      //     src: icon?.source,
-      //     alt: icon?.name,
-      //     height: '100px',
-      //     width: '100px',
-      //     className: 'border',
-      //   },
-      // });
-      // createSlideElement(currentSlideId, slide);
-    },
-    [createSlideElement, currentSlideId]
-  );
+  const onSelectElement = React.useCallback((icon: PickerIconType) => {
+    // const selectedElement = elementsObject[ELEMENTS.IMAGE];
+    // const id = generateID();
+    // const slide = merge({}, selectedElement, {
+    //   id,
+    //   properties: {
+    //     src: icon?.source,
+    //     alt: icon?.name,
+    //     height: '100px',
+    //     width: '100px',
+    //     className: 'border',
+    //   },
+    // });
+    // createSlideElement(currentSlideId, slide);
+  }, []);
 
   return (
     <UIView className="p-1">

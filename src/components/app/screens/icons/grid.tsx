@@ -48,9 +48,7 @@ const FluentEmoji: React.FC<PickerProps & PickerIconsProps> = (props) => {
           }
         >
           {types?.map((item) => (
-            <SelectItem key={item} value={item}>
-              {capitalize(item)}
-            </SelectItem>
+            <SelectItem key={item}>{capitalize(item)}</SelectItem>
           ))}
         </Select>
 

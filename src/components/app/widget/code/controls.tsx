@@ -13,7 +13,7 @@ const icon = tv({
 
 const Controls: React.FC<ControlsProps> = () => {
   const { zoom } = useViewport();
-  const { zoomIn, zoomOut, fitView, screenToFlowPosition } = useReactFlow();
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
 
   const onResetViewport = () => {
     fitView({

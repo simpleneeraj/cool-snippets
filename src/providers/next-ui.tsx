@@ -2,15 +2,15 @@
 
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
-import { cn, NextUIProvider } from '@heroui/react';
+import { cn, HeroUIProvider } from '@heroui/react';
 
 function NextAppProvider({ children }: React.PropsWithChildren) {
   const router = useRouter();
 
   return (
-    <NextUIProvider navigate={router.push}>
+    <HeroUIProvider navigate={router.push}>
       <main className={cn('text-foreground bg-background')}>{children}</main>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
