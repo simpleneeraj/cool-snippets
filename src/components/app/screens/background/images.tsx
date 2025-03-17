@@ -2,21 +2,23 @@ import React from 'react';
 import Link from 'next/link';
 import UIView from '@/app-kit/source/UIView';
 import UIButton from '@/app-kit/source/UIButton/button';
-import { Card, CardFooter, Image, Tooltip } from '@heroui/react';
+import { Card, CardFooter, Image } from '@heroui/react';
 import { FrameItem } from '@/components/elements/frame';
 import UIInput from '@/app-kit/source/UIInput';
 import SearchIcon from '@/app-kit/icons/SearchIcon';
 import { useImmer } from 'use-immer';
-import Json from '@/json/images.json';
 import UnsplashIcon from '@/app-kit/icons/logo/Unsplash';
-import { FluentCropSparkleRegular } from '@/app-kit/icons/FluentCropSparkleRegular';
 import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
 import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
 import { BackgroundScreenTypes } from './types';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 
+import ImagesJson from '@/json/backgrounds/images.json';
+import PopularJson from '@/json/backgrounds/abstract-3d-shapes.json';
+import { Icon } from '@iconify/react';
 enum ImageType {
+  ABSTRACT_3D_SHAPES = 'abstract-3d-shapes',
   POPULAR = 'popular',
   UNSPLASH = 'unsplash',
   PIXABAY = 'pixabay',
@@ -27,13 +29,17 @@ const imagesSegment = [
     label: 'Popular',
     value: ImageType.POPULAR,
   },
+  // {
+  //   label: 'Unsplash',
+  //   value: ImageType.UNSPLASH,
+  // },
+  // {
+  //   label: 'Pixabay',
+  //   value: ImageType.PIXABAY,
+  // },
   {
-    label: 'Unsplash',
-    value: ImageType.UNSPLASH,
-  },
-  {
-    label: 'Pixabay',
-    value: ImageType.PIXABAY,
+    label: 'Abstract Shapes',
+    value: ImageType.ABSTRACT_3D_SHAPES,
   },
 ];
 
@@ -41,10 +47,22 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
   value,
   onChange,
 }) => {
+  const [currentImageTab, setCurrentImagetab] = useImmer(
+    ImageType.ABSTRACT_3D_SHAPES
+  );
+
   const [ref, height] = useDynamicHeight();
   const calculatedHeight = height - 90;
-  const images = Json;
-  const [currentImageTab, setCurrentImagetab] = useImmer(ImageType.UNSPLASH);
+  const images = React.useMemo(() => {
+    switch (currentImageTab) {
+      case ImageType.ABSTRACT_3D_SHAPES:
+        return PopularJson;
+      case ImageType.POPULAR:
+        return ImagesJson;
+      default:
+        return [];
+    }
+  }, [currentImageTab]);
 
   return (
     <UIView className="flex flex-col">
@@ -69,18 +87,17 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
           })}
         </UISegmentedControl>
       </FrameItem>
-      <FrameItem className="flex-1 flex flex-col items-baseline sticky top-0 z-50 bg-default-50 bg-opacity-85 backdrop-blur-lg rounded-b-2xl rounded-br-2xl gap-1">
+      {/* <FrameItem className="flex-1 flex flex-col items-baseline sticky top-0 z-50 bg-default-50 bg-opacity-85 backdrop-blur-lg rounded-b-2xl rounded-br-2xl gap-1">
         <UIView className="flex-1 flex items-center gap-1 w-full">
           <UIInput
             size={'sm'}
             labelPlacement={'outside'}
             placeholder={'Search images...'}
             className={'bg-transparent'}
-            // onChange={({ target }) => setSearchQuery(target.value)}
             startContent={<SearchIcon className="text-default-400 h-4 w-4" />}
           />
         </UIView>
-      </FrameItem>
+      </FrameItem> */}
       <FrameItem divider={false}>
         <UIView className="flex flex-col flex-1 w-full" ref={ref}>
           <UIVirtualizeGrid
@@ -94,7 +111,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                 </span>
               </UIView>
             }
-            gridCount={1}
+            gridCount={2}
           >
             {({ currentItem }) => {
               return (
@@ -111,7 +128,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                       disableSkeleton
                       removeWrapper
                       alt="Woman listing to music"
-                      className="object-cover w-full h-full min-h-40 max-h-52"
+                      className="object-cover w-full min-h-32 max-h-32"
                       src={String(currentItem?.urls?.regular)}
                     />
                   </figure>
@@ -131,7 +148,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                             ? 'Use'
                             : 'Used'}
                         </UIButton>
-                        <Tooltip content="Magical AI" size="sm">
+                        {/* <Tooltip content="Magical AI" size="sm">
                           <UIButton
                             size="sm"
                             variant="flat"
@@ -143,7 +160,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                           >
                             <FluentCropSparkleRegular />
                           </UIButton>
-                        </Tooltip>
+                        </Tooltip> */}
                       </UIView>
                       <UIView className="flex items-center gap-2">
                         <UIButton
@@ -156,7 +173,8 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                           href={currentItem.urls.regular}
                           className="text-tiny bg-black/40"
                         >
-                          <UnsplashIcon />
+                          {/* <UnsplashIcon /> */}
+                          <Icon icon={'solar:square-top-down-line-duotone'} />
                         </UIButton>
                       </UIView>
                     </UIView>
