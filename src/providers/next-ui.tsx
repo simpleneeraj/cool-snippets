@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
-import { cn, NextUIProvider } from '@nextui-org/react';
+import { cn, NextUIProvider } from '@heroui/react';
 
 function NextAppProvider({ children }: React.PropsWithChildren) {
   const router = useRouter();

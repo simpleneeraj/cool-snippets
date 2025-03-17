@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ELEMENTS } from '@/typings/enums';
-import TextBoxIcon from '@/ui-kit/icons/elements/TextBoxIcon';
-import TerminalIcon from '@/ui-kit/icons/elements/TerminalIcon';
-import AddImageIcon from '@/ui-kit/icons/elements/AddImageIcon';
-import AddIcon from '@/ui-kit/icons/elements/AddIcon';
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
-import UserInfo from '@/ui-kit/icons/elements/UserInfo';
-import CheckBadge from '@/ui-kit/icons/elements/CheckBadge';
+import { LanguagesEnum } from '@/plugins/codemirror/languages';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {
   [ELEMENTS.CODE]: 'Code Block',
@@ -24,33 +18,45 @@ export const elementLabelMapper: Record<ELEMENTS, string> = {
 export const elements = [
   {
     content: 'Code Block',
-    icon: TerminalIcon,
+    icon: 'solar:code-square-line-duotone',
     type: ELEMENTS.CODE,
+    plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Text Box',
-    icon: TextBoxIcon,
+    icon: 'solar:text-field-focus-line-duotone',
     type: ELEMENTS.TEXT,
+    plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Image',
-    icon: AddImageIcon,
+    icon: 'solar:gallery-add-line-duotone',
     type: ELEMENTS.IMAGE,
+    plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Graphic Icon',
-    icon: AddIcon,
+    icon: 'solar:face-scan-circle-line-duotone',
     type: ELEMENTS.ICON,
+    plan: [APP_PLAN_TYPE.FREE],
+  },
+  {
+    content: 'QR Code',
+    icon: 'solar:code-scan-line-duotone',
+    type: ELEMENTS.USERINFO,
+    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'User Info',
-    icon: UserInfo,
+    icon: 'solar:user-id-line-duotone',
     type: ELEMENTS.USERINFO,
+    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'Watermark',
-    icon: CheckBadge,
+    icon: 'solar:verified-check-line-duotone',
     type: ELEMENTS.WATERMARK,
+    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
 ];
 

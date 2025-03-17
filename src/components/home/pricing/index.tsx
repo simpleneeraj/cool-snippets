@@ -1,7 +1,7 @@
 import React from 'react';
 import json from './data.json';
 import PricingCard, { CardType } from './cards';
-import UISpotlight from '@/ui-kit/components/UISpotlight';
+import UISpotlight from '@/app-kit/components/UISpotlight';
 
 type PricingSectionProps = object;
 

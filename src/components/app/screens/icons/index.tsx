@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import IconContainer from './container';
-import UIView from '@/ui-kit/source/UIView';
-import { Tab, Tabs } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import { Tab, Tabs } from '@heroui/react';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { IconProviders, PickerIconType } from '@/typings/icon-picker';
 

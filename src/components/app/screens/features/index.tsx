@@ -1,5 +1,5 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { Frame, FrameItem } from '@/components/elements/frame';
 
 const MoreFeatures = () => {

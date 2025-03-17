@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Avatar,
-} from '@nextui-org/react';
+} from '@heroui/react';
 import React from 'react';
 
 enum DropdownActions {

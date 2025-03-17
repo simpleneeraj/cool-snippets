@@ -2,7 +2,7 @@
 
 import React from 'react';
 import HeroSection from './hero';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import FeaturesSection from './features';
 import Section from '../section';
 import Testimonials from './testimonials';

@@ -1,7 +1,7 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
-import UISlider from '@/ui-kit/source/UISlider';
-import UISwitch from '@/ui-kit/source/UISwitch';
+import UIView from '@/app-kit/source/UIView';
+import UISlider from '@/app-kit/source/UISlider';
+import UISwitch from '@/app-kit/source/UISwitch';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { FrameAccordion } from '@/components/elements/frame';
 

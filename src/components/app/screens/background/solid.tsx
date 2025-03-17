@@ -1,11 +1,11 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import colors from '@/json/html-colors.json';
-import { Card, cn } from '@nextui-org/react';
+import { Card, cn } from '@heroui/react';
 import { BackgroundScreenTypes } from './types';
 import { FrameItem } from '@/components/elements/frame';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 
 const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,

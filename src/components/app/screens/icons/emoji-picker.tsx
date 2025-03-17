@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { useImmer } from 'use-immer';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import emojis from 'emojibase-data/en/data.json';
 import { getEmojiUrl } from '@/utils/getEmojiUrl';
 import data from 'emojibase-data/en/messages.json';
 import { capitalize, cloneDeep, sortBy, subtract } from 'lodash';
-import { Input, Select, SelectItem } from '@nextui-org/react';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import { Input, Select, SelectItem } from '@heroui/react';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconType, PickerProps } from '@/typings/icon-picker';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 
 export default function EmojiPicker(props: PickerProps) {
   const [ref, height] = useDynamicHeight();

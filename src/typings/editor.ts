@@ -104,4 +104,5 @@ export type SlideActionType = {
   ) => void;
   deleteSlideElement: (slideId: string, elementId: string) => void;
   duplicateSlideElement: (slideId: string, elementId: string) => void;
+  reset: () => void;
 };

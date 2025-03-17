@@ -57,6 +57,7 @@ const useSlideEditor = () => {
     createSlideElement: slideState.createSlideElement,
     deleteSlideElement: slideState.deleteSlideElement,
     duplicateSlideElement: slideState.duplicateSlideElement,
+    resetState: slideState.reset,
   };
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { sortBy, subtract } from 'lodash';
-import UIView from '@/ui-kit/source/UIView';
-import { Card, cn } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import { Card, cn } from '@heroui/react';
 import { BackgroundScreenTypes } from './types';
 import { FrameItem } from '@/components/elements/frame';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import CSS_GRADIENT_LIST from '@/server/patterns/gradients';
 import cssToStyle from '@/plugins/css-to-style';
 

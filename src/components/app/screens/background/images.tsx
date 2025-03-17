@@ -1,20 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
-import UIView from '@/ui-kit/source/UIView';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import { Card, CardFooter, Image, Tooltip } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import UIButton from '@/app-kit/source/UIButton/button';
+import { Card, CardFooter, Image, Tooltip } from '@heroui/react';
 import { FrameItem } from '@/components/elements/frame';
-import UIInput from '@/ui-kit/source/UIInput';
-import SearchIcon from '@/ui-kit/icons/SearchIcon';
+import UIInput from '@/app-kit/source/UIInput';
+import SearchIcon from '@/app-kit/icons/SearchIcon';
 import { useImmer } from 'use-immer';
 import Json from '@/json/images.json';
-import UnsplashIcon from '@/ui-kit/icons/logo/Unsplash';
-import { FluentCropSparkleRegular } from '@/ui-kit/icons/FluentCropSparkleRegular';
-import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
-import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
+import UnsplashIcon from '@/app-kit/icons/logo/Unsplash';
+import { FluentCropSparkleRegular } from '@/app-kit/icons/FluentCropSparkleRegular';
+import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
+import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
 import { BackgroundScreenTypes } from './types';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 
 enum ImageType {
   POPULAR = 'popular',

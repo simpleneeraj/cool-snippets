@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
-import { Button, Card, cn } from '@nextui-org/react';
-import UIMeteors from '@/ui-kit/components/UIMeteors';
+import { Button, Card, cn } from '@heroui/react';
+import UIMeteors from '@/app-kit/components/UIMeteors';
 
 export enum CardType {
   BORDERED = 'bordered',

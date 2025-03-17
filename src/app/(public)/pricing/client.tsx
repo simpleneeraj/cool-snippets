@@ -3,12 +3,12 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import Section from '@/components/section';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import FaqSection from '@/components/home/faq';
 import { scrollToTarget } from '@/utils/elements';
 import PricingSection from '@/components/home/pricing';
-import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 
 type PricingProps = object;
 

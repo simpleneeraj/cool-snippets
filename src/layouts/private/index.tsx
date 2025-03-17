@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from './header';
 import Sidebar from './sidebar';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { MenuData } from '@/typings/layout';
 import menusData from '@/json/layout/private.json';
 

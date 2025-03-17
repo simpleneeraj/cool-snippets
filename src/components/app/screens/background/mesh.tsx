@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import UISlider from '@/ui-kit/source/UISlider';
+import UIView from '@/app-kit/source/UIView';
+import UIButton from '@/app-kit/source/UIButton/button';
+import UISlider from '@/app-kit/source/UISlider';
 import { FrameItem } from '@/components/elements/frame';
 import { useImmer } from 'use-immer';
 import {

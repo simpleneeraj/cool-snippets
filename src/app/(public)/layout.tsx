@@ -1,6 +1,6 @@
 import React from 'react';
 import WebLayout from '@/layouts/web';
-import UIFireflies from '@/ui-kit/components/UIFireflies';
+import UIFireflies from '@/app-kit/components/UIFireflies';
 
 type WebLayoutProps = React.PropsWithChildren;
 

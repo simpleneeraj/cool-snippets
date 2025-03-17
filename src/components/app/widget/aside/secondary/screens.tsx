@@ -1,8 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import NotFound from './not-found';
-import UICard from '@/ui-kit/source/UICard';
-import UIView from '@/ui-kit/source/UIView';
+import UICard from '@/app-kit/source/UICard';
+import UIView from '@/app-kit/source/UIView';
 import { SEGMENT_SCREEN } from '@/typings/enums';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -10,8 +10,8 @@ const EditScreens = dynamic(() => import('@/components/app/screens/edit'));
 const BackgroundScreens = dynamic(
   () => import('@/components/app/screens/background')
 );
-const ElementsScreen = dynamic(
-  () => import('@/components/app/screens/elements')
+const SettingsScreen = dynamic(
+  () => import('@/components/app/screens/settings')
 );
 const IconsScreen = dynamic(() => import('@/components/app/screens/icons'));
 const MoreFeatures = dynamic(() => import('@/components/app/screens/features'));
@@ -30,8 +30,8 @@ function Screens({ activeTab }: ScreensTypes) {
         return <EditScreens />;
       case SEGMENT_SCREEN.BACKGROUNDS:
         return <BackgroundScreens />;
-      case SEGMENT_SCREEN.ELEMENTS:
-        return <ElementsScreen />;
+      case SEGMENT_SCREEN.SETTINGS:
+        return <SettingsScreen />;
       case SEGMENT_SCREEN.AI:
         return <AIScreen />;
       case SEGMENT_SCREEN.ICONS:

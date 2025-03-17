@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { Icon } from '@iconify/react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import FeaturesSection from '@/components/home/features';
-import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 
 type FeaturesProps = object;
 

@@ -19,10 +19,4 @@ export const initialNodes = [
     position: { x: 0, y: 0 },
     data: {},
   },
-  // {
-  //   id: '2',
-  //   type: 'ResizableNodeSelected',
-  //   data: { label: 'NodeResizer when selected' },
-  //   position: { x: 100, y: 300 },
-  // },
 ];

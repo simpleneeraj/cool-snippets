@@ -12,7 +12,7 @@ import {
   Image,
   NavbarItem,
   useDisclosure,
-} from '@nextui-org/react';
+} from '@heroui/react';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
 export const NotificationsDropdown = () => {

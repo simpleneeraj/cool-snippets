@@ -1,4 +1,4 @@
-import UIButton from '@/ui-kit/source/UIButton/button';
+import UIButton from '@/app-kit/source/UIButton/button';
 import {
   Tab,
   Tabs,
@@ -8,7 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Divider,
-} from '@nextui-org/react';
+} from '@heroui/react';
 import React from 'react';
 import slugify from 'slugify';
 import { format } from 'date-fns';
@@ -18,7 +18,7 @@ import fontsNames from '@/json/fonts.json';
 import { useCapture } from '@/plugins/capture';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { headerIcon } from '@/components/style/header';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { useImmer } from 'use-immer';
 
 type ExportDropdownProps = object;
@@ -96,12 +96,10 @@ const ExportDropdown: React.FC<ExportDropdownProps> = ({}) => {
             size="sm"
             variant="flat"
             radius="sm"
-            endContent={
+            startContent={
               <Icon
                 icon={'solar:archive-down-minimlistic-line-duotone'}
-                className={headerIcon({
-                  sizes: 'md',
-                })}
+                className={headerIcon({})}
               />
             }
           >

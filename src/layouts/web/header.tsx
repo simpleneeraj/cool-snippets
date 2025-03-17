@@ -1,6 +1,6 @@
 'use client';
 
-import type { NavbarProps } from '@nextui-org/react';
+import type { NavbarProps } from '@heroui/react';
 
 import React from 'react';
 import {
@@ -14,8 +14,8 @@ import {
   Link,
   Button,
   Divider,
-} from '@nextui-org/react';
-import { cn } from '@nextui-org/react';
+} from '@heroui/react';
+import { cn } from '@heroui/react';
 import appConfig from '@/constants/site';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';

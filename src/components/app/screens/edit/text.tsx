@@ -1,20 +1,20 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { TEXT_ALIGN } from '@/typings/enums';
-import { Select, SelectItem } from '@nextui-org/react';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
-import TextBoldIcon from '@/ui-kit/icons/text/TextBoldIcon';
+import { Select, SelectItem } from '@heroui/react';
+import UIButton from '@/app-kit/source/UIButton/button';
+import UIButtonGroup from '@/app-kit/source/UIButtonGroup';
+import TextBoldIcon from '@/app-kit/icons/text/TextBoldIcon';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import UISegmentedControl from '@/ui-kit/source/UISegmentedControl';
-import UISegmentButton from '@/ui-kit/source/UISegmentedControl/button';
-import TextAlignLeftIcon from '@/ui-kit/icons/text/TextAlignLeftIcon';
-import TextAlignCenterIcon from '@/ui-kit/icons/text/TextAlignCenterIcon';
-import TextAlignRightIcon from '@/ui-kit/icons/text/TextAlignRightIcon';
-import TextAlignJustifyIcon from '@/ui-kit/icons/text/TextAlignJustifyIcon';
-import TextItalicIcon from '@/ui-kit/icons/text/TextItalicIcon';
-import TextUnderlineicon from '@/ui-kit/icons/text/TextUnderlineicon';
-import TextStrikeThroughIcon from '@/ui-kit/icons/text/TextStrikeThroughIcon';
+import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
+import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
+import TextAlignLeftIcon from '@/app-kit/icons/text/TextAlignLeftIcon';
+import TextAlignCenterIcon from '@/app-kit/icons/text/TextAlignCenterIcon';
+import TextAlignRightIcon from '@/app-kit/icons/text/TextAlignRightIcon';
+import TextAlignJustifyIcon from '@/app-kit/icons/text/TextAlignJustifyIcon';
+import TextItalicIcon from '@/app-kit/icons/text/TextItalicIcon';
+import TextUnderlineicon from '@/app-kit/icons/text/TextUnderlineicon';
+import TextStrikeThroughIcon from '@/app-kit/icons/text/TextStrikeThroughIcon';
 import useSlideEditor from '@/store/hooks/use-editor';
 
 const TextScreen = () => {

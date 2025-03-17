@@ -1,18 +1,17 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import Controls from '@/components/app/widget/code/controls';
 import ContainerWidget from '@/components/app/widget/code/container';
 import PrimaryAsideWidget from '@/components/app/widget/aside/primary';
 import { canvasConfig, ComponentTypes, initialNodes } from './flow-config';
 import SecondaryAsideWidget from '@/components/app/widget/aside/secondary';
-
 import {
   ReactFlow,
   Background,
-  BackgroundVariant,
   SelectionMode,
+  BackgroundVariant,
 } from '@xyflow/react';
 
 const EditorClient = () => {

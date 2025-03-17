@@ -6,7 +6,7 @@ import { SignedIn } from '@clerk/nextjs';
 import UserInfo from '@/layouts/web/user';
 import { BurgurButton } from '../navbar/burgur-button';
 import { NotificationsDropdown } from '../navbar/notifications';
-import { Navbar, NavbarBrand, NavbarContent } from '@nextui-org/react';
+import { Navbar, NavbarBrand, NavbarContent } from '@heroui/react';
 import Link from 'next/link';
 
 const Header = () => {

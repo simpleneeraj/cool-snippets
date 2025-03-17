@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Icon } from '@iconify/react';
-import { cn } from '@nextui-org/react';
-import UIView from '@/ui-kit/source/UIView';
+import { cn } from '@heroui/react';
+import UIView from '@/app-kit/source/UIView';
 import Content from '@/markdown/privacy.mdx';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
-import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 
 type PrivacyClientProps = object;
 

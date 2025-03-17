@@ -1,4 +1,4 @@
-import FeatureCard from '@/ui-kit/components/UIFeatureCard';
+import FeatureCard from '@/app-kit/components/UIFeatureCard';
 
 type FeaturesSectionProps = object;
 

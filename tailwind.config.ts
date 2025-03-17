@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { nextui } from '@nextui-org/react';
+import { heroui } from '@heroui/react';
 import typography from '@tailwindcss/typography';
 
 const widgetWidth = {
@@ -14,7 +14,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/layouts/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/ui-kit/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app-kit/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
@@ -61,6 +61,6 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [nextui(), typography()],
+  plugins: [heroui(), typography()],
 };
 export default config;

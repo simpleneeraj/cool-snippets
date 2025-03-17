@@ -1,6 +1,6 @@
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { Accordion, AccordionItem, cn } from '@nextui-org/react';
+import { Accordion, AccordionItem, cn } from '@heroui/react';
 
 const faqData = [
   {

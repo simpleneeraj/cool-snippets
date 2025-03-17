@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import CodeHeaderWidget from '../headers';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { SlideHeaderType } from '@/typings/editor';
 import {
   EditorView,

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useImmer } from 'use-immer';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { IconProviders, PickerProps } from '@/typings/icon-picker';
 import { capitalize, sortBy, subtract } from 'lodash';
-import { Input, Select, SelectItem } from '@nextui-org/react';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import { Input, Select, SelectItem } from '@heroui/react';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import useIcons from '@/server/icons/hooks/use-icons';
 
 // Enum for icon types

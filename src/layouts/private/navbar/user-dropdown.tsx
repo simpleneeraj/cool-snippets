@@ -6,7 +6,7 @@ import {
   DropdownMenu,
   DropdownTrigger,
   NavbarItem,
-} from '@nextui-org/react';
+} from '@heroui/react';
 import React from 'react';
 
 type Props = {

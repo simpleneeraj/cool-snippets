@@ -1,14 +1,14 @@
 import React from 'react';
 import { useImmer } from 'use-immer';
 import { useDebounce } from 'use-debounce';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { capitalize, subtract } from 'lodash';
 import useIcons from '@/server/icons/hooks/use-icons';
-import { Input, Select, SelectItem } from '@nextui-org/react';
-import useDynamicHeight from '@/ui-kit/hooks/use-dynamic-height';
-import UIVirtualizeGrid from '@/ui-kit/components/UIVirtualizeGrid';
+import { Input, Select, SelectItem } from '@heroui/react';
+import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
+import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconsProps, PickerProps } from '@/typings/icon-picker';
-import UILoadingFallback from '@/ui-kit/components/UILoadingFallback';
+import UILoadingFallback from '@/app-kit/components/UILoadingFallback';
 
 interface FluentEmojiState {
   searchTerm: string | null;

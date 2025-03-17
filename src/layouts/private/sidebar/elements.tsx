@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { MenuItem } from '@/typings/layout';
 import { usePathname } from 'next/navigation';
-import { Button, cn } from '@nextui-org/react';
+import { Button, cn } from '@heroui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {

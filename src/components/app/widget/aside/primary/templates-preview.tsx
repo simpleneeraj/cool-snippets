@@ -1,8 +1,8 @@
 import React from 'react';
 import { templates } from './templates';
 import CodingLines from './coding-lines';
-import UIView from '@/ui-kit/source/UIView';
-import { Card, tv } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import { Card, tv } from '@heroui/react';
 import useSlideEditor from '@/store/hooks/use-editor';
 import backgroundPurify from '@/utils/background-purify';
 import { BACKGROUND_TYPE } from '@/typings/enums';

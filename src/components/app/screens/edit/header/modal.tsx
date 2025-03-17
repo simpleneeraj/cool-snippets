@@ -1,5 +1,5 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import {
   IconProviders,
   PickerIconType,
@@ -12,11 +12,11 @@ import {
   ModalFooter,
   Button,
   Image,
-} from '@nextui-org/react';
-import { Modal, ModalBody, ModalHeader, ModalContent } from '@nextui-org/react';
+} from '@heroui/react';
+import { Modal, ModalBody, ModalHeader, ModalContent } from '@heroui/react';
 import { startCase } from 'lodash';
 import IconContainer from '../../icons/container';
-import UILoadingFallback from '@/ui-kit/components/UILoadingFallback';
+import UILoadingFallback from '@/app-kit/components/UILoadingFallback';
 
 type Props = PickerProps & Omit<ModalProps, 'children'>;
 

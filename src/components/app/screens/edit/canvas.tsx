@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { debounce } from 'lodash';
-import UIView from '@/ui-kit/source/UIView';
-import { Input, Link } from '@nextui-org/react';
-import UISlider from '@/ui-kit/source/UISlider';
-import UIButton from '@/ui-kit/source/UIButton/button';
+import UIView from '@/app-kit/source/UIView';
+import { Input, Link } from '@heroui/react';
+import UISlider from '@/app-kit/source/UISlider';
+import UIButton from '@/app-kit/source/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
+import ChevronRightIcon from '@/app-kit/icons/ChevronRightIcon';
 import useSlideEditor from '@/store/hooks/use-editor';
 
 type Props = {

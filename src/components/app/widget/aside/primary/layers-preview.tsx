@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
-import UITooltip from '@/ui-kit/source/UITooltip';
-import TrashOutline from '@/ui-kit/icons/TrashOutline';
-import EyeOutlineIcon from '@/ui-kit/icons/EyeOutline';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import DuplicateOutline from '@/ui-kit/icons/DuplicateOutline';
-import LayersOutline from '@/ui-kit/icons/LayersOutline';
+import UIView from '@/app-kit/source/UIView';
+import UIInput from '@/app-kit/source/UIInput';
+import UITooltip from '@/app-kit/source/UITooltip';
 import useSlideEditor from '@/store/hooks/use-editor';
+import UIButton from '@/app-kit/source/UIButton/button';
 import { useActiveElement } from '@/store/slides/current-element';
-import UIInput from '@/ui-kit/source/UIInput';
 import {
   cn,
   tv,
@@ -21,11 +17,15 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
-} from '@nextui-org/react';
-import { elementLabelMapper, elements, elementsObject } from './values';
-import { useActiveSlide } from '@/store/slides/current-slide';
-import { ELEMENTS } from '@/typings/enums';
+} from '@heroui/react';
+import { Icon } from '@iconify/react';
 import { generateID } from '@/utils/id-generator';
+import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
+import { useActiveSlide } from '@/store/slides/current-slide';
+import { elementLabelMapper, elements, elementsObject } from './values';
+
+const MAX_SLIDE = 2;
+const MAX_ELEMENTS = 5;
 
 const template = tv({
   slots: {
@@ -43,119 +43,158 @@ const LayersPreview = () => {
 
   const { element: elmId, updateElement } = useActiveElement((state) => state);
 
+  const isSlideExceed = slides.length > MAX_SLIDE;
   return (
     <UIView className={base()}>
       {slides?.map((slide) => {
-        return (
-          <Card key={slide.id} className="p-1" shadow="lg">
-            <CardBody
-              key={slide.id}
-              className="p-0"
-              title={slide.name}
-              aria-label={slide.name}
-            >
-              <CardHeader className="p-0 pb-1 gap-1">
-                <UIInput
-                  size={'sm'}
-                  variant={'bordered'}
-                  value={slide.name}
-                  startContent={<LayersOutline className="h-5 w-5" />}
-                />
-              </CardHeader>
-              <ul className="flex flex-col gap-1">
-                {slide.elements.map((element) => {
-                  const active = element.id === elmId;
+        const isElementExceed = slide?.elements?.length >= MAX_ELEMENTS;
 
-                  const style = {
-                    color: active ? 'success' : 'default',
-                    variant: active ? 'flat' : 'flat',
-                  };
-                  return (
-                    <li key={element.id}>
-                      <Card
-                        isPressable
-                        onPress={() => updateElement(element?.id as string)}
-                        className={cn(
-                          'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
-                          active && 'border border-success'
-                        )}
-                      >
-                        <UIView
+        return (
+          <UIView key={slide.id} className="flex flex-col gap-2">
+            <Card className="p-1" shadow="lg">
+              <CardBody
+                key={slide.id}
+                className="p-0"
+                title={slide.name}
+                aria-label={slide.name}
+              >
+                <CardHeader className="p-0 pb-1 gap-1">
+                  <UIInput
+                    size={'sm'}
+                    variant={'bordered'}
+                    value={slide.name}
+                    startContent={
+                      <Icon
+                        className="text-base"
+                        icon={'solar:layers-line-duotone'}
+                      />
+                    }
+                    isClearable
+                  />
+                </CardHeader>
+                <ul className="flex flex-col gap-1">
+                  {slide.elements.map((element) => {
+                    const active = element.id === elmId;
+
+                    const style = {
+                      variant: active ? 'flat' : 'flat',
+                      className: 'bg-lavender-frost/10',
+                    };
+                    return (
+                      <li key={element.id}>
+                        <Card
+                          isPressable
+                          onPress={() => updateElement(element?.id as string)}
                           className={cn(
-                            'flex items-center',
-                            active && 'text-success'
+                            'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
+                            active && 'border border-lavender-frost/70'
                           )}
                         >
-                          {/* @ts-expect-error - Solve type issue */}
-                          {elementLabelMapper[element?.type]}
-                        </UIView>
-                        <UIView className="flex items-center gap-1">
-                          <UITooltip
-                            size="sm"
-                            content="Visibility"
-                            placement="bottom"
+                          <UIView
+                            className={cn(
+                              'flex items-center',
+                              active && 'text-lavender-frost'
+                            )}
                           >
-                            <UIButton
-                              size={'sm'}
-                              isIconOnly
-                              radius={'full'}
-                              aria-label={'Visibility Slide Element'}
-                              {...style}
+                            {/* @ts-expect-error - Solve type issue */}
+                            {elementLabelMapper[element?.type]}
+                          </UIView>
+                          <UIView className={cn('flex items-center gap-1')}>
+                            <UITooltip
+                              size="sm"
+                              content="Visibility"
+                              placement="bottom"
                             >
-                              <EyeOutlineIcon className="h-3.5 w-3.5" />
-                            </UIButton>
-                          </UITooltip>
+                              <UIButton
+                                size={'sm'}
+                                isIconOnly
+                                radius={'full'}
+                                aria-label={'Visibility Slide Element'}
+                                {...style}
+                              >
+                                <Icon
+                                  icon={'solar:eye-line-duotone'}
+                                  className={cn(
+                                    'h-4 w-4',
+                                    active && 'text-lavender-frost'
+                                  )}
+                                />
+                              </UIButton>
+                            </UITooltip>
 
-                          <UITooltip
-                            size="sm"
-                            content="Duplicate"
-                            placement="bottom"
-                          >
-                            <UIButton
-                              isIconOnly
-                              radius={'full'}
-                              size={'sm'}
-                              aria-label={'Duplicate Slide Element'}
-                              onPress={() =>
-                                element.id &&
-                                duplicateSlideElement(slide.id, element.id)
-                              }
-                              {...style}
+                            <UITooltip
+                              size="sm"
+                              content="Duplicate"
+                              placement="bottom"
                             >
-                              <DuplicateOutline className="h-3.5 w-3.5" />
-                            </UIButton>
-                          </UITooltip>
+                              <UIButton
+                                isIconOnly
+                                radius={'full'}
+                                size={'sm'}
+                                aria-label={'Duplicate Slide Element'}
+                                onPress={() =>
+                                  element.id &&
+                                  duplicateSlideElement(slide.id, element.id)
+                                }
+                                isDisabled={isElementExceed}
+                                {...style}
+                              >
+                                <Icon
+                                  icon={'solar:copy-line-duotone'}
+                                  className={cn(
+                                    'h-4 w-4',
+                                    active && 'text-lavender-frost'
+                                  )}
+                                />
+                              </UIButton>
+                            </UITooltip>
 
-                          <UITooltip
-                            size="sm"
-                            content="Delete"
-                            placement="bottom"
-                          >
-                            <UIButton
-                              isIconOnly
-                              size={'sm'}
-                              radius={'full'}
-                              aria-label={'Delete Slide Element'}
-                              onPress={() =>
-                                element.id &&
-                                deleteSlideElement(slide.id, element.id)
-                              }
-                              {...style}
+                            <UITooltip
+                              size="sm"
+                              content="Delete"
+                              placement="bottom"
                             >
-                              <TrashOutline className="h-3.5 w-3.5" />
-                            </UIButton>
-                          </UITooltip>
-                        </UIView>
-                      </Card>
-                    </li>
-                  );
-                })}
-              </ul>
-            </CardBody>
-          </Card>
+                              <UIButton
+                                isIconOnly
+                                size={'sm'}
+                                radius={'full'}
+                                aria-label={'Delete Slide Element'}
+                                onPress={() =>
+                                  element.id &&
+                                  deleteSlideElement(slide.id, element.id)
+                                }
+                                {...style}
+                              >
+                                <Icon
+                                  icon={
+                                    'solar:trash-bin-minimalistic-line-duotone'
+                                  }
+                                  className={cn(
+                                    'h-4 w-4',
+                                    active && 'text-lavender-frost'
+                                  )}
+                                />
+                              </UIButton>
+                            </UITooltip>
+                          </UIView>
+                        </Card>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </CardBody>
+            </Card>
+            {isElementExceed ? (
+              <Button size="sm" variant="bordered">
+                <Icon icon={'solar:crown-line-duotone'} className="h-4 w-4" />
+                Get premium
+              </Button>
+            ) : (
+              <AddLayers />
+            )}
+          </UIView>
         );
       })}
-      {/* <AddLayers /> */}
     </UIView>
   );
 };
@@ -163,7 +202,7 @@ export default LayersPreview;
 
 function AddLayers() {
   const iconClasses =
-    'text-xl text-default-500 pointer-events-none flex-shrink-0';
+    'h-5 w-5 text-default-500 pointer-events-none flex-shrink-0';
 
   const { createSlideElement } = useSlideEditor();
   const { slide: currentSlide } = useActiveSlide();
@@ -197,6 +236,7 @@ function AddLayers() {
     >
       <DropdownTrigger>
         <Button size="sm" variant="bordered">
+          <Icon icon={'solar:add-square-line-duotone'} className="h-4 w-4" />
           Add Layer
         </Button>
       </DropdownTrigger>
@@ -205,14 +245,21 @@ function AddLayers() {
         onAction={(type) => onSelectElement(type as ELEMENTS)}
         aria-label="Layers menu with icons"
       >
-        {elements.map((item) => (
-          <DropdownItem
-            key={item.type}
-            startContent={<item.icon className={iconClasses} />}
-          >
-            {item.content}
-          </DropdownItem>
-        ))}
+        {elements.map((item) => {
+          const isPro = [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM].some((x) =>
+            item.plan.includes(x)
+          );
+
+          return (
+            <DropdownItem
+              key={item.type}
+              startContent={<Icon icon={item.icon} className={iconClasses} />}
+              endContent={isPro && <Icon icon={'solar:lock-line-duotone'} />}
+            >
+              {item.content}
+            </DropdownItem>
+          );
+        })}
       </DropdownMenu>
     </Dropdown>
   );

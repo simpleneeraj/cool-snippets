@@ -3,12 +3,12 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import Section from '@/components/section';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import FaqSection from '@/components/home/faq';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import ContactSection from '@/components/contact/grids';
-import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 
 type ContactProps = object;
 

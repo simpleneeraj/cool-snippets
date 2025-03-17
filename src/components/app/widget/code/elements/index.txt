@@ -10,7 +10,7 @@ import IconElement from './icon';
 import ElementView from './view';
 import { BoundingBox } from 'motion/react';
 import useStore from '@/store';
-import UIInput from '@/ui-kit/source/UIInput';
+import UIInput from '@/app-kit/source/UIInput';
 
 type Props = {
   dragConstraints?:

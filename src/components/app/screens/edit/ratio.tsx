@@ -1,8 +1,10 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { Frame } from '@/components/elements/frame';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import aspectRatioArray from '@/json/aspect-ratio.json';
+import UIButton from '@/app-kit/source/UIButton/button';
+import aspectRatioArray from '@/json/resize.json';
+import { Card, CardBody, Image } from '@heroui/react';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 type Resolution = {
   height: number;
@@ -17,29 +19,57 @@ type AspectRatioScreenProps = {
 const AspectRatioScreen = (props: AspectRatioScreenProps) => {
   return (
     <React.Fragment>
-      {Object.keys(aspectRatioArray).map((platform, platformIndex) => (
-        <Frame
-          key={platformIndex}
-          title={platform.charAt(0).toUpperCase() + platform.slice(1)}
-        >
-          {aspectRatioArray[platform as keyof typeof aspectRatioArray].map(
-            (item, index) => (
-              <UIButton
-                key={index}
-                variant="light"
-                radius="none"
-                className="justify-between"
-                onPress={() => props.onSelect?.(item.resolution)}
-              >
-                <UIView>{`${item.title} (${item.ratio})`}</UIView>
-                <UIView>
-                  {`${item.resolution.height} x ${item.resolution.width}`}
+      <Frame title={'platform.title'}>
+        <UIView className="grid grid-cols-2 gap-2 p-2">
+          {aspectRatioArray.map((platform) => (
+            <Card
+              key={platform.id}
+              isHoverable
+              isPressable
+              onPress={() => props.onSelect?.(platform.resolution)}
+              className="border border-default-100"
+            >
+              <CardBody className="min-h-36 flex items-center justify-center gap-2">
+                <UIView className="min-h-20 min-w-20 flex items-center justify-center">
+                  <Icon
+                    radius="none"
+                    // icon={'lets-icons:insta-duotone-line'}
+                    icon="ph:twitter-logo-duotone"
+                    className="h-10 w-10"
+                  />
                 </UIView>
-              </UIButton>
-            )
-          )}
-        </Frame>
-      ))}
+                <UIView>
+                  <p className="text-center text-small text-default-500 line-clamp-2">
+                    {platform.title}
+                  </p>
+                  <p className="text-center text-xs text-default-400 line-clamp-1">
+                    {platform.resolution.width} x {platform.resolution.height}{' '}
+                    px
+                  </p>
+                </UIView>
+              </CardBody>
+            </Card>
+            // <UIButton
+            //   key={platformIndex}
+            //   variant="light"
+            //   radius="none"
+            //   className="justify-between"
+            //   onPress={() => props.onSelect?.(platform.resolution)}
+            // >
+            //   <UIView>
+            //     <Image
+            //       src={platform.preview_small_url}
+            //       className="h-4 w-4 object-cover"
+            //     />
+            //     {`${platform.title}`}
+            //   </UIView>
+            //   <UIView>
+            //     {`${platform.resolution.height} x ${platform.resolution.width}`}
+            //   </UIView>
+            // </UIButton>
+          ))}
+        </UIView>
+      </Frame>
     </React.Fragment>
   );
 };

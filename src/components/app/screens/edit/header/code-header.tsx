@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
-} from '@nextui-org/react';
+} from '@heroui/react';
 import templatesDraft from '../../../widget/aside/primary/templates-draft';
 
 type Props = {

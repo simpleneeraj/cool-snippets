@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SlideStyle from './styles/slide';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import EditorComponents from './elements';
 import ElementStyle from './styles/element';
 import useSlideEditor from '@/store/hooks/use-editor';

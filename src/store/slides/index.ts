@@ -85,7 +85,6 @@ const useSlide = create(
           ),
         }));
       },
-
       duplicateSlideElement: (slideId, elementId) => {
         set((state) => {
           const slide = state.slides.find((slide) => slide.id === slideId);
@@ -109,6 +108,7 @@ const useSlide = create(
           return state;
         });
       },
+      reset: () => set(initialState),
     }),
     {
       name: StorageEnum.NAME,

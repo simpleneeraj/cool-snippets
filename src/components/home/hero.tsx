@@ -1,11 +1,11 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
-import UIView from '@/ui-kit/source/UIView';
-import { Button, cn } from '@nextui-org/react';
-import UISpotlight from '@/ui-kit/components/UISpotlight';
-import { AnimatedTooltip } from '@/ui-kit/components/UITooltip';
-import UIGridPattern from '@/ui-kit/components/UIBackgroundPattern/grid-pattern';
-import { UIAnimatedButton } from '@/ui-kit/components/UIAnimatedButton';
+import UIView from '@/app-kit/source/UIView';
+import { Button, cn } from '@heroui/react';
+import UISpotlight from '@/app-kit/components/UISpotlight';
+import { AnimatedTooltip } from '@/app-kit/components/UITooltip';
+import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
+import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 import Link from 'next/link';
 
 type HeroSectionProps = object;

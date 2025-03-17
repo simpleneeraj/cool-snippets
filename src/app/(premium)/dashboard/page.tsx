@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Icon } from '@iconify/react';
-import UIView from '@/ui-kit/source/UIView';
-import { Card, Chip, cn } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import { Card, Chip, cn } from '@heroui/react';
 
 type DashboardProps = object;
 

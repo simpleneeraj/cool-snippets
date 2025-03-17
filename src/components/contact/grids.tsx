@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import appConfig from '@/constants/site';
-import FeatureCard from '@/ui-kit/components/UIFeatureCard';
-import { tv } from '@nextui-org/react';
+import FeatureCard from '@/app-kit/components/UIFeatureCard';
+import { tv } from '@heroui/react';
 
 type ContactSectionProps = object;
 

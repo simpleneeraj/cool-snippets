@@ -1,7 +1,7 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
-import UIGridPattern from '@/ui-kit/components/UIBackgroundPattern/grid-pattern';
-import UISpotlight from '@/ui-kit/components/UISpotlight';
+import UIView from '@/app-kit/source/UIView';
+import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
+import UISpotlight from '@/app-kit/components/UISpotlight';
 
 interface TopbarProps {
   title?: string;

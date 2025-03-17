@@ -1,18 +1,19 @@
 'use client';
 
 import React from 'react';
-import { Chip, Tooltip } from '@nextui-org/react';
-import UIDivider from '@/ui-kit/source/UIDivider';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import UIIconButton from '@/ui-kit/source/UIButton/icon';
-import UIButtonGroup from '@/ui-kit/source/UIButtonGroup';
-import UIView from '@/ui-kit/source/UIView';
+import { Button, Chip, Tooltip } from '@heroui/react';
+import UIDivider from '@/app-kit/source/UIDivider';
+import UIButton from '@/app-kit/source/UIButton/button';
+import UIIconButton from '@/app-kit/source/UIButton/icon';
+import UIButtonGroup from '@/app-kit/source/UIButtonGroup';
+import UIView from '@/app-kit/source/UIView';
 import { headerIcon } from '@/components/style/header';
 import appConfig from '@/constants/site';
 import TitleChangerComponent from './edit-title';
 import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import ExportDropdown from './export';
+import ShareWidget from '../share';
 
 const AppHeader = () => {
   const router = useRouter();
@@ -100,8 +101,8 @@ const AppHeader = () => {
         >
           Format Code
         </UIButton>
-
-        <UIButton
+        <ShareWidget />
+        {/* <UIButton
           size="sm"
           variant="flat"
           radius="sm"
@@ -117,9 +118,31 @@ const AppHeader = () => {
           }
         >
           Save as template
-        </UIButton>
-        <Tooltip size="sm" placement="bottom" content="Unlock premium features">
-          <UIButton
+        </UIButton> */}
+        <Tooltip
+          size="sm"
+          placement="bottom"
+          content="Unlock premium features"
+        ></Tooltip>
+        <ExportDropdown />
+        <Button
+          size="sm"
+          className="flex group min-w-28 items-center font-semibold text-foreground shadow-sm relative overflow-hidden rounded-lg p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary gap-2"
+        >
+          <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F54180_0%,#338EF7_50%,#F54180_100%)]" />
+          <div className="flex h-full gap-1 w-full cursor-pointer items-center justify-center rounded-lg bg-background/90 group-hover:bg-background/70 transition-background px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl">
+            <Icon className={headerIcon()} icon="solar:crown-line-duotone" />
+            Get Premium
+          </div>
+        </Button>
+      </UIView>
+    </UIView>
+  );
+};
+export default AppHeader;
+
+{
+  /* <UIButton
             size="sm"
             className="min-w-unit-5"
             radius="sm"
@@ -132,12 +155,5 @@ const AppHeader = () => {
                 sizes: 'md',
               })}
             />
-          </UIButton>
-        </Tooltip>
-
-        <ExportDropdown />
-      </UIView>
-    </UIView>
-  );
-};
-export default AppHeader;
+          </UIButton> */
+}

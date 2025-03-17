@@ -1,11 +1,9 @@
 'use client';
 import React from 'react';
-import UICard from '@/ui-kit/source/UICard';
-import UIView from '@/ui-kit/source/UIView';
-import UIIconButton from '@/ui-kit/source/UIButton/icon';
-import { PrimaryControllerWidget } from '../controller-segment';
-// import TemplatesPreview from './templates-preview';
+import UICard from '@/app-kit/source/UICard';
+import UIView from '@/app-kit/source/UIView';
 import LayersPreview from './layers-preview';
+import { PrimaryControllerWidget } from '../controller-segment';
 
 /**
  * Themes and templates
@@ -22,14 +20,14 @@ const PrimaryAsideWidget = () => {
           {/* <TemplatesPreview /> */}
           <LayersPreview />
         </UIView>
-        <UIView className="bg-default-100 bg-opacity-50 p-2 flex items-center gap-2 justify-center">
+        {/* <UIView className="bg-default-100 bg-opacity-50 p-2 flex items-center gap-2 justify-center">
           <UIIconButton size="sm" isIconOnly radius={'full'}>
             S
           </UIIconButton>
           <UIIconButton size="sm" isIconOnly radius={'full'}>
             M
           </UIIconButton>
-        </UIView>
+        </UIView> */}
       </UICard>
     </UIView>
   );

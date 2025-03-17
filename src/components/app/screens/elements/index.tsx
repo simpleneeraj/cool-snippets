@@ -1,11 +1,11 @@
 import React from 'react';
 import { ELEMENTS } from '@/typings/enums';
-import UIView from '@/ui-kit/source/UIView';
-import UITooltip from '@/ui-kit/source/UITooltip';
+import UIView from '@/app-kit/source/UIView';
+import UITooltip from '@/app-kit/source/UITooltip';
 import { generateID } from '@/utils/id-generator';
 import { elements, elementsObject } from '../../widget/aside/primary/values';
 import useSlideEditor from '@/store/hooks/use-editor';
-import UIButton from '@/ui-kit/source/UIButton/button';
+import UIButton from '@/app-kit/source/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
 
 const ElementsScreen = () => {

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import moize from 'moize';
 import fetchFonts from './fonts';
 import cloneNode from '../clone';
 import embedImages from '../embed';
@@ -53,4 +52,4 @@ const createSvg = async <T extends HTMLElement>(
   }
 };
 
-export default moize.promise(createSvg, { isPromise: true, maxSize: 1 });
+export default createSvg;

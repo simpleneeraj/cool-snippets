@@ -1,12 +1,9 @@
-import CircumAlignLeft from '@/ui-kit/icons/alignment/CircumAlignLeft';
-import CircumAlignRight from '@/ui-kit/icons/alignment/CircumAlignRight';
-import CircumAlignCenterH from '@/ui-kit/icons/alignment/CircumAlignCenterH';
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 
 export const SEGMENT_OPTIONS = [
-  { key: 'left', icon: CircumAlignLeft },
-  { key: 'center', icon: CircumAlignCenterH },
-  { key: 'right', icon: CircumAlignRight },
+  { key: 'left', icon: 'solar:align-left-line-duotone' },
+  { key: 'center', icon: 'solar:align-horizontal-center-line-duotone' },
+  { key: 'right', icon: 'solar:align-right-line-duotone' },
 ];
 
 export const HEADER_VARIANTS = [

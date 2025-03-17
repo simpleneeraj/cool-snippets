@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import AppHeader from './header';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 
 const AppLayout = ({ children }: React.PropsWithChildren) => {
   return (

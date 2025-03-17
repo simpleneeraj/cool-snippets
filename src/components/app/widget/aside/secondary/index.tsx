@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Screens from './screens';
-import UIView from '@/ui-kit/source/UIView';
+import UIView from '@/app-kit/source/UIView';
 import { useSegment } from '@/store/segment';
 import { BottomControllerWidget } from '../controller-segment';
 

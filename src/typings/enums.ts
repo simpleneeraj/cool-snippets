@@ -6,7 +6,7 @@ export enum SEGMENT_SCREEN {
   EDIT = 'SEGMENT::EDIT',
   BACKGROUNDS = 'SEGMENT::BACKGROUNDS',
   ICONS = 'SEGMENT::ICONS',
-  ELEMENTS = 'SEGMENT::ELEMENTS',
+  SETTINGS = 'SEGMENT::SETTINGS',
   FRAMES = 'SEGMENT::FRAMES',
   MORE = 'SEGMENT::MORE',
   AI = 'SEGMENT::AI',
@@ -52,4 +52,10 @@ export enum Terminal {
   iOS = 'ios::terminal',
   Unix = 'unix::terminal',
   Windows = 'windows::terminal',
+}
+
+export enum APP_PLAN_TYPE {
+  FREE = 'FREE',
+  PRO = 'PRO',
+  PREMIUM = 'PREMIUM',
 }

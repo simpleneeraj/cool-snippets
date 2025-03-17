@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image } from '@nextui-org/react';
-import UIText from '@/ui-kit/source/UIText';
-import UIView from '@/ui-kit/source/UIView';
-import UIDivider from '@/ui-kit/source/UIDivider';
+import { Image } from '@heroui/react';
+import UIText from '@/app-kit/source/UIText';
+import UIView from '@/app-kit/source/UIView';
+import UIDivider from '@/app-kit/source/UIDivider';
 import { Frame } from '@/components/elements/frame';
-import UIButton from '@/ui-kit/source/UIButton/button';
+import UIButton from '@/app-kit/source/UIButton/button';
 import { languagesArray, LanguagesEnum } from '@/plugins/codemirror/languages';
 
 type LanguagesScreenProps = {

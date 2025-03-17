@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import UISlider from '@/ui-kit/source/UISlider';
-import UISwitch from '@/ui-kit/source/UISwitch';
+import UISlider from '@/app-kit/source/UISlider';
+import UISwitch from '@/app-kit/source/UISwitch';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import UIView from '@/ui-kit/source/UIView';
-import UIButton from '@/ui-kit/source/UIButton/button';
-import { Autocomplete, AutocompleteItem, Chip } from '@nextui-org/react';
+import UIView from '@/app-kit/source/UIView';
+import UIButton from '@/app-kit/source/UIButton/button';
+import { Autocomplete, AutocompleteItem, Chip } from '@heroui/react';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
-import ChevronRightIcon from '@/ui-kit/icons/ChevronRightIcon';
+import ChevronRightIcon from '@/app-kit/icons/ChevronRightIcon';
 import fontsNames from '@/json/fonts.json';
 import useSlideEditor from '@/store/hooks/use-editor';
 import Glassmorphism from '../elements/glassmorphism';

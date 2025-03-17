@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import appConfig from '@/constants/site';
 import footerData from '@/json/layout/public.json';
-import { Button, Chip } from '@nextui-org/react';
-import UISpotlight from '@/ui-kit/components/UISpotlight';
+import { Button, Chip } from '@heroui/react';
+import UISpotlight from '@/app-kit/components/UISpotlight';
 
 type FooterProps = object;
 

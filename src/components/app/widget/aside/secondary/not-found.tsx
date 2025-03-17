@@ -1,6 +1,6 @@
 import React from 'react';
-import UIView from '@/ui-kit/source/UIView';
-import AlertOutlineIcon from '@/ui-kit/icons/AlertOutlineIcon';
+import UIView from '@/app-kit/source/UIView';
+import AlertOutlineIcon from '@/app-kit/icons/AlertOutlineIcon';
 
 const NotFound = () => {
   return (

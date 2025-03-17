@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { ScreenTypes, useScreen } from '@/store/screen';
 import backgroundVariants from './variants';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Chip, Select, SelectItem } from '@nextui-org/react';
+import { Chip, Select, SelectItem } from '@heroui/react';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import { BACKGROUND_SCREEN, BACKGROUND_TYPE } from '@/typings/enums';
 
