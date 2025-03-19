@@ -1,0 +1,26 @@
+import React, { createContext, use } from 'react';
+import { createStore, useStore } from 'zustand';
+
+const StoreContext = createContext(null);
+
+const StudioProvider = ({ children }: React.PropsWithChildren) => {
+  const storeRef = React.useRef<any>(null);
+  if (!storeRef.current) {
+    storeRef.current = createStore((set) => ({}));
+  }
+  return (
+    <StoreContext.Provider value={storeRef.current}>
+      {children}
+    </StoreContext.Provider>
+  );
+};
+
+const useStoreInContext = (selector: any) => {
+  const store = use(StoreContext);
+  if (!store) {
+    throw new Error('Missing StoreProvider');
+  }
+  return useStore(store, selector);
+};
+
+export { StudioProvider, useStoreInContext };

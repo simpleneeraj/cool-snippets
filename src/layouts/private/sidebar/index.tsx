@@ -15,7 +15,7 @@ const Sidebar = ({ menus }: Props) => {
   const { open, updateSidebar } = useSidebarStore((state) => state);
 
   return (
-    <aside className="">
+    <aside className="border">
       {open ? (
         <div
           className={SidebarStyles.Overlay()}
@@ -29,17 +29,17 @@ const Sidebar = ({ menus }: Props) => {
       >
         <div className="flex flex-col justify-between h-full">
           <div className={SidebarStyles.Body()}>
-            {menus.map(({ section, menus }, index$1) => {
+            {menus.map(({ section, menus }, parentIndex) => {
               return (
-                <Section title={section?.name} key={index$1}>
+                <Section title={section?.name} key={parentIndex}>
                   {menus &&
-                    menus?.map((menu, index$2) => {
+                    menus?.map((menu, childIndex) => {
                       const active = menu?.active?.some((str) =>
                         pathname?.includes(str)
                       );
                       return (
                         <ItemButton
-                          key={index$2}
+                          key={childIndex}
                           href={menu.href}
                           submenus={menu?.submenus}
                           active={active}

@@ -8,8 +8,11 @@ import {
   PopoverContent,
   PopoverTrigger,
   Divider,
+  addToast,
+  useDisclosure,
 } from '@heroui/react';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@/constants/site';
@@ -19,15 +22,8 @@ import { useCapture } from '@/plugins/capture';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { headerIcon } from '@/components/style/header';
 import UIView from '@/app-kit/source/UIView';
-import { useImmer } from 'use-immer';
+import { upperCase } from 'lodash';
 
-type ExportDropdownProps = object;
-type StateTypes = {
-  fileName: string;
-  imageFormat: Format;
-  pixelRatio: number;
-};
-type StateKey = keyof StateTypes;
 enum Format {
   WEBP = 'webp',
   PNG = 'png',
@@ -35,38 +31,45 @@ enum Format {
   SVG = 'svg',
 }
 
-const ExportDropdown: React.FC<ExportDropdownProps> = ({}) => {
+type ExportFormValues = {
+  fileName: string;
+  imageFormat: Format;
+  pixelRatio: string;
+};
+
+const ExportDropdown: React.FC = () => {
   const isPremium = true;
 
+  const { isOpen, onOpenChange, onClose } = useDisclosure();
   const { currentElement } = useSlideEditor();
-  const { captureImage, isLoading } = useCapture();
+  const { captureImage, isDownloading, isCopying, copyToClipboard } =
+    useCapture();
 
-  const [state, updateState] = useImmer<StateTypes>({
-    fileName: '',
-    imageFormat: Format.WEBP as Format,
-    pixelRatio: 2,
+  const { register, watch, setValue } = useForm<ExportFormValues>({
+    defaultValues: {
+      fileName: '',
+      imageFormat: Format.WEBP,
+      pixelRatio: '2',
+    },
   });
 
-  const onUpdateState = (key: StateKey, value: string | Format | number) => {
-    updateState((draft) => {
-      // @ts-expect-error - Key error
-      draft[key] = value;
-    });
-  };
+  const state = watch();
 
   const currentTypeface = findFontByValue(
     currentElement?.style?.fontFamily as string
   );
 
-  const onExport = React.useCallback(() => {
+  const onExport = async () => {
     const currentDate = format(new Date(), 'yyyy-MM-dd-HH-mm-ss');
     const fileName = slugify(`${appConfig.snippet.output}-${currentDate}`, {
       lower: true,
       replacement: '-',
     });
-    captureImage({
+
+    await captureImage({
       ...state,
-      fileName: state?.fileName || fileName,
+      pixelRatio: Number(state.pixelRatio),
+      fileName: state.fileName || fileName,
       fonts: [
         {
           src: currentTypeface?.src as string,
@@ -74,13 +77,49 @@ const ExportDropdown: React.FC<ExportDropdownProps> = ({}) => {
         },
       ],
     });
-  }, [captureImage, currentTypeface, state]);
+    onClose();
+  };
+  const onCopy = async () => {
+    try {
+      await copyToClipboard({
+        ...state,
+        pixelRatio: Number(state.pixelRatio),
+        fonts: [
+          {
+            src: currentTypeface?.src as string,
+            fontFamily: currentTypeface?.value as string,
+          },
+        ],
+      });
+
+      addToast({
+        title: 'Image Copied!',
+        description:
+          'The image has been successfully copied to your clipboard.',
+        color: 'success',
+        timeout: 3000,
+        shouldShowTimeoutProgress: true,
+      });
+    } catch (error) {
+      addToast({
+        title: 'Clipboard Copy Not Supported',
+        description: `Clipboard copy is not supported for ${state.imageFormat.toUpperCase()} format. `,
+        color: 'warning',
+        timeout: 4000,
+        shouldShowTimeoutProgress: true,
+      });
+    } finally {
+      onClose();
+    }
+  };
 
   return (
     <UIView>
       <Popover
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
         offset={10}
-        backdrop={'opaque'}
+        backdrop="opaque"
         placement="bottom"
         classNames={{
           base: ['before:bg-default-200'],
@@ -98,7 +137,7 @@ const ExportDropdown: React.FC<ExportDropdownProps> = ({}) => {
             radius="sm"
             startContent={
               <Icon
-                icon={'solar:archive-down-minimlistic-line-duotone'}
+                icon="solar:archive-down-minimlistic-line-duotone"
                 className={headerIcon({})}
               />
             }
@@ -107,127 +146,135 @@ const ExportDropdown: React.FC<ExportDropdownProps> = ({}) => {
           </UIButton>
         </PopoverTrigger>
         <PopoverContent className="w-80">
-          {(titleProps) => (
-            <UIView className="px-1 py-2 w-full">
-              <p
-                className="text-small font-bold text-foreground"
-                {...titleProps}
-              >
-                Export Options
-              </p>
-              <UIView className="mt-2 flex flex-col gap-2 w-full">
-                <Input
-                  label="Name"
+          <UIView className="px-1 py-2 w-full">
+            <p className="text-small font-bold text-foreground">
+              Export Options
+            </p>
+            <UIView className="mt-2 flex flex-col gap-2 w-full">
+              {/* File Name Input */}
+              <Input
+                label="Name"
+                size="sm"
+                isClearable
+                variant="bordered"
+                {...register('fileName')}
+                labelPlacement="outside"
+                placeholder="Provide a name for your image"
+                onClear={() => setValue('fileName', '')}
+              />
+
+              {/* Size Selection */}
+              <UIView className="flex flex-col gap-2">
+                <p className="text-xs">Choose Size</p>
+                <Tabs
+                  fullWidth
                   size="sm"
-                  isClearable
                   variant="bordered"
-                  value={state.fileName}
-                  labelPlacement="outside"
-                  placeholder="Provide a name for your image"
-                  onClear={() => onUpdateState('fileName', '')}
-                  onChange={(e) => onUpdateState('fileName', e.target.value)}
-                />
-                <UIView className="flex flex-col gap-2">
-                  <p className="text-xs">Choose Size</p>
-                  <Tabs
-                    fullWidth
-                    size="sm"
-                    variant="bordered"
-                    aria-label="Choose export size"
-                    selectedKey={state.pixelRatio}
-                    onSelectionChange={(key) =>
-                      onUpdateState('pixelRatio', key.toString())
-                    }
-                  >
-                    {Array.from({ length: 4 }).map((_, i) => (
-                      <Tab
-                        key={i + 1}
-                        title={
-                          <UIView className="flex items-center gap-2">
-                            <p>{`${i + 1}X`}</p>
-                            {i > 1 && (
-                              <Icon
-                                icon={'solar:lock-linear'}
-                                className={headerIcon({})}
-                              />
-                            )}
-                          </UIView>
-                        }
-                        isDisabled={!isPremium && i > 1}
-                      />
-                    ))}
-                  </Tabs>
-                </UIView>
-                <UIView className="flex flex-col gap-2">
-                  <p className="text-xs">Choose format</p>
-                  <Tabs
-                    fullWidth
-                    size="sm"
-                    variant="bordered"
-                    aria-label="Choose export format"
-                    selectedKey={state?.imageFormat}
-                    onSelectionChange={(key) =>
-                      onUpdateState('imageFormat', key as Format)
-                    }
-                  >
-                    <Tab key={Format.WEBP} title="WebP" />
-                    <Tab key={Format.JPEG} title="JPEG" />
+                  selectedKey={state.pixelRatio}
+                  onSelectionChange={(key) =>
+                    setValue('pixelRatio', key?.toString())
+                  }
+                >
+                  {['1', '2', '3', '4'].map((size) => (
                     <Tab
-                      key={Format.PNG}
+                      key={size}
                       title={
                         <UIView className="flex items-center gap-2">
-                          <p>PNG</p>
-                          <Icon
-                            icon={'solar:lock-linear'}
-                            className={headerIcon({})}
-                          />
+                          <p>{`${size}X`}</p>
+                          {Number(size) > 2 && (
+                            <Icon
+                              icon="solar:lock-linear"
+                              className={headerIcon({})}
+                            />
+                          )}
                         </UIView>
                       }
-                      isDisabled={!isPremium}
+                      isDisabled={!isPremium && Number(size) > 2}
                     />
+                  ))}
+                </Tabs>
+              </UIView>
+
+              {/* Format Selection */}
+              <UIView className="flex flex-col gap-2">
+                <p className="text-xs">Choose Format</p>
+                <Tabs
+                  fullWidth
+                  size="sm"
+                  variant="bordered"
+                  selectedKey={state.imageFormat}
+                  onSelectionChange={(key) =>
+                    setValue('imageFormat', key as Format)
+                  }
+                >
+                  {Object.values(Format).map((format) => (
                     <Tab
-                      key={Format.SVG}
+                      key={format}
                       title={
                         <UIView className="flex items-center gap-2">
-                          <p>SVG</p>
-                          <Icon
-                            icon={'solar:lock-linear'}
-                            className={headerIcon({})}
-                          />
+                          <p>{upperCase(format)}</p>
+                          {[Format.PNG, Format.SVG].includes(format) && (
+                            <Icon
+                              icon="solar:lock-linear"
+                              className={headerIcon({})}
+                            />
+                          )}
                         </UIView>
                       }
-                      isDisabled={!isPremium}
+                      isDisabled={
+                        !isPremium && [Format.PNG, Format.SVG].includes(format)
+                      }
                     />
-                  </Tabs>
-                </UIView>
-                <UIView className="my-2">
-                  <Divider />
-                </UIView>
-                <UIView className="flex flex-col gap-2">
-                  <Button
-                    onPress={onExport}
-                    isLoading={isLoading}
-                    disabled={!isPremium || isLoading}
-                    variant="solid"
-                    size="sm"
-                    color="secondary"
-                    endContent={
-                      <Icon
-                        icon={
-                          isPremium
-                            ? 'solar:archive-down-minimlistic-line-duotone'
-                            : 'solar:crown-line-duotone'
-                        }
-                        className={headerIcon({})}
-                      />
-                    }
-                  >
-                    {isPremium ? 'Save & Export' : 'Upgrade to Pro'}
-                  </Button>
-                </UIView>
+                  ))}
+                </Tabs>
+              </UIView>
+
+              <UIView className="my-2">
+                <Divider />
+              </UIView>
+
+              {/* Export Buttons */}
+              <UIView className="flex items-center gap-2">
+                <Button
+                  fullWidth
+                  onPress={onCopy}
+                  isLoading={isCopying}
+                  disabled={!isPremium || isCopying}
+                  variant="flat"
+                  size="sm"
+                  startContent={
+                    <Icon
+                      icon="solar:copy-line-duotone"
+                      className={headerIcon({})}
+                    />
+                  }
+                >
+                  {isPremium ? 'Copy to Clipboard' : 'Upgrade to Pro'}
+                </Button>
+                <Button
+                  fullWidth
+                  onPress={onExport}
+                  isLoading={isDownloading}
+                  disabled={!isPremium || isDownloading}
+                  variant="solid"
+                  size="sm"
+                  color="secondary"
+                  startContent={
+                    <Icon
+                      icon={
+                        isPremium
+                          ? 'solar:archive-down-minimlistic-line-duotone'
+                          : 'solar:crown-line-duotone'
+                      }
+                      className={headerIcon({})}
+                    />
+                  }
+                >
+                  {isPremium ? 'Save & Export' : 'Upgrade to Pro'}
+                </Button>
               </UIView>
             </UIView>
-          )}
+          </UIView>
         </PopoverContent>
       </Popover>
     </UIView>

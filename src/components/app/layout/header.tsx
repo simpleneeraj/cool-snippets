@@ -3,7 +3,6 @@
 import React from 'react';
 import { Button, Chip, Tooltip } from '@heroui/react';
 import UIDivider from '@/app-kit/source/UIDivider';
-import UIButton from '@/app-kit/source/UIButton/button';
 import UIIconButton from '@/app-kit/source/UIButton/icon';
 import UIButtonGroup from '@/app-kit/source/UIButtonGroup';
 import UIView from '@/app-kit/source/UIView';
@@ -14,6 +13,7 @@ import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import ExportDropdown from './export';
 import ShareWidget from '../share';
+import FormatCode from './format';
 
 const AppHeader = () => {
   const router = useRouter();
@@ -85,40 +85,9 @@ const AppHeader = () => {
             </UIIconButton>
           </Tooltip>
         </UIButtonGroup>
-
-        <UIButton
-          size="sm"
-          variant="flat"
-          radius="sm"
-          startContent={
-            <Icon
-              icon={'solar:code-line-duotone'}
-              className={headerIcon({
-                sizes: 'md',
-              })}
-            />
-          }
-        >
-          Format Code
-        </UIButton>
+        <FormatCode />
         <ShareWidget />
-        {/* <UIButton
-          size="sm"
-          variant="flat"
-          radius="sm"
-          disabled
-          color="secondary"
-          startContent={
-            <Icon
-              icon={'solar:bookmark-square-minimalistic-line-duotone'}
-              className={headerIcon({
-                sizes: 'md',
-              })}
-            />
-          }
-        >
-          Save as template
-        </UIButton> */}
+
         <Tooltip
           size="sm"
           placement="bottom"
@@ -156,4 +125,24 @@ export default AppHeader;
               })}
             />
           </UIButton> */
+}
+
+{
+  /* <UIButton
+          size="sm"
+          variant="flat"
+          radius="sm"
+          disabled
+          color="secondary"
+          startContent={
+            <Icon
+              icon={'solar:bookmark-square-minimalistic-line-duotone'}
+              className={headerIcon({
+                sizes: 'md',
+              })}
+            />
+          }
+        >
+          Save as template
+        </UIButton> */
 }
