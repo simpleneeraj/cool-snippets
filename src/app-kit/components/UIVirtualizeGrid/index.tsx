@@ -74,9 +74,9 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
     },
     [items, value, children, onSelectIcon, showTitle]
   );
-
+  // border border-default-100 rounded-2xl
   return (
-    <UIView className="p-1 flex-1 flex flex-col w-full overflow-auto border border-default-100 rounded-2xl">
+    <UIView className="flex-1 flex flex-col w-full overflow-auto">
       {items && items.length > 0 ? (
         <VirtuosoGrid
           style={{ height }}

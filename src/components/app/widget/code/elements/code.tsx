@@ -30,7 +30,7 @@ const CodeElement: React.FC<Props> = ({ ...rest }) => {
         <CodeMirror
           {...rest}
           className="codemirror"
-          basicSetup={merge(
+          basicSetup={merge({},
             {
               foldGutter: false,
               lineNumbers: false,

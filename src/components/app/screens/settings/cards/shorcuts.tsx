@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
 import UIView from '@/app-kit/source/UIView';
 import shortcutsData from '@/json/shortcuts.json';
 import { Kbd, KbdKey, Listbox, ListboxItem } from '@heroui/react';
@@ -15,7 +14,7 @@ const Shortcuts = () => {
           <ListboxItem
             key={shortcut.key}
             description={shortcut.description}
-            startContent={<Icon icon={shortcut.icon} className={iconClasses} />}
+            // startContent={<Icon icon={shortcut.icon} className={iconClasses} />}
             endContent={
               <Kbd keys={shortcut.keys as KbdKey[]}>{shortcut.key}</Kbd>
             }

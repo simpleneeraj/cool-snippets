@@ -8,9 +8,9 @@ import {
   CardHeader,
 } from '@heroui/react';
 import { format } from 'date-fns';
-import { Icon } from '@iconify/react';
 import convertBytes from '@/utils/convert-bytes';
 import useSlideEditor from '@/store/hooks/use-editor';
+import { SolarRefreshLineDuotone } from '@/app-kit/icons/SolarRefreshLineDuotone';
 
 const StorageCard = () => {
   const { slides, resetState } = useSlideEditor();
@@ -31,9 +31,7 @@ const StorageCard = () => {
         <div className="flex items-center gap-3">
           <Avatar
             className="border-small border-white/20 bg-transparent"
-            icon={
-              <Icon icon={'solar:refresh-line-duotone'} className="h-6 w-6" />
-            }
+            icon={<SolarRefreshLineDuotone className="h-6 w-6" />}
           />
           <p className="text-large font-medium text-white">
             Storage Management

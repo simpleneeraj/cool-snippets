@@ -1,7 +1,8 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
 import { Button, Card, cn } from '@heroui/react';
 import UIMeteors from '@/app-kit/components/UIMeteors';
+import { ProiconsArrowReply } from '@/app-kit/icons/ProiconsArrowReply';
+import { SolarCheckCircleLineDuotone } from '@/app-kit/icons/SolarCheckCircleLineDuotone';
 
 export enum CardType {
   BORDERED = 'bordered',
@@ -23,7 +24,7 @@ type PricingCardProps = {
   };
   features: Feature[];
   visual: {
-    icon: string;
+    icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
     className: string;
   };
 };
@@ -66,10 +67,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         {isFilled && (
           <React.Fragment>
             <UIMeteors />
-            <Icon
-              icon={'proicons:arrow-reply'}
-              className="flex-none outline-none h-4 w-4 -rotate-90"
-            />
+            <ProiconsArrowReply className="flex-none outline-none h-4 w-4 -rotate-90" />
             <p>Best Deals</p>
           </React.Fragment>
         )}
@@ -77,7 +75,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       <div className="bg-default-50/90 rounded-2xl backdrop-blur border border-default-200">
         <div className="p-3 z-10 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large flex flex-col items-start gap-2 pb-6">
           <h2 className="text-xl font-medium text-primary-foreground flex items-center gap-1">
-            <Icon {...visual} />
+            <visual.icon className={visual.className} />
             {name}
           </h2>
           <p className="text-medium text-primary-foreground/70">
@@ -106,10 +104,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             <ul className="flex flex-col gap-2">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-2">
-                  <Icon
-                    className="h-4 w-4 text-default-500"
-                    icon={'solar:check-circle-line-duotone'}
-                  />
+                  <SolarCheckCircleLineDuotone className="h-4 w-4 text-default-500" />
                   <p className="text-primary-foreground/70">{feature.label}</p>
                 </li>
               ))}

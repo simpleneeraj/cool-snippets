@@ -2,11 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Icon } from '@iconify/react';
 import appConfig from '@/constants/site';
-import footerData from '@/json/layout/public.json';
 import { Button, Chip } from '@heroui/react';
 import UISpotlight from '@/app-kit/components/UISpotlight';
+import { FluentEmojiCrystalBall } from '@/app-kit/icons/layout/FluentEmojiCrystalBall';
+import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
+import publicLayout from '../constants/public';
 
 type FooterProps = object;
 
@@ -19,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col flex-1 gap-2">
               <div className="flex items-center gap-1">
-                <Icon className="h-5 w-5" icon="token-branded:crystal" />
+                <TokenBrandedCrystal className="h-5 w-5" />
                 <p className="text-lg font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
                   {appConfig.short_name}
                 </p>
@@ -33,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              {footerData.footer.socialLinks.map((social, index) => (
+              {publicLayout.footer.socialLinks.map((social, index) => (
                 <Button
                   key={index}
                   isIconOnly
@@ -45,13 +46,13 @@ const Footer: React.FC<FooterProps> = ({}) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon className="h-5 w-5" icon={social.icon} />
+                  <social.icon className="h-5 w-5" />
                 </Button>
               ))}
             </div>
           </div>
           <div className="mt-16 grid grid-cols-2 gap-4 xl:col-span-2 xl:mt-0">
-            {footerData.footer.sections.map((section, sectionIndex) => (
+            {publicLayout.footer.sections.map((section, sectionIndex) => (
               <div
                 key={sectionIndex}
                 className={`${
@@ -86,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             All systems operational
           </Chip>
           <a className="flex sm:justify-center">
-            <Icon className="h-10 w-10" icon="fluent-emoji:crystal-ball" />
+            <FluentEmojiCrystalBall className="h-10 w-10" />
           </a>
           <p className="text-xs text-default-500 sm:text-right">
             ©{appConfig.year} {appConfig.name} | All rights reserved.

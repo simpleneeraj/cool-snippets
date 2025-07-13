@@ -1,10 +1,10 @@
 import React from 'react';
-import PrivacyClient from './client';
+import TermsClient from './client';
 
 type PrivacyPageProps = object;
 
 const PrivacyPage: React.FC<PrivacyPageProps> = ({}) => {
-  return <PrivacyClient />;
+  return <TermsClient />;
 };
 
 export default PrivacyPage;

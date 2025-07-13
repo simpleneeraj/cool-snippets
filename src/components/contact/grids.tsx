@@ -2,6 +2,10 @@ import Link from 'next/link';
 import appConfig from '@/constants/site';
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
 import { tv } from '@heroui/react';
+import { SolarHome2LineDuotone } from '@/app-kit/icons/SolarHome2LineDuotone';
+import { SolarPhoneCallingRoundedLineDuotone } from '@/app-kit/icons/SolarPhoneCallingRoundedLineDuotone';
+import { SolarChatRoundUnreadLineDuotone } from '@/app-kit/icons/SolarChatRoundUnreadLineDuotone';
+import { SolarLetterLineDuotone } from '@/app-kit/icons/SolarLetterLineDuotone';
 
 type ContactSectionProps = object;
 
@@ -29,16 +33,18 @@ export default ContactSection;
 
 const contactMethods = [
   {
-    title: 'Visit Us',
+    title: 'Our Studio',
     description: (
       <div className={styles().wrapper()}>
-        <p className={styles().paragraph()}>Drop by our office for a chat.</p>
+        <p className={styles().paragraph()}>
+          We're remote for now — studio coming soon!
+        </p>
         <Link className={styles().link()} href={appConfig.contact.map}>
-          Get Directions
+          See Where We’re Launching
         </Link>
       </div>
     ),
-    icon: 'solar:home-2-line-duotone',
+    icon: SolarHome2LineDuotone,
   },
   {
     title: 'Call Us',
@@ -50,7 +56,7 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: 'solar:phone-calling-rounded-line-duotone',
+    icon: SolarPhoneCallingRoundedLineDuotone,
   },
   {
     title: 'Chat with Us',
@@ -64,7 +70,7 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: 'solar:chat-round-unread-line-duotone',
+    icon: SolarChatRoundUnreadLineDuotone,
   },
   {
     title: 'Email Us',
@@ -78,6 +84,6 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: 'solar:letter-line-duotone',
+    icon: SolarLetterLineDuotone,
   },
 ];

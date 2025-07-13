@@ -1,22 +1,24 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
-import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
 import UISpotlight from '@/app-kit/components/UISpotlight';
+import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
 
 interface TopbarProps {
   title?: string;
   description?: string;
   startContent?: React.ReactNode | React.ReactNode[];
+  children?: React.ReactNode | React.ReactNode[];
 }
 
 const Topbar: React.FC<TopbarProps> = ({
   title,
   description,
   startContent,
+  children,
 }) => {
   return (
     <UIView className="flex items-center justify-center w-full flex-col">
-      <UIView className="relative flex h-[80vh] w-full flex-col overflow-hidden bg-background">
+      <UIView className="relative flex h-[40vh] sm:h-[60vh] w-full flex-col overflow-hidden bg-background">
         <UIView className="container mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-8">
           <UIView className="z-20 flex flex-col items-center justify-center gap-4 sm:gap-6">
             <UIGridPattern
@@ -35,7 +37,7 @@ const Topbar: React.FC<TopbarProps> = ({
                 [15, 10],
               ]}
               className={
-                '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
+                '[mask-image:radial-gradient(500px_circle_at_center,rgba(255,255,255,0.75),transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
               }
             />
             <UISpotlight
@@ -57,6 +59,7 @@ const Topbar: React.FC<TopbarProps> = ({
             </UIView>
           </UIView>
         </UIView>
+        {children}
       </UIView>
     </UIView>
   );

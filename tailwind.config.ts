@@ -1,6 +1,5 @@
-import type { Config } from 'tailwindcss';
 import { heroui } from '@heroui/react';
-import typography from '@tailwindcss/typography';
+import type { Config } from 'tailwindcss';
 
 const widgetWidth = {
   'widget-sm': '280px',
@@ -11,7 +10,7 @@ const widgetWidth = {
 const config: Config = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -21,6 +20,8 @@ const config: Config = {
       fontFamily: {
         'app-kablammo': 'var(--kablammo)',
         'app-nothing-you-could-do': 'var(--nothing-you-could-do)',
+        'app-delius': 'var(--delius)',
+        'app-cabin-sketch': 'var(--cabin-sketch)',
       },
       colors: {
         'lavender-frost': {
@@ -57,6 +58,6 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [heroui(), typography()],
+  plugins: [heroui(), require('@tailwindcss/typography')],
 };
 export default config;

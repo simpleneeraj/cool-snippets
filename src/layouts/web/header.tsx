@@ -17,13 +17,14 @@ import {
 } from '@heroui/react';
 import { cn } from '@heroui/react';
 import appConfig from '@/constants/site';
-import { Icon } from '@iconify/react/dist/iconify.js';
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
 import { usePathname } from 'next/navigation';
-import headerData from '@/json/layout/public.json';
 import UserInfo from './user';
+import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
+import { SolarAltArrowRightLineDuotone } from '@/app-kit/icons/layout/SolarAltArrowRightLineDuotone';
+import publicLayout from '../constants/public';
 
-const menuItems = headerData.header?.links;
+const menuItems = publicLayout.header?.links;
 
 export default function Header(props: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -33,10 +34,10 @@ export default function Header(props: NavbarProps) {
     <Navbar
       {...props}
       classNames={{
-        base: cn('border-default-100', {
+        base: cn('border-default-100 z-50', {
           'bg-default-200/50 dark:bg-default-100/50': isMenuOpen,
         }),
-        wrapper: 'w-full justify-center',
+        wrapper: 'w-full justify-center sm:px-0',
         item: 'hidden md:flex',
       }}
       isMenuOpen={isMenuOpen}
@@ -46,7 +47,7 @@ export default function Header(props: NavbarProps) {
       {/* Left Content */}
       <Link href={'/'} className="flex-1">
         <NavbarBrand className="gap-1 select-none">
-          <Icon className="h-4 w-4" icon={'token-branded:crystal'} />
+          <TokenBrandedCrystal className="h-4 w-4" />
           <p className="font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
             {appConfig.short_name}
           </p>
@@ -93,7 +94,9 @@ export default function Header(props: NavbarProps) {
               <Button
                 className="bg-gradient-to-r from-lavender-frost to-periwinkle-glow font-medium text-background"
                 color="secondary"
-                endContent={<Icon icon="solar:alt-arrow-right-linear" />}
+                endContent={
+                  <SolarAltArrowRightLineDuotone className="size-5" />
+                }
                 radius="full"
                 variant="flat"
               >

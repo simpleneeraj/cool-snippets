@@ -1,10 +1,9 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
+import { MenuData } from '@/typings/layout';
 import { usePathname } from 'next/navigation';
 import useSidebarStore from '../store/sidebar';
 import { ItemButton, Section } from './elements';
 import { Sidebar as SidebarStyles } from './styles';
-import { MenuData } from '@/typings/layout';
 
 type Props = {
   menus: MenuData[];
@@ -43,14 +42,14 @@ const Sidebar = ({ menus }: Props) => {
                           href={menu.href}
                           submenus={menu?.submenus}
                           active={active}
-                          startContent={
-                            <Icon
-                              icon={menu.icon!}
-                              className={SidebarStyles.Icon({
-                                active: active,
-                              })}
-                            />
-                          }
+                          // startContent={
+                          //   <Icon
+                          //     icon={menu.icon!}
+                          //     className={SidebarStyles.Icon({
+                          //       active: active,
+                          //     })}
+                          //   />
+                          // }
                         >
                           {menu.name}
                         </ItemButton>

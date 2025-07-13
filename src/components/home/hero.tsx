@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
 import UIView from '@/app-kit/source/UIView';
 import { Button, cn } from '@heroui/react';
 import UISpotlight from '@/app-kit/components/UISpotlight';
@@ -7,6 +6,8 @@ import { AnimatedTooltip } from '@/app-kit/components/UITooltip';
 import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 import Link from 'next/link';
+import { MynauiChevronRightWaves } from '@/app-kit/icons/MynauiChevronRightWaves';
+import { SolarArrowRightLineDuotone } from '@/app-kit/icons/SolarArrowRightLineDuotone';
 
 type HeroSectionProps = object;
 
@@ -46,10 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                 className="flex items-center gap-2 text-sm text-default-500"
               >
                 Make Every Post a Masterpiece with Crystal
-                <Icon
-                  className="flex-none outline-none h-5 w-5"
-                  icon="mynaui:chevron-right-waves"
-                />
+                <MynauiChevronRightWaves className="flex-none outline-none h-5 w-5" />
               </UIAnimatedButton>
             </Link>
             <UIView className="text-center py-6 md:py-10">
@@ -77,9 +75,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                 className="h-10 w-[163px] border-1 border-default-100 px-[16px] py-[10px] text-small font-medium leading-5 backdrop-blur"
                 endContent={
                   <span className="pointer-events-none flex h-[22px] w-[22px] items-center justify-center rounded-full bg-default-100">
-                    <Icon
+                    <SolarArrowRightLineDuotone
                       className="text-default-500 [&>path]:stroke-[1.5]"
-                      icon="solar:arrow-right-linear"
                       width={16}
                     />
                   </span>

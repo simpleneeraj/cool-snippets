@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import FeaturesSection from '@/components/home/features';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
 
 type FeaturesProps = object;
 
@@ -23,10 +23,7 @@ const FeaturesClient: React.FC<FeaturesProps> = ({}) => {
             onClick={() => scrollToTarget('FEATURES', 100)}
           >
             Explore Features
-            <Icon
-              className="flex-none outline-none h-5 w-5"
-              icon="mynaui:chevron-down-waves"
-            />
+            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
           </UIAnimatedButton>
         }
       />

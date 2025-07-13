@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import Section from '@/components/section';
 import UIView from '@/app-kit/source/UIView';
 import FaqSection from '@/components/home/faq';
@@ -9,6 +8,7 @@ import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import ContactSection from '@/components/contact/grids';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
 
 type ContactProps = object;
 
@@ -25,10 +25,7 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
             onClick={() => scrollToTarget('CONTACT_FORM', 100)}
           >
             Get in Touch
-            <Icon
-              className="flex-none outline-none h-5 w-5"
-              icon="mynaui:chevron-down-waves"
-            />
+            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
           </UIAnimatedButton>
         }
       />

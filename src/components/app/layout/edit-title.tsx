@@ -1,3 +1,4 @@
+import { SolarPen2LineDuotone } from '@/app-kit/icons/SolarPen2LineDuotone';
 import {
   Button,
   Input,
@@ -5,14 +6,13 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from '@heroui/react';
-import { Icon } from '@iconify/react';
 
 export default function TitleChangerComponent() {
   return (
     <Popover placement="bottom-start" backdrop="opaque">
       <PopoverTrigger>
         <Button size="sm" variant="light" isIconOnly>
-          <Icon icon={'solar:pen-2-line-duotone'} className={'h-5 w-5'} />
+          <SolarPen2LineDuotone className={'h-5 w-5'} />
         </Button>
       </PopoverTrigger>
       <PopoverContent>

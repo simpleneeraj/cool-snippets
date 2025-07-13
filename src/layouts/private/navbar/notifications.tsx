@@ -13,7 +13,7 @@ import {
   NavbarItem,
   useDisclosure,
 } from '@heroui/react';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { SolarBellBingLineDuotone } from '@/app-kit/icons/SolarBellBingLineDuotone';
 
 export const NotificationsDropdown = () => {
   const disclose = useDisclosure();
@@ -28,7 +28,7 @@ export const NotificationsDropdown = () => {
             variant="light"
             onPress={disclose.onOpenChange}
           >
-            <Icon className="h-6 w-6" icon="solar:bell-bing-bold-duotone" />
+            <SolarBellBingLineDuotone className="h-6 w-6" />
           </Button>
         </NavbarItem>
       </DropdownTrigger>

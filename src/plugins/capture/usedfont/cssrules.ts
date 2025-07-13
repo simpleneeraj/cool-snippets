@@ -65,7 +65,7 @@ async function getCSSRules(
               })
           );
         }
-        console.error('Error inlining remote css file');
+        console.error('Error inlining remote css docs');
       }
     }
   });

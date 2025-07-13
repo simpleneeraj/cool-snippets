@@ -12,7 +12,7 @@ function getElement(): HTMLElement {
 }
 
 /**
- * Download a Blob, a string or an ArrayBuffer as a file in the browser
+ * Download a Blob, a string or an ArrayBuffer as a docs in the browser
  */
 function download(data: any, filename: string) {
   if (data) {

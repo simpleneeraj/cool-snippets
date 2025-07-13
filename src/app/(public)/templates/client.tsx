@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
 
 type TemplatesProps = object;
 
@@ -22,10 +22,7 @@ const TemplatesClient: React.FC<TemplatesProps> = ({}) => {
             onClick={() => scrollToTarget('templates-section')}
           >
             View Templates
-            <Icon
-              className="flex-none outline-none h-5 w-5"
-              icon="mynaui:chevron-down-waves"
-            />
+            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
           </UIAnimatedButton>
         }
       />

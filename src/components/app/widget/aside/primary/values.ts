@@ -2,6 +2,13 @@
 import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { SolarCodeSquareLineDuotone } from '@/app-kit/icons/features/SolarCodeSquareLineDuotone';
+import { SolarTextFieldFocusLineDuotone } from '@/app-kit/icons/SolarTextFieldFocusLineDuotone';
+import { SolarGalleryAddLineDuotone } from '@/app-kit/icons/SolarGalleryAddLineDuotone';
+import { SolarFaceScanCircleLineDuotone } from '@/app-kit/icons/SolarFaceScanCircleLineDuotone';
+import { SolarCodeScanLineDuotone } from '@/app-kit/icons/SolarCodeScanLineDuotone';
+import { SolarUserIdLineDuotone } from '@/app-kit/icons/SolarUserIdLineDuotone';
+import { SolarVerifiedCheckLineDuotone } from '@/app-kit/icons/SolarVerifiedCheckLineDuotone';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {
   [ELEMENTS.CODE]: 'Code Block',
@@ -18,43 +25,43 @@ export const elementLabelMapper: Record<ELEMENTS, string> = {
 export const elements = [
   {
     content: 'Code Block',
-    icon: 'solar:code-square-line-duotone',
+    icon: SolarCodeSquareLineDuotone,
     type: ELEMENTS.CODE,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Text Box',
-    icon: 'solar:text-field-focus-line-duotone',
+    icon: SolarTextFieldFocusLineDuotone,
     type: ELEMENTS.TEXT,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Image',
-    icon: 'solar:gallery-add-line-duotone',
+    icon: SolarGalleryAddLineDuotone,
     type: ELEMENTS.IMAGE,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Graphic Icon',
-    icon: 'solar:face-scan-circle-line-duotone',
+    icon: SolarFaceScanCircleLineDuotone,
     type: ELEMENTS.ICON,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'QR Code',
-    icon: 'solar:code-scan-line-duotone',
+    icon: SolarCodeScanLineDuotone,
     type: ELEMENTS.USERINFO,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'User Info',
-    icon: 'solar:user-id-line-duotone',
+    icon: SolarUserIdLineDuotone,
     type: ELEMENTS.USERINFO,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'Watermark',
-    icon: 'solar:verified-check-line-duotone',
+    icon: SolarVerifiedCheckLineDuotone,
     type: ELEMENTS.WATERMARK,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
@@ -94,9 +101,52 @@ export const elementsObject: Record<ELEMENTS, any> = {
     type: ELEMENTS.CODE,
     content: 'console.log("Hello, World!");',
     ...baseElement,
+    style: {
+      ...baseElement.style,
+      width: '90%',
+      fontSize: 14,
+      fontWeight: 400,
+      lineHeight: 1.6,
+      letterSpacing: 0,
+      fontFamily: 'SFMonoLigaturized',
+      borderRadius: 15,
+      background: 'rgba(0, 0, 0, 0.5)',
+      zIndex: '0',
+      display: 'grid',
+      overflow: 'hidden',
+    },
     properties: {
       language: LanguagesEnum.TYPESCRIPT,
       theme: ThemesEnum.BASIC_DARK,
+    },
+    header: {
+      type: 'unix::terminal',
+      variant: 'outline',
+      input: 'icon',
+      position: 'left',
+      style: {
+        background: 'rgba(0, 0, 0, 0.75)',
+      },
+      properties: {
+        colors: [
+          {
+            name: 'Red',
+            hex: '#fd4539',
+          },
+          {
+            name: 'Yellow',
+            hex: '#ffd213',
+          },
+          {
+            name: 'Green',
+            hex: '#21d854',
+          },
+        ],
+        title: {
+          text: 'app.py',
+          icon: 'https://raw.githubusercontent.com/simpleneeraj/vscode-material-icon-theme/main/icons/swift.svg',
+        },
+      },
     },
   },
   [ELEMENTS.ICON]: {

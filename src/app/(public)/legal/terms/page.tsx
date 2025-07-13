@@ -1,10 +1,10 @@
 import React from 'react';
-import ChangeLogClient from './client';
+import TermsClient from './client';
 
 type ChangelogPageProps = object;
 
-const ChangelogPage: React.FC<ChangelogPageProps> = ({}) => {
-  return <ChangeLogClient />;
+const TermsPage: React.FC<ChangelogPageProps> = ({}) => {
+  return <TermsClient />;
 };
 
-export default ChangelogPage;
+export default TermsPage;

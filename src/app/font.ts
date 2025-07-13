@@ -1,5 +1,10 @@
 import { cn } from '@heroui/react';
-import { Kablammo, Nothing_You_Could_Do } from 'next/font/google';
+import {
+  Kablammo,
+  Nothing_You_Could_Do,
+  Delius,
+  Cabin_Sketch,
+} from 'next/font/google';
 
 const kablammo = Kablammo({
   subsets: ['latin'],
@@ -11,5 +16,21 @@ const nothingYouCouldDo = Nothing_You_Could_Do({
   subsets: ['latin'],
   variable: '--nothing-you-could-do',
 });
+const delius = Delius({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--delius',
+});
 
-export default cn(kablammo.variable, nothingYouCouldDo.variable);
+const cabinSketch = Cabin_Sketch({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--cabin-sketch',
+});
+
+export default cn(
+  kablammo.variable,
+  nothingYouCouldDo.variable,
+  delius.variable,
+  cabinSketch.variable
+);

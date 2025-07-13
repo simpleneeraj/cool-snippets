@@ -18,6 +18,7 @@ const ContainerWidget = () => {
           <CaptureView className="center">
             {currentSlide?.elements?.map((item) => (
               <React.Fragment key={item.id}>
+                {/* Should be unique for individual elements */}
                 <ElementStyle style={item} />
                 <EditorComponents item={item} />
               </React.Fragment>

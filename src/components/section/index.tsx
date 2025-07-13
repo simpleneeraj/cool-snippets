@@ -26,7 +26,7 @@ const Section: React.FC<SectionProps> = ({
         <span className="text-2xl text-teal-500 mb-2 relative flex justify-center items-end font-app-nothing-you-could-do">
           {tagline}
           <svg
-            className="absolute fill-teal-500 opacity-40 z-10"
+            className="absolute fill-teal-500 opacity-40 z-auto"
             xmlns="http://www.w3.org/2000/svg"
             width={88}
             height={4}

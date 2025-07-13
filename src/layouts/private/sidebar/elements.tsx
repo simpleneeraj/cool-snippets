@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Icon } from '@iconify/react';
 import { MenuItem } from '@/typings/layout';
 import { usePathname } from 'next/navigation';
 import { Button, cn } from '@heroui/react';
 import { motion, AnimatePresence } from 'motion/react';
+import { SolarAltArrowDownLineDuotone } from '@/app-kit/icons/SolarAltArrowDownLineDuotone';
 
 type Props = {
   title?: string;
@@ -75,8 +75,7 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
         </div>
         {isPressable && (
           <div className="flex items-center justify-center">
-            <Icon
-              icon={'solar:alt-arrow-down-line-duotone'}
+            <SolarAltArrowDownLineDuotone
               className={`h-4 w-4 text-default-400 ${
                 isOpen ? 'transform rotate-180 text-app-lime' : ''
               }`}

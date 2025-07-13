@@ -4,8 +4,6 @@ import React from 'react';
 import Header from './header';
 import Sidebar from './sidebar';
 import UIView from '@/app-kit/source/UIView';
-import { MenuData } from '@/typings/layout';
-import menusData from '@/json/layout/private.json';
 
 type Props = {
   session?: object;
@@ -17,7 +15,7 @@ const PrivateLayout = ({ children }: Props) => {
     <section className="flex flex-col">
       <Header />
       <UIView className="mx-auto w-full px-3 max-w-screen-lg flex">
-        <Sidebar menus={menusData as MenuData[]} />
+        <Sidebar menus={[]} />
         <UIView className="flex flex-col flex-1">{children}</UIView>
       </UIView>
     </section>

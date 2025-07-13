@@ -18,11 +18,17 @@ import {
   DropdownItem,
   DropdownTrigger,
 } from '@heroui/react';
-import { Icon } from '@iconify/react';
 import { generateID } from '@/utils/id-generator';
 import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
 import { useActiveSlide } from '@/store/slides/current-slide';
 import { elementLabelMapper, elements, elementsObject } from './values';
+import { SolarLayersMinimalisticLineDuotone } from '@/app-kit/icons/SolarLayersMinimalisticLineDuotone';
+import { SolarEyeLineDuotone } from '@/app-kit/icons/SolarEyeLineDuotone';
+import { SolarCopyLineDuotone } from '@/app-kit/icons/SolarCopyLineDuotone';
+import { SolarTrashBinMinimalisticLineDuotone } from '@/app-kit/icons/SolarTrashBinMinimalisticLineDuotone';
+import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
+import { SolarAddSquareLineDuotone } from '@/app-kit/icons/SolarAddSquareLineDuotone';
+import { SolarLockLineDuotone } from '@/app-kit/icons/SolarLockLineDuotone';
 
 const MAX_SLIDE = 2;
 const MAX_ELEMENTS = 5;
@@ -64,10 +70,7 @@ const LayersPreview = () => {
                     variant={'bordered'}
                     value={slide.name}
                     startContent={
-                      <Icon
-                        className="text-base"
-                        icon={'solar:layers-line-duotone'}
-                      />
+                      <SolarLayersMinimalisticLineDuotone className="size-4" />
                     }
                     isClearable
                   />
@@ -112,8 +115,7 @@ const LayersPreview = () => {
                                 aria-label={'Visibility Slide Element'}
                                 {...style}
                               >
-                                <Icon
-                                  icon={'solar:eye-line-duotone'}
+                                <SolarEyeLineDuotone
                                   className={cn(
                                     'h-4 w-4',
                                     active && 'text-lavender-frost'
@@ -139,8 +141,7 @@ const LayersPreview = () => {
                                 isDisabled={isElementExceed}
                                 {...style}
                               >
-                                <Icon
-                                  icon={'solar:copy-line-duotone'}
+                                <SolarCopyLineDuotone
                                   className={cn(
                                     'h-4 w-4',
                                     active && 'text-lavender-frost'
@@ -165,10 +166,7 @@ const LayersPreview = () => {
                                 }
                                 {...style}
                               >
-                                <Icon
-                                  icon={
-                                    'solar:trash-bin-minimalistic-line-duotone'
-                                  }
+                                <SolarTrashBinMinimalisticLineDuotone
                                   className={cn(
                                     'h-4 w-4',
                                     active && 'text-lavender-frost'
@@ -186,7 +184,7 @@ const LayersPreview = () => {
             </Card>
             {isElementExceed ? (
               <Button size="sm" variant="bordered">
-                <Icon icon={'solar:crown-line-duotone'} className="h-4 w-4" />
+                <SolarCrownLineDuotone className="h-4 w-4" />
                 Get premium
               </Button>
             ) : (
@@ -236,7 +234,7 @@ function AddLayers() {
     >
       <DropdownTrigger>
         <Button size="sm" variant="bordered">
-          <Icon icon={'solar:add-square-line-duotone'} className="h-4 w-4" />
+          <SolarAddSquareLineDuotone className="h-4 w-4" />
           Add Layer
         </Button>
       </DropdownTrigger>
@@ -246,15 +244,15 @@ function AddLayers() {
         aria-label="Layers menu with icons"
       >
         {elements.map((item) => {
-          const isPro = [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM].some((x) =>
-            item.plan.includes(x)
+          const isPro = [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM].some(
+            (plan) => item.plan.includes(plan)
           );
 
           return (
             <DropdownItem
               key={item.type}
-              startContent={<Icon icon={item.icon} className={iconClasses} />}
-              endContent={isPro && <Icon icon={'solar:lock-line-duotone'} />}
+              startContent={<item.icon className={iconClasses} />}
+              endContent={isPro && <SolarLockLineDuotone className="size-4" />}
             >
               {item.content}
             </DropdownItem>

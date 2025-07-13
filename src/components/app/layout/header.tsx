@@ -9,11 +9,15 @@ import UIView from '@/app-kit/source/UIView';
 import { headerIcon } from '@/components/style/header';
 import appConfig from '@/constants/site';
 import TitleChangerComponent from './edit-title';
-import { Icon } from '@iconify/react';
 import { useRouter } from 'next/navigation';
 import ExportDropdown from './export';
 import ShareWidget from '../share';
 import FormatCode from './format';
+import { SolarAltArrowLeftLineDuotone } from '@/app-kit/icons/SolarAltArrowLeftLineDuotone';
+import { SolarCloudCheckLineDuotone } from '@/app-kit/icons/SolarCloudCheckLineDuotone';
+import { SolarUndoLeftRoundLineDuotone } from '@/app-kit/icons/SolarUndoLeftRoundLineDuotone';
+import { SolarUndoRightRoundLineDuotone } from '@/app-kit/icons/SolarUndoRightRoundLineDuotone';
+import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
 
 const AppHeader = () => {
   const router = useRouter();
@@ -29,10 +33,7 @@ const AppHeader = () => {
           isIconOnly
           onPress={router.back}
         >
-          <Icon
-            icon={'solar:alt-arrow-left-line-duotone'}
-            className={headerIcon()}
-          />
+          <SolarAltArrowLeftLineDuotone className={headerIcon()} />
         </UIIconButton>
         <UIView className={'flex flex-col'}>
           <UIView className="flex gap-2 items-center">
@@ -53,10 +54,7 @@ const AppHeader = () => {
           <p className="flex items-center gap-1 text-xs text-default-500">
             Last Edited &middot; June 2022{' '}
             <span className="flex items-center justify-center">
-              <Icon
-                icon={'solar:cloud-check-bold-duotone'}
-                className={headerIcon()}
-              />
+              <SolarCloudCheckLineDuotone className={headerIcon()} />
             </span>
           </p>
         </UIView>
@@ -65,8 +63,7 @@ const AppHeader = () => {
         <UIButtonGroup size="sm">
           <Tooltip size="sm" placement="bottom" content="Undo (⌘⇧Z)">
             <UIIconButton isIconOnly>
-              <Icon
-                icon={'solar:undo-left-round-bold-duotone'}
+              <SolarUndoLeftRoundLineDuotone
                 className={headerIcon({
                   sizes: 'md',
                 })}
@@ -76,8 +73,7 @@ const AppHeader = () => {
           <UIDivider orientation="vertical" />
           <Tooltip size="sm" placement="bottom" content="Redo (⌘⇧Y)">
             <UIIconButton isIconOnly>
-              <Icon
-                icon={'solar:undo-right-round-bold-duotone'}
+              <SolarUndoRightRoundLineDuotone
                 className={headerIcon({
                   sizes: 'md',
                 })}
@@ -100,7 +96,7 @@ const AppHeader = () => {
         >
           <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F54180_0%,#338EF7_50%,#F54180_100%)]" />
           <div className="flex h-full gap-1 w-full cursor-pointer items-center justify-center rounded-lg bg-background/90 group-hover:bg-background/70 transition-background px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl">
-            <Icon className={headerIcon()} icon="solar:crown-line-duotone" />
+            <SolarCrownLineDuotone className={headerIcon()} />
             Get Premium
           </div>
         </Button>

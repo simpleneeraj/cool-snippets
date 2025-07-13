@@ -16,7 +16,7 @@ const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
   return (
     <UIView className="flex flex-col">
       <HeroSection />
-      <UIView className="mx-auto w-full px-3 max-w-screen-lg">
+      <UIView className="mx-auto w-full px-2 max-w-screen-lg">
         <Section
           title="Features"
           description="Everything You Need, Exactly Where You Need It."

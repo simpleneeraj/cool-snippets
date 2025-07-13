@@ -1,0 +1,6 @@
+import React from 'react';
+import type { SVGProps } from 'react';
+
+export function TokenBrandedCrystal(props: SVGProps<SVGSVGElement>) {
+	return (<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" {...props}><g fill="none"><path fill="#d2e2da" d="M12 6.273V3L3.273 21L6 18.818z"></path><path fill="#7e8b92" d="M12 6.273V3l8.727 18L18 18.818z"></path><path fill="#5a687a" d="M18 18.818H6L3.273 21h17.454z"></path><path fill="#6a7c8b" d="m6 18.818l6-12.545l6 12.545z"></path><path fill="#8ac4de" d="M12 10.636V6.818l-2.728 5.454l.819.818l-1.637.819l-1.909 4.636l2.182-1.91z"></path><path fill="#58779f" d="M12 10.636V6.818l2.727 5.454l-.818.818l1.636.819l1.91 4.636l-2.183-1.91z"></path><path fill="#475985" d="M15.272 16.637H8.727l-2.182 1.909h4.091l.818-.818h1.091l.818.818h4.09z"></path><path fill="url(#tokenBrandedCrystal0)" d="m8.728 16.636l3.272-6l3.273 6z"></path><defs><linearGradient id="tokenBrandedCrystal0" x1={10.364} x2={15.273} y1={13.636} y2={16.636} gradientUnits="userSpaceOnUse"><stop stopColor="#d2edfb"></stop><stop offset={1} stopColor="#91cce5"></stop></linearGradient></defs></g></svg>);
+}

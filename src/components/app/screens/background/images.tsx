@@ -1,13 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import UIView from '@/app-kit/source/UIView';
-import UIButton from '@/app-kit/source/UIButton/button';
-import { Card, CardFooter, Image } from '@heroui/react';
+import { Button, Card, CardFooter, Chip, Image } from '@heroui/react';
 import { FrameItem } from '@/components/elements/frame';
-import UIInput from '@/app-kit/source/UIInput';
-import SearchIcon from '@/app-kit/icons/SearchIcon';
 import { useImmer } from 'use-immer';
-import UnsplashIcon from '@/app-kit/icons/logo/Unsplash';
 import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
 import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
 import { BackgroundScreenTypes } from './types';
@@ -16,7 +12,8 @@ import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 
 import ImagesJson from '@/json/backgrounds/images.json';
 import PopularJson from '@/json/backgrounds/abstract-3d-shapes.json';
-import { Icon } from '@iconify/react';
+import { SolarSquareTopDownLineDuotone } from '@/app-kit/icons/SolarSquareTopDownLineDuotone';
+
 enum ImageType {
   ABSTRACT_3D_SHAPES = 'abstract-3d-shapes',
   POPULAR = 'popular',
@@ -118,6 +115,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                 <Card
                   fullWidth
                   radius="lg"
+                  shadow={'none'}
                   isFooterBlurred
                   key={currentItem?.id}
                   className="w-full group sm:cursor-pointer"
@@ -132,50 +130,33 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                       src={String(currentItem?.urls?.regular)}
                     />
                   </figure>
-                  <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 mb-1 z-10 p-2">
+                  <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] ml-1 mb-1 z-10 p-1">
                     <UIView className="w-full flex items-center justify-between">
                       <UIView className="flex items-center gap-2">
-                        <UIButton
+                        <Chip
+                          as={Link}
                           size="sm"
-                          variant="flat"
                           color="default"
                           target={'_blank'}
-                          href={currentItem?.urls?.regular}
-                          className="text-tiny bg-black/40"
+                          href={currentItem.urls.regular}
+                          className="text-tiny bg-opacity-80"
+                        >
+                          {/* <UnsplashIcon /> */}
+                          <SolarSquareTopDownLineDuotone className="h-3 w-3" />
+                        </Chip>
+                      </UIView>
+                      <UIView className="flex items-center gap-2">
+                        <Chip
+                          as={Button}
+                          size="sm"
+                          color="default"
+                          className="text-tiny bg-opacity-80"
                           onPress={() => onChange?.(currentItem?.urls?.regular)}
                         >
                           {value !== currentItem?.urls?.regular
                             ? 'Use'
                             : 'Used'}
-                        </UIButton>
-                        {/* <Tooltip content="Magical AI" size="sm">
-                          <UIButton
-                            size="sm"
-                            variant="flat"
-                            color="default"
-                            target={'_blank'}
-                            isIconOnly
-                            href={currentItem?.urls?.regular}
-                            className="text-tiny bg-black/40"
-                          >
-                            <FluentCropSparkleRegular />
-                          </UIButton>
-                        </Tooltip> */}
-                      </UIView>
-                      <UIView className="flex items-center gap-2">
-                        <UIButton
-                          as={Link}
-                          size="sm"
-                          isIconOnly
-                          variant="flat"
-                          color="default"
-                          target={'_blank'}
-                          href={currentItem.urls.regular}
-                          className="text-tiny bg-black/40"
-                        >
-                          {/* <UnsplashIcon /> */}
-                          <Icon icon={'solar:square-top-down-line-duotone'} />
-                        </UIButton>
+                        </Chip>
                       </UIView>
                     </UIView>
                   </CardFooter>

@@ -1,4 +1,16 @@
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
+import { SolarAtomLineDuotone } from '@/app-kit/icons/features/SolarAtomLineDuotone';
+import { SolarCloudLineDuotone } from '@/app-kit/icons/features/SolarCloudLineDuotone';
+import { SolarCodeSquareLineDuotone } from '@/app-kit/icons/features/SolarCodeSquareLineDuotone';
+import { SolarDollarMinimalisticLineDuotone } from '@/app-kit/icons/features/SolarDollarMinimalisticLineDuotone';
+import { SolarFolderWithFilesLineDuotone } from '@/app-kit/icons/features/SolarFolderWithFilesLineDuotone';
+import { SolarGhostSmileLineDuotone } from '@/app-kit/icons/features/SolarGhostSmileLineDuotone';
+import { SolarHeartLineDuotone } from '@/app-kit/icons/features/SolarHeartLineDuotone';
+import { SolarHistoryLineDuotone } from '@/app-kit/icons/features/SolarHistoryLineDuotone';
+import { SolarPaletteLineDuotone } from '@/app-kit/icons/features/SolarPaletteLineDuotone';
+import { SolarRadialBlurLineDuotone } from '@/app-kit/icons/features/SolarRadialBlurLineDuotone';
+import { SolarShareCircleLineDuotone } from '@/app-kit/icons/features/SolarShareCircleLineDuotone';
+import { SolarUsersGroupTwoRoundedLineDuotone } from '@/app-kit/icons/features/SolarUsersGroupTwoRoundedLineDuotone';
 
 type FeaturesSectionProps = object;
 
@@ -19,63 +31,63 @@ const features = [
     title: 'Designed for Developers',
     description:
       'Built for coders, creators, and problem-solvers who push the limits.',
-    icon: 'solar:code-square-line-duotone',
+    icon: SolarCodeSquareLineDuotone,
   },
   {
     title: 'Effortless Code Sharing',
     description:
       'Share snippets as easily as copying and pasting, with extra flair.',
-    icon: 'solar:share-circle-line-duotone',
+    icon: SolarShareCircleLineDuotone,
   },
   {
     title: 'Multi-Language Support',
     description: 'From Python to JavaScript, CrystalCode has you covered.',
-    icon: 'solar:atom-line-duotone',
+    icon: SolarAtomLineDuotone,
   },
   {
     title: 'Fun Themes',
     description: 'Pick colors and designs that you like.',
-    icon: 'solar:palette-line-duotone',
+    icon: SolarPaletteLineDuotone,
   },
   {
     title: 'Gaussian Blur',
     description: 'Beautiful blur effects for a sleek and modern look.',
-    icon: 'solar:monitor-line-duotone',
+    icon: SolarRadialBlurLineDuotone,
   },
   {
     title: 'Colorful Code',
     description: 'Your code looks great with smart highlights.',
-    icon: 'solar:ghost-smile-line-duotone',
+    icon: SolarGhostSmileLineDuotone,
   },
   {
     title: 'Snippets Management',
     description: 'Organize and keep track of your snippets easily.',
-    icon: 'solar:folder-line-duotone',
+    icon: SolarFolderWithFilesLineDuotone,
   },
   {
     title: 'Undo Anytime',
     description: 'Go back and fix changes with version history.',
-    icon: 'solar:history-line-duotone',
+    icon: SolarHistoryLineDuotone,
   },
 
   {
     title: 'Save in the Cloud',
     description: 'Your code is always safe and easy to access.',
-    icon: 'solar:cloud-line-duotone',
+    icon: SolarCloudLineDuotone,
   },
   {
     title: 'Community',
     description: 'Join a huge community of passionate coders and creators.',
-    icon: 'solar:users-group-rounded-line-duotone',
+    icon: SolarUsersGroupTwoRoundedLineDuotone,
   },
   {
     title: 'Affordable Plans',
     description: 'CrystalCode offers unmatched value with plans for everyone.',
-    icon: 'solar:dollar-minimalistic-line-duotone',
+    icon: SolarDollarMinimalisticLineDuotone,
   },
   {
     title: 'Not Just a Tool',
     description: 'Crystal Code is your buddy for coding.',
-    icon: 'solar:heart-line-duotone',
+    icon: SolarHeartLineDuotone,
   },
 ];

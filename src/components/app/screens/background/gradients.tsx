@@ -47,6 +47,7 @@ const GradientsBackground: React.FC<BackgroundScreenTypes> = ({
                     'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',
                     background === value && 'border-default-900 border-2'
                   )}
+                  shadow={'none'}
                   title={currentItem?.name}
                 >
                   <UIView

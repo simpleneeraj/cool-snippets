@@ -1,6 +1,5 @@
 import { useImmer } from 'use-immer';
 import UIView from '@/app-kit/source/UIView';
-import { Icon } from '@iconify/react';
 import {
   Chip,
   Input,
@@ -13,6 +12,11 @@ import {
 import React from 'react';
 import { randomBytes } from 'crypto';
 import { format } from 'date-fns';
+import { SolarPasswordMinimalisticInputLineDuotone } from '@/app-kit/icons/SolarPasswordMinimalisticInputLineDuotone';
+import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
+import { SolarLockPasswordLineDuotone } from '@/app-kit/icons/SolarLockPasswordLineDuotone';
+import { SolarEyeLineDuotone } from '@/app-kit/icons/SolarEyeLineDuotone';
+import { SolarRefreshLineDuotone } from '@/app-kit/icons/SolarRefreshLineDuotone';
 
 type CreatePasscodeProps = {
   premium?: boolean;
@@ -64,10 +68,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
     >
       <PopoverTrigger>
         <Button size="sm" variant="bordered">
-          <Icon
-            className="h-4 w-4"
-            icon="solar:password-minimalistic-input-line-duotone"
-          />
+          <SolarPasswordMinimalisticInputLineDuotone className="h-4 w-4" />
           Passcode
         </Button>
       </PopoverTrigger>
@@ -82,12 +83,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
               <Chip
                 variant="bordered"
                 size="sm"
-                startContent={
-                  <Icon
-                    className="h-3.5 w-3.5"
-                    icon="solar:crown-line-duotone"
-                  />
-                }
+                startContent={<SolarCrownLineDuotone className="h-3.5 w-3.5" />}
                 className="text-xs"
               >
                 Pro
@@ -99,17 +95,9 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
                 variant="bordered"
                 label="Password"
                 startContent={
-                  <Icon
-                    className="h-3.5 w-3.5"
-                    icon={'solar:lock-password-line-duotone'}
-                  />
+                  <SolarLockPasswordLineDuotone className="h-3.5 w-3.5" />
                 }
-                endContent={
-                  <Icon
-                    className="h-3.5 w-3.5"
-                    icon={'solar:eye-line-duotone'}
-                  />
-                }
+                endContent={<SolarEyeLineDuotone className="h-3.5 w-3.5" />}
                 labelPlacement="outside"
                 placeholder="Create Passcode"
                 value={state.password}
@@ -120,17 +108,9 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
                 variant="bordered"
                 label="Confirm Password"
                 startContent={
-                  <Icon
-                    className="h-3.5 w-3.5"
-                    icon={'solar:lock-password-line-duotone'}
-                  />
+                  <SolarLockPasswordLineDuotone className="h-3.5 w-3.5" />
                 }
-                endContent={
-                  <Icon
-                    className="h-3.5 w-3.5"
-                    icon={'solar:eye-line-duotone'}
-                  />
-                }
+                endContent={<SolarEyeLineDuotone className="h-3.5 w-3.5" />}
                 labelPlacement="outside"
                 placeholder="Confirm Passcode"
                 value={state.confirmPassword}
@@ -146,7 +126,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
                   size="sm"
                   variant="bordered"
                 >
-                  <Icon className="h-4 w-4" icon="solar:refresh-line-duotone" />
+                  <SolarRefreshLineDuotone className="h-4 w-4" />
                 </Button>
                 <Button size="sm" variant="bordered" fullWidth>
                   Add Password

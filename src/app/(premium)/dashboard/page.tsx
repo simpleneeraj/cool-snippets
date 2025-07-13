@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import UIView from '@/app-kit/source/UIView';
 import { Card, Chip, cn } from '@heroui/react';
 
@@ -31,13 +30,13 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
                     }
                   )}
                 >
-                  {changeType === 'positive' ? (
+                  {/* {changeType === 'positive' ? (
                     <Icon className="text-success" icon={iconName} width={20} />
                   ) : changeType === 'neutral' ? (
                     <Icon className="text-warning" icon={iconName} width={20} />
                   ) : (
                     <Icon className="text-danger" icon={iconName} width={20} />
-                  )}
+                  )} */}
                 </div>
 
                 <div className="flex flex-col gap-y-2">
@@ -66,27 +65,27 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
                   }
                   radius="sm"
                   size="sm"
-                  startContent={
-                    changeType === 'positive' ? (
-                      <Icon
-                        height={12}
-                        icon={'solar:arrow-right-up-linear'}
-                        width={12}
-                      />
-                    ) : changeType === 'neutral' ? (
-                      <Icon
-                        height={12}
-                        icon={'solar:arrow-right-linear'}
-                        width={12}
-                      />
-                    ) : (
-                      <Icon
-                        height={12}
-                        icon={'solar:arrow-right-down-linear'}
-                        width={12}
-                      />
-                    )
-                  }
+                  // startContent={
+                  //   changeType === 'positive' ? (
+                  //     <Icon
+                  //       height={12}
+                  //       icon={'solar:arrow-right-up-linear'}
+                  //       width={12}
+                  //     />
+                  //   ) : changeType === 'neutral' ? (
+                  //     <Icon
+                  //       height={12}
+                  //       icon={'solar:arrow-right-linear'}
+                  //       width={12}
+                  //     />
+                  //   ) : (
+                  //     <Icon
+                  //       height={12}
+                  //       icon={'solar:arrow-right-down-linear'}
+                  //       width={12}
+                  //     />
+                  //   )
+                  // }
                   variant="flat"
                 >
                   {change}

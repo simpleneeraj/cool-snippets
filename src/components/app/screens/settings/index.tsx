@@ -1,10 +1,11 @@
 import React from 'react';
-import { Icon } from '@iconify/react';
 import Shorcuts from './cards/shorcuts';
 import StorageCard from './cards/storage';
 import UIView from '@/app-kit/source/UIView';
 import { Tab, Tabs } from '@heroui/react';
 import { Frame, FrameItem } from '@/components/elements/frame';
+import { SolarKeyboardLineDuotone } from '@/app-kit/icons/SolarKeyboardLineDuotone';
+import { SolarDatabaseLineDuotone } from '@/app-kit/icons/SolarDatabaseLineDuotone';
 
 const SettingsScreen = () => {
   return (
@@ -34,7 +35,7 @@ const SettingsScreen = () => {
           <Tab
             title={
               <UIView className="flex items-center gap-1">
-                <Icon icon={'solar:keyboard-line-duotone'} />
+                <SolarKeyboardLineDuotone className="h-4 w-4" />
                 Shorcuts
               </UIView>
             }
@@ -45,7 +46,7 @@ const SettingsScreen = () => {
           <Tab
             title={
               <UIView className="flex items-center gap-1">
-                <Icon icon={'solar:database-line-duotone'} />
+                <SolarDatabaseLineDuotone className="h-4 w-4" />
                 Storage
               </UIView>
             }

@@ -51,7 +51,7 @@ function FeedSection() {
           }}
           aria-hidden="true"
         />
-        <UIView className="rounded-y-[2.5rem] bg-black/80 px-4 pb-12 sm:px-6">
+        <UIView className="rounded-y-[2.5rem] dark:bg-black/80 px-4 pb-12 sm:px-6">
           <UIView className="relative">
             <UIView className="pointer-events-none absolute -inset-x-4 grid h-full grid-cols-1 gap-y-6 sm:-inset-x-6 sm:grid-cols-2 lg:grid-cols-3">
               <UIView className="relative h-64 sm:block lg:block">

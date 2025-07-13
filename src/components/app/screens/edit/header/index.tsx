@@ -16,7 +16,6 @@ import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
 import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { SlideHeaderType } from '@/typings/editor';
-import { Icon } from '@iconify/react/dist/iconify.js';
 
 const HeaderScreen: React.FC = () => {
   const { onOpen, onClose, onOpenChange, isOpen } = useDisclosure();
@@ -119,11 +118,8 @@ const HeaderScreen: React.FC = () => {
           selectedKey={position || ''}
           onSelectionChange={(key) => onChangeValues('position', key)}
         >
-          {SEGMENT_OPTIONS.map(({ key, icon }) => (
-            <UISegmentButton
-              key={key}
-              title={<Icon icon={icon} className="h-5 w-5" />}
-            />
+          {SEGMENT_OPTIONS.map(({ key, icon: Icon }) => (
+            <UISegmentButton key={key} title={<Icon className="h-5 w-5" />} />
           ))}
         </UISegmentedControl>
       </FrameItem>

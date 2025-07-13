@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import { addToast } from '@heroui/react';
 import useHotkeys from '@/app-kit/hooks/use-hotkeys';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { headerIcon } from '@/components/style/header';
 import UIButton from '@/app-kit/source/UIButton/button';
 import formatCode, { formatterSupportedLanguages } from '@/utils/formatCode';
+import { SolarCodeLineDuotone } from '@/app-kit/icons/SolarCodeLineDuotone';
 
 const FormatCode: React.FC = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
@@ -64,10 +64,7 @@ const FormatCode: React.FC = () => {
       radius="sm"
       onPress={onFormatCode}
       startContent={
-        <Icon
-          icon="solar:code-line-duotone"
-          className={headerIcon({ sizes: 'md' })}
-        />
+        <SolarCodeLineDuotone className={headerIcon({ sizes: 'md' })} />
       }
     >
       Format Code

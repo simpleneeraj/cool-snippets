@@ -1,5 +1,5 @@
+import { IonAddOutline } from '@/app-kit/icons/IonAddOutline';
 import UIView from '@/app-kit/source/UIView';
-import { Icon } from '@iconify/react/dist/iconify.js';
 import { Accordion, AccordionItem, cn } from '@heroui/react';
 
 const faqData = [
@@ -44,8 +44,7 @@ function FaqSection() {
             disableIndicatorAnimation
             key={id}
             indicator={(props) => (
-              <Icon
-                icon={'fluent:add-20-filled'}
+              <IonAddOutline
                 className={cn(
                   'h-5 w-5 transition-all',
                   props.isOpen ? 'rotate-45' : 'rotate-0'

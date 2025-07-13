@@ -3,7 +3,6 @@ import UIView from '@/app-kit/source/UIView';
 import { Frame } from '@/components/elements/frame';
 import aspectRatioArray from '@/json/resize.json';
 import { Card, CardBody } from '@heroui/react';
-import { Icon } from '@iconify/react/dist/iconify.js';
 
 type Resolution = {
   height: number;
@@ -30,12 +29,11 @@ const AspectRatioScreen = (props: AspectRatioScreenProps) => {
             >
               <CardBody className="min-h-36 flex items-center justify-center gap-2">
                 <UIView className="min-h-20 min-w-20 flex items-center justify-center">
-                  <Icon
+                  {/* <Icon
                     radius="none"
-                    // icon={'lets-icons:insta-duotone-line'}
                     icon="ph:twitter-logo-duotone"
                     className="h-10 w-10"
-                  />
+                  /> */}
                 </UIView>
                 <UIView>
                   <p className="text-center text-small text-default-500 line-clamp-2">

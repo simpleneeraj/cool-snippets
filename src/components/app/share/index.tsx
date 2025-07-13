@@ -20,7 +20,6 @@ import {
   Link,
 } from '@heroui/react';
 import React from 'react';
-import { Icon } from '@iconify/react';
 import { PATTERNS } from './patterns';
 import { wallpaperOptions } from './config';
 import UIView from '@/app-kit/source/UIView';
@@ -36,6 +35,11 @@ import useSlideEditor from '@/store/hooks/use-editor';
 import { BACKGROUND_TYPE } from '@/typings/enums';
 import backgroundPurify from '@/utils/background-purify';
 import CreatePasscode from './create-passcode';
+import { SolarShareCircleLineDuotone } from '@/app-kit/icons/SolarShareCircleLineDuotone';
+import { SolarSquareShareLineLineDuotone } from '@/app-kit/icons/SolarSquareShareLineLineDuotone';
+import { SolarLinkMinimalistic2LineDuotone } from '@/app-kit/icons/SolarLinkMinimalistic2LineDuotone';
+import { IonCloseOutline } from '@/app-kit/icons/IonCloseOutline';
+import { SolarTuningSquareLineDuotone } from '@/app-kit/icons/SolarTuningSquareLineDuotone';
 
 const MORE_COLORS = COLORS.concat(
   grad.map((item) => ({
@@ -86,10 +90,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
         variant="flat"
         radius="sm"
         startContent={
-          <Icon
-            icon={'solar:share-circle-line-duotone'}
-            className={headerIcon({})}
-          />
+          <SolarShareCircleLineDuotone className={headerIcon({})} />
         }
       >
         Share
@@ -119,22 +120,13 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
               </Button> */}
               <CreatePasscode />
               <Button size="sm" isIconOnly variant="bordered">
-                <Icon
-                  className="h-4 w-4"
-                  icon={'solar:square-share-line-line-duotone'}
-                />
+                <SolarSquareShareLineLineDuotone className="h-4 w-4" />
               </Button>
               <Button size="sm" isIconOnly variant="bordered">
-                <Icon
-                  className="h-4 w-4"
-                  icon={'solar:link-minimalistic-2-line-duotone'}
-                />
+                <SolarLinkMinimalistic2LineDuotone className="h-4 w-4" />
               </Button>
               <Button size="sm" isIconOnly variant="bordered" onPress={onClose}>
-                <Icon
-                  className="h-4 w-4 opacity-75"
-                  icon={'ion:close-outline'}
-                />
+                <IonCloseOutline className="h-4 w-4 opacity-75" />
               </Button>
             </UIView>
           </ModalHeader>
@@ -244,10 +236,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                 <Accordion variant="bordered">
                   <AccordionItem
                     startContent={
-                      <Icon
-                        icon="solar:tuning-square-2-line-duotone"
-                        className="h-4 w-4 opacity-80"
-                      />
+                      <SolarTuningSquareLineDuotone className="h-4 w-4 opacity-80" />
                     }
                     key="1"
                     aria-label="Advanced Options"

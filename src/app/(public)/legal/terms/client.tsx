@@ -1,37 +1,44 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
+import { cn } from '@heroui/react';
 import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
+import Content from '@/markdown/terms-of-service.mdx';
+import UIAuraBox from '@/app-kit/components/UIAuraBox';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
 
-type HeroSectionProps = object;
+type TermsClientProps = object;
 
-const ChangeLogClient: React.FC<HeroSectionProps> = ({}) => {
+const TermsClient: React.FC<TermsClientProps> = ({}) => {
   return (
     <UIView className="flex flex-col">
       <Topbar
-        title="Change Log"
-        description="Stay up-to-date with all the latest features, fixes, and
-                improvements. See how CrystalCode keeps getting better for you!"
+        title="Terms and Conditions"
+        description="Review the terms and conditions for using our service. Understand your rights, responsibilities, and legal guidelines."
         startContent={
           <UIAnimatedButton
             duration={2}
             className="flex items-center gap-2 text-sm text-default-500"
-            onClick={() => scrollToTarget('pricing-section', 100)}
+            onClick={() => scrollToTarget('details-section', 100)}
           >
-            Check Out the Change Log
-            <Icon
-              className="flex-none outline-none h-5 w-5"
-              icon="mynaui:chevron-down-waves"
-            />
+            Read Our Terms
+            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
           </UIAnimatedButton>
         }
       />
+      <UIAuraBox
+        id="details-section"
+        className="z-50 relative mx-auto w-full px-2 max-w-screen-lg p-4 overflow-hidden sm:overflow-visible my-4 sm:my-8"
+      >
+        <UIView className={cn('prose-sm dark:prose-invert rounded-xl')}>
+          <Content />
+        </UIView>
+      </UIAuraBox>
     </UIView>
   );
 };
 
-export default ChangeLogClient;
+export default TermsClient;

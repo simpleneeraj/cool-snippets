@@ -7,7 +7,7 @@ type WebLayoutProps = React.PropsWithChildren;
 const WebRootLayout: React.FC<WebLayoutProps> = ({ children }) => (
   <WebLayout>
     {children}
-    <UIFireflies />
+    {/*<UIFireflies />*/}
   </WebLayout>
 );
 

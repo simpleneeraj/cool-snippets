@@ -1,11 +1,11 @@
 import '@/styles/next-ui.css';
 import '@/styles/mask-wallpaper.css';
 
-import type { Metadata } from 'next';
-import NextAppProvider from '@/providers/next-ui';
-import { cn } from '@heroui/react';
 import fonts from './font';
+import { cn } from '@heroui/react';
+import type { Metadata } from 'next';
 import AuthProvider from '@/providers/clerk';
+import NextAppProvider from '@/providers/next-ui';
 
 export const metadata: Metadata = {
   title: {
@@ -38,6 +38,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // TODO - Implement light and dark mode both
   return (
     <AuthProvider>
       <html lang="en" className={cn('dark', fonts)}>

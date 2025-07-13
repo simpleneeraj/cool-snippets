@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Icon } from '@iconify/react';
 import Section from '@/components/section';
 import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
@@ -9,6 +8,7 @@ import FaqSection from '@/components/home/faq';
 import { scrollToTarget } from '@/utils/elements';
 import PricingSection from '@/components/home/pricing';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
 
 type PricingProps = object;
 
@@ -25,10 +25,7 @@ const PricingClient: React.FC<PricingProps> = ({}) => {
             className="flex items-center gap-2 text-sm text-default-500"
           >
             Explore Pricing Plans
-            <Icon
-              className="flex-none outline-none h-5 w-5"
-              icon="mynaui:chevron-down-waves"
-            />
+            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
           </UIAnimatedButton>
         }
       />

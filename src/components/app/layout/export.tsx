@@ -16,13 +16,16 @@ import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@/constants/site';
-import { Icon } from '@iconify/react';
 import fontsNames from '@/json/fonts.json';
 import { useCapture } from '@/plugins/capture';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { headerIcon } from '@/components/style/header';
 import UIView from '@/app-kit/source/UIView';
 import { upperCase } from 'lodash';
+import { SolarArchiveDownMinimlisticLineDuotone } from '@/app-kit/icons/SolarArchiveDownMinimlisticLineDuotone';
+import { SolarLockLineDuotone } from '@/app-kit/icons/SolarLockLineDuotone';
+import { SolarCopyLineDuotone } from '@/app-kit/icons/SolarCopyLineDuotone';
+import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
 
 enum Format {
   WEBP = 'webp',
@@ -119,6 +122,7 @@ const ExportDropdown: React.FC = () => {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         offset={10}
+        showArrow
         backdrop="opaque"
         placement="bottom"
         classNames={{
@@ -136,8 +140,7 @@ const ExportDropdown: React.FC = () => {
             variant="flat"
             radius="sm"
             startContent={
-              <Icon
-                icon="solar:archive-down-minimlistic-line-duotone"
+              <SolarArchiveDownMinimlisticLineDuotone
                 className={headerIcon({})}
               />
             }
@@ -145,7 +148,7 @@ const ExportDropdown: React.FC = () => {
             Export
           </UIButton>
         </PopoverTrigger>
-        <PopoverContent className="w-80">
+        <PopoverContent className="w-96">
           <UIView className="px-1 py-2 w-full">
             <p className="text-small font-bold text-foreground">
               Export Options
@@ -182,10 +185,7 @@ const ExportDropdown: React.FC = () => {
                         <UIView className="flex items-center gap-2">
                           <p>{`${size}X`}</p>
                           {Number(size) > 2 && (
-                            <Icon
-                              icon="solar:lock-linear"
-                              className={headerIcon({})}
-                            />
+                            <SolarLockLineDuotone className={headerIcon({})} />
                           )}
                         </UIView>
                       }
@@ -214,10 +214,7 @@ const ExportDropdown: React.FC = () => {
                         <UIView className="flex items-center gap-2">
                           <p>{upperCase(format)}</p>
                           {[Format.PNG, Format.SVG].includes(format) && (
-                            <Icon
-                              icon="solar:lock-linear"
-                              className={headerIcon({})}
-                            />
+                            <SolarLockLineDuotone className={headerIcon({})} />
                           )}
                         </UIView>
                       }
@@ -243,10 +240,7 @@ const ExportDropdown: React.FC = () => {
                   variant="flat"
                   size="sm"
                   startContent={
-                    <Icon
-                      icon="solar:copy-line-duotone"
-                      className={headerIcon({})}
-                    />
+                    <SolarCopyLineDuotone className={headerIcon({})} />
                   }
                 >
                   {isPremium ? 'Copy to Clipboard' : 'Upgrade to Pro'}
@@ -260,14 +254,13 @@ const ExportDropdown: React.FC = () => {
                   size="sm"
                   color="secondary"
                   startContent={
-                    <Icon
-                      icon={
-                        isPremium
-                          ? 'solar:archive-down-minimlistic-line-duotone'
-                          : 'solar:crown-line-duotone'
-                      }
-                      className={headerIcon({})}
-                    />
+                    isPremium ? (
+                      <SolarArchiveDownMinimlisticLineDuotone
+                        className={headerIcon({})}
+                      />
+                    ) : (
+                      <SolarCrownLineDuotone className={headerIcon({})} />
+                    )
                   }
                 >
                   {isPremium ? 'Save & Export' : 'Upgrade to Pro'}

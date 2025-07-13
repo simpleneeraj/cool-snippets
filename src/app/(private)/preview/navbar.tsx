@@ -12,7 +12,6 @@ import {
   Link,
   Button,
 } from '@heroui/react';
-import { Icon } from '@iconify/react';
 
 export default function PreviewHeader() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -35,7 +34,7 @@ export default function PreviewHeader() {
           <Button
             className="bg-foreground font-medium text-background"
             color="secondary"
-            endContent={<Icon icon="solar:alt-arrow-right-linear" />}
+            // endContent={<Icon icon="solar:alt-arrow-right-linear" />}
             radius="full"
             variant="flat"
           >
