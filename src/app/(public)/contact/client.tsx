@@ -25,11 +25,11 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
             onClick={() => scrollToTarget('CONTACT_FORM', 100)}
           >
             Get in Touch
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />
-      <UIView id="CONTACT_FORM" className="mx-auto w-full px-3 max-w-screen-lg">
+      <UIView id="CONTACT_FORM" className="mx-auto w-full px-3 max-w-(--breakpoint-lg)">
         <ContactSection />
       </UIView>
       <Section

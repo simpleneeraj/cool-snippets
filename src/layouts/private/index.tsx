@@ -14,7 +14,7 @@ const PrivateLayout = ({ children }: Props) => {
   return (
     <section className="flex flex-col">
       <Header />
-      <UIView className="mx-auto w-full px-3 max-w-screen-lg flex">
+      <UIView className="mx-auto w-full px-3 max-w-(--breakpoint-lg) flex">
         <Sidebar menus={[]} />
         <UIView className="flex flex-col flex-1">{children}</UIView>
       </UIView>

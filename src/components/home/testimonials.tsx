@@ -4,9 +4,9 @@ type TestimonialsProps = object;
 
 const Testimonials: React.FC<TestimonialsProps> = ({}) => {
   return (
-    <div className="mx-auto w-full  max-w-screen-lg py-16">
+    <div className="mx-auto w-full  max-w-(--breakpoint-lg) py-16">
       <ul className="grid list-none grid-cols-1 gap-6 md:grid-cols-2">
-        <li className="group h-full rounded-2xl transition-[box-shadow] hover:shadow-[0_8px_16px_0_#0000000A]">
+        <li className="group h-full rounded-2xl transition-shadow hover:shadow-[0_8px_16px_0_#0000000A]">
           <div className="relative h-full break-inside-avoid rounded-2xl border border-default-100 bg-default-50/50 [--accent-color:#20808D]">
             <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(100%_100%_at_50%_0%,var(--accent-color),transparent)] opacity-5 transition-opacity group-hover:opacity-10" />
             <div className="relative flex h-full flex-col gap-10 p-6 sm:p-10 cursor-default">
@@ -40,7 +40,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({}) => {
                     </div>
                   </div>
                   <div className="relative">
-                    <div className="absolute -inset-[50%] [mask-image:radial-gradient(black_50%,transparent_80%)]">
+                    <div className="absolute -inset-[50%] mask-[radial-gradient(black_50%,transparent_80%)]">
                       <div className="absolute inset-x-0 top-1/4 h-px bg-default-200" />
                       <div className="absolute inset-x-0 bottom-1/4 h-px bg-default-200" />
                       <div className="absolute inset-y-0 left-1/4 w-px bg-default-200" />
@@ -88,7 +88,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({}) => {
             </a>
           </div>
         </li>
-        <li className="group h-full rounded-2xl transition-[box-shadow] hover:shadow-[0_8px_16px_0_#0000000A]">
+        <li className="group h-full rounded-2xl transition-shadow hover:shadow-[0_8px_16px_0_#0000000A]">
           <div className="relative h-full break-inside-avoid rounded-2xl border border-default-100 bg-default-50/50 [--accent-color:#20808D]">
             <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(100%_100%_at_50%_0%,var(--accent-color),transparent)] opacity-5 transition-opacity group-hover:opacity-10" />
             <div className="relative flex h-full flex-col gap-10 p-6 sm:p-10 cursor-default">
@@ -122,7 +122,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({}) => {
                     </div>
                   </div>
                   <div className="relative">
-                    <div className="absolute -inset-[50%] [mask-image:radial-gradient(black_50%,transparent_80%)]">
+                    <div className="absolute -inset-[50%] mask-[radial-gradient(black_50%,transparent_80%)]">
                       <div className="absolute inset-x-0 top-1/4 h-px bg-default-200" />
                       <div className="absolute inset-x-0 bottom-1/4 h-px bg-default-200" />
                       <div className="absolute inset-y-0 left-1/4 w-px bg-default-200" />

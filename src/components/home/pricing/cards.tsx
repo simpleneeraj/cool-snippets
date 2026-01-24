@@ -48,31 +48,32 @@ const PricingCard: React.FC<PricingCardProps> = ({
     }
     return amount;
   };
+  console.log({ isFilled });
   return (
     <Card
       radius="lg"
       className={cn(
         'shadow-2xl justify-between border-none p-1',
         isFilled
-          ? 'bg-gradient-to-r from-lavender-frost to-periwinkle-glow'
+          ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow'
           : 'bg-transparent'
       )}
     >
       <div
         className={cn(
-          'flex flex-1 gap-1 text-sm rounded-full text-primary-foreground items-center justify-center py-4 relative',
-          isFilled ? 'opacity-1' : 'opacity-0'
+          'flex flex-1 gap-1 text-sm rounded-full text-white items-center justify-center py-4 relative'
+          // isFilled ? 'opacity-1' : 'opacity-0'
         )}
       >
         {isFilled && (
           <React.Fragment>
             <UIMeteors />
-            <ProiconsArrowReply className="flex-none outline-none h-4 w-4 -rotate-90" />
+            <ProiconsArrowReply className="flex-none outline-hidden h-4 w-4 -rotate-90" />
             <p>Best Deals</p>
           </React.Fragment>
         )}
       </div>
-      <div className="bg-default-50/90 rounded-2xl backdrop-blur border border-default-200">
+      <div className="bg-default-50/90 rounded-2xl backdrop-blur-sm border border-default-200">
         <div className="p-3 z-10 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large flex flex-col items-start gap-2 pb-6">
           <h2 className="text-xl font-medium text-primary-foreground flex items-center gap-1">
             <visual.icon className={visual.className} />
@@ -86,10 +87,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
           className="shrink-0 border-none w-full h-divider bg-primary-foreground/20"
           role="separator"
         />
-        <div className="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased justify-between">
+        <div className="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto wrap-break-word text-left overflow-y-auto subpixel-antialiased justify-between">
           <div className="flex flex-col gap-8">
             <p className="flex items-baseline gap-1 pt-2">
-              <span className="inline bg-gradient-to-br from-foreground to-foreground-600 bg-clip-text text-4xl font-semibold leading-7 tracking-tight text-primary-foreground">
+              <span className="inline bg-linear-to-br from-foreground to-foreground-600 bg-clip-text text-4xl font-semibold leading-7 tracking-tight text-primary-foreground">
                 {formatPrice(price.amount)}
               </span>
               <span className="text-sm font-medium text-primary-foreground/50">
@@ -116,7 +117,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             fullWidth
             className={cn(
               isFilled
-                ? 'bg-gradient-to-r from-lavender-frost to-periwinkle-glow'
+                ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow'
                 : ''
             )}
           >

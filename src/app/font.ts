@@ -1,4 +1,4 @@
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import {
   Kablammo,
   Nothing_You_Could_Do,

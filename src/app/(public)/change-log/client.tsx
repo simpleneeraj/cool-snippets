@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
@@ -25,13 +25,13 @@ const ChangeLogClient: React.FC<HeroSectionProps> = ({}) => {
             onClick={() => scrollToTarget('pricing-section', 100)}
           >
             Check Out the Change Log
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />
       <UIView
         id="details-section"
-        className="relative mx-auto w-full px-2 max-w-screen-lg"
+        className="relative mx-auto w-full px-2 max-w-(--breakpoint-lg)"
       >
         <UIView className={cn('prose-sm dark:prose-invert rounded-xl')}>
           <UITimelineView data={data} />

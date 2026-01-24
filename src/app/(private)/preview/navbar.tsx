@@ -27,7 +27,7 @@ export default function PreviewHeader() {
       </NavbarBrand>
       {/* Right Content */}
       <NavbarContent className="hidden md:flex" justify="end">
-        <NavbarItem className="ml-2 !flex gap-2">
+        <NavbarItem className="ml-2 flex! gap-2">
           <Button className="text-default-500" radius="full" variant="light">
             Login
           </Button>
@@ -45,7 +45,7 @@ export default function PreviewHeader() {
 
       <NavbarMenuToggle className="text-default-400 md:hidden" />
 
-      <NavbarMenu className="top-[calc(var(--navbar-height)_-_1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
+      <NavbarMenu className="top-[calc(var(--navbar-height)-1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
         <NavbarMenuItem>
           <Button fullWidth as={Link} href="/#" variant="faded">
             Sign In

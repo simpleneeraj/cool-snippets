@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+@plugin '../../hero.ts';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+@variant dark (&:is(.dark *));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+/* -----------------------------
+   Theme Tokens (Tailwind v4)
+------------------------------ */
+@theme {
+  /* Widget widths */
+  --width-widget-sm: 280px;
+  --width-widget-md: 320px;
+  --width-widget-lg: 425px;
+
+  /* Fonts */
+  --font-app-kablammo: var(--kablammo);
+  --font-app-nothing-you-could-do: var(--nothing-you-could-do);
+  --font-app-delius: var(--delius);
+  --font-app-cabin-sketch: var(--cabin-sketch);
+
+  /* Colors */
+  --color-lavender-frost: #cdaff5;
+  --color-periwinkle-glow: #8290fd;
+
+  /* Animations */
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+}
+
+/* -----------------------------
+   Keyframes
+------------------------------ */
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+@theme inline {
+  --animate-meteor-effect: meteor 5s linear infinite;
+
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+}
+
+@layer utilities {
+}
+
+.app_container {
+  --primary: hsl(var(--nextui-background) / 1);
+  --primary-alpha: hsl(var(--nextui-background) / 0);
+  --line: hsl(var(--nextui-foreground-100) / 0.5);
+
+  position: relative;
+  background-image:
+    linear-gradient(0deg, var(--primary), var(--primary-alpha) 15%),
+    linear-gradient(180deg, var(--primary), var(--primary-alpha) 15%),
+    radial-gradient(
+      circle farthest-side at 50% 0,
+      var(--primary-alpha),
+      var(--primary)
+    ),
+    url('/texture/tile-dark.svg');
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    -1px -1px;
+  background-size: auto, auto, auto, 64px;
+  background-color: var(--line);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 2px rgb(0 0 0 / 20%);
+}
+
+.layer {
+  z-index: 0;
+  display: grid;
+  border-radius: 15px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.dots {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.dots span {
+  height: 12px;
+  width: 12px;
+  background: #ffffff5e;
+  border-radius: 100%;
+}

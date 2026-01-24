@@ -16,7 +16,7 @@ const AIScreen = () => {
         }}
       />
       {/* Gradient overlay */}
-      <UIView className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent" />
+      <UIView className="absolute inset-0 bg-linear-to-b from-black via-transparent to-transparent" />
       {/* Content */}
       <UIView className="absolute top-0 left-0 w-full h-full z-10 flex flex-col">
         <UIView className="flex-1 flex flex-col gap-2 justify-center items-center">

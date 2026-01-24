@@ -37,7 +37,7 @@ const IssuesReportClient: React.FC<HeroSectionProps> = ({}) => {
 
       <UIAuraBox
         id="report-form-section"
-        className="z-50 relative mx-auto w-full px-2 max-w-screen-sm p-4 overflow-hidden sm:overflow-visible my-4 sm:my-16"
+        className="z-50 relative mx-auto w-full px-2 max-w-(--breakpoint-sm) p-4 overflow-hidden sm:overflow-visible my-4 sm:my-16"
       >
         <Form className="w-full flex flex-col gap-2" onSubmit={onSubmit}>
           <Input

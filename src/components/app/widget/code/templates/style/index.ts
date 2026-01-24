@@ -7,7 +7,7 @@ export const template = tv({
     container: 'flex items-center gap-2',
     // Input
     inputContainer: 'flex items-center',
-    input: 'text-sm border-none outline-none bg-transparent',
+    input: 'text-sm border-none outline-hidden bg-transparent',
     // Icon
     iconBase: 'flex item-center gap-1 ml-3',
     iconContainer:

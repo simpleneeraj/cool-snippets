@@ -13,7 +13,7 @@ export const CompaniesDropdown = () => {
           <TokenBrandedCrystal className="h-8 w-8" />
         </span>
         <div className="flex flex-col gap-4">
-          <h3 className="text-xl m-0 text-default-900 -mb-4 whitespace-nowrap font-app-serif font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
+          <h3 className="text-xl m-0 text-default-900 -mb-4 whitespace-nowrap font-app-serif font-light bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
             {appConfig.short_name}
           </h3>
           <span className="text-xs font-medium text-default-500">

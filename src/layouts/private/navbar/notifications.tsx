@@ -57,7 +57,7 @@ export const NotificationsDropdown = () => {
               src="https://images.unsplash.com/photo-1657215373962-d84815b7ddbb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
             <CardFooter className="absolute bg-black/40 bottom-0 z-10">
-              <div className="flex flex-grow gap-2 items-center">
+              <div className="flex grow gap-2 items-center">
                 <div className="flex flex-col">
                   <p className="text-tiny text-white/60">5 new updates</p>
                   <p className="text-tiny text-white/60">

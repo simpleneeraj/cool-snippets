@@ -14,7 +14,7 @@ import {
 export default function CardComponent(props: CardProps) {
   return (
     <Card
-      className="overflow-none relative w-full border-small border-foreground/10 bg-[url('https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/abstract-dark-bg4.jpg')] bg-right-bottom"
+      className="overflow-none relative w-full border-small border-foreground/10 bg-[url('https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/abstract-dark-bg4.jpg')] bg-bottom-right"
       {...props}
     >
       <CardHeader>

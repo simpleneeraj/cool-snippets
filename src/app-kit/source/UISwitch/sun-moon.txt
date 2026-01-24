@@ -7,7 +7,7 @@ const UISwitchSunMoon = () => {
   return (
     <div
       className={clsx(
-        'h-10 w-[100px] flex items-center box-border cursor-pointer transition-all duration-[0.3s] px-[5px] py-0 rounded-[25px]',
+        'h-10 w-[100px] flex items-center box-border cursor-pointer transition-all duration-300 px-[5px] py-0 rounded-[25px]',
         isOn
           ? 'bg-[linear-gradient(109.8deg,rgba(62,5,116,1)_-5.2%,rgba(41,14,151,1)_-5.2%,rgba(216,68,148,1)_103.3%)]'
           : 'bg-[radial-gradient(circle_farthest-corner_at_10%_20%,rgba(253,203,50,1)_0%,rgba(244,56,98,1)_100.2%)]'

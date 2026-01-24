@@ -65,7 +65,7 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
         className={cn(
           'justify-between',
           active &&
-            `bg-gradient-to-l from-lavender-frost/20 to-periwinkle-glow/20`
+            `bg-linear-to-l from-lavender-frost/20 to-periwinkle-glow/20`
         )}
         onPress={isPressable ? toggleSubMenu : undefined}
       >

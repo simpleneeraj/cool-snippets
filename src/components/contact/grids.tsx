@@ -15,7 +15,7 @@ const styles = tv({
     grid: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto',
     paragraph: 'text-default-600',
     wrapper: 'text-sm max-w-xs relative z-10 px-10 flex flex-col gap-2',
-    link: 'text-transparent bg-clip-text font-semibold bg-gradient-to-r from-lavender-frost to-periwinkle-glow',
+    link: 'text-transparent bg-clip-text font-semibold bg-linear-to-r from-lavender-frost to-periwinkle-glow',
   },
 });
 

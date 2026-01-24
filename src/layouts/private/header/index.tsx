@@ -18,14 +18,14 @@ const Header = () => {
       <Link href={'/'}>
         <NavbarBrand className="gap-1 select-none">
           <TokenBrandedCrystal className="h-4 w-4" />
-          <p className="font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
+          <p className="font-light bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
             {appConfig.short_name}
           </p>
         </NavbarBrand>
       </Link>
       <NavbarContent
         justify="end"
-        className="w-fit data-[justify=end]:flex-grow-0"
+        className="w-fit data-[justify=end]:grow-0"
       >
         <NotificationsDropdown />
         <NavbarContent>

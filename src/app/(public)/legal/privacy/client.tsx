@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import UIView from '@/app-kit/source/UIView';
 import Content from '@/markdown/privacy.mdx';
 import Topbar from '@/components/section/topbar';
@@ -25,13 +25,13 @@ const PrivacyClient: React.FC<PrivacyClientProps> = ({}) => {
             onClick={() => scrollToTarget('details-section', 100)}
           >
             Read Our Privacy Policy
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />
       <UIAuraBox
         id="details-section"
-        className="z-50 relative mx-auto w-full px-2 max-w-screen-lg p-4 overflow-hidden sm:overflow-visible my-4 sm:my-8"
+        className="z-50 relative mx-auto w-full px-2 max-w-(--breakpoint-lg) p-4 overflow-hidden sm:overflow-visible my-4 sm:my-8"
       >
         <UIView className={cn('prose-sm dark:prose-invert rounded-xl')}>
           <Content />

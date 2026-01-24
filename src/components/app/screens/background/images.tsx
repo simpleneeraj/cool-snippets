@@ -103,7 +103,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
             height={calculatedHeight}
             emptyContent={
               <UIView className="flex-1 flex flex-col items-center justify-center">
-                <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
+                <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">
                   No items available
                 </span>
               </UIView>
@@ -130,7 +130,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                       src={String(currentItem?.urls?.regular)}
                     />
                   </figure>
-                  <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] ml-1 mb-1 z-10 p-1">
+                  <CardFooter className="transform translate-y-[120%] group-hover:translate-y-0 transition-all justify-between before:bg-white/10 border-white/20 border overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%-8px)] ml-1 mb-1 z-10 p-1">
                     <UIView className="w-full flex items-center justify-between">
                       <UIView className="flex items-center gap-2">
                         <Chip

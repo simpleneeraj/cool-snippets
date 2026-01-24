@@ -23,11 +23,11 @@ const FeaturesClient: React.FC<FeaturesProps> = ({}) => {
             onClick={() => scrollToTarget('FEATURES', 100)}
           >
             Explore Features
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />
-      <UIView id="FEATURES" className="mx-auto w-full px-3 max-w-screen-lg">
+      <UIView id="FEATURES" className="mx-auto w-full px-3 max-w-(--breakpoint-lg)">
         <FeaturesSection />
       </UIView>
     </UIView>

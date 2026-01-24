@@ -26,7 +26,7 @@ const StorageCard = () => {
   }, [slides]);
 
   return (
-    <Card className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-right-bottom">
+    <Card className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right">
       <CardHeader>
         <div className="flex items-center gap-3">
           <Avatar

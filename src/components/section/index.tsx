@@ -1,4 +1,4 @@
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 type SectionProps = {
@@ -39,10 +39,10 @@ const Section: React.FC<SectionProps> = ({
           </svg>
         </span>
       )}
-      <h2 className="max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-default-800 via-default-700 to-default-700 dark:from-default-800 dark:via-white dark:to-white text-3xl md:text-4xl md:leading-tight pt-4 relative z-20">
+      <h2 className="max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-linear-to-b from-default-800 via-default-700 to-default-700 dark:from-default-800 dark:via-white dark:to-white text-3xl md:text-4xl md:leading-tight pt-4 relative z-20">
         {title}
       </h2>
-      <div className="min-h-96 min-w-96 bg-gradient-to-r from-lavender-frost to-periwinkle-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0 rounded-full blur-3xl opacity-10"></div>
+      <div className="min-h-96 min-w-96 bg-linear-to-r from-lavender-frost to-periwinkle-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 rounded-full blur-3xl opacity-10"></div>
       {description && (
         <h2 className="text-sm md:text-base my-4 text-center font-normal text-default-500 max-w-3xl mx-auto relative z-20">
           <span>{description}</span>

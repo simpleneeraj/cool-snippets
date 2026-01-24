@@ -200,7 +200,7 @@ export default LayersPreview;
 
 function AddLayers() {
   const iconClasses =
-    'h-5 w-5 text-default-500 pointer-events-none flex-shrink-0';
+    'h-5 w-5 text-default-500 pointer-events-none shrink-0';
 
   const { createSlideElement } = useSlideEditor();
   const { slide: currentSlide } = useActiveSlide();
@@ -229,7 +229,7 @@ function AddLayers() {
       classNames={{
         base: 'before:bg-default-200',
         content:
-          'py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
+          'py-1 px-1 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
       }}
     >
       <DropdownTrigger>

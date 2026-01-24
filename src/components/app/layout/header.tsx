@@ -92,7 +92,7 @@ const AppHeader = () => {
         <ExportDropdown />
         <Button
           size="sm"
-          className="flex group min-w-28 items-center font-semibold text-foreground shadow-sm relative overflow-hidden rounded-lg p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary gap-2"
+          className="flex group min-w-28 items-center font-semibold text-foreground shadow-xs relative overflow-hidden rounded-lg p-px focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary gap-2"
         >
           <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F54180_0%,#338EF7_50%,#F54180_100%)]" />
           <div className="flex h-full gap-1 w-full cursor-pointer items-center justify-center rounded-lg bg-background/90 group-hover:bg-background/70 transition-background px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl">

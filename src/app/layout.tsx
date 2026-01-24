@@ -1,8 +1,8 @@
-import '@/styles/next-ui.css';
+import '@/styles/globals.css';
 import '@/styles/mask-wallpaper.css';
 
 import fonts from './font';
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import AuthProvider from '@/providers/clerk';
 import NextAppProvider from '@/providers/next-ui';

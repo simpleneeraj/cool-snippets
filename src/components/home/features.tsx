@@ -51,7 +51,7 @@ const features = [
   },
   {
     title: 'Gaussian Blur',
-    description: 'Beautiful blur effects for a sleek and modern look.',
+    description: 'Beautiful blur-sm effects for a sleek and modern look.',
     icon: SolarRadialBlurLineDuotone,
   },
   {

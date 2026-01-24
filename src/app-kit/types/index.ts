@@ -33,12 +33,12 @@ export type UIIconButtonProps = {
  * UIButtonProps: Props for a general button.
  *
  * @param exclude - Array of states to exclude (e.g., 'hover', 'active').
- * @param variant - The variant of the button ('outline', 'clear', or 'button').
+ * @param variant - The variant of the button ('outline-solid', 'clear', or 'button').
  * @param colorScheme - The color scheme of the button.
  */
 export type UIButtonProps = {
   exclude?: string[];
-  variant?: 'outline' | 'clear' | 'button';
+  variant?: 'outline-solid' | 'clear' | 'button';
 } & ColorScheme &
   React.ComponentPropsWithRef<'button'>;
 
@@ -46,12 +46,12 @@ export type UIButtonProps = {
  * UIButtonProps: Props for a general button.
  *
  * @param exclude - Array of states to exclude (e.g., 'hover', 'active').
- * @param variant - The variant of the button ('outline', 'clear', or 'button').
+ * @param variant - The variant of the button ('outline-solid', 'clear', or 'button').
  * @param colorScheme - The color scheme of the button.
  */
 export type UIOutlineButtonProps = {
   exclude?: string[];
-  variant?: 'outline';
+  variant?: 'outline-solid';
 } & ColorScheme &
   React.ComponentPropsWithRef<'button'>;
 

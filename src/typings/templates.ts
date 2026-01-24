@@ -5,7 +5,7 @@
 
 export enum HeaderVariants {
   FILLED = 'filled',
-  OUTLINE = 'outline',
+  OUTLINE = 'outline-solid',
   FLAT = 'flat',
 }
 export enum HeaderInputType {

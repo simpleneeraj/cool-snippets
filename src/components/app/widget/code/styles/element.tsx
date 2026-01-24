@@ -77,13 +77,13 @@ export default React.memo(ElementStyle);
 
 // .ͼ1 .cm-content {
 //   margin: 0;
-//   flex-grow: 2;
+//   grow: 2;
 //   outline: none;
 //   display: block;
 //   padding: 4px 0;
 //   word-wrap: normal;
 //   min-height: 100%;
-//   flex-shrink: initial;
+//   shrink: initial;
 //   white-space: initial;
 //   box-sizing: border-box;
 // }

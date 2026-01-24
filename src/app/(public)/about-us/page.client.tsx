@@ -25,14 +25,14 @@ const AboutClient: React.FC<AboutClientProps> = ({}) => {
             onClick={() => scrollToTarget('about-section', 100)}
           >
             Learn More About Us
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />
 
       <UIAuraBox
         id="details-section"
-        className="relative mx-auto w-full px-2 max-w-screen-lg"
+        className="relative mx-auto w-full px-2 max-w-(--breakpoint-lg)"
       >
         <div>
           {/* Profile */}

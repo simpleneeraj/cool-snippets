@@ -14,7 +14,7 @@ const IOSTermainal = (props: HeadersProps) => {
   const { colors, variant = 'outline', ...rest } = props;
   const { size, borderRadius, padding, background, gap, borderWidth } =
     props?.style;
-  const isOutlineVariant = variant.includes('outline');
+  const isOutlineVariant = variant.includes('outline-solid');
 
   const style: CSS = React.useMemo(() => {
     return {

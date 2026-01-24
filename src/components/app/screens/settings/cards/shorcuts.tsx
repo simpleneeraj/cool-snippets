@@ -5,10 +5,10 @@ import { Kbd, KbdKey, Listbox, ListboxItem } from '@heroui/react';
 
 const Shortcuts = () => {
   const iconClasses =
-    'text-xl text-default-500 pointer-events-none flex-shrink-0';
+    'text-xl text-default-500 pointer-events-none shrink-0';
 
   return (
-    <UIView className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-right-bottom rounded-2xl">
+    <UIView className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right rounded-2xl">
       <Listbox aria-label="Editor Shortcuts" variant="bordered">
         {shortcutsData.map((shortcut) => (
           <ListboxItem

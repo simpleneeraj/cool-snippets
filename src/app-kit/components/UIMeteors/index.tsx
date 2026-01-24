@@ -1,5 +1,8 @@
-import { cn } from '@heroui/react';
+'use client';
+
 import React from 'react';
+import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 const UIMeteors = ({
   number,
@@ -10,25 +13,34 @@ const UIMeteors = ({
 }) => {
   const meteors = new Array(number || 20).fill(true);
   return (
-    <>
-      {meteors.map((el, idx) => (
-        <span
-          key={'meteor' + idx}
-          className={cn(
-            'animate-meteor-effect absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-[9999px] bg-lavender-frost shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]',
-            "before:content-[''] before:absolute before:top-1/2 before:transform before:-translate-y-[50%] before:w-[50px] before:h-[1px] before:bg-gradient-to-r before:from-white before:to-transparent",
-            className
-          )}
-          style={{
-            top: 0,
-            left: Math.floor(Math.random() * (400 - -400) + -400) + 'px',
-            animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + 's',
-            animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + 's',
-          }}
-        ></span>
-      ))}
-    </>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {meteors.map((el, idx) => {
+        const meteorCount = number || 20;
+        // Calculate position to evenly distribute meteors across container width
+        const position = idx * (800 / meteorCount) - 400; // Spread across 800px range, centered
+
+        return (
+          <span
+            key={'meteor' + idx}
+            className={cn(
+              'animate-meteor-effect absolute h-0.5 w-0.5 rotate-45 rounded-[9999px] bg-lavender-frost shadow-[0_0_0_1px_#ffffff10]',
+              "before:absolute before:top-1/2 before:h-px before:w-12.5 before:-translate-y-[50%] before:transform before:bg-linear-to-r before:from-white before:to-transparent before:content-['']",
+              className
+            )}
+            style={{
+              top: '-40px', // Start above the container
+              left: position + 'px',
+              animationDelay: Math.random() * 5 + 's', // Random delay between 0-5s
+              animationDuration: Math.floor(Math.random() * (10 - 5) + 5) + 's', // Keep some randomness in duration
+            }}
+          ></span>
+        );
+      })}
+    </motion.div>
   );
 };
-
 export default UIMeteors;

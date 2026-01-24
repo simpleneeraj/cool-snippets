@@ -189,7 +189,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                         }}
                         className="h-40 w-full"
                       ></UIView>
-                      <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                      <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%-8px)] shadow-small ml-1 z-10">
                         <p className="text-tiny text-default font-bold">
                           {color.text}
                         </p>
@@ -223,7 +223,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                         className="object-cover w-full mix-blend-multiply"
                         removeWrapper
                       />
-                      <CardFooter className="before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                      <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%-8px)] shadow-small ml-1 z-10">
                         <p className="text-xs text-default font-bold">
                           {pattern.text}
                         </p>

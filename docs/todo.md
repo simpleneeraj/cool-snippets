@@ -1,0 +1,2 @@
+- Integrate the better auth in this along with better auth
+- Complete the version and move forward

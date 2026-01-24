@@ -22,7 +22,7 @@ const TemplatesClient: React.FC<TemplatesProps> = ({}) => {
             onClick={() => scrollToTarget('templates-section')}
           >
             View Templates
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />

@@ -87,7 +87,7 @@ const HeaderScreen: React.FC = () => {
           placeholder="Choose header style"
           classNames={{
             popoverContent:
-              'p-0 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
+              'p-0 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
           }}
           selectedKeys={[variant || '']}
           onChange={(e) => onChangeValues('variant', e.target.value)}
@@ -103,7 +103,7 @@ const HeaderScreen: React.FC = () => {
           placeholder="Select input type"
           classNames={{
             popoverContent:
-              'p-0 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
+              'p-0 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
           }}
           selectedKeys={[input || '']}
           onChange={(e) => onChangeValues('input', e.target.value)}

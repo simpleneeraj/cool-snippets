@@ -33,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                 [15, 10],
               ]}
               className={cn(
-                '[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]',
+                'mask-[radial-gradient(500px_circle_at_center,white,transparent)]',
                 'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
               )}
             />
@@ -47,11 +47,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                 className="flex items-center gap-2 text-sm text-default-500"
               >
                 Make Every Post a Masterpiece with Crystal
-                <MynauiChevronRightWaves className="flex-none outline-none h-5 w-5" />
+                <MynauiChevronRightWaves className="flex-none outline-hidden h-5 w-5" />
               </UIAnimatedButton>
             </Link>
             <UIView className="text-center py-6 md:py-10">
-              <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+              <h2 className="bg-clip-text text-transparent text-center bg-linear-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                 Craft, Customize, <br /> and Share Code.
               </h2>
               <p className="max-w-xl mx-auto text-sm md:text-lg text-default-700 dark:text-default-400 text-center">
@@ -64,7 +64,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               <Button
                 as={Link}
                 href="/studio"
-                className=" w-40 bg-gradient-to-r from-lavender-frost to-periwinkle-glow px-4 py-2 text-small font-medium leading-5 text-background"
+                className=" w-40 bg-linear-to-r from-lavender-frost to-periwinkle-glow px-4 py-2 text-small font-medium leading-5 text-background"
                 radius="full"
               >
                 Start Creating
@@ -72,7 +72,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               <Button
                 as={Link}
                 href="/pricing"
-                className="h-10 w-[163px] border-1 border-default-100 px-[16px] py-[10px] text-small font-medium leading-5 backdrop-blur"
+                className="h-10 w-[163px] border border-default-100 px-[16px] py-[10px] text-small font-medium leading-5 backdrop-blur-sm"
                 endContent={
                   <span className="pointer-events-none flex h-[22px] w-[22px] items-center justify-center rounded-full bg-default-100">
                     <SolarArrowRightLineDuotone

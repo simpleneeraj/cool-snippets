@@ -4,7 +4,7 @@ import NotFound from './not-found';
 import UICard from '@/app-kit/source/UICard';
 import UIView from '@/app-kit/source/UIView';
 import { SEGMENT_SCREEN } from '@/typings/enums';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, easeInOut } from 'motion/react';
 
 const EditScreens = dynamic(() => import('@/components/app/screens/edit'));
 const BackgroundScreens = dynamic(
@@ -20,8 +20,6 @@ const AIScreen = dynamic(() => import('@/components/app/screens/ai'));
 type ScreensTypes = {
   activeTab: SEGMENT_SCREEN;
 };
-
-const transition = { duration: 0.2, ease: 'easeInOut' };
 
 function Screens({ activeTab }: ScreensTypes) {
   const DynamicScreen = React.useMemo(() => {
@@ -52,8 +50,8 @@ function Screens({ activeTab }: ScreensTypes) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={transition}
             className="flex flex-col"
+            {...easeInOut}
           >
             {DynamicScreen}
           </motion.div>

@@ -25,7 +25,7 @@ const PricingClient: React.FC<PricingProps> = ({}) => {
             className="flex items-center gap-2 text-sm text-default-500"
           >
             Explore Pricing Plans
-            <MynauiChevronDownWaves className="flex-none outline-none h-5 w-5" />
+            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />

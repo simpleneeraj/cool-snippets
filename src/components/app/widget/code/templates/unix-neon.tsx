@@ -46,5 +46,5 @@ export default UnixNeon;
 // padding = `.4rem`,
 // iconGap = '4px',
 // inputStyle: editable,
-// theme = 'outline',
+// theme = 'outline-solid',
 // colors

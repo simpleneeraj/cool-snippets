@@ -37,7 +37,7 @@ const Topbar: React.FC<TopbarProps> = ({
                 [15, 10],
               ]}
               className={
-                '[mask-image:radial-gradient(500px_circle_at_center,rgba(255,255,255,0.75),transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
+                'mask-[radial-gradient(500px_circle_at_center,rgba(255,255,255,0.75),transparent)] inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
               }
             />
             <UISpotlight
@@ -47,7 +47,7 @@ const Topbar: React.FC<TopbarProps> = ({
             {startContent}
             <UIView className="text-center">
               {title && (
-                <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+                <h2 className="bg-clip-text text-transparent text-center bg-linear-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                   {title}
                 </h2>
               )}

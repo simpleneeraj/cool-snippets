@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 const UIBackgroundBeams = React.memo(
@@ -60,7 +60,7 @@ const UIBackgroundBeams = React.memo(
     return (
       <div
         className={cn(
-          'absolute inset-0 flex h-full w-full items-center justify-center [mask-repeat:no-repeat] [mask-size:40px]',
+          'absolute inset-0 flex h-full w-full items-center justify-center mask-no-repeat mask-size-[40px]',
           className
         )}
       >

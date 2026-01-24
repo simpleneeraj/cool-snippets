@@ -66,7 +66,7 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
                   <button
                     type="button"
                     className={cn(
-                      'w-full h-full rounded transition-all',
+                      'w-full h-full rounded-sm transition-all',
                       selectedColor === color.background
                         ? 'border-2 border-default-500'
                         : 'border border-default-100'

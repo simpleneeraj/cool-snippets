@@ -20,7 +20,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({}) => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <UISpotlight
-            className="absolute top-0 left-[20%] transform rotate-[15deg] scale-150 opacity-50"
+            className="absolute top-0 left-[20%] transform rotate-15 scale-150 opacity-50"
             fill="#cdaff5"
           />
           <UISpotlight

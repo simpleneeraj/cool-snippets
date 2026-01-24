@@ -13,7 +13,7 @@ type FooterProps = object;
 
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
-    <div className="mx-auto w-full px-3 relative overflow-hidden border-default-200 py-16 backdrop-blur-lg md:rounded-t-2xl max-w-screen-lg border-0 bg-transparent lg:px-4 xl:px-0 z-50">
+    <div className="mx-auto w-full px-3 relative overflow-hidden border-default-200 py-16 backdrop-blur-lg md:rounded-t-2xl max-w-(--breakpoint-lg) border-0 bg-transparent lg:px-4 xl:px-0 z-50">
       <footer>
         <UISpotlight className="-top-40 left-0 md:left-60 md:-top-20" />
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             <div className="flex flex-col flex-1 gap-2">
               <div className="flex items-center gap-1">
                 <TokenBrandedCrystal className="h-5 w-5" />
-                <p className="text-lg font-light bg-gradient-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
+                <p className="text-lg font-light bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
                   {appConfig.short_name}
                 </p>
               </div>

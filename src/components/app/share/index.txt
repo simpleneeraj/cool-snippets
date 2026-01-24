@@ -195,7 +195,7 @@ patternsFolder
   })
 
 const patternBlur = patternsFolder
-  .addInput(wallpaperOptions.pattern!, 'blur', {
+  .addInput(wallpaperOptions.pattern!, 'blur-sm', {
     min: 0,
     max: 5,
     step: 0.1

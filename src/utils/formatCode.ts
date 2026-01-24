@@ -49,12 +49,17 @@ const formatCode = async (code: string, language: any | null) => {
   }
 
   if (language.name === LanguagesEnum.PYTHON) {
-    const { default: initRuff, Workspace } = await import(
-      '@astral-sh/ruff-wasm-web'
-    );
+    const {
+      default: initRuff,
+      Workspace,
+      PositionEncoding,
+    } = await import('@astral-sh/ruff-wasm-web');
     await initRuff();
 
-    const workspace = new Workspace(Workspace.defaultSettings());
+    const workspace = new Workspace(
+      Workspace.defaultSettings(),
+      PositionEncoding.Utf32
+    );
     const formatted = workspace.format(code);
     return formatted.replace(/\n$/, '');
   }
@@ -65,7 +70,7 @@ const formatCode = async (code: string, language: any | null) => {
   if (!parser) {
     throw new Error(`No parser found for language: ${language.name}`);
   }
-  const parserModule = await parser.import();
+  const parserModule = (await parser.import()).default;
 
   const formatted = await prettier.format(code, {
     parser: parser.name,

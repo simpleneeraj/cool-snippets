@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'motion/react';
-import { cn } from '@heroui/react';
+import { cn } from '@/lib/utils';
 
 export const UIBackgroundLines = ({
   children,
@@ -17,7 +17,7 @@ export const UIBackgroundLines = ({
   return (
     <div
       className={cn(
-        'h-[20rem] md:h-screen w-full bg-white dark:bg-black',
+        'h-80 md:h-screen w-full bg-white dark:bg-black',
         className
       )}
     >
