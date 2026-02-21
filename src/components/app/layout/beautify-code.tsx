@@ -4,12 +4,12 @@ import React from 'react';
 import { addToast } from '@heroui/react';
 import useHotkeys from '@/app-kit/hooks/use-hotkeys';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { headerIcon } from '@/components/style/header';
-import UIButton from '@/app-kit/source/UIButton/button';
 import formatCode, { formatterSupportedLanguages } from '@/utils/formatCode';
-import { SolarCodeLineDuotone } from '@/app-kit/icons/SolarCodeLineDuotone';
+import { SolarMagicStick3Linear } from '@/app-kit/icons/SolarMagicStick3Linear';
+import { Button } from '@/app-kit/ui/button';
+import { Tooltip, TooltipPopup, TooltipTrigger } from '@/app-kit/ui/tooltip';
 
-const FormatCode: React.FC = () => {
+const BeautifyCode: React.FC = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
 
   const onFormatCode = async () => {
@@ -58,18 +58,15 @@ const FormatCode: React.FC = () => {
   });
 
   return (
-    <UIButton
-      size="sm"
-      variant="flat"
-      radius="sm"
-      onPress={onFormatCode}
-      startContent={
-        <SolarCodeLineDuotone className={headerIcon({ sizes: 'md' })} />
-      }
-    >
-      Format Code
-    </UIButton>
+    <Tooltip>
+      <TooltipTrigger
+        render={<Button variant="outline" onClick={onFormatCode} />}
+      >
+        <SolarMagicStick3Linear aria-hidden="true" />
+      </TooltipTrigger>
+      <TooltipPopup>Beautify Code (⌘⇧B)</TooltipPopup>
+    </Tooltip>
   );
 };
 
-export default FormatCode;
+export default BeautifyCode;

@@ -58,7 +58,7 @@ const MeshBackgrounds = () => {
             fullWidth
             color={'primary'}
             variant={'flat'}
-            onPress={onGenerateMesh}
+            onClick={onGenerateMesh}
           >
             Generate Mesh
           </UIButton>
@@ -132,7 +132,7 @@ const MeshBackgrounds = () => {
             fullWidth
             color={'danger'}
             variant={'flat'}
-            onPress={onGenerateMesh}
+            onClick={onGenerateMesh}
           >
             Reset
           </UIButton>

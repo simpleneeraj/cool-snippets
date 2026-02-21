@@ -3,7 +3,6 @@ import UIView from '@/app-kit/source/UIView';
 import { TEXT_ALIGN } from '@/typings/enums';
 import { Select, SelectItem } from '@heroui/react';
 import UIButton from '@/app-kit/source/UIButton/button';
-import UIButtonGroup from '@/app-kit/source/UIButtonGroup';
 import TextBoldIcon from '@/app-kit/icons/text/TextBoldIcon';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
@@ -89,20 +88,19 @@ const TextScreen = () => {
               </Select>
             </UIView>
           </UIView>
-          <UIButtonGroup variant="flat" size="sm" fullWidth>
-            <UIButton variant={'solid'} color={'primary'}>
-              <TextBoldIcon className="h-5 w-5" />
-            </UIButton>
-            <UIButton>
-              <TextItalicIcon className="h-5 w-5" />
-            </UIButton>
-            <UIButton>
-              <TextUnderlineicon className="h-5 w-5" />
-            </UIButton>
-            <UIButton>
-              <TextStrikeThroughIcon className="h-4 w-4" />
-            </UIButton>
-          </UIButtonGroup>
+
+          <UIButton variant={'solid'} color={'primary'}>
+            <TextBoldIcon className="h-5 w-5" />
+          </UIButton>
+          <UIButton>
+            <TextItalicIcon className="h-5 w-5" />
+          </UIButton>
+          <UIButton>
+            <TextUnderlineicon className="h-5 w-5" />
+          </UIButton>
+          <UIButton>
+            <TextStrikeThroughIcon className="h-4 w-4" />
+          </UIButton>
         </UIView>
       </FrameItem>
       <FrameItem label="Color">{`-`}</FrameItem>

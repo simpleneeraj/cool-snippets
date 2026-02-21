@@ -81,7 +81,7 @@ const StorageCard = () => {
       <CardFooter className="justify-end gap-2">
         <Button
           fullWidth
-          onPress={resetState}
+          onClick={resetState}
           className="border-small border-white/20 bg-white/10 text-white"
         >
           Reset Storage

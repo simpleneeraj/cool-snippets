@@ -87,7 +87,7 @@ const LayersPreview = () => {
                       <li key={element.id}>
                         <Card
                           isPressable
-                          onPress={() => updateElement(element?.id as string)}
+                          onClick={() => updateElement(element?.id as string)}
                           className={cn(
                             'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
                             active && 'border border-lavender-frost/70'
@@ -134,7 +134,7 @@ const LayersPreview = () => {
                                 radius={'full'}
                                 size={'sm'}
                                 aria-label={'Duplicate Slide Element'}
-                                onPress={() =>
+                                onClick={() =>
                                   element.id &&
                                   duplicateSlideElement(slide.id, element.id)
                                 }
@@ -160,7 +160,7 @@ const LayersPreview = () => {
                                 size={'sm'}
                                 radius={'full'}
                                 aria-label={'Delete Slide Element'}
-                                onPress={() =>
+                                onClick={() =>
                                   element.id &&
                                   deleteSlideElement(slide.id, element.id)
                                 }
@@ -199,8 +199,7 @@ const LayersPreview = () => {
 export default LayersPreview;
 
 function AddLayers() {
-  const iconClasses =
-    'h-5 w-5 text-default-500 pointer-events-none shrink-0';
+  const iconClasses = 'h-5 w-5 text-default-500 pointer-events-none shrink-0';
 
   const { createSlideElement } = useSlideEditor();
   const { slide: currentSlide } = useActiveSlide();

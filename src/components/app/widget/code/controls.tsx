@@ -26,23 +26,23 @@ const Controls: React.FC<ControlsProps> = () => {
   return (
     <UIView className="absolute bottom-2 left-0 z-50 w-full flex justify-between">
       <UIView className="flex items-center gap-1 backdrop-blur-sm p-1 rounded-xl overflow-hidden bg-default">
-        <UIIconButton onPress={onResetViewport} size="sm">{`${(
+        <UIIconButton onClick={onResetViewport} size="sm">{`${(
           zoom * 100
         ).toFixed(0)}%`}</UIIconButton>
       </UIView>
       <UIView className="flex items-center gap-1 backdrop-blur-sm p-1 rounded-xl overflow-hidden bg-default">
         <Tooltip placement="bottom" content="Reset Viewport">
-          <UIIconButton isIconOnly size="sm" onPress={onResetViewport}>
+          <UIIconButton isIconOnly size="sm" onClick={onResetViewport}>
             <SolarMaximizeSquareMinimalisticLineDuotone className={icon()} />
           </UIIconButton>
         </Tooltip>
         <Tooltip placement="bottom" content="Zoom Out">
-          <UIIconButton isIconOnly size="sm" onPress={zoomOut}>
+          <UIIconButton isIconOnly size="sm" onClick={zoomOut}>
             <SolarMinimalisticMagniferZoomOutLineDuotone className={icon()} />
           </UIIconButton>
         </Tooltip>
         <Tooltip placement="bottom" content="Zoom In">
-          <UIIconButton isIconOnly size="sm" onPress={zoomIn}>
+          <UIIconButton isIconOnly size="sm" onClick={zoomIn}>
             <SolarMinimalisticMagniferZoomInLineDuotone className={icon()} />
           </UIIconButton>
         </Tooltip>

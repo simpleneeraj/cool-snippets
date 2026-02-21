@@ -10,7 +10,7 @@ function NextAppProvider({ children }: React.PropsWithChildren) {
   return (
     <HeroUIProvider navigate={router.push}>
       <ToastProvider placement="bottom-center" toastOffset={40} />
-      <main className={cn('text-foreground bg-background')}>{children}</main>
+      {children}
     </HeroUIProvider>
   );
 }

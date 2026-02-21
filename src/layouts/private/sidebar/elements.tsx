@@ -67,7 +67,7 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
           active &&
             `bg-linear-to-l from-lavender-frost/20 to-periwinkle-glow/20`
         )}
-        onPress={isPressable ? toggleSubMenu : undefined}
+        onClick={isPressable ? toggleSubMenu : undefined}
       >
         <div className="flex items-center gap-2 ">
           {startContent}

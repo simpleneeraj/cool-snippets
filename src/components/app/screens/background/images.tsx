@@ -151,7 +151,7 @@ const ImagesBackground: React.FC<BackgroundScreenTypes> = ({
                           size="sm"
                           color="default"
                           className="text-tiny bg-opacity-80"
-                          onPress={() => onChange?.(currentItem?.urls?.regular)}
+                          onClick={() => onChange?.(currentItem?.urls?.regular)}
                         >
                           {value !== currentItem?.urls?.regular
                             ? 'Use'

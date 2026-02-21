@@ -1,109 +1,113 @@
-import React from 'react';
 import UIView from '@/app-kit/source/UIView';
-import UISlider from '@/app-kit/source/UISlider';
-import UISwitch from '@/app-kit/source/UISwitch';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { FrameAccordion } from '@/components/elements/frame';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  AccordionTrigger,
+} from '@/app-kit/ui/accordion';
+import { Field, FieldLabel } from '@/app-kit/ui/field';
+import { Slider, SliderValue } from '@/app-kit/ui/slider';
+import { Label } from '@/app-kit/ui/label';
+
+enum ItemEnums {
+  Default = 'Default',
+}
 
 const NeonText = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
 
+  const isNeonEnabled = Boolean(currentElement?.properties?.neon?.enabled);
+
+  const toggleNeon = (values: string[]) => {
+    const enabled = values.includes(ItemEnums.Default);
+
+    onChangeSlideElement({
+      properties: {
+        neon: {
+          enabled,
+          // set sensible defaults only when enabling
+          offsetX: enabled ? -2 : undefined,
+          offsetY: enabled ? 4 : undefined,
+          blurRadius: enabled ? 10 : undefined,
+        },
+      },
+    });
+  };
+
+  const updateNeon = (key: 'offsetX' | 'offsetY' | 'blurRadius') => {
+    return (value: any) =>
+      onChangeSlideElement({
+        properties: {
+          neon: {
+            [key]: value,
+          },
+        },
+      });
+  };
+
   return (
-    <FrameAccordion
-      label="Neon Text"
-      className="flex flex-col justify-start gap-0 py-2"
-      endContent={
-        <UISwitch
-          color="success"
-          size={'sm'}
-          isSelected={currentElement?.properties?.neon?.enabled}
-          onValueChange={(neon) =>
-            onChangeSlideElement({
-              properties: {
-                neon: {
-                  enabled: neon,
-                  offsetX: -2,
-                  offsetY: 4,
-                  blurRadius: 10,
-                },
-              },
-            })
-          }
-        />
-      }
-      accordion={currentElement?.properties?.neon?.enabled}
+    <Accordion
+      className="w-full"
+      value={isNeonEnabled ? [ItemEnums.Default] : []}
+      onValueChange={toggleNeon}
     >
-      <UIView className="my-2 flex-1 flex flex-col gap-4 border p-2 rounded-lg border-default-100">
-        <UISlider
-          color="foreground"
-          label="Horizontal Offset (X)"
-          size="sm"
-          minValue={-10}
-          maxValue={10}
-          value={currentElement?.properties?.neon?.offsetX}
-          onChange={(value) =>
-            onChangeSlideElement({
-              properties: {
-                neon: {
-                  offsetX: value,
-                },
-              },
-            })
-          }
-          classNames={{
-            label: 'text-tiny',
-            value: 'text-tiny',
-          }}
-          getValue={(v) => `${v}px`}
-        />
+      <AccordionItem value={ItemEnums.Default}>
+        <AccordionTrigger>Try neon text effects </AccordionTrigger>
+        <AccordionPanel>
+          <UIView className="flex flex-col gap-4 border p-2 rounded-lg border-default-100">
+            <Field>
+              <Slider
+                min={-20}
+                max={20}
+                step={1}
+                value={currentElement?.properties?.neon?.offsetX}
+                onValueChange={updateNeon('offsetX')}
+              >
+                <div className="mb-2 flex items-center justify-between gap-1">
+                  <FieldLabel className="text-sm">Neon Offset (X)</FieldLabel>
+                  <SliderValue />
+                </div>
+              </Slider>
+            </Field>
+            <Field>
+              <Slider
+                min={-20}
+                max={20}
+                step={1}
+                value={currentElement?.properties?.neon?.offsetY}
+                onValueChange={updateNeon('offsetY')}
+              >
+                <div className="mb-2 flex items-center justify-between gap-1">
+                  <FieldLabel className="text-sm">Neon Offset (Y)</FieldLabel>
+                  <SliderValue />
+                </div>
+              </Slider>
+            </Field>
 
-        <UISlider
-          color="foreground"
-          label="Vertical Offset (Y)"
-          size="sm"
-          minValue={-10}
-          maxValue={10}
-          value={currentElement?.properties?.neon?.offsetY}
-          onChange={(value) =>
-            onChangeSlideElement({
-              properties: {
-                neon: {
-                  offsetY: value,
-                },
-              },
-            })
-          }
-          classNames={{
-            label: 'text-tiny',
-            value: 'text-tiny',
-          }}
-          getValue={(v) => `${v}px`}
-        />
-
-        <UISlider
-          color="foreground"
-          label="Blur Radius"
-          size="sm"
-          minValue={0}
-          maxValue={32}
-          value={currentElement?.properties?.neon?.blurRadius}
-          onChange={(value) =>
-            onChangeSlideElement({
-              properties: {
-                neon: {
-                  blurRadius: value,
-                },
-              },
-            })
-          }
-          classNames={{
-            label: 'text-tiny',
-            value: 'text-tiny',
-          }}
-          getValue={(v) => `${v}px`}
-        />
-      </UIView>
-    </FrameAccordion>
+            <Field>
+              <Slider
+                min={0}
+                max={40}
+                step={1}
+                value={currentElement?.properties?.neon?.blurRadius}
+                onValueChange={updateNeon('blurRadius')}
+              >
+                <div className="mb-2 flex items-center justify-between gap-1">
+                  <FieldLabel className="text-sm">Neon Intensity</FieldLabel>
+                  <SliderValue />
+                </div>
+              </Slider>
+            </Field>
+            <Label>
+              <p className="text-xs text-muted-foreground">
+                Tip: Increase blur and offset for a stronger neon glow.
+              </p>
+            </Label>
+          </UIView>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
   );
 };
 

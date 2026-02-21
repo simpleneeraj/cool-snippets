@@ -121,7 +121,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
               <Divider className="my-1" />
               <UIView className="flex items-center gap-2">
                 <Button
-                  onPress={generateRandomPassword}
+                  onClick={generateRandomPassword}
                   isIconOnly
                   size="sm"
                   variant="bordered"

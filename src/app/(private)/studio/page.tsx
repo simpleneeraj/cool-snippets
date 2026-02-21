@@ -1,7 +1,6 @@
-import React from 'react';
-import EditorClient from './client';
+import EditorPageClient from './client';
 
 const EditorPage = () => {
-  return <EditorClient />;
+  return <EditorPageClient />;
 };
 export default EditorPage;

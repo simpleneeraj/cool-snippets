@@ -7,17 +7,13 @@ import UIButton from '@/app-kit/source/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import ChevronRightIcon from '@/app-kit/icons/ChevronRightIcon';
 import useSlideEditor from '@/store/hooks/use-editor';
+import { Field, FieldLabel } from '@/app-kit/ui/field';
+import { Slider, SliderValue } from '@/app-kit/ui/slider';
 
-type Props = {
-  openAspectRatio: () => void;
-  openBackgrounds: () => void;
-};
+type Props = {};
 
-const CanvasScreen: React.FC<Props> = ({
-  openAspectRatio,
-  openBackgrounds,
-}) => {
-  const { onChangeSlide } = useSlideEditor();
+const CanvasScreen: React.FC<Props> = ({}) => {
+  const { currentSlide, onChangeSlide } = useSlideEditor();
 
   // Handlers with debounce
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,18 +27,10 @@ const CanvasScreen: React.FC<Props> = ({
         },
       });
     }, 500),
-    []
+    [],
   );
 
-  const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleDebouncedChange('width', Number(e.target.value));
-  };
-
-  const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleDebouncedChange('height', Number(e.target.value));
-  };
-
-  const handlePaddingChange = (value: number | number[]) => {
+  const handlePaddingChange = (value: number) => {
     handleDebouncedChange('padding', value?.toString());
   };
 
@@ -51,74 +39,30 @@ const CanvasScreen: React.FC<Props> = ({
   };
 
   return (
-    <Frame title="CANVAS">
-      <FrameItem>
-        <UIView className="flex flex-col gap-3 w-full">
-          <UIButton
-            fullWidth
-            size="lg"
-            radius="md"
-            variant="flat"
-            onPress={openAspectRatio}
-            className="px-2 justify-start text-left"
-          >
-            <UIView className="flex justify-between items-center w-full">
-              <UIView className="flex flex-col">
-                <span className="text-tiny text-default-400">3:4</span>
-                <h4 className="text-small text-default-500">900 x 600</h4>
-              </UIView>
-              <ChevronRightIcon />
-            </UIView>
-          </UIButton>
-          <UIView className="flex items-center gap-2">
-            <Input
-              size="sm"
-              variant="faded"
-              label="Width"
-              placeholder="900"
-              labelPlacement="outside"
-              endContent="px"
-              classNames={{
-                base: 'text-small text-default-400',
-              }}
-              // value={String(currentSlide?.background?.style?.width)}
-              onChange={handleWidthChange}
-            />
-            <Input
-              size="sm"
-              variant="faded"
-              label="Height"
-              placeholder="600"
-              labelPlacement="outside"
-              endContent="px"
-              classNames={{
-                base: 'text-small text-default-400',
-              }}
-              // value={String(currentSlide?.background?.style?.height)}
-              onChange={handleHeightChange}
-            />
-          </UIView>
-        </UIView>
-      </FrameItem>
-
-      <FrameItem label="Padding">
-        <UISlider size="sm" onChange={handlePaddingChange} />
-      </FrameItem>
-
-      <FrameItem label="Radius">
-        <UISlider size="sm" onChange={handleRadiusChange} />
-      </FrameItem>
-
-      <FrameItem label="Backgrounds">
-        <Link
-          size="sm"
-          onPress={openBackgrounds}
-          className="cursor-pointer select-none"
+    <UIView className="flex flex-col gap-4">
+      <Field>
+        <Slider
+          value={currentSlide?.background?.style?.width}
+          onValueChange={(value) => handlePaddingChange(value as number)}
         >
-          View
-        </Link>
-      </FrameItem>
-    </Frame>
+          <div className="mb-2 flex items-center justify-between gap-1">
+            <FieldLabel className="font-medium text-sm">Padding</FieldLabel>
+            <SliderValue />
+          </div>
+        </Slider>
+      </Field>
+      <Field>
+        <Slider
+          value={currentSlide?.background?.style?.width}
+          onValueChange={(value) => handlePaddingChange(value as number)}
+        >
+          <div className="mb-2 flex items-center justify-between gap-1">
+            <FieldLabel className="font-medium text-sm">Radius</FieldLabel>
+            <SliderValue />
+          </div>
+        </Slider>
+      </Field>
+    </UIView>
   );
 };
 

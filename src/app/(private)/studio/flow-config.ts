@@ -1,7 +1,7 @@
 // Canvas Configuration
 export const canvasConfig = {
-  maxZoom: 2,
-  minZoom: 0.5,
+  maxZoom: 1.2,
+  minZoom: 0.8,
   defaultZoom: 1,
   snapGrid: [20, 20],
   panOnDrag: [1, 2],

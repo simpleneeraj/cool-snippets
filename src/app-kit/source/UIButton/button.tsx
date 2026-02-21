@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@heroui/react';
+import { Button } from '@/app-kit/ui/button';
 
 type Props = {} & React.ComponentProps<typeof Button>;
 

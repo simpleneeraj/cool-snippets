@@ -1,148 +1,210 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
 import UISlider from '@/app-kit/source/UISlider';
-import UISwitch from '@/app-kit/source/UISwitch';
-import { Frame, FrameItem } from '@/components/elements/frame';
 import UIView from '@/app-kit/source/UIView';
-import UIButton from '@/app-kit/source/UIButton/button';
-import { Autocomplete, AutocompleteItem, Chip } from '@heroui/react';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
-import ChevronRightIcon from '@/app-kit/icons/ChevronRightIcon';
 import fontsNames from '@/json/fonts.json';
 import useSlideEditor from '@/store/hooks/use-editor';
 import Glassmorphism from '../elements/glassmorphism';
 import NeonText from '../elements/neon';
+import {
+  Combobox,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+  ComboboxPopup,
+} from '@/app-kit/ui/combobox';
+import { languagesArray } from '@/plugins/codemirror/languages';
+import { Field, FieldLabel } from '@/app-kit/ui/field';
+import { Separator } from '@/app-kit/ui/separator';
+import { Slider, SliderValue } from '@/app-kit/ui/slider';
+import { Label } from '@/app-kit/ui/label';
+import { Checkbox } from '@/app-kit/ui/checkbox';
 
-type Props = {
-  openLanguages: () => void;
-};
-const CodeScreen = ({ openLanguages }: Props) => {
+const CodeScreen = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
 
   return (
-    <Frame title="CODE">
-      <FrameItem>
-        <UIView className="flex gap-3 flex-col w-full">
-          <UIButton
-            radius={'md'}
-            className={'px-2 justify-start text-left'}
-            fullWidth
-            size={'lg'}
-            variant={'flat'}
-            onPress={openLanguages}
+    <UIView className="layout-scroll gap-6">
+      {/* ───────────────── Basics ───────────────── */}
+      <UIView className="flex flex-col gap-4">
+        <p className="text-sm font-medium text-muted-foreground">Code basics</p>
+
+        <Field>
+          <FieldLabel>Programming language</FieldLabel>
+          <Combobox items={languagesArray} aria-label="Select language">
+            <ComboboxInput
+              aria-label="Select language"
+              placeholder="Select a language"
+            />
+            <ComboboxPopup>
+              <ComboboxEmpty>No languages found.</ComboboxEmpty>
+              <ComboboxList>
+                {(lang) => (
+                  <ComboboxItem key={lang} value={lang}>
+                    <span className="flex items-center gap-2">
+                      <img
+                        alt={lang?.name}
+                        src={lang?.icon}
+                        className="h-5 w-5"
+                      />
+                      <span className="truncate">{lang?.name}</span>
+                    </span>
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </Combobox>
+        </Field>
+
+        <Field>
+          <FieldLabel>Code theme</FieldLabel>
+          <Combobox
+            items={Object.keys(themes)}
+            value={currentElement?.properties?.theme}
+            onValueChange={(theme) =>
+              onChangeSlideElement({
+                properties: { theme: theme! },
+              })
+            }
           >
-            <UIView className="w-full flex items-center justify-between">
-              <UIView className="flex flex-col">
-                <span className="text-tiny text-default-400">Languages</span>
-                <h4 className="text-small text-default-500">
-                  {capitalize(currentElement?.properties?.language)}
-                </h4>
-              </UIView>
-              <UIView>
-                <ChevronRightIcon />
-              </UIView>
-            </UIView>
-          </UIButton>
-        </UIView>
-      </FrameItem>
-      <FrameItem>
-        <Autocomplete
-          labelPlacement="outside"
-          size={'sm'}
-          defaultItems={Object.keys(themes).map((item) => {
-            return {
-              name: capitalize(item),
-              value: item,
-            };
-          })}
-          className="max-w-xs"
-          variant="flat"
-          placeholder="Choose a theme"
-          value={currentElement?.properties?.theme}
-          onSelectionChange={(theme: any) =>
-            onChangeSlideElement({
-              properties: {
-                theme,
-              },
-            })
-          }
-        >
-          {(item) => (
-            <AutocompleteItem key={item.value}>{item.name}</AutocompleteItem>
-          )}
-        </Autocomplete>
-      </FrameItem>
-      <FrameItem>
-        <Autocomplete
-          size={'sm'}
-          labelPlacement="outside"
-          defaultItems={fontsNames}
-          className="max-w-xs"
-          variant="flat"
-          placeholder="Choose a typeface"
-          value={currentElement?.style?.fontFamily}
-          onSelectionChange={(fontFamily: any) =>
-            onChangeSlideElement({
-              style: {
-                fontFamily,
-              },
-            })
-          }
-          scrollShadowProps={{
-            isEnabled: false,
-          }}
-        >
-          {(item) => (
-            <AutocompleteItem
-              endContent={
-                <Chip size="sm" variant="light" color="success">
-                  New
-                </Chip>
-              }
-              aria-label={item.name}
-              key={item.value}
-            >
-              {item.name}
-            </AutocompleteItem>
-          )}
-        </Autocomplete>
-      </FrameItem>
-      <NeonText />
-      <Glassmorphism />
-      <FrameItem label="Draggable" className="py-2">
-        <UISwitch color="success" size={'sm'} />
-      </FrameItem>
-      <FrameItem label="Border Radius">
-        <UISlider
-          size={'sm'}
-          className="sm:w-1/2"
-          minValue={0}
-          maxValue={32}
-          step={1}
-          value={Number(currentElement?.style?.borderRadius)}
-          onChange={(borderRadius) =>
-            onChangeSlideElement({
-              style: {
-                borderRadius: Number(borderRadius),
-              },
-            })
-          }
-        />
-      </FrameItem>
-      {/* <FrameItem label="Color Picker">
-        <UIColorPicker
-          value={currentElement?.style?.backgroundColor}
-          onSelect={(backgroundColor) =>
-            onChangeSlideElement({
-              style: {
-                backgroundColor,
-              },
-            })
-          }
-        />
-      </FrameItem> */}
-    </Frame>
+            <ComboboxInput
+              aria-label="Choose theme"
+              placeholder="Choose a theme"
+            />
+            <ComboboxPopup>
+              <ComboboxEmpty>No themes found.</ComboboxEmpty>
+              <ComboboxList>
+                {(value) => (
+                  <ComboboxItem key={value} value={value}>
+                    {capitalize(value)}
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </Combobox>
+        </Field>
+      </UIView>
+
+      <Separator />
+
+      {/* ─────────────── Appearance ─────────────── */}
+      <UIView className="flex flex-col gap-4">
+        <p className="text-sm font-medium text-muted-foreground">Appearance</p>
+
+        <Field>
+          <Slider
+            min={0}
+            max={32}
+            step={1}
+            value={Number(currentElement?.style?.borderRadius)}
+            onValueChange={(borderRadius) =>
+              onChangeSlideElement({
+                style: { borderRadius: Number(borderRadius) },
+              })
+            }
+          >
+            <div className="mb-2 flex items-center justify-between gap-1">
+              <FieldLabel className="font-medium text-sm">
+                Corner radius
+              </FieldLabel>
+              <SliderValue />
+            </div>
+          </Slider>
+        </Field>
+
+        <Field>
+          <FieldLabel>Font family</FieldLabel>
+          <Combobox
+            items={fontsNames}
+            value={currentElement?.style?.fontFamily}
+            onValueChange={(item: any) =>
+              onChangeSlideElement({
+                style: { fontFamily: item?.value! },
+              })
+            }
+          >
+            <ComboboxInput
+              aria-label="Choose font"
+              placeholder="Choose a font"
+            />
+            <ComboboxPopup>
+              <ComboboxEmpty>No fonts found.</ComboboxEmpty>
+              <ComboboxList>
+                {(item) => (
+                  <ComboboxItem key={item.value} value={item}>
+                    {item.name}
+                  </ComboboxItem>
+                )}
+              </ComboboxList>
+            </ComboboxPopup>
+          </Combobox>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Show line numbers
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Wrap long lines
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Highlight active line
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Show matching brackets
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Enable syntax highlighting
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Show indentation guides
+          </Label>
+        </Field>
+
+        <Field>
+          <Label className="flex items-center gap-2">
+            <Checkbox />
+            Use monospace font
+          </Label>
+        </Field>
+      </UIView>
+
+      <Separator />
+
+      {/* ───────────────── Effects ───────────────── */}
+      <UIView className="flex flex-col gap-3">
+        <p className="text-sm font-medium text-muted-foreground">
+          Visual effects
+        </p>
+
+        <NeonText />
+        <Separator />
+        <Glassmorphism />
+      </UIView>
+    </UIView>
   );
 };
+
 export default CodeScreen;

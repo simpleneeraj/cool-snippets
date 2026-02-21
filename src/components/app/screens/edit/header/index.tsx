@@ -1,21 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import Image from 'next/image';
 import IconPicker from './modal';
 import CodeHeaderDropdown from './code-header';
-import {
-  Button,
-  Input,
-  Select,
-  SelectItem,
-  useDisclosure,
-} from '@heroui/react';
+import { useDisclosure } from '@heroui/react';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Frame, FrameItem } from '@/components/elements/frame';
-import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
-import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { SlideHeaderType } from '@/typings/editor';
+import {
+  Select,
+  SelectItem,
+  SelectPopup,
+  SelectTrigger,
+  SelectValue,
+} from '@/app-kit/ui/select';
+import {
+  Toolbar,
+  ToolbarButton,
+  ToolbarGroup,
+  ToolbarSeparator,
+} from '@/app-kit/ui/toolbar';
+import { Button } from '@/app-kit/ui/button';
+import { Toggle, ToggleGroup } from '@/app-kit/ui/toggle-group';
+import {
+  Tooltip,
+  TooltipPopup,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/app-kit/ui/tooltip';
 
 const HeaderScreen: React.FC = () => {
   const { onOpen, onClose, onOpenChange, isOpen } = useDisclosure();
@@ -31,11 +42,92 @@ const HeaderScreen: React.FC = () => {
     });
   };
 
-  const renderSelectOptions = (options: { key: string; label: string }[]) =>
-    options.map(({ key, label }) => <SelectItem key={key}>{label}</SelectItem>);
-
   return (
-    <Frame title="CODE HEADER">
+    <Toolbar>
+      <ToolbarGroup className="flex items-center gap-1">
+        {/* Icon */}
+        <Button
+          variant="outline"
+          onClick={onOpen}
+          title="Change icon"
+          className="h-8 w-8 p-0"
+        >
+          <img
+            src={properties?.title?.icon || ''}
+            alt="App icon"
+            width={16}
+            height={16}
+            className="h-4 w-4"
+          />
+        </Button>
+
+        {/* Header Type */}
+        <CodeHeaderDropdown
+          value={type || ''}
+          onAction={(key) => onChangeValues('type', key)}
+        />
+        <ToolbarSeparator />
+        <Select
+          value={variant || ''}
+          items={HEADER_VARIANTS}
+          onValueChange={(value) => onChangeValues('variant', value)}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Style" />
+          </SelectTrigger>
+          <SelectPopup>
+            {HEADER_VARIANTS.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectPopup>
+        </Select>
+
+        {/* Input Type */}
+
+        <Select
+          value={input || ''}
+          items={HEADER_INPUT_TYPES}
+          onValueChange={(value) => onChangeValues('input', value)}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Input" />
+          </SelectTrigger>
+          <SelectPopup>
+            {HEADER_INPUT_TYPES.map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </SelectPopup>
+        </Select>
+        <ToolbarSeparator />
+        <TooltipProvider>
+          <ToggleGroup
+            value={[position]}
+            onValueChange={(key) => onChangeValues('position', key[0])}
+          >
+            {SEGMENT_OPTIONS.map((item) => (
+              <Tooltip key={item.value}>
+                <TooltipTrigger
+                  render={
+                    <ToolbarButton
+                      aria-label={item.value}
+                      render={<Toggle value={item.value} />}
+                    >
+                      <item.icon />
+                    </ToolbarButton>
+                  }
+                />
+                <TooltipPopup sideOffset={8}>Align {item.value}</TooltipPopup>
+              </Tooltip>
+            ))}
+          </ToggleGroup>
+        </TooltipProvider>
+      </ToolbarGroup>
+
+      {/* Icon Picker Modal */}
       <IconPicker
         isOpen={isOpen}
         onClose={onClose}
@@ -48,83 +140,19 @@ const HeaderScreen: React.FC = () => {
           onChangeValues('properties', { title: { icon: value?.source } })
         }
       />
-      <FrameItem divider className="flex-1 justify-between">
-        <div className="flex items-center gap-2">
-          <Button
-            size="sm"
-            isIconOnly
-            variant="flat"
-            onClick={onOpen}
-            title="Change the icon"
-          >
-            <Image
-              src={properties?.title?.icon || ''}
-              alt="App Icon"
-              width={16}
-              height={16}
-              className="h-4 w-4"
-            />
-          </Button>
-          <Input
+    </Toolbar>
+  );
+};
+
+export default HeaderScreen;
+
+{
+  /* <Input
             value={properties?.title?.text || ''}
             size="sm"
             variant="flat"
             onChange={(e) =>
               onChangeValues('properties', { title: { text: e.target.value } })
             }
-          />
-        </div>
-        <CodeHeaderDropdown
-          value={type || ''}
-          onAction={(key) => onChangeValues('type', key)}
-        />
-      </FrameItem>
-
-      <FrameItem label="Header Style">
-        <Select
-          size="sm"
-          className="max-w-36"
-          placeholder="Choose header style"
-          classNames={{
-            popoverContent:
-              'p-0 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
-          }}
-          selectedKeys={[variant || '']}
-          onChange={(e) => onChangeValues('variant', e.target.value)}
-        >
-          {renderSelectOptions(HEADER_VARIANTS)}
-        </Select>
-      </FrameItem>
-
-      <FrameItem label="Input Type">
-        <Select
-          size="sm"
-          className="max-w-36"
-          placeholder="Select input type"
-          classNames={{
-            popoverContent:
-              'p-0 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
-          }}
-          selectedKeys={[input || '']}
-          onChange={(e) => onChangeValues('input', e.target.value)}
-        >
-          {renderSelectOptions(HEADER_INPUT_TYPES)}
-        </Select>
-      </FrameItem>
-
-      <FrameItem label="Alignment">
-        <UISegmentedControl
-          size="sm"
-          selectedKey={position || ''}
-          onSelectionChange={(key) => onChangeValues('position', key)}
-        >
-          {SEGMENT_OPTIONS.map(({ key, icon: Icon }) => (
-            <UISegmentButton key={key} title={<Icon className="h-5 w-5" />} />
-          ))}
-        </UISegmentedControl>
-      </FrameItem>
-    </Frame>
-  );
-};
-
-export default React.memo(HeaderScreen);
+          /> */
+}

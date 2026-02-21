@@ -44,7 +44,7 @@ const ElementsScreen = () => {
                   isIconOnly
                   variant={'flat'}
                   aria-label={item.content}
-                  onPress={() => onSelectElement(item.type)}
+                  onClick={() => onSelectElement(item.type)}
                 >
                   <item.icon />
                 </UIButton>

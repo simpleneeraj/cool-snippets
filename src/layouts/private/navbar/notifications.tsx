@@ -26,7 +26,7 @@ export const NotificationsDropdown = () => {
             isIconOnly
             radius="full"
             variant="light"
-            onPress={disclose.onOpenChange}
+            onClick={disclose.onOpenChange}
           >
             <SolarBellBingLineDuotone className="h-6 w-6" />
           </Button>
@@ -38,7 +38,7 @@ export const NotificationsDropdown = () => {
           variant="light"
           className="p-0"
           isReadOnly
-          onPress={(e) => e.continuePropagation()}
+          onClick={(e) => e.continuePropagation()}
         >
           <Card
             fullWidth

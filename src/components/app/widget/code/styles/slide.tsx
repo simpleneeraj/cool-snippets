@@ -26,8 +26,8 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-position: center;
           background-repeat: no-repeat;
           transition: all 100ms ease-in;
-          min-width: ${CSS?.width}px;        
-          min-height: ${CSS?.height}px;        
+          min-width: ${CSS?.width / 2}px;        
+          min-height: ${CSS?.height / 2}px;        
         }
      
         .glass-layer{
@@ -41,8 +41,8 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           left: 50%;
           z-index: 1;
           transform:translate(-50%,-50%);
-          min-width: ${CSS?.width}px;        
-          min-height: ${CSS?.height}px;   
+          min-width: ${CSS?.width / 2}px;        
+          min-height: ${CSS?.height / 2}px;   
         }
        
       `}

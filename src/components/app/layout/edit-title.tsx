@@ -1,26 +1,59 @@
+import { Input } from '@/app-kit/ui/input';
+import { Button } from '@/app-kit/ui/button';
 import { SolarPen2LineDuotone } from '@/app-kit/icons/SolarPen2LineDuotone';
 import {
-  Button,
-  Input,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from '@heroui/react';
+  Dialog,
+  DialogClose,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogPanel,
+  DialogPopup,
+  DialogTitle,
+  DialogTrigger,
+} from '@/app-kit/ui/dialog';
+import { Field, FieldLabel } from '@/app-kit/ui/field';
+import { Form } from '@/app-kit/ui/form';
 
-export default function TitleChangerComponent() {
+export default function EditTitleDialog() {
+  //  <UIView className="flex items-center gap-2">
+  //             <Badge variant={'outline'}>
+  //               {appConfig.environment} {appConfig.version}
+  //             </Badge>
+  //           </UIView>
   return (
-    <Popover placement="bottom-start" backdrop="opaque">
-      <PopoverTrigger>
-        <Button size="sm" variant="light" isIconOnly>
-          <SolarPen2LineDuotone className={'h-5 w-5'} />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent>
-        <div className="flex flex-col gap-2 px-2 py-3">
-          <span className="text-sm font-semibold">Edit Title</span>
-          <Input variant="bordered" size="sm" placeholder="Enter a new title" />
-        </div>
-      </PopoverContent>
-    </Popover>
+    <Dialog>
+      <DialogTrigger render={<Button variant="ghost" />}>
+        <h4 className="flex items-center gap-1 text-lg text-default-900">
+          Untitle code snippet
+        </h4>
+      </DialogTrigger>
+
+      <DialogPopup className="sm:max-w-sm">
+        <Form className="contents">
+          <DialogHeader>
+            <DialogTitle>Rename project</DialogTitle>
+            <DialogDescription>
+              Update the project name. This will be visible across your
+              workspace.
+            </DialogDescription>
+          </DialogHeader>
+
+          <DialogPanel className="grid gap-4">
+            <Field>
+              <FieldLabel>Project name</FieldLabel>
+              <Input type="text" placeholder="Enter project name" autoFocus />
+            </Field>
+          </DialogPanel>
+
+          <DialogFooter>
+            <DialogClose render={<Button variant="ghost" />}>
+              Cancel
+            </DialogClose>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </Form>
+      </DialogPopup>
+    </Dialog>
   );
 }

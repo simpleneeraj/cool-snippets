@@ -48,7 +48,7 @@ const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
                 <Card
                   fullWidth
                   isPressable
-                  onPress={() => onChange?.(gradient)}
+                  onClick={() => onChange?.(gradient)}
                   key={currentItem?.name}
                   className={cn(
                     'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',

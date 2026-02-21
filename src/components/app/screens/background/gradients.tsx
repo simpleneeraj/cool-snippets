@@ -41,7 +41,7 @@ const GradientsBackground: React.FC<BackgroundScreenTypes> = ({
                 <Card
                   fullWidth
                   isPressable
-                  onPress={() => onChange?.(background)}
+                  onClick={() => onChange?.(background)}
                   key={currentItem?.name}
                   className={cn(
                     'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',

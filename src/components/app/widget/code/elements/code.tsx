@@ -30,7 +30,8 @@ const CodeElement: React.FC<Props> = ({ ...rest }) => {
         <CodeMirror
           {...rest}
           className="codemirror"
-          basicSetup={merge({},
+          basicSetup={merge(
+            {},
             {
               foldGutter: false,
               lineNumbers: false,
@@ -39,7 +40,7 @@ const CodeElement: React.FC<Props> = ({ ...rest }) => {
               highlightActiveLine: false,
               highlightActiveLineGutter: false,
             },
-            rest.basicSetup
+            rest.basicSetup,
           )}
           extensions={[
             EditorView.lineWrapping,

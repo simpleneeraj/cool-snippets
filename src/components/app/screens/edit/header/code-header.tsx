@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  Button,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownTrigger,
-} from '@heroui/react';
-import templatesDraft from '../../../widget/aside/primary/templates-draft';
+import { Label } from '@/app-kit/ui/label';
+import UIView from '@/app-kit/source/UIView';
+import { Button } from '@/app-kit/ui/button';
+import { Radio, RadioGroup } from '@/app-kit/ui/radio-group';
+import { Menu, MenuPopup, MenuTrigger } from '@/app-kit/ui/menu';
+import uiTemplates from '../../../widget/aside/primary/ui-templates';
 
 type Props = {
   value: string;
@@ -15,36 +13,29 @@ type Props = {
 
 const CodeHeaderDropdown: React.FC<Props> = ({ value, onAction }) => {
   return (
-    <Dropdown
-      title="Change the headers styles"
-      classNames={{
-        base: 'before:bg-default-200',
-        content:
-          'py-1 px-1 border border-default-200 bg-linear-to-br from-white to-default-200 dark:from-default-50 dark:to-black',
-      }}
-    >
-      <DropdownTrigger>
-        <Button size="sm" variant="bordered" className="min-w-20">
-          {templatesDraft?.find((item) => item.value === value)?.codeHeader}
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu
-        onAction={onAction}
-        variant="faded"
-        aria-label="Code headers styles"
-      >
-        {templatesDraft.map((item) => (
-          <DropdownItem
-            key={item.value}
-            className="max-w-widget-sm"
-            endContent={item.codeHeader}
-            description={item.description}
-          >
-            {item.name}
-          </DropdownItem>
-        ))}
-      </DropdownMenu>
-    </Dropdown>
+    <Menu>
+      <MenuTrigger render={<Button variant="outline" />}>
+        {uiTemplates?.find((item) => item?.value === value)?.codeHeader}
+      </MenuTrigger>
+      <MenuPopup>
+        <RadioGroup value={value} className={'gap-1'} onValueChange={onAction}>
+          {uiTemplates.map((template) => (
+            <Label
+              key={template.value}
+              className="flex flex-1 items-start gap-2 rounded-lg border p-3 hover:bg-accent/50 has-data-checked:border-primary/48 has-data-checked:bg-accent/50 justify-between"
+            >
+              <UIView className="flex items-start gap-2">
+                <Radio value={template.value} />
+                <div className="flex flex-col gap-1">
+                  <p>{template.name}</p>
+                </div>
+              </UIView>
+              {template.codeHeader}
+            </Label>
+          ))}
+        </RadioGroup>
+      </MenuPopup>
+    </Menu>
   );
 };
 

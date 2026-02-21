@@ -1,6 +1,6 @@
 const appConfig = {
-  name: 'Crystal Codium',
-  short_name: 'Codium',
+  name: 'xsnap',
+  short_name: 'xsnap',
   version: 'v2.0.0',
   environment: 'Beta',
   year: new Date().getFullYear(),

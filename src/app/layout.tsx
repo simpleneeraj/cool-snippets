@@ -1,11 +1,11 @@
 import '@/styles/globals.css';
 import '@/styles/mask-wallpaper.css';
 
-import fonts from './font';
-import { cn } from '@/lib/utils';
+import fonts from '@/app-kit/fonts';
 import type { Metadata } from 'next';
 import AuthProvider from '@/providers/clerk';
 import NextAppProvider from '@/providers/next-ui';
+import { ThemeProvider } from '@/providers/theme-provider';
 
 export const metadata: Metadata = {
   title: {
@@ -38,12 +38,21 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // TODO - Implement light and dark mode both
   return (
     <AuthProvider>
-      <html lang="en" className={cn('dark', fonts)}>
-        <body>
-          <NextAppProvider>{children}</NextAppProvider>
+      <html lang="en" className={fonts}>
+        <body className="relative">
+          <ThemeProvider>
+            <NextAppProvider>
+              <main
+                className={
+                  'relative isolate flex min-h-svh flex-col overflow-clip'
+                }
+              >
+                {children}
+              </main>
+            </NextAppProvider>
+          </ThemeProvider>
         </body>
       </html>
     </AuthProvider>

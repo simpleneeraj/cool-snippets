@@ -3,10 +3,30 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
 import { Card, Chip, cn } from '@heroui/react';
+import { payments, useSession } from '@/lib/auth-client';
+import { Button } from '@/app-kit/ui/button';
+import ChangePlan from './page.client';
+import { dodoPayments } from '@/lib/auth';
+import { customerRetrieve } from './act';
 
 type DashboardProps = object;
 
 const Dashboard: React.FC<DashboardProps> = ({}) => {
+  const session = useSession();
+
+  const createSubscriptions = async () => {
+    const { data, error } = await payments.checkoutSession({
+      slug: 'premium-plan',
+      referenceId: session?.data?.user?.id,
+    });
+
+    console.log(error);
+
+    if (data) {
+      window.location.href = data.url;
+    }
+  };
+
   return (
     <UIView className="p-4 h-full">
       <dl className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
@@ -106,6 +126,14 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
           )
         )}
       </dl>
+      {/* <ChangePlan /> */}
+      <Button onClick={() => customerRetrieve(session?.data?.user?.id)}>
+        Check Subscription
+      </Button>
+      <Button onClick={createSubscriptions}>Create Subscription</Button>
+      <pre>
+        <code>{JSON.stringify(session?.data, null, 4)}</code>
+      </pre>
     </UIView>
   );
 };

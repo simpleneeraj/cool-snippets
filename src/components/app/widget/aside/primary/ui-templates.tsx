@@ -1,4 +1,3 @@
-import React from 'react';
 import templatesData from '@/json/templates.json';
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 import { trafficLights, unixColors } from '../../code/templates/colors';
@@ -6,10 +5,10 @@ import UnixNeon from '@/components/app/widget/code/templates/unix-neon';
 import IOSTermainal from '@/components/app/widget/code/templates/ios-terminal';
 import WindowsTen from '@/components/app/widget/code/templates/windows-terminal';
 
-const templatesDraft = [
+const uiTemplates = [
   {
     name: 'iOS Traffic',
-    description: 'iOS traffic light colors.',
+    // description: 'iOS traffic light colors.',
     value: templatesData.ios,
     codeHeader: (
       <IOSTermainal
@@ -26,7 +25,7 @@ const templatesDraft = [
   },
   {
     name: 'Unix Neon',
-    description: 'Neon-themed inspired by Unix systems.',
+    // description: 'Neon-themed inspired by Unix systems.',
     value: templatesData.unix,
     codeHeader: (
       <UnixNeon
@@ -42,7 +41,7 @@ const templatesDraft = [
   },
   {
     name: 'Windows Terminal',
-    description: 'Minimal Windows Terminal.',
+    // description: 'Minimal Windows Terminal.',
     value: templatesData.windows,
     codeHeader: (
       <WindowsTen
@@ -56,4 +55,4 @@ const templatesDraft = [
   },
 ];
 
-export default templatesDraft;
+export default uiTemplates;

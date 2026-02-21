@@ -22,7 +22,7 @@ const LanguagesScreen: React.FC<LanguagesScreenProps> = ({
       key={lang.value}
       variant={lang.value === value ? 'flat' : 'light'}
       className="justify-between"
-      onPress={() => onSelect?.(lang.value as LanguagesEnum)}
+      onClick={() => onSelect?.(lang.value as LanguagesEnum)}
     >
       <UIView className="flex items-center gap-2">
         <Image
