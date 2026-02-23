@@ -1,7 +1,7 @@
 import React from 'react';
-import { SlideBackgroundTypes } from '@/typings/editor';
-import backgroundPurify from '@/utils/background-purify';
 import { BACKGROUND_TYPE } from '@/typings/enums';
+import backgroundPurify from '@/utils/background-purify';
+import { SlideBackgroundTypes } from '@/typings/editor';
 
 type Props = {
   style?: SlideBackgroundTypes;
@@ -25,9 +25,9 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          transition: all 100ms ease-in;
-          min-width: ${CSS?.width / 2}px;        
-          min-height: ${CSS?.height / 2}px;        
+          width: ${CSS?.width}px;        
+          min-height: ${CSS?.height}px; 
+          box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 20px 50px -10px rgba(0,0,0,0.3);       
         }
      
         .glass-layer{
@@ -35,14 +35,13 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          transition: all 100ms ease-in;
           position: absolute;
           top: 50%;
           left: 50%;
           z-index: 1;
           transform:translate(-50%,-50%);
-          min-width: ${CSS?.width / 2}px;        
-          min-height: ${CSS?.height / 2}px;   
+          width: ${CSS?.width}px;        
+          min-height: ${CSS?.height}px;   
         }
        
       `}

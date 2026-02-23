@@ -9,7 +9,7 @@ type CodeNodeData = Node<{ label?: string }, 'code-editor'>;
 const CodeNode = ({ data }: NodeProps<CodeNodeData>) => {
   return (
     <div className="relative group">
-       {/* 
+      {/* 
         We are hiding handles for now as we want a "canvas" feel not necessarily a "flow" feel initially. 
         But React Flow requires valid nodes to often have some connection logic or just be present.
         If we want to connect things later, we can uncomment or style these.
@@ -20,8 +20,8 @@ const CodeNode = ({ data }: NodeProps<CodeNodeData>) => {
         className="!bg-transparent !border-0"
         isConnectable={false}
       />
-      
-      <div className="w-fit">
+
+      <div className="w-fit nodrag cursor-auto">
         <ContainerWidget />
       </div>
 

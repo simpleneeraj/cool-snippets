@@ -85,15 +85,15 @@ const baseElement = {
 export const elementsObject: Record<ELEMENTS, any> = {
   [ELEMENTS.TEXT]: {
     type: ELEMENTS.TEXT,
-    content: 'Hello, World!',
+    content: 'Your text here',
     ...baseElement,
     style: {
       ...baseElement.style,
-      minWidth: '200px',
-      minHeight: '100px',
       fontSize: '16px',
       color: '#000000',
       fontFamily: 'Arial',
+      width: 'fit-content',
+      height: 'fit-content',
     },
     properties: {},
   },
@@ -103,7 +103,7 @@ export const elementsObject: Record<ELEMENTS, any> = {
     ...baseElement,
     style: {
       ...baseElement.style,
-      width: '90%',
+      width: 400,
       fontSize: 14,
       fontWeight: 400,
       lineHeight: 1.6,
@@ -114,10 +114,19 @@ export const elementsObject: Record<ELEMENTS, any> = {
       zIndex: '0',
       display: 'grid',
       overflow: 'hidden',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      position: 'absolute',
     },
     properties: {
+      theme: ThemesEnum.DRACULA,
       language: LanguagesEnum.TYPESCRIPT,
-      theme: ThemesEnum.BASIC_DARK,
+      glassmorphism: {
+        opacity: 0,
+        enabled: true,
+        blur: 16,
+      },
     },
     header: {
       type: 'unix::terminal',

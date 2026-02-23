@@ -24,8 +24,8 @@ const CodeMirror = dynamic(() => import('@uiw/react-codemirror'), {
 const CodeElement: React.FC<Props> = ({ ...rest }) => {
   return (
     <>
-      <UIView className="glass-layer" />
-      <UIView className="z-10">
+      <UIView className="glass-layer absolute inset-0 w-full h-full" />
+      <UIView className="z-10 w-full h-full relative">
         <CodeHeaderWidget header={rest?.header} />
         <CodeMirror
           {...rest}

@@ -18,10 +18,13 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
   return (
     <style>
       {`
-        .cm-editor {
+        #element-${style?.id} .cm-editor {
           padding: 0.5rem 1rem;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
         }
-        .cm-line {
+        #element-${style?.id} .cm-line {
           background: unset !important;
           font-size: ${CSS?.fontSize}px;
           font-family: ${CSS?.fontFamily};
@@ -30,22 +33,28 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
           text-shadow: ${textShadowStyle};
           letter-spacing: ${CSS?.letterSpacing}px;
         }
-        .codemirror {
+        #element-${style?.id} .codemirror {
           z-index: 11;
           position: relative;
           font-family: monospace;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
           background: ${glassmorphism?.enabled ? CSS?.background : 'unset'};
         }
-        .glass-layer {
-          filter: blur(${glassmorphism?.blur}px);
+        #element-${style?.id} .glass-layer {
           z-index: 1;
+          filter: blur(${glassmorphism?.blur}px);
+        }
+        #element-${style?.id} .cm-editor .cm-scroller {
+          overflow: auto;
         }
       `}
     </style>
   );
 };
 
-export default React.memo(ElementStyle);
+export default ElementStyle;
 
 /**
  *   .codemirror {

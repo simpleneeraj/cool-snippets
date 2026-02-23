@@ -46,7 +46,7 @@ export default function RootLayout({
             <NextAppProvider>
               <main
                 className={
-                  'relative isolate flex min-h-svh flex-col overflow-clip'
+                  'relative isolate flex h-screen flex-col overflow-clip'
                 }
               >
                 {children}

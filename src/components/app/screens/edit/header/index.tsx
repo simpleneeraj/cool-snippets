@@ -42,6 +42,9 @@ const HeaderScreen: React.FC = () => {
     });
   };
 
+  const defaultIcon =
+    'https://cdn.statically.io/gh/simpleneeraj/vscode-symbols@main/src/icons/files/proto.svg';
+
   return (
     <Toolbar>
       <ToolbarGroup className="flex items-center gap-1">
@@ -52,13 +55,15 @@ const HeaderScreen: React.FC = () => {
           title="Change icon"
           className="h-8 w-8 p-0"
         >
-          <img
-            src={properties?.title?.icon || ''}
-            alt="App icon"
-            width={16}
-            height={16}
-            className="h-4 w-4"
-          />
+          {properties?.title?.icon && (
+            <img
+              src={properties?.title?.icon || defaultIcon}
+              alt="App icon"
+              width={16}
+              height={16}
+              className="h-4 w-4"
+            />
+          )}
         </Button>
 
         {/* Header Type */}

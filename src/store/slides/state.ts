@@ -3,13 +3,16 @@ import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { BACKGROUND_TYPE, ELEMENTS } from '@/typings/enums';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
 
+export const MIN_SLIDE_WIDTH = 520;
+export const MAX_SLIDE_WIDTH = 720;
+
 const initialState = {
   slides: [
     {
       id: InitialValues.SLIDE_ID,
       name: 'Crystal Slide',
       background: {
-        type: BACKGROUND_TYPE.IMAGE,
+        type: BACKGROUND_TYPE.GRADIENT,
         style: {
           width: 450,
           height: 450,
@@ -44,7 +47,7 @@ const initialState = {
           content:
             "import SwiftUI\n\nstruct CircleImage: View {\n  var body: some View {\n    Image('turtlerock')\n      .clipShape(Circle())\n  }\n}",
           style: {
-            width: '90%',
+            minWidth: 400,
             fontSize: 14,
             fontWeight: 400,
             lineHeight: 1.6,

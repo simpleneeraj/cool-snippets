@@ -3,6 +3,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { ELEMENTS } from '@/typings/enums';
+import UIView from '@/app-kit/source/UIView';
 import { ElementType } from '@/typings/editor';
 import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@/store/hooks/use-editor';
@@ -11,25 +12,40 @@ import { useActiveElement } from '@/store/slides/current-element';
 import { dynamicTheme, dynamicLanguage } from '@/plugins/codemirror/utils';
 
 // SCREENS
-const ElementView = dynamic(() => import('./view'));
-const IconElement = dynamic(() => import('./icon'));
-// const TextElement = dynamic(() => import('./text'));
-const CodeElement = dynamic(() => import('./code'));
+const IconElement = dynamic(() => import('./icon'), {
+  ssr: false,
+});
+const TextElement = dynamic(() => import('./text'), {
+  ssr: false,
+});
+const CodeElement = dynamic(() => import('./code'), {
+  ssr: false,
+});
 
 type Props = {
   item: ElementType;
+  constraintsRef?: React.RefObject<HTMLDivElement | null>;
 };
 
-const EditorComponents: React.FC<Props> = ({ item }) => {
-  const { updateElement } = useActiveElement();
+const EditorComponents: React.FC<Props> = ({ item, constraintsRef }) => {
+  const { element, updateElement } = useActiveElement();
   const { onChangeSlideElement } = useSlideEditor();
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    updateElement(item.id!);
+  };
 
   switch (item.type) {
     case ELEMENTS.CODE:
       return (
-        <ElementView
-          style={item.style}
-          onHoverStart={() => updateElement(item.id!)}
+        <UIView
+          id={`element-${item.id}`}
+          style={{
+            ...item.style,
+            zIndex: element === item.id ? 999 : item.style?.zIndex || 1,
+          }}
+          onPointerDown={onPointerDown}
         >
           <CodeElement
             value={item.content}
@@ -39,29 +55,46 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
               item?.properties?.theme,
               item?.properties?.glassmorphism?.enabled
                 ? item?.properties?.glassmorphism?.opacity
-                : 1
+                : 1,
             )}
             extensions={[
               dynamicLanguage(
-                item?.properties?.language as LanguagesEnum
+                item?.properties?.language as LanguagesEnum,
               ) as Extension,
             ]}
           />
-        </ElementView>
+        </UIView>
       );
     case ELEMENTS.IMAGE:
     case ELEMENTS.ICON:
       return (
-        <ElementView
-          drag
-          style={item.style}
-          onHoverStart={() => updateElement(item.id!)}
+        <UIView
+          id={`element-${item.id}`}
+          style={{
+            ...item.style,
+            zIndex: element === item.id ? 999 : item.style?.zIndex || 1,
+          }}
+          onPointerDown={onPointerDown}
         >
-          <IconElement
-            style={item.style}
-            {...(item.properties as React.ComponentPropsWithoutRef<'img'>)}
+          <IconElement style={item.style} {...item.properties} />
+        </UIView>
+      );
+    case ELEMENTS.TEXT:
+      return (
+        <UIView
+          id={`element-${item.id}`}
+          style={{
+            ...item.style,
+            height: 'auto',
+            zIndex: element === item.id ? 999 : item.style?.zIndex || 1,
+          }}
+          onPointerDown={onPointerDown}
+        >
+          <TextElement
+            content={item.content}
+            onChange={(content) => onChangeSlideElement({ content })}
           />
-        </ElementView>
+        </UIView>
       );
 
     default:
@@ -70,25 +103,3 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
 };
 
 export default EditorComponents;
-
-// case ELEMENTS.TEXT:
-//   return (
-//     <ElementView
-//       drag
-//       style={item.style}
-//       onHoverStart={() => updateElement(item.id!)}
-//     >
-//       <TextElement
-//         contentEditable
-//         style={{ ...item.style, ...item.properties }}
-//       >
-//         {item.content}
-//       </TextElement>
-//     </ElementView>
-//   );
-// case ELEMENTS.ICON:
-//   return (
-//     <ElementView drag onHoverStart={() => updateElement(item.id!)}>
-//       <IconElement style={item.style} />
-//     </ElementView>
-//   );

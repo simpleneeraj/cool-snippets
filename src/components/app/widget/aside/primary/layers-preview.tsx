@@ -4,13 +4,11 @@ import UIView from '@/app-kit/source/UIView';
 import UIInput from '@/app-kit/source/UIInput';
 import UITooltip from '@/app-kit/source/UITooltip';
 import useSlideEditor from '@/store/hooks/use-editor';
-import UIButton from '@/app-kit/source/UIButton/button';
 import { useActiveElement } from '@/store/slides/current-element';
 import {
   cn,
   tv,
   Card,
-  Button,
   Dropdown,
   CardBody,
   CardHeader,
@@ -29,6 +27,7 @@ import { SolarTrashBinMinimalisticLineDuotone } from '@/app-kit/icons/SolarTrash
 import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
 import { SolarAddSquareLineDuotone } from '@/app-kit/icons/SolarAddSquareLineDuotone';
 import { SolarLockLineDuotone } from '@/app-kit/icons/SolarLockLineDuotone';
+import { Button } from '@/app-kit/ui/button';
 
 const MAX_SLIDE = 2;
 const MAX_ELEMENTS = 5;
@@ -66,7 +65,6 @@ const LayersPreview = () => {
               >
                 <CardHeader className="p-0 pb-1 gap-1">
                   <UIInput
-                    size={'sm'}
                     variant={'bordered'}
                     value={slide.name}
                     startContent={
@@ -80,8 +78,8 @@ const LayersPreview = () => {
                     const active = element.id === elmId;
 
                     const style = {
-                      variant: active ? 'flat' : 'flat',
-                      className: 'bg-lavender-frost/10',
+                      // variant: active ? 'flat' : 'flat',
+                      // className: 'bg-lavender-frost/10',
                     };
                     return (
                       <li key={element.id}>
@@ -90,13 +88,13 @@ const LayersPreview = () => {
                           onClick={() => updateElement(element?.id as string)}
                           className={cn(
                             'flex flex-row items-center uppercase text-xs text-default-900 bg-default-50 justify-between rounded-lg p-1 pl-2 w-full border border-default-100',
-                            active && 'border border-lavender-frost/70'
+                            active && 'border border-lavender-frost/70',
                           )}
                         >
                           <UIView
                             className={cn(
                               'flex items-center',
-                              active && 'text-lavender-frost'
+                              active && 'text-lavender-frost',
                             )}
                           >
                             {/* @ts-expect-error - Solve type issue */}
@@ -108,20 +106,17 @@ const LayersPreview = () => {
                               content="Visibility"
                               placement="bottom"
                             >
-                              <UIButton
-                                size={'sm'}
-                                isIconOnly
-                                radius={'full'}
+                              <Button
                                 aria-label={'Visibility Slide Element'}
                                 {...style}
                               >
                                 <SolarEyeLineDuotone
                                   className={cn(
                                     'h-4 w-4',
-                                    active && 'text-lavender-frost'
+                                    active && 'text-lavender-frost',
                                   )}
                                 />
-                              </UIButton>
+                              </Button>
                             </UITooltip>
 
                             <UITooltip
@@ -129,25 +124,22 @@ const LayersPreview = () => {
                               content="Duplicate"
                               placement="bottom"
                             >
-                              <UIButton
-                                isIconOnly
-                                radius={'full'}
-                                size={'sm'}
+                              <Button
                                 aria-label={'Duplicate Slide Element'}
                                 onClick={() =>
                                   element.id &&
                                   duplicateSlideElement(slide.id, element.id)
                                 }
-                                isDisabled={isElementExceed}
+                                disabled={isElementExceed}
                                 {...style}
                               >
                                 <SolarCopyLineDuotone
                                   className={cn(
                                     'h-4 w-4',
-                                    active && 'text-lavender-frost'
+                                    active && 'text-lavender-frost',
                                   )}
                                 />
-                              </UIButton>
+                              </Button>
                             </UITooltip>
 
                             <UITooltip
@@ -155,10 +147,7 @@ const LayersPreview = () => {
                               content="Delete"
                               placement="bottom"
                             >
-                              <UIButton
-                                isIconOnly
-                                size={'sm'}
-                                radius={'full'}
+                              <Button
                                 aria-label={'Delete Slide Element'}
                                 onClick={() =>
                                   element.id &&
@@ -169,10 +158,10 @@ const LayersPreview = () => {
                                 <SolarTrashBinMinimalisticLineDuotone
                                   className={cn(
                                     'h-4 w-4',
-                                    active && 'text-lavender-frost'
+                                    active && 'text-lavender-frost',
                                   )}
                                 />
-                              </UIButton>
+                              </Button>
                             </UITooltip>
                           </UIView>
                         </Card>
@@ -183,7 +172,7 @@ const LayersPreview = () => {
               </CardBody>
             </Card>
             {isElementExceed ? (
-              <Button size="sm" variant="bordered">
+              <Button size="sm" variant="outline">
                 <SolarCrownLineDuotone className="h-4 w-4" />
                 Get premium
               </Button>
@@ -198,7 +187,7 @@ const LayersPreview = () => {
 };
 export default LayersPreview;
 
-function AddLayers() {
+export function AddLayers() {
   const iconClasses = 'h-5 w-5 text-default-500 pointer-events-none shrink-0';
 
   const { createSlideElement } = useSlideEditor();
@@ -218,7 +207,7 @@ function AddLayers() {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [createSlideElement, currentSlide]
+    [createSlideElement, currentSlide],
   );
 
   return (
@@ -232,7 +221,7 @@ function AddLayers() {
       }}
     >
       <DropdownTrigger>
-        <Button size="sm" variant="bordered">
+        <Button size="sm" variant="outline">
           <SolarAddSquareLineDuotone className="h-4 w-4" />
           Add Layer
         </Button>
@@ -244,7 +233,7 @@ function AddLayers() {
       >
         {elements.map((item) => {
           const isPro = [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM].some(
-            (plan) => item.plan.includes(plan)
+            (plan) => item.plan.includes(plan),
           );
 
           return (

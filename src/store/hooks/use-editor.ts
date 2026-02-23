@@ -8,7 +8,13 @@ import { useActiveElement } from '../slides/current-element';
 
 const THROTTLE_DELAY = 2000;
 
-const useSlideEditor = () => {
+type UseSliderEditorProps = {
+  delay?: number;
+};
+
+const useSlideEditor = ({
+  delay = THROTTLE_DELAY,
+}: UseSliderEditorProps = {}) => {
   const { slide } = useActiveSlide();
   const { element } = useActiveElement();
   const slideState = useSlide((state) => state);
@@ -27,11 +33,11 @@ const useSlideEditor = () => {
         slideState.updateSlideElement(
           currentSlide.id,
           currentElement.id,
-          merge({}, currentElement, updatedElement)
+          merge({}, currentElement, updatedElement),
         );
       }
-    }, THROTTLE_DELAY),
-    [slideState, currentSlide, currentElement]
+    }, delay),
+    [slideState, currentSlide, currentElement],
   );
 
   const throttledUpdateSlide = useCallback(
@@ -39,11 +45,11 @@ const useSlideEditor = () => {
       if (currentSlide?.id) {
         slideState.updateSlide(
           currentSlide.id,
-          merge({}, currentSlide, updatedSlide)
+          merge({}, currentSlide, updatedSlide),
         );
       }
-    }, THROTTLE_DELAY),
-    [slideState, currentSlide]
+    }, delay),
+    [slideState, currentSlide],
   );
 
   return {

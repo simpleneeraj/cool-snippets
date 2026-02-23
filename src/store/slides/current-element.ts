@@ -1,18 +1,25 @@
 import { create } from 'zustand';
-import { InitialValues } from '@/typings/editor';
 
 type State = {
-  element: string;
+  element: string | null;
+  /** True while Moveable is actively dragging/resizing — prevents deselection */
+  interacting: boolean;
 };
 
 type Action = {
-  updateElement: (value: string) => void;
+  updateElement: (value: string | null) => void;
+  setInteracting: (value: boolean) => void;
 };
 
 export const useActiveElement = create<State & Action>((set) => ({
-  element: InitialValues.ELEMENT_ID,
-  updateElement: (value: string) =>
+  element: null,
+  interacting: false,
+  updateElement: (value: string | null) =>
     set(() => ({
       element: value,
+    })),
+  setInteracting: (value: boolean) =>
+    set(() => ({
+      interacting: value,
     })),
 }));

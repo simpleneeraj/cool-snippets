@@ -12,11 +12,13 @@ import {
   Controls,
   MiniMap,
   NodeTypes,
+  useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
 import { canvasConfig, initialNodes } from '@/app/(private)/studio/flow-config';
 import CodeNode from './nodes/code-node';
+import useSlideEditor from '@/store/hooks/use-editor';
 
 const nodeTypes: NodeTypes = {
   CODE_EDITOR: CodeNode,
@@ -28,11 +30,24 @@ const Canvas = () => {
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
+    [setEdges],
   );
 
+  const { fitView } = useReactFlow();
+  const { currentSlide } = useSlideEditor();
+  const { width, height } = currentSlide?.background?.style || {};
+
+  React.useEffect(() => {
+    if (width && height) {
+      fitView({ duration: 800, padding: 0.2 });
+    }
+  }, [width, height, fitView]);
+
   return (
-    <div className="w-full h-full bg-background" style={{ height: '100vh', width: '100vw' }}>
+    <div
+      className="w-full h-full bg-background"
+      style={{ height: '100%', width: '100%' }}
+    >
       <ReactFlow
         nodes={nodes}
         edges={edges}
