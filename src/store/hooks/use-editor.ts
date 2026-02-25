@@ -1,55 +1,52 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import useSlide from '../slides';
-import { merge, throttle } from 'lodash';
-import { useCallback, useMemo } from 'react';
+import { merge } from 'lodash';
+import { useMemo, useCallback } from 'react';
 import { useActiveSlide } from '../slides/current-slide';
 import { ElementType, SlideTypes } from '@/typings/editor';
 import { useActiveElement } from '../slides/current-element';
 
-const THROTTLE_DELAY = 2000;
+type UseSliderEditorProps = {};
 
-type UseSliderEditorProps = {
-  delay?: number;
-};
-
-const useSlideEditor = ({
-  delay = THROTTLE_DELAY,
-}: UseSliderEditorProps = {}) => {
+const useSlideEditor = ({}: UseSliderEditorProps = {}) => {
   const { slide } = useActiveSlide();
   const { element } = useActiveElement();
-  const slideState = useSlide((state) => state);
+  const slides = useSlide((s) => s.slides);
+  const updateSlide = useSlide((s) => s.updateSlide);
+  const updateSlideElement = useSlide((s) => s.updateSlideElement);
+  const createSlideElement = useSlide((s) => s.createSlideElement);
+  const deleteSlideElement = useSlide((s) => s.deleteSlideElement);
+  const duplicateSlideElement = useSlide((s) => s.duplicateSlideElement);
+  const resetState = useSlide((s) => s.reset);
 
   const currentSlide = useMemo(() => {
-    return slideState?.slides?.find((item) => item.id === slide);
-  }, [slideState?.slides, slide]);
+    return slides?.find((item) => item.id === slide);
+  }, [slides, slide]);
 
   const currentElement = useMemo(() => {
     return currentSlide?.elements?.find((elm) => elm.id === element);
   }, [currentSlide, element]);
 
-  const throttledUpdateSlideElement = useCallback(
-    throttle((updatedElement: ElementType) => {
-      if (currentSlide?.id && currentElement?.id) {
-        slideState.updateSlideElement(
-          currentSlide.id,
-          currentElement.id,
-          merge({}, currentElement, updatedElement),
-        );
-      }
-    }, delay),
-    [slideState, currentSlide, currentElement],
+  const onChangeSlideElement = useCallback(
+    (updatedElement: ElementType) => {
+      if (!currentSlide?.id || !currentElement?.id) return;
+
+      updateSlideElement(
+        currentSlide.id,
+        currentElement.id,
+        merge({}, currentElement, updatedElement),
+      );
+    },
+    [updateSlideElement, currentSlide, currentElement],
   );
 
-  const throttledUpdateSlide = useCallback(
-    throttle((updatedSlide: Omit<SlideTypes, 'id' | 'name' | 'elements'>) => {
-      if (currentSlide?.id) {
-        slideState.updateSlide(
-          currentSlide.id,
-          merge({}, currentSlide, updatedSlide),
-        );
-      }
-    }, delay),
-    [slideState, currentSlide],
+  const onChangeSlide = useCallback(
+    (updatedSlide: Omit<SlideTypes, 'id' | 'name' | 'elements'>) => {
+      if (!currentSlide?.id) return;
+
+      updateSlide(currentSlide.id, merge({}, currentSlide, updatedSlide));
+    },
+    [updateSlide, currentSlide],
   );
 
   return {
@@ -57,13 +54,13 @@ const useSlideEditor = ({
     currentElementId: element,
     currentSlide,
     currentElement,
-    onChangeSlide: throttledUpdateSlide,
-    onChangeSlideElement: throttledUpdateSlideElement,
-    slides: useMemo(() => slideState?.slides, [slideState?.slides]),
-    createSlideElement: slideState.createSlideElement,
-    deleteSlideElement: slideState.deleteSlideElement,
-    duplicateSlideElement: slideState.duplicateSlideElement,
-    resetState: slideState.reset,
+    onChangeSlide,
+    onChangeSlideElement,
+    slides: useMemo(() => slides, [slides]),
+    createSlideElement,
+    deleteSlideElement,
+    duplicateSlideElement,
+    resetState,
   };
 };
 

@@ -38,7 +38,7 @@ export const NotificationsDropdown = () => {
           variant="light"
           className="p-0"
           isReadOnly
-          onClick={(e) => e.continuePropagation()}
+          // onClick={(e) => e.continuePropagation()}
         >
           <Card
             fullWidth

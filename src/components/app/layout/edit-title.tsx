@@ -1,6 +1,5 @@
 import { Input } from '@/app-kit/ui/input';
 import { Button } from '@/app-kit/ui/button';
-import { SolarPen2LineDuotone } from '@/app-kit/icons/SolarPen2LineDuotone';
 import {
   Dialog,
   DialogClose,

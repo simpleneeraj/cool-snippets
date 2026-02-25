@@ -5,15 +5,15 @@ import Base64Reader from '../usedfont/filereader';
 // Main Function
 const fetchFonts = async <T extends HTMLElement>(
   clonedNode: T,
-  fonts: FontsType[]
+  fonts: FontsType[],
 ): Promise<T> => {
   const filterFontsArr: string[] = [];
   // Map and fetch available fonts
   const TaskFonts = fonts.map(async ({ src, fontFamily }) => {
-    if (true) {
+    if (src && fontFamily) {
       // Filter Url
-      let url = src.replace(regexUrl, '$1');
-      if (!url.startsWith('https://')) {
+      let url = src?.replace(regexUrl, '$1');
+      if (!url?.startsWith('https://')) {
         url = new URL(url, window.location.href).href;
       }
       const res = await window.fetch(url);

@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     'Collaborative coding',
     'Code customization',
     'Social media code sharing',
+    'ray.so alternative',
   ],
   authors: [
     { name: 'SimpleNeeraj', url: 'https://www.github.com/simpleneeraj' },
@@ -43,15 +44,7 @@ export default function RootLayout({
       <html lang="en" className={fonts}>
         <body className="relative">
           <ThemeProvider>
-            <NextAppProvider>
-              <main
-                className={
-                  'relative isolate flex h-screen flex-col overflow-clip'
-                }
-              >
-                {children}
-              </main>
-            </NextAppProvider>
+            <NextAppProvider>{children}</NextAppProvider>
           </ThemeProvider>
         </body>
       </html>

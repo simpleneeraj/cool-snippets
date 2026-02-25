@@ -11,7 +11,7 @@ import cssToStyle from '@/plugins/css-to-style';
 
 const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,
-  onChange,
+  onSelect: onChange,
 }) => {
   const [ref, height] = useDynamicHeight();
   const calculatedHeight = subtract(height, 90);
@@ -52,7 +52,7 @@ const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
                   key={currentItem?.name}
                   className={cn(
                     'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',
-                    gradient === value && 'border-default-900 border-2'
+                    gradient === value && 'border-default-900 border-2',
                   )}
                   title={currentItem?.name}
                 >

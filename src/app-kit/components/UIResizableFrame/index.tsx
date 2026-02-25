@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CloseCircle } from '@/app-kit/icons/CloseCircle';
 import { MAX_SLIDE_WIDTH, MIN_SLIDE_WIDTH } from '@/store/slides/state';
 import { useActiveElement } from '@/store/slides/current-element';
+import { Button } from '@/app-kit/ui/button';
 
 enum Handle {
   LEFT = 'left',
@@ -131,53 +132,109 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
   );
 
   return (
-    <div className={cn(`resizableFrame`, isResizing && `isResizing`)}>
+    <div className={cn('relative inline-block', isResizing && 'select-none')}>
+      {/* LEFT HANDLE */}
       <div
-        className={`windowSizeDragPoint left`}
         onMouseDown={onResizeFrameX(Handle.LEFT)}
-      ></div>
+        className="
+      absolute top-1/2 left-0
+      -translate-x-1/2 -translate-y-1/2
+      w-6 h-6
+      flex items-center justify-center
+      cursor-col-resize
+      z-10
+    "
+      >
+        <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
+      </div>
+
+      {/* RIGHT HANDLE */}
       <div
-        className={`windowSizeDragPoint right`}
         onMouseDown={onResizeFrameX(Handle.RIGHT)}
-      ></div>
-      <div ref={windowRef} style={{ width: `${width}px` }}>
+        className="
+      absolute top-1/2 right-0
+      translate-x-1/2 -translate-y-1/2
+      w-6 h-6
+      flex items-center justify-center
+      cursor-col-resize
+      z-10
+    "
+      >
+        <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
+      </div>
+
+      {/* CONTENT */}
+      <div ref={windowRef} style={{ width: `${width}px` }} className="relative">
         {children}
       </div>
 
-      <AnimatePresence>
-        {!!(width && !isResizing) && (
+      {/* RESET BUTTON */}
+      <AnimatePresence mode="wait">
+        {!isResizing && width !== minWidth && (
           <motion.div
+            key="reset"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="resetWidthContainer"
+            className="
+          absolute
+          bottom-[-30px]
+          left-1/2
+          -translate-x-1/2
+          z-20
+          pointer-events-none
+        "
           >
-            <a
-              className="resetWidth"
+            <Button
+              size="sm"
+              variant="ghost"
               onClick={(event) => {
                 event.preventDefault();
                 onWidthChange?.(minWidth);
                 onResetWidth?.();
               }}
+              className="pointer-events-auto text-xs! text-muted-foreground"
             >
-              <CloseCircle />
+              <CloseCircle className="size-3.5" />
               Set to auto width
-            </a>
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* RULER */}
       <AnimatePresence>
         {isResizing && (
           <motion.div
+            key="ruler"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="ruler"
+            className="
+          absolute
+          bottom-[-24px]
+          left-1/2
+          -translate-x-1/2
+          w-full
+          text-xs
+          text-center
+          pointer-events-none
+          z-15
+          border-x
+          border-gray-300
+          dark:border-gray-600
+          text-gray-500
+          dark:text-gray-400
+        "
           >
-            <span>{width} px</span>
+            <div className="relative">
+              <span className="px-4 bg-white dark:bg-neutral-900 rounded-lg">
+                {width} px
+              </span>
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-gray-300 dark:border-gray-600 -z-10" />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

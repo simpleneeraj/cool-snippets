@@ -2,7 +2,6 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { motion } from 'motion/react';
 import UIView from '@/app-kit/source/UIView';
-import UIDivider from '@/app-kit/source/UIDivider';
 import { Card, CardHeader, tv } from '@heroui/react';
 
 type FrameProps = {
@@ -64,7 +63,7 @@ export const FrameItem = ({
           variants({
             placement: labelPlacement,
           }),
-          className
+          className,
         )}
       >
         {label && (
@@ -77,7 +76,6 @@ export const FrameItem = ({
         )}
         {children}
       </UIView>
-      {divider && <UIDivider className="bg-default-100" />}
     </React.Fragment>
   );
 };
@@ -98,7 +96,7 @@ export const FrameAccordion = ({
           variants({
             placement: labelPlacement,
           }),
-          className
+          className,
         )}
       >
         {label && (
@@ -122,7 +120,6 @@ export const FrameAccordion = ({
           {children}
         </motion.div>
       </UIView>
-      {divider && <UIDivider className="bg-default-100" />}
     </React.Fragment>
   );
 };

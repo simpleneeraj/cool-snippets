@@ -1,123 +1,58 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { ScreenTypes, useScreen } from '@/store/screen';
+import { useScreen } from '@/store/screen';
 import backgroundVariants from './variants';
-import useSlideEditor from '@/store/hooks/use-editor';
-import { Chip, Select, SelectItem } from '@heroui/react';
-import { Frame, FrameItem } from '@/components/elements/frame';
-import { BACKGROUND_SCREEN, BACKGROUND_TYPE } from '@/typings/enums';
-
-const SolidBackgrounds = dynamic(() => import('./solid'));
-const GradientsBackgrounds = dynamic(() => import('./gradients'));
-const ImagesBackgrounds = dynamic(() => import('./images'));
-const MeshBackgrounds = dynamic(() => import('./mesh'));
-const PatternsBackgrounds = dynamic(() => import('./patterns'));
+import UIView from '@/app-kit/source/UIView';
+import {
+  Combobox,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+  ComboboxPopup,
+} from '@/app-kit/ui/combobox';
+import { Badge } from '@/app-kit/ui/badge';
+import BackgroundContent from './content';
+import React from 'react';
 
 const BackgroundScreens = () => {
-  const { currentSlide, onChangeSlide } = useSlideEditor();
-  const { screen, onChangeScreen } = useScreen((state) => state);
+  const screen = useScreen((state) => state.screen);
+  const onChangeScreen = useScreen((state) => state.onChangeScreen);
 
-  const onUpdateBackground = React.useCallback(
-    (type: BACKGROUND_TYPE, value: string) => {
-      onChangeSlide({
-        background: {
-          type,
-          properties: {
-            [type]: value,
-          },
-        },
-      });
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [currentSlide]
+  const selectedItem = React.useMemo(
+    () => backgroundVariants.find((item) => item.value === screen.background),
+    [screen.background],
   );
 
-  const RenderScreen = React.useMemo(() => {
-    switch (screen.background) {
-      case BACKGROUND_SCREEN.SOLID:
-        return (
-          <SolidBackgrounds
-            value={
-              currentSlide?.background?.properties?.[BACKGROUND_TYPE.COLOR]
-            }
-            onChange={(gradient) =>
-              onUpdateBackground(BACKGROUND_TYPE.COLOR, gradient)
-            }
-          />
-        );
-      case BACKGROUND_SCREEN.GRADIENTS:
-        return (
-          <GradientsBackgrounds
-            value={
-              currentSlide?.background?.properties?.[BACKGROUND_TYPE.GRADIENT]
-            }
-            onChange={(gradient) =>
-              onUpdateBackground(BACKGROUND_TYPE.GRADIENT, gradient)
-            }
-          />
-        );
-      case BACKGROUND_SCREEN.IMAGES:
-        return (
-          <ImagesBackgrounds
-            value={
-              currentSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]
-            }
-            onChange={(gradient) =>
-              onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient)
-            }
-          />
-        );
-      case BACKGROUND_SCREEN.MESH:
-        return <MeshBackgrounds />;
-      case BACKGROUND_SCREEN.PATTERNS:
-        return (
-          <PatternsBackgrounds
-            value={
-              currentSlide?.background?.properties?.[BACKGROUND_TYPE.PATTERN]
-            }
-            onChange={(gradient) =>
-              onUpdateBackground(BACKGROUND_TYPE.PATTERN, gradient)
-            }
-          />
-        );
-      default:
-        return <ImagesBackgrounds />;
-    }
-  }, [screen, currentSlide?.background?.properties, onUpdateBackground]);
-
   return (
-    <Frame title="Background">
-      <FrameItem>
-        <Select
-          placeholder="Images"
-          className="max-w-xs"
-          items={backgroundVariants}
-          selectionMode="single"
-          selectedKeys={new Set([screen.background])}
-          onChange={({ target }) =>
-            onChangeScreen('background', target?.value as ScreenTypes)
-          }
-          size="sm"
-        >
-          {(item) => (
-            <SelectItem aria-label={item.label} key={item.value}>
-              {item.label}
-              {item.new && (
-                <Chip
-                  size="sm"
-                  variant="faded"
-                  color="secondary"
-                  className="ml-2"
-                >
-                  New
-                </Chip>
-              )}
-            </SelectItem>
-          )}
-        </Select>
-      </FrameItem>
-      {RenderScreen}
-    </Frame>
+    <UIView className="layout-fill gap-2">
+      <Combobox
+        value={selectedItem}
+        items={backgroundVariants}
+        onValueChange={(item: any) => onChangeScreen('background', item?.value)}
+      >
+        <ComboboxInput
+          aria-label="Choose background"
+          placeholder="Choose a background"
+        />
+        <ComboboxPopup>
+          <ComboboxEmpty>No backgrounds found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item.value} value={item}>
+                <UIView className="flex items-center gap-2">
+                  {item.label}
+                  {item.new && (
+                    <Badge size="sm" variant="success">
+                      New
+                    </Badge>
+                  )}
+                </UIView>
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxPopup>
+      </Combobox>
+      <BackgroundContent />
+    </UIView>
   );
 };
 export default BackgroundScreens;

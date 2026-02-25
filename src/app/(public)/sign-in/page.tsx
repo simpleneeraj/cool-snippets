@@ -1,10 +1,9 @@
-import React from 'react';
-import SignInPageClient from './page.client';
+import { SignIn } from '@clerk/nextjs';
 
-type SignInPageProps = {};
-
-const SignInPage: React.FC<SignInPageProps> = ({}) => {
-  return <SignInPageClient />;
-};
-
-export default SignInPage;
+export default function SignInPage() {
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+    </div>
+  );
+}

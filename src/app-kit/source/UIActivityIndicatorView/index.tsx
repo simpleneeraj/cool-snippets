@@ -1,5 +1,4 @@
 import { UIIndicatorProps } from '@/app-kit/types';
-import React from 'react';
 
 const UIActivityIndicatorView = ({
   size = '20',

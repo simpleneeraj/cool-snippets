@@ -1,17 +1,16 @@
 import React from 'react';
 import Header from './header';
 import Footer from './footer';
-import UIView from '@/app-kit/source/UIView';
 
 type WebLayoutProps = React.PropsWithChildren;
 
 const WebLayout: React.FC<WebLayoutProps> = ({ children }) => {
   return (
-    <UIView className="flex flex-col">
+    <main className="relative isolate flex min-h-svh flex-col overflow-clip">
       <Header />
       {children}
       <Footer />
-    </UIView>
+    </main>
   );
 };
 

@@ -3,6 +3,9 @@ import { Button, Card, cn } from '@heroui/react';
 import UIMeteors from '@/app-kit/components/UIMeteors';
 import { ProiconsArrowReply } from '@/app-kit/icons/ProiconsArrowReply';
 import { SolarCheckCircleLineDuotone } from '@/app-kit/icons/SolarCheckCircleLineDuotone';
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export enum CardType {
   BORDERED = 'bordered',
@@ -38,6 +41,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
   visual,
 }) => {
   const isFilled = type === CardType.FILLED;
+  const { isSignedIn, user } = useUser();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const formatPrice = (amount: number | string) => {
     if (typeof amount === 'number') {
@@ -48,7 +54,48 @@ const PricingCard: React.FC<PricingCardProps> = ({
     }
     return amount;
   };
-  console.log({ isFilled });
+
+  const handleGetStarted = async () => {
+    if (!isSignedIn) {
+      router.push('/sign-in');
+      return;
+    }
+
+    if (price.amount === 0) {
+      router.push('/dashboard');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const productId =
+        name === 'Premium'
+          ? process.env.NEXT_PUBLIC_DODO_PREMIUM_PRODUCT_ID
+          : process.env.NEXT_PUBLIC_DODO_PRO_PRODUCT_ID;
+
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId,
+          quantity: 1,
+          metadata_userId: user.id,
+          metadata_plan: name,
+        }),
+      });
+      const data = await response.json();
+      if (data?.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        console.error('Failed to create checkout session', data);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Card
       radius="lg"
@@ -56,12 +103,12 @@ const PricingCard: React.FC<PricingCardProps> = ({
         'shadow-2xl justify-between border-none p-1',
         isFilled
           ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow'
-          : 'bg-transparent'
+          : 'bg-transparent',
       )}
     >
       <div
         className={cn(
-          'flex flex-1 gap-1 text-sm rounded-full text-white items-center justify-center py-4 relative'
+          'flex flex-1 gap-1 text-sm rounded-full text-white items-center justify-center py-4 relative',
           // isFilled ? 'opacity-1' : 'opacity-0'
         )}
       >
@@ -115,10 +162,12 @@ const PricingCard: React.FC<PricingCardProps> = ({
         <div className="p-3 h-auto flex w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large">
           <Button
             fullWidth
+            isLoading={loading}
+            onPress={handleGetStarted}
             className={cn(
               isFilled
                 ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow'
-                : ''
+                : '',
             )}
           >
             Get started

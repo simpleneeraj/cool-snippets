@@ -5,30 +5,40 @@ const useDynamicHeight = () => {
   const ref = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
-    const calculateHeight = () => {
-      if (ref.current) {
-        let topOffset = 0;
-        let currentElement: HTMLDivElement | null = ref.current;
+    if (!ref.current) return;
 
-        // Calculate the total offset from the top of the document
-        while (currentElement) {
-          topOffset += currentElement.offsetTop || 0;
-          currentElement = currentElement.offsetParent as HTMLDivElement | null;
-        }
+    const element = ref.current;
 
-        const totalHeight = window.innerHeight;
-        const calculatedHeight = totalHeight - topOffset;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const top = entry.boundingClientRect.top;
+        const availableHeight = window.innerHeight - top;
+        setHeight(availableHeight > 0 ? availableHeight : 0);
+      },
+      {
+        root: null, // viewport
+        threshold: 0,
+      },
+    );
 
-        setHeight(calculatedHeight);
-      }
+    observer.observe(element);
+
+    // Also recalc on resize
+    const handleResize = () => {
+      const rect = element.getBoundingClientRect();
+      const availableHeight = window.innerHeight - rect.top;
+      setHeight(availableHeight > 0 ? availableHeight : 0);
     };
-    window.addEventListener('resize', calculateHeight);
-    calculateHeight();
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      window.removeEventListener('resize', calculateHeight);
+      observer.disconnect();
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return [ref, height] as const;
 };
+
 export default useDynamicHeight;

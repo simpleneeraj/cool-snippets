@@ -1,12 +1,6 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
 import { SEGMENT_SCREEN } from '@/typings/enums';
-import UISegmentedControl from '@/app-kit/source/UISegmentedControl';
-import UISegmentButton from '@/app-kit/source/UISegmentedControl/button';
-import { SolarWidget5LineDuotone } from '@/app-kit/icons/SolarWidget5LineDuotone';
-import { SolarLayersMinimalisticLineDuotone } from '@/app-kit/icons/SolarLayersMinimalisticLineDuotone';
 import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
-import { SolarAlbumLinear } from '@/app-kit/icons/SolarAlbumLinear';
 import { SolarPen2Linear } from '@/app-kit/icons/SolarPen2Linear';
 import { SolarEmojiFunnySquareLinear } from '@/app-kit/icons/SolarEmojiFunnySquareLinear';
 import { SolarWidgetAddLinear } from '@/app-kit/icons/SolarWidgetAddLinear';
@@ -42,30 +36,7 @@ const tabs: Tab[] = [
   },
 ];
 
-export const PrimaryControllerWidget = () => {
-  return (
-    <UISegmentedControl fullWidth size="sm">
-      <UISegmentButton
-        title={
-          <UIView className="flex items-center gap-2">
-            <SolarWidget5LineDuotone className="size-4" />
-            Templates
-          </UIView>
-        }
-      />
-      <UISegmentButton
-        title={
-          <UIView className="flex items-center gap-2">
-            <SolarLayersMinimalisticLineDuotone className="size-5" />
-            Layers
-          </UIView>
-        }
-      />
-    </UISegmentedControl>
-  );
-};
-
-export const BottomControllerWidget = () => {
+export const SegmentWidget = () => {
   const { segment, onChangeSegment } = useSegment((state) => state);
   return (
     <Tabs

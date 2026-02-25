@@ -12,7 +12,7 @@ import { Button } from '@/app-kit/ui/button';
 import { Separator } from '@/app-kit/ui/separator';
 import HistoryManager from './history-manager';
 import { TooltipProvider } from '@/app-kit/ui/tooltip';
-import { BottomControllerWidget } from '../widget/aside/controller-segment';
+import { SegmentWidget } from '../widget/aside/controller-segment';
 import ResizeMenu from './resize-menu';
 
 const AppHeader = () => {
@@ -31,7 +31,7 @@ const AppHeader = () => {
         </UIView>
       </UIView>
       <UIView>
-        <BottomControllerWidget />
+        <SegmentWidget />
       </UIView>
       <UIView className={'flex items-center gap-1'}>
         <TooltipProvider>

@@ -1,17 +1,11 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-/* @import "tw-animate-css"; */
-/*
-  ---break---
-*/
+
 @custom-variant dark (&:is(.dark *));
 @plugin '../../hero.ts';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 
 @variant dark (&:is(.dark *));
-
-@import './_variables.scss';
-@import './_keyframe-animations.scss';
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -159,9 +153,6 @@
   }
 }
 
-@layer utilities {
-}
-
 .app_container {
   --primary: hsl(var(--nextui-background) / 1);
   --primary-alpha: hsl(var(--nextui-background) / 0);
@@ -186,38 +177,6 @@
   background-color: var(--line);
 }
 
-/* .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0px 10px 20px 2px rgb(0 0 0 / 20%);
-} */
-
-/* .layer {
-  z-index: 0;
-  display: grid;
-  border-radius: 15px;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-.dots {
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-.dots span {
-  height: 12px;
-  width: 12px;
-  background: #ffffff5e;
-  border-radius: 100%;
-} */
-/*
-  ---break---
-*/
 :root {
   --radius: 0.625rem;
   --background: var(--color-white);
@@ -327,130 +286,6 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-/**
- * Resizable Frame
- */
-.resizableFrame {
-  position: relative;
-  display: inline-block;
-
-  &.isResizing {
-    user-select: none;
-  }
-}
-
-.windowSizeDragPoint {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  width: 24px;
-  height: 24px;
-  cursor: col-resize;
-  transform: translate(var(--translate-x), -50%);
-  user-select: none;
-
-  &:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
-    background: white;
-    content: '';
-    transform: translate(-50%, -50%);
-  }
-}
-
-.left {
-  left: 0;
-  --translate-x: -50%;
-}
-
-.right {
-  right: 0;
-  --translate-x: 50%;
-}
-
-.resetWidthContainer {
-  position: absolute;
-  right: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.resetWidth {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 1em;
-  color: rgba(255, 255, 255, var(--text-opacity));
-
-  cursor: pointer;
-
-  font-size: 11px;
-  gap: 0.6em;
-  transition: color 200ms;
-  --text-opacity: 0.4;
-
-  &:hover {
-    --text-opacity: 0.7;
-  }
-}
-
-.fadeEnter {
-  opacity: 0;
-}
-
-.fadeEnterActive {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-
-.fadeExit {
-  opacity: 1;
-}
-
-.fadeExitActive {
-  opacity: 0;
-  transition: opacity 200ms;
-}
-
-.ruler {
-  position: absolute;
-  right: 0;
-  left: 0;
-  border-right: 1px solid var(--color);
-
-  border-left: 1px solid var(--color);
-
-  margin: 1em 0;
-  color: var(--color);
-
-  font-size: 11px;
-
-  text-align: center;
-
-  --color: rgba(255 255 255 / 0.3);
-
-  > span {
-    padding: 0 1em;
-    background-color: #0d0d0d;
-  }
-
-  &:before {
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    right: 0;
-    left: 0;
-    border-top: 1px solid var(--color);
-    content: '';
   }
 }
 

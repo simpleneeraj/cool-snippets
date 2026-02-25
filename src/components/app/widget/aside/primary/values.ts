@@ -2,13 +2,13 @@
 import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
-import { SolarCodeSquareLineDuotone } from '@/app-kit/icons/features/SolarCodeSquareLineDuotone';
-import { SolarTextFieldFocusLineDuotone } from '@/app-kit/icons/SolarTextFieldFocusLineDuotone';
-import { SolarGalleryAddLineDuotone } from '@/app-kit/icons/SolarGalleryAddLineDuotone';
-import { SolarFaceScanCircleLineDuotone } from '@/app-kit/icons/SolarFaceScanCircleLineDuotone';
-import { SolarCodeScanLineDuotone } from '@/app-kit/icons/SolarCodeScanLineDuotone';
-import { SolarUserIdLineDuotone } from '@/app-kit/icons/SolarUserIdLineDuotone';
-import { SolarVerifiedCheckLineDuotone } from '@/app-kit/icons/SolarVerifiedCheckLineDuotone';
+import { SolarCodeSquareOutline } from '@/app-kit/icons/SolarCodeSquareOutline';
+import { SolarTextFieldFocusOutline } from '@/app-kit/icons/SolarTextFieldFocusOutline';
+import { SolarGalleryAddOutline } from '@/app-kit/icons/SolarGalleryAddOutline';
+import { SolarSmileCircleOutline } from '@/app-kit/icons/SolarSmileCircleOutline';
+import { SolarQrCodeOutline } from '@/app-kit/icons/SolarQrCodeOutline';
+import { SolarUserIdOutline } from '@/app-kit/icons/SolarUserIdOutline';
+import { SolarVerifiedCheckOutline } from '@/app-kit/icons/SolarVerifiedCheckOutline';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {
   [ELEMENTS.CODE]: 'Code Block',
@@ -25,43 +25,43 @@ export const elementLabelMapper: Record<ELEMENTS, string> = {
 export const elements = [
   {
     content: 'Code Block',
-    icon: SolarCodeSquareLineDuotone,
+    icon: SolarCodeSquareOutline,
     type: ELEMENTS.CODE,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Text Box',
-    icon: SolarTextFieldFocusLineDuotone,
+    icon: SolarTextFieldFocusOutline,
     type: ELEMENTS.TEXT,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Image',
-    icon: SolarGalleryAddLineDuotone,
+    icon: SolarGalleryAddOutline,
     type: ELEMENTS.IMAGE,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'Graphic Icon',
-    icon: SolarFaceScanCircleLineDuotone,
+    icon: SolarSmileCircleOutline,
     type: ELEMENTS.ICON,
     plan: [APP_PLAN_TYPE.FREE],
   },
   {
     content: 'QR Code',
-    icon: SolarCodeScanLineDuotone,
+    icon: SolarQrCodeOutline,
     type: ELEMENTS.USERINFO,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'User Info',
-    icon: SolarUserIdLineDuotone,
+    icon: SolarUserIdOutline,
     type: ELEMENTS.USERINFO,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },
   {
     content: 'Watermark',
-    icon: SolarVerifiedCheckLineDuotone,
+    icon: SolarVerifiedCheckOutline,
     type: ELEMENTS.WATERMARK,
     plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
   },

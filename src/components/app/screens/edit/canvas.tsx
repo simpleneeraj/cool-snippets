@@ -1,11 +1,6 @@
 import React, { useCallback } from 'react';
 import { debounce } from 'lodash';
 import UIView from '@/app-kit/source/UIView';
-import { Input, Link } from '@heroui/react';
-import UISlider from '@/app-kit/source/UISlider';
-import UIButton from '@/app-kit/source/UIButton/button';
-import { Frame, FrameItem } from '@/components/elements/frame';
-import ChevronRightIcon from '@/app-kit/icons/ChevronRightIcon';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { Field, FieldLabel } from '@/app-kit/ui/field';
 import { Slider, SliderValue } from '@/app-kit/ui/slider';

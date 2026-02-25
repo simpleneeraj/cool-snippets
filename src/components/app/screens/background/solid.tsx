@@ -9,7 +9,7 @@ import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 
 const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,
-  onChange,
+  onSelect: onChange,
 }) => {
   const [ref, height] = useDynamicHeight();
   const calculatedHeight = height - 90;
@@ -42,7 +42,7 @@ const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
                   key={currentItem?.name}
                   className={cn(
                     'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',
-                    background === value && 'border-default-900 border-2'
+                    background === value && 'border-default-900 border-2',
                   )}
                   shadow={'none'}
                   title={currentItem?.name}

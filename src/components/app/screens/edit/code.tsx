@@ -1,4 +1,3 @@
-import UISlider from '@/app-kit/source/UISlider';
 import UIView from '@/app-kit/source/UIView';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
@@ -24,6 +23,16 @@ import { Checkbox } from '@/app-kit/ui/checkbox';
 const CodeScreen = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
 
+  const selectedLanguage = resolveSelected(
+    languagesArray,
+    currentElement?.properties?.language,
+  );
+
+  const selectedFont = resolveSelected(
+    fontsNames,
+    currentElement?.style?.fontFamily,
+  );
+
   return (
     <UIView className="layout-scroll gap-6">
       {/* ───────────────── Basics ───────────────── */}
@@ -32,7 +41,15 @@ const CodeScreen = () => {
 
         <Field>
           <FieldLabel>Programming language</FieldLabel>
-          <Combobox items={languagesArray} aria-label="Select language">
+          <Combobox
+            items={languagesArray}
+            value={selectedLanguage}
+            onValueChange={(item: any) =>
+              onChangeSlideElement({
+                properties: { language: item?.value },
+              })
+            }
+          >
             <ComboboxInput
               aria-label="Select language"
               placeholder="Select a language"
@@ -117,10 +134,10 @@ const CodeScreen = () => {
           <FieldLabel>Font family</FieldLabel>
           <Combobox
             items={fontsNames}
-            value={currentElement?.style?.fontFamily}
+            value={selectedFont}
             onValueChange={(item: any) =>
               onChangeSlideElement({
-                style: { fontFamily: item?.value! },
+                style: { fontFamily: item?.value },
               })
             }
           >
@@ -208,3 +225,6 @@ const CodeScreen = () => {
 };
 
 export default CodeScreen;
+
+const resolveSelected = <T extends { value: any }>(items: T[], value: any) =>
+  items.find((i) => i.value === value);

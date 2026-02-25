@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
@@ -127,10 +129,7 @@ const ExportDropdown: React.FC = () => {
   const isPremium = true;
 
   const [isOpen, setIsOpen] = useState(false);
-  const { currentElement, currentSlide } = useSlideEditor();
-
-  // currentSlide?.background?.style?.width
-  // currentSlide?.background?.style?.height
+  const { currentElement } = useSlideEditor();
 
   const { captureImage, isDownloading, isCopying, copyToClipboard } =
     useCapture();
@@ -140,7 +139,8 @@ const ExportDropdown: React.FC = () => {
       fileName: '',
       preset: 'social',
       imageFormat: Format.WEBP,
-      pixelRatio: `${window.devicePixelRatio || 1}`,
+      pixelRatio:
+        typeof window !== 'undefined' ? `${window.devicePixelRatio || 1}` : '1',
     },
   });
 

@@ -19,7 +19,7 @@ const useSlide = create(
       updateSlide: (id, updatedSlide) => {
         set((state) => ({
           slides: state.slides.map((slide) =>
-            slide.id === id ? assign({}, slide, updatedSlide) : slide
+            slide.id === id ? assign({}, slide, updatedSlide) : slide,
           ),
         }));
       },
@@ -33,7 +33,7 @@ const useSlide = create(
       duplicateSlide: (id) => {
         set((state) => {
           const slideToDuplicate = state.slides.find(
-            (slide) => slide.id === id
+            (slide) => slide.id === id,
           );
           if (slideToDuplicate) {
             const duplicatedSlide = merge({}, slideToDuplicate, {
@@ -53,7 +53,7 @@ const useSlide = create(
           slides: state.slides.map((slide) =>
             slide.id === slideId
               ? { ...slide, elements: [...slide.elements, element] }
-              : slide
+              : slide,
           ),
         }));
       },
@@ -65,10 +65,10 @@ const useSlide = create(
               ? {
                   ...slide,
                   elements: slide.elements.map((el) =>
-                    el.id === elementId ? assign({}, el, updatedElement) : el
+                    el.id === elementId ? assign({}, el, updatedElement) : el,
                   ),
                 }
-              : slide
+              : slide,
           ),
         }));
       },
@@ -81,7 +81,7 @@ const useSlide = create(
                   ...slide,
                   elements: slide.elements.filter((e) => e.id !== elementId),
                 }
-              : slide
+              : slide,
           ),
         }));
       },
@@ -90,7 +90,7 @@ const useSlide = create(
           const slide = state.slides.find((slide) => slide.id === slideId);
           if (slide) {
             const elementToDuplicate = slide.elements.find(
-              (e) => e.id === elementId
+              (e) => e.id === elementId,
             );
             if (elementToDuplicate) {
               const duplicatedElement = merge({}, elementToDuplicate, {
@@ -100,7 +100,7 @@ const useSlide = create(
                 slides: state.slides.map((s) =>
                   s.id === slideId
                     ? { ...s, elements: [...s.elements, duplicatedElement] }
-                    : s
+                    : s,
                 ),
               };
             }
@@ -112,8 +112,8 @@ const useSlide = create(
     }),
     {
       name: StorageEnum.NAME,
-    }
-  )
+    },
+  ),
 );
 
 export default useSlide;

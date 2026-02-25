@@ -14,7 +14,7 @@ type HomePageClientProps = object;
 
 const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
   return (
-    <UIView className="flex flex-col">
+    <UIView className="layout-fill">
       <HeroSection />
       <UIView className="mx-auto w-full px-2 max-w-(--breakpoint-lg)">
         <Section

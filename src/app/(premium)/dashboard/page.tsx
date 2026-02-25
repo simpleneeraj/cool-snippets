@@ -3,26 +3,22 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
 import { Card, Chip, cn } from '@heroui/react';
-import { payments, useSession } from '@/lib/auth-client';
+import { useUser } from '@clerk/nextjs';
 import { Button } from '@/app-kit/ui/button';
-import ChangePlan from './page.client';
-import { dodoPayments } from '@/lib/auth';
-import { customerRetrieve } from './act';
 
 type DashboardProps = object;
 
 const Dashboard: React.FC<DashboardProps> = ({}) => {
-  const session = useSession();
+  const { user } = useUser();
 
-  const createSubscriptions = async () => {
-    const { data, error } = await payments.checkoutSession({
-      slug: 'premium-plan',
-      referenceId: session?.data?.user?.id,
-    });
-
-    console.log(error);
-
-    if (data) {
+  const handlePortal = async () => {
+    // Ideally we should lookup the dodo customer ID via Prisma in a Server Action.
+    // For now, let the backend redirect to the portal without passing customer_id
+    // from the client if the backend handles it, or we will just let it fail/pass
+    // Actually, our API /api/customer-portal is meant to be called.
+    const res = await fetch('/api/customer-portal');
+    const data = await res.json();
+    if (data?.url) {
       window.location.href = data.url;
     }
   };
@@ -33,7 +29,7 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
         {data.map(
           (
             { title, value, change, changeType, iconName, trendChipPosition },
-            index
+            index,
           ) => (
             <Card
               key={index}
@@ -47,7 +43,7 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
                       'bg-success-50': changeType === 'positive',
                       'bg-warning-50': changeType === 'neutral',
                       'bg-danger-50': changeType === 'negative',
-                    }
+                    },
                   )}
                 >
                   {/* {changeType === 'positive' ? (
@@ -123,16 +119,12 @@ const Dashboard: React.FC<DashboardProps> = ({}) => {
                 </Button>
               </div> */}
             </Card>
-          )
+          ),
         )}
       </dl>
-      {/* <ChangePlan /> */}
-      <Button onClick={() => customerRetrieve(session?.data?.user?.id)}>
-        Check Subscription
-      </Button>
-      <Button onClick={createSubscriptions}>Create Subscription</Button>
+      <Button onClick={handlePortal}>Manage Subscription (Portal)</Button>
       <pre>
-        <code>{JSON.stringify(session?.data, null, 4)}</code>
+        <code>{JSON.stringify(user, null, 4)}</code>
       </pre>
     </UIView>
   );

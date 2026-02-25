@@ -1,12 +1,12 @@
 import React from 'react';
 import WebLayout from '@/layouts/web';
-import UIFireflies from '@/app-kit/components/UIFireflies';
+import UIView from '@/app-kit/source/UIView';
 
 type WebLayoutProps = React.PropsWithChildren;
 
 const WebRootLayout: React.FC<WebLayoutProps> = ({ children }) => (
   <WebLayout>
-    {children}
+    <UIView className="layout-scroll">{children}</UIView>
     {/*<UIFireflies />*/}
   </WebLayout>
 );

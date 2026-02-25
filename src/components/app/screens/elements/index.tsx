@@ -1,7 +1,6 @@
 import React from 'react';
 import { ELEMENTS } from '@/typings/enums';
 import UIView from '@/app-kit/source/UIView';
-import UITooltip from '@/app-kit/source/UITooltip';
 import { generateID } from '@/utils/id-generator';
 import { elements, elementsObject } from '../../widget/aside/primary/values';
 import useSlideEditor from '@/store/hooks/use-editor';
@@ -24,7 +23,7 @@ const ElementsScreen = () => {
         console.warn(`Element of type ${type} does not exist.`);
       }
     },
-    [onChangeSlideElement]
+    [onChangeSlideElement],
   );
 
   return (
@@ -33,22 +32,21 @@ const ElementsScreen = () => {
         <UIView className="flex-1 grid grid-cols-5 gap-2">
           {elements.map((item, index) => {
             return (
-              <UITooltip
-                key={index}
-                placement="bottom"
-                content={item.content}
-                color="primary"
+              // <UITooltip
+              //   key={index}
+              //   placement="bottom"
+              //   content={item.content}
+              //   color="primary"
+              // >
+              <UIButton
+                size={'lg'}
+                variant={'default'}
+                aria-label={item.content}
+                onClick={() => onSelectElement(item.type)}
               >
-                <UIButton
-                  size={'lg'}
-                  isIconOnly
-                  variant={'flat'}
-                  aria-label={item.content}
-                  onClick={() => onSelectElement(item.type)}
-                >
-                  <item.icon />
-                </UIButton>
-              </UITooltip>
+                <item.icon />
+              </UIButton>
+              // </UITooltip>
             );
           })}
         </UIView>

@@ -1,27 +1,19 @@
-import { auth } from './lib/auth';
-import { headers } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
-import { createRouteMatcher } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-// 🔐 Protected routes (auth required)
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
   '/settings(.*)',
   '/profile(.*)',
-  '/api/(.*)',
 ]);
-export async function proxy(request: NextRequest) {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
 
-  console.log('session', session);
-
-  // if (!session && isProtectedRoute(request)) {
-  //   return NextResponse.redirect(new URL('/sign-in', request.url));
-  // }
-  return NextResponse.next();
-}
+export const proxy = clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) {
+    const session = await auth();
+    if (!session.userId) {
+      return session.redirectToSignIn();
+    }
+  }
+});
 
 export const config = {
   matcher: [

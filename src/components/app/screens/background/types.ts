@@ -1,4 +1,4 @@
 export type BackgroundScreenTypes = {
   value?: string;
-  onChange?: (value: string) => void;
+  onSelect?: (value: string) => void;
 };

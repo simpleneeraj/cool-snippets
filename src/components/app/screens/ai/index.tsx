@@ -51,7 +51,7 @@ const AIScreen = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <UIButton size="sm" variant="flat">
+              <UIButton size="sm" variant="default">
                 Let&apos;s start chatting
               </UIButton>
             </motion.div>
