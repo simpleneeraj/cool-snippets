@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import appConfig from '@/constants/site';
-import { Button, Chip } from '@heroui/react';
+import { Button } from '@/app-kit/ui/button';
+import { Badge } from '@/app-kit/ui/badge';
 import UISpotlight from '@/app-kit/components/UISpotlight';
 import { FluentEmojiCrystalBall } from '@/app-kit/icons/layout/FluentEmojiCrystalBall';
 import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
@@ -13,7 +14,7 @@ type FooterProps = object;
 
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
-    <div className="mx-auto w-full px-3 relative overflow-hidden border-default-200 py-16 backdrop-blur-lg md:rounded-t-2xl max-w-(--breakpoint-lg) border-0 bg-transparent lg:px-4 xl:px-0 z-50">
+    <div className="mx-auto w-full px-3 relative overflow-hidden border-border py-16 backdrop-blur-lg md:rounded-t-2xl max-w-(--breakpoint-lg) border-0 bg-transparent lg:px-4 xl:px-0">
       <footer>
         <UISpotlight className="-top-40 left-0 md:left-60 md:-top-20" />
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -25,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
                   {appConfig.short_name}
                 </p>
               </div>
-              <p className="text-default-500 text-sm font-light leading-normal">
+              <p className="text-muted-foreground text-sm font-light leading-normal">
                 {appConfig.name} makes it super easy to create and share code
                 snippets. You can design and customize snippets in different
                 programming languages and share them effortlessly. It’s perfect
@@ -37,14 +38,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
               {publicLayout.footer.socialLinks.map((social, index) => (
                 <Button
                   key={index}
-                  isIconOnly
-                  size="sm"
-                  variant="light"
-                  radius="full"
-                  as="a"
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  size="icon-sm"
+                  variant="ghost"
+                  className="rounded-full"
+                  render={
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  }
                 >
                   <social.icon className="h-5 w-5" />
                 </Button>
@@ -62,14 +65,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
                 }`}
               >
                 <div>
-                  <h3 className="text-sm font-medium text-default-900">
+                  <h3 className="text-sm font-medium text-foreground">
                     {section.title}
                   </h3>
                   <ul role="list" className="flex flex-col mt-2.5 gap-2.5">
                     {section?.links?.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <Link
-                          className="text-sm text-default-500 hover:text-default-700 transition-colors duration-75"
+                          className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-75"
                           href={link?.href}
                         >
                           {link?.label}
@@ -83,13 +86,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </div>
         </div>
         <div className="mt-12 grid grid-cols-1 items-center gap-8 sm:grid-cols-3">
-          <Chip variant="dot" color="success" radius="sm">
+          <Badge variant="outline" className="gap-1.5 rounded-sm">
+            <span className="size-1.5 rounded-full bg-emerald-500" />
             All systems operational
-          </Chip>
+          </Badge>
           <a className="flex sm:justify-center">
             <FluentEmojiCrystalBall className="h-10 w-10" />
           </a>
-          <p className="text-xs text-default-500 sm:text-right">
+          <p className="text-xs text-muted-foreground sm:text-right">
             ©{appConfig.year} {appConfig.name} | All rights reserved.
           </p>
         </div>

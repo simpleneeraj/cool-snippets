@@ -6,7 +6,7 @@ type WebLayoutProps = React.PropsWithChildren;
 
 const WebLayout: React.FC<WebLayoutProps> = ({ children }) => {
   return (
-    <main className="relative isolate flex min-h-svh flex-col overflow-clip">
+    <main className="relative isolate flex min-h-svh flex-col overflow-x-clip">
       <Header />
       {children}
       <Footer />

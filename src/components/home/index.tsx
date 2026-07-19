@@ -1,20 +1,18 @@
 'use client';
 
 import React from 'react';
-import HeroSection from './hero';
-import UIView from '@/app-kit/source/UIView';
-import FeaturesSection from './features';
+import CtaSection from './cta';
 import Section from '../section';
-import Testimonials from './testimonials';
-import FaqSection from './faq';
-import PricingSection from './pricing';
-import FeedSection from './feed';
+import HeroSection from './hero';
+import FeaturesSection from './features';
+import UIView from '@/app-kit/source/UIView';
+import OpenSourceSection from './open-source';
 
 type HomePageClientProps = object;
 
 const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
   return (
-    <UIView className="layout-fill">
+    <UIView className="flex flex-1 flex-col">
       <HeroSection />
       <UIView className="mx-auto w-full px-2 max-w-(--breakpoint-lg)">
         <Section
@@ -23,28 +21,13 @@ const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
         />
         <FeaturesSection />
         <Section
-          title="What Our Users Say"
-          description="Real Stories, Real Impact – See How Crystal Code is Changing the Game!"
+          title="Free and Open Source"
+          description="Built in the open, MIT licensed, and funded by sponsors instead of paywalls."
         />
-        <Testimonials />
-        <Section
-          title="Pricing"
-          description="Choose the Plan That Fits You Best – Simple, Transparent, and Value-Packed!"
-        />
-        <PricingSection />
-        <Section
-          title="FAQs"
-          description="Got Questions? We've Got Answers – Everything You Need to Know About Crystal Code!"
-        />
-        <FaqSection />
-
-        <Section
-          title="Code Snippets Showcase"
-          description="Explore beautifully crafted code snippets generated effortlessly with our Crystal Code app – Simplify, Share, and Inspire!"
-        />
-
-        <FeedSection />
+        <OpenSourceSection />
       </UIView>
+      {/* Outside the max-w wrapper so the closing band can go full-bleed. */}
+      <CtaSection />
     </UIView>
   );
 };

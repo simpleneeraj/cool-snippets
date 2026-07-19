@@ -1,6 +1,7 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
-import { Button, cn } from '@heroui/react';
+import { Button } from '@/app-kit/ui/button';
+import { cn } from '@/lib/utils';
 import UISpotlight from '@/app-kit/components/UISpotlight';
 import { AnimatedTooltip } from '@/app-kit/components/UITooltip';
 import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
@@ -14,8 +15,10 @@ type HeroSectionProps = object;
 const HeroSection: React.FC<HeroSectionProps> = ({}) => {
   return (
     <UIView className="flex items-center justify-center w-full flex-col px-4">
-      <UIView className="relative flex h-dvh w-full flex-col overflow-hidden bg-background">
-        <UIView className="container mx-auto flex flex-1 flex-col items-center justify-center overflow-hidden px-8">
+      {/* min-h, not h: the sticky header already consumes 4rem of the viewport,
+          so a full-viewport hero would always overflow by exactly that much. */}
+      <UIView className="relative flex min-h-[calc(100svh-4rem)] w-full flex-col overflow-hidden bg-background">
+        <UIView className="container mx-auto flex flex-1 flex-col items-center justify-center px-8">
           <UIView className="z-20 flex flex-col items-center justify-center gap-4 sm:gap-6">
             <UIGridPattern
               squares={[
@@ -34,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               ]}
               className={cn(
                 'mask-[radial-gradient(500px_circle_at_center,white,transparent)]',
-                'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12'
+                'inset-x-0 inset-y-[-30%] h-[200%] skew-y-12',
               )}
             />
             <UISpotlight
@@ -44,47 +47,43 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
             <Link href="/studio">
               <UIAnimatedButton
                 duration={2}
-                className="flex items-center gap-2 text-sm text-default-500"
+                className="flex items-center gap-2 text-sm text-muted-foreground"
               >
-                Make Every Post a Masterpiece with Crystal
+                Make Every Post a Masterpiece with Cool Snippets
                 <MynauiChevronRightWaves className="flex-none outline-hidden h-5 w-5" />
               </UIAnimatedButton>
             </Link>
             <UIView className="text-center py-6 md:py-10">
-              <h2 className="bg-clip-text text-transparent text-center bg-linear-to-b from-default-900 to-default-700 dark:from-default-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+              <h2 className="bg-clip-text text-transparent text-center bg-linear-to-b from-foreground to-foreground dark:from-muted-foreground dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                 Craft, Customize, <br /> and Share Code.
               </h2>
-              <p className="max-w-xl mx-auto text-sm md:text-lg text-default-700 dark:text-default-400 text-center">
+              <p className="max-w-xl mx-auto text-sm md:text-lg text-foreground dark:text-muted-foreground text-center">
                 Empowering developers to effortlessly create, tailor, and share
                 code snippets. Collaborate, innovate, and code smarter with
-                CrystalCode.
+                Cool Snippets.
               </p>
             </UIView>
             <UIView className="flex flex-col items-center justify-center gap-6 sm:flex-row">
               <Button
-                as={Link}
-                href="/studio"
-                className=" w-40 bg-linear-to-r from-lavender-frost to-periwinkle-glow px-4 py-2 text-small font-medium leading-5 text-background"
-                radius="full"
+                render={<Link href="/studio" />}
+                size="lg"
+                className="rounded-full px-6"
               >
                 Start Creating
               </Button>
               <Button
-                as={Link}
-                href="/pricing"
-                className="h-10 w-[163px] border border-default-100 px-[16px] py-[10px] text-small font-medium leading-5 backdrop-blur-sm"
-                endContent={
-                  <span className="pointer-events-none flex h-[22px] w-[22px] items-center justify-center rounded-full bg-default-100">
-                    <SolarArrowRightLineDuotone
-                      className="text-default-500 [&>path]:stroke-[1.5]"
-                      width={16}
-                    />
-                  </span>
-                }
-                radius="full"
-                variant="bordered"
+                render={<Link href="/features" />}
+                variant="outline"
+                size="lg"
+                className="rounded-full px-4 backdrop-blur-sm"
               >
-                See our plans
+                See our features
+                <span className="pointer-events-none flex h-5.5 w-5.5 items-center justify-center rounded-full bg-muted">
+                  <SolarArrowRightLineDuotone
+                    className="text-muted-foreground [&>path]:stroke-[1.5]"
+                    width={16}
+                  />
+                </span>
               </Button>
             </UIView>
 
