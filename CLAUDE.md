@@ -10,7 +10,62 @@ Cool Snippets Studio — Full Feature Wiring & Bug-Fix Plan
 
      Ad-hoc fixes landed outside the phased plan. All gated on
      `npx tsc --noEmit` + `rm -rf .next && yarn build` (both clean).
-     `yarn lint` is broken by design — ignore it.
+
+     NOTE: `yarn lint` used to be described here as "broken by design". It was
+     not — it was a missing `@eslint/eslintrc` plus `eslint: ^10`, which is
+     ahead of what eslint-plugin-react supports. Both are fixed; lint runs and
+     is now a real gate. It reports 51 pre-existing errors and 39 warnings
+     (34 of them react-hooks/* correctness findings) that predate the structure
+     work and still need their own pass — so treat a NEW lint error as yours,
+     and do not treat the existing count as permission to ignore the tool.
+
+     ═══════════════════════════════════════════════════════════════════
+     PROJECT STRUCTURE (read before adding a file)
+     ═══════════════════════════════════════════════════════════════════
+
+     Feature-sliced. Dependencies point downward only:
+
+         app shell (app/, layouts/, providers/)
+              v
+         features/  studio · editor-rte · marketing   (siblings independent)
+              v
+         shared/    ui · uikit · motion · fonts · hooks · lib · config ·
+                    types · icons
+              v
+         vendor/ (third-party) + data/ (static datasets)
+
+     Every layer has its own alias — @features/*, @shared/*, @vendor/*,
+     @data/*, @layouts/*, @providers/*, @styles/*. There is deliberately NO
+     @/* catch-all: it could reach any layer and would let imports bypass the
+     boundary rule. eslint.config.mjs enforces the direction via
+     no-restricted-imports, matching on the alias in the import string.
+
+     Where new code goes:
+       - Studio behaviour            -> features/studio/{canvas,panels,aside,
+                                        toolbar,layout,store,model,lib,ui}
+       - Reusable, feature-agnostic  -> shared/*
+       - Used by exactly one feature -> that feature, NOT shared/
+       - Static datasets / presets   -> data/
+
+     THREE UI SYSTEMS — pick deliberately:
+       - shared/ui     coss/Base UI primitives. THE DEFAULT for new code (77
+                       consumers). components.json points the coss CLI here.
+       - shared/uikit  UIView, the layout primitive (61 consumers), plus legacy
+                       UIButton/UIColorPicker. Keep using UIView; prefer
+                       shared/ui/button over UIButton in new code.
+       - shared/motion Decorative/animated components only.
+       - features/editor-rte/primitives is a FOURTH set — vendored Tiptap
+         internals, private to that feature. Never import it from outside;
+         it is intentionally absent from the barrel.
+
+     Cross-feature: only studio -> editor-rte, only via
+     `import { … } from '@features/editor-rte'`. Deep paths are a lint error.
+
+     Paths in the backlog below predate this migration: components/app/* is now
+     features/studio/*, app-kit/ui is shared/ui, app-kit/fonts is shared/fonts,
+     src/typings is split between shared/types and features/studio/model,
+     src/store is features/studio/store, src/plugins is vendor/, and src/json
+     plus src/server are data/.
 
      Header system — registry refactor (the big one). Replaced the switch +
      three near-identical template components with a data-driven registry, so

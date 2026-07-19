@@ -81,20 +81,35 @@ on Vercel it is inferred automatically, and locally it falls back to `http://loc
 
 ## Project layout
 
+The codebase is feature-sliced. Dependencies only point downward:
+**app shell → features → shared → vendor/data**.
+
 ```
 src/
-├── app/                 # Next.js routes — /studio is the editor
-├── components/
-│   ├── app/             # Studio: canvas, toolbars, side panels, export
-│   └── home/            # Marketing site
-├── app-kit/             # coss UI components, icons, primitives
-├── plugins/codemirror/  # Language and theme registries
-├── store/               # Zustand editor store
-└── styles/globals.css   # Tailwind v4 theme tokens
+├── app/                   # Next.js routes only — thin, no logic
+├── features/
+│   ├── studio/            # The editor: canvas, panels, toolbars, store, export
+│   ├── editor-rte/        # Vendored Tiptap rich-text editor (private internals)
+│   └── marketing/         # Public site sections
+├── shared/                # Feature-agnostic: ui, uikit, motion, fonts,
+│                          #   hooks, lib, config, types, icons
+├── vendor/codemirror/     # Language and theme registries
+├── data/                  # Static datasets (icon sets, patterns, presets)
+├── layouts/ providers/    # App shell
+└── styles/globals.css     # Tailwind v4 theme tokens
 ```
 
+Each layer has its own path alias (`@features/*`, `@shared/*`, `@vendor/*`,
+`@data/*`), so an import always names the layer it crosses into. ESLint enforces
+the direction — `yarn lint` fails on a violation. Two rules worth knowing:
+
+- `shared/` must not import from a feature. If it needs a feature's types or
+  store, the code belongs to that feature instead.
+- Features are independent. The one exception is `studio → editor-rte`, and it
+  must go through the barrel: `import { … } from '@features/editor-rte'`.
+
 Adding a theme or a language means adding one entry to the matching registry under
-`src/plugins/codemirror/` — that is usually the easiest first contribution.
+`src/vendor/codemirror/` — that is usually the easiest first contribution.
 
 ## Contributing
 
