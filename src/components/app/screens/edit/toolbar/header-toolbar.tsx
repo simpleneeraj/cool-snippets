@@ -112,7 +112,7 @@ const HeaderToolbar: React.FC = () => {
         <ToolbarSeparator />
         <TooltipProvider>
           <ToggleGroup
-            value={[position]}
+            value={position ? [position] : []}
             onValueChange={(key) => onChangeValues('position', key[0])}
           >
             {SEGMENT_OPTIONS.map((item) => (

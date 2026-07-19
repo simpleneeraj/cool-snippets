@@ -49,7 +49,9 @@ function Input({
           className={inputClassName}
           data-slot="input"
           size={typeof size === "number" ? size : undefined}
-          {...props}
+          // Base UI allows `style` to be a function of component state; a native
+          // input only accepts a plain CSSProperties object.
+          {...(props as React.ComponentPropsWithoutRef<"input">)}
         />
       ) : (
         <InputPrimitive
