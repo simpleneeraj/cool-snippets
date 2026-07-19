@@ -140,31 +140,14 @@
   font-display: swap;
   src: url('/fonts/Monoid/Monoid-Retina.ttf');
 }
-@font-face {
-  font-family: 'MonoLisa';
-  font-display: swap;
-  src: url('/fonts/Monolisa/MonoLisa.woff2');
-}
-@font-face {
-  font-family: 'OperatorMonoItalic';
-  font-display: swap;
-  src: url('/fonts/OperatorMono/OperatorMono Italic.otf');
-}
-@font-face {
-  font-family: 'OperatorMono';
-  font-display: swap;
-  src: url('/fonts/OperatorMono/OperatorMono.otf');
-}
+/* MonoLisa and Operator Mono were removed — both are commercial, per-seat
+   licensed typefaces that cannot be redistributed. See NOTICE.md. */
 @font-face {
   font-family: 'RobotoMono';
   font-display: swap;
   src: url('/fonts/RobotoMono/RobotoMono.ttf');
 }
-@font-face {
-  font-family: 'SFMonoLigaturized';
-  font-display: swap;
-  src: url('/fonts/SFMono/SFMonoLigaturized.ttf');
-}
+/* SF Mono removed — Apple licenses it for use on Apple platforms only. */
 @font-face {
   font-family: 'SourceCodePro';
   font-display: swap;

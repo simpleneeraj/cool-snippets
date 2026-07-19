@@ -108,7 +108,8 @@ export const elementsObject: Record<ELEMENTS, any> = {
       fontWeight: 400,
       lineHeight: 1.6,
       letterSpacing: 0,
-      fontFamily: 'SFMonoLigaturized',
+      // Default must stay an openly-licensed face — SF Mono was removed.
+      fontFamily: 'JetBrainsMono',
       borderRadius: 15,
       background: 'rgba(0, 0, 0, 0.5)',
       zIndex: '0',

@@ -15,18 +15,28 @@ permission.
 
 ## Fonts (`public/fonts/`)
 
-25 typefaces are bundled. **None of them ship with their licence text, which is a
-requirement even for the permissively licensed ones**, and at least three appear to be
-paid commercial fonts that may not be redistributed at all.
+**None of the bundled fonts ship with their licence text, which is a requirement even for
+the permissively licensed ones.** That is a bug and is being corrected.
 
-### Likely not redistributable — being removed
+### Removed — commercial, not redistributable
+
+These were deleted from the repository, from the font picker and from the stylesheet.
+They were never licensed for redistribution and should not have been committed.
 
 | Font | Why |
 | --- | --- |
 | **MonoLisa** | Commercial, per-seat licence. Redistributing the font file is not permitted. |
 | **Operator Mono** | Commercial (Hoefler&Co). Redistribution not permitted. |
 | **SF Mono** | Apple. Licence restricts use to Apple platforms; redistribution not permitted. |
-| **Ligaturized** | A patched derivative of other fonts; the base font's licence governs it and is unknown here. |
+
+They remain in the git history of earlier commits. If you are the rights holder and want
+them expunged from history as well, say so in an issue and the history will be rewritten.
+
+### Still under review
+
+**Ligaturized** is a patched derivative of other typefaces; whichever licence governs the
+base font governs it too, and that is unrecorded here. Some of its variants are derived
+from the commercial fonts listed above.
 
 ### Open licences — permitted, but the licence text must ship with them
 
