@@ -5,11 +5,9 @@ const appConfig = {
   environment: 'Beta',
   year: new Date().getFullYear(),
   contact: {
-    phone: '+1 234 567 890',
-    // Support runs through GitHub Issues — there is no support mailbox.
+    // Support runs through GitHub Issues — there is no mailbox, phone line or
+    // live chat, so none are advertised.
     issues: 'https://github.com/simpleneeraj/cool-snippets/issues',
-    map: 'https://www.google.com/maps?q=Cool+Snippets+Office',
-    chat: 'https://wa.me/1234567890?text=Hi%20Cool%20Snippets,%20I%20need%20help!',
   },
   snippet: {
     output: 'cool-snippet',

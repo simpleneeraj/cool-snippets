@@ -31,49 +31,12 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
 
 export default ContactSection;
 
+// Every channel here is a real, staffed one. There is no phone line, no live
+// chat and no office — this is a solo open-source project, and inventing
+// support channels it cannot answer is worse than offering none.
 const contactMethods = [
   {
-    title: 'Our Studio',
-    description: (
-      <div className={styles().wrapper()}>
-        <p className={styles().paragraph()}>
-          We're remote for now — studio coming soon!
-        </p>
-        <Link className={styles().link()} href={appConfig.contact.map}>
-          See Where We’re Launching
-        </Link>
-      </div>
-    ),
-    icon: SolarHome2LineDuotone,
-  },
-  {
-    title: 'Call Us',
-    description: (
-      <div className={styles().wrapper()}>
-        <p className={styles().paragraph()}>Reach us directly via phone.</p>
-        <Link className={styles().link()} href={appConfig.contact.phone}>
-          {appConfig.contact.phone}
-        </Link>
-      </div>
-    ),
-    icon: SolarPhoneCallingRoundedLineDuotone,
-  },
-  {
-    title: 'Chat with Us',
-    description: (
-      <div className={styles().wrapper()}>
-        <p className={styles().paragraph()}>
-          Need quick help? Start a live chat.
-        </p>
-        <Link className={styles().link()} href={appConfig.contact.chat}>
-          Start Chat
-        </Link>
-      </div>
-    ),
-    icon: SolarChatRoundUnreadLineDuotone,
-  },
-  {
-    title: 'Open an Issue',
+    title: 'Report a Bug',
     description: (
       <div className={styles().wrapper()}>
         <p className={styles().paragraph()}>
@@ -90,5 +53,62 @@ const contactMethods = [
       </div>
     ),
     icon: MdiGithub,
+  },
+  {
+    title: 'Request a Feature',
+    description: (
+      <div className={styles().wrapper()}>
+        <p className={styles().paragraph()}>
+          Missing a theme, a language or an export size? Ask for it.
+        </p>
+        <Link
+          className={styles().link()}
+          href={appConfig.contact.issues}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open a Request
+        </Link>
+      </div>
+    ),
+    icon: SolarChatRoundUnreadLineDuotone,
+  },
+  {
+    title: 'Contribute',
+    description: (
+      <div className={styles().wrapper()}>
+        <p className={styles().paragraph()}>
+          The source is MIT licensed. Fork it, patch it, send it back.
+        </p>
+        <Link
+          className={styles().link()}
+          href={appConfig.links.repo}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View the Repository
+        </Link>
+      </div>
+    ),
+    icon: SolarHome2LineDuotone,
+  },
+  {
+    title: 'Support the Project',
+    description: (
+      <div className={styles().wrapper()}>
+        <p className={styles().paragraph()}>
+          Cool Snippets is free. Sponsorship is what keeps it that way.
+        </p>
+        <Link
+          className={styles().link()}
+          href={appConfig.links.sponsor}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Become a Sponsor
+        </Link>
+      </div>
+    ),
+    icon: SolarPhoneCallingRoundedLineDuotone,
   },
 ];

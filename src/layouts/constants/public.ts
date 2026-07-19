@@ -1,6 +1,4 @@
 import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
-import { MdiLinkedin } from '@/app-kit/icons/social/MdiLinkedin';
-import { MdiTwitter } from '@/app-kit/icons/social/MdiTwitter';
 import appConfig from '@/constants/site';
 
 const publicLayout = {
@@ -15,8 +13,8 @@ const publicLayout = {
         href: '/features',
       },
       {
-        label: 'Templates',
-        href: '/templates',
+        label: 'Studio',
+        href: '/studio',
       },
     ],
   },
@@ -34,8 +32,8 @@ const publicLayout = {
             href: '/features',
           },
           {
-            label: 'Templates',
-            href: '/templates',
+            label: 'Studio',
+            href: '/studio',
           },
         ],
       },
@@ -43,59 +41,39 @@ const publicLayout = {
         title: 'Learn',
         links: [
           {
-            label: 'Blog',
-            href: '/blog',
+            label: 'About',
+            href: '/about-us',
           },
           {
             label: 'Contact',
             href: '/contact',
           },
-          {
-            label: 'About Us',
-            href: '/about-us',
-          },
         ],
       },
       {
-        title: 'Legal',
+        title: 'Project',
         links: [
           {
-            label: 'Privacy Policy',
-            href: '/legal/privacy',
+            label: 'Source Code',
+            href: appConfig.links.repo,
           },
           {
-            label: 'Terms and Conditions',
-            href: '/legal/terms',
+            label: 'Report an Issue',
+            href: appConfig.contact.issues,
           },
-        ],
-      },
-      {
-        title: 'Company',
-        links: [
           {
-            label: 'Issues Report',
-            href: '/issues-report',
-          },
-
-          {
-            label: 'Change Log',
-            href: '/change-log',
+            label: 'Sponsor',
+            href: appConfig.links.sponsor,
           },
         ],
       },
     ],
+    // Only the GitHub link is real. Placeholder social profiles were removed
+    // rather than pointed at the platform home pages.
     socialLinks: [
       {
         icon: MdiGithub,
         href: appConfig.links.repo,
-      },
-      {
-        icon: MdiLinkedin,
-        href: 'https://linkedin.com',
-      },
-      {
-        icon: MdiTwitter,
-        href: 'https://twitter.com',
       },
     ],
   },

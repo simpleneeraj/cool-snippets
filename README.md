@@ -116,4 +116,12 @@ Cool Snippets is free and intends to stay that way. If it saves you time, you ca
 
 ## License
 
-[MIT](./LICENSE) © [simpleneeraj](https://github.com/simpleneeraj)
+The **code** is [MIT](./LICENSE) © [simpleneeraj](https://github.com/simpleneeraj).
+
+The **bundled assets are not** — some fonts and background images were collected during
+early development without a proper record of their licensing, and a few of them almost
+certainly should not be redistributed. [NOTICE.md](./NOTICE.md) sets out exactly what is
+in here and what is uncertain.
+
+If you own any of that work and want it gone, open an issue and it will be removed
+straight away.

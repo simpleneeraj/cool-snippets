@@ -1,9 +1,0 @@
-import React from 'react';
-
-type HomePageProps = object;
-
-const HomePage: React.FC<HomePageProps> = ({}) => {
-  return 'Premium Page';
-};
-
-export default HomePage;
