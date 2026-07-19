@@ -7,8 +7,7 @@ import { AnimatedTooltip } from '@/app-kit/components/UITooltip';
 import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 import Link from 'next/link';
-import { MynauiChevronRightWaves } from '@/app-kit/icons/MynauiChevronRightWaves';
-import { SolarArrowRightLineDuotone } from '@/app-kit/icons/SolarArrowRightLineDuotone';
+import { AltArrowRightLineDuotoneIcon, ArrowRightLineDuotoneIcon } from '@solar-icons/react';
 
 type HeroSectionProps = object;
 
@@ -50,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
                 className="flex items-center gap-2 text-sm text-muted-foreground"
               >
                 Make Every Post a Masterpiece with Cool Snippets
-                <MynauiChevronRightWaves className="flex-none outline-hidden h-5 w-5" />
+                <AltArrowRightLineDuotoneIcon className="flex-none outline-hidden h-5 w-5" />
               </UIAnimatedButton>
             </Link>
             <UIView className="text-center py-6 md:py-10">
@@ -79,7 +78,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               >
                 See our features
                 <span className="pointer-events-none flex h-5.5 w-5.5 items-center justify-center rounded-full bg-muted">
-                  <SolarArrowRightLineDuotone
+                  <ArrowRightLineDuotoneIcon
                     className="text-muted-foreground [&>path]:stroke-[1.5]"
                     width={16}
                   />

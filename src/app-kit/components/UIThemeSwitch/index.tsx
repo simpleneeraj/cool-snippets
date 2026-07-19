@@ -3,8 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useId, useState } from 'react';
 import { Button } from '@/app-kit/ui/button';
-import { SolarMoonLinear } from '@/app-kit/icons/SolarMoonLinear';
-import { SolarSun2Linear } from '@/app-kit/icons/SolarSun2Linear';
+import { MoonLinearIcon, Sun2LinearIcon } from '@solar-icons/react';
 
 export default function UIThemeSwitch() {
   const id = useId();
@@ -37,8 +36,8 @@ export default function UIThemeSwitch() {
       onClick={smartToggle}
       aria-label="Toggle dark mode"
     >
-      <SolarSun2Linear aria-hidden="true" className="size-4 dark:hidden" />
-      <SolarMoonLinear
+      <Sun2LinearIcon aria-hidden="true" className="size-4 dark:hidden" />
+      <MoonLinearIcon
         aria-hidden="true"
         className="size-4 hidden dark:block"
       />

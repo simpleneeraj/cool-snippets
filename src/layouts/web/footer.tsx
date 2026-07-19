@@ -6,8 +6,7 @@ import appConfig from '@/constants/site';
 import { Button } from '@/app-kit/ui/button';
 import { Badge } from '@/app-kit/ui/badge';
 import UISpotlight from '@/app-kit/components/UISpotlight';
-import { FluentEmojiCrystalBall } from '@/app-kit/icons/layout/FluentEmojiCrystalBall';
-import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
+import { Sparkles } from 'lucide-react';
 import publicLayout from '../constants/public';
 
 type FooterProps = object;
@@ -21,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col flex-1 gap-2">
               <div className="flex items-center gap-1">
-                <TokenBrandedCrystal className="h-5 w-5" />
+                <Sparkles className="h-5 w-5 text-lavender-frost" />
                 <p className="text-lg font-light bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
                   {appConfig.short_name}
                 </p>
@@ -91,7 +90,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             All systems operational
           </Badge>
           <a className="flex sm:justify-center">
-            <FluentEmojiCrystalBall className="h-10 w-10" />
+            <Sparkles className="h-10 w-10 text-lavender-frost animate-pulse" />
           </a>
           <p className="text-xs text-muted-foreground sm:text-right">
             ©{appConfig.year} {appConfig.name} | All rights reserved.

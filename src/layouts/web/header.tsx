@@ -16,15 +16,15 @@ import {
   SheetTitle,
   SheetClose,
 } from '@/app-kit/ui/sheet';
-import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
-import { SolarAltArrowRightLineDuotone } from '@/app-kit/icons/layout/SolarAltArrowRightLineDuotone';
+import { Sparkles } from 'lucide-react';
+import { AltArrowRightLineDuotoneIcon } from '@solar-icons/react';
 import publicLayout from '../constants/public';
 
 const menuItems = publicLayout.header?.links ?? [];
 
 const Brand = () => (
   <span className="flex select-none items-center gap-1">
-    <TokenBrandedCrystal className="h-4 w-4" />
+    <Sparkles className="h-4 w-4 text-lavender-frost" />
     <span className="bg-linear-to-r from-lavender-frost to-periwinkle-glow bg-clip-text font-light text-transparent">
       {appConfig.short_name}
     </span>
@@ -67,7 +67,7 @@ export default function Header() {
           className="rounded-full"
         >
           Get Started
-          <SolarAltArrowRightLineDuotone className="size-5" />
+          <AltArrowRightLineDuotoneIcon className="size-5" />
         </Button>
       </div>
 

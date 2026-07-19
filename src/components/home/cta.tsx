@@ -5,7 +5,7 @@ import { Button } from '@/app-kit/ui/button';
 import { cn } from '@/lib/utils';
 import appConfig from '@/constants/site';
 import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
-import { SolarArrowRightLineDuotone } from '@/app-kit/icons/SolarArrowRightLineDuotone';
+import { ArrowRightLineDuotoneIcon } from '@solar-icons/react';
 
 type CtaSectionProps = object;
 
@@ -41,7 +41,7 @@ const CtaSection: React.FC<CtaSectionProps> = ({}) => {
           <UIView className="mt-4 flex flex-col items-center gap-3 sm:flex-row">
             <Button size="xl" render={<Link href="/studio" />}>
               Open the Studio
-              <SolarArrowRightLineDuotone />
+              <ArrowRightLineDuotoneIcon />
             </Button>
             <Button
               size="xl"

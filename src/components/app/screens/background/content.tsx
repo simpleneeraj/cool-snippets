@@ -16,10 +16,12 @@ const BackgroundContent: React.FC<BackgroundContentProps> = ({}) => {
 
   const onUpdateBackground = React.useCallback(
     (type: BACKGROUND_TYPE, value: string) => {
-      console.log('UPDATING', type, value);
-
+      // `onChangeSlide` replaces `background` wholesale, so carry the existing
+      // `style` (which holds the frame width/height) across — otherwise picking
+      // a background drops the dimensions and the artboard shrinks to minimum.
       onChangeSlide({
         background: {
+          style: currentSlide?.background?.style,
           type,
           properties: {
             [type]: value,
@@ -27,7 +29,7 @@ const BackgroundContent: React.FC<BackgroundContentProps> = ({}) => {
         },
       });
     },
-    [onChangeSlide],
+    [onChangeSlide, currentSlide?.background?.style],
   );
 
   switch (screen.background) {
@@ -55,14 +57,19 @@ const BackgroundContent: React.FC<BackgroundContentProps> = ({}) => {
       return (
         <ImagesBackgrounds
           value={currentSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]}
-          onSelect={(gradient) => {
-            console.log(gradient);
-            onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient);
-          }}
+          onSelect={(gradient) =>
+            onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient)
+          }
         />
       );
     case BACKGROUND_SCREEN.MESH:
-      return <MeshBackgrounds />;
+      return (
+        <MeshBackgrounds
+          onSelect={(gradient) =>
+            onUpdateBackground(BACKGROUND_TYPE.GRADIENT, gradient)
+          }
+        />
+      );
     case BACKGROUND_SCREEN.PATTERNS:
       return (
         <PatternsBackgrounds
@@ -78,10 +85,9 @@ const BackgroundContent: React.FC<BackgroundContentProps> = ({}) => {
       return (
         <ImagesBackgrounds
           value={currentSlide?.background?.properties?.[BACKGROUND_TYPE.IMAGE]}
-          onSelect={(gradient) => {
-            console.log(gradient);
-            onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient);
-          }}
+          onSelect={(gradient) =>
+            onUpdateBackground(BACKGROUND_TYPE.IMAGE, gradient)
+          }
         />
       );
   }

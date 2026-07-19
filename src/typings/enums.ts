@@ -30,8 +30,33 @@ export enum ELEMENTS {
   TEXT = 'ELEMENT::TEXT',
   IMAGE = 'ELEMENT::IMAGE',
   ICON = 'ELEMENT::ICON',
+  QRCODE = 'ELEMENT::QRCODE',
   WATERMARK = 'ELEMENT::WATERMARK',
   USERINFO = 'ELEMENT::USERINFO',
+}
+
+export enum WATERMARK_MODE {
+  TEXT = 'text',
+  IMAGE = 'image',
+}
+
+export enum ASSET_SOURCE {
+  URL = 'url',
+  IDB = 'idb',
+}
+
+export enum QR_ERROR_LEVEL {
+  LOW = 'L',
+  MEDIUM = 'M',
+  QUARTILE = 'Q',
+  HIGH = 'H',
+}
+
+export enum LAYER_DIRECTION {
+  UP = 'up',
+  DOWN = 'down',
+  TOP = 'top',
+  BOTTOM = 'bottom',
 }
 
 export enum TEXT_ALIGN {

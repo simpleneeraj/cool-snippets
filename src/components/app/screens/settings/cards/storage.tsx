@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/app-kit/ui/card';
 import { format } from 'date-fns';
 import convertBytes from '@/utils/convert-bytes';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { SolarRefreshLineDuotone } from '@/app-kit/icons/SolarRefreshLineDuotone';
+import { RefreshLineDuotoneIcon } from '@solar-icons/react';
 
 const StorageCard = () => {
   const { slides, resetState } = useSlideEditor();
@@ -26,7 +26,7 @@ const StorageCard = () => {
         <div className="flex items-center gap-3">
           <Avatar className="border border-white/20 bg-transparent">
             <AvatarFallback>
-              <SolarRefreshLineDuotone className="h-6 w-6" />
+              <RefreshLineDuotoneIcon className="h-6 w-6 text-white" />
             </AvatarFallback>
           </Avatar>
           <p className="text-lg font-medium text-white">Storage Management</p>

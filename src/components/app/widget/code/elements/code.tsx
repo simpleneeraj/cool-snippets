@@ -2,16 +2,20 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import CodeHeaderWidget from '../headers';
 import UIView from '@/app-kit/source/UIView';
-import { SlideHeaderType } from '@/typings/editor';
+import { EditorOptionsType, SlideHeaderType } from '@/typings/editor';
+import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import {
   EditorView,
   Extension,
   ReactCodeMirrorProps,
 } from '@uiw/react-codemirror';
-import { merge } from 'lodash';
+import { resolveEditorOptions } from '@/store/slides/editor-options';
 
 type Props = {
   header: SlideHeaderType | null;
+  editorOptions?: EditorOptionsType;
+  /** Language extension, applied only when syntax highlighting is on. */
+  language?: Extension;
 } & ReactCodeMirrorProps;
 
 const CodeMirror = dynamic(() => import('@uiw/react-codemirror'), {
@@ -21,7 +25,22 @@ const CodeMirror = dynamic(() => import('@uiw/react-codemirror'), {
   },
 });
 
-const CodeElement: React.FC<Props> = ({ ...rest }) => {
+const CodeElement: React.FC<Props> = ({ editorOptions, language, ...rest }) => {
+  const options = resolveEditorOptions(editorOptions);
+
+  const extensions = React.useMemo(() => {
+    const list: Extension[] = [];
+    if (options.wrapLongLines) list.push(EditorView.lineWrapping);
+    if (options.indentationGuides) list.push(indentationMarkers());
+    if (options.syntaxHighlighting && language) list.push(language);
+    return list;
+  }, [
+    options.wrapLongLines,
+    options.indentationGuides,
+    options.syntaxHighlighting,
+    language,
+  ]);
+
   return (
     <>
       <UIView className="glass-layer absolute inset-0 w-full h-full" />
@@ -30,22 +49,18 @@ const CodeElement: React.FC<Props> = ({ ...rest }) => {
         <CodeMirror
           {...rest}
           className="codemirror"
-          basicSetup={merge(
-            {},
-            {
-              foldGutter: false,
-              lineNumbers: false,
-              lintKeymap: false,
-              autocompletion: false,
-              highlightActiveLine: false,
-              highlightActiveLineGutter: false,
-            },
-            rest.basicSetup,
-          )}
-          extensions={[
-            EditorView.lineWrapping,
-            ...(rest.extensions as Extension[]),
-          ]}
+          basicSetup={{
+            foldGutter: false,
+            lintKeymap: false,
+            autocompletion: false,
+            highlightActiveLineGutter: false,
+            lineNumbers: options.lineNumbers,
+            highlightActiveLine: options.highlightActiveLine,
+            bracketMatching: options.matchBrackets,
+            closeBrackets: options.matchBrackets,
+            ...(typeof rest.basicSetup === 'object' ? rest.basicSetup : {}),
+          }}
+          extensions={extensions}
         />
       </UIView>
     </>

@@ -8,7 +8,7 @@ import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import ContactSection from '@/components/contact/grids';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
-import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
+import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 import CtaSection from '@/components/home/cta';
 
 type ContactProps = object;
@@ -26,7 +26,7 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
             onClick={() => scrollToTarget('CONTACT_FORM', 100)}
           >
             Get in Touch
-            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
+            <AltArrowDownLineDuotoneIcon className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />

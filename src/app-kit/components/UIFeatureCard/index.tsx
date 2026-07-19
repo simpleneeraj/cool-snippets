@@ -9,7 +9,7 @@ type FeaturesCard = {
   index: number;
   title: string;
   description: React.ReactNode | React.ReactNode[];
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: React.ComponentType<any>;
 };
 
 const FeatureCard: React.FC<FeaturesCard> = ({

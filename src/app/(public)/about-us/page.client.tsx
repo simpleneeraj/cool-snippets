@@ -5,7 +5,7 @@ import UIView from '@/app-kit/source/UIView';
 import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
-import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
+import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 import UIAuraBox from '@/app-kit/components/UIAuraBox';
 
 type AboutClientProps = {
@@ -25,7 +25,7 @@ const AboutClient: React.FC<AboutClientProps> = ({}) => {
             onClick={() => scrollToTarget('about-section', 100)}
           >
             Learn More About Us
-            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
+            <AltArrowDownLineDuotoneIcon className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />

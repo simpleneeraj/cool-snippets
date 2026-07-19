@@ -1,58 +1,33 @@
-import templatesData from '@/json/templates.json';
-import { HeaderInputType, HeaderVariants } from '@/typings/templates';
-import { trafficLights, unixColors } from '../../code/templates/colors';
-import UnixNeon from '@/components/app/widget/code/templates/unix-neon';
-import IOSTermainal from '@/components/app/widget/code/templates/ios-terminal';
-import WindowsTen from '@/components/app/widget/code/templates/windows-terminal';
+import WindowChrome from '@/components/app/widget/code/templates/window-chrome';
+import { HEADER_TEMPLATE_LIST } from '@/components/app/widget/code/templates/registry';
+import { HeaderInputType, HeadersProps } from '@/typings/templates';
 
-const uiTemplates = [
-  {
-    name: 'iOS Traffic',
-    // description: 'iOS traffic light colors.',
-    value: templatesData.ios,
+/**
+ * Header-style options for the picker, derived from the one registry so a new
+ * style shows up here the moment it is added — no parallel list to maintain.
+ * A chrome-less style previews its filename so the swatch isn't blank.
+ */
+const uiTemplates = HEADER_TEMPLATE_LIST.map((template) => {
+  const Decoration = template.decoration;
+
+  const props: HeadersProps = {
+    style: template.preview.style,
+    colors: template.colors,
+    variant: template.preview.variant,
+    inputType: Decoration ? HeaderInputType.NONE : HeaderInputType.INPUT,
+  };
+
+  return {
+    name: template.name,
+    value: template.type,
     codeHeader: (
-      <IOSTermainal
-        inputType={HeaderInputType.NONE}
-        colors={trafficLights}
-        variant={HeaderVariants.FILLED}
-        style={{
-          gap: '6px',
-          size: '12px',
-          borderRadius: '20px',
-        }}
+      <WindowChrome
+        {...props}
+        decorationSide={template.decorationSide}
+        decoration={Decoration ? <Decoration {...props} /> : null}
       />
     ),
-  },
-  {
-    name: 'Unix Neon',
-    // description: 'Neon-themed inspired by Unix systems.',
-    value: templatesData.unix,
-    codeHeader: (
-      <UnixNeon
-        inputType={HeaderInputType.NONE}
-        colors={unixColors}
-        variant={HeaderVariants.OUTLINE}
-        style={{
-          gap: '6px',
-          size: '14px',
-        }}
-      />
-    ),
-  },
-  {
-    name: 'Windows Terminal',
-    // description: 'Minimal Windows Terminal.',
-    value: templatesData.windows,
-    codeHeader: (
-      <WindowsTen
-        inputType={HeaderInputType.NONE}
-        style={{
-          gap: '6px',
-          size: '14px',
-        }}
-      />
-    ),
-  },
-];
+  };
+});
 
 export default uiTemplates;

@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuGroup,
 } from '@/app-kit/ui/menu';
-import { SolarBellBingLineDuotone } from '@/app-kit/icons/SolarBellBingLineDuotone';
+import { BellRingLineDuotoneIcon } from '@solar-icons/react';
 
 const notifications = [
   {
@@ -34,7 +34,7 @@ export const NotificationsDropdown = () => {
         render={<Button size="icon" variant="ghost" className="rounded-full" />}
         aria-label="Notifications"
       >
-        <SolarBellBingLineDuotone className="h-6 w-6" />
+        <BellRingLineDuotoneIcon className="h-6 w-6" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-80">
         <div className="relative mb-1 h-[160px] w-full overflow-hidden rounded-lg">

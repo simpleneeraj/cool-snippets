@@ -1,93 +1,43 @@
 import React from 'react';
-import UnixNeon from './templates/unix-neon';
-import IOSTermainal from './templates/ios-terminal';
-import WindowsTen from './templates/windows-terminal';
-import templatesData from '@/json/templates.json';
-/**
- * State Should be dynamic and comes from server
- */
-
-import { trafficLights, unixColors } from './templates/colors';
+import WindowChrome from './templates/window-chrome';
+import { HEADER_TEMPLATES } from './templates/registry';
 import { SlideHeaderType } from '@/typings/editor';
-import { HeaderInputType, HeaderVariants } from '@/typings/templates';
+import { HeadersProps } from '@/typings/templates';
 
 type CodeHeaderWidgetProps = {
   header: SlideHeaderType | null;
 };
 
+/**
+ * Renders the code-block header for the active style. Every style is described
+ * once in `HEADER_TEMPLATES`; this component looks the entry up, merges its
+ * defaults under the slide's background, and hands the shared `WindowChrome` the
+ * matching decoration. Adding a style never touches this file.
+ */
 const CodeHeaderWidget: React.FC<CodeHeaderWidgetProps> = ({ header }) => {
-  switch (header?.type) {
-    case templatesData.ios:
-      return (
-        <IOSTermainal
-          colors={trafficLights}
-          variant={header?.variant as HeaderVariants}
-          style={{
-            gap: '8px',
-            size: '12px',
-            borderWidth: '2px',
-            borderRadius: '20px',
-            padding: '0.8rem 0 0.8rem 0.8rem',
-            background: header?.style?.background,
-          }}
-        />
-      );
+  const templateType = header?.type;
+  const preset = templateType ? HEADER_TEMPLATES[templateType] : undefined;
+  if (!preset) return null;
 
-    case templatesData.windows:
-      return (
-        <WindowsTen
-          variant={header?.variant as HeaderVariants}
-          inputType={header?.input as HeaderInputType}
-          iconSource={header?.properties?.title?.icon}
-          style={{
-            gap: '8px',
-            size: '16px',
-            padding: '12px',
-            background: header?.style?.background,
-          }}
-        />
-      );
-    case templatesData.unix:
-      return (
-        // Can be more optimization
-        <UnixNeon
-          name={header.properties?.title?.text}
-          colors={unixColors}
-          variant={header?.variant as HeaderVariants}
-          inputType={header?.input as HeaderInputType}
-          iconSource={header?.properties?.title?.icon}
-          style={{
-            gap: '8px',
-            size: '16px',
-            padding: '12px',
-            background: header?.style?.background,
-          }}
-        />
-      );
-    default:
-      return null;
-  }
+  const props: HeadersProps = {
+    style: { ...preset.defaultStyle, background: header?.style?.background },
+    colors: preset.colors,
+    name: header?.properties?.title?.text,
+    variant: header?.variant,
+    position: header?.position,
+    inputType: header?.input,
+    iconSource: header?.properties?.title?.icon,
+  };
+
+  const Decoration = preset.decoration;
+
+  return (
+    <WindowChrome
+      {...props}
+      decorationSide={preset.decorationSide}
+      decoration={Decoration ? <Decoration {...props} /> : null}
+    />
+  );
 };
 
 export default CodeHeaderWidget;
-
-// background={header.background}
-// theme={header['theme']}
-// lightsStyle={{
-//   size: 14,
-//   iconGap: '8px',
-//   padding: `0.8rem 0 0.8rem 0.8rem`,
-// }}
-// size={16}
-// iconGap="0.7rem"
-// padding={`0.8rem`}
-// icon={header.icon}
-// inputStyle={header.input}
-// background={header.background}
-// theme={HeaderVariants.FILLED}
-// size={14}
-// iconGap=".8rem"
-// padding={`0.8rem`}
-// icon={header.icon}
-// inputStyle={header.input}
-// background={header.background}

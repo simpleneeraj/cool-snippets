@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import IconPicker from './modal';
+import IconPopover from './icon-popover';
 import CodeHeaderDropdown from './code-header';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { SlideHeaderType } from '@/typings/editor';
+import { HeaderInputType } from '@/typings/templates';
 import {
   Select,
   SelectItem,
@@ -18,7 +19,7 @@ import {
   ToolbarGroup,
   ToolbarSeparator,
 } from '@/app-kit/ui/toolbar';
-import { Button } from '@/app-kit/ui/button';
+import { Input } from '@/app-kit/ui/input';
 import { Toggle, ToggleGroup } from '@/app-kit/ui/toggle-group';
 import {
   Tooltip,
@@ -28,10 +29,6 @@ import {
 } from '@/app-kit/ui/tooltip';
 
 const HeaderToolbar: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const onOpen = React.useCallback(() => setIsOpen(true), []);
-  const onClose = React.useCallback(() => setIsOpen(false), []);
-  const onOpenChange = React.useCallback((open: boolean) => setIsOpen(open), []);
   const { currentElement, onChangeSlideElement } = useSlideEditor();
   const { header } = currentElement || {};
   const { type, position, input, variant, properties } = header || {};
@@ -44,29 +41,26 @@ const HeaderToolbar: React.FC = () => {
     });
   };
 
-  const defaultIcon =
-    'https://cdn.statically.io/gh/simpleneeraj/vscode-symbols@main/src/icons/files/proto.svg';
+  // The icon picker and the filename field are only meaningful for the input
+  // modes that actually render them — showing them in the other modes gives the
+  // user dead controls. Gate each on the active input type.
+  const showIcon =
+    input === HeaderInputType.ICON || input === HeaderInputType.ICON_AND_INPUT;
+  const showFilename =
+    input === HeaderInputType.INPUT || input === HeaderInputType.ICON_AND_INPUT;
 
   return (
     <Toolbar>
       <ToolbarGroup className="flex items-center gap-1">
-        {/* Icon */}
-        <Button
-          variant="outline"
-          onClick={onOpen}
-          title="Change icon"
-          className="h-8 w-8 p-0"
-        >
-          {properties?.title?.icon && (
-            <img
-              src={properties?.title?.icon || defaultIcon}
-              alt="App icon"
-              width={16}
-              height={16}
-              className="h-4 w-4"
-            />
-          )}
-        </Button>
+        {/* Icon — inline symbol picker (vscode-symbols) */}
+        {showIcon && (
+          <IconPopover
+            value={properties?.title?.icon}
+            onSelect={(icon) =>
+              onChangeValues('properties', { title: { icon: icon.source } })
+            }
+          />
+        )}
 
         {/* Header Type */}
         <CodeHeaderDropdown
@@ -109,11 +103,25 @@ const HeaderToolbar: React.FC = () => {
             ))}
           </SelectPopup>
         </Select>
+        {/* Filename shown in the header (e.g. index.tsx) */}
+        {showFilename && (
+          <Input
+            value={properties?.title?.text ?? ''}
+            placeholder="index.tsx"
+            className="h-8 w-28"
+            onChange={(e) =>
+              onChangeValues('properties', { title: { text: e.target.value } })
+            }
+          />
+        )}
+
         <ToolbarSeparator />
         <TooltipProvider>
           <ToggleGroup
             value={position ? [position] : []}
-            onValueChange={(key) => onChangeValues('position', key[0])}
+            // Alignment always has a value — ignore the empty array that a
+            // second click on the active option would otherwise produce.
+            onValueChange={(key) => key[0] && onChangeValues('position', key[0])}
           >
             {SEGMENT_OPTIONS.map((item) => (
               <Tooltip key={item.value}>
@@ -133,33 +141,8 @@ const HeaderToolbar: React.FC = () => {
           </ToggleGroup>
         </TooltipProvider>
       </ToolbarGroup>
-
-      {/* Icon Picker Modal */}
-      <IconPicker
-        isOpen={isOpen}
-        onClose={onClose}
-        onOpenChange={onOpenChange}
-        value={{
-          name: '',
-          source: properties?.title?.icon as string,
-        }}
-        onSelectIcon={(value) =>
-          onChangeValues('properties', { title: { icon: value?.source } })
-        }
-      />
     </Toolbar>
   );
 };
 
 export default HeaderToolbar;
-
-{
-  /* <Input
-            value={properties?.title?.text || ''}
-            size="sm"
-            variant="flat"
-            onChange={(e) =>
-              onChangeValues('properties', { title: { text: e.target.value } })
-            }
-          /> */
-}

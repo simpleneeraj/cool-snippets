@@ -5,7 +5,7 @@ import { toastManager } from '@/app-kit/ui/toast';
 import useHotkeys from '@/app-kit/hooks/use-hotkeys';
 import useSlideEditor from '@/store/hooks/use-editor';
 import formatCode, { formatterSupportedLanguages } from '@/utils/formatCode';
-import { SolarMagicStick3Linear } from '@/app-kit/icons/SolarMagicStick3Linear';
+import { MagicWand3LinearIcon } from '@solar-icons/react';
 import { Button } from '@/app-kit/ui/button';
 import { Tooltip, TooltipPopup, TooltipTrigger } from '@/app-kit/ui/tooltip';
 
@@ -61,7 +61,7 @@ const BeautifyCode: React.FC = () => {
       <TooltipTrigger
         render={<Button variant="outline" onClick={onFormatCode} />}
       >
-        <SolarMagicStick3Linear aria-hidden="true" />
+        <MagicWand3LinearIcon aria-hidden="true" />
       </TooltipTrigger>
       <TooltipPopup>Beautify Code (⌘⇧B)</TooltipPopup>
     </Tooltip>

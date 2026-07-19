@@ -12,7 +12,6 @@ import {
   SelectContent,
   SelectItem,
 } from '@/app-kit/ui/select';
-import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconsProps, PickerProps } from '@/typings/icon-picker';
 import UILoadingFallback from '@/app-kit/components/UILoadingFallback';
@@ -23,8 +22,6 @@ interface FluentEmojiState {
 }
 
 const FluentEmoji: React.FC<PickerProps & PickerIconsProps> = (props) => {
-  const [ref, height] = useDynamicHeight();
-  const calculatedHeight = subtract(height, 80);
   const [state, updateState] = useImmer<FluentEmojiState>({
     searchTerm: null,
     selectedType: null,
@@ -71,11 +68,10 @@ const FluentEmoji: React.FC<PickerProps & PickerIconsProps> = (props) => {
           }
         />
       </UIView>
-      <UIView className="flex flex-col flex-1" ref={ref}>
+      <UIView className="layout-fill">
         <UIVirtualizeGrid
           {...props}
           items={query.data?.icons || []}
-          height={calculatedHeight}
           emptyContent={
             query.isValidating ? (
               <UILoadingFallback />

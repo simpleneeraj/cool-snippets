@@ -1,71 +1,51 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
+import appConfig from '@/constants/site';
+import {
+  ASSET_SOURCE,
+  ELEMENTS,
+  QR_ERROR_LEVEL,
+  WATERMARK_MODE,
+} from '@/typings/enums';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
-import { SolarCodeSquareOutline } from '@/app-kit/icons/SolarCodeSquareOutline';
-import { SolarTextFieldFocusOutline } from '@/app-kit/icons/SolarTextFieldFocusOutline';
-import { SolarGalleryAddOutline } from '@/app-kit/icons/SolarGalleryAddOutline';
-import { SolarSmileCircleOutline } from '@/app-kit/icons/SolarSmileCircleOutline';
-import { SolarQrCodeOutline } from '@/app-kit/icons/SolarQrCodeOutline';
-import { SolarUserIdOutline } from '@/app-kit/icons/SolarUserIdOutline';
-import { SolarVerifiedCheckOutline } from '@/app-kit/icons/SolarVerifiedCheckOutline';
+import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
+import { CodeSquareOutlineIcon, TextFieldFocusOutlineIcon, GalleryAddOutlineIcon, SmileCircleOutlineIcon, QrCodeOutlineIcon, UserIdOutlineIcon, VerifiedCheckOutlineIcon } from '@solar-icons/react';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {
   [ELEMENTS.CODE]: 'Code Block',
   [ELEMENTS.TEXT]: 'Text Box',
-  [ELEMENTS.IMAGE]: 'Image Upload',
+  [ELEMENTS.IMAGE]: 'Image',
   [ELEMENTS.ICON]: 'Graphic Icon',
+  [ELEMENTS.QRCODE]: 'QR Code',
   [ELEMENTS.USERINFO]: 'User Info',
   [ELEMENTS.WATERMARK]: 'Watermark',
 };
-/**
- * Watermark
- * Twitter Username shape
- */
-export const elements = [
-  {
-    content: 'Code Block',
-    icon: SolarCodeSquareOutline,
-    type: ELEMENTS.CODE,
-    plan: [APP_PLAN_TYPE.FREE],
-  },
-  {
-    content: 'Text Box',
-    icon: SolarTextFieldFocusOutline,
-    type: ELEMENTS.TEXT,
-    plan: [APP_PLAN_TYPE.FREE],
-  },
-  {
-    content: 'Image',
-    icon: SolarGalleryAddOutline,
-    type: ELEMENTS.IMAGE,
-    plan: [APP_PLAN_TYPE.FREE],
-  },
-  {
-    content: 'Graphic Icon',
-    icon: SolarSmileCircleOutline,
-    type: ELEMENTS.ICON,
-    plan: [APP_PLAN_TYPE.FREE],
-  },
-  {
-    content: 'QR Code',
-    icon: SolarQrCodeOutline,
-    type: ELEMENTS.USERINFO,
-    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
-  },
-  {
-    content: 'User Info',
-    icon: SolarUserIdOutline,
-    type: ELEMENTS.USERINFO,
-    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
-  },
-  {
-    content: 'Watermark',
-    icon: SolarVerifiedCheckOutline,
-    type: ELEMENTS.WATERMARK,
-    plan: [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM],
-  },
-];
+
+export const elementIconMapper = {
+  [ELEMENTS.CODE]: CodeSquareOutlineIcon,
+  [ELEMENTS.TEXT]: TextFieldFocusOutlineIcon,
+  [ELEMENTS.IMAGE]: GalleryAddOutlineIcon,
+  [ELEMENTS.ICON]: SmileCircleOutlineIcon,
+  [ELEMENTS.QRCODE]: QrCodeOutlineIcon,
+  [ELEMENTS.USERINFO]: UserIdOutlineIcon,
+  [ELEMENTS.WATERMARK]: VerifiedCheckOutlineIcon,
+};
+
+export const elements = (
+  [
+    ELEMENTS.CODE,
+    ELEMENTS.TEXT,
+    ELEMENTS.IMAGE,
+    ELEMENTS.ICON,
+    ELEMENTS.QRCODE,
+    ELEMENTS.USERINFO,
+    ELEMENTS.WATERMARK,
+  ] as const
+).map((type) => ({
+  type,
+  content: elementLabelMapper[type],
+  icon: elementIconMapper[type],
+}));
 
 const centerElement = {
   top: '50%',
@@ -109,10 +89,9 @@ export const elementsObject: Record<ELEMENTS, any> = {
       lineHeight: 1.6,
       letterSpacing: 0,
       // Default must stay an openly-licensed face — SF Mono was removed.
-      fontFamily: 'JetBrainsMono',
+      fontFamily: DEFAULT_CODE_FONT,
       borderRadius: 15,
       background: 'rgba(0, 0, 0, 0.5)',
-      zIndex: '0',
       display: 'grid',
       overflow: 'hidden',
       top: '50%',
@@ -163,13 +142,85 @@ export const elementsObject: Record<ELEMENTS, any> = {
     type: ELEMENTS.ICON,
     content: '',
     ...baseElement,
-    properties: {},
+    style: {
+      ...baseElement.style,
+      width: 96,
+      height: 96,
+    },
+    properties: {
+      source: ASSET_SOURCE.URL,
+      src: '',
+      alt: 'Graphic icon',
+    },
   },
   [ELEMENTS.IMAGE]: {
     type: ELEMENTS.IMAGE,
     ...baseElement,
-    properties: {},
+    style: {
+      ...baseElement.style,
+      width: 240,
+      height: 'auto',
+      borderRadius: 12,
+      overflow: 'hidden',
+    },
+    properties: {
+      source: ASSET_SOURCE.URL,
+      src: '',
+      alt: 'Image',
+    },
   },
-  [ELEMENTS.WATERMARK]: undefined,
-  [ELEMENTS.USERINFO]: undefined,
+  [ELEMENTS.QRCODE]: {
+    type: ELEMENTS.QRCODE,
+    ...baseElement,
+    style: {
+      ...baseElement.style,
+      borderRadius: 12,
+      overflow: 'hidden',
+    },
+    properties: {
+      value: appConfig.links.repo,
+      size: 128,
+      fgColor: '#000000',
+      bgColor: '#ffffff',
+      level: QR_ERROR_LEVEL.MEDIUM,
+      marginSize: 2,
+    },
+  },
+  [ELEMENTS.USERINFO]: {
+    type: ELEMENTS.USERINFO,
+    ...baseElement,
+    style: {
+      ...baseElement.style,
+      color: '#ffffff',
+      fontSize: 14,
+      gap: 10,
+    },
+    properties: {
+      name: 'Your Name',
+      handle: '@yourhandle',
+      showAvatar: true,
+      avatar: {
+        source: ASSET_SOURCE.URL,
+        src: '',
+      },
+    },
+  },
+  [ELEMENTS.WATERMARK]: {
+    type: ELEMENTS.WATERMARK,
+    ...baseElement,
+    style: {
+      ...baseElement.style,
+      color: '#ffffff',
+      fontSize: 12,
+    },
+    properties: {
+      mode: WATERMARK_MODE.TEXT,
+      text: `Made with ${appConfig.name}`,
+      opacity: 0.6,
+      image: {
+        source: ASSET_SOURCE.URL,
+        src: '',
+      },
+    },
+  },
 };

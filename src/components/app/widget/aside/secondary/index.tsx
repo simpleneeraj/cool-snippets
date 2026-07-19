@@ -1,4 +1,5 @@
 import React from 'react';
+import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import dynamic from 'next/dynamic';
 import NotFound from './not-found';
 import { useSegment } from '@/store/segment';
@@ -41,7 +42,10 @@ function SecondaryAsideWidget() {
   }, [segment.screen]);
 
   return (
-    <div className="pointer-events-auto absolute right-2 top-0 h-full py-2">
+    <div
+      {...keepSelectionProps}
+      className="pointer-events-auto absolute right-2 top-0 h-full py-2"
+    >
       <Frame className="w-80 h-full border bg-background/80 backdrop-blur-sm">
         <FramePanel className="layout-fill p-0">
           <AnimatePresence mode="wait">

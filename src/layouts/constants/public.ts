@@ -1,4 +1,4 @@
-import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
+import { Github } from '@/components/icons/github';
 import appConfig from '@/constants/site';
 
 const publicLayout = {
@@ -72,7 +72,7 @@ const publicLayout = {
     // rather than pointed at the platform home pages.
     socialLinks: [
       {
-        icon: MdiGithub,
+        icon: Github,
         href: appConfig.links.repo,
       },
     ],

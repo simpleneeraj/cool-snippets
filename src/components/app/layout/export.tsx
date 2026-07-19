@@ -5,15 +5,13 @@ import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@/constants/site';
+import { toastManager } from '@/app-kit/ui/toast';
 import { resolveCodeFontFamily } from '@/app-kit/fonts/code';
-import { resolveFontSource } from '@/app-kit/fonts/source';
-import { useCapture } from '@/plugins/capture';
+import { primaryFontFamily, resolveFontSource } from '@/app-kit/fonts/source';
+import useCapture from '@/lib/export/use-capture';
 import useSlideEditor from '@/store/hooks/use-editor';
 import UIView from '@/app-kit/source/UIView';
-import { SolarLockLineDuotone } from '@/app-kit/icons/SolarLockLineDuotone';
-import { SolarCopyLineDuotone } from '@/app-kit/icons/SolarCopyLineDuotone';
-import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
-import { SolarDownloadMinimalisticLinear } from '@/app-kit/icons/SolarDownloadMinimalisticLinear';
+import { LockLineDuotoneIcon, CopyLineDuotoneIcon, DownloadMinimalisticLinearIcon, MagicWand3LinearIcon } from '@solar-icons/react';
 import {
   Dialog,
   DialogClose,
@@ -37,7 +35,7 @@ import {
   SelectValue,
 } from '@/app-kit/ui/select';
 import { Group } from '@/app-kit/ui/group';
-import { SolarMagicStick3Linear } from '@/app-kit/icons/SolarMagicStick3Linear';
+
 
 enum Format {
   WEBP = 'webp',
@@ -53,84 +51,89 @@ type ExportFormValues = {
   pixelRatio: string;
 };
 
+const FORMAT_PRESETS = [
+  {
+    label: 'WEBP',
+    value: Format.WEBP,
+    description: 'Smaller size, modern browsers (recommended)',
+    recommended: true,
+    transparent: true,
+    locked: false,
+  },
+  {
+    label: 'PNG',
+    value: Format.PNG,
+    description: 'Best quality, supports transparency',
+    recommended: false,
+    transparent: true,
+    locked: false,
+  },
+  {
+    label: 'JPEG',
+    value: Format.JPEG,
+    description: 'Smaller size, no transparency',
+    recommended: false,
+    transparent: false,
+    locked: false,
+  },
+  {
+    label: 'SVG',
+    value: Format.SVG,
+    description: 'Vector format, infinite scaling',
+    recommended: false,
+    transparent: true,
+    locked: false,
+  },
+];
+const EXPORT_PRESETS = [
+  {
+    id: 'social',
+    label: 'Social',
+    description: 'Twitter, LinkedIn, Instagram posts',
+    pixelRatio: 2,
+    maxWidth: 1200,
+    recommended: true,
+    locked: false,
+  },
+  {
+    id: 'presentation',
+    label: 'Presentation',
+    description: 'Slides, demos, talks',
+    pixelRatio: 3,
+    maxWidth: 1920,
+    recommended: false,
+    locked: false,
+  },
+  {
+    id: 'portfolio',
+    label: 'Portfolio',
+    description: 'Dribbble, Behance, website',
+    pixelRatio: 4,
+    maxWidth: 2560,
+    recommended: false,
+    locked: false,
+  },
+  {
+    id: 'print',
+    label: 'Print',
+    description: 'High-resolution, print-ready',
+    pixelRatio: 5,
+    maxWidth: 3840,
+    recommended: false,
+    locked: false,
+  },
+];
+
 const ExportDropdown: React.FC = () => {
-  const FORMAT_PRESETS = [
-    {
-      label: 'WEBP',
-      value: Format.WEBP,
-      description: 'Smaller size, modern browsers (recommended)',
-      recommended: true,
-      transparent: true,
-      locked: false,
-    },
-    {
-      label: 'PNG',
-      value: Format.PNG,
-      description: 'Best quality, supports transparency',
-      recommended: false,
-      transparent: true,
-      locked: true,
-    },
-    {
-      label: 'JPEG',
-      value: Format.JPEG,
-      description: 'Smaller size, no transparency',
-      recommended: false,
-      transparent: false,
-      locked: false,
-    },
-    {
-      label: 'SVG',
-      value: Format.SVG,
-      description: 'Vector format, infinite scaling',
-      recommended: false,
-      transparent: true,
-      locked: true,
-    },
-  ];
-  const EXPORT_PRESETS = [
-    {
-      id: 'social',
-      label: 'Social',
-      description: 'Twitter, LinkedIn, Instagram posts',
-      pixelRatio: 2,
-      maxWidth: 1200,
-      recommended: true,
-      locked: false,
-    },
-    {
-      id: 'presentation',
-      label: 'Presentation',
-      description: 'Slides, demos, talks',
-      pixelRatio: 3,
-      maxWidth: 1920,
-      recommended: false,
-      locked: false,
-    },
-    {
-      id: 'portfolio',
-      label: 'Portfolio',
-      description: 'Dribbble, Behance, website',
-      pixelRatio: 4,
-      maxWidth: 2560,
-      recommended: false,
-      locked: true,
-    },
-    {
-      id: 'print',
-      label: 'Print',
-      description: 'High-resolution, print-ready',
-      pixelRatio: 5,
-      maxWidth: 3840,
-      recommended: false,
-      locked: true,
-    },
-  ];
-
-  const isPremium = true;
-
   const [isOpen, setIsOpen] = useState(false);
-  const { currentElement } = useSlideEditor();
+  // const [preview, setPreview] = useState<string | null>(null);
+  // const [previewing, setPreviewing] = useState(false);
+  // Natural (CSS-pixel) size of the artboard, read off the preview image which
+  // is captured at pixelRatio 1. Multiplied by the chosen ratio for the readout.
+  // const [dimensions, setDimensions] = useState<{ w: number; h: number } | null>(
+  //   null,
+  // );
+  const { currentSlide } = useSlideEditor();
 
   const { captureImage, isDownloading, isCopying, copyToClipboard } =
     useCapture();
@@ -147,21 +150,73 @@ const ExportDropdown: React.FC = () => {
 
   const state = watch();
 
-  // Export inlines the font as base64 so the image renders correctly on a
-  // machine without it installed. next/font fingerprints the file, so the URL
-  // is discovered from the emitted @font-face rule rather than hardcoded.
+  // Export inlines fonts as base64 so the image renders correctly on a machine
+  // without them installed. next/font fingerprints the file, so each URL is
+  // discovered from the emitted @font-face rule rather than hardcoded.
+  //
+  // Every code font used anywhere on the slide is collected — not just the
+  // selected element's — so the code block's real typeface is always embedded
+  // even when nothing (or another element) is selected at export time.
   const exportFonts = React.useCallback(() => {
-    const fontFamily = resolveCodeFontFamily(
-      currentElement?.style?.fontFamily as string,
-    );
-    const src = resolveFontSource(fontFamily);
-    return src ? [{ src, fontFamily }] : [];
-  }, [currentElement?.style?.fontFamily]);
+    // Collect the *primary* family name of every code font on the slide.
+    // next/font hands back a family list ('__Font_x', '__Font_Fallback_x');
+    // the `@font-face` rule — and therefore both the source lookup and the
+    // embedded declaration — is keyed on that first name alone.
+    const families = new Set<string>();
+    for (const element of currentSlide?.elements ?? []) {
+      const id = element.style?.fontFamily;
+      if (typeof id === 'string') {
+        families.add(primaryFontFamily(resolveCodeFontFamily(id)));
+      }
+    }
+    if (families.size === 0) {
+      families.add(primaryFontFamily(resolveCodeFontFamily(undefined)));
+    }
 
-  // console.log(state);
+    return Array.from(families)
+      .map((fontFamily) => {
+        const src = resolveFontSource(fontFamily);
+        return src ? { src, fontFamily } : null;
+      })
+      .filter((entry): entry is { src: string; fontFamily: string } => !!entry);
+  }, [currentSlide?.elements]);
+
+  // Capture a WYSIWYG thumbnail when the dialog opens so the user sees exactly
+  // what will be exported. Kept at pixelRatio 1 to stay cheap; failures are
+  // swallowed and simply show no preview rather than blocking export.
+  // React.useEffect(() => {
+  //   if (!isOpen) return;
+
+  //   let active = true;
+  //   setPreview(null);
+  //   setDimensions(null);
+  //   setPreviewing(true);
+
+  //   captureImageUrl({ imageFormat: 'png', pixelRatio: 1, fonts: exportFonts() })
+  //     .then((url) => {
+  //       if (active) setPreview(url);
+  //     })
+  //     .catch(() => {})
+  //     .finally(() => {
+  //       if (active) setPreviewing(false);
+  //     });
+
+  //   return () => {
+  //     active = false;
+  //   };
+  // }, [isOpen, captureImageUrl, exportFonts]);
+
   const activePreset = EXPORT_PRESETS.find((p) => p.id === state.preset);
 
   const pixelRatio = activePreset?.pixelRatio ?? 2;
+
+  // Actual export resolution = artboard size × the preset's pixel ratio.
+  // const outputSize = dimensions
+  //   ? {
+  //       w: Math.round(dimensions.w * pixelRatio),
+  //       h: Math.round(dimensions.h * pixelRatio),
+  //     }
+  //   : null;
 
   const onExport = async () => {
     const currentDate = format(new Date(), 'yyyy-MM-dd-HH-mm-ss');
@@ -170,12 +225,24 @@ const ExportDropdown: React.FC = () => {
       replacement: '-',
     });
 
-    await captureImage({
-      ...state,
-      pixelRatio,
-      fileName: state.fileName || fileName,
-      fonts: exportFonts(),
-    });
+    try {
+      await captureImage({
+        ...state,
+        pixelRatio,
+        fileName: state.fileName || fileName,
+        fonts: exportFonts(),
+      });
+    } catch (e) {
+      console.error('[export] capture failed:', e);
+      toastManager.add({
+        title: 'Export failed',
+        description:
+          e instanceof Error
+            ? e.message
+            : 'The image could not be generated. Please try again.',
+        type: 'error',
+      });
+    }
   };
   const onCopy = async () => {
     try {
@@ -185,22 +252,17 @@ const ExportDropdown: React.FC = () => {
         fonts: exportFonts(),
       });
 
-      // addToast({
-      //   title: 'Image Copied!',
-      //   description:
-      //     'The image has been successfully copied to your clipboard.',
-      //   color: 'success',
-      //   timeout: 3000,
-      //   shouldShowTimeoutProgress: true,
-      // });
-    } catch (error) {
-      // addToast({
-      //   title: 'Clipboard Copy Not Supported',
-      //   description: `Clipboard copy is not supported for ${state.imageFormat.toUpperCase()} format. `,
-      //   color: 'warning',
-      //   timeout: 4000,
-      //   shouldShowTimeoutProgress: true,
-      // });
+      toastManager.add({
+        title: 'Image copied',
+        description: 'The image is on your clipboard.',
+        type: 'success',
+      });
+    } catch {
+      toastManager.add({
+        title: 'Copy not supported',
+        description: `Clipboard copy is not available for ${state.imageFormat.toUpperCase()}. Try PNG or JPEG.`,
+        type: 'error',
+      });
     }
   };
 
@@ -215,18 +277,60 @@ const ExportDropdown: React.FC = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger render={<Button />}>
-        <SolarDownloadMinimalisticLinear />
+        <DownloadMinimalisticLinearIcon />
         Export
       </DialogTrigger>
-      <DialogPopup showCloseButton={false}>
+      <DialogPopup>
         <DialogHeader>
           <DialogTitle>Export Image</DialogTitle>
           <DialogDescription>
             Download or copy your code as a high-quality image.
           </DialogDescription>
         </DialogHeader>
-        <DialogPanel className="">
+        <DialogPanel>
           <UIView className="flex flex-col gap-4 w-full">
+            {/* WYSIWYG preview of exactly what will be exported. The
+                checkerboard lives on the image itself, so it shows only through
+                real transparency (e.g. the artboard's rounded corners) rather
+                than as letterbox bars around a contained image. */}
+            {/* <UIView className="w-full gap-2">
+              <UIView className="relative flex h-56 w-full items-center justify-center overflow-hidden rounded-lg border border-border bg-muted/30 p-4">
+                {previewing ? (
+                  <Spinner />
+                ) : preview ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={preview}
+                    alt="Export preview"
+                    onLoad={(event) =>
+                      setDimensions({
+                        w: event.currentTarget.naturalWidth,
+                        h: event.currentTarget.naturalHeight,
+                      })
+                    }
+                    className="max-h-full max-w-full rounded-md bg-[repeating-conic-gradient(#808080_0%_25%,transparent_0%_50%)] bg-size-[12px_12px] shadow-lg ring-1 ring-black/10"
+                  />
+                ) : (
+                  <span className="text-xs text-muted-foreground">
+                    Preview unavailable
+                  </span>
+                )}
+
+                {outputSize && (
+                  <span className="absolute bottom-2 right-2 rounded-md bg-background/85 px-2 py-1 font-mono text-[11px] text-muted-foreground shadow-sm backdrop-blur">
+                    {outputSize.w} × {outputSize.h}
+                  </span>
+                )}
+              </UIView>
+
+              <UIView className="flex items-center justify-between px-0.5 text-xs text-muted-foreground">
+                <span>Live preview · exact output</span>
+                <span className="font-medium text-foreground">
+                  {state.imageFormat?.toUpperCase()} · {pixelRatio}×
+                </span>
+              </UIView>
+            </UIView> */}
+
             <Field>
               <FieldLabel>File name</FieldLabel>
               <FieldDescription>
@@ -257,12 +361,12 @@ const ExportDropdown: React.FC = () => {
                     }
                   }}
                 >
-                  <SolarMagicStick3Linear />
+                  <MagicWand3LinearIcon />
                 </Button>
               </Group>
             </Field>
             <UIView className="flex gap-2">
-              <Field>
+              <Field className={'w-full'}>
                 <FieldLabel>Image size</FieldLabel>
                 <FieldDescription>
                   Higher sizes produce sharper images.
@@ -272,12 +376,17 @@ const ExportDropdown: React.FC = () => {
                   onValueChange={(v) => setValue('preset', v!)}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Choose platform" />
+                    <SelectValue placeholder="Choose platform">
+                      {(value) =>
+                        EXPORT_PRESETS.find((p) => p.id === value)?.label ??
+                        String(value ?? '')
+                      }
+                    </SelectValue>
                   </SelectTrigger>
 
                   <SelectPopup>
                     {EXPORT_PRESETS.map((preset) => {
-                      const isLocked = preset.locked && !isPremium;
+                      const isLocked = preset.locked;
 
                       return (
                         <SelectItem
@@ -295,7 +404,7 @@ const ExportDropdown: React.FC = () => {
                                   Recommended
                                 </span>
                               )}
-                              {isLocked && <SolarLockLineDuotone />}
+                              {isLocked && <LockLineDuotoneIcon />}
                             </UIView>
 
                             <span className="text-xs text-muted-foreground">
@@ -308,23 +417,27 @@ const ExportDropdown: React.FC = () => {
                   </SelectPopup>
                 </Select>
               </Field>
-
-              <Field>
+              <Field className={'w-full'}>
                 <FieldLabel>File format</FieldLabel>
                 <FieldDescription>
-                  Choose the format that works best for your use case.
+                  Choose the format that works for you.
                 </FieldDescription>
                 <Select
                   value={state.imageFormat}
                   onValueChange={(v) => setValue('imageFormat', v as Format)}
                 >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Choose format" />
+                  <SelectTrigger className={'w-full'}>
+                    <SelectValue placeholder="Choose format">
+                      {(value) =>
+                        FORMAT_PRESETS.find((f) => f.value === value)?.label ??
+                        String(value ?? '')
+                      }
+                    </SelectValue>
                   </SelectTrigger>
 
                   <SelectPopup>
                     {FORMAT_PRESETS.map((format) => {
-                      const isLocked = format.locked && !isPremium;
+                      const isLocked = format.locked;
 
                       return (
                         <SelectItem
@@ -342,7 +455,7 @@ const ExportDropdown: React.FC = () => {
                                   Recommended
                                 </span>
                               )}
-                              {isLocked && <SolarLockLineDuotone />}
+                              {isLocked && <LockLineDuotoneIcon />}
                             </UIView>
 
                             <span className="text-xs text-muted-foreground">
@@ -361,22 +474,16 @@ const ExportDropdown: React.FC = () => {
         <DialogFooter>
           <DialogClose
             render={<Button variant="ghost" />}
-            disabled={!isPremium || isCopying}
+            disabled={isCopying}
             onClick={onCopy}
           >
-            {isCopying ? <Spinner /> : <SolarCopyLineDuotone />}
-            {isPremium ? 'Copy image' : 'Upgrade to unlock'}
+            {isCopying ? <Spinner /> : <CopyLineDuotoneIcon />}
+            Copy image
           </DialogClose>
 
-          <Button disabled={!isPremium || isDownloading} onClick={onExport}>
-            {isDownloading ? (
-              <Spinner />
-            ) : isPremium ? (
-              <SolarDownloadMinimalisticLinear />
-            ) : (
-              <SolarCrownLineDuotone />
-            )}
-            {isPremium ? 'Export image' : 'Upgrade to Pro'}
+          <Button disabled={isDownloading} onClick={onExport}>
+            {isDownloading ? <Spinner /> : <DownloadMinimalisticLinearIcon />}
+            Export image
           </Button>
         </DialogFooter>
       </DialogPopup>

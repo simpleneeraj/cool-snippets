@@ -358,3 +358,35 @@
   width: 100%;
   height: 100%;
 }
+
+/*
+  react-moveable — enterprise resize box.
+
+  `origin={false}` in moveable.tsx already removes the centre origin dot (the red
+  handle); hiding `.moveable-origin` here is a belt-and-braces fallback. The
+  round handles become clean rounded squares in a fixed selection-blue that
+  reads on both light and dark canvases (the theme `--primary` token resolves to
+  a background colour here, so it is deliberately not used).
+*/
+.moveable-control-box {
+  --moveable-color: #6366f1;
+}
+
+.moveable-control.moveable-origin {
+  display: none !important;
+}
+
+.moveable-control {
+  width: 10px !important;
+  height: 10px !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  border-radius: 3px !important;
+  background: #ffffff !important;
+  border: 1.5px solid var(--moveable-color) !important;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2) !important;
+}
+
+.moveable-line {
+  background: var(--moveable-color) !important;
+}

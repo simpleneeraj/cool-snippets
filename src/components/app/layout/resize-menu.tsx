@@ -3,8 +3,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-import { FluentResize24Regular } from '@/app-kit/icons/FluentResize24Regular';
-import { SolarLockLineDuotone } from '@/app-kit/icons/SolarLockLineDuotone';
+import { ScaleLineDuotoneIcon, LockLineDuotoneIcon } from '@solar-icons/react';
 
 import UIView from '@/app-kit/source/UIView';
 import { Button } from '@/app-kit/ui/button';
@@ -114,9 +113,15 @@ const ResizeMenu: React.FC = () => {
     await new Promise((r) => setTimeout(r, 800));
     setLoading(false);
 
+    // `onChangeSlide` replaces `background` wholesale rather than merging, so we
+    // must resend the full background (type + properties) with only the size
+    // changed — otherwise applying a preset wipes the gradient/wallpaper and
+    // padding, and the artboard renders with no background.
     onChangeSlide({
       background: {
+        ...currentSlide?.background,
         style: {
+          ...currentSlide?.background?.style,
           width: Number(values.width),
           height: Number(values.height),
         },
@@ -145,7 +150,7 @@ const ResizeMenu: React.FC = () => {
   return (
     <Popover>
       <PopoverTrigger render={<Button variant="outline" />}>
-        <FluentResize24Regular />
+        <ScaleLineDuotoneIcon />
         Resize
       </PopoverTrigger>
 
@@ -197,7 +202,7 @@ const ResizeMenu: React.FC = () => {
                 variant="outline"
                 aria-label="Lock aspect ratio"
               >
-                <SolarLockLineDuotone
+                <LockLineDuotoneIcon
                   className={locked ? 'opacity-100' : 'opacity-40'}
                 />
               </Toggle>

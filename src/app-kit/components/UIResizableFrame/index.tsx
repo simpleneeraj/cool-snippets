@@ -6,8 +6,8 @@ import React, {
   MouseEventHandler,
   PropsWithChildren,
 } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CloseCircle } from '@/app-kit/icons/CloseCircle';
+import { motion, AnimatePresence } from 'motion/react';
+import { XCircle } from 'lucide-react';
 import { MAX_SLIDE_WIDTH, MIN_SLIDE_WIDTH } from '@/store/slides/state';
 import { useActiveElement } from '@/store/slides/current-element';
 import { Button } from '@/app-kit/ui/button';
@@ -33,59 +33,16 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
   onWidthChange,
   onResetWidth,
 }) => {
-  const currentHandleRef = useRef<Handle>(undefined);
   const windowRef = useRef<HTMLDivElement>(null);
-  const startWidthRef = useRef<number>(undefined);
-  const startXRef = useRef<number>(undefined);
+  const startWidthRef = useRef<number>(0);
+  const startXRef = useRef<number>(0);
 
   const [isResizing, setResizing] = useState(false);
   const { updateElement } = useActiveElement();
 
-  const mouseMoveHandler = useCallback(
-    (event: MouseEvent) => {
-      let newWidth;
-
-      if (currentHandleRef.current === Handle.LEFT) {
-        newWidth =
-          startWidthRef.current! - (event.clientX - startXRef.current!) * 2;
-      } else {
-        newWidth =
-          startWidthRef.current! + (event.clientX - startXRef.current!) * 2;
-      }
-
-      if (newWidth > maxWidth) {
-        newWidth = maxWidth;
-      } else if (newWidth < minWidth) {
-        newWidth = minWidth;
-      }
-      onWidthChange?.(newWidth);
-    },
-    [onWidthChange],
-  );
-
-  const clearSelection = useCallback(() => {
-    var sel = document.getSelection();
-    if (sel) {
-      if (sel.removeAllRanges) {
-        sel.removeAllRanges();
-      } else if (sel.empty) {
-        sel.empty();
-      }
-    }
-  }, []);
-
-  const latestWidthRef = useRef<number | null>(null);
-
-  const mouseUpHandler = useCallback(() => {
-    document.removeEventListener('mousemove', mouseMoveHandler);
-    document.removeEventListener('mouseup', mouseUpHandler);
-    setResizing(false);
-    clearSelection();
-
-    if (latestWidthRef.current !== null) {
-      onWidthChange?.(latestWidthRef.current);
-    }
-  }, [mouseMoveHandler, clearSelection, onWidthChange]);
+  // The slide may not have a stored width yet; `${undefined}px` is invalid CSS
+  // and silently collapses the frame to its content.
+  const resolvedWidth = width ?? minWidth;
 
   const onWidthChangeRef = useRef(onWidthChange);
   onWidthChangeRef.current = onWidthChange;
@@ -95,8 +52,7 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
       (event) => {
         event.preventDefault();
 
-        currentHandleRef.current = handle;
-        startWidthRef.current = windowRef.current!.offsetWidth;
+        startWidthRef.current = windowRef.current?.offsetWidth ?? minWidth;
         startXRef.current = event.clientX;
         setResizing(true);
         updateElement(null);
@@ -105,86 +61,83 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
         document.body.style.userSelect = 'none';
 
         const pointerMove = (e: MouseEvent) => {
-          let newWidth =
+          // Doubled because the frame is centred: it grows from both edges, so
+          // the pointer covers half the total width change.
+          const delta = (e.clientX - startXRef.current) * 2;
+          const next =
             handle === Handle.LEFT
-              ? startWidthRef.current! - (e.clientX - startXRef.current!) * 2
-              : startWidthRef.current! + (e.clientX - startXRef.current!) * 2;
+              ? startWidthRef.current - delta
+              : startWidthRef.current + delta;
 
-          newWidth = Math.max(minWidth, Math.min(maxWidth, newWidth));
-          latestWidthRef.current = newWidth;
-          onWidthChangeRef.current?.(newWidth);
+          onWidthChangeRef.current?.(
+            Math.max(minWidth, Math.min(maxWidth, next)),
+          );
         };
 
-        const pointerUp = () => {
+        const stopResizing = () => {
           document.removeEventListener('mousemove', pointerMove);
-          document.removeEventListener('mouseup', pointerUp);
+          document.removeEventListener('mouseup', stopResizing);
+          window.removeEventListener('blur', stopResizing);
 
           document.body.style.cursor = '';
           document.body.style.userSelect = '';
-
           setResizing(false);
         };
 
         document.addEventListener('mousemove', pointerMove);
-        document.addEventListener('mouseup', pointerUp);
+        document.addEventListener('mouseup', stopResizing);
+        // Releasing the button outside the window never fires mouseup, which
+        // would otherwise leave the page stuck with a resize cursor.
+        window.addEventListener('blur', stopResizing);
       },
-    [minWidth, maxWidth],
+    [minWidth, maxWidth, updateElement],
   );
+
+  const handleClass = cn(
+    'group absolute top-1/2 flex h-16 w-4 -translate-y-1/2 cursor-col-resize items-center justify-center',
+    // Above the canvas content so a full-bleed element cannot swallow the grab
+    // target near the edge.
+    'z-1000',
+  );
+
+  const gripClass =
+    'h-10 w-1.5 rounded-full bg-foreground/25 transition-all group-hover:h-12 group-hover:bg-foreground/70';
 
   return (
     <div className={cn('relative inline-block', isResizing && 'select-none')}>
-      {/* LEFT HANDLE */}
       <div
+        aria-label="Resize from left"
         onMouseDown={onResizeFrameX(Handle.LEFT)}
-        className="
-      absolute top-1/2 left-0
-      -translate-x-1/2 -translate-y-1/2
-      w-6 h-6
-      flex items-center justify-center
-      cursor-col-resize
-      z-10
-    "
+        className={cn(handleClass, 'left-0 -translate-x-1/2')}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
+        <div className={cn(gripClass, isResizing && 'h-12 bg-foreground/70')} />
       </div>
 
-      {/* RIGHT HANDLE */}
       <div
+        aria-label="Resize from right"
         onMouseDown={onResizeFrameX(Handle.RIGHT)}
-        className="
-      absolute top-1/2 right-0
-      translate-x-1/2 -translate-y-1/2
-      w-6 h-6
-      flex items-center justify-center
-      cursor-col-resize
-      z-10
-    "
+        className={cn(handleClass, 'right-0 translate-x-1/2')}
       >
-        <div className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
+        <div className={cn(gripClass, isResizing && 'h-12 bg-foreground/70')} />
       </div>
 
-      {/* CONTENT */}
-      <div ref={windowRef} style={{ width: `${width}px` }} className="relative">
+      <div
+        ref={windowRef}
+        style={{ width: `${resolvedWidth}px` }}
+        className="relative"
+      >
         {children}
       </div>
 
-      {/* RESET BUTTON */}
       <AnimatePresence mode="wait">
-        {!isResizing && width !== minWidth && (
+        {!isResizing && resolvedWidth !== minWidth && (
           <motion.div
             key="reset"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="
-          absolute
-          bottom-[-30px]
-          left-1/2
-          -translate-x-1/2
-          z-20
-          pointer-events-none
-        "
+            className="pointer-events-none absolute bottom-[-30px] left-1/2 z-20 -translate-x-1/2"
           >
             <Button
               size="sm"
@@ -196,14 +149,13 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
               }}
               className="pointer-events-auto text-xs! text-muted-foreground"
             >
-              <CloseCircle className="size-3.5" />
-              Set to auto width
+              <XCircle className="size-3.5" />
+              Reset width
             </Button>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* RULER */}
       <AnimatePresence>
         {isResizing && (
           <motion.div
@@ -212,28 +164,13 @@ const ResizableFrame: React.FC<PropsWithChildren<ResizableFrameProps>> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="
-          absolute
-          bottom-[-24px]
-          left-1/2
-          -translate-x-1/2
-          w-full
-          text-xs
-          text-center
-          pointer-events-none
-          z-15
-          border-x
-          border-gray-300
-          dark:border-gray-600
-          text-gray-500
-          dark:text-gray-400
-        "
+            className="pointer-events-none absolute bottom-[-24px] left-1/2 z-15 w-full -translate-x-1/2 border-x border-gray-300 text-center text-xs text-gray-500 dark:border-gray-600 dark:text-gray-400"
           >
             <div className="relative">
-              <span className="px-4 bg-white dark:bg-neutral-900 rounded-lg">
-                {width} px
+              <span className="rounded-lg bg-white px-4 dark:bg-neutral-900">
+                {resolvedWidth} px
               </span>
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-gray-300 dark:border-gray-600 -z-10" />
+              <div className="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 border-t border-gray-300 dark:border-gray-600" />
             </div>
           </motion.div>
         )}

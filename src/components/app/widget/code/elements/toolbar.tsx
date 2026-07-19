@@ -3,7 +3,10 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { ElementType } from '@/typings/editor';
+import { ELEMENTS, LAYER_DIRECTION } from '@/typings/enums';
 import useSlideEditor from '@/store/hooks/use-editor';
+import useAnchorPosition from '@/app-kit/hooks/use-anchor-position';
+import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import { useActiveSlide } from '@/store/slides/current-slide';
 import { useActiveElement } from '@/store/slides/current-element';
 import {
@@ -36,7 +39,6 @@ import {
 /* ─────────────────────────────────────────────────────────────────────
    Portal toolbar — rendered into document.body so it is never clipped
    by overflow:hidden at any depth in the element tree.
-   Position is tracked via rAF loop against the element's DOM node.
 ───────────────────────────────────────────────────────────────────── */
 
 export interface ElementToolbarProps {
@@ -47,55 +49,53 @@ export interface ElementToolbarProps {
 
 export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
   const { slide: slideId } = useActiveSlide();
-  const { updateElement } = useActiveElement();
-  const { deleteSlideElement, duplicateSlideElement, onChangeSlideElement } =
-    useSlideEditor();
+  const { updateElement, interacting } = useActiveElement();
+  const {
+    deleteSlideElement,
+    duplicateSlideElement,
+    moveSlideElement,
+    onChangeSlideElement,
+  } = useSlideEditor();
 
-  /* ── Portal position tracking ─────────────────────────────────── */
+  const { position: pos, refresh } = useAnchorPosition(anchorRef, {
+    tracking: interacting,
+  });
 
-  const [pos, setPos] = React.useState<{ top: number; left: number } | null>(
-    null,
-  );
-  const rafRef = React.useRef<number>(0);
-
+  // Store-driven moves (Centre, Flip, layer changes, edits from the side panel)
+  // reposition the anchor without a drag gesture, a resize, or a scroll — none
+  // of which the event-driven hook observes. Re-measure after the DOM commits
+  // whenever a position-affecting style changes so the toolbar tracks the box.
   React.useLayoutEffect(() => {
-    const measure = () => {
-      const el = anchorRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      setPos({
-        top: r.top + window.scrollY - 48, // 48px above the element
-        left: r.left + window.scrollX + r.width / 2,
-      });
-      rafRef.current = requestAnimationFrame(measure);
-    };
-    rafRef.current = requestAnimationFrame(measure);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [anchorRef]);
+    refresh();
+  }, [
+    refresh,
+    item.style?.top,
+    item.style?.left,
+    item.style?.right,
+    item.style?.bottom,
+    item.style?.transform,
+    item.style?.width,
+    item.style?.height,
+  ]);
 
   /* ── Prop: stop propagation ───────────────────────────────────── */
   const stop = (e: React.MouseEvent) => e.stopPropagation();
 
-  /* ── z-index ──────────────────────────────────────────────────── */
-  const currentZ = Number(item.style?.zIndex ?? 1);
-  const bringForward = (e: React.MouseEvent) => {
+  /* ── layer order — array position is the stacking order ───────── */
+  const move = (direction: LAYER_DIRECTION) => (e: React.MouseEvent) => {
     stop(e);
-    onChangeSlideElement({ style: { zIndex: String(currentZ + 1) } });
-  };
-  const sendBackward = (e: React.MouseEvent) => {
-    stop(e);
-    onChangeSlideElement({
-      style: { zIndex: String(Math.max(0, currentZ - 1)) },
-    });
+    if (!slideId || !item.id) return;
+    moveSlideElement(slideId, item.id, direction);
   };
 
   /* ── visibility ───────────────────────────────────────────────── */
-  const currentOpacity =
-    item.style?.opacity !== undefined ? Number(item.style.opacity) : 1;
-  const isHidden = currentOpacity < 1;
+  const isHidden = Boolean(item.hidden);
   const toggleVisibility = (e: React.MouseEvent) => {
     stop(e);
-    onChangeSlideElement({ style: { opacity: isHidden ? 1 : 0.3 } });
+    onChangeSlideElement({ hidden: !isHidden });
+    // A hidden element renders `display:none`, so keeping it selected would
+    // leave the toolbar anchored to a zero-size box. Layers brings it back.
+    if (!isHidden) updateElement(null);
   };
 
   /* ── lock ─────────────────────────────────────────────────────── */
@@ -153,12 +153,19 @@ export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
     updateElement(null);
   };
 
+  /* ── which actions apply to this element type ─────────────────── */
+  // Flipping only means something for raster/vector artwork; a code block or
+  // text box has no meaningful mirror. Everything else (layer order, centre,
+  // visibility, lock, duplicate, delete) is universal.
+  const canFlip = item.type === ELEMENTS.IMAGE || item.type === ELEMENTS.ICON;
+
   /* ── render ───────────────────────────────────────────────────── */
   if (!pos || typeof document === 'undefined') return null;
 
   return createPortal(
     <div
       onPointerDown={stop}
+      {...keepSelectionProps}
       style={{
         position: 'absolute',
         top: pos.top,
@@ -182,7 +189,7 @@ export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
                       <Button
                         variant="ghost"
                         size="icon-sm"
-                        onClick={bringForward}
+                        onClick={move(LAYER_DIRECTION.UP)}
                       />
                     }
                   >
@@ -202,7 +209,7 @@ export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
                       <Button
                         variant="ghost"
                         size="icon-sm"
-                        onClick={sendBackward}
+                        onClick={move(LAYER_DIRECTION.DOWN)}
                       />
                     }
                   >
@@ -232,42 +239,54 @@ export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
 
           <ToolbarSeparator />
 
-          {/* ── Flip ─────────────────────────────── */}
-          <ToolbarGroup>
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <ToolbarButton
-                    aria-label="Flip Horizontal"
+          {/* ── Flip (visual elements only) ──────── */}
+          {canFlip && (
+            <>
+              <ToolbarGroup>
+                <Tooltip>
+                  <TooltipTrigger
                     render={
-                      <Button variant="ghost" size="icon-sm" onClick={flipH} />
+                      <ToolbarButton
+                        aria-label="Flip Horizontal"
+                        render={
+                          <Button
+                            variant="ghost"
+                            size="icon-sm"
+                            onClick={flipH}
+                          />
+                        }
+                      >
+                        <FlipHorizontal />
+                      </ToolbarButton>
                     }
-                  >
-                    <FlipHorizontal />
-                  </ToolbarButton>
-                }
-              />
-              <TooltipPopup sideOffset={8}>Flip Horizontal</TooltipPopup>
-            </Tooltip>
+                  />
+                  <TooltipPopup sideOffset={8}>Flip Horizontal</TooltipPopup>
+                </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger
-                render={
-                  <ToolbarButton
-                    aria-label="Flip Vertical"
+                <Tooltip>
+                  <TooltipTrigger
                     render={
-                      <Button variant="ghost" size="icon-sm" onClick={flipV} />
+                      <ToolbarButton
+                        aria-label="Flip Vertical"
+                        render={
+                          <Button
+                            variant="ghost"
+                            size="icon-sm"
+                            onClick={flipV}
+                          />
+                        }
+                      >
+                        <FlipVertical />
+                      </ToolbarButton>
                     }
-                  >
-                    <FlipVertical />
-                  </ToolbarButton>
-                }
-              />
-              <TooltipPopup sideOffset={8}>Flip Vertical</TooltipPopup>
-            </Tooltip>
-          </ToolbarGroup>
+                  />
+                  <TooltipPopup sideOffset={8}>Flip Vertical</TooltipPopup>
+                </Tooltip>
+              </ToolbarGroup>
 
-          <ToolbarSeparator />
+              <ToolbarSeparator />
+            </>
+          )}
 
           {/* ── Visibility / Lock ────────────────── */}
           <ToolbarGroup>

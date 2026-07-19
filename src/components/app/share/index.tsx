@@ -12,8 +12,8 @@ import CodingLines from '../widget/aside/primary/coding-lines';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { BACKGROUND_TYPE } from '@/typings/enums';
 import backgroundPurify from '@/utils/background-purify';
-import { IonCloseOutline } from '@/app-kit/icons/IonCloseOutline';
-import { SolarShareLinear } from '@/app-kit/icons/SolarShareLinear';
+import { X } from 'lucide-react';
+import { ShareLinearIcon } from '@solar-icons/react';
 import {
   Dialog,
   DialogClose,
@@ -25,8 +25,7 @@ import {
   DialogTrigger,
 } from '@/app-kit/ui/dialog';
 import { Button } from '@/app-kit/ui/button';
-import { SolarLinkMinimalistic2Linear } from '@/app-kit/icons/SolarLinkMinimalistic2Linear';
-import { SolarSquareShareLineLinear } from '@/app-kit/icons/SolarSquareShareLineLinear';
+import { LinkMinimalistic2LinearIcon, SquareShareLineLinearIcon } from '@solar-icons/react';
 
 const MORE_COLORS = COLORS.concat(
   grad.map((item) => ({
@@ -70,7 +69,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
   return (
     <Dialog modal>
       <DialogTrigger render={<Button variant="outline" />}>
-        <SolarShareLinear className={headerIcon({})} />
+        <ShareLinearIcon className={headerIcon({})} />
         {/* Share */}
       </DialogTrigger>
       <DialogPopup showCloseButton={false} className={'max-w-5xl'}>
@@ -83,15 +82,16 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
             </DialogDescription>
           </UIView>
           <UIView className="flex items-center gap-2">
-            {/* <CreatePasscode /> */}
-            <Button variant="outline">
-              <SolarSquareShareLineLinear />
+            {/* Link sharing needs a backend; disabled until that lands rather
+                than looking clickable and doing nothing. */}
+            <Button variant="outline" disabled title="Coming soon">
+              <SquareShareLineLinearIcon />
             </Button>
-            <Button variant="outline">
-              <SolarLinkMinimalistic2Linear />
+            <Button variant="outline" disabled title="Coming soon">
+              <LinkMinimalistic2LinearIcon />
             </Button>
             <DialogClose render={<Button variant="outline" />}>
-              <IonCloseOutline />
+              <X />
             </DialogClose>
           </UIView>
         </DialogHeader>

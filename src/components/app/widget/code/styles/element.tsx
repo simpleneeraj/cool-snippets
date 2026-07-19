@@ -38,6 +38,9 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
           text-shadow: ${textShadowStyle};
           letter-spacing: ${CSS?.letterSpacing}px;
         }
+        #element-${style?.id} .code-header-filename {
+          font-family: ${fontFamily};
+        }
         #element-${style?.id} .codemirror {
           z-index: 11;
           position: relative;

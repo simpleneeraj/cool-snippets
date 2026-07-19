@@ -6,7 +6,7 @@ import Topbar from '@/components/section/topbar';
 import { scrollToTarget } from '@/utils/elements';
 import FeaturesSection from '@/components/home/features';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
-import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
+import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 
 type FeaturesProps = object;
 
@@ -23,7 +23,7 @@ const FeaturesClient: React.FC<FeaturesProps> = ({}) => {
             onClick={() => scrollToTarget('FEATURES', 100)}
           >
             Explore Features
-            <MynauiChevronDownWaves className="flex-none outline-hidden h-5 w-5" />
+            <AltArrowDownLineDuotoneIcon className="flex-none outline-hidden h-5 w-5" />
           </UIAnimatedButton>
         }
       />

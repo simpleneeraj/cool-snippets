@@ -1,6 +1,6 @@
 import React from 'react';
 import { BACKGROUND_TYPE } from '@/typings/enums';
-import backgroundPurify from '@/utils/background-purify';
+import { resolveBackgroundCss } from '@/utils/background-css';
 import { SlideBackgroundTypes } from '@/typings/editor';
 
 type Props = {
@@ -11,39 +11,31 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
   const CSS = style?.style;
   const PROPERTIES = style?.properties;
 
-  const source = React.useMemo(() => {
-    return backgroundPurify(style?.type as BACKGROUND_TYPE, PROPERTIES);
+  const background = React.useMemo(() => {
+    return resolveBackgroundCss(style?.type as BACKGROUND_TYPE, PROPERTIES);
   }, [style?.type, PROPERTIES]);
 
   return (
     <style>
       {`
         .center {
-          padding:32px;
+          padding: 32px;
           position: relative;
-          background: ${source};
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          width: ${CSS?.width}px;        
-          min-height: ${CSS?.height}px; 
-          box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 20px 50px -10px rgba(0,0,0,0.3);       
+          ${background}
+          width: ${CSS?.width}px;
+          min-height: ${CSS?.height}px;
         }
-     
-        .glass-layer{
-          background: ${source};
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+
+        .glass-layer {
+          ${background}
           position: absolute;
           top: 50%;
           left: 50%;
           z-index: 1;
-          transform:translate(-50%,-50%);
-          width: ${CSS?.width}px;        
-          min-height: ${CSS?.height}px;   
+          transform: translate(-50%,-50%);
+          width: ${CSS?.width}px;
+          min-height: ${CSS?.height}px;
         }
-       
       `}
     </style>
   );

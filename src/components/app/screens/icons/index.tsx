@@ -1,53 +1,75 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+'use client';
+
 import React from 'react';
 import IconContainer from './container';
 import UIView from '@/app-kit/source/UIView';
 import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
 import useSlideEditor from '@/store/hooks/use-editor';
+import { generateID } from '@/utils/id-generator';
+import { ASSET_SOURCE, ELEMENTS } from '@/typings/enums';
+import { elementsObject } from '../../widget/aside/primary/values';
+import { useActiveElement } from '@/store/slides/current-element';
 import { IconProviders, PickerIconType } from '@/typings/icon-picker';
 
+// Labels stay short: four tabs share a 320px panel, and the full provider
+// names ("Material Icons", "Neon Symbols") overflow and clip the tab bar.
 const items = [
-  { name: 'Twitter Emoji', key: IconProviders.TWITTER },
-  { name: 'Fluent Emoji', key: IconProviders.FLUENTUI },
-  { name: 'Material Icons', key: IconProviders.MATERIAL_ICONS },
-  { name: 'Neon Symbols', key: IconProviders.VSCODE_SYMBOLS },
+  { name: 'Emoji', key: IconProviders.TWITTER },
+  { name: 'Fluent', key: IconProviders.FLUENTUI },
+  { name: 'Material', key: IconProviders.MATERIAL_ICONS },
+  { name: 'Symbols', key: IconProviders.VSCODE_SYMBOLS },
 ];
+
+const ICON_SIZE = 96;
 
 const IconsScreen = () => {
   const { createSlideElement, currentSlideId } = useSlideEditor();
+  const { updateElement } = useActiveElement();
   const [selectedIcon, setSelectedIcon] = React.useState<PickerIconType | null>(
-    null
+    null,
   );
   const [activeCategory, setActiveCategory] = React.useState<IconProviders>(
-    IconProviders.TWITTER
+    IconProviders.TWITTER,
   );
 
-  const onSelectElement = React.useCallback((icon: PickerIconType) => {
-    // const selectedElement = elementsObject[ELEMENTS.IMAGE];
-    // const id = generateID();
-    // const slide = merge({}, selectedElement, {
-    //   id,
-    //   properties: {
-    //     src: icon?.source,
-    //     alt: icon?.name,
-    //     height: '100px',
-    //     width: '100px',
-    //     className: 'border',
-    //   },
-    // });
-    // createSlideElement(currentSlideId, slide);
-  }, []);
+  const onSelectElement = React.useCallback(
+    (icon: PickerIconType) => {
+      if (!icon?.source || !currentSlideId) return;
+
+      setSelectedIcon(icon);
+
+      const template = elementsObject[ELEMENTS.ICON];
+      const id = generateID();
+
+      createSlideElement(currentSlideId, {
+        ...template,
+        id,
+        style: { ...template.style, width: ICON_SIZE, height: ICON_SIZE },
+        properties: {
+          source: ASSET_SOURCE.URL,
+          src: icon.source,
+          alt: icon.name,
+        },
+      });
+      updateElement(id);
+    },
+    [createSlideElement, currentSlideId, updateElement],
+  );
 
   return (
-    <UIView className="p-1">
+    <UIView className="layout-fill p-1">
       <Tabs
-        aria-label="Options"
+        aria-label="Icon provider"
         value={activeCategory}
         onValueChange={(value) => setActiveCategory(value as IconProviders)}
       >
         <TabsList className="w-full">
           {items?.map((item) => (
-            <TabsTab key={item.key} value={item.key} className="flex-1">
+            <TabsTab
+              key={item.key}
+              value={item.key}
+              className="min-w-0 flex-1 px-1 text-xs"
+            >
               {item.name}
             </TabsTab>
           ))}

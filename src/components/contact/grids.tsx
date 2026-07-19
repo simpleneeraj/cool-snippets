@@ -2,10 +2,8 @@ import Link from 'next/link';
 import appConfig from '@/constants/site';
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
 import { tv } from 'tailwind-variants';
-import { SolarHome2LineDuotone } from '@/app-kit/icons/SolarHome2LineDuotone';
-import { SolarPhoneCallingRoundedLineDuotone } from '@/app-kit/icons/SolarPhoneCallingRoundedLineDuotone';
-import { SolarChatRoundUnreadLineDuotone } from '@/app-kit/icons/SolarChatRoundUnreadLineDuotone';
-import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
+import { Github } from '@/components/icons/github';
+import { Home2LineDuotoneIcon, PhoneCallingRoundedLineDuotoneIcon, ChatRoundUnreadLineDuotoneIcon } from '@solar-icons/react';
 
 type ContactSectionProps = object;
 
@@ -52,7 +50,7 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: MdiGithub,
+    icon: Github,
   },
   {
     title: 'Request a Feature',
@@ -71,7 +69,7 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: SolarChatRoundUnreadLineDuotone,
+    icon: ChatRoundUnreadLineDuotoneIcon,
   },
   {
     title: 'Contribute',
@@ -90,7 +88,7 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: SolarHome2LineDuotone,
+    icon: Home2LineDuotoneIcon,
   },
   {
     title: 'Support the Project',
@@ -109,6 +107,6 @@ const contactMethods = [
         </Link>
       </div>
     ),
-    icon: SolarPhoneCallingRoundedLineDuotone,
+    icon: PhoneCallingRoundedLineDuotoneIcon,
   },
 ];

@@ -20,6 +20,7 @@
 import localFont from 'next/font/local';
 import {
   Cascadia_Code,
+  DM_Mono,
   Fira_Code,
   Hachi_Maru_Pop,
   IBM_Plex_Mono,
@@ -44,6 +45,13 @@ import {
 /* Google-hosted faces — downloaded at build time, served from our own origin  */
 /* -------------------------------------------------------------------------- */
 
+// DM Mono is the studio default, so it is the one face here that preloads.
+// It ships as static weights only — `weight: 'variable'` fails the build.
+const dmMono = DM_Mono({
+  weight: ['300', '400', '500'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 const cascadiaCode = Cascadia_Code({
   weight: 'variable',
   subsets: ['latin'],
@@ -281,6 +289,7 @@ const font = (name: string, value: string, loaded: { style: { fontFamily: string
 });
 
 const CODE_FONTS: CodeFont[] = [
+  font('DM Mono', 'DMMono', dmMono),
   font('JetBrains Mono', 'JetBrainsMono', jetBrainsMono),
   font('Fira Code', 'FiraCodeRegular', firaCode),
   font('Cascadia Code', 'CascadiaCode', cascadiaCode),
@@ -324,7 +333,7 @@ const CODE_FONTS: CodeFont[] = [
 ];
 
 /** The default when a snippet has no font set, or names one we no longer ship. */
-export const DEFAULT_CODE_FONT = 'JetBrainsMono';
+export const DEFAULT_CODE_FONT = 'DMMono';
 
 const byValue = new Map(CODE_FONTS.map((f) => [f.value, f]));
 

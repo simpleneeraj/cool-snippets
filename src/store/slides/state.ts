@@ -1,7 +1,13 @@
 import { InitialValues } from '@/typings/editor';
 import { ThemesEnum } from '@/plugins/codemirror/themes';
-import { BACKGROUND_TYPE, ELEMENTS } from '@/typings/enums';
+import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@/typings/enums';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
+import {
+  HeaderInputType,
+  HeaderPositions,
+  HeaderVariants,
+} from '@/typings/templates';
 
 export const MIN_SLIDE_WIDTH = 520;
 export const MAX_SLIDE_WIDTH = 720;
@@ -21,23 +27,10 @@ const initialState = {
           repeat: 'no-repeat',
         },
         properties: {
-          watermark: true,
-          aspectRatio: '1:1',
           image:
             'https://lh3.googleusercontent.com/pw/AP1GczP5G2ljtsWIRpFOo37B6dFMu06edq-CZQMZMij-BpJgTgZm3iFIhXYJArjanv3WiOL5Yr1IRz9Y-wviq1tjzxvxuGmQBBLly9J4UB1iNNrZ2AHK2Nmnb5xMFJZ204rCYpnPlcCpW8ndHi01Uy9uRh7C=w1502-h1502-s-no-gm?authuser=0',
           gradient:
             'repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%))',
-        },
-      },
-      watermark: {
-        text: 'Your Watermark Here',
-        image: '',
-        style: {
-          opacity: 0.3,
-          fontSize: '12px',
-          color: '#ffffff',
-          // Can have custom it have custom(120px,50px) pairs
-          // position: 'bottom-right',
         },
       },
       elements: [
@@ -53,10 +46,9 @@ const initialState = {
             lineHeight: 1.6,
             letterSpacing: 0,
             // Default must stay an openly-licensed face — SF Mono was removed.
-            fontFamily: 'JetBrainsMono',
+            fontFamily: DEFAULT_CODE_FONT,
             borderRadius: 15,
             background: 'rgba(0, 0, 0, 0.5)',
-            zIndex: '0',
             display: 'grid',
             overflow: 'hidden',
             top: '50%',
@@ -74,10 +66,10 @@ const initialState = {
             },
           },
           header: {
-            type: 'unix::terminal',
-            variant: 'outline',
-            input: 'icon',
-            position: 'left',
+            type: Terminal.Unix,
+            variant: HeaderVariants.OUTLINE,
+            input: HeaderInputType.ICON,
+            position: HeaderPositions.LEFT,
             style: {
               background: 'rgba(0, 0, 0, 0.75)',
             },

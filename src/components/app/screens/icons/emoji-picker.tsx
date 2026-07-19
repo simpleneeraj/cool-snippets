@@ -16,11 +16,8 @@ import {
 } from '@/app-kit/ui/select';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconType, PickerProps } from '@/typings/icon-picker';
-import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 
 export default function EmojiPicker(props: PickerProps) {
-  const [ref, height] = useDynamicHeight();
-  const calculatedHeight = subtract(height, 80);
   const [state, updateState] = useImmer({
     selectedGroup: '',
     selectedSkinTone: '',
@@ -48,7 +45,7 @@ export default function EmojiPicker(props: PickerProps) {
           state.selectedSkinTone &&
           (!emoji.skins ||
             !emoji.skins.some(
-              (skin: any) => skin?.tone?.toString() === state?.selectedSkinTone
+              (skin: any) => skin?.tone?.toString() === state?.selectedSkinTone,
             ))
         ) {
           return false;
@@ -72,7 +69,7 @@ export default function EmojiPicker(props: PickerProps) {
   }, [availableEmojis, state]);
 
   return (
-    <UIView className="flex-1 flex flex-col min-h-[300px]">
+    <UIView className="flex-1 flex flex-col min-h-75">
       <UIView className="py-2 flex gap-2">
         <Select
           value={state.selectedGroup}
@@ -121,11 +118,10 @@ export default function EmojiPicker(props: PickerProps) {
           }
         />
       </UIView>
-      <UIView className="flex flex-col flex-1" ref={ref}>
+      <UIView className="layout-fill">
         <UIVirtualizeGrid
           {...props}
           items={filteredEmojis}
-          height={calculatedHeight}
           emptyContent={
             <UIView className="flex-1 flex flex-col items-center justify-center">
               <span className="pointer-events-none whitespace-pre-wrap bg-linear-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl leading-none text-transparent dark:from-white dark:to-slate-900/10">

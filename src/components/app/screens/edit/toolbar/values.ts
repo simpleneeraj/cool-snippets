@@ -1,12 +1,10 @@
-import { SolarAlignHorizontalCenterLineDuotone } from '@/app-kit/icons/SolarAlignHorizontalCenterLineDuotone';
-import { SolarAlignLeftLineDuotone } from '@/app-kit/icons/SolarAlignLeftLineDuotone';
-import { SolarAlignRightLineDuotone } from '@/app-kit/icons/SolarAlignRightLineDuotone';
+import { AlignHorizontalCenterLineDuotoneIcon, AlignLeftLineDuotoneIcon, AlignRightLineDuotoneIcon } from '@solar-icons/react';
 import { HeaderInputType, HeaderVariants } from '@/typings/templates';
 
 export const SEGMENT_OPTIONS = [
-  { value: 'left', icon: SolarAlignLeftLineDuotone },
-  { value: 'center', icon: SolarAlignHorizontalCenterLineDuotone },
-  { value: 'right', icon: SolarAlignRightLineDuotone },
+  { value: 'left', icon: AlignLeftLineDuotoneIcon },
+  { value: 'center', icon: AlignHorizontalCenterLineDuotoneIcon },
+  { value: 'right', icon: AlignRightLineDuotoneIcon },
 ];
 
 export const HEADER_VARIANTS = [

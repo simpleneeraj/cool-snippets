@@ -18,7 +18,11 @@ type State = {
   saturationRange: number[];
 };
 
-const MeshBackgrounds = () => {
+type MeshBackgroundsProps = {
+  onSelect?: (gradient: string) => void;
+};
+
+const MeshBackgrounds: React.FC<MeshBackgroundsProps> = ({ onSelect }) => {
   const [state, setState] = useImmer<State>(initialOptions);
 
   const initialMesh = React.useCallback(() => {
@@ -62,9 +66,14 @@ const MeshBackgrounds = () => {
 
       {/* Generate */}
       <FrameItem>
-        <UIButton size="sm" color="primary" onClick={onGenerateMesh}>
-          Generate Mesh
-        </UIButton>
+        <UIView className="flex flex-row gap-2 w-full">
+          <UIButton size="sm" color="default" onClick={onGenerateMesh}>
+            Generate Mesh
+          </UIButton>
+          <UIButton size="sm" color="primary" onClick={() => onSelect?.(mesh)}>
+            Apply
+          </UIButton>
+        </UIView>
       </FrameItem>
 
       {/* Controls */}
@@ -74,17 +83,20 @@ const MeshBackgrounds = () => {
 
           {/* Point Count */}
           <div className="space-y-2">
-            <div className="flex justify-between text-xs text-muted-foreground">
-              <span>Point Count</span>
-              <SliderValue />
-            </div>
             <Slider
               min={0}
               max={32}
               step={1}
               value={[state.pointCount]}
               onValueChange={(value) => onChangeState('pointCount', value)}
-            />
+            >
+              {/* SliderValue must live inside Slider (Base UI needs the
+                  Slider.Root context) — the value row is a child, not a sibling. */}
+              <div className="mb-2 flex justify-between text-xs text-muted-foreground">
+                <span>Point Count</span>
+                <SliderValue />
+              </div>
+            </Slider>
           </div>
 
           {/* Hue Range */}

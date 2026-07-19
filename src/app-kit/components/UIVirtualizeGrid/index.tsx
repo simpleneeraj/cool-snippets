@@ -7,32 +7,55 @@ import { PickerProps } from '@/typings/icon-picker';
 import { Card } from '@/app-kit/ui/card';
 import { cn } from '@/lib/utils';
 
+/**
+ * Virtuoso needs a concrete pixel height, but callers only know "fill the
+ * panel". Measuring the flex parent here keeps that knowledge in one place —
+ * callers used to pass `windowHeight - 80` style guesses, which left the grid
+ * clipped or short whenever the surrounding layout changed.
+ */
+const useMeasuredHeight = () => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [height, setHeight] = React.useState(0);
+
+  React.useLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      setHeight(entry.contentRect.height);
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, height] as const;
+};
+
 const UIVirtualizeGrid: React.FC<PickerProps> = ({
   value,
   items,
-  height,
   showTitle,
   onSelectIcon,
   gridCount = 3,
   emptyContent,
   children,
 }) => {
+  const [containerRef, height] = useMeasuredHeight();
+
   const gridComponents = React.useMemo(
     () => ({
       Item: (props: any) => (
         <UIView
           {...props}
           className={cn(`p-1 flex flex-none items-center`, props.className)}
-          style={{
-            width: `${100 / gridCount}%`,
-          }}
+          style={{ width: `${100 / gridCount}%` }}
         />
       ),
       List: (props: any) => (
         <UIView {...props} className={cn(`flex flex-wrap`, props.className)} />
       ),
     }),
-    [gridCount]
+    [gridCount],
   );
 
   const renderItemContent = React.useCallback(
@@ -52,7 +75,7 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
           className={cn(
             'flex h-full w-full flex-col items-center justify-center border border-muted bg-transparent p-4 transition-all',
             'hover:border hover:border-border hover:bg-muted',
-            activeItem && 'border border-border bg-muted'
+            activeItem && 'border border-border bg-muted',
           )}
           onClick={() => onSelectIcon?.(currentItem)}
         >
@@ -61,7 +84,7 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
             src={currentItem?.source}
             className={cn(
               'object-contain',
-              showTitle ? 'h-12 w-12' : 'h-14 w-14'
+              showTitle ? 'h-12 w-12' : 'h-14 w-14',
             )}
             alt={currentItem?.name}
           />
@@ -71,11 +94,11 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
         </Card>
       );
     },
-    [items, value, children, onSelectIcon, showTitle]
+    [items, value, children, onSelectIcon, showTitle],
   );
-  // border border-muted rounded-2xl
+
   return (
-    <UIView className="flex-1 flex flex-col w-full overflow-auto">
+    <UIView ref={containerRef} className="layout-fill w-full">
       {items && items.length > 0 ? (
         <VirtuosoGrid
           style={{ height }}
@@ -84,10 +107,7 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
           itemContent={renderItemContent}
         />
       ) : (
-        <UIView
-          style={{ minHeight: `${height}px` }}
-          className="flex-1 flex flex-col"
-        >
+        <UIView className="layout-fill items-center justify-center">
           {emptyContent}
         </UIView>
       )}

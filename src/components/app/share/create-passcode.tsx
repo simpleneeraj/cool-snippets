@@ -12,9 +12,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from '@/app-kit/ui/popover';
-import { SolarPasswordMinimalisticInputLineDuotone } from '@/app-kit/icons/SolarPasswordMinimalisticInputLineDuotone';
-import { SolarCrownLineDuotone } from '@/app-kit/icons/SolarCrownLineDuotone';
-import { SolarRefreshLineDuotone } from '@/app-kit/icons/SolarRefreshLineDuotone';
+import { PasswordMinimalisticInputLineDuotoneIcon, CrownLineDuotoneIcon, RefreshLineDuotoneIcon } from '@solar-icons/react';
 
 type CreatePasscodeProps = {
   premium?: boolean;
@@ -52,7 +50,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
   return (
     <Popover>
       <PopoverTrigger render={<Button size="sm" variant="outline" />}>
-        <SolarPasswordMinimalisticInputLineDuotone className="h-4 w-4" />
+        <PasswordMinimalisticInputLineDuotoneIcon className="h-4 w-4" />
         Passcode
       </PopoverTrigger>
       <PopoverContent align="end" className="min-w-60">
@@ -60,7 +58,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
           <h3 className="flex items-center gap-2 text-sm font-bold">
             Link Password
             <Badge variant="outline" className="gap-1 text-xs">
-              <SolarCrownLineDuotone className="h-3.5 w-3.5" />
+              <CrownLineDuotoneIcon className="h-3.5 w-3.5" />
               Pro
             </Badge>
           </h3>
@@ -96,7 +94,7 @@ const CreatePasscode: React.FC<CreatePasscodeProps> = ({}) => {
                 size="icon"
                 variant="outline"
               >
-                <SolarRefreshLineDuotone className="h-4 w-4" />
+                <RefreshLineDuotoneIcon className="h-4 w-4" />
               </Button>
               <Button size="sm" variant="outline" className="w-full">
                 Add Password

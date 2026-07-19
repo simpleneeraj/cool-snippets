@@ -4,7 +4,7 @@ import UIView from '@/app-kit/source/UIView';
 import { Button } from '@/app-kit/ui/button';
 import { Badge } from '@/app-kit/ui/badge';
 import appConfig from '@/constants/site';
-import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
+import { Github } from '@/components/icons/github';
 import { UISmallGridPattern } from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
 
 type OpenSourceSectionProps = object;
@@ -69,7 +69,7 @@ const OpenSourceSection: React.FC<OpenSourceSectionProps> = ({}) => {
             <Link href={appConfig.links.repo} target="_blank" rel="noreferrer" />
           }
         >
-          <MdiGithub />
+          <Github />
           Star on GitHub
         </Button>
         <Button

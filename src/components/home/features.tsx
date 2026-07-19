@@ -1,12 +1,14 @@
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
-import { SolarAtomLineDuotone } from '@/app-kit/icons/features/SolarAtomLineDuotone';
-import { SolarCodeSquareLineDuotone } from '@/app-kit/icons/features/SolarCodeSquareLineDuotone';
-import { SolarGhostSmileLineDuotone } from '@/app-kit/icons/features/SolarGhostSmileLineDuotone';
-import { SolarHeartLineDuotone } from '@/app-kit/icons/features/SolarHeartLineDuotone';
-import { SolarHistoryLineDuotone } from '@/app-kit/icons/features/SolarHistoryLineDuotone';
-import { SolarPaletteLineDuotone } from '@/app-kit/icons/features/SolarPaletteLineDuotone';
-import { SolarRadialBlurLineDuotone } from '@/app-kit/icons/features/SolarRadialBlurLineDuotone';
-import { SolarUsersGroupTwoRoundedLineDuotone } from '@/app-kit/icons/features/SolarUsersGroupTwoRoundedLineDuotone';
+import {
+  AtomLineDuotoneIcon,
+  CodeSquareLineDuotoneIcon,
+  GhostSmileLineDuotoneIcon,
+  HeartLineDuotoneIcon,
+  HistoryLineDuotoneIcon,
+  PaletteLineDuotoneIcon,
+  RadialBlurLineDuotoneIcon,
+  UsersGroupTwoRoundedLineDuotoneIcon,
+} from '@solar-icons/react';
 
 type FeaturesSectionProps = object;
 
@@ -28,44 +30,44 @@ const features = [
     title: 'Designed for Developers',
     description:
       'Built for coders, creators, and problem-solvers who push the limits.',
-    icon: SolarCodeSquareLineDuotone,
+    icon: CodeSquareLineDuotoneIcon,
   },
   {
     title: 'Multi-Language Support',
     description:
       'From Python to JavaScript, every language you write is covered.',
-    icon: SolarAtomLineDuotone,
+    icon: AtomLineDuotoneIcon,
   },
   {
     title: 'Fun Themes',
     description: 'Pick colors and designs that you like.',
-    icon: SolarPaletteLineDuotone,
+    icon: PaletteLineDuotoneIcon,
   },
   {
     title: 'Gaussian Blur',
     description: 'Beautiful blur effects for a sleek and modern look.',
-    icon: SolarRadialBlurLineDuotone,
+    icon: RadialBlurLineDuotoneIcon,
   },
   {
     title: 'Colorful Code',
     description: 'Your code looks great with smart highlights.',
-    icon: SolarGhostSmileLineDuotone,
+    icon: GhostSmileLineDuotoneIcon,
   },
   {
     title: 'Undo Anytime',
     description: 'Go back and fix changes with version history.',
-    icon: SolarHistoryLineDuotone,
+    icon: HistoryLineDuotoneIcon,
   },
   {
     title: 'Built in the Open',
     description:
       'MIT licensed and public on GitHub. Open an issue, send a patch, or fork it.',
-    icon: SolarUsersGroupTwoRoundedLineDuotone,
+    icon: UsersGroupTwoRoundedLineDuotoneIcon,
   },
   {
     title: 'Free, No Catch',
     description:
       'Every theme and export option unlocked. No account, no paywall.',
-    icon: SolarHeartLineDuotone,
+    icon: HeartLineDuotoneIcon,
   },
 ];

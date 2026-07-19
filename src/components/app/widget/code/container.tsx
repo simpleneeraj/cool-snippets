@@ -6,7 +6,6 @@ import SlideStyle from './styles/slide';
 import ElementStyle from './styles/element';
 import MoveableOverlay from './elements/moveable';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Capture as CaptureView } from '@/plugins/capture';
 import { useActiveElement } from '@/store/slides/current-element';
 import { generateID } from '@/utils/id-generator';
 import { elementsObject } from '../aside/primary/values';
@@ -109,10 +108,10 @@ const ContainerWidget = () => {
           <div className="absolute inset-0 z-9998 border-2 border-dashed border-primary"></div>
         )}
 
-        {currentSlide?.elements?.map((item) => (
+        {currentSlide?.elements?.map((item, index) => (
           <React.Fragment key={item.id}>
             <ElementStyle style={item} />
-            <EditorComponents item={item} constraintsRef={containerRef} />
+            <EditorComponents item={item} index={index} />
           </React.Fragment>
         ))}
       </UIView>

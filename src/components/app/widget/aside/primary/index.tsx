@@ -3,9 +3,9 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
 import { Frame, FrameFooter, FramePanel } from '@/app-kit/ui/frame';
-import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
+import { Tabs, TabsList, TabsPanel, TabsTab } from '@/app-kit/ui/tabs';
 import { elements, elementsObject } from './values';
-import { APP_PLAN_TYPE, ELEMENTS } from '@/typings/enums';
+import { ELEMENTS } from '@/typings/enums';
 import { Button } from '@/app-kit/ui/button';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { useActiveSlide } from '@/store/slides/current-slide';
@@ -13,7 +13,9 @@ import { generateID } from '@/utils/id-generator';
 import { useDrag } from 'react-dnd';
 import { DRAG_ITEM_TYPE, type DragItem } from '@/components/app/dnd/types';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/app-kit/ui/badge';
+import LayersPanel from './layers';
+import { useActiveElement } from '@/store/slides/current-element';
+import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import {
   AlertDialog,
   AlertDialogClose,
@@ -31,7 +33,6 @@ interface ElementCardProps {
   elementType: ELEMENTS;
   label: string;
   icon: React.ElementType;
-  isPro: boolean;
   onAdd: (type: ELEMENTS) => void;
 }
 
@@ -39,7 +40,6 @@ function ElementCard({
   label,
   elementType,
   icon: Icon,
-  isPro,
   onAdd,
 }: ElementCardProps) {
   const [{ isDragging }, dragRef] = useDrag<
@@ -55,8 +55,8 @@ function ElementCard({
   return (
     <div
       ref={dragRef as unknown as React.Ref<HTMLDivElement>}
-      onClick={() => !isPro && onAdd(elementType)}
-      title={isPro ? 'Upgrade to Pro' : `Add ${label}`}
+      onClick={() => onAdd(elementType)}
+      title={`Add ${label}`}
       className={cn(
         'group relative flex flex-col items-start gap-2 rounded-xl border p-3 transition-all select-none overflow-hidden',
         'cursor-grab border-border bg-card hover:bg-primary-foreground',
@@ -66,14 +66,8 @@ function ElementCard({
       {/* Icon chip */}
       <UIView className="flex gap-2.5 flex-col items-center justify-between w-full">
         <Icon className={cn('opacity-75 size-6 duration-150')} />
-        {/* Label + description */}
         <div className="flex items-center gap-1">
-          <span className="text-xs font-semibold">{label} </span>
-          {isPro && (
-            <Badge variant={'warning'}>
-              <small>Pro</small>
-            </Badge>
-          )}
+          <span className="text-xs font-semibold">{label}</span>
         </div>
       </UIView>
     </div>
@@ -84,24 +78,33 @@ function ElementCard({
 
 /* ─────────────────────────────────────────────────────────── */
 
+enum PanelTab {
+  ELEMENTS = 'elements',
+  LAYERS = 'layers',
+}
+
 const PrimaryAsideWidget = () => {
-  const { createSlideElement, resetState } = useSlideEditor();
+  const { createSlideElement } = useSlideEditor();
   const { slide: currentSlide } = useActiveSlide();
+  const { updateElement } = useActiveElement();
 
   const onSelectElement = React.useCallback(
     (type: ELEMENTS) => {
       const template = elementsObject[type as keyof typeof elementsObject];
-      if (!template) {
-        console.warn(`Element of type "${type}" does not exist.`);
-        return;
-      }
-      createSlideElement(currentSlide, { id: generateID(), ...template });
+      if (!template) return;
+
+      const id = generateID();
+      createSlideElement(currentSlide, { id, ...template });
+      updateElement(id);
     },
-    [createSlideElement, currentSlide],
+    [createSlideElement, currentSlide, updateElement],
   );
 
   return (
-    <UIView className="pointer-events-auto absolute left-2 top-0 h-full py-2">
+    <UIView
+      {...keepSelectionProps}
+      className="pointer-events-auto absolute left-2 top-0 h-full py-2"
+    >
       <Frame className="w-72 h-full border bg-background/80 backdrop-blur-sm">
         <FramePanel className="layout-fill p-2 gap-2">
           {/* Header */}
@@ -114,33 +117,32 @@ const PrimaryAsideWidget = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="tab-1">
+          <Tabs defaultValue={PanelTab.ELEMENTS} className="layout-fill">
             <TabsList className="w-full">
-              <TabsTab value="tab-1">All</TabsTab>
-              <TabsTab value="tab-2">Layers</TabsTab>
+              <TabsTab value={PanelTab.ELEMENTS}>All</TabsTab>
+              <TabsTab value={PanelTab.LAYERS}>Layers</TabsTab>
             </TabsList>
-          </Tabs>
 
-          {/* Grid */}
-          <UIView className="layout-scroll py-0.5">
-            <div className="grid grid-cols-2 gap-1.5 px-0.5 pb-1">
-              {elements.map((item) => {
-                const isPro = [APP_PLAN_TYPE.PRO, APP_PLAN_TYPE.PREMIUM].some(
-                  (plan) => item.plan.includes(plan),
-                );
-                return (
-                  <ElementCard
-                    key={item.type + item.content}
-                    elementType={item.type}
-                    label={item.content}
-                    icon={item.icon}
-                    isPro={isPro}
-                    onAdd={onSelectElement}
-                  />
-                );
-              })}
-            </div>
-          </UIView>
+            <TabsPanel value={PanelTab.ELEMENTS} className="layout-fill">
+              <UIView className="layout-scroll py-0.5">
+                <div className="grid grid-cols-2 gap-1.5 px-0.5 pb-1">
+                  {elements.map((item) => (
+                    <ElementCard
+                      key={item.type}
+                      elementType={item.type}
+                      label={item.content}
+                      icon={item.icon}
+                      onAdd={onSelectElement}
+                    />
+                  ))}
+                </div>
+              </UIView>
+            </TabsPanel>
+
+            <TabsPanel value={PanelTab.LAYERS} className="layout-fill">
+              <LayersPanel />
+            </TabsPanel>
+          </Tabs>
         </FramePanel>
 
         <FrameFooter>

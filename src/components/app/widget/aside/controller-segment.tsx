@@ -1,38 +1,35 @@
 import React from 'react';
 import { SEGMENT_SCREEN } from '@/typings/enums';
 import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
-import { SolarPen2Linear } from '@/app-kit/icons/SolarPen2Linear';
-import { SolarEmojiFunnySquareLinear } from '@/app-kit/icons/SolarEmojiFunnySquareLinear';
-import { SolarWidgetAddLinear } from '@/app-kit/icons/SolarWidgetAddLinear';
+import { Pen2LinearIcon, EmojiFunnySquareLinearIcon, WidgetAddLinearIcon, GalleryWideLinearIcon } from '@solar-icons/react';
 import { useSegment } from '@/store/segment';
-import { SolarGalleryWideLinear } from '@/app-kit/icons/SolarGalleryWideLinear';
 
 type Tab = {
   name: string;
   value: SEGMENT_SCREEN;
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
+  icon: React.ComponentType<any>;
 };
 
 const tabs: Tab[] = [
   {
     name: 'Edit',
     value: SEGMENT_SCREEN.EDIT,
-    icon: SolarPen2Linear,
+    icon: Pen2LinearIcon,
   },
   {
     name: 'Images',
     value: SEGMENT_SCREEN.BACKGROUNDS,
-    icon: SolarGalleryWideLinear,
+    icon: GalleryWideLinearIcon,
   },
   {
     name: 'Icons',
     value: SEGMENT_SCREEN.ICONS,
-    icon: SolarEmojiFunnySquareLinear,
+    icon: EmojiFunnySquareLinearIcon,
   },
   {
     name: 'Options',
     value: SEGMENT_SCREEN.MORE,
-    icon: SolarWidgetAddLinear,
+    icon: WidgetAddLinearIcon,
   },
 ];
 

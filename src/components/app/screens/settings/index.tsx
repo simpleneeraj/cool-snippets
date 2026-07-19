@@ -4,8 +4,7 @@ import StorageCard from './cards/storage';
 import UIView from '@/app-kit/source/UIView';
 import { Tabs, TabsList, TabsTab, TabsPanel } from '@/app-kit/ui/tabs';
 import { Frame, FrameItem } from '@/components/elements/frame';
-import { SolarKeyboardLineDuotone } from '@/app-kit/icons/SolarKeyboardLineDuotone';
-import { SolarDatabaseLineDuotone } from '@/app-kit/icons/SolarDatabaseLineDuotone';
+import { KeyboardLineDuotoneIcon, DatabaseLineDuotoneIcon } from '@solar-icons/react';
 
 const SettingsScreen = () => {
   return (
@@ -18,7 +17,7 @@ const SettingsScreen = () => {
               className="flex-1 items-center justify-center"
             >
               <UIView className="flex items-center gap-1">
-                <SolarKeyboardLineDuotone className="h-4 w-4" />
+                <KeyboardLineDuotoneIcon className="h-4 w-4" />
                 Shorcuts
               </UIView>
             </TabsTab>
@@ -27,7 +26,7 @@ const SettingsScreen = () => {
               className="flex-1 items-center justify-center"
             >
               <UIView className="flex items-center gap-1">
-                <SolarDatabaseLineDuotone className="h-4 w-4" />
+                <DatabaseLineDuotoneIcon className="h-4 w-4" />
                 Storage
               </UIView>
             </TabsTab>

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { pauseHistory, resumeHistory } from '../hooks/use-history';
 
 type State = {
   element: string | null;
@@ -18,8 +19,11 @@ export const useActiveElement = create<State & Action>((set) => ({
     set(() => ({
       element: value,
     })),
-  setInteracting: (value: boolean) =>
-    set(() => ({
-      interacting: value,
-    })),
+  // History is paused for the duration of a drag/resize so the gesture records
+  // a single undo step rather than one per pointer move.
+  setInteracting: (value: boolean) => {
+    if (value) pauseHistory();
+    else resumeHistory();
+    set(() => ({ interacting: value }));
+  },
 }));
