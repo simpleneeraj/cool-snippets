@@ -10,7 +10,7 @@ const initialState = {
   slides: [
     {
       id: InitialValues.SLIDE_ID,
-      name: 'Crystal Slide',
+      name: 'Cool Snippet',
       background: {
         type: BACKGROUND_TYPE.GRADIENT,
         style: {

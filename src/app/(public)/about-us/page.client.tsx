@@ -17,11 +17,11 @@ const AboutClient: React.FC<AboutClientProps> = ({}) => {
     <UIView className="flex flex-col">
       <Topbar
         title="About Us"
-        description="Discover who we are, what drives us, and how we're building CrystalCode to empower developers worldwide."
+        description="Discover who we are, what drives us, and how we're building Cool Snippets to empower developers worldwide."
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-default-500"
+            className="flex items-center gap-2 text-muted-foreground"
             onClick={() => scrollToTarget('about-section', 100)}
           >
             Learn More About Us

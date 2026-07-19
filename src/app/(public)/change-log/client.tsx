@@ -17,11 +17,11 @@ const ChangeLogClient: React.FC<HeroSectionProps> = ({}) => {
       <Topbar
         title="Change Log"
         description="Stay up-to-date with all the latest features, fixes, and
-                improvements. See how CrystalCode keeps getting better for you!"
+                improvements. See how Cool Snippets keeps getting better for you!"
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-sm text-default-500"
+            className="flex items-center gap-2 text-sm text-muted-foreground"
             onClick={() => scrollToTarget('pricing-section', 100)}
           >
             Check Out the Change Log
@@ -72,7 +72,7 @@ const data = [
     content: (
       <div>
         <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-          Released CrystalCode v1.0 publicly. Key features included instant
+          Released Cool Snippets v1.0 publicly. Key features included instant
           snippet generation, language detection, and image export (HD/4K).
         </p>
       </div>

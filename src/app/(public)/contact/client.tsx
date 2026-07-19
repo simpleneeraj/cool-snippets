@@ -21,7 +21,7 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-sm text-default-500"
+            className="flex items-center gap-2 text-sm text-muted-foreground"
             onClick={() => scrollToTarget('CONTACT_FORM', 100)}
           >
             Get in Touch
@@ -34,7 +34,7 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
       </UIView>
       <Section
         title="FAQs"
-        description="Got Questions? We've Got Answers – Everything You Need to Know About Crystal Code!"
+        description="Got Questions? We've Got Answers – Everything You Need to Know About Cool Snippets!"
       />
       <FaqSection />
     </UIView>

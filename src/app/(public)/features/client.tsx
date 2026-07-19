@@ -15,11 +15,11 @@ const FeaturesClient: React.FC<FeaturesProps> = ({}) => {
     <UIView className="flex flex-col">
       <Topbar
         title="Key Features"
-        description="Discover the powerful features that make CrystalCode the ultimate solution for developers."
+        description="Discover the powerful features that make Cool Snippets the ultimate solution for developers."
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-sm text-default-500"
+            className="flex items-center gap-2 text-sm text-muted-foreground"
             onClick={() => scrollToTarget('FEATURES', 100)}
           >
             Explore Features

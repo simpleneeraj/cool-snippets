@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import appConfig from '@/constants/site';
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
-import { tv } from '@heroui/react';
+import { tv } from 'tailwind-variants';
 import { SolarHome2LineDuotone } from '@/app-kit/icons/SolarHome2LineDuotone';
 import { SolarPhoneCallingRoundedLineDuotone } from '@/app-kit/icons/SolarPhoneCallingRoundedLineDuotone';
 import { SolarChatRoundUnreadLineDuotone } from '@/app-kit/icons/SolarChatRoundUnreadLineDuotone';
-import { SolarLetterLineDuotone } from '@/app-kit/icons/SolarLetterLineDuotone';
+import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
 
 type ContactSectionProps = object;
 
@@ -13,7 +13,7 @@ const styles = tv({
   base: '',
   slots: {
     grid: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto',
-    paragraph: 'text-default-600',
+    paragraph: 'text-muted-foreground',
     wrapper: 'text-sm max-w-xs relative z-10 px-10 flex flex-col gap-2',
     link: 'text-transparent bg-clip-text font-semibold bg-linear-to-r from-lavender-frost to-periwinkle-glow',
   },
@@ -73,17 +73,22 @@ const contactMethods = [
     icon: SolarChatRoundUnreadLineDuotone,
   },
   {
-    title: 'Email Us',
+    title: 'Open an Issue',
     description: (
       <div className={styles().wrapper()}>
         <p className={styles().paragraph()}>
-          Got something to share? Write to us.
+          Found a bug or have an idea? Everything is tracked in the open.
         </p>
-        <Link className={styles().link()} href={appConfig.contact.email}>
-          {appConfig.contact.email}
+        <Link
+          className={styles().link()}
+          href={appConfig.contact.issues}
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub Issues
         </Link>
       </div>
     ),
-    icon: SolarLetterLineDuotone,
+    icon: MdiGithub,
   },
 ];

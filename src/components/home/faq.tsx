@@ -1,64 +1,54 @@
-import { IonAddOutline } from '@/app-kit/icons/IonAddOutline';
 import UIView from '@/app-kit/source/UIView';
-import { Accordion, AccordionItem, cn } from '@heroui/react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@/app-kit/ui/accordion';
 
 const faqData = [
   {
     id: '1',
-    question: 'What plans does Crystal Code offer?',
+    question: 'How much does Cool Snippets cost?',
     answer:
-      'Crystal Code offers Free, Pro, and Enterprise plans to suit your needs. Each plan includes unique features designed for different users.',
+      'Nothing. Every theme, effect, and export option is free, and there are no paid tiers. The project is funded by sponsors instead of by charging for features.',
   },
   {
     id: '2',
-    question: 'What features are included in the Free plan?',
+    question: 'Do I need an account?',
     answer:
-      'The Free plan includes basic access to Crystal Code with limited evaluations and essential features to get you started.',
+      'No. There is no sign-up and no login. Open the studio and start creating straight away.',
   },
   {
     id: '3',
-    question: 'Can I switch plans later?',
+    question: 'Where are my snippets stored?',
     answer:
-      'Yes, you can easily upgrade or downgrade your plan anytime through your account settings.',
+      'In your browser. Your work stays on your own device and is never uploaded to a server, so clearing your browser data will also clear your snippets.',
   },
   {
     id: '4',
-    question: 'Are there any hidden charges?',
+    question: 'Is it really open source?',
     answer:
-      'No, all charges are transparent. You pay only for the features included in your selected plan.',
+      'Yes. Cool Snippets is MIT licensed and the full source is on GitHub. You are free to read it, fork it, self-host it, or contribute back.',
   },
   {
     id: '5',
-    question: 'Do you offer a free trial for paid plans?',
+    question: 'How can I support the project?',
     answer:
-      'Yes, we offer a 7-day free trial for Pro and Enterprise plans so you can explore all features before committing.',
+      'Star the repository, report bugs, or send a pull request. If you would rather support it financially, GitHub Sponsors and Buy Me a Coffee both help keep it free for everyone.',
   },
 ];
 
 function FaqSection() {
   return (
-    <UIView className="mx-auto w-full max-w-2xl relative overflow-hidden pb-24">
-      <Accordion variant="bordered">
+    <UIView className="mx-auto w-full max-w-2xl relative pb-24">
+      <Accordion>
         {faqData.map(({ id, question, answer }) => (
-          <AccordionItem
-            disableIndicatorAnimation
-            key={id}
-            indicator={(props) => (
-              <IonAddOutline
-                className={cn(
-                  'h-5 w-5 transition-all',
-                  props.isOpen ? 'rotate-45' : 'rotate-0'
-                )}
-              />
-            )}
-            aria-label={question}
-            title={question}
-            classNames={{
-              heading: 'text-base',
-              subtitle: 'text-sm',
-            }}
-          >
-            {answer}
+          <AccordionItem key={id} value={id}>
+            <AccordionTrigger className="text-base">
+              {question}
+            </AccordionTrigger>
+            <AccordionContent className="text-sm">{answer}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

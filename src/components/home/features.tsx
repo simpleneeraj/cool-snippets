@@ -1,15 +1,11 @@
 import FeatureCard from '@/app-kit/components/UIFeatureCard';
 import { SolarAtomLineDuotone } from '@/app-kit/icons/features/SolarAtomLineDuotone';
-import { SolarCloudLineDuotone } from '@/app-kit/icons/features/SolarCloudLineDuotone';
 import { SolarCodeSquareLineDuotone } from '@/app-kit/icons/features/SolarCodeSquareLineDuotone';
-import { SolarDollarMinimalisticLineDuotone } from '@/app-kit/icons/features/SolarDollarMinimalisticLineDuotone';
-import { SolarFolderWithFilesLineDuotone } from '@/app-kit/icons/features/SolarFolderWithFilesLineDuotone';
 import { SolarGhostSmileLineDuotone } from '@/app-kit/icons/features/SolarGhostSmileLineDuotone';
 import { SolarHeartLineDuotone } from '@/app-kit/icons/features/SolarHeartLineDuotone';
 import { SolarHistoryLineDuotone } from '@/app-kit/icons/features/SolarHistoryLineDuotone';
 import { SolarPaletteLineDuotone } from '@/app-kit/icons/features/SolarPaletteLineDuotone';
 import { SolarRadialBlurLineDuotone } from '@/app-kit/icons/features/SolarRadialBlurLineDuotone';
-import { SolarShareCircleLineDuotone } from '@/app-kit/icons/features/SolarShareCircleLineDuotone';
 import { SolarUsersGroupTwoRoundedLineDuotone } from '@/app-kit/icons/features/SolarUsersGroupTwoRoundedLineDuotone';
 
 type FeaturesSectionProps = object;
@@ -26,6 +22,7 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = () => {
 
 export default FeaturesSection;
 
+// Exactly 8 entries — UIFeatureCard's border logic assumes two rows of four.
 const features = [
   {
     title: 'Designed for Developers',
@@ -34,14 +31,9 @@ const features = [
     icon: SolarCodeSquareLineDuotone,
   },
   {
-    title: 'Effortless Code Sharing',
-    description:
-      'Share snippets as easily as copying and pasting, with extra flair.',
-    icon: SolarShareCircleLineDuotone,
-  },
-  {
     title: 'Multi-Language Support',
-    description: 'From Python to JavaScript, CrystalCode has you covered.',
+    description:
+      'From Python to JavaScript, every language you write is covered.',
     icon: SolarAtomLineDuotone,
   },
   {
@@ -51,7 +43,7 @@ const features = [
   },
   {
     title: 'Gaussian Blur',
-    description: 'Beautiful blur-sm effects for a sleek and modern look.',
+    description: 'Beautiful blur effects for a sleek and modern look.',
     icon: SolarRadialBlurLineDuotone,
   },
   {
@@ -60,34 +52,20 @@ const features = [
     icon: SolarGhostSmileLineDuotone,
   },
   {
-    title: 'Snippets Management',
-    description: 'Organize and keep track of your snippets easily.',
-    icon: SolarFolderWithFilesLineDuotone,
-  },
-  {
     title: 'Undo Anytime',
     description: 'Go back and fix changes with version history.',
     icon: SolarHistoryLineDuotone,
   },
-
   {
-    title: 'Save in the Cloud',
-    description: 'Your code is always safe and easy to access.',
-    icon: SolarCloudLineDuotone,
-  },
-  {
-    title: 'Community',
-    description: 'Join a huge community of passionate coders and creators.',
+    title: 'Built in the Open',
+    description:
+      'MIT licensed and public on GitHub. Open an issue, send a patch, or fork it.',
     icon: SolarUsersGroupTwoRoundedLineDuotone,
   },
   {
-    title: 'Affordable Plans',
-    description: 'CrystalCode offers unmatched value with plans for everyone.',
-    icon: SolarDollarMinimalisticLineDuotone,
-  },
-  {
-    title: 'Not Just a Tool',
-    description: 'Crystal Code is your buddy for coding.',
+    title: 'Free, No Catch',
+    description:
+      'Every theme and export option unlocked. No account, no paywall.',
     icon: SolarHeartLineDuotone,
   },
 ];

@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BACKGROUND_TYPE, ELEMENTS } from './enums';
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
-import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { HeaderInputType, HeaderVariants } from './templates';
 
 export type Pairs = Record<string, any>;
 
 export enum StorageEnum {
-  NAME = 'CRYSTAL_STORE',
+  NAME = 'COOL_SNIPPETS_STORE',
 }
 export enum InitialValues {
   SLIDE_ID = 'initial_slide_id',
@@ -15,8 +13,8 @@ export enum InitialValues {
 }
 
 export type PropertiesType = {
-  language?: LanguagesEnum;
-  theme?: ThemesEnum;
+  language?: string;
+  theme?: string;
 } & Pairs;
 
 export type ElementType = {
@@ -92,7 +90,7 @@ export type SlideActionType = {
   createSlide: (slide: SlideTypes) => void;
   updateSlide: (
     id: string,
-    slide: Omit<SlideTypes, 'id' | 'name' | 'elements'>
+    slide: Omit<SlideTypes, 'id' | 'name' | 'elements'>,
   ) => void;
   deleteSlide: (id: string) => void;
   duplicateSlide: (id: string) => void;
@@ -100,7 +98,7 @@ export type SlideActionType = {
   updateSlideElement: (
     slideId: string,
     elementId: string,
-    element: ElementType
+    element: ElementType,
   ) => void;
   deleteSlideElement: (slideId: string, elementId: string) => void;
   duplicateSlideElement: (slideId: string, elementId: string) => void;
