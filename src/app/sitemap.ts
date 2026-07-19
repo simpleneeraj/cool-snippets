@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
+import { getSiteUrl } from '@/constants/url';
 
-const URL = String(process.env.BASE_URL);
+const URL = getSiteUrl();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
