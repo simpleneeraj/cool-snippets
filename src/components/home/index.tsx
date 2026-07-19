@@ -26,7 +26,6 @@ const HomePageClient: React.FC<HomePageClientProps> = ({}) => {
         />
         <OpenSourceSection />
       </UIView>
-      {/* Outside the max-w wrapper so the closing band can go full-bleed. */}
       <CtaSection />
     </UIView>
   );

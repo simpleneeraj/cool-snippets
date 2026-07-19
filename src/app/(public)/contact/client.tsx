@@ -9,6 +9,7 @@ import { scrollToTarget } from '@/utils/elements';
 import ContactSection from '@/components/contact/grids';
 import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
 import { MynauiChevronDownWaves } from '@/app-kit/icons/MynauiChevronDownWaves';
+import CtaSection from '@/components/home/cta';
 
 type ContactProps = object;
 
@@ -29,14 +30,13 @@ const ContactClient: React.FC<ContactProps> = ({}) => {
           </UIAnimatedButton>
         }
       />
-      <UIView id="CONTACT_FORM" className="mx-auto w-full px-3 max-w-(--breakpoint-lg)">
+      <UIView
+        id="CONTACT_FORM"
+        className="mx-auto w-full px-3 max-w-(--breakpoint-lg)"
+      >
         <ContactSection />
       </UIView>
-      <Section
-        title="FAQs"
-        description="Got Questions? We've Got Answers – Everything You Need to Know About Cool Snippets!"
-      />
-      <FaqSection />
+      <CtaSection />
     </UIView>
   );
 };

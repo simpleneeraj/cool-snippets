@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@/constants/site';
-import fontsNames from '@/json/fonts.json';
+import { resolveCodeFontFamily } from '@/app-kit/fonts/code';
+import { resolveFontSource } from '@/app-kit/fonts/source';
 import { useCapture } from '@/plugins/capture';
 import useSlideEditor from '@/store/hooks/use-editor';
 import UIView from '@/app-kit/source/UIView';
@@ -146,9 +147,16 @@ const ExportDropdown: React.FC = () => {
 
   const state = watch();
 
-  const currentTypeface = findFontByValue(
-    currentElement?.style?.fontFamily as string,
-  );
+  // Export inlines the font as base64 so the image renders correctly on a
+  // machine without it installed. next/font fingerprints the file, so the URL
+  // is discovered from the emitted @font-face rule rather than hardcoded.
+  const exportFonts = React.useCallback(() => {
+    const fontFamily = resolveCodeFontFamily(
+      currentElement?.style?.fontFamily as string,
+    );
+    const src = resolveFontSource(fontFamily);
+    return src ? [{ src, fontFamily }] : [];
+  }, [currentElement?.style?.fontFamily]);
 
   // console.log(state);
   const activePreset = EXPORT_PRESETS.find((p) => p.id === state.preset);
@@ -166,12 +174,7 @@ const ExportDropdown: React.FC = () => {
       ...state,
       pixelRatio,
       fileName: state.fileName || fileName,
-      fonts: [
-        {
-          src: currentTypeface?.src as string,
-          fontFamily: currentTypeface?.value as string,
-        },
-      ],
+      fonts: exportFonts(),
     });
   };
   const onCopy = async () => {
@@ -179,12 +182,7 @@ const ExportDropdown: React.FC = () => {
       await copyToClipboard({
         ...state,
         pixelRatio,
-        fonts: [
-          {
-            src: currentTypeface?.src as string,
-            fontFamily: currentTypeface?.value as string,
-          },
-        ],
+        fonts: exportFonts(),
       });
 
       // addToast({
@@ -387,6 +385,3 @@ const ExportDropdown: React.FC = () => {
 };
 
 export default ExportDropdown;
-
-const findFontByValue = (value: string) =>
-  fontsNames.find((item) => item?.value === value);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ElementType } from '@/typings/editor';
+import { resolveCodeFontFamily } from '@/app-kit/fonts/code';
 
 type Props = {
   style?: ElementType;
@@ -15,6 +16,10 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
     ? `${neon.offsetX}px ${neon.offsetY}px ${neon.blurRadius}px`
     : 'none';
 
+  // The store holds a stable id ('JetBrainsMono'); next/font generates the real
+  // family name at build time, so it has to be looked up rather than persisted.
+  const fontFamily = resolveCodeFontFamily(CSS?.fontFamily);
+
   return (
     <style>
       {`
@@ -27,7 +32,7 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
         #element-${style?.id} .cm-line {
           background: unset !important;
           font-size: ${CSS?.fontSize}px;
-          font-family: ${CSS?.fontFamily};
+          font-family: ${fontFamily};
           line-height: ${CSS?.lineHeight};
           font-weight: ${CSS?.fontWeight};
           text-shadow: ${textShadowStyle};

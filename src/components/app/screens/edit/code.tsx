@@ -1,7 +1,7 @@
 import UIView from '@/app-kit/source/UIView';
 import capitalize from 'lodash/capitalize';
 import themes from '@/plugins/codemirror/themes';
-import fontsNames from '@/json/fonts.json';
+import CODE_FONTS from '@/app-kit/fonts/code';
 import useSlideEditor from '@/store/hooks/use-editor';
 import Glassmorphism from '../elements/glassmorphism';
 import NeonText from '../elements/neon';
@@ -29,7 +29,7 @@ const CodeScreen = () => {
   );
 
   const selectedFont = resolveSelected(
-    fontsNames,
+    CODE_FONTS,
     currentElement?.style?.fontFamily,
   );
 
@@ -133,7 +133,7 @@ const CodeScreen = () => {
         <Field>
           <FieldLabel>Font family</FieldLabel>
           <Combobox
-            items={fontsNames}
+            items={CODE_FONTS}
             value={selectedFont}
             onValueChange={(item: any) =>
               onChangeSlideElement({
@@ -149,7 +149,13 @@ const CodeScreen = () => {
               <ComboboxEmpty>No fonts found.</ComboboxEmpty>
               <ComboboxList>
                 {(item) => (
-                  <ComboboxItem key={item.value} value={item}>
+                  // Each option previews itself in its own typeface — the whole
+                  // point of the choice is how it looks.
+                  <ComboboxItem
+                    key={item.value}
+                    value={item}
+                    style={{ fontFamily: item.family }}
+                  >
                     {item.name}
                   </ComboboxItem>
                 )}
