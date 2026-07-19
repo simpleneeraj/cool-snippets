@@ -1,28 +1,49 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
 import shortcutsData from '@/json/shortcuts.json';
-import { Kbd, KbdKey, Listbox, ListboxItem } from '@heroui/react';
+import { Kbd, KbdGroup } from '@/app-kit/ui/kbd';
+
+const KEY_SYMBOLS: Record<string, string> = {
+  command: '⌘',
+  shift: '⇧',
+  ctrl: '⌃',
+  control: '⌃',
+  option: '⌥',
+  alt: '⌥',
+  enter: '↵',
+  escape: 'esc',
+  delete: '⌫',
+};
 
 const Shortcuts = () => {
-  const iconClasses =
-    'text-xl text-default-500 pointer-events-none shrink-0';
-
   return (
-    <UIView className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right rounded-2xl">
-      <Listbox aria-label="Editor Shortcuts" variant="bordered">
+    <UIView className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right">
+      <ul
+        aria-label="Editor Shortcuts"
+        className="flex flex-col divide-y divide-border"
+      >
         {shortcutsData.map((shortcut) => (
-          <ListboxItem
+          <li
             key={shortcut.key}
-            description={shortcut.description}
-            // startContent={<Icon icon={shortcut.icon} className={iconClasses} />}
-            endContent={
-              <Kbd keys={shortcut.keys as KbdKey[]}>{shortcut.key}</Kbd>
-            }
+            className="flex items-center justify-between gap-3 px-3 py-2"
           >
-            {shortcut.text}
-          </ListboxItem>
+            <div className="flex flex-col">
+              <span className="text-sm">{shortcut.text}</span>
+              {shortcut.description && (
+                <span className="text-xs text-muted-foreground">
+                  {shortcut.description}
+                </span>
+              )}
+            </div>
+            <KbdGroup>
+              {(shortcut.keys as string[]).map((k) => (
+                <Kbd key={k}>{KEY_SYMBOLS[k] ?? k}</Kbd>
+              ))}
+              <Kbd>{shortcut.key}</Kbd>
+            </KbdGroup>
+          </li>
         ))}
-      </Listbox>
+      </ul>
     </UIView>
   );
 };

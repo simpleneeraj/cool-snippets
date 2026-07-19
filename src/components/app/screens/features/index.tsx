@@ -10,7 +10,7 @@ const MoreFeatures = () => {
           {Array.from({ length: 8 }).map((_, i) => (
             <UIView
               key={i}
-              className="bg-default-100 p-1 rounded-xl h-16 flex items-center justify-center"
+              className="bg-muted p-1 rounded-xl h-16 flex items-center justify-center"
             >
               {i + 1}
             </UIView>

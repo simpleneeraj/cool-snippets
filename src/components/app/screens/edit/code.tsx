@@ -114,7 +114,7 @@ const CodeScreen = () => {
             min={0}
             max={32}
             step={1}
-            value={Number(currentElement?.style?.borderRadius)}
+            value={Number(currentElement?.style?.borderRadius) || 0}
             onValueChange={(borderRadius) =>
               onChangeSlideElement({
                 style: { borderRadius: Number(borderRadius) },

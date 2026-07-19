@@ -9,7 +9,7 @@ const ChevronRightIcon = (props: SVGIconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5 text-default-400"
+      className="w-5 h-5 text-muted-foreground"
       {...props}
     >
       <path

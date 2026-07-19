@@ -2,7 +2,8 @@ import React from 'react';
 import { templates } from './templates';
 import CodingLines from './coding-lines';
 import UIView from '@/app-kit/source/UIView';
-import { Card, tv } from '@heroui/react';
+import { Card } from '@/app-kit/ui/card';
+import { tv } from 'tailwind-variants';
 import useSlideEditor from '@/store/hooks/use-editor';
 import backgroundPurify from '@/utils/background-purify';
 import { BACKGROUND_TYPE } from '@/typings/enums';
@@ -55,11 +56,7 @@ export default TemplatesPreview;
 
 const Item = ({ children, ...rest }: CardProps) => {
   return (
-    <Card
-      isPressable
-      className="relative flex flex-col overflow-hidden bg-black bg-opacity-50 w-full"
-      as={'div'}
-    >
+    <Card className="relative flex w-full flex-col overflow-hidden bg-black bg-opacity-50">
       <UIView className={container()} {...rest}>
         <UIView className={card()}>
           {children}

@@ -1,43 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Avatar,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  NavbarItem,
-} from '@heroui/react';
 import React from 'react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/app-kit/ui/avatar';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '@/app-kit/ui/menu';
 
 type Props = {
   session?: any;
 };
 export const UserDropdown = ({ session }: Props) => {
   return (
-    <Dropdown>
-      <NavbarItem>
-        <DropdownTrigger>
-          <Avatar
-            as="button"
-            size="sm"
-            color="default"
-            src={session?.image as string}
-          />
-        </DropdownTrigger>
-      </NavbarItem>
-      <DropdownMenu aria-label="User menu actions" onAction={console.log}>
-        <DropdownItem
-          key="profile"
-          className="flex flex-col justify-start w-full items-start"
-          showDivider
-        >
+    <DropdownMenu>
+      <DropdownMenuTrigger className="rounded-full outline-none">
+        <Avatar className="size-8">
+          <AvatarImage src={session?.image as string} />
+          <AvatarFallback>U</AvatarFallback>
+        </Avatar>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" aria-label="User menu actions">
+        <DropdownMenuItem className="flex w-full flex-col items-start justify-start">
           <p>Signed in as</p>
           <p>{session?.email}</p>
-        </DropdownItem>
-        <DropdownItem key="logout" color="danger" className="text-danger ">
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="text-destructive">
           Log Out
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

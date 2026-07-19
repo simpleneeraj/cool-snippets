@@ -1,24 +1,24 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import {
-  IconProviders,
-  PickerIconType,
-  PickerProps,
-} from '@/typings/icon-picker';
-import {
-  Tabs,
-  Tab,
-  ModalProps,
-  ModalFooter,
-  Button,
-  Image,
-} from '@heroui/react';
-import { Modal, ModalBody, ModalHeader, ModalContent } from '@heroui/react';
+import { PickerIconType, PickerProps } from '@/typings/icon-picker';
+import { IconProviders } from '@/typings/icon-picker';
 import { startCase } from 'lodash';
 import IconContainer from '../../icons/container';
 import UILoadingFallback from '@/app-kit/components/UILoadingFallback';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/app-kit/ui/dialog';
+import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
+import { Button } from '@/app-kit/ui/button';
 
-type Props = PickerProps & Omit<ModalProps, 'children'>;
+type Props = PickerProps & {
+  isOpen?: boolean;
+  onClose?: () => void;
+  onOpenChange?: (open: boolean) => void;
+};
 
 const items = [
   { name: 'Twitter Emoji', key: IconProviders.TWITTER },
@@ -29,10 +29,10 @@ const items = [
 
 const IconPicker: React.FC<Props> = (props) => {
   const [selectedIcon, setSelectedIcon] = React.useState<PickerIconType | null>(
-    null
+    null,
   );
   const [activeCategory, setActiveCategory] = React.useState<IconProviders>(
-    IconProviders.TWITTER
+    IconProviders.TWITTER,
   );
 
   const onSelectIcon = React.useCallback((icon: PickerIconType) => {
@@ -49,28 +49,35 @@ const IconPicker: React.FC<Props> = (props) => {
   };
 
   return (
-    <Modal scrollBehavior="inside" placement="top" size="3xl" {...props}>
-      <ModalContent>
-        <ModalHeader className="flex flex-col gap-1 p-2">
-          Asset Picker
-        </ModalHeader>
-        <ModalBody className="p-2 flex-row gap-2">
-          <UIView className="min-w-40">
+    <Dialog open={props.isOpen} onOpenChange={props.onOpenChange}>
+      <DialogContent className="max-w-3xl">
+        <DialogHeader className="p-2">
+          <DialogTitle>Asset Picker</DialogTitle>
+        </DialogHeader>
+        <div className="flex flex-row gap-2 p-2">
+          <div className="min-w-40">
             <Tabs
-              fullWidth
-              variant="light"
+              orientation="vertical"
               aria-label="Options"
-              isVertical
-              onSelectionChange={(key) =>
-                setActiveCategory(key as IconProviders)
+              value={activeCategory}
+              onValueChange={(value) =>
+                setActiveCategory(value as IconProviders)
               }
             >
-              {items.map((item) => (
-                <Tab key={item.key} title={item.name}></Tab>
-              ))}
+              <TabsList className="h-auto flex-col">
+                {items.map((item) => (
+                  <TabsTab
+                    key={item.key}
+                    value={item.key}
+                    className="w-full justify-start"
+                  >
+                    {item.name}
+                  </TabsTab>
+                ))}
+              </TabsList>
             </Tabs>
-          </UIView>
-          <UIView className="flex-1">
+          </div>
+          <div className="flex-1">
             <React.Suspense fallback={<UILoadingFallback />}>
               <IconContainer
                 gridCount={4}
@@ -79,44 +86,45 @@ const IconPicker: React.FC<Props> = (props) => {
                 onSelectIcon={onSelectIcon}
               />
             </React.Suspense>
-          </UIView>
-        </ModalBody>
-        <ModalFooter className="flex items-center gap-1 p-4 justify-between border-t border-default-100">
-          <UIView className="flex items-center gap-2">
+          </div>
+        </div>
+        <DialogFooter className="flex items-center justify-between gap-1 border-t border-muted p-4">
+          <div className="flex items-center gap-2">
             {selectedIcon && (
               <>
-                <UIView className="flex flex-col border border-default-100 rounded-xl p-1">
-                  <Image
+                <div className="flex flex-col rounded-xl border border-muted p-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     className="h-12 w-12 object-contain"
                     src={selectedIcon?.source}
                     alt={selectedIcon?.name}
                   />
-                </UIView>
-                <UIView className="flex flex-col">
+                </div>
+                <div className="flex flex-col">
                   <p>{startCase(selectedIcon?.name)}</p>
-                  <span className="text-small text-default-500">
+                  <span className="text-sm text-muted-foreground">
                     {activeCategory}
                   </span>
-                </UIView>
+                </div>
               </>
             )}
-          </UIView>
-          <UIView className="flex items-center gap-2">
-            <Button size="sm" onClick={onClearSelection}>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="outline" onClick={onClearSelection}>
               Clear
             </Button>
             <Button
-              color="secondary"
+              variant="secondary"
               size="sm"
               onClick={onSelect}
               disabled={!selectedIcon}
             >
               Select
             </Button>
-          </UIView>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 };
 

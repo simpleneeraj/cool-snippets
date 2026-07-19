@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  Avatar,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-} from '@heroui/react';
+import { Avatar, AvatarFallback } from '@/app-kit/ui/avatar';
+import { Button } from '@/app-kit/ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/app-kit/ui/card';
 import { format } from 'date-fns';
 import convertBytes from '@/utils/convert-bytes';
 import useSlideEditor from '@/store/hooks/use-editor';
@@ -26,63 +21,61 @@ const StorageCard = () => {
   }, [slides]);
 
   return (
-    <Card className="overflow-none relative border-small border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right">
+    <Card className="relative overflow-hidden border border-foreground/10 bg-[url('/texture/abstract-dark-bg.jpg')] bg-bottom-right">
       <CardHeader>
         <div className="flex items-center gap-3">
-          <Avatar
-            className="border-small border-white/20 bg-transparent"
-            icon={<SolarRefreshLineDuotone className="h-6 w-6" />}
-          />
-          <p className="text-large font-medium text-white">
-            Storage Management
-          </p>
+          <Avatar className="border border-white/20 bg-transparent">
+            <AvatarFallback>
+              <SolarRefreshLineDuotone className="h-6 w-6" />
+            </AvatarFallback>
+          </Avatar>
+          <p className="text-lg font-medium text-white">Storage Management</p>
         </div>
       </CardHeader>
-      <CardBody className="px-3">
+      <CardContent className="px-3">
         <div className="flex flex-col gap-2 px-2">
-          <p className="text-large font-medium text-white/80">
+          <p className="text-lg font-medium text-white/80">
             Optimize Your Storage
           </p>
-          <p className="text-small text-white/60">
+          <p className="text-sm text-white/60">
             Easily manage and organize your storage. Reset unused data, free up
             space, and ensure smooth performance across all your workflows.
           </p>
 
-          <table className="w-full text-center text-small border-collapse rounded-md">
-            <thead className="text-xs  text-default-700">
+          <table className="w-full text-center text-sm border-collapse rounded-md">
+            <thead className="text-xs  text-foreground">
               <tr>
-                <th scope="col" className="p-1 border border-default-200/50">
+                <th scope="col" className="p-1 border border-border/50">
                   Size
                 </th>
-                <th scope="col" className="p-1 border border-default-200/50">
+                <th scope="col" className="p-1 border border-border/50">
                   Type
                 </th>
-                <th scope="col" className="p-1 border border-default-200/50">
+                <th scope="col" className="p-1 border border-border/50">
                   Date
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="text-small">
-                <td className="p-1 border border-default-200/50">
+              <tr className="text-sm">
+                <td className="p-1 border border-border/50">
                   {getConfig.bytes}
                 </td>
-                <td className="p-1 border border-default-200/50">
+                <td className="p-1 border border-border/50">
                   {getConfig.type}
                 </td>
-                <td className="p-1 border border-default-200/50">
+                <td className="p-1 border border-border/50">
                   {getConfig.date}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </CardBody>
+      </CardContent>
       <CardFooter className="justify-end gap-2">
         <Button
-          fullWidth
           onClick={resetState}
-          className="border-small border-white/20 bg-white/10 text-white"
+          className="w-full border border-white/20 bg-white/10 text-white"
         >
           Reset Storage
         </Button>

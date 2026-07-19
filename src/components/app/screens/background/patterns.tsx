@@ -1,7 +1,8 @@
 import React from 'react';
 import { sortBy, subtract } from 'lodash';
 import UIView from '@/app-kit/source/UIView';
-import { Card, cn } from '@heroui/react';
+import { Card } from '@/app-kit/ui/card';
+import { cn } from '@/lib/utils';
 import { BackgroundScreenTypes } from './types';
 import { FrameItem } from '@/components/elements/frame';
 import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
@@ -46,13 +47,12 @@ const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
 
               return (
                 <Card
-                  fullWidth
-                  isPressable
+                  render={<button type="button" />}
                   onClick={() => onChange?.(gradient)}
                   key={currentItem?.name}
                   className={cn(
-                    'flex flex-col w-full group sm:cursor-pointer border-2 border-transparent transition-all',
-                    gradient === value && 'border-default-900 border-2',
+                    'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer',
+                    gradient === value && 'border-foreground',
                   )}
                   title={currentItem?.name}
                 >

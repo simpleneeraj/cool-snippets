@@ -2,7 +2,7 @@
 import React from 'react';
 import IconContainer from './container';
 import UIView from '@/app-kit/source/UIView';
-import { Tab, Tabs } from '@heroui/react';
+import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { IconProviders, PickerIconType } from '@/typings/icon-picker';
 
@@ -41,13 +41,17 @@ const IconsScreen = () => {
   return (
     <UIView className="p-1">
       <Tabs
-        fullWidth
-        size="sm"
-        variant="light"
         aria-label="Options"
-        onSelectionChange={(key) => setActiveCategory(key as IconProviders)}
+        value={activeCategory}
+        onValueChange={(value) => setActiveCategory(value as IconProviders)}
       >
-        {items?.map((item) => <Tab key={item.key} title={item.name}></Tab>)}
+        <TabsList className="w-full">
+          {items?.map((item) => (
+            <TabsTab key={item.key} value={item.key} className="flex-1">
+              {item.name}
+            </TabsTab>
+          ))}
+        </TabsList>
       </Tabs>
       <IconContainer
         gridCount={3}

@@ -1,106 +1,73 @@
 import React from 'react';
+import { Button } from '@/app-kit/ui/button';
 import {
-  Button,
-  Card,
-  CardFooter,
-  CardHeader,
-  Dropdown,
-  DropdownItem,
   DropdownMenu,
-  DropdownSection,
-  DropdownTrigger,
-  Image,
-  NavbarItem,
-  useDisclosure,
-} from '@heroui/react';
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuGroup,
+} from '@/app-kit/ui/menu';
 import { SolarBellBingLineDuotone } from '@/app-kit/icons/SolarBellBingLineDuotone';
 
-export const NotificationsDropdown = () => {
-  const disclose = useDisclosure();
+const notifications = [
+  {
+    key: 'new-snippet',
+    title: '📝 New Snippet Added',
+    description: 'Check out the latest snippet created by your collaborators.',
+  },
+  {
+    key: 'feedback',
+    title: '💬 Feedback Received',
+    description: 'Your snippet has received new feedback or comments.',
+  },
+  {
+    key: 'likes',
+    title: '👍 Snippet Trending',
+    description: 'One of your snippets is trending with new likes!',
+  },
+];
 
+export const NotificationsDropdown = () => {
   return (
-    <Dropdown placement="bottom-end" {...disclose}>
-      <DropdownTrigger>
-        <NavbarItem>
-          <Button
-            isIconOnly
-            radius="full"
-            variant="light"
-            onClick={disclose.onOpenChange}
-          >
-            <SolarBellBingLineDuotone className="h-6 w-6" />
-          </Button>
-        </NavbarItem>
-      </DropdownTrigger>
-      <DropdownMenu className="w-80" aria-label="Notifications">
-        <DropdownItem
-          key="overview"
-          variant="light"
-          className="p-0"
-          isReadOnly
-          // onClick={(e) => e.continuePropagation()}
-        >
-          <Card
-            fullWidth
-            isFooterBlurred
-            className="w-full h-[200px] col-span-12 sm:col-span-7"
-          >
-            <CardHeader className="absolute z-10 top-1 flex-col items-start">
-              <h4 className="text-white/90 font-medium text-xl">
-                Notifications
-              </h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Code snippets notification background"
-              className="z-0 w-full h-full object-cover"
-              src="https://images.unsplash.com/photo-1657215373962-d84815b7ddbb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            />
-            <CardFooter className="absolute bg-black/40 bottom-0 z-10">
-              <div className="flex grow gap-2 items-center">
-                <div className="flex flex-col">
-                  <p className="text-tiny text-white/60">5 new updates</p>
-                  <p className="text-tiny text-white/60">
-                    Stay on top of your code notifications.
-                  </p>
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        </DropdownItem>
-        <DropdownSection>
-          <DropdownItem
-            classNames={{
-              base: 'py-2',
-              title: 'text-base font-semibold',
-            }}
-            key="new-snippet"
-            description="Check out the latest snippet created by your collaborators."
-          >
-            📝 New Snippet Added
-          </DropdownItem>
-          <DropdownItem
-            key="feedback"
-            classNames={{
-              base: 'py-2',
-              title: 'text-base font-semibold',
-            }}
-            description="Your snippet has received new feedback or comments."
-          >
-            💬 Feedback Received
-          </DropdownItem>
-          <DropdownItem
-            key="likes"
-            classNames={{
-              base: 'py-2',
-              title: 'text-base font-semibold',
-            }}
-            description="One of your snippets is trending with new likes!"
-          >
-            👍 Snippet Trending
-          </DropdownItem>
-        </DropdownSection>
-      </DropdownMenu>
-    </Dropdown>
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        render={<Button size="icon" variant="ghost" className="rounded-full" />}
+        aria-label="Notifications"
+      >
+        <SolarBellBingLineDuotone className="h-6 w-6" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-80">
+        <div className="relative mb-1 h-[160px] w-full overflow-hidden rounded-lg">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt="Notifications background"
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1657215373962-d84815b7ddbb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <div className="absolute top-1 z-10 p-2">
+            <h4 className="text-xl font-medium text-white/90">Notifications</h4>
+          </div>
+          <div className="absolute bottom-0 z-10 w-full bg-black/40 p-2">
+            <p className="text-xs text-white/60">5 new updates</p>
+            <p className="text-xs text-white/60">
+              Stay on top of your code notifications.
+            </p>
+          </div>
+        </div>
+        <DropdownMenuGroup>
+          {notifications.map((item) => (
+            <DropdownMenuItem
+              key={item.key}
+              className="flex flex-col items-start py-2"
+            >
+              <span className="text-base font-semibold">{item.title}</span>
+              <span className="text-xs text-muted-foreground">
+                {item.description}
+              </span>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };

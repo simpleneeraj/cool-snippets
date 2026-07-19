@@ -6,7 +6,9 @@ type WebLayoutProps = React.PropsWithChildren;
 
 const WebRootLayout: React.FC<WebLayoutProps> = ({ children }) => (
   <WebLayout>
-    <UIView className="layout-scroll">{children}</UIView>
+    {/* No nested scroll container — the document owns the scroll so the sticky
+        header pins correctly and there's a single, predictable scrollbar. */}
+    <UIView className="flex flex-1 flex-col">{children}</UIView>
     {/*<UIFireflies />*/}
   </WebLayout>
 );

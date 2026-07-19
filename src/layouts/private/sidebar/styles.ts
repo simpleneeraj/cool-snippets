@@ -1,7 +1,7 @@
-import { tv } from '@heroui/react';
+import { tv } from 'tailwind-variants';
 
 export const SidebarWrapper = tv({
-  base: 'bg-background transition-transform h-full fixed -translate-x-full w-64 shrink-0 z-202 overflow-y-auto border-r border-divider flex-col py-6 px-3 md:ml-0 md:flex md:static md:h-screen md:translate-x-0 slim-scroll',
+  base: 'bg-background transition-transform h-full fixed -translate-x-full w-64 shrink-0 z-202 overflow-y-auto border-r border-border flex-col py-6 px-3 md:ml-0 md:flex md:static md:h-screen md:translate-x-0 slim-scroll',
 
   variants: {
     collapsed: {
@@ -26,7 +26,7 @@ export const Footer = tv({
 });
 
 const Icon = tv({
-  base: 'h-5 w-5 text-xl text-default-500 pointer-events-none',
+  base: 'h-5 w-5 text-xl text-muted-foreground pointer-events-none',
   variants: {
     active: {
       true: 'text-app-lime',

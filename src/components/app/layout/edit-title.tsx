@@ -23,7 +23,7 @@ export default function EditTitleDialog() {
   return (
     <Dialog>
       <DialogTrigger render={<Button variant="ghost" />}>
-        <h4 className="flex items-center gap-1 text-lg text-default-900">
+        <h4 className="flex items-center gap-1 text-lg text-foreground">
           Untitle code snippet
         </h4>
       </DialogTrigger>

@@ -2,7 +2,6 @@
 import React from 'react';
 import IconPicker from './modal';
 import CodeHeaderDropdown from './code-header';
-import { useDisclosure } from '@heroui/react';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
 import { SlideHeaderType } from '@/typings/editor';
@@ -29,7 +28,10 @@ import {
 } from '@/app-kit/ui/tooltip';
 
 const HeaderToolbar: React.FC = () => {
-  const { onOpen, onClose, onOpenChange, isOpen } = useDisclosure();
+  const [isOpen, setIsOpen] = React.useState(false);
+  const onOpen = React.useCallback(() => setIsOpen(true), []);
+  const onClose = React.useCallback(() => setIsOpen(false), []);
+  const onOpenChange = React.useCallback((open: boolean) => setIsOpen(open), []);
   const { currentElement, onChangeSlideElement } = useSlideEditor();
   const { header } = currentElement || {};
   const { type, position, input, variant, properties } = header || {};

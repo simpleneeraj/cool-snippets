@@ -70,7 +70,7 @@ const MeshBackgrounds = () => {
       {/* Controls */}
       <FrameItem className="py-1">
         <UIView className="flex flex-col gap-6 w-full">
-          <h4 className="text-default-500 text-small">Customize</h4>
+          <h4 className="text-muted-foreground text-sm">Customize</h4>
 
           {/* Point Count */}
           <div className="space-y-2">

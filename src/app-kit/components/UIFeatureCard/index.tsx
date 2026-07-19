@@ -1,5 +1,7 @@
+'use client';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { JSX } from 'react';
+import { JSX, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { UISmallGridPattern } from '../UIBackgroundPattern/grid-pattern';
 
@@ -54,13 +56,24 @@ const FeatureCard: React.FC<FeaturesCard> = ({
 export default FeatureCard;
 
 export const Grid = ({ pattern, size }: any) => {
-  const p = pattern ?? [
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-  ];
+  // Random squares are generated only after mount so the server-rendered HTML
+  // matches the first client render (avoids a hydration mismatch).
+  const [p, setP] = useState<[number, number][]>(() => pattern ?? []);
+
+  useEffect(() => {
+    if (pattern) return;
+    setP(
+      Array.from(
+        { length: 5 },
+        () =>
+          [
+            Math.floor(Math.random() * 4) + 7,
+            Math.floor(Math.random() * 6) + 1,
+          ] as [number, number],
+      ),
+    );
+  }, [pattern]);
+
   return (
     <div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full mask-[linear-gradient(white,transparent)]">
       <div className="absolute inset-0 bg-linear-to-r  mask-[radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 from-zinc-100/30 to-zinc-300/30 dark:to-zinc-900/30 opacity-100">

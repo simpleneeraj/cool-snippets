@@ -16,8 +16,8 @@ const alertVariants = cva(
         error:
           "border-destructive/32 bg-destructive/4 [&>svg]:text-destructive",
         info: "border-info/32 bg-info/4 [&>svg]:text-info",
-        success: "border-success/32 bg-success/4 [&>svg]:text-success",
-        warning: "border-warning/32 bg-warning/4 [&>svg]:text-warning",
+        success: "border-emerald-500/32 bg-emerald-500/4 [&>svg]:text-emerald-500",
+        warning: "border-amber-500/32 bg-amber-500/4 [&>svg]:text-amber-500",
       },
     },
   },

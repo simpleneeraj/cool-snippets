@@ -4,7 +4,8 @@ import { isEqual, startCase } from 'lodash';
 import UIView from '@/app-kit/source/UIView';
 import { VirtuosoGrid } from 'react-virtuoso';
 import { PickerProps } from '@/typings/icon-picker';
-import { Card, cn, Image } from '@heroui/react';
+import { Card } from '@/app-kit/ui/card';
+import { cn } from '@/lib/utils';
 
 const UIVirtualizeGrid: React.FC<PickerProps> = ({
   value,
@@ -46,19 +47,17 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
       return (
         <Card
           key={index}
-          isPressable
+          render={<button type="button" />}
           title={currentItem?.name}
           className={cn(
-            'w-full flex items-center justify-center border border-default-100 p-4 h-full bg-transparent transition-all',
-            'hover:border hover:border-default-200 hover:bg-default-100',
-            activeItem && 'border border-default-200 bg-default-100'
+            'flex h-full w-full flex-col items-center justify-center border border-muted bg-transparent p-4 transition-all',
+            'hover:border hover:border-border hover:bg-muted',
+            activeItem && 'border border-border bg-muted'
           )}
           onClick={() => onSelectIcon?.(currentItem)}
         >
-          <Image
-            disableAnimation
-            radius="none"
-            removeWrapper
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={currentItem?.source}
             className={cn(
               'object-contain',
@@ -74,7 +73,7 @@ const UIVirtualizeGrid: React.FC<PickerProps> = ({
     },
     [items, value, children, onSelectIcon, showTitle]
   );
-  // border border-default-100 rounded-2xl
+  // border border-muted rounded-2xl
   return (
     <UIView className="flex-1 flex flex-col w-full overflow-auto">
       {items && items.length > 0 ? (

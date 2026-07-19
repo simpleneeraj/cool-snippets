@@ -55,7 +55,7 @@ const Glassmorphism = () => {
         <AccordionItem value={ItemEnums.Default}>
           <AccordionTrigger>Try frosted glass effect</AccordionTrigger>
           <AccordionPanel>
-            <UIView className="flex flex-col gap-4 border p-2 rounded-lg border-default-100">
+            <UIView className="flex flex-col gap-4 border p-2 rounded-lg border-muted">
               <Field>
                 <Slider
                   min={0}

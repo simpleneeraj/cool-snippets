@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { MenuItem } from '@/typings/layout';
 import { usePathname } from 'next/navigation';
-import { Button, cn } from '@heroui/react';
+import { Button } from '@/app-kit/ui/button';
+import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { SolarAltArrowDownLineDuotone } from '@/app-kit/icons/SolarAltArrowDownLineDuotone';
 
@@ -15,7 +16,7 @@ export const Section = ({ title, children, divider }: Props) => {
   return (
     <div className="flex gap-2 flex-col">
       {title && <span className="text-xs font-normal pl-2">{title}</span>}
-      {divider && <hr className="border-default-100" />}
+      {divider && <hr className="border-muted" />}
       {children}
     </div>
   );
@@ -59,11 +60,10 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
   return (
     <div className="flex flex-col gap-1">
       <Button
-        href={href}
-        as={href ? Link : 'button'}
-        variant={active ? 'flat' : 'light'}
+        render={href ? <Link href={href} /> : undefined}
+        variant={active ? 'secondary' : 'ghost'}
         className={cn(
-          'justify-between',
+          'w-full justify-between',
           active &&
             `bg-linear-to-l from-lavender-frost/20 to-periwinkle-glow/20`
         )}
@@ -76,7 +76,7 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
         {isPressable && (
           <div className="flex items-center justify-center">
             <SolarAltArrowDownLineDuotone
-              className={`h-4 w-4 text-default-400 ${
+              className={`h-4 w-4 text-muted-foreground ${
                 isOpen ? 'transform rotate-180 text-app-lime' : ''
               }`}
             />
@@ -106,23 +106,19 @@ export const ItemButton: React.FC<SidebarItemProps> = ({
                   >
                     <Button
                       size="sm"
-                      as={Link}
-                      variant={active ? 'flat' : 'light'}
+                      render={<Link href={item.href ?? '#'} />}
+                      variant={active ? 'secondary' : 'ghost'}
                       className={cn(
                         'w-full justify-start',
                         active && `text-app-lime bg-app-lime/15`
                       )}
-                      href={item.href}
-                      startContent={
-                        <span
-                          className={cn(
-                            'bg-default-200 h-[6px] w-[6px] rounded-lg',
-
-                            active && 'bg-app-lime'
-                          )}
-                        />
-                      }
                     >
+                      <span
+                        className={cn(
+                          'bg-border h-[6px] w-[6px] rounded-lg',
+                          active && 'bg-app-lime'
+                        )}
+                      />
                       {item.name}
                     </Button>
                   </motion.li>

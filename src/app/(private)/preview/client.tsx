@@ -21,27 +21,28 @@ const PreviewSnippetClient: React.FC<ShareWidgetProps> = ({}) => {
   return (
     <UIView className="flex flex-col gap-4 relative h-screen bg-transparent">
       <PreviewHeader />
-      <MaskWallpaper options={wallpaperOptions}
-      className={'absolute top-0 left-0 w-full h-full z-0'}
+      <MaskWallpaper
+        options={wallpaperOptions}
+        className={'absolute top-0 left-0 w-full h-full z-0'}
       />
-<UIView className={'flex flex-1  overflow-auto'}>
-
-      <UIView className="flex flex-col gap-2 max-w-5xl min-h-80 border border-white/20 rounded-2xl relative z-10 overflow-auto p-6 backdrop-blur-lg bg-white/10 shadow-lg">
-        <div className="rounded-xl overflow-auto border border-white/10 backdrop-blur-md bg-white/5">
-          <CodeMirror
-            theme="dark"
-            value={value}
-            extensions={[javascript({ jsx: true, typescript: true })]}
-            onChange={onChange}
-            basicSetup={{
-              lineNumbers: false,
-              highlightActiveLine: false,
-              foldGutter: false, autocompletion: false,
-            }}
-          />
-        </div>
+      <UIView className={'flex flex-1  overflow-auto'}>
+        <UIView className="flex flex-col gap-2 max-w-5xl min-h-80 border border-white/20 rounded-2xl relative z-10 overflow-auto p-6 backdrop-blur-lg bg-white/10 shadow-lg">
+          <div className="rounded-xl overflow-auto border border-white/10 backdrop-blur-md bg-white/5">
+            <CodeMirror
+              theme="dark"
+              value={value}
+              extensions={[javascript({ jsx: true, typescript: true })]}
+              onChange={onChange}
+              basicSetup={{
+                lineNumbers: false,
+                highlightActiveLine: false,
+                foldGutter: false,
+                autocompletion: false,
+              }}
+            />
+          </div>
+        </UIView>
       </UIView>
-</UIView>
     </UIView>
   );
 };

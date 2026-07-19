@@ -6,7 +6,14 @@ import emojis from 'emojibase-data/en/data.json';
 import { getEmojiUrl } from '@/utils/getEmojiUrl';
 import data from 'emojibase-data/en/messages.json';
 import { capitalize, cloneDeep, sortBy, subtract } from 'lodash';
-import { Input, Select, SelectItem } from '@heroui/react';
+import { Input } from '@/app-kit/ui/input';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '@/app-kit/ui/select';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconType, PickerProps } from '@/typings/icon-picker';
 import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
@@ -68,19 +75,23 @@ export default function EmojiPicker(props: PickerProps) {
     <UIView className="flex-1 flex flex-col min-h-[300px]">
       <UIView className="py-2 flex gap-2">
         <Select
-          size="sm"
-          placeholder="Select group"
-          className="max-w-40"
-          variant="bordered"
-          onChange={(e) =>
+          value={state.selectedGroup}
+          onValueChange={(value) =>
             updateState((draft) => {
-              draft.selectedGroup = e.target.value;
+              draft.selectedGroup = value as string;
             })
           }
         >
-          {sortBy(groups, 'label').map((item) => (
-            <SelectItem key={item.value}>{capitalize(item.label)}</SelectItem>
-          ))}
+          <SelectTrigger className="max-w-40" aria-label="Emoji group selector">
+            <SelectValue placeholder="Select group" />
+          </SelectTrigger>
+          <SelectContent>
+            {sortBy(groups, 'label').map((item) => (
+              <SelectItem key={item.value} value={item.value}>
+                {capitalize(item.label)}
+              </SelectItem>
+            ))}
+          </SelectContent>
         </Select>
         {/* <Select
           size="sm"
@@ -102,7 +113,6 @@ export default function EmojiPicker(props: PickerProps) {
 
         {/* Search input */}
         <Input
-          size="sm"
           placeholder="Search emoji..."
           onChange={(e) =>
             updateState((draft) => {

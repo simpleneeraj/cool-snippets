@@ -1,10 +1,10 @@
 import React from 'react';
 import PrivateLayout from '@/layouts/private';
 
-type WebLayoutProps = React.PropsWithChildren;
+type PremiumLayoutProps = React.PropsWithChildren;
 
-const RootLayout: React.FC<WebLayoutProps> = ({ children }) => (
-  <PrivateLayout>{children}</PrivateLayout>
-);
+const PremiumRootLayout: React.FC<PremiumLayoutProps> = ({ children }) => {
+  return <PrivateLayout>{children}</PrivateLayout>;
+};
 
-export default RootLayout;
+export default PremiumRootLayout;

@@ -21,7 +21,7 @@ const PrivacyClient: React.FC<PrivacyClientProps> = ({}) => {
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-sm text-default-500"
+            className="flex items-center gap-2 text-sm text-muted-foreground"
             onClick={() => scrollToTarget('details-section', 100)}
           >
             Read Our Privacy Policy

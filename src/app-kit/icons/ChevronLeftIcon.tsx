@@ -9,7 +9,7 @@ const ChevronLeftIcon = (props: SVGIconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-4 h-4 text-default-500"
+      className="w-4 h-4 text-muted-foreground"
       {...props}
     >
       <path

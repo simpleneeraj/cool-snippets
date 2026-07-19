@@ -2,7 +2,8 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { motion } from 'motion/react';
 import UIView from '@/app-kit/source/UIView';
-import { Card, CardHeader, tv } from '@heroui/react';
+import { Card, CardHeader } from '@/app-kit/ui/card';
+import { tv } from 'tailwind-variants';
 
 type FrameProps = {
   title: string;
@@ -31,15 +32,14 @@ const variants = tv({
 export const Frame = ({ title, children, endContent }: FrameProps) => {
   return (
     <Card
-      radius="none"
-      className="relative bg-transparent shadow-none"
+      className="relative rounded-none bg-transparent shadow-none"
       style={{
         overflow: 'unset',
       }}
     >
-      <CardHeader className="flex gap-1 py-2 bg-default-100 sticky top-0 bg-opacity-70 backdrop-blur-lg z-30">
+      <CardHeader className="flex gap-1 py-2 bg-muted sticky top-0 bg-opacity-70 backdrop-blur-lg z-30">
         <div className="flex-1 flex item-center justify-between">
-          <p className="text-tiny">{title}</p>
+          <p className="text-xs">{title}</p>
           {endContent}
         </div>
       </CardHeader>
@@ -68,7 +68,7 @@ export const FrameItem = ({
       >
         {label && (
           <UIView className="flex items-center justify-between">
-            <label className="font-medium text-tiny text-default-600 min-w-12">
+            <label className="font-medium text-xs text-muted-foreground min-w-12">
               {label}
             </label>
             {endContent}
@@ -101,7 +101,7 @@ export const FrameAccordion = ({
       >
         {label && (
           <UIView className="w-full flex items-center justify-between cursor-pointer">
-            <label className="font-medium text-tiny text-default-600 min-w-12">
+            <label className="font-medium text-xs text-muted-foreground min-w-12">
               {label}
             </label>
             {endContent}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from '@heroui/react';
+import { Switch } from '@/app-kit/ui/switch';
 import { useTheme as useNextTheme } from 'next-themes';
 
 export const DarkModeSwitch = () => {
@@ -8,9 +8,8 @@ export const DarkModeSwitch = () => {
     <div className="flex items-center justify-between w-full py-1">
       Mode ({resolvedTheme})
       <Switch
-        size="sm"
-        isSelected={resolvedTheme === 'dark' ? true : false}
-        onValueChange={(e) => setTheme(e ? 'dark' : 'light')}
+        checked={resolvedTheme === 'dark'}
+        onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
       />
     </div>
   );

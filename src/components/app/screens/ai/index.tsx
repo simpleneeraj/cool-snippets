@@ -33,17 +33,17 @@ const AIScreen = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-xl font-medium text-default-900"
+              className="text-xl font-medium text-foreground"
             >
-              Crystal AI
+              Cool Snippets AI
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-sm mb-4 text-center text-default-600"
+              className="text-sm mb-4 text-center text-muted-foreground"
             >
-              Welcome to Crystal Code AI
+              Welcome to Cool Snippets AI
             </motion.p>
 
             <motion.div

@@ -18,7 +18,7 @@ const TemplatesClient: React.FC<TemplatesProps> = ({}) => {
         startContent={
           <UIAnimatedButton
             duration={2}
-            className="flex items-center gap-2 text-sm text-default-500"
+            className="flex items-center gap-2 text-sm text-muted-foreground"
             onClick={() => scrollToTarget('templates-section')}
           >
             View Templates

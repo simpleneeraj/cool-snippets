@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { addToast } from '@heroui/react';
+import { toastManager } from '@/app-kit/ui/toast';
 import useHotkeys from '@/app-kit/hooks/use-hotkeys';
 import useSlideEditor from '@/store/hooks/use-editor';
 import formatCode, { formatterSupportedLanguages } from '@/utils/formatCode';
@@ -14,10 +14,10 @@ const BeautifyCode: React.FC = () => {
 
   const onFormatCode = async () => {
     if (!currentElement?.properties?.language) {
-      return addToast({
+      return toastManager.add({
         title: 'Formatting Error',
         description: 'No language selected for formatting.',
-        radius: 'md',
+        type: 'error',
       });
     }
 
@@ -25,18 +25,18 @@ const BeautifyCode: React.FC = () => {
     const isSupportedLanguage = formatterSupportedLanguages.includes(language);
 
     if (!isSupportedLanguage) {
-      return addToast({
+      return toastManager.add({
         title: 'Unsupported Language',
         description: `Formatting is not supported for ${language}.`,
-        radius: 'md',
+        type: 'error',
       });
     }
 
     if (!currentElement?.content) {
-      return addToast({
+      return toastManager.add({
         title: 'No Code Found',
         description: 'No code available to format.',
-        radius: 'md',
+        type: 'error',
       });
     }
 
@@ -44,11 +44,10 @@ const BeautifyCode: React.FC = () => {
 
     onChangeSlideElement({ content: formattedContent });
 
-    addToast({
+    toastManager.add({
       title: 'Success',
       description: 'Code formatted successfully!',
-      radius: 'lg',
-      shouldShowTimeoutProgress: true,
+      type: 'success',
     });
   };
 

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useDisclosure } from '@heroui/react';
 import React from 'react';
 import { wallpaperOptions } from './config';
 import UIView from '@/app-kit/source/UIView';
@@ -97,12 +96,12 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
           </UIView>
         </DialogHeader>
         <DialogPanel className="flex">
-          <UIView className="flex flex-col justify-center items-center gap-2  border border-default-100 relative rounded-2xl overflow-hidden w-full min-h-96">
+          <UIView className="flex flex-col justify-center items-center gap-2  border border-muted relative rounded-2xl overflow-hidden w-full min-h-96">
             <MaskWallpaper ref={ref} options={state} />
             <UIView className="z-10">
               <UIView
                 className={
-                  'flex items-center justify-center min-w-96 min-h-60 rounded-2xl shadow-lg border border-default-200'
+                  'flex items-center justify-center min-w-96 min-h-60 rounded-2xl shadow-lg border border-border'
                 }
                 style={{
                   background,
@@ -142,7 +141,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                     key={color.text}
                     isPressable
                     isFooterBlurred
-                    className={`overflow-none relative border border-default-100 h-28 ${
+                    className={`overflow-none relative border border-muted h-28 ${
                       state.colors === color.colors ? 'ring-2 ring-accent' : ''
                     }`}
                     onClick={() => onChangeState('colors', color.colors)}
@@ -153,8 +152,8 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                       }}
                       className="h-40 w-full"
                     ></UIView>
-                    <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%-8px)] shadow-small ml-1 z-10">
-                      <p className="text-tiny text-default font-bold">
+                    <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-lg bottom-1 w-[calc(100%-8px)] shadow-sm ml-1 z-10">
+                      <p className="text-xs text-muted-foreground font-bold">
                         {color.text}
                       </p>
                     </CardFooter>
@@ -169,7 +168,7 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                     key={pattern.path}
                     isPressable
                     isFooterBlurred
-                    className={`overflow-none relative border border-default-100 h-28 ${
+                    className={`overflow-none relative border border-muted h-28 ${
                       state.pattern === pattern.path ? 'ring-2 ring-accent' : ''
                     }`}
                     style={{
@@ -183,8 +182,8 @@ const ShareWidget: React.FC<ShareWidgetProps> = ({}) => {
                       className="object-cover w-full mix-blend-multiply"
                       removeWrapper
                     />
-                    <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%-8px)] shadow-small ml-1 z-10">
-                      <p className="text-xs text-default font-bold">
+                    <CardFooter className="before:bg-white/10 border-white/20 border overflow-hidden py-1 absolute before:rounded-xl rounded-lg bottom-1 w-[calc(100%-8px)] shadow-sm ml-1 z-10">
+                      <p className="text-xs text-muted-foreground font-bold">
                         {pattern.text}
                       </p>
                     </CardFooter>

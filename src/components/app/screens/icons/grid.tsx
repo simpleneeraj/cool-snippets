@@ -4,7 +4,14 @@ import { useDebounce } from 'use-debounce';
 import UIView from '@/app-kit/source/UIView';
 import { capitalize, subtract } from 'lodash';
 import useIcons from '@/server/icons/hooks/use-icons';
-import { Input, Select, SelectItem } from '@heroui/react';
+import { Input } from '@/app-kit/ui/input';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '@/app-kit/ui/select';
 import useDynamicHeight from '@/app-kit/hooks/use-dynamic-height';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
 import { PickerIconsProps, PickerProps } from '@/typings/icon-picker';
@@ -36,34 +43,30 @@ const FluentEmoji: React.FC<PickerProps & PickerIconsProps> = (props) => {
     <UIView className="flex-1 flex flex-col">
       <UIView className="py-2 flex gap-2">
         <Select
-          size="sm"
-          variant="bordered"
-          className="max-w-40"
-          placeholder="Select set"
-          aria-label="Icon set selector"
-          onChange={(e) =>
+          value={state.selectedType ?? ''}
+          onValueChange={(value) =>
             updateState((draft) => {
-              draft.selectedType = e.target.value;
+              draft.selectedType = value as string;
             })
           }
         >
-          {types?.map((item) => (
-            <SelectItem key={item}>{capitalize(item)}</SelectItem>
-          ))}
+          <SelectTrigger className="max-w-40" aria-label="Icon set selector">
+            <SelectValue placeholder="Select set" />
+          </SelectTrigger>
+          <SelectContent>
+            {types?.map((item) => (
+              <SelectItem key={item} value={item}>
+                {capitalize(item)}
+              </SelectItem>
+            ))}
+          </SelectContent>
         </Select>
 
         <Input
-          size="sm"
           placeholder="Search emoji..."
           onChange={(e) =>
             updateState((draft) => {
               draft.searchTerm = e.target.value;
-            })
-          }
-          isClearable
-          onClear={() =>
-            updateState((draft) => {
-              draft.searchTerm = '';
             })
           }
         />

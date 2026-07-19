@@ -8,6 +8,7 @@ import { ElementType } from '@/typings/editor';
 import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { ThemesEnum } from '@/plugins/codemirror/themes';
 import { useActiveElement } from '@/store/slides/current-element';
 import { dynamicTheme, dynamicLanguage } from '@/plugins/codemirror/utils';
 import { ElementToolbar } from './toolbar';
@@ -67,7 +68,7 @@ const EditorComponents: React.FC<Props> = ({ item }) => {
             header={item?.header || null}
             onChange={(content) => onChangeSlideElement({ content })}
             theme={dynamicTheme(
-              item?.properties?.theme,
+              item?.properties?.theme as ThemesEnum | undefined,
               item?.properties?.glassmorphism?.enabled
                 ? item?.properties?.glassmorphism?.opacity
                 : 1,

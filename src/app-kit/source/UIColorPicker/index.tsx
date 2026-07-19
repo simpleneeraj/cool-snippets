@@ -1,7 +1,12 @@
 import React from 'react';
 import UIView from '../UIView';
 import { HexAlphaColorPicker } from 'react-colorful';
-import { cn, Popover, PopoverContent, PopoverTrigger } from '@heroui/react';
+import { cn } from '@/lib/utils';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/app-kit/ui/popover';
 
 const colors = [
   { background: 'rgb(0, 17, 34)' },
@@ -43,23 +48,25 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
 
   return (
     <Popover>
-      <PopoverTrigger>
-        <button
-          aria-label="Color Picker"
-          type="button"
-          className="w-5 h-5 rounded-md border-default-200"
-          style={{ backgroundColor: selectedColor }}
-        ></button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <button
+            aria-label="Color Picker"
+            type="button"
+            className="h-5 w-5 rounded-md border border-border"
+            style={{ backgroundColor: selectedColor }}
+          />
+        }
+      />
       <PopoverContent className="p-0">
-        <UIView className="p-1 transition-colors rounded-lg border-medium border-transparent hover:border-default focus:border-default">
+        <UIView className="p-1 transition-colors rounded-lg border-2 border-transparent hover:border-muted-foreground focus:border-muted-foreground">
           <HexAlphaColorPicker
             className="max-w-44"
             color={selectedColor}
             onChange={(newColor) => onColorSelect(newColor)}
           />
           <div className="py-2">
-            <div className="text-default-400 font-medium mb-2">Colors</div>
+            <div className="text-muted-foreground font-medium mb-2">Colors</div>
             <div className="grid grid-cols-6 gap-2">
               {colors.map((color) => (
                 <div key={color?.background} className="aspect-square">
@@ -68,8 +75,8 @@ const UIColorPicker: React.FC<Props> = ({ value, onSelect }) => {
                     className={cn(
                       'w-full h-full rounded-sm transition-all',
                       selectedColor === color.background
-                        ? 'border-2 border-default-500'
-                        : 'border border-default-100'
+                        ? 'border-2 border-muted-foreground'
+                        : 'border border-muted'
                     )}
                     style={{ backgroundColor: color.background }}
                     onClick={() => onColorSelect(color.background)}
