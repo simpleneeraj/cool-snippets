@@ -1,18 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
-import { cn, HeroUIProvider, ToastProvider } from '@heroui/react';
+import { ToastProvider } from '@/app-kit/ui/toast';
 
 function NextAppProvider({ children }: React.PropsWithChildren) {
-  const router = useRouter();
-
-  return (
-    <HeroUIProvider navigate={router.push}>
-      <ToastProvider placement="bottom-center" toastOffset={40} />
-      {children}
-    </HeroUIProvider>
-  );
+  return <ToastProvider position="bottom-center">{children}</ToastProvider>;
 }
 
 export default NextAppProvider;
