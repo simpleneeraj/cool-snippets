@@ -5,7 +5,7 @@ import CtaSection from './cta';
 import Section from '../section';
 import HeroSection from './hero';
 import FeaturesSection from './features';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import OpenSourceSection from './open-source';
 
 type HomePageClientProps = object;

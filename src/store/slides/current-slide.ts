@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { InitialValues } from '@/typings/editor';
+import { InitialValues } from '@shared/types/editor';
 
 type State = {
   slide: string;

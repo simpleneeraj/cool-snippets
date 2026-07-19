@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { useImmer } from 'use-immer';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import emojis from 'emojibase-data/en/data.json';
-import { getEmojiUrl } from '@/utils/getEmojiUrl';
+import { getEmojiUrl } from '@shared/lib/getEmojiUrl';
 import data from 'emojibase-data/en/messages.json';
 import { capitalize, cloneDeep, sortBy, subtract } from 'lodash';
-import { Input } from '@/app-kit/ui/input';
+import { Input } from '@shared/ui/input';
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from '@/app-kit/ui/select';
-import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
-import { PickerIconType, PickerProps } from '@/typings/icon-picker';
+} from '@shared/ui/select';
+import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
+import { PickerIconType, PickerProps } from '@shared/types/icon-picker';
 
 export default function EmojiPicker(props: PickerProps) {
   const [state, updateState] = useImmer({

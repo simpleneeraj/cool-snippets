@@ -4,29 +4,29 @@ import IconPopover from './icon-popover';
 import CodeHeaderDropdown from './code-header';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
-import { SlideHeaderType } from '@/typings/editor';
-import { HeaderInputType } from '@/typings/templates';
+import { SlideHeaderType } from '@shared/types/editor';
+import { HeaderInputType } from '@shared/types/templates';
 import {
   Select,
   SelectItem,
   SelectPopup,
   SelectTrigger,
   SelectValue,
-} from '@/app-kit/ui/select';
+} from '@shared/ui/select';
 import {
   Toolbar,
   ToolbarButton,
   ToolbarGroup,
   ToolbarSeparator,
-} from '@/app-kit/ui/toolbar';
-import { Input } from '@/app-kit/ui/input';
-import { Toggle, ToggleGroup } from '@/app-kit/ui/toggle-group';
+} from '@shared/ui/toolbar';
+import { Input } from '@shared/ui/input';
+import { Toggle, ToggleGroup } from '@shared/ui/toggle-group';
 import {
   Tooltip,
   TooltipPopup,
   TooltipProvider,
   TooltipTrigger,
-} from '@/app-kit/ui/tooltip';
+} from '@shared/ui/tooltip';
 
 const HeaderToolbar: React.FC = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();

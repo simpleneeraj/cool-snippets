@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import UIColorPicker from '@/app-kit/source/UIColorPicker';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import UIColorPicker from '@shared/uikit/UIColorPicker';
 import { resolveEditorOptions } from '@/store/slides/editor-options';
 import { CORNER_RADIUS_RANGE, PADDING_RANGE } from './values';
 

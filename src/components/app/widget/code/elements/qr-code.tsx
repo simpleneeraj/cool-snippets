@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { QrCodePropertiesType } from '@/typings/editor';
-import { QR_ERROR_LEVEL } from '@/typings/enums';
+import { QrCodePropertiesType } from '@shared/types/editor';
+import { QR_ERROR_LEVEL } from '@shared/types/enums';
 
 type Props = {
   properties?: QrCodePropertiesType;

@@ -1,11 +1,11 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Card } from '@/app-kit/ui/card';
-import { cn } from '@/lib/utils';
+import UIView from '@shared/uikit/UIView';
+import { Card } from '@shared/ui/card';
+import { cn } from '@shared/lib/utils';
 import { BackgroundScreenTypes } from './types';
-import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
+import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
 import CSS_GRADIENT_LIST from '@data/patterns/gradients';
-import { patternToStyle } from '@/utils/background-css';
+import { patternToStyle } from '@shared/lib/background-css';
 
 const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,

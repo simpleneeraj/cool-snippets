@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Separator } from '@/app-kit/ui/separator';
+import UIView from '@shared/uikit/UIView';
+import { Separator } from '@shared/ui/separator';
 import NeonText from '../../elements/neon';
 import Glassmorphism from '../../elements/glassmorphism';
 

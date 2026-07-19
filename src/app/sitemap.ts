@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getSiteUrl } from '@/constants/url';
+import { getSiteUrl } from '@shared/config/url';
 
 const URL = getSiteUrl();
 

@@ -1,7 +1,7 @@
 import qs from 'qs';
 import useSWR from 'swr';
-import { fetcher } from '@/utils/fetcher';
-import { PickerIconsResponse } from '@/typings/icon-picker';
+import { fetcher } from '@shared/lib/fetcher';
+import { PickerIconsResponse } from '@shared/types/icon-picker';
 
 const useIcons = (params?: Record<string, string | null>) => {
   const BASE_URL = `/api/micro/icons`;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { BACKGROUND_TYPE } from '@/typings/enums';
-import { resolveBackgroundCss } from '@/utils/background-css';
-import { SlideBackgroundTypes } from '@/typings/editor';
+import { BACKGROUND_TYPE } from '@shared/types/enums';
+import { resolveBackgroundCss } from '@shared/lib/background-css';
+import { SlideBackgroundTypes } from '@shared/types/editor';
 
 type Props = {
   style?: SlideBackgroundTypes;

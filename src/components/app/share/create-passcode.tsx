@@ -1,17 +1,17 @@
 import { useImmer } from 'use-immer';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import React from 'react';
 import { randomBytes } from 'crypto';
 import { format } from 'date-fns';
-import { Badge } from '@/app-kit/ui/badge';
-import { Input } from '@/app-kit/ui/input';
-import { Button } from '@/app-kit/ui/button';
-import { Separator } from '@/app-kit/ui/separator';
+import { Badge } from '@shared/ui/badge';
+import { Input } from '@shared/ui/input';
+import { Button } from '@shared/ui/button';
+import { Separator } from '@shared/ui/separator';
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from '@/app-kit/ui/popover';
+} from '@shared/ui/popover';
 import { PasswordMinimalisticInputLineDuotoneIcon, CrownLineDuotoneIcon, RefreshLineDuotoneIcon } from '@solar-icons/react';
 
 type CreatePasscodeProps = {

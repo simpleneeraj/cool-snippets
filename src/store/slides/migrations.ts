@@ -1,4 +1,4 @@
-import { ElementType, SlideStateType, SlideTypes } from '@/typings/editor';
+import { ElementType, SlideStateType, SlideTypes } from '@shared/types/editor';
 
 /**
  * Stacking used to live in `style.zIndex` as a string that the element toolbar

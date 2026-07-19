@@ -2,8 +2,8 @@
 
 import React from 'react';
 import useAsset from '@/lib/assets/use-asset';
-import { WatermarkPropertiesType } from '@/typings/editor';
-import { WATERMARK_MODE } from '@/typings/enums';
+import { WatermarkPropertiesType } from '@shared/types/editor';
+import { WATERMARK_MODE } from '@shared/types/enums';
 
 type Props = {
   properties?: WatermarkPropertiesType;

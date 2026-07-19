@@ -1,5 +1,5 @@
 import { createStore, del, get, keys, set } from 'idb-keyval';
-import { generateID } from '@/utils/id-generator';
+import { generateID } from '@shared/lib/id-generator';
 
 /**
  * Uploaded images live in IndexedDB rather than in the persisted Zustand store.

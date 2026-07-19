@@ -2,7 +2,7 @@ import React from 'react';
 import templatesData from '@data/templates.json';
 import { trafficLights, unixColors } from './colors';
 import { TrafficLights, UnixIcons, WindowsButtons } from './decorations';
-import { Colors, HeaderVariants, HeadersProps } from '@/typings/templates';
+import { Colors, HeaderVariants, HeadersProps } from '@shared/types/templates';
 
 type Style = HeadersProps['style'];
 

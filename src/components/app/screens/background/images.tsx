@@ -3,7 +3,7 @@ import VirtualImageGrid from './virtual-grid';
 import { BackgroundScreenTypes } from './types';
 import ImagesJson from '@data/backgrounds/images.json';
 import PopularJson from '@data/backgrounds/abstract-3d-shapes.json';
-import { Tabs, TabsList, TabsPanel, TabsTab } from '@/app-kit/ui/tabs';
+import { Tabs, TabsList, TabsPanel, TabsTab } from '@shared/ui/tabs';
 
 enum ImageType {
   POPULAR = 'popular',

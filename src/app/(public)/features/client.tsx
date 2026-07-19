@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import Topbar from '@/components/section/topbar';
-import { scrollToTarget } from '@/utils/elements';
+import { scrollToTarget } from '@shared/lib/elements';
 import FeaturesSection from '@/components/home/features';
-import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 
 type FeaturesProps = object;

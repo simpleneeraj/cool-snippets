@@ -2,15 +2,15 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { ELEMENTS } from '@/typings/enums';
-import UIView from '@/app-kit/source/UIView';
+import { ELEMENTS } from '@shared/types/enums';
+import UIView from '@shared/uikit/UIView';
 import {
   AssetRefType,
   ElementType,
   QrCodePropertiesType,
   UserInfoPropertiesType,
   WatermarkPropertiesType,
-} from '@/typings/editor';
+} from '@shared/types/editor';
 import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { LanguagesEnum } from '@vendor/codemirror/languages';

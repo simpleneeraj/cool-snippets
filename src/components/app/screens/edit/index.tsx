@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { ELEMENTS } from '@/typings/enums';
+import UIView from '@shared/uikit/UIView';
+import { ELEMENTS } from '@shared/types/enums';
 import useSlideEditor from '@/store/hooks/use-editor';
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from '@/app-kit/ui/accordion';
+} from '@shared/ui/accordion';
 import CodeBasicsSection from './sections/code-basics';
 import TypographySection from './sections/typography';
 import AppearanceSection from './sections/appearance';

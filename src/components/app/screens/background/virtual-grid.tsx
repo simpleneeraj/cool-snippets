@@ -1,15 +1,15 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
-import { Card } from '@/app-kit/ui/card';
-import UIView from '@/app-kit/source/UIView';
-import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
+import { cn } from '@shared/lib/utils';
+import { Card } from '@shared/ui/card';
+import UIView from '@shared/uikit/UIView';
+import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@/app-kit/ui/empty';
+} from '@shared/ui/empty';
 import { RouteIcon } from 'lucide-react';
 
 type ImageItem = {

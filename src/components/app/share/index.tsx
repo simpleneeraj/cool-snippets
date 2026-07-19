@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { wallpaperOptions } from './config';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { headerIcon } from '@/components/style/header';
 import MaskWallpaper, { MaskWallpaperHandlers } from '@vendor/mask-wallpaper';
 import { useImmer } from 'use-immer';
@@ -10,8 +10,8 @@ import { set } from 'lodash';
 import grad from '@data/ui-gradients.json';
 import CodingLines from '../widget/aside/primary/coding-lines';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { BACKGROUND_TYPE } from '@/typings/enums';
-import backgroundPurify from '@/utils/background-purify';
+import { BACKGROUND_TYPE } from '@shared/types/enums';
+import backgroundPurify from '@shared/lib/background-purify';
 import { X } from 'lucide-react';
 import { ShareLinearIcon } from '@solar-icons/react';
 import {
@@ -23,8 +23,8 @@ import {
   DialogPopup,
   DialogTitle,
   DialogTrigger,
-} from '@/app-kit/ui/dialog';
-import { Button } from '@/app-kit/ui/button';
+} from '@shared/ui/dialog';
+import { Button } from '@shared/ui/button';
 import { LinkMinimalistic2LinearIcon, SquareShareLineLinearIcon } from '@solar-icons/react';
 
 const MORE_COLORS = COLORS.concat(

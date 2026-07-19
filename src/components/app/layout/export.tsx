@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { format } from 'date-fns';
-import appConfig from '@/constants/site';
-import { toastManager } from '@/app-kit/ui/toast';
-import { resolveCodeFontFamily } from '@/app-kit/fonts/code';
-import { primaryFontFamily, resolveFontSource } from '@/app-kit/fonts/source';
+import appConfig from '@shared/config/site';
+import { toastManager } from '@shared/ui/toast';
+import { resolveCodeFontFamily } from '@shared/fonts/code';
+import { primaryFontFamily, resolveFontSource } from '@shared/fonts/source';
 import useCapture from '@/lib/export/use-capture';
 import useSlideEditor from '@/store/hooks/use-editor';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { LockLineDuotoneIcon, CopyLineDuotoneIcon, DownloadMinimalisticLinearIcon, MagicWand3LinearIcon } from '@solar-icons/react';
 import {
   Dialog,
@@ -22,19 +22,19 @@ import {
   DialogPopup,
   DialogTitle,
   DialogTrigger,
-} from '@/app-kit/ui/dialog';
-import { Button } from '@/app-kit/ui/button';
-import { Input } from '@/app-kit/ui/input';
-import { Field, FieldDescription, FieldLabel } from '@/app-kit/ui/field';
-import { Spinner } from '@/app-kit/ui/spinner';
+} from '@shared/ui/dialog';
+import { Button } from '@shared/ui/button';
+import { Input } from '@shared/ui/input';
+import { Field, FieldDescription, FieldLabel } from '@shared/ui/field';
+import { Spinner } from '@shared/ui/spinner';
 import {
   Select,
   SelectItem,
   SelectPopup,
   SelectTrigger,
   SelectValue,
-} from '@/app-kit/ui/select';
-import { Group } from '@/app-kit/ui/group';
+} from '@shared/ui/select';
+import { Group } from '@shared/ui/group';
 
 
 enum Format {

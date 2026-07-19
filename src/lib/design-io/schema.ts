@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { STORE_VERSION, SlideTypes } from '@/typings/editor';
-import { ELEMENTS } from '@/typings/enums';
+import { STORE_VERSION, SlideTypes } from '@shared/types/editor';
+import { ELEMENTS } from '@shared/types/enums';
 
 export const DESIGN_FILE_KIND = 'design';
 export const DESIGN_FILE_APP = 'cool-snippets';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import UIView from '@/app-kit/source/UIView';
-import UIButton from '@/app-kit/source/UIButton/button';
+import UIView from '@shared/uikit/UIView';
+import UIButton from '@shared/uikit/UIButton/button';
 import FluentEmojiRobot from './ai-icon';
 
 const AIScreen = () => {

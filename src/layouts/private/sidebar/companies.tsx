@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import appConfig from '@/constants/site';
-import { Card, CardContent } from '@/app-kit/ui/card';
+import appConfig from '@shared/config/site';
+import { Card, CardContent } from '@shared/ui/card';
 import { Sparkles } from 'lucide-react';
 
 export const CompaniesDropdown = () => {

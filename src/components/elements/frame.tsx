@@ -1,8 +1,8 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { motion } from 'motion/react';
-import UIView from '@/app-kit/source/UIView';
-import { Card, CardHeader } from '@/app-kit/ui/card';
+import UIView from '@shared/uikit/UIView';
+import { Card, CardHeader } from '@shared/ui/card';
 import { tv } from 'tailwind-variants';
 
 type FrameProps = {

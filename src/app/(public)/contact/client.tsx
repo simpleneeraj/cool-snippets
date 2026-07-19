@@ -2,12 +2,12 @@
 
 import React from 'react';
 import Section from '@/components/section';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import FaqSection from '@/components/home/faq';
 import Topbar from '@/components/section/topbar';
-import { scrollToTarget } from '@/utils/elements';
+import { scrollToTarget } from '@shared/lib/elements';
 import ContactSection from '@/components/contact/grids';
-import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 import CtaSection from '@/components/home/cta';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import shortcutsData from '@data/shortcuts.json';
-import { Kbd, KbdGroup } from '@/app-kit/ui/kbd';
+import { Kbd, KbdGroup } from '@shared/ui/kbd';
 
 const KEY_SYMBOLS: Record<string, string> = {
   command: '⌘',

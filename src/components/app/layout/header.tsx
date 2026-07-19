@@ -1,6 +1,6 @@
 'use client';
 
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import TitleChangerComponent from './edit-title';
 import { useRouter } from 'next/navigation';
@@ -9,11 +9,11 @@ import DesignIO from './design-io';
 import ShareWidget from '../share';
 import BeautifyCode from './beautify-code';
 import { AltArrowLeftLineDuotoneIcon } from '@solar-icons/react';
-import UIThemeSwitch from '@/app-kit/components/UIThemeSwitch';
-import { Button } from '@/app-kit/ui/button';
-import { Separator } from '@/app-kit/ui/separator';
+import UIThemeSwitch from '@shared/motion/UIThemeSwitch';
+import { Button } from '@shared/ui/button';
+import { Separator } from '@shared/ui/separator';
 import HistoryManager from './history-manager';
-import { TooltipProvider } from '@/app-kit/ui/tooltip';
+import { TooltipProvider } from '@shared/ui/tooltip';
 import { SegmentWidget } from '../widget/aside/controller-segment';
 import ResizeMenu from './resize-menu';
 

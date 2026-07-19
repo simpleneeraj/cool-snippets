@@ -1,20 +1,20 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@/lib/utils';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { ELEMENTS, LAYER_DIRECTION } from '@/typings/enums';
+import { cn } from '@shared/lib/utils';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { ELEMENTS, LAYER_DIRECTION } from '@shared/types/enums';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { useActiveElement } from '@/store/slides/current-element';
-import { ElementType } from '@/typings/editor';
+import { ElementType } from '@shared/types/editor';
 import { elementIconMapper, elementLabelMapper } from '../values';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/app-kit/ui/menu';
+} from '@shared/ui/menu';
 import {
   ChevronDown,
   ChevronUp,

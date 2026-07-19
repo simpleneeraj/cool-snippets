@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { ElementType } from '@/typings/editor';
-import { ELEMENTS, LAYER_DIRECTION } from '@/typings/enums';
+import { ElementType } from '@shared/types/editor';
+import { ELEMENTS, LAYER_DIRECTION } from '@shared/types/enums';
 import useSlideEditor from '@/store/hooks/use-editor';
-import useAnchorPosition from '@/app-kit/hooks/use-anchor-position';
+import useAnchorPosition from '@shared/hooks/use-anchor-position';
 import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import { useActiveSlide } from '@/store/slides/current-slide';
 import { useActiveElement } from '@/store/slides/current-element';
@@ -14,14 +14,14 @@ import {
   ToolbarButton,
   ToolbarGroup,
   ToolbarSeparator,
-} from '@/app-kit/ui/toolbar';
+} from '@shared/ui/toolbar';
 import {
   Tooltip,
   TooltipPopup,
   TooltipProvider,
   TooltipTrigger,
-} from '@/app-kit/ui/tooltip';
-import { Button } from '@/app-kit/ui/button';
+} from '@shared/ui/tooltip';
+import { Button } from '@shared/ui/button';
 import {
   BringToFront,
   SendToBack,

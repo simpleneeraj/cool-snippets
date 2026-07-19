@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form';
 
 import { ScaleLineDuotoneIcon, LockLineDuotoneIcon } from '@solar-icons/react';
 
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Input } from '@/app-kit/ui/input';
-import { Toggle } from '@/app-kit/ui/toggle';
-import { Spinner } from '@/app-kit/ui/spinner';
-import { Separator } from '@/app-kit/ui/separator';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Input } from '@shared/ui/input';
+import { Toggle } from '@shared/ui/toggle';
+import { Spinner } from '@shared/ui/spinner';
+import { Separator } from '@shared/ui/separator';
+import { Field, FieldLabel } from '@shared/ui/field';
 
 import {
   Popover,
@@ -19,7 +19,7 @@ import {
   PopoverPopup,
   PopoverTitle,
   PopoverTrigger,
-} from '@/app-kit/ui/popover';
+} from '@shared/ui/popover';
 
 import {
   Select,
@@ -27,7 +27,7 @@ import {
   SelectPopup,
   SelectTrigger,
   SelectValue,
-} from '@/app-kit/ui/select';
+} from '@shared/ui/select';
 
 import aspectRatioArray from '@data/resize.json';
 import useSlideEditor from '@/store/hooks/use-editor';

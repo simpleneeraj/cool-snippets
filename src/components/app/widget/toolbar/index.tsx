@@ -1,7 +1,7 @@
 import React from 'react';
 import { keepSelectionProps } from '@/components/app/widget/selection-manager';
-import { ELEMENTS } from '@/typings/enums';
-import UIView from '@/app-kit/source/UIView';
+import { ELEMENTS } from '@shared/types/enums';
+import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { AnimatePresence, motion } from 'motion/react';
 import TextToolbar from '../../screens/edit/toolbar/text-toolbar';

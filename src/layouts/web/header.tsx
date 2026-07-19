@@ -4,10 +4,10 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MenuIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import appConfig from '@/constants/site';
-import { Button, buttonVariants } from '@/app-kit/ui/button';
-import { Separator } from '@/app-kit/ui/separator';
+import { cn } from '@shared/lib/utils';
+import appConfig from '@shared/config/site';
+import { Button, buttonVariants } from '@shared/ui/button';
+import { Separator } from '@shared/ui/separator';
 import {
   Sheet,
   SheetTrigger,
@@ -15,7 +15,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetClose,
-} from '@/app-kit/ui/sheet';
+} from '@shared/ui/sheet';
 import { Sparkles } from 'lucide-react';
 import { AltArrowRightLineDuotoneIcon } from '@solar-icons/react';
 import publicLayout from '../constants/public';

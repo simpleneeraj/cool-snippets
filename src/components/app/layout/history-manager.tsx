@@ -3,8 +3,8 @@
 import React from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { UndoLeftRoundLinearIcon, UndoRightRoundLinearIcon } from '@solar-icons/react';
-import { Button } from '@/app-kit/ui/button';
-import { Tooltip, TooltipPopup, TooltipTrigger } from '@/app-kit/ui/tooltip';
+import { Button } from '@shared/ui/button';
+import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';
 import useHistory from '@/store/hooks/use-history';
 
 const HistoryManager: React.FC = () => {

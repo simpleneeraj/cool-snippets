@@ -3,10 +3,10 @@ import { keepSelectionProps } from '@/components/app/widget/selection-manager';
 import dynamic from 'next/dynamic';
 import NotFound from './not-found';
 import { useSegment } from '@/store/segment';
-import UIView from '@/app-kit/source/UIView';
-import { SEGMENT_SCREEN } from '@/typings/enums';
+import UIView from '@shared/uikit/UIView';
+import { SEGMENT_SCREEN } from '@shared/types/enums';
 import { motion, AnimatePresence, easeInOut } from 'motion/react';
-import { Frame, FrameFooter, FramePanel } from '@/app-kit/ui/frame';
+import { Frame, FrameFooter, FramePanel } from '@shared/ui/frame';
 
 const EditScreens = dynamic(() => import('@/components/app/screens/edit'));
 const BackgroundScreens = dynamic(

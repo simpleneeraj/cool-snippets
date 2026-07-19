@@ -1,8 +1,8 @@
 import React from 'react';
 import Shorcuts from './cards/shorcuts';
 import StorageCard from './cards/storage';
-import UIView from '@/app-kit/source/UIView';
-import { Tabs, TabsList, TabsTab, TabsPanel } from '@/app-kit/ui/tabs';
+import UIView from '@shared/uikit/UIView';
+import { Tabs, TabsList, TabsTab, TabsPanel } from '@shared/ui/tabs';
 import { Frame, FrameItem } from '@/components/elements/frame';
 import { KeyboardLineDuotoneIcon, DatabaseLineDuotoneIcon } from '@solar-icons/react';
 

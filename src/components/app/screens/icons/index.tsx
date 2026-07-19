@@ -2,14 +2,14 @@
 
 import React from 'react';
 import IconContainer from './container';
-import UIView from '@/app-kit/source/UIView';
-import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
+import UIView from '@shared/uikit/UIView';
+import { Tabs, TabsList, TabsTab } from '@shared/ui/tabs';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { generateID } from '@/utils/id-generator';
-import { ASSET_SOURCE, ELEMENTS } from '@/typings/enums';
+import { generateID } from '@shared/lib/id-generator';
+import { ASSET_SOURCE, ELEMENTS } from '@shared/types/enums';
 import { elementsObject } from '../../widget/aside/primary/values';
 import { useActiveElement } from '@/store/slides/current-element';
-import { IconProviders, PickerIconType } from '@/typings/icon-picker';
+import { IconProviders, PickerIconType } from '@shared/types/icon-picker';
 
 // Labels stay short: four tabs share a 320px panel, and the full provider
 // names ("Material Icons", "Neon Symbols") overflow and clip the tab bar.

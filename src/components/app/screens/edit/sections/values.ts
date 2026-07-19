@@ -1,5 +1,5 @@
-import { EditorOptionsType } from '@/typings/editor';
-import { QR_ERROR_LEVEL, WATERMARK_MODE } from '@/typings/enums';
+import { EditorOptionsType } from '@shared/types/editor';
+import { QR_ERROR_LEVEL, WATERMARK_MODE } from '@shared/types/enums';
 
 export enum EditSection {
   CODE_BASICS = 'code-basics',

@@ -1,5 +1,5 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { AlertCircle } from 'lucide-react';
 
 const NotFound = () => {

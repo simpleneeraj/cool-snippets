@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { BACKGROUND_SCREEN, ASIDE_SCREEN } from '@/typings/enums';
+import { BACKGROUND_SCREEN, ASIDE_SCREEN } from '@shared/types/enums';
 
 // Define the type for screen state combining ASIDE_SCREEN and BACKGROUND_SCREEN
 export type ScreenTypes = ASIDE_SCREEN | BACKGROUND_SCREEN;

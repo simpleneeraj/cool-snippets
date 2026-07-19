@@ -1,10 +1,10 @@
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from '@/app-kit/ui/accordion';
+} from '@shared/ui/accordion';
 
 const faqData = [
   {

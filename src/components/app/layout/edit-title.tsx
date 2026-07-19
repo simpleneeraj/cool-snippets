@@ -1,5 +1,5 @@
-import { Input } from '@/app-kit/ui/input';
-import { Button } from '@/app-kit/ui/button';
+import { Input } from '@shared/ui/input';
+import { Button } from '@shared/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -10,9 +10,9 @@ import {
   DialogPopup,
   DialogTitle,
   DialogTrigger,
-} from '@/app-kit/ui/dialog';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Form } from '@/app-kit/ui/form';
+} from '@shared/ui/dialog';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Form } from '@shared/ui/form';
 
 export default function EditTitleDialog() {
   //  <UIView className="flex items-center gap-2">

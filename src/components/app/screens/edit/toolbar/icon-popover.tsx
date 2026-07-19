@@ -5,13 +5,13 @@ import React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import { useDebounce } from 'use-debounce';
 import useIcons from '@shared/hooks/use-icons';
-import { cn } from '@/lib/utils';
-import UIView from '@/app-kit/source/UIView';
-import { Input } from '@/app-kit/ui/input';
-import { Button } from '@/app-kit/ui/button';
-import { Spinner } from '@/app-kit/ui/spinner';
-import { Popover, PopoverContent, PopoverTrigger } from '@/app-kit/ui/popover';
-import { IconProviders, PickerIconType } from '@/typings/icon-picker';
+import { cn } from '@shared/lib/utils';
+import UIView from '@shared/uikit/UIView';
+import { Input } from '@shared/ui/input';
+import { Button } from '@shared/ui/button';
+import { Spinner } from '@shared/ui/spinner';
+import { Popover, PopoverContent, PopoverTrigger } from '@shared/ui/popover';
+import { IconProviders, PickerIconType } from '@shared/types/icon-picker';
 
 type Props = {
   /** Source URL of the currently selected icon, if any. */

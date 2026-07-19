@@ -1,4 +1,4 @@
-import { SlideTypes } from '@/typings/editor';
+import { SlideTypes } from '@shared/types/editor';
 import migrateSlides from '@/store/slides/migrations';
 import { inlineAssets, restoreAssets } from './assets';
 import {

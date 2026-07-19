@@ -1,5 +1,5 @@
 import { getAsset, putAsset } from '@/lib/assets/store';
-import { ASSET_SOURCE } from '@/typings/enums';
+import { ASSET_SOURCE } from '@shared/types/enums';
 
 type UnknownRecord = Record<string, unknown>;
 

@@ -2,17 +2,17 @@
 
 import React from 'react';
 import { Upload } from 'lucide-react';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Input } from '@/app-kit/ui/input';
-import { Switch } from '@/app-kit/ui/switch';
-import { Spinner } from '@/app-kit/ui/spinner';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import UIColorPicker from '@/app-kit/source/UIColorPicker';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Input } from '@shared/ui/input';
+import { Switch } from '@shared/ui/switch';
+import { Spinner } from '@shared/ui/spinner';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@/store/hooks/use-editor';
 import useImageUpload from '@/lib/assets/use-image-upload';
-import { UserInfoPropertiesType } from '@/typings/editor';
+import { UserInfoPropertiesType } from '@shared/types/editor';
 import { FONT_SIZE_RANGE } from './values';
 
 const UserInfoSection = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { MenuItem } from '@/typings/layout';
+import { MenuItem } from '@shared/types/layout';
 import { usePathname } from 'next/navigation';
-import { Button } from '@/app-kit/ui/button';
-import { cn } from '@/lib/utils';
+import { Button } from '@shared/ui/button';
+import { cn } from '@shared/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 

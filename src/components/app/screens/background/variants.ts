@@ -1,4 +1,4 @@
-import { BACKGROUND_SCREEN } from '@/typings/enums';
+import { BACKGROUND_SCREEN } from '@shared/types/enums';
 
 const backgroundVariants = [
   {

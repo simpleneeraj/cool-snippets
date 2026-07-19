@@ -1,6 +1,6 @@
 import { useScreen } from '@/store/screen';
 import backgroundVariants from './variants';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import {
   Combobox,
   ComboboxEmpty,
@@ -8,8 +8,8 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxPopup,
-} from '@/app-kit/ui/combobox';
-import { Badge } from '@/app-kit/ui/badge';
+} from '@shared/ui/combobox';
+import { Badge } from '@shared/ui/badge';
 import BackgroundContent from './content';
 import React from 'react';
 

@@ -1,4 +1,4 @@
-import { EditorOptionsType } from '@/typings/editor';
+import { EditorOptionsType } from '@shared/types/editor';
 
 /**
  * These defaults intentionally mirror the CodeMirror setup that used to be

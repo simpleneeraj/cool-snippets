@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@/store/hooks/use-editor';
 import ToolbarWidget from '@/components/app/widget/toolbar';
 import SelectionManager from '@/components/app/widget/selection-manager';
-import ResizableFrame from '@/app-kit/components/UIResizableFrame';
+import ResizableFrame from '@shared/motion/UIResizableFrame';
 import ContainerWidget from '@/components/app/widget/code/container';
 import PrimaryAsideWidget from '@/components/app/widget/aside/primary';
 import SecondaryAsideWidget from '@/components/app/widget/aside/secondary';
-import DotPattern from '@/app-kit/components/UIBackgroundPattern/dot-pattern';
+import DotPattern from '@shared/motion/UIBackgroundPattern/dot-pattern';
 import { EditorDndProvider } from '@/components/app/dnd/provider';
 import { tv } from 'tailwind-variants';
 

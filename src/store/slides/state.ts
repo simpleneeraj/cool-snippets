@@ -1,13 +1,13 @@
-import { InitialValues } from '@/typings/editor';
+import { InitialValues } from '@shared/types/editor';
 import { ThemesEnum } from '@vendor/codemirror/themes';
-import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@/typings/enums';
+import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@shared/types/enums';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
-import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
+import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
 import {
   HeaderInputType,
   HeaderPositions,
   HeaderVariants,
-} from '@/typings/templates';
+} from '@shared/types/templates';
 
 export const MIN_SLIDE_WIDTH = 520;
 export const MAX_SLIDE_WIDTH = 720;

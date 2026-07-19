@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import UIColorPicker from '@/app-kit/source/UIColorPicker';
+import UIView from '@shared/uikit/UIView';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { FONT_SIZE_RANGE, LETTER_SPACING_RANGE, LINE_HEIGHT_RANGE } from './values';
 

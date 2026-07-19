@@ -1,10 +1,10 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import colors from '@data/html-colors.json';
-import { Card } from '@/app-kit/ui/card';
-import { cn } from '@/lib/utils';
+import { Card } from '@shared/ui/card';
+import { cn } from '@shared/lib/utils';
 import { BackgroundScreenTypes } from './types';
-import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
+import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
 
 const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,

@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import appConfig from '@/constants/site';
-import { Button } from '@/app-kit/ui/button';
-import { Badge } from '@/app-kit/ui/badge';
-import UISpotlight from '@/app-kit/components/UISpotlight';
+import appConfig from '@shared/config/site';
+import { Button } from '@shared/ui/button';
+import { Badge } from '@shared/ui/badge';
+import UISpotlight from '@shared/motion/UISpotlight';
 import { Sparkles } from 'lucide-react';
 import publicLayout from '../constants/public';
 

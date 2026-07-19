@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { toastManager } from '@/app-kit/ui/toast';
-import useHotkeys from '@/app-kit/hooks/use-hotkeys';
+import { toastManager } from '@shared/ui/toast';
+import useHotkeys from '@shared/hooks/use-hotkeys';
 import useSlideEditor from '@/store/hooks/use-editor';
-import formatCode, { formatterSupportedLanguages } from '@/utils/formatCode';
+import formatCode, { formatterSupportedLanguages } from '@shared/lib/formatCode';
 import { MagicWand3LinearIcon } from '@solar-icons/react';
-import { Button } from '@/app-kit/ui/button';
-import { Tooltip, TooltipPopup, TooltipTrigger } from '@/app-kit/ui/tooltip';
+import { Button } from '@shared/ui/button';
+import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';
 
 const BeautifyCode: React.FC = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();

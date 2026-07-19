@@ -2,16 +2,16 @@
 
 import React from 'react';
 import { Upload } from 'lucide-react';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Input } from '@/app-kit/ui/input';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import { Spinner } from '@/app-kit/ui/spinner';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Input } from '@shared/ui/input';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import { Spinner } from '@shared/ui/spinner';
 import useSlideEditor from '@/store/hooks/use-editor';
 import useImageUpload from '@/lib/assets/use-image-upload';
 import useAsset from '@/lib/assets/use-asset';
-import { AssetRefType } from '@/typings/editor';
+import { AssetRefType } from '@shared/types/editor';
 import { CORNER_RADIUS_RANGE, OPACITY_RANGE } from './values';
 
 const ImageSection = () => {

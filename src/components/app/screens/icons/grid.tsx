@@ -1,20 +1,20 @@
 import React from 'react';
 import { useImmer } from 'use-immer';
 import { useDebounce } from 'use-debounce';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { capitalize, subtract } from 'lodash';
 import useIcons from '@shared/hooks/use-icons';
-import { Input } from '@/app-kit/ui/input';
+import { Input } from '@shared/ui/input';
 import {
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from '@/app-kit/ui/select';
-import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
-import { PickerIconsProps, PickerProps } from '@/typings/icon-picker';
-import UILoadingFallback from '@/app-kit/components/UILoadingFallback';
+} from '@shared/ui/select';
+import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
+import { PickerIconsProps, PickerProps } from '@shared/types/icon-picker';
+import UILoadingFallback from '@shared/motion/UILoadingFallback';
 
 interface FluentEmojiState {
   searchTerm: string | null;

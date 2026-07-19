@@ -3,8 +3,8 @@
 import React, { useRef, useState } from 'react';
 import slugify from 'slugify';
 import { format } from 'date-fns';
-import appConfig from '@/constants/site';
-import { toastManager } from '@/app-kit/ui/toast';
+import appConfig from '@shared/config/site';
+import { toastManager } from '@shared/ui/toast';
 import useSlideEditor from '@/store/hooks/use-editor';
 import {
   buildDesignFile,
@@ -13,11 +13,11 @@ import {
   DesignImportError,
   DESIGN_FILE_EXTENSION,
 } from '@/lib/design-io';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import { keepSelectionProps } from '@/components/app/widget/selection-manager';
-import { Button } from '@/app-kit/ui/button';
-import { Spinner } from '@/app-kit/ui/spinner';
-import { Tooltip, TooltipPopup, TooltipTrigger } from '@/app-kit/ui/tooltip';
+import { Button } from '@shared/ui/button';
+import { Spinner } from '@shared/ui/spinner';
+import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';
 import {
   Dialog,
   DialogClose,
@@ -28,7 +28,7 @@ import {
   DialogPopup,
   DialogTitle,
   DialogTrigger,
-} from '@/app-kit/ui/dialog';
+} from '@shared/ui/dialog';
 import { CodeSquareOutlineIcon, DownloadMinimalisticLinearIcon, SquareShareLineLinearIcon } from '@solar-icons/react';
 
 /**

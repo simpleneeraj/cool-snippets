@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { template } from './style';
-import { HeaderInputType, HeadersProps } from '@/typings/templates';
+import { HeaderInputType, HeadersProps } from '@shared/types/templates';
 
 const InputWithIcon = ({
   inputType,

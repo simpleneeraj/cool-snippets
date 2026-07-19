@@ -1,10 +1,10 @@
 import React from 'react';
-import { ELEMENTS } from '@/typings/enums';
-import UIView from '@/app-kit/source/UIView';
-import { generateID } from '@/utils/id-generator';
+import { ELEMENTS } from '@shared/types/enums';
+import UIView from '@shared/uikit/UIView';
+import { generateID } from '@shared/lib/id-generator';
 import { elements, elementsObject } from '../../widget/aside/primary/values';
 import useSlideEditor from '@/store/hooks/use-editor';
-import UIButton from '@/app-kit/source/UIButton/button';
+import UIButton from '@shared/uikit/UIButton/button';
 import { Frame, FrameItem } from '@/components/elements/frame';
 
 const ElementsScreen = () => {

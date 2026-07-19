@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import '@/styles/mask-wallpaper.css';
 
-import fonts from '@/app-kit/fonts';
+import fonts from '@shared/fonts';
 import type { Metadata } from 'next';
 import NextAppProvider from '@/providers/next-ui';
 import { ThemeProvider } from '@/providers/theme-provider';

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Avatar, AvatarFallback } from '@/app-kit/ui/avatar';
-import { Button } from '@/app-kit/ui/button';
-import { Card, CardContent, CardFooter, CardHeader } from '@/app-kit/ui/card';
+import { Avatar, AvatarFallback } from '@shared/ui/avatar';
+import { Button } from '@shared/ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@shared/ui/card';
 import { format } from 'date-fns';
-import convertBytes from '@/utils/convert-bytes';
+import convertBytes from '@shared/lib/convert-bytes';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { RefreshLineDuotoneIcon } from '@solar-icons/react';
 

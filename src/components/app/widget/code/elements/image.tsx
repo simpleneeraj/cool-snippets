@@ -3,7 +3,7 @@
 import React from 'react';
 import { ImageIcon } from 'lucide-react';
 import useAsset from '@/lib/assets/use-asset';
-import { AssetRefType } from '@/typings/editor';
+import { AssetRefType } from '@shared/types/editor';
 
 type Props = {
   properties?: AssetRefType;

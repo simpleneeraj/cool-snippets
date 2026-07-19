@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import UIButton from '@/app-kit/source/UIButton/button';
+import UIView from '@shared/uikit/UIView';
+import UIButton from '@shared/uikit/UIButton/button';
 import { FrameItem } from '@/components/elements/frame';
 import { useImmer } from 'use-immer';
 import {
@@ -9,7 +9,7 @@ import {
   initialOptions,
   GradientOptions,
 } from '@vendor/easy-mesh-gradient';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
+import { Slider, SliderValue } from '@shared/ui/slider';
 
 type State = {
   pointCount: number;

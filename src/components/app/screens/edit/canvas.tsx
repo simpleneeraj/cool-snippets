@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { debounce } from 'lodash';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
 
 type Props = {};
 

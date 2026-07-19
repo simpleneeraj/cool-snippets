@@ -1,6 +1,6 @@
 import React from 'react';
-import { ElementType } from '@/typings/editor';
-import { resolveCodeFontFamily } from '@/app-kit/fonts/code';
+import { ElementType } from '@shared/types/editor';
+import { resolveCodeFontFamily } from '@shared/fonts/code';
 
 type Props = {
   style?: ElementType;

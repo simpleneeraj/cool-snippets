@@ -1,6 +1,6 @@
 import WindowChrome from '@/components/app/widget/code/templates/window-chrome';
 import { HEADER_TEMPLATE_LIST } from '@/components/app/widget/code/templates/registry';
-import { HeaderInputType, HeadersProps } from '@/typings/templates';
+import { HeaderInputType, HeadersProps } from '@shared/types/templates';
 
 /**
  * Header-style options for the picker, derived from the one registry so a new

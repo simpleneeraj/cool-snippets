@@ -4,14 +4,14 @@ import initialState from './state';
 import migrateSlides from './migrations';
 import { assign, merge, isEqual, debounce } from 'lodash';
 import { persist } from 'zustand/middleware';
-import { generateID } from '@/utils/id-generator';
-import { LAYER_DIRECTION } from '@/typings/enums';
+import { generateID } from '@shared/lib/id-generator';
+import { LAYER_DIRECTION } from '@shared/types/enums';
 import {
   SlideActionType,
   SlideStateType,
   StorageEnum,
   STORE_VERSION,
-} from '@/typings/editor';
+} from '@shared/types/editor';
 
 const HISTORY_LIMIT = 50;
 

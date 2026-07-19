@@ -2,7 +2,7 @@ import useSlide from '../slides';
 import { merge } from 'lodash';
 import { useMemo, useCallback } from 'react';
 import { useActiveSlide } from '../slides/current-slide';
-import { ElementType, SlideTypes } from '@/typings/editor';
+import { ElementType, SlideTypes } from '@shared/types/editor';
 import { useActiveElement } from '../slides/current-element';
 
 const useSlideEditor = () => {

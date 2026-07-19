@@ -1,4 +1,4 @@
-import FeatureCard from '@/app-kit/components/UIFeatureCard';
+import FeatureCard from '@shared/motion/UIFeatureCard';
 import {
   AtomLineDuotoneIcon,
   CodeSquareLineDuotoneIcon,

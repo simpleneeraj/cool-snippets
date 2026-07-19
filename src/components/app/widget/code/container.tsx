@@ -7,11 +7,11 @@ import ElementStyle from './styles/element';
 import MoveableOverlay from './elements/moveable';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { useActiveElement } from '@/store/slides/current-element';
-import { generateID } from '@/utils/id-generator';
+import { generateID } from '@shared/lib/id-generator';
 import { elementsObject } from '../aside/primary/values';
 import { useDrop } from 'react-dnd';
 import { DRAG_ITEM_TYPE, type DragItem } from '@/components/app/dnd/types';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 
 const EditorComponents = dynamic(() => import('./elements'), {
   ssr: false,

@@ -1,14 +1,14 @@
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@/store/hooks/use-editor';
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from '@/app-kit/ui/accordion';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import { Label } from '@/app-kit/ui/label';
+} from '@shared/ui/accordion';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import { Label } from '@shared/ui/label';
 
 enum ItemEnums {
   Default = 'Default',

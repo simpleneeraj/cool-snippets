@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { toCanvas, toSvg } from 'html-to-image';
-import { buildFontEmbedCss } from '@/app-kit/fonts/source';
+import { buildFontEmbedCss } from '@shared/fonts/source';
 
 /**
  * Image capture for the studio, built on the `html-to-image` library.

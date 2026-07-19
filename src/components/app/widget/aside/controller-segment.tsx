@@ -1,6 +1,6 @@
 import React from 'react';
-import { SEGMENT_SCREEN } from '@/typings/enums';
-import { Tabs, TabsList, TabsTab } from '@/app-kit/ui/tabs';
+import { SEGMENT_SCREEN } from '@shared/types/enums';
+import { Tabs, TabsList, TabsTab } from '@shared/ui/tabs';
 import { Pen2LinearIcon, EmojiFunnySquareLinearIcon, WidgetAddLinearIcon, GalleryWideLinearIcon } from '@solar-icons/react';
 import { useSegment } from '@/store/segment';
 

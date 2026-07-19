@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Badge } from '@/app-kit/ui/badge';
-import appConfig from '@/constants/site';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Badge } from '@shared/ui/badge';
+import appConfig from '@shared/config/site';
 import { Github } from '@/components/icons/github';
-import { UISmallGridPattern } from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
+import { UISmallGridPattern } from '@shared/motion/UIBackgroundPattern/grid-pattern';
 
 type OpenSourceSectionProps = object;
 

@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import CODE_FONTS, { type CodeFont } from '@/app-kit/fonts/code';
+import UIView from '@shared/uikit/UIView';
+import CODE_FONTS, { type CodeFont } from '@shared/fonts/code';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
 import {
   Combobox,
   ComboboxEmpty,
@@ -13,7 +13,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxPopup,
-} from '@/app-kit/ui/combobox';
+} from '@shared/ui/combobox';
 import {
   FONT_SIZE_RANGE,
   LETTER_SPACING_RANGE,

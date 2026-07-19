@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { IconProviders, PickerProps } from '@/typings/icon-picker';
+import { IconProviders, PickerProps } from '@shared/types/icon-picker';
 
 const IconGrid = dynamic(() => import('./grid'));
 const EmojiPicker = dynamic(() => import('./emoji-picker'));

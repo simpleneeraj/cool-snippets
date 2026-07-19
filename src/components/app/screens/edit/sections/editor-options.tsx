@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Switch } from '@/app-kit/ui/switch';
+import UIView from '@shared/uikit/UIView';
+import { Switch } from '@shared/ui/switch';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { resolveEditorOptions } from '@/store/slides/editor-options';
 import { EDITOR_TOGGLES } from './values';

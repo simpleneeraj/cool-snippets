@@ -1,8 +1,8 @@
 import React from 'react';
 import WindowChrome from './templates/window-chrome';
 import { HEADER_TEMPLATES } from './templates/registry';
-import { SlideHeaderType } from '@/typings/editor';
-import { HeadersProps } from '@/typings/templates';
+import { SlideHeaderType } from '@shared/types/editor';
+import { HeadersProps } from '@shared/types/templates';
 
 type CodeHeaderWidgetProps = {
   header: SlideHeaderType | null;

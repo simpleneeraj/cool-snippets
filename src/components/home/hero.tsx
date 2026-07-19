@@ -1,11 +1,11 @@
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { cn } from '@/lib/utils';
-import UISpotlight from '@/app-kit/components/UISpotlight';
-import { AnimatedTooltip } from '@/app-kit/components/UITooltip';
-import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
-import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { cn } from '@shared/lib/utils';
+import UISpotlight from '@shared/motion/UISpotlight';
+import { AnimatedTooltip } from '@shared/motion/UITooltip';
+import UIGridPattern from '@shared/motion/UIBackgroundPattern/grid-pattern';
+import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import Link from 'next/link';
 import { AltArrowRightLineDuotoneIcon, ArrowRightLineDuotoneIcon } from '@solar-icons/react';
 

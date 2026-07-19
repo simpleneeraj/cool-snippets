@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import appConfig from '@/constants/site';
+import appConfig from '@shared/config/site';
 import {
   ASSET_SOURCE,
   ELEMENTS,
   QR_ERROR_LEVEL,
   WATERMARK_MODE,
-} from '@/typings/enums';
+} from '@shared/types/enums';
 import { ThemesEnum } from '@vendor/codemirror/themes';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
-import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
+import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
 import { CodeSquareOutlineIcon, TextFieldFocusOutlineIcon, GalleryAddOutlineIcon, SmileCircleOutlineIcon, QrCodeOutlineIcon, UserIdOutlineIcon, VerifiedCheckOutlineIcon } from '@solar-icons/react';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {

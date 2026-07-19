@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { MenuIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button, buttonVariants } from '@/app-kit/ui/button';
+import { cn } from '@shared/lib/utils';
+import { Button, buttonVariants } from '@shared/ui/button';
 import {
   Sheet,
   SheetTrigger,
@@ -12,7 +12,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetClose,
-} from '@/app-kit/ui/sheet';
+} from '@shared/ui/sheet';
 
 export default function PreviewHeader() {
   return (

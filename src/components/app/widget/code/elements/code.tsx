@@ -1,8 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import CodeHeaderWidget from '../headers';
-import UIView from '@/app-kit/source/UIView';
-import { EditorOptionsType, SlideHeaderType } from '@/typings/editor';
+import UIView from '@shared/uikit/UIView';
+import { EditorOptionsType, SlideHeaderType } from '@shared/types/editor';
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import {
   EditorView,

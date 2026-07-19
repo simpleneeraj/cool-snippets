@@ -1,18 +1,18 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Frame, FrameFooter, FramePanel } from '@/app-kit/ui/frame';
-import { Tabs, TabsList, TabsPanel, TabsTab } from '@/app-kit/ui/tabs';
+import UIView from '@shared/uikit/UIView';
+import { Frame, FrameFooter, FramePanel } from '@shared/ui/frame';
+import { Tabs, TabsList, TabsPanel, TabsTab } from '@shared/ui/tabs';
 import { elements, elementsObject } from './values';
-import { ELEMENTS } from '@/typings/enums';
-import { Button } from '@/app-kit/ui/button';
+import { ELEMENTS } from '@shared/types/enums';
+import { Button } from '@shared/ui/button';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { useActiveSlide } from '@/store/slides/current-slide';
-import { generateID } from '@/utils/id-generator';
+import { generateID } from '@shared/lib/id-generator';
 import { useDrag } from 'react-dnd';
 import { DRAG_ITEM_TYPE, type DragItem } from '@/components/app/dnd/types';
-import { cn } from '@/lib/utils';
+import { cn } from '@shared/lib/utils';
 import LayersPanel from './layers';
 import { useActiveElement } from '@/store/slides/current-element';
 import { keepSelectionProps } from '@/components/app/widget/selection-manager';
@@ -25,7 +25,7 @@ import {
   AlertDialogPopup,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@/app-kit/ui/alert-dialog';
+} from '@shared/ui/alert-dialog';
 
 /* ─────────────────────────────────────────────────────────── */
 

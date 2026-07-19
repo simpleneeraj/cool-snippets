@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import folderIcons from '@data/icons/material-icons/folderIcons.json';
 import languageIcons from '@data/icons/material-icons/languageIcons.json';
 import vscodeSymbols from '@data/icons/vscode-symbols/vscode-symbols.json';
-import { IconProviders, IconType } from '@/typings/icon-picker';
+import { IconProviders, IconType } from '@shared/types/icon-picker';
 import { map, sortBy, filter, includes, toLower, concat, merge } from 'lodash';
 
 function createDatabase(provider: IconProviders) {

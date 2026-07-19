@@ -1,21 +1,21 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import { Input } from '@/app-kit/ui/input';
-import { Field, FieldDescription, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import UIColorPicker from '@/app-kit/source/UIColorPicker';
+import UIView from '@shared/uikit/UIView';
+import { Input } from '@shared/ui/input';
+import { Field, FieldDescription, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { QrCodePropertiesType } from '@/typings/editor';
-import { QR_ERROR_LEVEL } from '@/typings/enums';
+import { QrCodePropertiesType } from '@shared/types/editor';
+import { QR_ERROR_LEVEL } from '@shared/types/enums';
 import {
   Select,
   SelectItem,
   SelectPopup,
   SelectTrigger,
   SelectValue,
-} from '@/app-kit/ui/select';
+} from '@shared/ui/select';
 import { QR_ERROR_LEVELS, QR_MARGIN_RANGE, QR_SIZE_RANGE } from './values';
 
 const QrCodeSection = () => {

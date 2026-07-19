@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import appConfig from '@/constants/site';
-import FeatureCard from '@/app-kit/components/UIFeatureCard';
+import appConfig from '@shared/config/site';
+import FeatureCard from '@shared/motion/UIFeatureCard';
 import { tv } from 'tailwind-variants';
 import { Github } from '@/components/icons/github';
 import { Home2LineDuotoneIcon, PhoneCallingRoundedLineDuotoneIcon, ChatRoundUnreadLineDuotoneIcon } from '@solar-icons/react';

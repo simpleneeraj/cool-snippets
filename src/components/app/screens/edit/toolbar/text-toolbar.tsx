@@ -12,7 +12,7 @@ import { ListDropdownMenu } from '@/components/tiptap-ui/list-dropdown-menu';
 import { BlockquoteButton } from '@/components/tiptap-ui/blockquote-button';
 import { ColorHighlightPopover } from '@/components/tiptap-ui/color-highlight-popover';
 import { ColorTextPopover } from '@/components/tiptap-ui/color-text-popover';
-import { Toolbar, ToolbarGroup, ToolbarSeparator } from '@/app-kit/ui/toolbar';
+import { Toolbar, ToolbarGroup, ToolbarSeparator } from '@shared/ui/toolbar';
 
 const TextToolbar: React.FC = () => {
   const { editor } = useTextEditor();

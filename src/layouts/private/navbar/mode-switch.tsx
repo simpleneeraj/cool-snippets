@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from '@/app-kit/ui/switch';
+import { Switch } from '@shared/ui/switch';
 import { useTheme as useNextTheme } from 'next-themes';
 
 export const DarkModeSwitch = () => {

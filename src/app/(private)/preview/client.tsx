@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PreviewHeader from './navbar';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import MaskWallpaper from '@vendor/mask-wallpaper';
 import { wallpaperOptions } from '@/components/app/share/config';
 import CodeMirror from '@uiw/react-codemirror';

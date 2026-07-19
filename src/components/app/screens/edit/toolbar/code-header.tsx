@@ -1,9 +1,9 @@
 import React from 'react';
-import { Label } from '@/app-kit/ui/label';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Radio, RadioGroup } from '@/app-kit/ui/radio-group';
-import { Menu, MenuPopup, MenuTrigger } from '@/app-kit/ui/menu';
+import { Label } from '@shared/ui/label';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Radio, RadioGroup } from '@shared/ui/radio-group';
+import { Menu, MenuPopup, MenuTrigger } from '@shared/ui/menu';
 import uiTemplates from '../../../widget/aside/primary/ui-templates';
 
 type Props = {

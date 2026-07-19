@@ -2,11 +2,11 @@
 
 import React from 'react';
 import capitalize from 'lodash/capitalize';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 import themes from '@vendor/codemirror/themes';
 import useSlideEditor from '@/store/hooks/use-editor';
 import { languagesArray } from '@vendor/codemirror/languages';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
+import { Field, FieldLabel } from '@shared/ui/field';
 import {
   Combobox,
   ComboboxEmpty,
@@ -14,7 +14,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxPopup,
-} from '@/app-kit/ui/combobox';
+} from '@shared/ui/combobox';
 
 type Language = (typeof languagesArray)[number];
 

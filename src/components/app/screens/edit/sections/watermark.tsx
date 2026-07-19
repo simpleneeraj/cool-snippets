@@ -2,18 +2,18 @@
 
 import React from 'react';
 import { Upload } from 'lucide-react';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { Input } from '@/app-kit/ui/input';
-import { Spinner } from '@/app-kit/ui/spinner';
-import { Field, FieldLabel } from '@/app-kit/ui/field';
-import { Slider, SliderValue } from '@/app-kit/ui/slider';
-import UIColorPicker from '@/app-kit/source/UIColorPicker';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { Input } from '@shared/ui/input';
+import { Spinner } from '@shared/ui/spinner';
+import { Field, FieldLabel } from '@shared/ui/field';
+import { Slider, SliderValue } from '@shared/ui/slider';
+import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@/store/hooks/use-editor';
 import useImageUpload from '@/lib/assets/use-image-upload';
-import { WatermarkPropertiesType } from '@/typings/editor';
-import { WATERMARK_MODE } from '@/typings/enums';
-import { ToggleGroup, ToggleGroupItem } from '@/app-kit/ui/toggle-group';
+import { WatermarkPropertiesType } from '@shared/types/editor';
+import { WATERMARK_MODE } from '@shared/types/enums';
+import { ToggleGroup, ToggleGroupItem } from '@shared/ui/toggle-group';
 import { FONT_SIZE_RANGE, OPACITY_RANGE, WATERMARK_MODES } from './values';
 
 const WatermarkSection = () => {

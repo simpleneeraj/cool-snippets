@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import UIView from '@/app-kit/source/UIView';
-import { Button } from '@/app-kit/ui/button';
-import { cn } from '@/lib/utils';
-import appConfig from '@/constants/site';
-import UIGridPattern from '@/app-kit/components/UIBackgroundPattern/grid-pattern';
+import UIView from '@shared/uikit/UIView';
+import { Button } from '@shared/ui/button';
+import { cn } from '@shared/lib/utils';
+import appConfig from '@shared/config/site';
+import UIGridPattern from '@shared/motion/UIBackgroundPattern/grid-pattern';
 import { ArrowRightLineDuotoneIcon } from '@solar-icons/react';
 
 type CtaSectionProps = object;
