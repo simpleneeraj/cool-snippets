@@ -1,7 +1,7 @@
 import React from 'react';
 import { useScreen } from '@features/studio/store/screen';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
-import { BACKGROUND_SCREEN, BACKGROUND_TYPE } from '@shared/types/enums';
+import { BACKGROUND_SCREEN, BACKGROUND_TYPE } from '@features/studio/model/enums';
 import SolidBackgrounds from './solid';
 import GradientsBackgrounds from './gradients';
 import ImagesBackgrounds from './images';

@@ -3,7 +3,7 @@ import React from 'react';
 import { useImmer } from 'use-immer';
 import UIView from '@shared/uikit/UIView';
 import emojis from 'emojibase-data/en/data.json';
-import { getEmojiUrl } from '@shared/lib/getEmojiUrl';
+import { getEmojiUrl } from '@features/studio/lib/getEmojiUrl';
 import data from 'emojibase-data/en/messages.json';
 import { capitalize, cloneDeep, sortBy, subtract } from 'lodash';
 import { Input } from '@shared/ui/input';

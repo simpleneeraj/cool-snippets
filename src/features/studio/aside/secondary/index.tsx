@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import NotFound from './not-found';
 import { useSegment } from '@features/studio/store/segment';
 import UIView from '@shared/uikit/UIView';
-import { SEGMENT_SCREEN } from '@shared/types/enums';
+import { SEGMENT_SCREEN } from '@features/studio/model/enums';
 import { motion, AnimatePresence, easeInOut } from 'motion/react';
 import { Frame, FrameFooter, FramePanel } from '@shared/ui/frame';
 

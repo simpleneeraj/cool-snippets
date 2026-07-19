@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import CodeHeaderWidget from '../headers';
 import UIView from '@shared/uikit/UIView';
-import { EditorOptionsType, SlideHeaderType } from '@shared/types/editor';
+import { EditorOptionsType, SlideHeaderType } from '@features/studio/model/editor';
 import { indentationMarkers } from '@replit/codemirror-indentation-markers';
 import {
   EditorView,

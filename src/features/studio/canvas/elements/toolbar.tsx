@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { ElementType } from '@shared/types/editor';
-import { ELEMENTS, LAYER_DIRECTION } from '@shared/types/enums';
+import { ElementType } from '@features/studio/model/editor';
+import { ELEMENTS, LAYER_DIRECTION } from '@features/studio/model/enums';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useAnchorPosition from '@shared/hooks/use-anchor-position';
 import { keepSelectionProps } from '@features/studio/selection-manager';

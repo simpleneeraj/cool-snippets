@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback } from '@shared/ui/avatar';
 import { Button } from '@shared/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@shared/ui/card';
 import { format } from 'date-fns';
-import convertBytes from '@shared/lib/convert-bytes';
+import convertBytes from '@features/studio/lib/convert-bytes';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { RefreshLineDuotoneIcon } from '@solar-icons/react';
 

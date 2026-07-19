@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { putAsset } from './store';
-import { AssetRefType } from '@shared/types/editor';
-import { ASSET_SOURCE } from '@shared/types/enums';
+import { AssetRefType } from '@features/studio/model/editor';
+import { ASSET_SOURCE } from '@features/studio/model/enums';
 
 const ACCEPTED = 'image/png,image/jpeg,image/webp,image/gif,image/svg+xml';
 

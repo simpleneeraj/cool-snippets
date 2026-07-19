@@ -2,7 +2,7 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 import UIView from '@shared/uikit/UIView';
 import {
   AssetRefType,
@@ -10,7 +10,7 @@ import {
   QrCodePropertiesType,
   UserInfoPropertiesType,
   WatermarkPropertiesType,
-} from '@shared/types/editor';
+} from '@features/studio/model/editor';
 import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { LanguagesEnum } from '@vendor/codemirror/languages';

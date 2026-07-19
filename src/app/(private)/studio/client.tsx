@@ -5,7 +5,7 @@ import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import ToolbarWidget from '@features/studio/toolbar';
 import SelectionManager from '@features/studio/selection-manager';
-import ResizableFrame from '@shared/motion/UIResizableFrame';
+import ResizableFrame from '@features/studio/ui/resizable-frame';
 import ContainerWidget from '@features/studio/canvas/container';
 import PrimaryAsideWidget from '@features/studio/aside/primary';
 import SecondaryAsideWidget from '@features/studio/aside/secondary';

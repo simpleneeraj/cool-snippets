@@ -1,5 +1,5 @@
 import { tv } from 'tailwind-variants';
-import { HeaderPositions } from '@shared/types/templates';
+import { HeaderPositions } from '@features/studio/model/templates';
 
 /**
  * Maps the header's alignment control to a flex `justify-content`. The base row

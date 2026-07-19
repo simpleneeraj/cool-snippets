@@ -1,4 +1,4 @@
-import { EditorOptionsType } from '@shared/types/editor';
+import { EditorOptionsType } from '@features/studio/model/editor';
 
 /**
  * These defaults intentionally mirror the CodeMirror setup that used to be

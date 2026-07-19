@@ -1,4 +1,4 @@
-import { BACKGROUND_SCREEN } from '@shared/types/enums';
+import { BACKGROUND_SCREEN } from '@features/studio/model/enums';
 
 const backgroundVariants = [
   {

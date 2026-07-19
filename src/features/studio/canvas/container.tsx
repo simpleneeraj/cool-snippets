@@ -7,7 +7,7 @@ import ElementStyle from './styles/element';
 import MoveableOverlay from './elements/moveable';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { useActiveElement } from '@features/studio/store/slides/current-element';
-import { generateID } from '@shared/lib/id-generator';
+import { generateID } from '@features/studio/lib/id-generator';
 import { elementsObject } from '../aside/primary/values';
 import { useDrop } from 'react-dnd';
 import { DRAG_ITEM_TYPE, type DragItem } from '@features/studio/dnd/types';

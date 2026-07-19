@@ -1,5 +1,5 @@
 import { AlignHorizontalCenterLineDuotoneIcon, AlignLeftLineDuotoneIcon, AlignRightLineDuotoneIcon } from '@solar-icons/react';
-import { HeaderInputType, HeaderVariants } from '@shared/types/templates';
+import { HeaderInputType, HeaderVariants } from '@features/studio/model/templates';
 
 export const SEGMENT_OPTIONS = [
   { value: 'left', icon: AlignLeftLineDuotoneIcon },

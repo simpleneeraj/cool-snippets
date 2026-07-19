@@ -1,4 +1,4 @@
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 
 /** react-dnd item type key for element panel cards */
 export const DRAG_ITEM_TYPE = 'XRYSTAL_ELEMENT' as const;

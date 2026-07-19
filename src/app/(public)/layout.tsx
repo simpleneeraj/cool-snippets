@@ -1,5 +1,5 @@
 import React from 'react';
-import WebLayout from '@/layouts/web';
+import WebLayout from '@layouts/web';
 import UIView from '@shared/uikit/UIView';
 
 type WebLayoutProps = React.PropsWithChildren;

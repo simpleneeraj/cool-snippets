@@ -2,7 +2,7 @@
 
 import React from 'react';
 import UIView from '@shared/uikit/UIView';
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import {
   Accordion,

@@ -4,8 +4,8 @@ import IconPopover from './icon-popover';
 import CodeHeaderDropdown from './code-header';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { HEADER_INPUT_TYPES, HEADER_VARIANTS, SEGMENT_OPTIONS } from './values';
-import { SlideHeaderType } from '@shared/types/editor';
-import { HeaderInputType } from '@shared/types/templates';
+import { SlideHeaderType } from '@features/studio/model/editor';
+import { HeaderInputType } from '@features/studio/model/templates';
 import {
   Select,
   SelectItem,

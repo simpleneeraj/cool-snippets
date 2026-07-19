@@ -3,7 +3,7 @@
 import React from 'react';
 import { UserRound } from 'lucide-react';
 import useAsset from '@features/studio/lib/assets/use-asset';
-import { UserInfoPropertiesType } from '@shared/types/editor';
+import { UserInfoPropertiesType } from '@features/studio/model/editor';
 
 type Props = {
   properties?: UserInfoPropertiesType;

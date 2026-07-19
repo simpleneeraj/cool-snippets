@@ -1,6 +1,6 @@
 import WindowChrome from '@features/studio/canvas/templates/window-chrome';
 import { HEADER_TEMPLATE_LIST } from '@features/studio/canvas/templates/registry';
-import { HeaderInputType, HeadersProps } from '@shared/types/templates';
+import { HeaderInputType, HeadersProps } from '@features/studio/model/templates';
 
 /**
  * Header-style options for the picker, derived from the one registry so a new

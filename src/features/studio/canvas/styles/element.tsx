@@ -1,5 +1,5 @@
 import React from 'react';
-import { ElementType } from '@shared/types/editor';
+import { ElementType } from '@features/studio/model/editor';
 import { resolveCodeFontFamily } from '@shared/fonts/code';
 
 type Props = {

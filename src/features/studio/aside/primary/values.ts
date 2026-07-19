@@ -5,7 +5,7 @@ import {
   ELEMENTS,
   QR_ERROR_LEVEL,
   WATERMARK_MODE,
-} from '@shared/types/enums';
+} from '@features/studio/model/enums';
 import { ThemesEnum } from '@vendor/codemirror/themes';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@shared/fonts/code';

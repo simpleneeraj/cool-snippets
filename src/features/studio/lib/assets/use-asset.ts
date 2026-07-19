@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { getAsset } from './store';
-import { AssetRefType } from '@shared/types/editor';
-import { ASSET_SOURCE } from '@shared/types/enums';
+import { AssetRefType } from '@features/studio/model/editor';
+import { ASSET_SOURCE } from '@features/studio/model/enums';
 
 /**
  * Object URLs are cached per asset for the lifetime of the session. Creating a

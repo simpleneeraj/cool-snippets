@@ -1,7 +1,7 @@
 import React from 'react';
 import InputWithIcon from './input';
 import { template, headerJustify } from './style';
-import { HeaderInputType, HeadersProps } from '@shared/types/templates';
+import { HeaderInputType, HeadersProps } from '@features/studio/model/templates';
 
 type Props = HeadersProps & {
   /** The window "personality" — traffic lights, caption buttons, etc. */

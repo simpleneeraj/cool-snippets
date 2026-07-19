@@ -5,7 +5,7 @@ import { cn } from '@shared/lib/utils';
 import { BackgroundScreenTypes } from './types';
 import UIVirtualizeGrid from '@shared/motion/UIVirtualizeGrid';
 import CSS_GRADIENT_LIST from '@data/patterns/gradients';
-import { patternToStyle } from '@shared/lib/background-css';
+import { patternToStyle } from '@features/studio/lib/background-css';
 
 const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,

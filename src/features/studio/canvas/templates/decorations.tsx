@@ -4,7 +4,7 @@ import { template } from './style';
 import Dismiss from './icons/Dismiss';
 import RemoveOutline from './icons/Remove';
 import SquareMultiple from './icons/SquareMultiple';
-import { HeaderVariants, HeadersProps } from '@shared/types/templates';
+import { HeaderVariants, HeadersProps } from '@features/studio/model/templates';
 
 type CSS = React.CSSProperties;
 

@@ -1,13 +1,13 @@
-import { InitialValues } from '@shared/types/editor';
+import { InitialValues } from '@features/studio/model/editor';
 import { ThemesEnum } from '@vendor/codemirror/themes';
-import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@shared/types/enums';
+import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@features/studio/model/enums';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
 import {
   HeaderInputType,
   HeaderPositions,
   HeaderVariants,
-} from '@shared/types/templates';
+} from '@features/studio/model/templates';
 
 export const MIN_SLIDE_WIDTH = 520;
 export const MAX_SLIDE_WIDTH = 720;

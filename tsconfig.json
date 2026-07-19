@@ -23,8 +23,14 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
       ],
       "@features/*": [
         "./src/features/*"

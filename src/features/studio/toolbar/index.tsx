@@ -1,6 +1,6 @@
 import React from 'react';
 import { keepSelectionProps } from '@features/studio/selection-manager';
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 import UIView from '@shared/uikit/UIView';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { AnimatePresence, motion } from 'motion/react';

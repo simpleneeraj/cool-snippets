@@ -4,7 +4,7 @@ import React from 'react';
 import { toastManager } from '@shared/ui/toast';
 import useHotkeys from '@shared/hooks/use-hotkeys';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
-import formatCode, { formatterSupportedLanguages } from '@shared/lib/formatCode';
+import formatCode, { formatterSupportedLanguages } from '@features/studio/lib/formatCode';
 import { MagicWand3LinearIcon } from '@solar-icons/react';
 import { Button } from '@shared/ui/button';
 import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';

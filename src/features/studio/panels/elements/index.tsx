@@ -1,7 +1,7 @@
 import React from 'react';
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 import UIView from '@shared/uikit/UIView';
-import { generateID } from '@shared/lib/id-generator';
+import { generateID } from '@features/studio/lib/id-generator';
 import { elements, elementsObject } from '@features/studio/aside/primary/values';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import UIButton from '@shared/uikit/UIButton/button';

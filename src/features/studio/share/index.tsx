@@ -10,8 +10,8 @@ import { set } from 'lodash';
 import grad from '@data/ui-gradients.json';
 import CodingLines from '@features/studio/aside/primary/coding-lines';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
-import { BACKGROUND_TYPE } from '@shared/types/enums';
-import backgroundPurify from '@shared/lib/background-purify';
+import { BACKGROUND_TYPE } from '@features/studio/model/enums';
+import backgroundPurify from '@features/studio/lib/background-purify';
 import { X } from 'lucide-react';
 import { ShareLinearIcon } from '@solar-icons/react';
 import {

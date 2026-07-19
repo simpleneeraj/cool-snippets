@@ -3,7 +3,7 @@
 import React from 'react';
 import Moveable from 'react-moveable';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
-import { ELEMENTS } from '@shared/types/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
 import { useActiveElement } from '@features/studio/store/slides/current-element';
 
 const DIRECTIONS = {

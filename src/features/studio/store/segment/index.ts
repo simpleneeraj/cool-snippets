@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { SEGMENT_FEATURE, SEGMENT_SCREEN } from '@shared/types/enums';
+import { SEGMENT_FEATURE, SEGMENT_SCREEN } from '@features/studio/model/enums';
 
 // Define the state structure
 interface SegmentState {

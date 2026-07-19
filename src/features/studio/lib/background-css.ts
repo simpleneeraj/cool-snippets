@@ -1,6 +1,6 @@
 import cssToStyle from '@vendor/css-to-style';
-import { PropertiesType } from '@shared/types/editor';
-import { BACKGROUND_TYPE } from '@shared/types/enums';
+import { PropertiesType } from '@features/studio/model/editor';
+import { BACKGROUND_TYPE } from '@features/studio/model/enums';
 
 /**
  * Pattern sources come in two shapes: a bare value like `linear-gradient(...)`,

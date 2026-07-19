@@ -4,10 +4,10 @@ import React from 'react';
 import { cn } from '@shared/lib/utils';
 import UIView from '@shared/uikit/UIView';
 import { Button } from '@shared/ui/button';
-import { ELEMENTS, LAYER_DIRECTION } from '@shared/types/enums';
+import { ELEMENTS, LAYER_DIRECTION } from '@features/studio/model/enums';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { useActiveElement } from '@features/studio/store/slides/current-element';
-import { ElementType } from '@shared/types/editor';
+import { ElementType } from '@features/studio/model/editor';
 import { elementIconMapper, elementLabelMapper } from '../values';
 import {
   DropdownMenu,

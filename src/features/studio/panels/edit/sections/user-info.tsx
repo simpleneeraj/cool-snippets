@@ -12,7 +12,7 @@ import { Slider, SliderValue } from '@shared/ui/slider';
 import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
-import { UserInfoPropertiesType } from '@shared/types/editor';
+import { UserInfoPropertiesType } from '@features/studio/model/editor';
 import { FONT_SIZE_RANGE } from './values';
 
 const UserInfoSection = () => {

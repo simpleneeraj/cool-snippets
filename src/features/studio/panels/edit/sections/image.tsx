@@ -11,7 +11,7 @@ import { Spinner } from '@shared/ui/spinner';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
 import useAsset from '@features/studio/lib/assets/use-asset';
-import { AssetRefType } from '@shared/types/editor';
+import { AssetRefType } from '@features/studio/model/editor';
 import { CORNER_RADIUS_RANGE, OPACITY_RANGE } from './values';
 
 const ImageSection = () => {

@@ -11,8 +11,8 @@ import { Slider, SliderValue } from '@shared/ui/slider';
 import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
-import { WatermarkPropertiesType } from '@shared/types/editor';
-import { WATERMARK_MODE } from '@shared/types/enums';
+import { WatermarkPropertiesType } from '@features/studio/model/editor';
+import { WATERMARK_MODE } from '@features/studio/model/enums';
 import { ToggleGroup, ToggleGroupItem } from '@shared/ui/toggle-group';
 import { FONT_SIZE_RANGE, OPACITY_RANGE, WATERMARK_MODES } from './values';
 

@@ -7,8 +7,8 @@ import { Field, FieldDescription, FieldLabel } from '@shared/ui/field';
 import { Slider, SliderValue } from '@shared/ui/slider';
 import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
-import { QrCodePropertiesType } from '@shared/types/editor';
-import { QR_ERROR_LEVEL } from '@shared/types/enums';
+import { QrCodePropertiesType } from '@features/studio/model/editor';
+import { QR_ERROR_LEVEL } from '@features/studio/model/enums';
 import {
   Select,
   SelectItem,
