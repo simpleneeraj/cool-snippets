@@ -8,8 +8,8 @@ import React, {
 } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { XCircle } from 'lucide-react';
-import { MAX_SLIDE_WIDTH, MIN_SLIDE_WIDTH } from '@/store/slides/state';
-import { useActiveElement } from '@/store/slides/current-element';
+import { MAX_SLIDE_WIDTH, MIN_SLIDE_WIDTH } from '@features/studio/store/slides/state';
+import { useActiveElement } from '@features/studio/store/slides/current-element';
 import { Button } from '@shared/ui/button';
 
 enum Handle {

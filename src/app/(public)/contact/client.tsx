@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import Section from '@/components/section';
+import Section from '@features/marketing/section';
 import UIView from '@shared/uikit/UIView';
-import FaqSection from '@/components/home/faq';
-import Topbar from '@/components/section/topbar';
+import FaqSection from '@features/marketing/home/faq';
+import Topbar from '@features/marketing/section/topbar';
 import { scrollToTarget } from '@shared/lib/elements';
-import ContactSection from '@/components/contact/grids';
+import ContactSection from '@features/marketing/contact/grids';
 import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
-import CtaSection from '@/components/home/cta';
+import CtaSection from '@features/marketing/home/cta';
 
 type ContactProps = object;
 

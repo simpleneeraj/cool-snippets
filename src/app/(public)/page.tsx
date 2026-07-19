@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePageClient from '@/components/home';
+import HomePageClient from '@features/marketing/home';
 
 type HomePageProps = object;
 

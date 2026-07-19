@@ -4,7 +4,7 @@ import React from 'react';
 import PreviewHeader from './navbar';
 import UIView from '@shared/uikit/UIView';
 import MaskWallpaper from '@vendor/mask-wallpaper';
-import { wallpaperOptions } from '@/components/app/share/config';
+import { wallpaperOptions } from '@features/studio/share/config';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 

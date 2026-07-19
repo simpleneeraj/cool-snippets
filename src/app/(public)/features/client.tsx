@@ -2,9 +2,9 @@
 
 import React from 'react';
 import UIView from '@shared/uikit/UIView';
-import Topbar from '@/components/section/topbar';
+import Topbar from '@features/marketing/section/topbar';
 import { scrollToTarget } from '@shared/lib/elements';
-import FeaturesSection from '@/components/home/features';
+import FeaturesSection from '@features/marketing/home/features';
 import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
 

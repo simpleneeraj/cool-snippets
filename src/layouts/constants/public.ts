@@ -1,4 +1,4 @@
-import { Github } from '@/components/icons/github';
+import { Github } from '@shared/icons/github';
 import appConfig from '@shared/config/site';
 
 const publicLayout = {
