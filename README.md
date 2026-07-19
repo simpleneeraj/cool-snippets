@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cool Snippets
 
-## Getting Started
+**Turn code into beautiful, shareable images.** A free and open-source alternative to
+ray.so, Carbon and snappify — no account, no paywall, no upload. Everything runs in your
+browser.
 
-First, run the development server:
+[Report a bug](https://github.com/simpleneeraj/cool-snippets/issues) · [Sponsor](https://github.com/sponsors/simpleneeraj)
+
+---
+
+## What it does
+
+Paste a snippet, style it, export it. Drop the result into a blog post, a slide, a README,
+or a tweet.
+
+- **43 languages** with real syntax highlighting, powered by CodeMirror 6
+- **17 syntax themes** — Dracula, Nord, One Dark, Gruvbox, Solarized, Material, Sublime and more
+- **25 coding fonts** bundled — Fira Code, Cascadia, Hasklig, Comic Mono, and others
+- **Window chrome** — macOS, Windows and Unix terminal headers with editable titles and file icons
+- **Effects** — glow, glassmorphism, blur, corner radius, custom padding
+- **Backgrounds** — solid colours, gradients, patterns and your own images
+- **A real canvas** — drag in text, images and icons alongside the code block, not just one fixed frame
+- **Export** to PNG, JPEG, WEBP or SVG, or copy straight to the clipboard, with presets for
+  social, presentation, portfolio and print
+
+## Why another one of these
+
+Most code-to-image tools are either closed, gated behind a subscription once you want a
+second export size, or they send your snippet to a server. Cool Snippets is MIT licensed,
+free in full, and never transmits your code — your work is saved in `localStorage` and
+nowhere else. There is nothing to sign up for.
+
+It is funded by [sponsors](https://github.com/sponsors/simpleneeraj), not by locking
+features away.
+
+## Compared to
+
+|                      | Cool Snippets | ray.so | Carbon | snappify |
+| -------------------- | :-----------: | :----: | :----: | :------: |
+| Open source          |    ✅ MIT     |   ✅   |   ✅   |    ❌    |
+| Free, no limits      |      ✅       |   ✅   |   ✅   | Partial  |
+| No account needed    |      ✅       |   ✅   |   ✅   |    ❌    |
+| Multi-element canvas |      ✅       |   ❌   |   ❌   |    ✅    |
+| SVG export           |      ✅       |   ❌   |   ✅   |    ✅    |
+| Self-hostable        |      ✅       |   ✅   |   ✅   |    ❌    |
+
+## Getting started
+
+Requires **Node 22+** and **Yarn 1.x**.
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/simpleneeraj/cool-snippets.git
+cd cool-snippets
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000> — the editor lives at
+[`/studio`](http://localhost:3000/studio).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No environment variables are needed for local development. `BASE_URL` is the only one the
+app reads, and it is used purely to build absolute URLs for `sitemap.xml` and `robots.txt`;
+on Vercel it is inferred automatically, and locally it falls back to `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command            | What it does               |
+| ------------------ | -------------------------- |
+| `yarn dev`         | Dev server (Turbopack)     |
+| `yarn build`       | Production build           |
+| `yarn start`       | Serve the production build |
+| `yarn lint`        | ESLint with `--fix`        |
+| `npx tsc --noEmit` | Typecheck                  |
 
-## Learn More
+## Built with
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js 16](https://nextjs.org) (App Router) and [React 19](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org) and [Tailwind CSS v4](https://tailwindcss.com)
+- [coss UI](https://coss.com/ui) on [Base UI](https://base-ui.com) for components
+- [CodeMirror 6](https://codemirror.net) for the editable code block
+- [Zustand](https://zustand.docs.pmnd.rs) for editor state, persisted to `localStorage`
+- [Tiptap](https://tiptap.dev) for rich text elements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+src/
+├── app/                 # Next.js routes — /studio is the editor
+├── components/
+│   ├── app/             # Studio: canvas, toolbars, side panels, export
+│   └── home/            # Marketing site
+├── app-kit/             # coss UI components, icons, primitives
+├── plugins/codemirror/  # Language and theme registries
+├── store/               # Zustand editor store
+└── styles/globals.css   # Tailwind v4 theme tokens
+```
 
-## Deploy on Vercel
+Adding a theme or a language means adding one entry to the matching registry under
+`src/plugins/codemirror/` — that is usually the easiest first contribution.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Issues and pull requests are welcome. If you are picking up something non-trivial, open an
+issue first so we do not duplicate work.
+
+Before opening a PR, please make sure `npx tsc --noEmit` and `yarn build` both pass.
+
+## Status
+
+Beta, and desktop-first. The studio is not usable on small screens yet — that is a known
+gap rather than an oversight, and help there is very welcome.
+
+## Support the project
+
+Cool Snippets is free and intends to stay that way. If it saves you time, you can
+[sponsor it on GitHub](https://github.com/sponsors/simpleneeraj) or
+[buy me a coffee](https://www.buymeacoffee.com/simplneeraj).
+
+## License
+
+[MIT](./LICENSE) © [simpleneeraj](https://github.com/simpleneeraj)
