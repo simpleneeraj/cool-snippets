@@ -4,7 +4,7 @@ import { Card } from '@/app-kit/ui/card';
 import { cn } from '@/lib/utils';
 import { BackgroundScreenTypes } from './types';
 import UIVirtualizeGrid from '@/app-kit/components/UIVirtualizeGrid';
-import CSS_GRADIENT_LIST from '@/server/patterns/gradients';
+import CSS_GRADIENT_LIST from '@data/patterns/gradients';
 import { patternToStyle } from '@/utils/background-css';
 
 const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({

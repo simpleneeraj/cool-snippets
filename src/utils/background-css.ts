@@ -1,4 +1,4 @@
-import cssToStyle from '@/plugins/css-to-style';
+import cssToStyle from '@vendor/css-to-style';
 import { PropertiesType } from '@/typings/editor';
 import { BACKGROUND_TYPE } from '@/typings/enums';
 

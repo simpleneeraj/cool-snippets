@@ -1,5 +1,5 @@
 import React from 'react';
-import templatesData from '@/json/templates.json';
+import templatesData from '@data/templates.json';
 import { trafficLights, unixColors } from './colors';
 import { TrafficLights, UnixIcons, WindowsButtons } from './decorations';
 import { Colors, HeaderVariants, HeadersProps } from '@/typings/templates';

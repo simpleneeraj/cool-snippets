@@ -1,8 +1,8 @@
 import React from 'react';
 import VirtualImageGrid from './virtual-grid';
 import { BackgroundScreenTypes } from './types';
-import ImagesJson from '@/json/backgrounds/images.json';
-import PopularJson from '@/json/backgrounds/abstract-3d-shapes.json';
+import ImagesJson from '@data/backgrounds/images.json';
+import PopularJson from '@data/backgrounds/abstract-3d-shapes.json';
 import { Tabs, TabsList, TabsPanel, TabsTab } from '@/app-kit/ui/tabs';
 
 enum ImageType {

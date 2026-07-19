@@ -1,4 +1,4 @@
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { LanguagesEnum } from '@vendor/codemirror/languages';
 
 const parsers = {
   [LanguagesEnum.JAVASCRIPT]: {

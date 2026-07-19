@@ -3,9 +3,9 @@
 import React from 'react';
 import capitalize from 'lodash/capitalize';
 import UIView from '@/app-kit/source/UIView';
-import themes from '@/plugins/codemirror/themes';
+import themes from '@vendor/codemirror/themes';
 import useSlideEditor from '@/store/hooks/use-editor';
-import { languagesArray } from '@/plugins/codemirror/languages';
+import { languagesArray } from '@vendor/codemirror/languages';
 import { Field, FieldLabel } from '@/app-kit/ui/field';
 import {
   Combobox,

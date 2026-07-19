@@ -29,7 +29,7 @@ import {
   SelectValue,
 } from '@/app-kit/ui/select';
 
-import aspectRatioArray from '@/json/resize.json';
+import aspectRatioArray from '@data/resize.json';
 import useSlideEditor from '@/store/hooks/use-editor';
 
 type ResizeType = {

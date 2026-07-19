@@ -1,7 +1,7 @@
 import React from 'react';
 import { sortBy } from 'lodash';
 import UIView from '@/app-kit/source/UIView';
-import gradients from '@/json/gradients.json';
+import gradients from '@data/gradients.json';
 import { BackgroundScreenTypes } from './types';
 import { Card } from '@/app-kit/ui/card';
 import { cn } from '@/lib/utils';

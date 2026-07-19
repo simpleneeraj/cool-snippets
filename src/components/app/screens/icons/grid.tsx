@@ -3,7 +3,7 @@ import { useImmer } from 'use-immer';
 import { useDebounce } from 'use-debounce';
 import UIView from '@/app-kit/source/UIView';
 import { capitalize, subtract } from 'lodash';
-import useIcons from '@/server/icons/hooks/use-icons';
+import useIcons from '@shared/hooks/use-icons';
 import { Input } from '@/app-kit/ui/input';
 import {
   Select,

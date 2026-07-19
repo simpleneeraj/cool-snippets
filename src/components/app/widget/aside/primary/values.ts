@@ -6,8 +6,8 @@ import {
   QR_ERROR_LEVEL,
   WATERMARK_MODE,
 } from '@/typings/enums';
-import { ThemesEnum } from '@/plugins/codemirror/themes';
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { ThemesEnum } from '@vendor/codemirror/themes';
+import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
 import { CodeSquareOutlineIcon, TextFieldFocusOutlineIcon, GalleryAddOutlineIcon, SmileCircleOutlineIcon, QrCodeOutlineIcon, UserIdOutlineIcon, VerifiedCheckOutlineIcon } from '@solar-icons/react';
 

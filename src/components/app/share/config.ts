@@ -1,6 +1,6 @@
 import { COLORS } from './colors';
 import { PATTERN_SIZE, PATTERNS } from './patterns';
-import { MaskWallpaperOptions } from '@/plugins/mask-wallpaper/types';
+import { MaskWallpaperOptions } from '@vendor/mask-wallpaper/types';
 
 export const wallpaperOptions: MaskWallpaperOptions = {
   fps: 30,

@@ -8,7 +8,7 @@ import {
   MeshGradientGenerator,
   initialOptions,
   GradientOptions,
-} from '@/plugins/easy-mesh-gradient';
+} from '@vendor/easy-mesh-gradient';
 import { Slider, SliderValue } from '@/app-kit/ui/slider';
 
 type State = {

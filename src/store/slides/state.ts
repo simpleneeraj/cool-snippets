@@ -1,7 +1,7 @@
 import { InitialValues } from '@/typings/editor';
-import { ThemesEnum } from '@/plugins/codemirror/themes';
+import { ThemesEnum } from '@vendor/codemirror/themes';
 import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@/typings/enums';
-import { LanguagesEnum } from '@/plugins/codemirror/languages';
+import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@/app-kit/fonts/code';
 import {
   HeaderInputType,

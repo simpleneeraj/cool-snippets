@@ -1,6 +1,6 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
-import shortcutsData from '@/json/shortcuts.json';
+import shortcutsData from '@data/shortcuts.json';
 import { Kbd, KbdGroup } from '@/app-kit/ui/kbd';
 
 const KEY_SYMBOLS: Record<string, string> = {

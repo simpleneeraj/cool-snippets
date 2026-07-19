@@ -25,6 +25,18 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@vendor/*": [
+        "./src/vendor/*"
+      ],
+      "@data/*": [
+        "./src/data/*"
       ]
     }
   },

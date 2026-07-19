@@ -1,6 +1,6 @@
 import React from 'react';
 import UIView from '@/app-kit/source/UIView';
-import colors from '@/json/html-colors.json';
+import colors from '@data/html-colors.json';
 import { Card } from '@/app-kit/ui/card';
 import { cn } from '@/lib/utils';
 import { BackgroundScreenTypes } from './types';

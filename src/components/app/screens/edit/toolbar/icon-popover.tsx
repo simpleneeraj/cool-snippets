@@ -4,7 +4,7 @@
 import React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
 import { useDebounce } from 'use-debounce';
-import useIcons from '@/server/icons/hooks/use-icons';
+import useIcons from '@shared/hooks/use-icons';
 import { cn } from '@/lib/utils';
 import UIView from '@/app-kit/source/UIView';
 import { Input } from '@/app-kit/ui/input';
