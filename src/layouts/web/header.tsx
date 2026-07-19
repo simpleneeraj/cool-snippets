@@ -1,140 +1,113 @@
 'use client';
 
-import type { NavbarProps } from '@heroui/react';
-
 import React from 'react';
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-  Link,
-  Button,
-  Divider,
-} from '@heroui/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { MenuIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import appConfig from '@/constants/site';
-import { SignedIn, SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
-import { usePathname } from 'next/navigation';
-import UserInfo from './user';
+import { Button, buttonVariants } from '@/app-kit/ui/button';
+import { Separator } from '@/app-kit/ui/separator';
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from '@/app-kit/ui/sheet';
 import { TokenBrandedCrystal } from '@/app-kit/icons/layout/TokenBrandedCrystal';
 import { SolarAltArrowRightLineDuotone } from '@/app-kit/icons/layout/SolarAltArrowRightLineDuotone';
 import publicLayout from '../constants/public';
 
-const menuItems = publicLayout.header?.links;
+const menuItems = publicLayout.header?.links ?? [];
 
-export default function Header(props: NavbarProps) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const Brand = () => (
+  <span className="flex select-none items-center gap-1">
+    <TokenBrandedCrystal className="h-4 w-4" />
+    <span className="bg-linear-to-r from-lavender-frost to-periwinkle-glow bg-clip-text font-light text-transparent">
+      {appConfig.short_name}
+    </span>
+  </span>
+);
+
+export default function Header() {
   const pathname = usePathname();
 
   return (
-    <Navbar
-      {...props}
-      classNames={{
-        base: cn('border-default-100 z-50', {
-          'bg-default-200/50 dark:bg-default-100/50': isMenuOpen,
-        }),
-        wrapper: 'w-full justify-center sm:px-0',
-        item: 'hidden md:flex',
-      }}
-      isMenuOpen={isMenuOpen}
-      isBordered
-      onMenuOpenChange={setIsMenuOpen}
-    >
-      {/* Left Content */}
-      <Link href={'/'} className="flex-1">
-        <NavbarBrand className="gap-1 select-none">
-          <TokenBrandedCrystal className="h-4 w-4" />
-          <p className="font-light bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text">
-            {appConfig.short_name}
-          </p>
-        </NavbarBrand>
+    <nav className="sticky top-0 z-50 flex h-16 w-full items-center gap-2 border-b bg-background/80 px-4 backdrop-blur-md backdrop-saturate-150 sm:px-6">
+      {/* Brand */}
+      <Link href="/" className="flex flex-1 items-center">
+        <Brand />
       </Link>
 
-      {/* Center Content */}
-      <NavbarContent justify="center">
+      {/* Desktop menu */}
+      <div className="hidden items-center gap-6 md:flex">
         {menuItems.map(({ label, href }) => (
-          <NavbarItem key={label} isActive={pathname === href}>
-            <Link
-              size="sm"
-              href={href}
-              aria-current={pathname === href ? 'page' : undefined}
-              className={cn(
-                pathname === href
-                  ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow text-transparent bg-clip-text'
-                  : 'text-default-500'
-              )}
-            >
-              {label}
-            </Link>
-          </NavbarItem>
+          <Link
+            key={label}
+            href={href}
+            aria-current={pathname === href ? 'page' : undefined}
+            className={cn(
+              'text-sm transition-colors',
+              pathname === href
+                ? 'bg-linear-to-r from-lavender-frost to-periwinkle-glow bg-clip-text text-transparent'
+                : 'text-muted-foreground hover:text-foreground',
+            )}
+          >
+            {label}
+          </Link>
         ))}
-      </NavbarContent>
+      </div>
 
-      {/* Right Content */}
-      <NavbarContent className="hidden md:flex" justify="end">
-        <NavbarItem className="ml-2 flex! gap-2">
-          <SignedIn>
-            <UserInfo />
-          </SignedIn>
-          <SignedOut>
-            <SignInButton mode="modal">
-              <Button
-                className="text-default-500"
-                radius="full"
-                variant="light"
-              >
-                Login
-              </Button>
-            </SignInButton>
-            <SignUpButton mode="modal">
-              <Button
-                className="bg-linear-to-r from-lavender-frost to-periwinkle-glow font-medium text-background"
-                color="secondary"
-                endContent={
-                  <SolarAltArrowRightLineDuotone className="size-5" />
-                }
-                radius="full"
-                variant="flat"
-              >
-                Get Started
-              </Button>
-            </SignUpButton>
-          </SignedOut>
-        </NavbarItem>
-      </NavbarContent>
+      {/* Desktop CTA */}
+      <div className="hidden flex-1 justify-end md:flex">
+        <Button
+          render={<Link href="/studio" />}
+          className="rounded-full"
+        >
+          Get Started
+          <SolarAltArrowRightLineDuotone className="size-5" />
+        </Button>
+      </div>
 
-      <NavbarMenuToggle className="text-default-400 md:hidden" />
-
-      <NavbarMenu className="top-[calc(var(--navbar-height)-1px)] max-h-fit bg-default-200/50 pb-6 pt-6 shadow-medium backdrop-blur-md backdrop-saturate-150 dark:bg-default-100/50">
-        <NavbarMenuItem>
-          <SignInButton mode="modal">
-            <Button fullWidth variant="faded">
-              Sign In
-            </Button>
-          </SignInButton>
-        </NavbarMenuItem>
-        <NavbarMenuItem className="mb-4">
-          <Button fullWidth className="bg-foreground text-background">
-            Get Started
-          </Button>
-        </NavbarMenuItem>
-        {menuItems.map(({ label, href }, index) => (
-          <NavbarMenuItem key={`${label}-${index}`}>
-            <Link
-              className="mb-2 w-full text-default-500"
-              href={href}
-              size="md"
+      {/* Mobile menu */}
+      <Sheet>
+        <SheetTrigger
+          render={<Button size="icon" variant="ghost" className="md:hidden" />}
+          aria-label="Open menu"
+        >
+          <MenuIcon />
+        </SheetTrigger>
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>
+              <Brand />
+            </SheetTitle>
+          </SheetHeader>
+          <div className="flex flex-col gap-1 px-6 pb-6">
+            <SheetClose
+              render={<Link href="/studio" />}
+              className={cn(buttonVariants({ variant: 'default' }), 'mb-4 w-full')}
             >
-              {label}
-            </Link>
-            {index < menuItems.length - 1 && <Divider className="opacity-50" />}
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+              Get Started
+            </SheetClose>
+            {menuItems.map(({ label, href }, index) => (
+              <React.Fragment key={label}>
+                <SheetClose
+                  render={<Link href={href} />}
+                  className="w-full py-2 text-start text-muted-foreground hover:text-foreground"
+                >
+                  {label}
+                </SheetClose>
+                {index < menuItems.length - 1 && (
+                  <Separator className="opacity-50" />
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </SheetContent>
+      </Sheet>
+    </nav>
   );
 }

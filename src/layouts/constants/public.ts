@@ -1,6 +1,7 @@
 import { MdiGithub } from '@/app-kit/icons/social/MdiGithub';
 import { MdiLinkedin } from '@/app-kit/icons/social/MdiLinkedin';
 import { MdiTwitter } from '@/app-kit/icons/social/MdiTwitter';
+import appConfig from '@/constants/site';
 
 const publicLayout = {
   header: {
@@ -8,10 +9,6 @@ const publicLayout = {
       {
         label: 'Home',
         href: '/',
-      },
-      {
-        label: 'Pricing',
-        href: '/pricing',
       },
       {
         label: 'Features',
@@ -31,10 +28,6 @@ const publicLayout = {
           {
             label: 'Home',
             href: '/',
-          },
-          {
-            label: 'Pricing',
-            href: '/pricing',
           },
           {
             label: 'Features',
@@ -94,7 +87,7 @@ const publicLayout = {
     socialLinks: [
       {
         icon: MdiGithub,
-        href: 'https://github.com',
+        href: appConfig.links.repo,
       },
       {
         icon: MdiLinkedin,
