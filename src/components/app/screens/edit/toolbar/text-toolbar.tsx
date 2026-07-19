@@ -5,13 +5,15 @@ import { useTextEditor } from '@/store/slides/text-editor';
 import { EditorContext } from '@tiptap/react';
 
 // --- Tiptap UI ---
-import { HeadingDropdownMenu } from '@/components/tiptap-ui/heading-dropdown-menu';
-import { MarkButton } from '@/components/tiptap-ui/mark-button';
-import { TextAlignButton } from '@/components/tiptap-ui/text-align-button';
-import { ListDropdownMenu } from '@/components/tiptap-ui/list-dropdown-menu';
-import { BlockquoteButton } from '@/components/tiptap-ui/blockquote-button';
-import { ColorHighlightPopover } from '@/components/tiptap-ui/color-highlight-popover';
-import { ColorTextPopover } from '@/components/tiptap-ui/color-text-popover';
+import {
+  MarkButton,
+  ListDropdownMenu,
+  TextAlignButton,
+  BlockquoteButton,
+  ColorTextPopover,
+  HeadingDropdownMenu,
+  ColorHighlightPopover,
+} from '@features/editor-rte';
 import { Toolbar, ToolbarGroup, ToolbarSeparator } from '@shared/ui/toolbar';
 
 const TextToolbar: React.FC = () => {
