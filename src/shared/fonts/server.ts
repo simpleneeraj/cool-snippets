@@ -35,18 +35,7 @@ import {
 } from 'next/font/google';
 import localFont from 'next/font/local';
 
-// Every loader call below is fully literal on purpose. next/font is a compiler
-// plugin that reads these options statically: a helper function wrapping the
-// call, or a spread of a shared options object, both fail the build with
-// "Font loaders must be called and assigned to a const in the module scope" and
-// "Unexpected spread". The repetition is the API's requirement, not a style.
-
-/* -------------------------------------------------------------------------- */
-/* Google-hosted faces — downloaded at build time, served from our own origin  */
-/* -------------------------------------------------------------------------- */
-
-// DM Mono is the studio default, so it is the one face here that preloads.
-// It ships as static weights only — `weight: 'variable'` fails the build.
+// Google Fonts
 const dmMono = DM_Mono({
   weight: ['300', '400', '500'],
   subsets: ['latin'],
@@ -161,170 +150,163 @@ const xanhMonoItalic = Xanh_Mono({
   variable: '--font-xanh-mono-italic',
 });
 
-/* -------------------------------------------------------------------------- */
-/* Locally bundled faces                                                      */
-/* -------------------------------------------------------------------------- */
-
+// Local Fonts
 export const calSansUI = localFont({
-  src: '/cal-sans/ui-variable.woff2',
+  src: './cal-sans/ui-variable.woff2',
   display: 'swap',
   variable: '----font-sans',
 });
 
 export const paperMono = localFont({
-  src: '/paper-mono/regular.woff2',
+  src: './paper-mono/regular.woff2',
   display: 'swap',
   variable: '----font-mono',
 });
 
 export const calSans = localFont({
-  src: '/cal-sans/semi-bold.woff2',
+  src: './cal-sans/semi-bold.woff2',
   display: 'swap',
   variable: '--font-heading',
 });
 
 const almamono = localFont({
-  src: '/code/almamono/regular.woff2',
+  src: './code/almamono/regular.woff2',
   display: 'swap',
   variable: '--font-almamono',
 });
 
 const anomaly = localFont({
-  src: '/code/anomaly/regular.otf',
+  src: './code/anomaly/regular.otf',
   display: 'swap',
   variable: '--font-anomaly',
 });
 
 const comicMono = localFont({
-  src: '/code/comic-mono/regular.ttf',
+  src: './code/comic-mono/regular.ttf',
   display: 'swap',
   variable: '--font-comic-mono',
 });
 
 const hasklig = localFont({
-  src: '/code/hasklig/regular.ttf',
+  src: './code/hasklig/regular.ttf',
   display: 'swap',
   variable: '--font-hasklig',
 });
 
 const haskligItalic = localFont({
-  src: '/code/hasklig/italic.ttf',
+  src: './code/hasklig/italic.ttf',
   display: 'swap',
   variable: '--font-hasklig-italic',
 });
 
 const inputMono = localFont({
-  src: '/code/input-mono/regular.woff2',
+  src: './code/input-mono/regular.woff2',
   display: 'swap',
   variable: '--font-input-mono',
 });
 
 const iosevka = localFont({
-  src: '/code/iosevka/regular.woff2',
+  src: './code/iosevka/regular.woff2',
   display: 'swap',
   variable: '--font-iosevka',
 });
 
 const monoidRegular = localFont({
-  src: '/code/monoid/regular.ttf',
+  src: './code/monoid/regular.ttf',
   display: 'swap',
   variable: '--font-monoid-regular',
 });
 
 const monoidItalic = localFont({
-  src: '/code/monoid/italic.ttf',
+  src: './code/monoid/italic.ttf',
   display: 'swap',
   variable: '--font-monoid-italic',
 });
 
 const monoidRetina = localFont({
-  src: '/code/monoid/retina.ttf',
+  src: './code/monoid/retina.ttf',
   display: 'swap',
   variable: '--font-monoid-retina',
 });
 
 const sweet = localFont({
-  src: '/code/sweet16/regular.ttf',
+  src: './code/sweet16/regular.ttf',
   display: 'swap',
   variable: '--font-sweet',
 });
 
 // Ligature-patched derivatives of other typefaces.
 const amitLight = localFont({
-  src: '/code/ligaturized/amit-light.otf',
+  src: './code/ligaturized/amit-light.otf',
   display: 'swap',
   variable: '--font-amit-light',
 });
 
 const anymous = localFont({
-  src: '/code/ligaturized/anonymous.ttf',
+  src: './code/ligaturized/anonymous.ttf',
   display: 'swap',
   variable: '--font-anymous',
 });
 
 const droidSansMono = localFont({
-  src: '/code/ligaturized/droid-sans-mono.ttf',
+  src: './code/ligaturized/droid-sans-mono.ttf',
   display: 'swap',
   variable: '--font-droid-sans-mono',
 });
 
 const fantasqueSansMono = localFont({
-  src: '/code/ligaturized/fantasque-sans-mono.ttf',
+  src: './code/ligaturized/fantasque-sans-mono.ttf',
   display: 'swap',
   variable: '--font-fantasque-sans-mono',
 });
 
 const hack = localFont({
-  src: '/code/ligaturized/hack.ttf',
+  src: './code/ligaturized/hack.ttf',
   display: 'swap',
   variable: '--font-hack',
 });
 
 const lexMono = localFont({
-  src: '/code/ligaturized/lex-mono.ttf',
+  src: './code/ligaturized/lex-mono.ttf',
   display: 'swap',
   variable: '--font-lex-mono',
 });
 
 const lexMonoItalic = localFont({
-  src: '/code/ligaturized/lex-mono-italic.ttf',
+  src: './code/ligaturized/lex-mono-italic.ttf',
   display: 'swap',
   variable: '--font-lex-mono-italic',
 });
 
 const ligaSrcPro = localFont({
-  src: '/code/ligaturized/liga-src-pro-regular.ttf',
+  src: './code/ligaturized/liga-src-pro-regular.ttf',
   display: 'swap',
   variable: '--font-liga-src-pro',
 });
 
 const robotoMonoX = localFont({
-  src: '/code/ligaturized/roboto-mono-x.ttf',
+  src: './code/ligaturized/roboto-mono-x.ttf',
   display: 'swap',
   variable: '--font-roboto-mono-x',
 });
 
 const sourceProItalic = localFont({
-  src: '/code/ligaturized/source-pro-italic.ttf',
+  src: './code/ligaturized/source-pro-italic.ttf',
   display: 'swap',
   variable: '--font-source-pro-italic',
 });
 
 const spaceMonoX = localFont({
-  src: '/code/ligaturized/space-mono-x.ttf',
+  src: './code/ligaturized/space-mono-x.ttf',
   display: 'swap',
   variable: '--font-space-mono-x',
 });
 
 const ubuntuMonoX = localFont({
-  src: '/code/ligaturized/ubuntu-mono-x.ttf',
+  src: './code/ligaturized/ubuntu-mono-x.ttf',
   display: 'swap',
   variable: '--font-ubuntu-mono-x',
 });
-
-/* -------------------------------------------------------------------------- */
-/* Registry                                                                   */
-/* -------------------------------------------------------------------------- */
 
 export const codefontsArray = [
   calSansUI.variable,
