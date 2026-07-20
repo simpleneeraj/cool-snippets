@@ -14,7 +14,7 @@ A free and open-source alternative to ray.so, Carbon and snappify — no account
 
 <br />
 
-![Cool Snippets Studio Preview](public/screenshot/app-screenshot-1.png)
+![Cool Snippets Studio Preview](/public/screenshot/app-screenshot-1.png)
 
 </div>
 
