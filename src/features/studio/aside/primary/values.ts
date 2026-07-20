@@ -8,7 +8,7 @@ import {
 } from '@features/studio/model/enums';
 import { ThemesEnum } from '@vendor/codemirror/themes';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
-import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
+import { defaultFontFace } from '@shared/fonts/client';
 import {
   CodeSquareOutlineIcon,
   TextFieldFocusOutlineIcon,
@@ -97,7 +97,7 @@ export const elementsObject: Record<ELEMENTS, any> = {
       lineHeight: 1.6,
       letterSpacing: 0,
       // Default must stay an openly-licensed face — SF Mono was removed.
-      fontFamily: DEFAULT_CODE_FONT,
+      fontFamily: defaultFontFace,
       borderRadius: 15,
       background: 'rgba(0, 0, 0, 0.5)',
       display: 'grid',

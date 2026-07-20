@@ -1,7 +1,7 @@
 'use client';
 
 import UIView from '@shared/uikit/UIView';
-import CODE_FONTS, { type CodeFont } from '@shared/fonts/code';
+import { type CodeFont } from '@shared/fonts/server';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { Field, FieldLabel } from '@shared/ui/field';
 import {
@@ -20,6 +20,7 @@ import {
   LETTER_SPACING_RANGE,
   LINE_HEIGHT_RANGE,
 } from './values';
+import { codeFonts } from '@shared/fonts/client';
 
 const DEFAULTS = FIELD_DEFAULTS.typography;
 
@@ -27,7 +28,7 @@ const TypographySection = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
   const style = currentElement?.style;
 
-  const selectedFont = CODE_FONTS.find(
+  const selectedFont = codeFonts.find(
     (font) => font.value === style?.fontFamily,
   );
 
@@ -46,7 +47,7 @@ const TypographySection = () => {
           />
         </div>
         <Combobox<CodeFont>
-          items={CODE_FONTS}
+          items={codeFonts}
           value={selectedFont ?? null}
           itemToStringLabel={(font) => font?.name ?? ''}
           onValueChange={(font) =>

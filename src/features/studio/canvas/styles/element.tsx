@@ -1,6 +1,6 @@
 import React from 'react';
 import { ElementType } from '@features/studio/model/editor';
-import { resolveCodeFontFamily } from '@shared/fonts/code';
+import { resolveCodeFontFamily } from '@shared/fonts/server';
 
 type Props = {
   style?: ElementType;
@@ -14,11 +14,15 @@ type Props = {
  * error and the element fell back to an inherited value.
  */
 const decl = (property: string, value?: string | number | null) =>
-  value === undefined || value === null || value === '' ? '' : `${property}: ${value};`;
+  value === undefined || value === null || value === ''
+    ? ''
+    : `${property}: ${value};`;
 
 /** `12` -> `'12px'`; absent stays absent so `decl` can skip the declaration. */
 const px = (value?: string | number | null) =>
-  value === undefined || value === null || value === '' ? undefined : `${value}px`;
+  value === undefined || value === null || value === ''
+    ? undefined
+    : `${value}px`;
 
 const ElementStyle: React.FC<Props> = ({ style }) => {
   const CSS = style?.style;

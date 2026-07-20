@@ -6,15 +6,17 @@ import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@shared/config/site';
 import { toastManager } from '@shared/ui/toast';
-import { resolveCodeFontFamily } from '@shared/fonts/code';
-import {
-  primaryFontFamily,
-  resolveFontFaces,
-} from '@shared/fonts/source';
+import { resolveCodeFontFamily } from '@shared/fonts/server';
+import { primaryFontFamily, resolveFontFaces } from '@shared/fonts/source';
 import useCapture from '@features/studio/lib/export/use-capture';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import UIView from '@shared/uikit/UIView';
-import { LockLineDuotoneIcon, CopyLineDuotoneIcon, DownloadMinimalisticLinearIcon, MagicWand3LinearIcon } from '@solar-icons/react';
+import {
+  LockLineDuotoneIcon,
+  CopyLineDuotoneIcon,
+  DownloadMinimalisticLinearIcon,
+  MagicWand3LinearIcon,
+} from '@solar-icons/react';
 import {
   Dialog,
   DialogClose,
@@ -38,7 +40,6 @@ import {
   SelectValue,
 } from '@shared/ui/select';
 import { Group } from '@shared/ui/group';
-
 
 enum Format {
   WEBP = 'webp',

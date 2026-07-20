@@ -5,7 +5,7 @@ import {
   Cabin_Sketch,
 } from 'next/font/google';
 import { cn } from '@shared/lib/utils';
-import { CODE_FONTS_VARIABLES } from './code';
+import { CODE_FONTS_VARIABLES } from './server';
 
 const kablammo = Kablammo({
   subsets: ['latin'],

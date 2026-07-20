@@ -34,6 +34,7 @@ import {
   Xanh_Mono,
 } from 'next/font/google';
 import localFont from 'next/font/local';
+import { defaultFontFace } from './client';
 
 // Every loader call below is fully literal on purpose. next/font is a compiler
 // plugin that reads these options statically: a helper function wrapping the
@@ -494,9 +495,6 @@ export const CODE_FONTS_VARIABLES = [
   ubuntuMonoX.variable,
 ];
 
-/** The default when a snippet has no font set, or names one we no longer ship. */
-export const DEFAULT_CODE_FONT = 'DMMono';
-
 const byValue = new Map(CODE_FONTS.map((f) => [f.value, f]));
 
 /**
@@ -508,7 +506,7 @@ const byValue = new Map(CODE_FONTS.map((f) => [f.value, f]));
  */
 export function resolveCodeFontFamily(value?: string): string {
   if (!value)
-    return `'${primaryFontFamily(byValue.get(DEFAULT_CODE_FONT)!.family)}'`;
+    return `'${primaryFontFamily(byValue.get(defaultFontFace)!.family)}'`;
 
   // Try direct lookup (e.g. "DMMono")
   let match = byValue.get(value);
@@ -523,7 +521,7 @@ export function resolveCodeFontFamily(value?: string): string {
     match = CODE_FONTS.find((f) => value.includes(f.variable));
   }
 
-  const family = (match ?? byValue.get(DEFAULT_CODE_FONT))!.family;
+  const family = (match ?? byValue.get(defaultFontFace))!.family;
   return `'${primaryFontFamily(family)}'`;
 }
 

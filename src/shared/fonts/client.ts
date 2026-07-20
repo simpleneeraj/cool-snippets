@@ -1,0 +1,242 @@
+import { sortBy } from 'lodash';
+
+export const codeFonts = sortBy([
+  {
+    name: 'DM Mono',
+    value: 'DMMono',
+    family: "'DM Mono', 'DM Mono Fallback'",
+    variable: 'font-dm-mono',
+  },
+  {
+    name: 'JetBrains Mono',
+    value: 'JetBrainsMono',
+    family: "'JetBrains Mono', 'JetBrains Mono Fallback'",
+    variable: 'font-jetbrains-mono',
+  },
+  {
+    name: 'Fira Code',
+    value: 'FiraCodeRegular',
+    family: "'Fira Code', 'Fira Code Fallback'",
+    variable: 'font-fira-code',
+  },
+  {
+    name: 'Cascadia Code',
+    value: 'CascadiaCode',
+    family: "'Cascadia Code'",
+    variable: 'font-cascadia-code',
+  },
+  {
+    name: 'IBM Plex Mono',
+    value: 'IBMPlexMono',
+    family: "'IBM Plex Mono', 'IBM Plex Mono Fallback'",
+    variable: 'font-ibm-plex-mono',
+  },
+  {
+    name: 'Source Code Pro',
+    value: 'SourceCodePro',
+    family: "'Source Code Pro', 'Source Code Pro Fallback'",
+    variable: 'font-source-code-pro',
+  },
+  {
+    name: 'Roboto Mono',
+    value: 'RobotoMono',
+    family: "'Roboto Mono', 'Roboto Mono Fallback'",
+    variable: 'font-roboto-mono',
+  },
+  {
+    name: 'Ubuntu Mono',
+    value: 'UbuntuMono',
+    family: "'Ubuntu Mono', 'Ubuntu Mono Fallback'",
+    variable: 'font-ubuntu-mono',
+  },
+  {
+    name: 'Inconsolata',
+    value: 'Inconsolata',
+    family: "'Inconsolata', 'Inconsolata Fallback'",
+    variable: 'font-inconsolata',
+  },
+  {
+    name: 'Victor Mono',
+    value: 'VictorMonoRegular',
+    family: "'Victor Mono', 'Victor Mono Fallback'",
+    variable: 'font-victor-mono',
+  },
+  {
+    name: 'Victor Mono Italic',
+    value: 'VictorMonoItalic',
+    family: "'Victor Mono', 'Victor Mono Fallback'",
+    variable: 'font-victor-mono-italic',
+  },
+  {
+    name: 'Xanh Mono',
+    value: 'XanhMonoRegular',
+    family: "'Xanh Mono', 'Xanh Mono Fallback'",
+    variable: 'font-xanh-mono',
+  },
+  {
+    name: 'Xanh Mono Italic',
+    value: 'XanhMonoItalic',
+    family: "'Xanh Mono', 'Xanh Mono Fallback'",
+    variable: 'font-xanh-mono-italic',
+  },
+  {
+    name: 'Major Mono Display',
+    value: 'MajorMonoDisplay',
+    family: "'Major Mono Display', 'Major Mono Display Fallback'",
+    variable: 'font-major-mono-display',
+  },
+  {
+    name: 'Syne Mono',
+    value: 'SyneMono',
+    family: "'Syne Mono', 'Syne Mono Fallback'",
+    variable: 'font-syne-mono',
+  },
+  {
+    name: 'Hachi Maru Pop',
+    value: 'HachiMaruPop',
+    family: "'Hachi Maru Pop', 'Hachi Maru Pop Fallback'",
+    variable: 'font-hachi-maru-pop',
+  },
+  {
+    name: 'Iosevka',
+    value: 'Iosevka',
+    family: "'iosevka', 'iosevka Fallback'",
+    variable: 'font-iosevka',
+  },
+  {
+    name: 'Hasklig',
+    value: 'Hasklig',
+    family: "'hasklig', 'hasklig Fallback'",
+    variable: 'font-hasklig',
+  },
+  {
+    name: 'Hasklig Italic',
+    value: 'HaskligItalic',
+    family: "'haskligItalic', 'haskligItalic Fallback'",
+    variable: 'font-hasklig-italic',
+  },
+  {
+    name: 'Monoid',
+    value: 'MonoidRegular',
+    family: "'monoidRegular', 'monoidRegular Fallback'",
+    variable: 'font-monoid-regular',
+  },
+  {
+    name: 'Monoid Italic',
+    value: 'MonoidItalic',
+    family: "'monoidItalic', 'monoidItalic Fallback'",
+    variable: 'font-monoid-italic',
+  },
+  {
+    name: 'Monoid Retina',
+    value: 'MonoidRetina',
+    family: "'monoidRetina', 'monoidRetina Fallback'",
+    variable: 'font-monoid-retina',
+  },
+  {
+    name: 'Comic Mono',
+    value: 'ComicMono',
+    family: "'comicMono', 'comicMono Fallback'",
+    variable: 'font-comic-mono',
+  },
+  {
+    name: 'Input Mono',
+    value: 'InputMono',
+    family: "'inputMono', 'inputMono Fallback'",
+    variable: 'font-input-mono',
+  },
+  {
+    name: 'Almamono',
+    value: 'Almamono',
+    family: "'almamono', 'almamono Fallback'",
+    variable: 'font-almamono',
+  },
+  {
+    name: 'Anomaly',
+    value: 'Anomaly',
+    family: "'anomaly', 'anomaly Fallback'",
+    variable: 'font-anomaly',
+  },
+  {
+    name: 'Sweet 16',
+    value: 'Sweet',
+    family: "'sweet', 'sweet Fallback'",
+    variable: 'font-sweet',
+  },
+  {
+    name: 'Hack',
+    value: 'Hack',
+    family: "'hack', 'hack Fallback'",
+    variable: 'font-hack',
+  },
+  {
+    name: 'Droid Sans Mono',
+    value: 'DroidSansMono',
+    family: "'droidSansMono', 'droidSansMono Fallback'",
+    variable: 'font-droid-sans-mono',
+  },
+  {
+    name: 'Fantasque Sans Mono',
+    value: 'FantasqueSansMono',
+    family: "'fantasqueSansMono', 'fantasqueSansMono Fallback'",
+    variable: 'font-fantasque-sans-mono',
+  },
+  {
+    name: 'Lex Mono',
+    value: 'LexMono',
+    family: "'lexMono', 'lexMono Fallback'",
+    variable: 'font-lex-mono',
+  },
+  {
+    name: 'Lex Mono Italic',
+    value: 'LexMonoItalic',
+    family: "'lexMonoItalic', 'lexMonoItalic Fallback'",
+    variable: 'font-lex-mono-italic',
+  },
+  {
+    name: 'Liga Source Pro',
+    value: 'LigaSrcProRegular',
+    family: "'ligaSrcPro', 'ligaSrcPro Fallback'",
+    variable: 'font-liga-src-pro',
+  },
+  {
+    name: 'Source Pro Italic',
+    value: 'SourceProItalic',
+    family: "'sourceProItalic', 'sourceProItalic Fallback'",
+    variable: 'font-source-pro-italic',
+  },
+  {
+    name: 'Roboto Mono X',
+    value: 'RobotoMonoX',
+    family: "'robotoMonoX', 'robotoMonoX Fallback'",
+    variable: 'font-roboto-mono-x',
+  },
+  {
+    name: 'Space Mono X',
+    value: 'SpaceMonoX',
+    family: "'spaceMonoX', 'spaceMonoX Fallback'",
+    variable: 'font-space-mono-x',
+  },
+  {
+    name: 'Ubuntu Mono X',
+    value: 'UbuntuMonoX',
+    family: "'ubuntuMonoX', 'ubuntuMonoX Fallback'",
+    variable: 'font-ubuntu-mono-x',
+  },
+  {
+    name: 'Anymous',
+    value: 'Anymous',
+    family: "'anymous', 'anymous Fallback'",
+    variable: 'font-anymous',
+  },
+  {
+    name: 'Amit Light',
+    value: 'AmitLight',
+    family: "'amitLight', 'amitLight Fallback'",
+    variable: 'font-amit-light',
+  },
+]);
+
+/** The default when a snippet has no font set, or names one we no longer ship. */
+
+export const defaultFontFace = 'DMMono';

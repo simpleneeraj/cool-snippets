@@ -1,5 +1,5 @@
 import { QR_ERROR_LEVEL } from '@features/studio/model/enums';
-import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
+import { defaultFontFace } from '@shared/fonts/client';
 import { DEFAULT_EDITOR_OPTIONS } from '@features/studio/store/slides/editor-options';
 import { DEFAULT_SLIDE_PADDING } from '@features/studio/canvas/styles/slide';
 import { MIN_SLIDE_WIDTH } from '@features/studio/store/slides/state';
@@ -14,7 +14,7 @@ import { ThemesEnum } from '@vendor/codemirror/themes';
  */
 export const FIELD_DEFAULTS = {
   typography: {
-    fontFamily: DEFAULT_CODE_FONT,
+    fontFamily: defaultFontFace,
     fontSize: 14,
     lineHeight: 1.6,
     letterSpacing: 0,
