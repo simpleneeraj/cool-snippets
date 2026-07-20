@@ -51,7 +51,7 @@ const TypographySection = () => {
           itemToStringLabel={(font) => font?.name ?? ''}
           onValueChange={(font) =>
             onChangeSlideElement({
-              style: { fontFamily: `--var${font?.variable}` },
+              style: { fontFamily: font?.value },
             })
           }
         >

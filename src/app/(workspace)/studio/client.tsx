@@ -17,6 +17,7 @@ export default function EditorPageClient() {
   // The editor is fully client-driven (depends on the in-memory store), so we
   // render it only after mount to avoid SSR hydration mismatches.
   const [mounted, setMounted] = React.useState(false);
+
   React.useEffect(() => setMounted(true), []);
 
   const { currentSlide, onChangeSlide, isSlideSelected } = useSlideEditor();
