@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button } from '@/app-kit/ui/button';
+import { Button } from '@shared/ui/button';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuGroup,
-} from '@/app-kit/ui/menu';
+} from '@shared/ui/menu';
 import { BellRingLineDuotoneIcon } from '@solar-icons/react';
 
 const notifications = [

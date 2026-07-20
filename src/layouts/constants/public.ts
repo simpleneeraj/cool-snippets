@@ -1,5 +1,5 @@
-import { Github } from '@/components/icons/github';
-import appConfig from '@/constants/site';
+import { Github } from '@shared/icons/github';
+import appConfig from '@shared/config/site';
 
 const publicLayout = {
   header: {

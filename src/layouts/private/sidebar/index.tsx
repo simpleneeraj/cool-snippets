@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuData } from '@/typings/layout';
+import { MenuData } from '@shared/types/layout';
 import { usePathname } from 'next/navigation';
 import useSidebarStore from '../store/sidebar';
 import { ItemButton, Section } from './elements';

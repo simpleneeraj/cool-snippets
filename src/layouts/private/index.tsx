@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from './header';
 import Sidebar from './sidebar';
-import UIView from '@/app-kit/source/UIView';
+import UIView from '@shared/uikit/UIView';
 
 type Props = {
   session?: object;

@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import UIView from '@/app-kit/source/UIView';
-import Topbar from '@/components/section/topbar';
-import { scrollToTarget } from '@/utils/elements';
-import { UIAnimatedButton } from '@/app-kit/components/UIAnimatedButton';
+import UIView from '@shared/uikit/UIView';
+import Topbar from '@features/marketing/section/topbar';
+import { scrollToTarget } from '@shared/lib/elements';
+import { UIAnimatedButton } from '@shared/motion/UIAnimatedButton';
 import { AltArrowDownLineDuotoneIcon } from '@solar-icons/react';
-import UIAuraBox from '@/app-kit/components/UIAuraBox';
+import UIAuraBox from '@shared/motion/UIAuraBox';
 
 type AboutClientProps = {
   // Define your props here

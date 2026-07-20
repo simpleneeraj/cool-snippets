@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import appConfig from '@/constants/site';
+import appConfig from '@shared/config/site';
 import { Sparkles } from 'lucide-react';
 import { BurgurButton } from '../navbar/burgur-button';
 import { NotificationsDropdown } from '../navbar/notifications';

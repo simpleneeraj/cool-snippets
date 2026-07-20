@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Avatar, AvatarImage, AvatarFallback } from '@/app-kit/ui/avatar';
+import { Avatar, AvatarImage, AvatarFallback } from '@shared/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from '@/app-kit/ui/menu';
+} from '@shared/ui/menu';
 
 type Props = {
   session?: any;
