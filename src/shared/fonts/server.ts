@@ -261,7 +261,7 @@ const fantasqueSansMono = localFont({
 });
 
 const hack = localFont({
-  src: './code/ligaturized/hack.ttf',
+  src: './code/ligaturized/hack-mono.ttf',
   display: 'swap',
   variable: '--font-hack',
 });
