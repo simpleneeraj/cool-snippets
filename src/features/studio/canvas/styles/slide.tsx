@@ -7,6 +7,20 @@ type Props = {
   style?: SlideBackgroundTypes;
 };
 
+/** Matches the value the artboard was hardcoded to before padding was editable. */
+export const DEFAULT_SLIDE_PADDING = 32;
+
+/** See the note in ./element.tsx — an absent value must drop the declaration. */
+const decl = (property: string, value?: string | number | null) =>
+  value === undefined || value === null || value === ''
+    ? ''
+    : `${property}: ${value};`;
+
+const px = (value?: string | number | null) =>
+  value === undefined || value === null || value === ''
+    ? undefined
+    : `${value}px`;
+
 const SlideStyle: React.FC<Props> = ({ style }) => {
   const CSS = style?.style;
   const PROPERTIES = style?.properties;
@@ -15,15 +29,17 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
     return resolveBackgroundCss(style?.type as BACKGROUND_TYPE, PROPERTIES);
   }, [style?.type, PROPERTIES]);
 
+  const padding = px(CSS?.padding ?? DEFAULT_SLIDE_PADDING);
+
   return (
     <style>
       {`
         .center {
-          padding: 32px;
           position: relative;
+          ${decl('padding', padding)}
           ${background}
-          width: ${CSS?.width}px;
-          min-height: ${CSS?.height}px;
+          ${decl('width', px(CSS?.width))}
+          ${decl('min-height', px(CSS?.height))}
         }
 
         .glass-layer {
@@ -33,8 +49,8 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
           left: 50%;
           z-index: 1;
           transform: translate(-50%,-50%);
-          width: ${CSS?.width}px;
-          min-height: ${CSS?.height}px;
+          ${decl('width', px(CSS?.width))}
+          ${decl('min-height', px(CSS?.height))}
         }
       `}
     </style>
@@ -42,34 +58,3 @@ const SlideStyle: React.FC<Props> = ({ style }) => {
 };
 
 export default SlideStyle;
-
-/**
- *   .codemirror {
-          z-index: 11;
-          position: relative;
-          // background: ${code.alpha > 0 ? 'unset' : code.background};
-        }
-
-        .layer {
-          z-index: 0;
-          display: grid;
-          overflow: hidden;
-          align-items: center;
-          position: relative;
-          // border-radius: ${code['corner-radius']}px;
-          // backdrop-filter: blur(16px);
-        }
- */
-
-/**
-         *    .center {
-          flex: 1;
-          z-index: 5;
-          gap: 0.3rem;
-          display: flex;
-          overflow: hidden;
-          max-width: 1024px;
-          position: relative;
-          flex-direction: column;
-        }
-         */

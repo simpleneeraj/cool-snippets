@@ -10,7 +10,6 @@ const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
   value,
   onSelect: onChange,
 }) => {
-
   return (
     <UIView className="layout-fill w-full">
       <UIVirtualizeGrid
@@ -34,7 +33,7 @@ const SolidBackgrounds: React.FC<BackgroundScreenTypes> = ({
               onClick={() => onChange?.(background)}
               key={currentItem?.name}
               className={cn(
-                'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer',
+                'group overflow-hidden flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer',
                 background === value && 'border-foreground',
               )}
               title={currentItem?.name}

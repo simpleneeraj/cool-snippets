@@ -2,6 +2,7 @@ import { EditorOptionsType } from '@features/studio/model/editor';
 import { QR_ERROR_LEVEL, WATERMARK_MODE } from '@features/studio/model/enums';
 
 export enum EditSection {
+  SLIDE = 'slide',
   CODE_BASICS = 'code-basics',
   TYPOGRAPHY = 'typography',
   APPEARANCE = 'appearance',
@@ -15,6 +16,7 @@ export enum EditSection {
 }
 
 export const EDIT_SECTION_LABELS: Record<EditSection, string> = {
+  [EditSection.SLIDE]: 'Canvas',
   [EditSection.CODE_BASICS]: 'Code basics',
   [EditSection.TYPOGRAPHY]: 'Typography',
   [EditSection.APPEARANCE]: 'Appearance',
@@ -88,6 +90,8 @@ export const OPACITY_RANGE = { min: 0, max: 1, step: 0.05 };
 export const QR_SIZE_RANGE = { min: 64, max: 512, step: 8 };
 export const QR_MARGIN_RANGE = { min: 0, max: 8, step: 1 };
 export const PADDING_RANGE = { min: 0, max: 64, step: 2 };
+/** The artboard frames the block, so it takes a wider padding range than it. */
+export const SLIDE_PADDING_RANGE = { min: 0, max: 160, step: 4 };
 export const FONT_SIZE_RANGE = { min: 8, max: 32, step: 1 };
 export const LINE_HEIGHT_RANGE = { min: 1, max: 3, step: 0.1 };
 export const LETTER_SPACING_RANGE = { min: -2, max: 8, step: 0.1 };

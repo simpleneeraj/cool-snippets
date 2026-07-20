@@ -7,7 +7,10 @@ import { format } from 'date-fns';
 import appConfig from '@shared/config/site';
 import { toastManager } from '@shared/ui/toast';
 import { resolveCodeFontFamily } from '@shared/fonts/code';
-import { primaryFontFamily, resolveFontSource } from '@shared/fonts/source';
+import {
+  primaryFontFamily,
+  resolveFontFaces,
+} from '@shared/fonts/source';
 import useCapture from '@features/studio/lib/export/use-capture';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import UIView from '@shared/uikit/UIView';
@@ -173,12 +176,9 @@ const ExportDropdown: React.FC = () => {
       families.add(primaryFontFamily(resolveCodeFontFamily(undefined)));
     }
 
-    return Array.from(families)
-      .map((fontFamily) => {
-        const src = resolveFontSource(fontFamily);
-        return src ? { src, fontFamily } : null;
-      })
-      .filter((entry): entry is { src: string; fontFamily: string } => !!entry);
+    return Array.from(families).flatMap((fontFamily) =>
+      resolveFontFaces(fontFamily),
+    );
   }, [currentSlide?.elements]);
 
   // Capture a WYSIWYG thumbnail when the dialog opens so the user sees exactly

@@ -1,5 +1,6 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 const okaidia = (alpha: string | number) => createTheme({
   theme: 'dark',
@@ -9,7 +10,7 @@ const okaidia = (alpha: string | number) => createTheme({
     caret: '#FFFFFF',
     selection: '#49483E',
     selectionMatch: '#49483E',
-    gutterBackground: '#272822',
+    gutterBackground: withAlpha('#272822', alpha),
     gutterForeground: '#FFFFFF70',
     lineHighlight: '#00000059',
   },

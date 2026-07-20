@@ -11,7 +11,6 @@ const GradientsBackground: React.FC<BackgroundScreenTypes> = ({
   value,
   onSelect: onChange,
 }) => {
-
   return (
     <UIView className="layout-fill w-full">
       <UIVirtualizeGrid
@@ -37,7 +36,7 @@ const GradientsBackground: React.FC<BackgroundScreenTypes> = ({
               onClick={() => onChange?.(background)}
               key={currentItem?.name}
               className={cn(
-                'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer',
+                'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer overflow-hidden',
                 background === value && 'border-foreground',
               )}
               title={currentItem?.name}

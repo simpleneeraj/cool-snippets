@@ -3,11 +3,20 @@ import { merge } from 'lodash';
 import { useMemo, useCallback } from 'react';
 import { useActiveSlide } from '../slides/current-slide';
 import { ElementType, SlideTypes } from '@features/studio/model/editor';
-import { useActiveElement } from '../slides/current-element';
+import {
+  useActiveElement,
+  useEditingElementId,
+  useIsSlideSelected,
+  useSelectedElementId,
+} from '../slides/current-element';
 
 const useSlideEditor = () => {
   const { slide } = useActiveSlide();
-  const { element } = useActiveElement();
+  const element = useSelectedElementId();
+  const isSlideSelected = useIsSlideSelected();
+  const editingId = useEditingElementId();
+  const beginEditing = useActiveElement((s) => s.beginEditing);
+  const endEditing = useActiveElement((s) => s.endEditing);
 
   // Selecting the slide inside the store keeps this subscription scoped: a
   // change to another slide no longer re-renders every editor consumer.
@@ -59,7 +68,7 @@ const useSlideEditor = () => {
   );
 
   const onChangeSlide = useCallback(
-    (updatedSlide: Omit<SlideTypes, 'id' | 'name' | 'elements'>) => {
+    (updatedSlide: Partial<Omit<SlideTypes, 'id' | 'elements'>>) => {
       if (!currentSlide?.id) return;
 
       // `background` is replaced rather than merged: each background type owns
@@ -80,6 +89,10 @@ const useSlideEditor = () => {
     currentElementId: element,
     currentSlide,
     currentElement,
+    isSlideSelected,
+    editingId,
+    beginEditing,
+    endEditing,
     onChangeSlide,
     onChangeSlideElement,
     onReplaceElementProperties,

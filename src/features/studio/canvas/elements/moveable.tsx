@@ -4,7 +4,11 @@ import React from 'react';
 import Moveable from 'react-moveable';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { ELEMENTS } from '@features/studio/model/enums';
-import { useActiveElement } from '@features/studio/store/slides/current-element';
+import {
+  useActiveElement,
+  useEditingElementId,
+  useSelectedElementId,
+} from '@features/studio/store/slides/current-element';
 
 const DIRECTIONS = {
   top: true,
@@ -35,7 +39,17 @@ const MoveableOverlay = ({
 }) => {
   const { onChangeSlideElement, currentSlide, currentElement } =
     useSlideEditor();
-  const { element, setInteracting } = useActiveElement();
+  const setInteracting = useActiveElement((s) => s.setInteracting);
+  const beginEditing = useActiveElement((s) => s.beginEditing);
+  const element = useSelectedElementId();
+  const editingId = useEditingElementId();
+
+  // Text and code are the only types with an inline edit mode; a double-click
+  // on their selection box enters it (the element wrapper's own dblclick can't
+  // fire because the control box covers the node).
+  const canEdit =
+    currentElement?.type === ELEMENTS.TEXT ||
+    currentElement?.type === ELEMENTS.CODE;
 
   // Photos and icons distort when resized freely, so corner drags keep their
   // aspect ratio; text and code blocks resize on each axis independently.
@@ -99,7 +113,9 @@ const MoveableOverlay = ({
       .filter((node): node is HTMLElement => Boolean(node));
   }, [currentSlide?.elements, element]);
 
-  if (!element || !target) return null;
+  // While editing, Moveable must step aside so pointer events reach the editor
+  // and the caret can be placed. The element stays selected underneath.
+  if (!element || !target || editingId === element) return null;
 
   return (
     <>
@@ -108,6 +124,9 @@ const MoveableOverlay = ({
         target={target}
         draggable
         resizable
+        onClick={(e) => {
+          if (canEdit && e.isDouble && element) beginEditing(element);
+        }}
         keepRatio={keepRatio}
         // Removes react-moveable's centre origin dot (the red handle) and the
         // rotation handle — this is a resize/move box, not a transform gizmo.

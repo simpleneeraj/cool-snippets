@@ -31,6 +31,7 @@ import {
 
 import aspectRatioArray from '@data/resize.json';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
+import { ScalingIcon } from '@solar-icons/react/linear/scaling';
 
 type ResizeType = {
   ratio: string;
@@ -150,7 +151,7 @@ const ResizeMenu: React.FC = () => {
   return (
     <Popover>
       <PopoverTrigger render={<Button variant="outline" />}>
-        <ScaleLineDuotoneIcon />
+        <ScalingIcon />
         Resize
       </PopoverTrigger>
 

@@ -7,6 +7,7 @@
  */
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 
 
@@ -18,7 +19,7 @@ const bespin = (alpha: number | string) => createTheme({
     caret: '#797977',
     selection: '#36312e',
     selectionMatch: '#4f382b',
-    gutterBackground: '#28211c',
+    gutterBackground: withAlpha('#28211c', alpha),
     gutterForeground: '#666666',
     lineHighlight: 'rgba(255, 255, 255, 0.1)',
   },

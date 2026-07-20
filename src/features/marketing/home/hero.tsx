@@ -53,9 +53,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({}) => {
               </UIAnimatedButton>
             </Link>
             <UIView className="text-center py-6 md:py-10">
-              <h2 className="bg-clip-text text-transparent text-center bg-linear-to-b from-foreground to-foreground dark:from-muted-foreground dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+              <h1 className="bg-clip-text text-transparent text-center bg-linear-to-b from-foreground to-foreground dark:from-muted-foreground dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                 Craft, Customize, <br /> and Share Code.
-              </h2>
+              </h1>
               <p className="max-w-xl mx-auto text-sm md:text-lg text-foreground dark:text-muted-foreground text-center">
                 Empowering developers to effortlessly create, tailor, and share
                 code snippets. Collaborate, innovate, and code smarter with

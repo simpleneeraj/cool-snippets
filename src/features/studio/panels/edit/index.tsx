@@ -10,6 +10,7 @@ import {
   AccordionPanel,
   AccordionTrigger,
 } from '@shared/ui/accordion';
+import SlideSection from './sections/slide';
 import CodeBasicsSection from './sections/code-basics';
 import TypographySection from './sections/typography';
 import AppearanceSection from './sections/appearance';
@@ -23,6 +24,7 @@ import WatermarkSection from './sections/watermark';
 import { EDIT_SECTION_LABELS, EditSection } from './sections/values';
 
 const SECTION_COMPONENTS: Record<EditSection, React.ComponentType> = {
+  [EditSection.SLIDE]: SlideSection,
   [EditSection.CODE_BASICS]: CodeBasicsSection,
   [EditSection.TYPOGRAPHY]: TypographySection,
   [EditSection.APPEARANCE]: AppearanceSection,
@@ -52,29 +54,35 @@ const SECTIONS_BY_ELEMENT: Record<ELEMENTS, EditSection[]> = {
   [ELEMENTS.WATERMARK]: [EditSection.WATERMARK],
 };
 
-const EditingScreens = () => {
-  const { currentElement } = useSlideEditor();
+/** Shown when the artboard itself is the selection. */
+const SLIDE_SECTIONS: EditSection[] = [EditSection.SLIDE];
 
-  const sections = currentElement?.type
-    ? SECTIONS_BY_ELEMENT[currentElement.type]
-    : undefined;
+const EditingScreens = () => {
+  const { currentElement, isSlideSelected } = useSlideEditor();
+
+  const sections = isSlideSelected
+    ? SLIDE_SECTIONS
+    : currentElement?.type
+      ? SECTIONS_BY_ELEMENT[currentElement.type]
+      : undefined;
 
   if (!sections?.length) {
     return (
       <UIView className="flex flex-1 flex-col items-center justify-center gap-1 p-8 text-center">
         <p className="text-sm font-medium">Nothing selected</p>
         <p className="text-xs text-muted-foreground">
-          Pick an element on the canvas to edit its properties.
+          Pick an element to edit its properties, or click the canvas to edit
+          the artboard.
         </p>
       </UIView>
     );
   }
 
   return (
-    // Keyed by type so switching element kinds remounts the accordion and the
-    // first section for that kind opens — `defaultValue` is uncontrolled.
+    // Keyed by the section set so switching selection kinds remounts the
+    // accordion and its first section opens — `defaultValue` is uncontrolled.
     <Accordion
-      key={currentElement?.type}
+      key={sections.join(':')}
       className="w-full p-2"
       defaultValue={[sections[0]]}
       multiple

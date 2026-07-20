@@ -2,7 +2,11 @@ import React from 'react';
 import templatesData from '@data/templates.json';
 import { trafficLights, unixColors } from './colors';
 import { TrafficLights, UnixIcons, WindowsButtons } from './decorations';
-import { Colors, HeaderVariants, HeadersProps } from '@features/studio/model/templates';
+import {
+  Colors,
+  HeaderVariants,
+  HeadersProps,
+} from '@features/studio/model/templates';
 
 type Style = HeadersProps['style'];
 
@@ -96,18 +100,6 @@ export const HEADER_TEMPLATES: Record<string, HeaderTemplate> = {
     preview: {
       variant: HeaderVariants.FILLED,
       style: { gap: '6px', size: '12px', borderRadius: '20px' },
-    },
-  },
-
-  [templatesData.minimal]: {
-    type: templatesData.minimal,
-    name: 'Minimal',
-    // No chrome — just the filename as a caption.
-    decorationSide: 'start',
-    defaultStyle: { gap: '8px', size: '14px', padding: '12px' },
-    preview: {
-      variant: HeaderVariants.FLAT,
-      style: { gap: '6px', size: '14px' },
     },
   },
 };

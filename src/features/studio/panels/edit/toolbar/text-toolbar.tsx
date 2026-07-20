@@ -37,8 +37,8 @@ const TextToolbar: React.FC = () => {
           <MarkButton type="italic" />
           <MarkButton type="underline" />
           <MarkButton type="strike" />
-          <ColorTextPopover />
-          <ColorHighlightPopover />
+          <ColorTextPopover useColorValue />
+          <ColorHighlightPopover useColorValue />
         </ToolbarGroup>
 
         <ToolbarSeparator />

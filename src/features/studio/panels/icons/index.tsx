@@ -6,7 +6,9 @@ import UIView from '@shared/uikit/UIView';
 import { Tabs, TabsList, TabsTab } from '@shared/ui/tabs';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { generateID } from '@features/studio/lib/id-generator';
-import { ASSET_SOURCE, ELEMENTS } from '@features/studio/model/enums';
+import { ELEMENTS } from '@features/studio/model/enums';
+import IconCell from './icon-cell';
+import { buildIconElement } from './icon-element';
 import { elementsObject } from '@features/studio/aside/primary/values';
 import { useActiveElement } from '@features/studio/store/slides/current-element';
 import { IconProviders, PickerIconType } from '@shared/types/icon-picker';
@@ -19,8 +21,6 @@ const items = [
   { name: 'Material', key: IconProviders.MATERIAL_ICONS },
   { name: 'Symbols', key: IconProviders.VSCODE_SYMBOLS },
 ];
-
-const ICON_SIZE = 96;
 
 const IconsScreen = () => {
   const { createSlideElement, currentSlideId } = useSlideEditor();
@@ -40,16 +40,13 @@ const IconsScreen = () => {
 
       const template = elementsObject[ELEMENTS.ICON];
       const id = generateID();
+      const { style, properties } = buildIconElement(icon);
 
       createSlideElement(currentSlideId, {
         ...template,
         id,
-        style: { ...template.style, width: ICON_SIZE, height: ICON_SIZE },
-        properties: {
-          source: ASSET_SOURCE.URL,
-          src: icon.source,
-          alt: icon.name,
-        },
+        style: { ...template.style, ...style },
+        properties: { ...template.properties, ...properties },
       });
       updateElement(id);
     },
@@ -80,7 +77,15 @@ const IconsScreen = () => {
         provider={activeCategory}
         value={selectedIcon!}
         onSelectIcon={onSelectElement}
-      />
+      >
+        {({ currentItem, activeItem }) => (
+          <IconCell
+            icon={currentItem}
+            active={activeItem}
+            onSelect={onSelectElement}
+          />
+        )}
+      </IconContainer>
     </UIView>
   );
 };

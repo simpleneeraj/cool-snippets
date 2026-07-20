@@ -15,7 +15,10 @@ import { Extension } from '@uiw/react-codemirror';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { ThemesEnum } from '@vendor/codemirror/themes';
-import { useActiveElement } from '@features/studio/store/slides/current-element';
+import {
+  useActiveElement,
+  useSelectedElementId,
+} from '@features/studio/store/slides/current-element';
 import { dynamicTheme, dynamicLanguage } from '@vendor/codemirror/utils';
 import { ElementToolbar } from './toolbar';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
@@ -34,7 +37,8 @@ type Props = {
 };
 
 const EditorComponents: React.FC<Props> = ({ item, index }) => {
-  const { element, updateElement } = useActiveElement();
+  const element = useSelectedElementId();
+  const { updateElement } = useActiveElement();
   const { onChangeSlideElement, onReplaceElementProperties } = useSlideEditor();
   const { pickImage } = useImageUpload();
 

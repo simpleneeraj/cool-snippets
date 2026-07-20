@@ -1,8 +1,13 @@
 import React from 'react';
 import { SEGMENT_SCREEN } from '@features/studio/model/enums';
 import { Tabs, TabsList, TabsTab } from '@shared/ui/tabs';
-import { Pen2LinearIcon, EmojiFunnySquareLinearIcon, WidgetAddLinearIcon, GalleryWideLinearIcon } from '@solar-icons/react';
+import {
+  Pen2LinearIcon,
+  EmojiFunnySquareLinearIcon,
+  GalleryWideLinearIcon,
+} from '@solar-icons/react';
 import { useSegment } from '@features/studio/store/segment';
+import { KeyboardIcon } from '@solar-icons/react/linear/keyboard';
 
 type Tab = {
   name: string;
@@ -27,9 +32,9 @@ const tabs: Tab[] = [
     icon: EmojiFunnySquareLinearIcon,
   },
   {
-    name: 'Options',
-    value: SEGMENT_SCREEN.MORE,
-    icon: WidgetAddLinearIcon,
+    name: 'Shorcuts',
+    value: SEGMENT_SCREEN.SHORCUTS,
+    icon: KeyboardIcon,
   },
 ];
 

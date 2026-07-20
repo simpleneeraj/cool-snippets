@@ -12,14 +12,18 @@ import { useTextEditor } from '@features/studio/store/slides/text-editor';
 
 type Props = {
   content?: string;
+  /** True only for the element currently in edit mode. */
+  editing?: boolean;
   onChange?: (html: string) => void;
 };
 
-const TextElement: React.FC<Props> = ({ content, onChange }) => {
+const TextElement: React.FC<Props> = ({ content, editing, onChange }) => {
   const { setEditor } = useTextEditor();
 
   const editor = useEditor({
     immediatelyRender: false,
+    // Non-editing text elements render read-only; edit mode flips this on.
+    editable: false,
     extensions: [
       StarterKit.configure({
         heading: { levels: [1, 2, 3] },
@@ -44,10 +48,18 @@ const TextElement: React.FC<Props> = ({ content, onChange }) => {
     },
   });
 
+  // Only the element being edited is editable and claims the shared toolbar
+  // slot. Registering every text editor on mount let the last-mounted one win,
+  // so the formatting toolbar could target the wrong element on a multi-text
+  // slide — here the slot always points at what the user is actually editing.
   React.useEffect(() => {
+    if (!editor) return;
+    editor.setEditable(Boolean(editing));
+    if (!editing) return;
     setEditor(editor);
+    editor.commands.focus('end');
     return () => setEditor(null);
-  }, [editor, setEditor]);
+  }, [editor, editing, setEditor]);
 
   if (!editor) return null;
 

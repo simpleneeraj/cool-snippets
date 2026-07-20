@@ -5,6 +5,21 @@ import { resolveCodeFontFamily } from '@shared/fonts/code';
 type Props = {
   style?: ElementType;
 };
+
+/**
+ * Emits `prop: value;` only when the value is usable.
+ *
+ * Interpolating an absent value straight into the template produced tokens like
+ * `undefinedpx`, which CSS drops silently — the declaration disappeared with no
+ * error and the element fell back to an inherited value.
+ */
+const decl = (property: string, value?: string | number | null) =>
+  value === undefined || value === null || value === '' ? '' : `${property}: ${value};`;
+
+/** `12` -> `'12px'`; absent stays absent so `decl` can skip the declaration. */
+const px = (value?: string | number | null) =>
+  value === undefined || value === null || value === '' ? undefined : `${value}px`;
+
 const ElementStyle: React.FC<Props> = ({ style }) => {
   const CSS = style?.style;
   const PROPERTIES = style?.properties;
@@ -12,49 +27,61 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
   const neon = PROPERTIES?.neon;
   const glassmorphism = PROPERTIES?.glassmorphism;
 
-  const textShadowStyle = neon?.enabled
-    ? `${neon.offsetX}px ${neon.offsetY}px ${neon.blurRadius}px`
+  // A text-shadow with no color component resolves each layer against
+  // `currentColor`, so the glow could only ever match the text it sat behind.
+  const textShadow = neon?.enabled
+    ? `${neon.offsetX ?? 0}px ${neon.offsetY ?? 0}px ${neon.blurRadius ?? 0}px ${
+        neon.color ?? 'currentColor'
+      }`
     : 'none';
 
   // The store holds a stable id ('JetBrainsMono'); next/font generates the real
   // family name at build time, so it has to be looked up rather than persisted.
   const fontFamily = resolveCodeFontFamily(CSS?.fontFamily);
 
+  const scope = `#element-${style?.id}`;
+
   return (
     <style>
       {`
-        #element-${style?.id} .cm-editor {
+        ${scope} .cm-editor {
           padding: 0.5rem 1rem;
           width: 100%;
           height: 100%;
           box-sizing: border-box;
         }
-        #element-${style?.id} .cm-line {
+        ${scope} .cm-line {
           background: unset !important;
-          font-size: ${CSS?.fontSize}px;
-          font-family: ${fontFamily};
-          line-height: ${CSS?.lineHeight};
-          font-weight: ${CSS?.fontWeight};
-          text-shadow: ${textShadowStyle};
-          letter-spacing: ${CSS?.letterSpacing}px;
+          ${decl('font-size', px(CSS?.fontSize))}
+          ${decl('font-family', fontFamily)}
+          ${decl('line-height', CSS?.lineHeight)}
+          ${decl('font-weight', CSS?.fontWeight)}
+          ${decl('text-shadow', textShadow)}
+          ${decl('letter-spacing', px(CSS?.letterSpacing))}
         }
-        #element-${style?.id} .code-header-filename {
-          font-family: ${fontFamily};
+        ${scope} .code-header-filename {
+          ${decl('font-family', fontFamily)}
         }
-        #element-${style?.id} .codemirror {
+        ${scope} .codemirror {
           z-index: 11;
           position: relative;
           font-family: monospace;
           width: 100%;
           height: 100%;
           overflow: hidden;
-          background: ${glassmorphism?.enabled ? CSS?.background : 'unset'};
+          background: ${glassmorphism?.enabled ? (CSS?.background ?? 'unset') : 'unset'};
         }
-        #element-${style?.id} .glass-layer {
+        ${scope} .glass-layer {
           z-index: 1;
-          filter: blur(${glassmorphism?.blur}px);
+          ${
+            // Blurring while the effect is off cost a compositor layer for a
+            // result nobody could see.
+            glassmorphism?.enabled
+              ? decl('filter', `blur(${glassmorphism.blur ?? 0}px)`)
+              : ''
+          }
         }
-        #element-${style?.id} .cm-editor .cm-scroller {
+        ${scope} .cm-editor .cm-scroller {
           overflow: auto;
         }
       `}
@@ -63,44 +90,3 @@ const ElementStyle: React.FC<Props> = ({ style }) => {
 };
 
 export default ElementStyle;
-
-/**
- *   .codemirror {
-          z-index: 11;
-          position: relative;
-          // background: ${code.alpha > 0 ? 'unset' : code.background};
-        }
-
-        .layer {
-          z-index: 0;
-          display: grid;
-          overflow: hidden;
-          align-items: center;
-          position: relative;
-          // border-radius: ${code['corner-radius']}px;
-          // backdrop-filter: blur(16px);
-        }
- */
-
-// .cm-editor {
-//   // width: 100%;
-//   // height: auto;
-//   // max-width: 100%;
-//   // min-width: unset;
-//   // min-height: unset;
-//   // max-height: unset;
-//   // white-space: pre-wrap;
-//   padding:  .5rem 1rem;
-
-// .ͼ1 .cm-content {
-//   margin: 0;
-//   grow: 2;
-//   outline: none;
-//   display: block;
-//   padding: 4px 0;
-//   word-wrap: normal;
-//   min-height: 100%;
-//   shrink: initial;
-//   white-space: initial;
-//   box-sizing: border-box;
-// }

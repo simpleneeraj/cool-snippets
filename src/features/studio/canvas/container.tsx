@@ -23,7 +23,7 @@ const EditorComponents = dynamic(() => import('./elements'), {
 
 const ContainerWidget = () => {
   const { currentSlide, createSlideElement } = useSlideEditor();
-  const { updateElement, interacting } = useActiveElement();
+  const { updateElement, selectSlide, interacting } = useActiveElement();
 
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -58,6 +58,10 @@ const ContainerWidget = () => {
         ...template,
         style: {
           ...template.style,
+          // Instance overrides (e.g. an icon's intrinsic size) sit above the
+          // template but below positioning, so a payload can never displace
+          // the drop point.
+          ...item.style,
           // Place the element centred on the exact cursor position
           position: 'absolute',
           transform: 'translate(-50%, -50%)',
@@ -65,6 +69,10 @@ const ContainerWidget = () => {
           top: `${y}px`,
           right: 'initial',
           bottom: 'initial',
+        },
+        properties: {
+          ...template.properties,
+          ...item.properties,
         },
       };
 
@@ -85,10 +93,14 @@ const ContainerWidget = () => {
 
   /* ── canvas pointer-down (deselect) ───────────────────── */
 
+  // The artboard is itself selectable: clicking its background selects the
+  // slide (which routes the right panel to the background controls) rather
+  // than clearing the selection outright. Element clicks stopPropagation, so
+  // only genuine background hits reach here.
   const onCanvasPointerDown = React.useCallback(() => {
     if (interacting) return;
-    updateElement(null);
-  }, [interacting, updateElement]);
+    selectSlide();
+  }, [interacting, selectSlide]);
 
   /* ─────────────────────────────────────────────────────── */
 

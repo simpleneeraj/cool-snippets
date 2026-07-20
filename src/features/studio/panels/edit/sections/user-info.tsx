@@ -8,12 +8,15 @@ import { Input } from '@shared/ui/input';
 import { Switch } from '@shared/ui/switch';
 import { Spinner } from '@shared/ui/spinner';
 import { Field, FieldLabel } from '@shared/ui/field';
-import { Slider, SliderValue } from '@shared/ui/slider';
-import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
 import { UserInfoPropertiesType } from '@features/studio/model/editor';
+import ColorField from './color-field';
+import SliderField from './slider-field';
+import { FIELD_DEFAULTS } from './defaults';
 import { FONT_SIZE_RANGE } from './values';
+
+const DEFAULTS = FIELD_DEFAULTS.userInfo;
 
 const UserInfoSection = () => {
   const { currentElement, onChangeSlideElement, onReplaceElementProperties } =
@@ -75,28 +78,22 @@ const UserInfoSection = () => {
         </Button>
       )}
 
-      <Field>
-        <FieldLabel>Text colour</FieldLabel>
-        <UIColorPicker
-          value={String(currentElement?.style?.color ?? '#ffffff')}
-          onSelect={(color) => onChangeSlideElement({ style: { color } })}
-        />
-      </Field>
+      <ColorField
+        label="Text colour"
+        value={String(currentElement?.style?.color ?? DEFAULTS.color)}
+        defaultValue={DEFAULTS.color}
+        onSelect={(color) => onChangeSlideElement({ style: { color } })}
+      />
 
-      <Field>
-        <Slider
-          {...FONT_SIZE_RANGE}
-          value={Number(currentElement?.style?.fontSize) || 14}
-          onValueChange={(fontSize) =>
-            onChangeSlideElement({ style: { fontSize: Number(fontSize) } })
-          }
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Font size</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Font size"
+        range={FONT_SIZE_RANGE}
+        value={Number(currentElement?.style?.fontSize) || DEFAULTS.fontSize}
+        defaultValue={DEFAULTS.fontSize}
+        onValueChange={(fontSize) =>
+          onChangeSlideElement({ style: { fontSize } })
+        }
+      />
     </UIView>
   );
 };

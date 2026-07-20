@@ -4,8 +4,6 @@ import React from 'react';
 import UIView from '@shared/uikit/UIView';
 import { Input } from '@shared/ui/input';
 import { Field, FieldDescription, FieldLabel } from '@shared/ui/field';
-import { Slider, SliderValue } from '@shared/ui/slider';
-import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { QrCodePropertiesType } from '@features/studio/model/editor';
 import { QR_ERROR_LEVEL } from '@features/studio/model/enums';
@@ -16,7 +14,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@shared/ui/select';
+import ColorField from './color-field';
+import SliderField from './slider-field';
+import FieldReset from './field-reset';
+import { FIELD_DEFAULTS } from './defaults';
 import { QR_ERROR_LEVELS, QR_MARGIN_RANGE, QR_SIZE_RANGE } from './values';
+
+const DEFAULTS = FIELD_DEFAULTS.qrCode;
 
 const QrCodeSection = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
@@ -41,46 +45,43 @@ const QrCodeSection = () => {
         />
       </Field>
 
-      <Field>
-        <Slider
-          {...QR_SIZE_RANGE}
-          value={properties?.size ?? 128}
-          onValueChange={(size) => update({ size: Number(size) })}
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Size</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Size"
+        range={QR_SIZE_RANGE}
+        value={properties?.size ?? DEFAULTS.size}
+        defaultValue={DEFAULTS.size}
+        onValueChange={(size) => update({ size })}
+      />
+
+      <ColorField
+        label="Foreground"
+        value={properties?.fgColor ?? DEFAULTS.fgColor}
+        defaultValue={DEFAULTS.fgColor}
+        onSelect={(fgColor) => update({ fgColor })}
+      />
+
+      <ColorField
+        label="Background"
+        value={properties?.bgColor ?? DEFAULTS.bgColor}
+        defaultValue={DEFAULTS.bgColor}
+        onSelect={(bgColor) => update({ bgColor })}
+      />
 
       <Field>
-        <FieldLabel>Foreground</FieldLabel>
-        <UIColorPicker
-          value={properties?.fgColor ?? '#000000'}
-          onSelect={(fgColor) => update({ fgColor })}
-        />
-      </Field>
-
-      <Field>
-        <FieldLabel>Background</FieldLabel>
-        <UIColorPicker
-          value={properties?.bgColor ?? '#ffffff'}
-          onSelect={(bgColor) => update({ bgColor })}
-        />
-      </Field>
-
-      <Field>
-        <FieldLabel>Error correction</FieldLabel>
+        <div className="flex items-center justify-between gap-1">
+          <FieldLabel>Error correction</FieldLabel>
+          <FieldReset
+            isDefault={(properties?.level ?? DEFAULTS.level) === DEFAULTS.level}
+            onReset={() => update({ level: DEFAULTS.level })}
+          />
+        </div>
         <FieldDescription>
           Higher levels stay scannable when partly covered, at the cost of
           density.
         </FieldDescription>
         <Select
           value={properties?.level ?? QR_ERROR_LEVEL.MEDIUM}
-          onValueChange={(level) =>
-            update({ level: level as QR_ERROR_LEVEL })
-          }
+          onValueChange={(level) => update({ level: level as QR_ERROR_LEVEL })}
         >
           <SelectTrigger>
             <SelectValue placeholder="Choose a level" />
@@ -95,20 +96,13 @@ const QrCodeSection = () => {
         </Select>
       </Field>
 
-      <Field>
-        <Slider
-          {...QR_MARGIN_RANGE}
-          value={properties?.marginSize ?? 2}
-          onValueChange={(marginSize) =>
-            update({ marginSize: Number(marginSize) })
-          }
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Quiet zone</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Quiet zone"
+        range={QR_MARGIN_RANGE}
+        value={properties?.marginSize ?? DEFAULTS.marginSize}
+        defaultValue={DEFAULTS.marginSize}
+        onValueChange={(marginSize) => update({ marginSize })}
+      />
     </UIView>
   );
 };

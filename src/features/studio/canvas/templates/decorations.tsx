@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import React from 'react';
 import { template } from './style';
 import Dismiss from './icons/Dismiss';

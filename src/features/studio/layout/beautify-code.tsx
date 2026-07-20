@@ -63,7 +63,7 @@ const BeautifyCode: React.FC = () => {
       >
         <MagicWand3LinearIcon aria-hidden="true" />
       </TooltipTrigger>
-      <TooltipPopup>Beautify Code (⌘⇧B)</TooltipPopup>
+      <TooltipPopup>Beautify Code (⇧⌥F)</TooltipPopup>
     </Tooltip>
   );
 };

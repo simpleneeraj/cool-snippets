@@ -43,12 +43,15 @@ const prettierConfig = {
   printWidth: 80,
 };
 
-const formatCode = async (code: string, language: any | null) => {
-  if (!language || !formatterSupportedLanguages.includes(language.name)) {
+const formatCode = async (code: string, language: string | null) => {
+  // Callers pass the language *value* (e.g. `'typescript'`), which is exactly
+  // what `parsers` is keyed by — so match on the string directly rather than a
+  // `.name` field the argument never had.
+  if (!language || !formatterSupportedLanguages.includes(language)) {
     return code;
   }
 
-  if (language.name === LanguagesEnum.PYTHON) {
+  if (language === LanguagesEnum.PYTHON) {
     const {
       default: initRuff,
       Workspace,
@@ -66,9 +69,9 @@ const formatCode = async (code: string, language: any | null) => {
 
   const prettier = await import('prettier/standalone');
 
-  const parser = parsers[language.name as keyof typeof parsers];
+  const parser = parsers[language as keyof typeof parsers];
   if (!parser) {
-    throw new Error(`No parser found for language: ${language.name}`);
+    throw new Error(`No parser found for language: ${language}`);
   }
   const parserModule = (await parser.import()).default;
 
@@ -80,7 +83,7 @@ const formatCode = async (code: string, language: any | null) => {
         LanguagesEnum.TSX,
         LanguagesEnum.TYPESCRIPT,
         LanguagesEnum.JAVASCRIPT,
-      ].includes(language.name)
+      ].includes(language as LanguagesEnum)
         ? [(await import('prettier/plugins/estree')).default]
         : []),
     ],

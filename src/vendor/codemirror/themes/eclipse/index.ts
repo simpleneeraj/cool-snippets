@@ -1,5 +1,6 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 const eclipse = (alpha: string | number) => createTheme({
   theme: 'light',
@@ -9,7 +10,7 @@ const eclipse = (alpha: string | number) => createTheme({
     caret: '#FFFFFF',
     selection: '#d7d4f0',
     selectionMatch: '#d7d4f0',
-    gutterBackground: '#f7f7f7',
+    gutterBackground: withAlpha('#f7f7f7', alpha),
     gutterForeground: '#999',
     lineHighlight: '#e8f2ff',
   },

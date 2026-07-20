@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { toCanvas, toSvg } from 'html-to-image';
-import { buildFontEmbedCss } from '@shared/fonts/source';
+import { buildFontEmbedCss, type FontFaceSource } from '@shared/fonts/source';
 
 /**
  * Image capture for the studio, built on the `html-to-image` library.
@@ -13,7 +13,7 @@ import { buildFontEmbedCss } from '@shared/fonts/source';
  * faces used on the canvas are inlined — see `buildFontEmbedCss`.
  */
 
-export type CaptureFont = { src: string; fontFamily: string };
+export type CaptureFont = FontFaceSource;
 
 export type CaptureFormat = 'png' | 'jpeg' | 'webp' | 'svg';
 

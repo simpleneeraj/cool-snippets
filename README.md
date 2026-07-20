@@ -1,10 +1,22 @@
 # Cool Snippets
 
-**Turn code into beautiful, shareable images.** A free and open-source alternative to
-ray.so, Carbon and snappify — no account, no paywall, no upload. Everything runs in your
-browser.
+<div align="center">
 
-[Report a bug](https://github.com/simpleneeraj/cool-snippets/issues) · [Sponsor](https://github.com/sponsors/simpleneeraj)
+**Turn code into beautiful, shareable images.** <br />
+A free and open-source alternative to ray.so, Carbon and snappify — no account, no paywall, no upload. Everything runs in your browser.
+
+[![Stars](https://img.shields.io/github/stars/simpleneeraj/cool-snippets?style=flat-square&logo=github&color=ffdd00)](https://github.com/simpleneeraj/cool-snippets/stargazers)
+[![Forks](https://img.shields.io/github/forks/simpleneeraj/cool-snippets?style=flat-square&logo=github&color=007acc)](https://github.com/simpleneeraj/cool-snippets/network/members)
+[![Issues](https://img.shields.io/github/issues/simpleneeraj/cool-snippets?style=flat-square&logo=github&color=ea4335)](https://github.com/simpleneeraj/cool-snippets/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/simpleneeraj/cool-snippets?style=flat-square&logo=git&color=34a853)](https://github.com/simpleneeraj/cool-snippets/commits/main)
+[![License](https://img.shields.io/github/license/simpleneeraj/cool-snippets?style=flat-square&color=8a2be2)](https://github.com/simpleneeraj/cool-snippets/blob/main/LICENSE)
+[![Sponsors](https://img.shields.io/github/sponsors/simpleneeraj?style=flat-square&logo=github-sponsors&color=ff69b4)](https://github.com/sponsors/simpleneeraj)
+
+<br />
+
+![Cool Snippets Studio Preview](public/screenshot/app-screenshot-1.png)
+
+</div>
 
 ---
 
@@ -128,6 +140,10 @@ gap rather than an oversight, and help there is very welcome.
 Cool Snippets is free and intends to stay that way. If it saves you time, you can
 [sponsor it on GitHub](https://github.com/sponsors/simpleneeraj) or
 [buy me a coffee](https://www.buymeacoffee.com/simplneeraj).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=simpleneeraj/cool-snippets&type=Date)](https://star-history.com/#simpleneeraj/cool-snippets&Date)
 
 ## License
 

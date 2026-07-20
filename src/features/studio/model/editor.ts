@@ -157,7 +157,7 @@ export type SlideActionType = {
   createSlide: (slide: SlideTypes) => void;
   updateSlide: (
     id: string,
-    slide: Omit<SlideTypes, 'id' | 'name' | 'elements'>,
+    slide: Partial<Omit<SlideTypes, 'id' | 'elements'>>,
   ) => void;
   deleteSlide: (id: string) => void;
   duplicateSlide: (id: string) => void;

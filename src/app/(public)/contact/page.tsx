@@ -1,10 +1,23 @@
 import React from 'react';
-import FeaturesClient from './client';
+import type { Metadata } from 'next';
+import ContactClient from './client';
 
-type FeaturesPageProps = object;
-
-const FeaturesPage: React.FC<FeaturesPageProps> = ({}) => {
-  return <FeaturesClient />;
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Get in touch about Cool Snippets — report a bug, request a feature, or open an issue on GitHub.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact - Cool Snippets',
+    description: 'Report a bug, request a feature, or reach out on GitHub.',
+    url: '/contact',
+  },
 };
 
-export default FeaturesPage;
+type ContactPageProps = object;
+
+const ContactPage: React.FC<ContactPageProps> = ({}) => {
+  return <ContactClient />;
+};
+
+export default ContactPage;

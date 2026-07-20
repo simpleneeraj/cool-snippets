@@ -5,6 +5,7 @@
  */
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 
 
@@ -17,7 +18,7 @@ export const duotoneLight = (alpha: string | number) => createTheme({
     caret: '#93abdc',
     selection: '#e3dcce',
     selectionMatch: '#e3dcce',
-    gutterBackground: '#faf8f5',
+    gutterBackground: withAlpha('#faf8f5', alpha),
     gutterForeground: '#cdc4b1',
     lineHighlight: '#EFEFEF',
   },
@@ -39,7 +40,7 @@ export const duotoneDark = (alpha: string | number) => createTheme({
     foreground: '#6c6783',
     caret: '#ffad5c',
     selection: 'rgba(255, 255, 255, 0.1)',
-    gutterBackground: '#2a2734',
+    gutterBackground: withAlpha('#2a2734', alpha),
     gutterForeground: '#545167',
     lineHighlight: '#36334280',
   },

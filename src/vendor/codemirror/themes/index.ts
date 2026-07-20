@@ -14,7 +14,13 @@ import materialDark from './material-dark';
 import solarizedDark from './solarized-dark';
 import solarizedLight from './solarized-light';
 import { duotoneDark, duotoneLight } from './duotone';
-import { xcodeDark, xcodeLight } from '@uiw/codemirror-theme-xcode';
+import {
+  xcodeDarkInit,
+  xcodeLightInit,
+  defaultSettingsXcodeDark,
+  defaultSettingsXcodeLight,
+} from '@uiw/codemirror-theme-xcode';
+import { withAlpha } from './with-alpha';
 const themes = {
   Abcdef: abcdef,
   'Basic Dark': basicDark,
@@ -33,8 +39,32 @@ const themes = {
   'Solarized Dark': solarizedDark,
   'Solarized Light': solarizedLight,
   Sublime: sublime,
-  xcodeDark: () => xcodeDark,
-  xcodeLight: () => xcodeLight,
+  // These ship as prebuilt extensions, so they used to ignore `alpha` entirely
+  // and stayed opaque no matter where the glassmorphism slider sat. Rebuilding
+  // them through their `*Init` factories applies the same alpha as every other
+  // theme in the registry.
+  xcodeDark: (alpha: string | number = 1) =>
+    xcodeDarkInit({
+      settings: {
+        ...defaultSettingsXcodeDark,
+        background: withAlpha(defaultSettingsXcodeDark!.background!, alpha),
+        gutterBackground: withAlpha(
+          defaultSettingsXcodeDark!.gutterBackground!,
+          alpha,
+        ),
+      },
+    }),
+  xcodeLight: (alpha: string | number = 1) =>
+    xcodeLightInit({
+      settings: {
+        ...defaultSettingsXcodeLight,
+        background: withAlpha(defaultSettingsXcodeLight!.background!, alpha),
+        gutterBackground: withAlpha(
+          defaultSettingsXcodeLight!.gutterBackground!,
+          alpha,
+        ),
+      },
+    }),
 };
 
 export enum ThemesEnum {

@@ -6,10 +6,11 @@ export enum SEGMENT_SCREEN {
   EDIT = 'SEGMENT::EDIT',
   BACKGROUNDS = 'SEGMENT::BACKGROUNDS',
   ICONS = 'SEGMENT::ICONS',
+  // Panels exist and are wired in the secondary aside switch, but neither has a
+  // tab in the header segment yet — reachable only programmatically.
   SETTINGS = 'SEGMENT::SETTINGS',
-  FRAMES = 'SEGMENT::FRAMES',
-  MORE = 'SEGMENT::MORE',
   AI = 'SEGMENT::AI',
+  SHORCUTS = 'SEGMENT::SHORCUTS',
 }
 
 export enum ASIDE_SCREEN {

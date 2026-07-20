@@ -16,11 +16,19 @@ const SettingsScreen = dynamic(
   () => import('@features/studio/panels/settings'),
 );
 const IconsScreen = dynamic(() => import('@features/studio/panels/icons'));
-const MoreFeatures = dynamic(() => import('@features/studio/panels/features'));
 const AIScreen = dynamic(() => import('@features/studio/panels/ai'));
+
+const PANEL_LABELS: Partial<Record<SEGMENT_SCREEN, string>> = {
+  [SEGMENT_SCREEN.EDIT]: 'Edit',
+  [SEGMENT_SCREEN.BACKGROUNDS]: 'Images',
+  [SEGMENT_SCREEN.ICONS]: 'Icons',
+  [SEGMENT_SCREEN.SETTINGS]: 'Settings',
+  [SEGMENT_SCREEN.AI]: 'AI',
+};
 
 function SecondaryAsideWidget() {
   const { segment } = useSegment((state) => state);
+  const panelLabel = PANEL_LABELS[segment.screen] ?? 'Panel';
 
   const DynamicScreen = React.useMemo(() => {
     switch (segment.screen) {
@@ -34,8 +42,6 @@ function SecondaryAsideWidget() {
         return <AIScreen />;
       case SEGMENT_SCREEN.ICONS:
         return <IconsScreen />;
-      case SEGMENT_SCREEN.MORE:
-        return <MoreFeatures />;
       default:
         return <NotFound />;
     }
@@ -64,7 +70,12 @@ function SecondaryAsideWidget() {
           </AnimatePresence>
         </FramePanel>
         <FrameFooter>
-          <p className="text-muted-foreground text-sm">Footer</p>
+          <UIView className="flex items-center justify-between gap-2 text-muted-foreground">
+            <span className="text-xs font-medium">{panelLabel}</span>
+            <span className="text-[11px] tracking-tight">
+              ⌘Z Undo · ⇧⌥F Beautify
+            </span>
+          </UIView>
         </FrameFooter>
       </Frame>
     </div>

@@ -1,4 +1,3 @@
-import localFont from 'next/font/local';
 import {
   Kablammo,
   Nothing_You_Could_Do,
@@ -6,25 +5,7 @@ import {
   Cabin_Sketch,
 } from 'next/font/google';
 import { cn } from '@shared/lib/utils';
-
-const fontMono = localFont({
-  display: 'swap',
-  src: './PaperMono-Regular.woff2',
-  variable: '--font-mono',
-});
-
-const fontSans = localFont({
-  display: 'swap',
-  src: './CalSansUI[MODE,wght].woff2',
-  variable: '--font-sans',
-});
-
-const fontHeading = localFont({
-  display: 'swap',
-  src: './CalSans-SemiBold.woff2',
-  variable: '--font-heading',
-  weight: '600',
-});
+import { CODE_FONTS_VARIABLES } from './code';
 
 const kablammo = Kablammo({
   subsets: ['latin'],
@@ -53,7 +34,8 @@ export default cn(
   nothingYouCouldDo.variable,
   delius.variable,
   cabinSketch.variable,
-  fontSans.variable,
-  fontMono.variable,
-  fontHeading.variable
+  'font-sans',
+  'font-mono',
+  'font-heading',
+  ...CODE_FONTS_VARIABLES,
 );

@@ -35,7 +35,7 @@ const PatternsBackgrounds: React.FC<BackgroundScreenTypes> = ({
               onClick={() => onChange?.(gradient)}
               key={gradient}
               className={cn(
-                'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer',
+                'group flex w-full flex-col border-2 border-transparent shadow-none transition-all sm:cursor-pointer overflow-hidden',
                 gradient === value && 'border-foreground',
               )}
             >

@@ -1,5 +1,6 @@
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 const sublime = (alpha: string | number) => createTheme({
   theme: 'dark',
@@ -9,7 +10,7 @@ const sublime = (alpha: string | number) => createTheme({
     caret: '#FBAC52',
     selection: '#4C5964',
     selectionMatch: '#3A546E',
-    gutterBackground: '#303841',
+    gutterBackground: withAlpha('#303841', alpha),
     gutterForeground: '#FFFFFF70',
     lineHighlight: '#00000059',
   },

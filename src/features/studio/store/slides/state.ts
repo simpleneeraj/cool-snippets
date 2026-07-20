@@ -1,6 +1,10 @@
 import { InitialValues } from '@features/studio/model/editor';
 import { ThemesEnum } from '@vendor/codemirror/themes';
-import { BACKGROUND_TYPE, ELEMENTS, Terminal } from '@features/studio/model/enums';
+import {
+  BACKGROUND_TYPE,
+  ELEMENTS,
+  Terminal,
+} from '@features/studio/model/enums';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
 import {
@@ -18,7 +22,7 @@ const initialState = {
       id: InitialValues.SLIDE_ID,
       name: 'Cool Snippet',
       background: {
-        type: BACKGROUND_TYPE.GRADIENT,
+        type: BACKGROUND_TYPE.IMAGE,
         style: {
           width: 450,
           height: 450,
@@ -27,10 +31,8 @@ const initialState = {
           repeat: 'no-repeat',
         },
         properties: {
-          image:
-            'https://lh3.googleusercontent.com/pw/AP1GczP5G2ljtsWIRpFOo37B6dFMu06edq-CZQMZMij-BpJgTgZm3iFIhXYJArjanv3WiOL5Yr1IRz9Y-wviq1tjzxvxuGmQBBLly9J4UB1iNNrZ2AHK2Nmnb5xMFJZ204rCYpnPlcCpW8ndHi01Uy9uRh7C=w1502-h1502-s-no-gm?authuser=0',
-          gradient:
-            'repeating-linear-gradient(135deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),repeating-linear-gradient(22.5deg, rgb(0,0,0) 0px, rgb(0,0,0) 10px,transparent 10px, transparent 11px),linear-gradient(90deg, hsl(194,74%,56%),hsl(266,74%,56%),hsl(338,74%,56%),hsl(50,74%,56%),hsl(122,74%,56%))',
+          image: '/images/glow-wallpaper.jpg',
+          gradient: '',
         },
       },
       elements: [

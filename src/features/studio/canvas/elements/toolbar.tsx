@@ -35,6 +35,7 @@ import {
   FlipHorizontal,
   FlipVertical,
 } from 'lucide-react';
+import { StructureIcon } from '@solar-icons/react/bold/structure';
 
 /* ─────────────────────────────────────────────────────────────────────
    Portal toolbar — rendered into document.body so it is never clipped
@@ -229,7 +230,7 @@ export function ElementToolbar({ item, anchorRef }: ElementToolbarProps) {
                       <Button variant="ghost" size="icon-sm" onClick={centre} />
                     }
                   >
-                    <AlignCenter />
+                    <StructureIcon />
                   </ToolbarButton>
                 }
               />

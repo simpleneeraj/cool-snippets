@@ -1,11 +1,9 @@
 'use client';
 
-import React from 'react';
 import UIView from '@shared/uikit/UIView';
 import CODE_FONTS, { type CodeFont } from '@shared/fonts/code';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { Field, FieldLabel } from '@shared/ui/field';
-import { Slider, SliderValue } from '@shared/ui/slider';
 import {
   Combobox,
   ComboboxEmpty,
@@ -14,11 +12,16 @@ import {
   ComboboxList,
   ComboboxPopup,
 } from '@shared/ui/combobox';
+import SliderField from './slider-field';
+import FieldReset from './field-reset';
+import { FIELD_DEFAULTS } from './defaults';
 import {
   FONT_SIZE_RANGE,
   LETTER_SPACING_RANGE,
   LINE_HEIGHT_RANGE,
 } from './values';
+
+const DEFAULTS = FIELD_DEFAULTS.typography;
 
 const TypographySection = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
@@ -31,13 +34,25 @@ const TypographySection = () => {
   return (
     <UIView className="flex flex-col gap-4">
       <Field>
-        <FieldLabel>Font family</FieldLabel>
+        <div className="flex items-center justify-between gap-1">
+          <FieldLabel>Font family</FieldLabel>
+          <FieldReset
+            isDefault={style?.fontFamily === DEFAULTS.fontFamily}
+            onReset={() =>
+              onChangeSlideElement({
+                style: { fontFamily: DEFAULTS.fontFamily },
+              })
+            }
+          />
+        </div>
         <Combobox<CodeFont>
           items={CODE_FONTS}
           value={selectedFont ?? null}
           itemToStringLabel={(font) => font?.name ?? ''}
           onValueChange={(font) =>
-            onChangeSlideElement({ style: { fontFamily: font?.value } })
+            onChangeSlideElement({
+              style: { fontFamily: `--var${font?.variable}` },
+            })
           }
         >
           <ComboboxInput aria-label="Choose font" placeholder="Choose a font" />
@@ -60,54 +75,35 @@ const TypographySection = () => {
         </Combobox>
       </Field>
 
-      <Field>
-        <Slider
-          {...FONT_SIZE_RANGE}
-          value={Number(style?.fontSize) || 14}
-          onValueChange={(fontSize) =>
-            onChangeSlideElement({ style: { fontSize: Number(fontSize) } })
-          }
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Font size</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Font size"
+        range={FONT_SIZE_RANGE}
+        value={Number(style?.fontSize) || DEFAULTS.fontSize}
+        defaultValue={DEFAULTS.fontSize}
+        onValueChange={(fontSize) =>
+          onChangeSlideElement({ style: { fontSize } })
+        }
+      />
 
-      <Field>
-        <Slider
-          {...LINE_HEIGHT_RANGE}
-          value={Number(style?.lineHeight) || 1.6}
-          onValueChange={(lineHeight) =>
-            onChangeSlideElement({ style: { lineHeight: Number(lineHeight) } })
-          }
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Line height</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Line height"
+        range={LINE_HEIGHT_RANGE}
+        value={Number(style?.lineHeight) || DEFAULTS.lineHeight}
+        defaultValue={DEFAULTS.lineHeight}
+        onValueChange={(lineHeight) =>
+          onChangeSlideElement({ style: { lineHeight } })
+        }
+      />
 
-      <Field>
-        <Slider
-          {...LETTER_SPACING_RANGE}
-          value={Number(style?.letterSpacing) || 0}
-          onValueChange={(letterSpacing) =>
-            onChangeSlideElement({
-              style: { letterSpacing: Number(letterSpacing) },
-            })
-          }
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">
-              Letter spacing
-            </FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Letter spacing"
+        range={LETTER_SPACING_RANGE}
+        value={Number(style?.letterSpacing) || DEFAULTS.letterSpacing}
+        defaultValue={DEFAULTS.letterSpacing}
+        onValueChange={(letterSpacing) =>
+          onChangeSlideElement({ style: { letterSpacing } })
+        }
+      />
     </UIView>
   );
 };

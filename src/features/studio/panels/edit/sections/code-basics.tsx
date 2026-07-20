@@ -15,8 +15,12 @@ import {
   ComboboxList,
   ComboboxPopup,
 } from '@shared/ui/combobox';
+import FieldReset from './field-reset';
+import { FIELD_DEFAULTS } from './defaults';
 
 type Language = (typeof languagesArray)[number];
+
+const DEFAULTS = FIELD_DEFAULTS.codeBasics;
 
 const CodeBasicsSection = () => {
   const { currentElement, onChangeSlideElement } = useSlideEditor();
@@ -28,7 +32,15 @@ const CodeBasicsSection = () => {
   return (
     <UIView className="flex flex-col gap-4">
       <Field>
-        <FieldLabel>Programming language</FieldLabel>
+        <div className="flex items-center justify-between gap-1">
+          <FieldLabel>Programming language</FieldLabel>
+          <FieldReset
+            isDefault={currentElement?.properties?.language === DEFAULTS.language}
+            onReset={() =>
+              onChangeSlideElement({ properties: { language: DEFAULTS.language } })
+            }
+          />
+        </div>
         <Combobox<Language>
           items={languagesArray}
           value={selectedLanguage ?? null}
@@ -60,7 +72,15 @@ const CodeBasicsSection = () => {
       </Field>
 
       <Field>
-        <FieldLabel>Code theme</FieldLabel>
+        <div className="flex items-center justify-between gap-1">
+          <FieldLabel>Code theme</FieldLabel>
+          <FieldReset
+            isDefault={currentElement?.properties?.theme === DEFAULTS.theme}
+            onReset={() =>
+              onChangeSlideElement({ properties: { theme: DEFAULTS.theme } })
+            }
+          />
+        </div>
         <Combobox<string>
           items={Object.keys(themes)}
           value={currentElement?.properties?.theme ?? null}

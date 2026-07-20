@@ -42,7 +42,7 @@ const DesignIO: React.FC = () => {
   const [importing, setImporting] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { slides, replaceSlides } = useSlideEditor();
+  const { slides, replaceSlides, currentSlide } = useSlideEditor();
 
   const onExport = async () => {
     setExporting(true);
@@ -51,8 +51,11 @@ const DesignIO: React.FC = () => {
       const blob = new Blob([JSON.stringify(file, null, 2)], {
         type: 'application/json',
       });
+      // Prefer what the user named the design; fall back to the app default
+      // when it is still untitled.
+      const label = currentSlide?.name?.trim() || appConfig.snippet.output;
       const name = slugify(
-        `${appConfig.snippet.output}-${format(new Date(), 'yyyy-MM-dd-HH-mm-ss')}`,
+        `${label}-${format(new Date(), 'yyyy-MM-dd-HH-mm-ss')}`,
         { lower: true, replacement: '-' },
       );
 

@@ -7,14 +7,17 @@ import { Button } from '@shared/ui/button';
 import { Input } from '@shared/ui/input';
 import { Spinner } from '@shared/ui/spinner';
 import { Field, FieldLabel } from '@shared/ui/field';
-import { Slider, SliderValue } from '@shared/ui/slider';
-import UIColorPicker from '@shared/uikit/UIColorPicker';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import useImageUpload from '@features/studio/lib/assets/use-image-upload';
 import { WatermarkPropertiesType } from '@features/studio/model/editor';
 import { WATERMARK_MODE } from '@features/studio/model/enums';
 import { ToggleGroup, ToggleGroupItem } from '@shared/ui/toggle-group';
+import ColorField from './color-field';
+import SliderField from './slider-field';
+import { FIELD_DEFAULTS } from './defaults';
 import { FONT_SIZE_RANGE, OPACITY_RANGE, WATERMARK_MODES } from './values';
+
+const DEFAULTS = FIELD_DEFAULTS.watermark;
 
 const WatermarkSection = () => {
   const { currentElement, onChangeSlideElement, onReplaceElementProperties } =
@@ -65,30 +68,22 @@ const WatermarkSection = () => {
             />
           </Field>
 
-          <Field>
-            <FieldLabel>Colour</FieldLabel>
-            <UIColorPicker
-              value={String(currentElement?.style?.color ?? '#ffffff')}
-              onSelect={(color) => onChangeSlideElement({ style: { color } })}
-            />
-          </Field>
+          <ColorField
+            label="Colour"
+            value={String(currentElement?.style?.color ?? DEFAULTS.color)}
+            defaultValue={DEFAULTS.color}
+            onSelect={(color) => onChangeSlideElement({ style: { color } })}
+          />
 
-          <Field>
-            <Slider
-              {...FONT_SIZE_RANGE}
-              value={Number(currentElement?.style?.fontSize) || 12}
-              onValueChange={(fontSize) =>
-                onChangeSlideElement({ style: { fontSize: Number(fontSize) } })
-              }
-            >
-              <div className="mb-2 flex items-center justify-between gap-1">
-                <FieldLabel className="text-sm font-medium">
-                  Font size
-                </FieldLabel>
-                <SliderValue />
-              </div>
-            </Slider>
-          </Field>
+          <SliderField
+            label="Font size"
+            range={FONT_SIZE_RANGE}
+            value={Number(currentElement?.style?.fontSize) || DEFAULTS.fontSize}
+            defaultValue={DEFAULTS.fontSize}
+            onValueChange={(fontSize) =>
+              onChangeSlideElement({ style: { fontSize } })
+            }
+          />
         </React.Fragment>
       ) : (
         <Button variant="outline" onClick={onPickImage} disabled={uploading}>
@@ -99,18 +94,13 @@ const WatermarkSection = () => {
         </Button>
       )}
 
-      <Field>
-        <Slider
-          {...OPACITY_RANGE}
-          value={properties?.opacity ?? 0.6}
-          onValueChange={(opacity) => update({ opacity: Number(opacity) })}
-        >
-          <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel className="text-sm font-medium">Opacity</FieldLabel>
-            <SliderValue />
-          </div>
-        </Slider>
-      </Field>
+      <SliderField
+        label="Opacity"
+        range={OPACITY_RANGE}
+        value={properties?.opacity ?? DEFAULTS.opacity}
+        defaultValue={DEFAULTS.opacity}
+        onValueChange={(opacity) => update({ opacity })}
+      />
     </UIView>
   );
 };

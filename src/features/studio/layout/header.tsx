@@ -2,7 +2,7 @@
 
 import UIView from '@shared/uikit/UIView';
 import { keepSelectionProps } from '@features/studio/selection-manager';
-import TitleChangerComponent from './edit-title';
+import EditTitleDialog from './edit-title';
 import { useRouter } from 'next/navigation';
 import ExportDropdown from './export';
 import DesignIO from './design-io';
@@ -30,7 +30,7 @@ const AppHeader = () => {
         </Button>
         <UIView className={'flex flex-col'}>
           <UIView className="flex gap-1 items-center">
-            <TitleChangerComponent />
+            <EditTitleDialog />
             <ResizeMenu />
           </UIView>
         </UIView>

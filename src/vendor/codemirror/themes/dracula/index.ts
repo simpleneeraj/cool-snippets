@@ -6,6 +6,7 @@
  */
 import { tags } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 
 const dracula = (alpha: string | number = 1) => createTheme({
@@ -16,7 +17,7 @@ const dracula = (alpha: string | number = 1) => createTheme({
     caret: '#f8f8f0',
     selection: 'rgba(255, 255, 255, 0.1)',
     selectionMatch: 'rgba(255, 255, 255, 0.2)',
-    gutterBackground: `rgb(40, 42, 54 ,${alpha})`,
+    gutterBackground: withAlpha('#282a36', alpha),
     gutterForeground: '#6D8A88',
     lineHighlight: 'rgba(255, 255, 255, 0.1)',
   },

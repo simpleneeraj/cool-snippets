@@ -8,8 +8,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // disallow: '/private/',
+      // The editor and preview are the app, not content — kept out of the index.
+      disallow: ['/studio', '/preview'],
     },
     sitemap: `${URL}/sitemap.xml`,
+    host: URL,
   };
 }

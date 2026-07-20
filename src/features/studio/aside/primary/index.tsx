@@ -16,6 +16,10 @@ import { cn } from '@shared/lib/utils';
 import LayersPanel from './layers';
 import { useActiveElement } from '@features/studio/store/slides/current-element';
 import { keepSelectionProps } from '@features/studio/selection-manager';
+import appConfig from '@shared/config/site';
+import { Badge } from '@shared/ui/badge';
+import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';
+import { Heart, Star } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogClose,
@@ -146,9 +150,64 @@ const PrimaryAsideWidget = () => {
         </FramePanel>
 
         <FrameFooter>
-          <UIView className="flex items-center justify-between">
-            <p className="text-muted-foreground text-sm">v1.0.0</p>
-            <Particle />
+          <UIView className="flex items-center justify-between gap-2">
+            <UIView className="flex items-center gap-1.5">
+              <span className="text-muted-foreground text-xs font-medium">
+                {appConfig.version}
+              </span>
+              <Badge
+                variant="warning"
+                size="sm"
+                className="uppercase tracking-wide"
+              >
+                {appConfig.environment}
+              </Badge>
+            </UIView>
+            <UIView className="flex items-center gap-0.5">
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button
+                      size="icon-xs"
+                      variant="ghost"
+                      aria-label="Star on GitHub"
+                      render={
+                        <a
+                          href={appConfig.links.repo}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                    />
+                  }
+                >
+                  <Star />
+                </TooltipTrigger>
+                <TooltipPopup>Star on GitHub</TooltipPopup>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button
+                      size="icon-xs"
+                      variant="ghost"
+                      aria-label="Sponsor the project"
+                      render={
+                        <a
+                          href={appConfig.links.sponsor}
+                          target="_blank"
+                          rel="noreferrer"
+                        />
+                      }
+                    />
+                  }
+                >
+                  <Heart />
+                </TooltipTrigger>
+                <TooltipPopup>Sponsor</TooltipPopup>
+              </Tooltip>
+              <ResetAllButton />
+            </UIView>
           </UIView>
         </FrameFooter>
       </Frame>
@@ -158,11 +217,13 @@ const PrimaryAsideWidget = () => {
 
 export default PrimaryAsideWidget;
 
-function Particle() {
+function ResetAllButton() {
   const { resetState } = useSlideEditor();
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="destructive-outline" />}>
+      <AlertDialogTrigger
+        render={<Button size="sm" variant="destructive-outline" />}
+      >
         Reset All
       </AlertDialogTrigger>
       <AlertDialogPopup>

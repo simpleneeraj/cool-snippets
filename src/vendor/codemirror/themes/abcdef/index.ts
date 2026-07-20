@@ -5,6 +5,7 @@
  */
 import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
+import { withAlpha } from '../with-alpha';
 
 const abcdef = (alpha: number | string) =>
   createTheme({
@@ -15,7 +16,7 @@ const abcdef = (alpha: number | string) =>
       caret: '#00FF00',
       selection: '#515151',
       selectionMatch: '#515151',
-      gutterBackground: '#555',
+      gutterBackground: withAlpha('#555555', alpha),
       gutterForeground: '#FFFFFF',
       lineHighlight: '#314151',
     },
