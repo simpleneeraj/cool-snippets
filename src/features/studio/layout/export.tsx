@@ -6,7 +6,7 @@ import slugify from 'slugify';
 import { format } from 'date-fns';
 import appConfig from '@shared/config/site';
 import { toastManager } from '@shared/ui/toast';
-import { resolveCodeFontFamily } from '@shared/fonts/server';
+import { resolveCodeFontFamily } from '@shared/fonts/client';
 import { primaryFontFamily, resolveFontFaces } from '@shared/fonts/source';
 import useCapture from '@features/studio/lib/export/use-capture';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';

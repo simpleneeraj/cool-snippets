@@ -16,7 +16,7 @@
  * at a time, and preloading two dozen families would download megabytes nobody
  * asked for. `display: 'swap'` keeps text visible while the chosen face loads.
  */
-import { primaryFontFamily } from './source';
+
 import {
   Cascadia_Code,
   DM_Mono,
@@ -34,7 +34,6 @@ import {
   Xanh_Mono,
 } from 'next/font/google';
 import localFont from 'next/font/local';
-import { defaultFontFace } from './client';
 
 // Every loader call below is fully literal on purpose. next/font is a compiler
 // plugin that reads these options statically: a helper function wrapping the
@@ -327,130 +326,7 @@ const ubuntuMonoX = localFont({
 /* Registry                                                                   */
 /* -------------------------------------------------------------------------- */
 
-export type CodeFont = {
-  /** Shown in the picker. */
-  name: string;
-  /** Stable id persisted in localStorage. Never change these — an existing
-   *  store holding an unknown id falls back to the browser default face. */
-  value: string;
-  /** The generated family name to hand to CSS, e.g. `__JetBrains_Mono_a1b2c3`. */
-  family: string;
-  /** Custom variable name suffix used in typography dropdown */
-  variable: string;
-};
-
-const font = (
-  name: string,
-  value: string,
-  loaded: { style: { fontFamily: string } },
-  variable: string,
-): CodeFont => ({
-  name,
-  value,
-  family: loaded.style.fontFamily,
-  variable,
-});
-
-const CODE_FONTS: CodeFont[] = [
-  font('DM Mono', 'DMMono', dmMono, '-font-dm-mono'),
-  font(
-    'JetBrains Mono',
-    'JetBrainsMono',
-    jetBrainsMono,
-    '-font-jetbrains-mono',
-  ),
-  font('Fira Code', 'FiraCodeRegular', firaCode, '-font-fira-code'),
-  font('Cascadia Code', 'CascadiaCode', cascadiaCode, '-font-cascadia-code'),
-  font('IBM Plex Mono', 'IBMPlexMono', ibmPlexMono, '-font-ibm-plex-mono'),
-  font(
-    'Source Code Pro',
-    'SourceCodePro',
-    sourceCodePro,
-    '-font-source-code-pro',
-  ),
-  font('Roboto Mono', 'RobotoMono', robotoMono, '-font-roboto-mono'),
-  font('Ubuntu Mono', 'UbuntuMono', ubuntuMono, '-font-ubuntu-mono'),
-  font('Inconsolata', 'Inconsolata', inconsolata, '-font-inconsolata'),
-  font('Victor Mono', 'VictorMonoRegular', victorMono, '-font-victor-mono'),
-  font(
-    'Victor Mono Italic',
-    'VictorMonoItalic',
-    victorMonoItalic,
-    '-font-victor-mono-italic',
-  ),
-  font('Xanh Mono', 'XanhMonoRegular', xanhMono, '-font-xanh-mono'),
-  font(
-    'Xanh Mono Italic',
-    'XanhMonoItalic',
-    xanhMonoItalic,
-    '-font-xanh-mono-italic',
-  ),
-  font(
-    'Major Mono Display',
-    'MajorMonoDisplay',
-    majorMonoDisplay,
-    '-font-major-mono-display',
-  ),
-  font('Syne Mono', 'SyneMono', syneMono, '-font-syne-mono'),
-  font('Hachi Maru Pop', 'HachiMaruPop', hachiMaruPop, '-font-hachi-maru-pop'),
-
-  font('Iosevka', 'Iosevka', iosevka, '-font-iosevka'),
-  font('Hasklig', 'Hasklig', hasklig, '-font-hasklig'),
-  font(
-    'Hasklig Italic',
-    'HaskligItalic',
-    haskligItalic,
-    '-font-hasklig-italic',
-  ),
-  font('Monoid', 'MonoidRegular', monoidRegular, '-font-monoid-regular'),
-  font('Monoid Italic', 'MonoidItalic', monoidItalic, '-font-monoid-italic'),
-  font('Monoid Retina', 'MonoidRetina', monoidRetina, '-font-monoid-retina'),
-  font('Comic Mono', 'ComicMono', comicMono, '-font-comic-mono'),
-  font('Input Mono', 'InputMono', inputMono, '-font-input-mono'),
-  font('Almamono', 'Almamono', almamono, '-font-almamono'),
-  font('Anomaly', 'Anomaly', anomaly, '-font-anomaly'),
-  font('Sweet 16', 'Sweet', sweet, '-font-sweet'),
-
-  font('Hack', 'Hack', hack, '-font-hack'),
-  font(
-    'Droid Sans Mono',
-    'DroidSansMono',
-    droidSansMono,
-    '-font-droid-sans-mono',
-  ),
-  font(
-    'Fantasque Sans Mono',
-    'FantasqueSansMono',
-    fantasqueSansMono,
-    '-font-fantasque-sans-mono',
-  ),
-  font('Lex Mono', 'LexMono', lexMono, '-font-lex-mono'),
-  font(
-    'Lex Mono Italic',
-    'LexMonoItalic',
-    lexMonoItalic,
-    '-font-lex-mono-italic',
-  ),
-  font(
-    'Liga Source Pro',
-    'LigaSrcProRegular',
-    ligaSrcPro,
-    '-font-liga-src-pro',
-  ),
-  font(
-    'Source Pro Italic',
-    'SourceProItalic',
-    sourceProItalic,
-    '-font-source-pro-italic',
-  ),
-  font('Roboto Mono X', 'RobotoMonoX', robotoMonoX, '-font-roboto-mono-x'),
-  font('Space Mono X', 'SpaceMonoX', spaceMonoX, '-font-space-mono-x'),
-  font('Ubuntu Mono X', 'UbuntuMonoX', ubuntuMonoX, '-font-ubuntu-mono-x'),
-  font('Anymous', 'Anymous', anymous, '-font-anymous'),
-  font('Amit Light', 'AmitLight', amitLight, '-font-amit-light'),
-];
-
-export const CODE_FONTS_VARIABLES = [
+export const codefontsArray = [
   calSansUI.variable,
   paperMono.variable,
   calSans.variable,
@@ -494,35 +370,3 @@ export const CODE_FONTS_VARIABLES = [
   spaceMonoX.variable,
   ubuntuMonoX.variable,
 ];
-
-const byValue = new Map(CODE_FONTS.map((f) => [f.value, f]));
-
-/**
- * Resolve a persisted font id to the family name CSS understands.
- *
- * next/font generates the family name at build time, so it cannot be stored.
- * Anything unrecognised — a font removed since the snippet was saved — falls
- * back to the default rather than to an unstyled system face.
- */
-export function resolveCodeFontFamily(value?: string): string {
-  if (!value)
-    return `'${primaryFontFamily(byValue.get(defaultFontFace)!.family)}'`;
-
-  // Try direct lookup (e.g. "DMMono")
-  let match = byValue.get(value);
-
-  // If not found, check if it starts with `--var` and find matching font
-  if (!match && value.startsWith('--var')) {
-    match = CODE_FONTS.find((f) => `--var${f.variable}` === value);
-  }
-
-  // Fallback check: see if the value contains any of our variables
-  if (!match) {
-    match = CODE_FONTS.find((f) => value.includes(f.variable));
-  }
-
-  const family = (match ?? byValue.get(defaultFontFace))!.family;
-  return `'${primaryFontFamily(family)}'`;
-}
-
-export default CODE_FONTS;

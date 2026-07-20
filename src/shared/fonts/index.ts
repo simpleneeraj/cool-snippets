@@ -5,7 +5,7 @@ import {
   Cabin_Sketch,
 } from 'next/font/google';
 import { cn } from '@shared/lib/utils';
-import { CODE_FONTS_VARIABLES } from './server';
+import { codefontsArray } from './server';
 
 const kablammo = Kablammo({
   subsets: ['latin'],
@@ -37,5 +37,5 @@ export default cn(
   'font-sans',
   'font-mono',
   'font-heading',
-  ...CODE_FONTS_VARIABLES,
+  ...codefontsArray,
 );

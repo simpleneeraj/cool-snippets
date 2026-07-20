@@ -1,4 +1,5 @@
 import { sortBy } from 'lodash';
+import { primaryFontFamily } from './source';
 
 export const codeFonts = sortBy([
   {
@@ -240,3 +241,33 @@ export const codeFonts = sortBy([
 /** The default when a snippet has no font set, or names one we no longer ship. */
 
 export const defaultFontFace = 'DMMono';
+
+const byValue = new Map(codeFonts.map((f) => [f.value, f]));
+
+/**
+ * Resolve a persisted font id to the family name CSS understands.
+ *
+ * next/font generates the family name at build time, so it cannot be stored.
+ * Anything unrecognised — a font removed since the snippet was saved — falls
+ * back to the default rather than to an unstyled system face.
+ */
+export function resolveCodeFontFamily(value?: string): string {
+  if (!value)
+    return `'${primaryFontFamily(byValue.get(defaultFontFace)!.family)}'`;
+
+  // Try direct lookup (e.g. "DMMono")
+  let match = byValue.get(value);
+
+  // If not found, check if it starts with `--var` and find matching font
+  if (!match && value.startsWith('--var')) {
+    match = codeFonts.find((f) => `--var${f.variable}` === value);
+  }
+
+  // Fallback check: see if the value contains any of our variables
+  if (!match) {
+    match = codeFonts.find((f) => value.includes(f.variable));
+  }
+
+  const family = (match ?? byValue.get(defaultFontFace))!.family;
+  return `'${primaryFontFamily(family)}'`;
+}

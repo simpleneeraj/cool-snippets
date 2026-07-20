@@ -1,7 +1,7 @@
 'use client';
 
 import UIView from '@shared/uikit/UIView';
-import { type CodeFont } from '@shared/fonts/server';
+import { type CodeFont } from '@shared/fonts/types';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { Field, FieldLabel } from '@shared/ui/field';
 import {
