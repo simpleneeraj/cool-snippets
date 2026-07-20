@@ -19,6 +19,7 @@ export enum HeaderPositions {
   LEFT = 'left',
   CENTER = 'center',
   RIGHT = 'right',
+  DEFAULT = 'default',
 }
 export type Colors = {
   name?: string;

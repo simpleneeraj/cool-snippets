@@ -9,7 +9,15 @@ import {
 import { ThemesEnum } from '@vendor/codemirror/themes';
 import { LanguagesEnum } from '@vendor/codemirror/languages';
 import { DEFAULT_CODE_FONT } from '@shared/fonts/code';
-import { CodeSquareOutlineIcon, TextFieldFocusOutlineIcon, GalleryAddOutlineIcon, SmileCircleOutlineIcon, QrCodeOutlineIcon, UserIdOutlineIcon, VerifiedCheckOutlineIcon } from '@solar-icons/react';
+import {
+  CodeSquareOutlineIcon,
+  TextFieldFocusOutlineIcon,
+  GalleryAddOutlineIcon,
+  SmileCircleOutlineIcon,
+  QrCodeOutlineIcon,
+  UserIdOutlineIcon,
+  VerifiedCheckOutlineIcon,
+} from '@solar-icons/react';
 
 export const elementLabelMapper: Record<ELEMENTS, string> = {
   [ELEMENTS.CODE]: 'Code Block',
@@ -158,8 +166,8 @@ export const elementsObject: Record<ELEMENTS, any> = {
     ...baseElement,
     style: {
       ...baseElement.style,
-      width: 240,
-      height: 'auto',
+      width: 100,
+      height: 100,
       borderRadius: 12,
       overflow: 'hidden',
     },

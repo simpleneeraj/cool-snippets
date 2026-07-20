@@ -71,7 +71,7 @@ const initialState = {
             type: Terminal.Unix,
             variant: HeaderVariants.OUTLINE,
             input: HeaderInputType.ICON,
-            position: HeaderPositions.LEFT,
+            position: HeaderPositions.DEFAULT,
             style: {
               background: 'rgba(0, 0, 0, 0.75)',
             },

@@ -6,7 +6,6 @@ import { Frame, FrameFooter, FramePanel } from '@shared/ui/frame';
 import { Tabs, TabsList, TabsPanel, TabsTab } from '@shared/ui/tabs';
 import { elements, elementsObject } from './values';
 import { ELEMENTS } from '@features/studio/model/enums';
-import { Button } from '@shared/ui/button';
 import useSlideEditor from '@features/studio/store/hooks/use-editor';
 import { useActiveSlide } from '@features/studio/store/slides/current-slide';
 import { generateID } from '@features/studio/lib/id-generator';
@@ -18,18 +17,6 @@ import { useActiveElement } from '@features/studio/store/slides/current-element'
 import { keepSelectionProps } from '@features/studio/selection-manager';
 import appConfig from '@shared/config/site';
 import { Badge } from '@shared/ui/badge';
-import { Tooltip, TooltipPopup, TooltipTrigger } from '@shared/ui/tooltip';
-import { Heart, Star } from 'lucide-react';
-import {
-  AlertDialog,
-  AlertDialogClose,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogPopup,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@shared/ui/alert-dialog';
 
 /* ─────────────────────────────────────────────────────────── */
 
@@ -163,51 +150,6 @@ const PrimaryAsideWidget = () => {
                 {appConfig.environment}
               </Badge>
             </UIView>
-            <UIView className="flex items-center gap-0.5">
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      size="icon-xs"
-                      variant="ghost"
-                      aria-label="Star on GitHub"
-                      render={
-                        <a
-                          href={appConfig.links.repo}
-                          target="_blank"
-                          rel="noreferrer"
-                        />
-                      }
-                    />
-                  }
-                >
-                  <Star />
-                </TooltipTrigger>
-                <TooltipPopup>Star on GitHub</TooltipPopup>
-              </Tooltip>
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      size="icon-xs"
-                      variant="ghost"
-                      aria-label="Sponsor the project"
-                      render={
-                        <a
-                          href={appConfig.links.sponsor}
-                          target="_blank"
-                          rel="noreferrer"
-                        />
-                      }
-                    />
-                  }
-                >
-                  <Heart />
-                </TooltipTrigger>
-                <TooltipPopup>Sponsor</TooltipPopup>
-              </Tooltip>
-              <ResetAllButton />
-            </UIView>
           </UIView>
         </FrameFooter>
       </Frame>
@@ -216,35 +158,3 @@ const PrimaryAsideWidget = () => {
 };
 
 export default PrimaryAsideWidget;
-
-function ResetAllButton() {
-  const { resetState } = useSlideEditor();
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger
-        render={<Button size="sm" variant="destructive-outline" />}
-      >
-        Reset All
-      </AlertDialogTrigger>
-      <AlertDialogPopup>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete all the
-            elements from the current slide.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogClose render={<Button variant="ghost" />}>
-            Cancel
-          </AlertDialogClose>
-          <AlertDialogClose
-            render={<Button onClick={resetState} variant="destructive" />}
-          >
-            Reset All
-          </AlertDialogClose>
-        </AlertDialogFooter>
-      </AlertDialogPopup>
-    </AlertDialog>
-  );
-}
